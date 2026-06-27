@@ -9,10 +9,10 @@
 ## Progress Overview
 
 ```
-Phase 1: Foundation (Blog + Etsy + Affiliate)   █░░░░░░░░░ 10%
-Phase 2: Content Compounding                     ░░░░░░░░░░  0%
-Phase 3: Traffic Growth                          ░░░░░░░░░░  0%
-Phase 4: Scale & Optimize                        ░░░░░░░░░░  0%
+Phase 1: Foundation                █░░░░░░░░░ 10%
+Phase 2: Content Compounding       ░░░░░░░░░░  0%
+Phase 3: Traffic Growth            ░░░░░░░░░░  0%
+Phase 4: Scale & Optimize          ░░░░░░░░░░  0%
 ```
 
 ---
