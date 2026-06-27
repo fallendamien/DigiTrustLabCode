@@ -37,3 +37,8 @@ wp-config-local.php
 wp-content/uploads/
 wp-content/upgrade/
 wp-content/backup-*/
+
+# Agentic AI folders (machine-specific symlinks, not portable across machines)
+# Keep: AGENTS.md, WINDSURF.md, CLAUDE.md, .codex/instructions.md (portable text files)
+.windsurf/
+.codex/skills/
