@@ -1,0 +1,72 @@
+{
+  "project": "DigiTrust Lab",
+  "owner": "Zamri Rosli",
+  "lastSession": "2026-07-01",
+  "currentObjective": "Blog live with working header/footer/search bar. Next: content creation, SEO setup, affiliate registration",
+  "currentPhase": "Phase 1 - Foundation",
+  "phaseProgress": "40%",
+  "blockers": [],
+  "completed": [
+    "Git repo initialized",
+    "Windsurf workspace bootstrapped",
+    "Long-term revenue plan created",
+    "Affiliate research completed",
+    "Project artifacts created (ROADMAP, README, NEXT, STATE)",
+    "WordPress + Bricks Builder installed on LocalWP",
+    "Blog structure created (homepage, tentang, privasi, disclaimer, hubungi)",
+    "Header template with logo, nav, search bar, CTA",
+    "Footer template with copyright and links",
+    "Simply Static export pipeline configured",
+    "Post-process script (search bar injection, double-slash fix, category label removal)",
+    "Cloudflare Pages deployment via Wrangler CLI",
+    "Blog live at blog.digitrustlab.com",
+    "Nav labels standardized (Tentang Kami, Hubungi Kami, Polisi Privasi)",
+    "Tentang page updated (Zed instead of personal name, 2022)",
+    "Category labels removed from static pages",
+    "TROUBLESHOOTING.md with 9 documented issues"
+  ],
+  "nextSteps": [
+    "Write first blog post (WriterZen → write → ClickRank)",
+    "Set up Google Search Console + GA4",
+    "Verify ClickRank ownership (JS snippet, after blog is live)",
+    "Add digitrustlab.com to Screpy",
+    "Register Klikjer affiliate",
+    "Register JV Warrior affiliate",
+    "Create Etsy shop",
+    "Create first Etsy listing",
+    "Set up MailerLite"
+  ],
+  "keyMetrics": {
+    "blogPosts": 0,
+    "etsyListings": 0,
+    "emailSubscribers": 0,
+    "monthlyRevenue": 0,
+    "monthlyTraffic": 0
+  },
+  "tools": {
+    "writerZen": "ready",
+    "clickRank": "dashboard-configured-pending-verification",
+    "screpy": "account-active-pending-domain",
+    "bricksBuilder": "installed-and-configured",
+    "mailerLite": "not-setup-week1-priority",
+    "simplyStatic": "installed-and-configured",
+    "cloudflarePages": "deployed"
+  },
+  "affiliatePrograms": {
+    "klikjer": "not-registered",
+    "jvWarrior": "not-registered",
+    "aiLabs": "not-registered",
+    "canvaPro": "not-registered",
+    "iCoreHosting": "not-registered",
+    "agentBuilder": "not-registered",
+    "shopifyMY": "not-registered"
+  },
+  "staticExport": {
+    "wordpressUrl": "https://digitrust-lab.local",
+    "liveUrl": "https://blog.digitrustlab.com",
+    "staticDir": "D:\\Coding Zone\\digitrust-lab-static",
+    "postProcessScript": "G:\\Zamzam Biznez\\DigiTrustLabCode\\scripts\\post-process-static.ps1",
+    "deployCommand": "npx wrangler pages deploy . --project-name=digitrust-lab-static --branch=main"
+  },
+  "planFile": "C:\\Users\\Zamri\\.windsurf\\plans\\digitrust-lab-ultimate-long-term-plan-cbce9f.md"
+}
