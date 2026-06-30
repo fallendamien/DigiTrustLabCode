@@ -2,6 +2,8 @@
 
 A multi-layer monetization strategy combining blog SEO, Etsy digital products, affiliate income, and display ads to build passive income that replaces Zamri's job salary over 24 months.
 
+**Language strategy:** Malay-first (70%) for blog content targeting SEA audience with low SEO competition. English (30%) for pillar/guide posts targeting international traffic, higher RPM, and backlink bait. Etsy listings in English (global marketplace). Never translate the same post — write different posts for different audiences.
+
 ---
 
 ## Current Assets
@@ -138,9 +140,11 @@ Layer 1 (Month 1+): Blog SEO Content (the engine that feeds everything)
 | Workflow | Tool | Purpose |
 |----------|------|---------|
 | Keyword research | WriterZen | Find low-competition SEA keywords |
-| Write post (1,500-2,500 words) | Manual/Claude | Quality content, Malay + English mix |
+| Write post (1,500-2,500 words) | Manual/Claude | Quality content, 70% Malay / 30% English |
 | Optimize for SEO + AI search | ClickRank | On-page optimization |
 | Track rankings | Screpy | Monitor position changes |
+
+**Language note:** All 10 first posts are in Bahasa Melayu — this is intentional, not a mistake. Malay content has low SEO competition and targets the right audience. English pillar posts come in Phase 2.
 
 **First 10 post topics (priority order):**
 
@@ -173,13 +177,58 @@ Layer 1 (Month 1+): Blog SEO Content (the engine that feeds everything)
 
 | # | Product | Price (RM) | Time to Create |
 |---|---------|-----------|----------------|
-| 1 | 30 Prompt AI untuk Iklan FB & IG (Bahasa Melayu) | RM 15-25 | 3 hrs |
-| 2 | 5 Template Canva untuk IG Story Perniagaan | RM 12-20 | 3 hrs |
-| 3 | Notion Dashboard untuk Freelancer Malaysia | RM 18-30 | 4 hrs |
-| 4 | 50 Prompt AI untuk Buat eBook Digital | RM 15-25 | 3 hrs |
-| 5 | Bundle: 30 Prompt AI + 5 Template Canva | RM 29-39 | 1 hr (combo) |
+| 1 | 30 AI Prompts for Facebook & Instagram Ads (Bahasa Melayu) | RM 15-25 | 3 hrs |
+| 2 | 5 Canva Templates for IG Story (Small Business) | RM 12-20 | 3 hrs |
+| 3 | Notion Dashboard for Freelancers (Malaysian Edition) | RM 18-30 | 4 hrs |
+| 4 | 50 AI Prompts for Creating Digital eBooks | RM 15-25 | 3 hrs |
+| 5 | Bundle: 30 AI Prompts + 5 Canva Templates | RM 29-39 | 1 hr (combo) |
 
-### 1.4 Klikjer Affiliate Setup (Week 1)
+**Etsy listing rule:** English titles + English descriptions for Etsy SEO. The product content itself (prompts, templates) can be in Bahasa Melayu — that's the selling point. Example: "30 AI Prompts for FB & IG Ads (Bahasa Melayu)" — English title, Malay content.
+
+### 1.4 Off-Page SEO Strategy (Week 1+)
+
+The plan above covers on-page SEO only. Here's the minimum viable backlink strategy — no outreach or guest posting required.
+
+**The Closed Link Ecosystem (biggest insight):**
+
+```
+Etsy listing (DA 88) → links to blog post
+Blog post → links to Etsy listing
+Pinterest pin → links to both
+```
+
+This creates compounding authority without relying on anyone else. Etsy alone gives high-DA backlinks for free the moment listings go live.
+
+| Tactic | Effort | Frequency | Expected Result |
+|--------|--------|-----------|-----------------|
+| Pinterest pins | Low | Every blog post + every Etsy listing | Indirect SEO signals, Etsy traffic |
+| Etsy listings (DA 88) | Zero extra | Already doing it | Free high-DA backlinks to blog |
+| Reddit/Forum answers | 15 min | 2-3x/week | r/malaysia, Lowyat — answer naturally, link organically |
+| HARO / Qwoted | 10 min scan | Daily check | Journalists quote you → editorial backlinks |
+| Web 2.0 profiles | One-time setup | Once | Medium, Dev.to, LinkedIn articles — repurpose blog posts |
+| Internal linking | Zero extra | Every post | Every new post links to 2-3 old posts → keeps readers on site |
+
+**Don't worry about:** Domain Authority in Year 1. Focus on content volume and the closed ecosystem. DA comes naturally if you publish consistently.
+
+### 1.5 Email List Setup (Week 1 — Day 1)
+
+**Set up MailerLite on Day 1 of blog launch.** Every early visitor lost = lost forever.
+
+| Week | Task | Time |
+|------|------|------|
+| Week 1 | Create MailerLite free account + simple opt-in form | 30 min |
+| Week 1 | Add opt-in to blog sidebar/footer: "Get notified when I publish new AI tutorials" | 15 min |
+| Week 2-3 | Create lead magnet PDF: "50 Prompt AI Percuma untuk Perniagaan Malaysia" | 2 hrs |
+| Week 2-3 | Replace simple opt-in with lead magnet opt-in | 15 min |
+
+**Why Day 1, not Month 2:**
+- Free up to 1,000 subscribers — no financial reason to wait
+- Even 1 subscriber in Month 1 is better than 0
+- Email is the ONLY asset you own — Etsy can ban you, Google can derank you
+- Infrastructure ready when traffic comes
+- 30 min setup, zero ongoing cost
+
+### 1.6 Klikjer Affiliate Setup (Week 1)
 
 | Task | Detail |
 |------|--------|
@@ -188,7 +237,7 @@ Layer 1 (Month 1+): Blog SEO Content (the engine that feeds everything)
 | Collect marketing materials | Banners, ad copy provided by Klikjer |
 | Create resource page on blog | "/rekomendasi-ebook" page with affiliate links |
 
-### 1.5 AI Mastery Product Migration (Week 2-3)
+### 1.7 AI Mastery Product Migration (Week 2-3)
 
 | Current | Proposed |
 |---------|----------|
@@ -471,7 +520,7 @@ Once you have:
 | Spread across too many platforms | ❌ Focus: Blog + Etsy + 2 affiliate programs. That's it. |
 | Compare yourself to US bloggers | ❌ SEA traffic pays less. Your advantage is low competition in Malay content. |
 | Quit day job before Month 18 | ❌ Need stable income while building. 10-15 hrs/week is enough. |
-| Skip email list building | ❌ Email is the ONLY asset you fully own. Start from Month 2. |
+| Skip email list building | ❌ Email is the ONLY asset you fully own. Start from Day 1, Week 1. |
 
 ---
 
@@ -484,7 +533,7 @@ Once you have:
 | 3 | Create Etsy shop (choose name) | 30 min | HIGH |
 | 4 | Write first blog post (WriterZen → write → ClickRank) | 4 hrs | HIGH |
 | 5 | Create first Etsy listing (30 Prompt AI pack) | 3 hrs | MEDIUM |
-| 6 | Set up MailerLite free account | 30 min | MEDIUM |
+| 6 | Set up MailerLite free account + simple opt-in | 30 min | HIGH |
 | 7 | Add digitrustlab.com to Screpy | 15 min | LOW |
 | 8 | Verify ClickRank ownership | 15 min | LOW (do when blog is live) |
 

@@ -1,0 +1,267 @@
+<style>
+  .spec { font-family: 'Segoe UI', system-ui, sans-serif; color: var(--text-primary); padding: 0 0 2rem; }
+  .section { margin-bottom: 2.5rem; }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+  .preview-shell { border: 0.5px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .header-bar { background: #FAFAF8; border-bottom: 1px solid #EBEBEB; padding: 0 24px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+  .logo-mark { display: flex; align-items: center; gap: 8px; }
+  .logo-dot { width: 28px; height: 28px; background: #E8621A; border-radius: 6px; }
+  .logo-text { font-size: 14px; font-weight: 700; color: #1A1A1A; letter-spacing: -.01em; }
+  .nav-links { display: flex; gap: 20px; }
+  .nav-link { font-size: 13px; color: #6B6B6B; }
+  .nav-link.active { color: #E8621A; font-weight: 600; }
+  .nav-cta { background: #E8621A; color: #fff; font-size: 12px; font-weight: 600; padding: 7px 14px; border-radius: 6px; }
+  .content-area { background: #FAFAF8; display: flex; gap: 0; }
+  .main-col { flex: 1; padding: 32px 32px 32px 32px; max-width: 620px; border-right: 1px solid #EBEBEB; }
+  .sidebar-col { width: 240px; padding: 24px 20px; background: #FAFAF8; flex-shrink: 0; }
+  .post-category { font-size: 11px; font-weight: 600; color: #E8621A; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 8px; }
+  .post-h1 { font-size: 26px; font-weight: 700; color: #1A1A1A; line-height: 1.3; margin-bottom: 12px; }
+  .post-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .meta-avatar { width: 28px; height: 28px; border-radius: 50%; background: #E8621A; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #fff; flex-shrink: 0; }
+  .meta-info { font-size: 12px; color: #6B6B6B; }
+  .meta-name { font-weight: 600; color: #1A1A1A; font-size: 12px; }
+  .post-excerpt { font-size: 15px; color: #3A3A3A; line-height: 1.65; border-left: 3px solid #E8621A; padding-left: 14px; margin-bottom: 20px; font-style: italic; }
+  .toc-box { background: #F5F3EE; border-radius: 8px; padding: 14px 16px; margin-bottom: 20px; }
+  .toc-title { font-size: 12px; font-weight: 700; color: #1A1A1A; margin-bottom: 8px; }
+  .toc-item { font-size: 12px; color: #6B6B6B; padding: 3px 0; border-bottom: 0.5px solid #EBEBEB; }
+  .toc-item:last-child { border: none; }
+  .toc-item span { color: #E8621A; margin-right: 6px; }
+  .body-h2 { font-size: 18px; font-weight: 700; color: #1A1A1A; margin: 20px 0 8px; }
+  .body-p { font-size: 14px; color: #3A3A3A; line-height: 1.7; margin-bottom: 10px; }
+  .cta-box { background: linear-gradient(135deg, #FFF3EE 0%, #FFEADD 100%); border: 1px solid #F5C4A0; border-radius: 10px; padding: 16px; margin: 20px 0; }
+  .cta-label { font-size: 11px; font-weight: 700; color: #E8621A; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .cta-title { font-size: 14px; font-weight: 700; color: #1A1A1A; margin-bottom: 8px; }
+  .cta-btn { background: #E8621A; color: #fff; font-size: 12px; font-weight: 600; padding: 8px 16px; border-radius: 6px; display: inline-block; }
+  .share-row { display: flex; align-items: center; gap: 8px; padding-top: 16px; border-top: 1px solid #EBEBEB; margin-top: 16px; }
+  .share-label { font-size: 12px; color: #6B6B6B; }
+  .share-btn { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #fff; }
+  .sb-fb { background: #1877F2; }
+  .sb-tw { background: #000; }
+  .sb-wa { background: #25D366; }
+  .sb-pi { background: #E60023; }
+  .sidebar-card { background: #fff; border: 0.5px solid #EBEBEB; border-radius: 10px; padding: 16px; margin-bottom: 16px; }
+  .sidebar-card-title { font-size: 12px; font-weight: 700; color: #1A1A1A; margin-bottom: 10px; border-bottom: 2px solid #E8621A; padding-bottom: 6px; display: inline-block; }
+  .optin-input { width: 100%; background: #F5F3EE; border: 1px solid #EBEBEB; border-radius: 6px; padding: 8px 10px; font-size: 12px; color: #6B6B6B; margin-bottom: 8px; box-sizing: border-box; }
+  .optin-btn { width: 100%; background: #E8621A; color: #fff; font-size: 12px; font-weight: 700; padding: 9px; border-radius: 6px; text-align: center; }
+  .optin-sub { font-size: 10px; color: #6B6B6B; text-align: center; margin-top: 6px; }
+  .related-item { display: flex; gap: 8px; align-items: flex-start; padding: 8px 0; border-bottom: 0.5px solid #EBEBEB; }
+  .related-item:last-child { border: none; padding-bottom: 0; }
+  .related-thumb { width: 44px; height: 36px; background: #F0EDE8; border-radius: 4px; flex-shrink: 0; }
+  .related-title { font-size: 11px; color: #1A1A1A; font-weight: 600; line-height: 1.4; }
+  .footer-bar { background: #1A1A1A; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-text { font-size: 11px; color: #888; }
+  .footer-links { display: flex; gap: 16px; }
+  .footer-link { font-size: 11px; color: #888; }
+  .section-divider { height: 1px; background: var(--border); margin: 2rem 0; }
+  .color-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .swatch { border-radius: 8px; padding: 10px 12px; min-width: 100px; }
+  .swatch-name { font-size: 11px; font-weight: 600; margin-bottom: 2px; }
+  .swatch-hex { font-size: 10px; opacity: .7; font-family: monospace; }
+  .type-row { border-bottom: 0.5px solid var(--border); padding: 10px 0; display: flex; align-items: baseline; gap: 16px; }
+  .type-label { font-size: 11px; color: var(--text-muted); width: 120px; flex-shrink: 0; }
+  .rule-row { display: flex; gap: 8px; align-items: flex-start; padding: 8px 0; border-bottom: 0.5px solid var(--border); }
+  .rule-num { width: 20px; height: 20px; background: #E8621A; border-radius: 50%; font-size: 10px; font-weight: 700; color: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .rule-text { font-size: 13px; color: var(--text-primary); line-height: 1.5; }
+  .rule-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .badge { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-left: 6px; }
+  .badge-must { background: #FFF0EB; color: #E8621A; }
+  .badge-seo { background: #EBF5EB; color: #2D7A2D; }
+</style>
+
+<div class="spec">
+
+  <div class="section">
+    <div class="section-label">Blog page mockup — full layout preview</div>
+    <div class="preview-shell">
+      <div class="header-bar">
+        <div class="logo-mark">
+          <div class="logo-dot"></div>
+          <div class="logo-text">DigiTrust Lab</div>
+        </div>
+        <div class="nav-links">
+          <div class="nav-link active">Blog</div>
+          <div class="nav-link">AI Tools</div>
+          <div class="nav-link">Side Hustle</div>
+          <div class="nav-link">Tentang</div>
+        </div>
+        <div class="nav-cta">Dapatkan Panduan Percuma</div>
+      </div>
+      <div class="content-area">
+        <div class="main-col">
+          <div class="post-category">Digital Side Hustle</div>
+          <div class="post-h1">Saya Habis RM501 untuk Iklan Facebook — Ini Yang Saya Belajar</div>
+          <div class="post-meta">
+            <div class="meta-avatar">Z</div>
+            <div>
+              <div class="meta-name">Zamri Rosli</div>
+              <div class="meta-info">28 Jun 2026 · 8 min baca</div>
+            </div>
+          </div>
+          <div class="post-excerpt">Saya bukan pakar iklan. Saya cuma seorang yang cuba buat bisnes sampingan dan terlajak habis RM501 untuk belajar satu perkara yang boleh anda baca dalam 8 minit.</div>
+          <div class="toc-box">
+            <div class="toc-title">Isi Kandungan</div>
+            <div class="toc-item"><span>01</span> Apa yang saya buat (dan kenapa silap)</div>
+            <div class="toc-item"><span>02</span> 3 sebab iklan saya gagal</div>
+            <div class="toc-item"><span>03</span> Cara betul yang saya belajar selepas itu</div>
+            <div class="toc-item"><span>04</span> Tools yang sekarang saya guna</div>
+          </div>
+          <div class="body-h2">Apa yang saya buat (dan kenapa silap)</div>
+          <div class="body-p">Pada awal June 2026, saya buat keputusan nak cuba Facebook Ads untuk jual produk digital. Budget RM30 sehari, nampak reasonable. Tapi selepas 2 minggu...</div>
+          <div class="cta-box">
+            <div class="cta-label">Rekomendasi</div>
+            <div class="cta-title">Modul AI Mastery — Belajar cara guna AI untuk perniagaan anda</div>
+            <div class="cta-btn">Tengok Modul →</div>
+          </div>
+          <div class="share-row">
+            <div class="share-label">Kongsi:</div>
+            <div class="share-btn sb-fb">f</div>
+            <div class="share-btn sb-tw">𝕏</div>
+            <div class="share-btn sb-wa">W</div>
+            <div class="share-btn sb-pi">P</div>
+          </div>
+        </div>
+        <div class="sidebar-col">
+          <div class="sidebar-card">
+            <div class="sidebar-card-title">Panduan Percuma</div>
+            <div style="font-size:11px;color:#6B6B6B;margin-bottom:10px;line-height:1.5;">Dapatkan 50 Prompt AI percuma untuk perniagaan Malaysia</div>
+            <div class="optin-input">Email anda...</div>
+            <div class="optin-btn">Hantar Sekarang</div>
+            <div class="optin-sub">Percuma. Berhenti langgan bila-bila masa.</div>
+          </div>
+          <div class="sidebar-card">
+            <div class="sidebar-card-title">Post Popular</div>
+            <div class="related-item">
+              <div class="related-thumb"></div>
+              <div class="related-title">10 AI Tools Percuma untuk Perniagaan Malaysia 2026</div>
+            </div>
+            <div class="related-item">
+              <div class="related-thumb"></div>
+              <div class="related-title">Review Modul AI Mastery: Worth It Ke?</div>
+            </div>
+            <div class="related-item">
+              <div class="related-thumb"></div>
+              <div class="related-title">Cara Jana Duit dengan Canva Templates</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bar">
+        <div class="footer-text">© 2026 DigiTrust Lab · digitrustlab.com</div>
+        <div class="footer-links">
+          <div class="footer-link">Privasi</div>
+          <div class="footer-link">Disclaimer</div>
+          <div class="footer-link">Hubungi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="section">
+    <div class="section-label">Colour system</div>
+    <div class="color-row">
+      <div class="swatch" style="background:#FAFAF8;border:1px solid #EBEBEB;">
+        <div class="swatch-name" style="color:#1A1A1A;">Warm White</div>
+        <div class="swatch-hex" style="color:#6B6B6B;">#FAFAF8 · Background</div>
+      </div>
+      <div class="swatch" style="background:#1A1A1A;">
+        <div class="swatch-name" style="color:#fff;">Deep Charcoal</div>
+        <div class="swatch-hex" style="color:#aaa;">#1A1A1A · Body text</div>
+      </div>
+      <div class="swatch" style="background:#E8621A;">
+        <div class="swatch-name" style="color:#fff;">Burnt Orange</div>
+        <div class="swatch-hex" style="color:rgba(255,255,255,.7)">#E8621A · CTAs + accent</div>
+      </div>
+      <div class="swatch" style="background:#6B6B6B;">
+        <div class="swatch-name" style="color:#fff;">Warm Gray</div>
+        <div class="swatch-hex" style="color:rgba(255,255,255,.7)">#6B6B6B · Meta + captions</div>
+      </div>
+      <div class="swatch" style="background:#F5F3EE;border:1px solid #EBEBEB;">
+        <div class="swatch-name" style="color:#1A1A1A;">Cream</div>
+        <div class="swatch-hex" style="color:#6B6B6B;">#F5F3EE · TOC + boxes</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="section">
+    <div class="section-label">Typography scale — Plus Jakarta Sans</div>
+    <div class="type-row">
+      <div class="type-label" style="color:var(--text-muted);">H1 · 36px · 700</div>
+      <div style="font-size:22px;font-weight:700;color:var(--text-primary);">Tajuk Utama Post</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label" style="color:var(--text-muted);">H2 · 24px · 600</div>
+      <div style="font-size:18px;font-weight:600;color:var(--text-primary);">Subtajuk Bahagian</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label" style="color:var(--text-muted);">H3 · 20px · 600</div>
+      <div style="font-size:16px;font-weight:600;color:var(--text-primary);">Sub-subtajuk</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label" style="color:var(--text-muted);">Body · 17px · 400</div>
+      <div style="font-size:14px;font-weight:400;color:var(--text-primary);line-height:1.7;">Teks badan artikel. Line-height 1.7. Max-width 720px untuk keselesaan membaca.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-label" style="color:var(--text-muted);">Meta · 14px · 400</div>
+      <div style="font-size:12px;font-weight:400;color:var(--text-muted);">28 Jun 2026 · 8 min baca · Zamri Rosli</div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <div class="section">
+    <div class="section-label">Pro blog rules — build these into Bricks</div>
+    <div class="rule-row">
+      <div class="rule-num">1</div>
+      <div class="rule-text">Max content width 720px <span class="badge badge-seo">SEO</span>
+        <div class="rule-sub">65–70 chars per line = optimal Malay readability. Set on main column container.</div>
+      </div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-num">2</div>
+      <div class="rule-text">Featured image — 1200×630px ratio <span class="badge badge-must">Must</span>
+        <div class="rule-sub">Every post needs one. This is what shows on Facebook share + Google snippets.</div>
+      </div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-num">3</div>
+      <div class="rule-text">Sticky sidebar on desktop <span class="badge badge-must">Must</span>
+        <div class="rule-sub">MailerLite opt-in stays visible as reader scrolls. This is your email list engine.</div>
+      </div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-num">4</div>
+      <div class="rule-text">Orange CTA box inside every post body <span class="badge badge-must">Must</span>
+        <div class="rule-sub">1 contextual product/affiliate box per post. Not banner — embedded mid-content.</div>
+      </div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-num">5</div>
+      <div class="rule-text">Reading time in post meta <span class="badge badge-seo">SEO</span>
+        <div class="rule-sub">Reduces bounce rate. Rank Math calculates this automatically.</div>
+      </div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-num">6</div>
+      <div class="rule-text">WhatsApp in share buttons <span class="badge badge-must">Must</span>
+        <div class="rule-sub">Malaysian audience shares via WhatsApp, not X/Twitter. Prioritise WA in share row.</div>
+      </div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-num">7</div>
+      <div class="rule-text">Author bio with real name + photo <span class="badge badge-seo">SEO</span>
+        <div class="rule-sub">Google E-E-A-T signal. Replace "admin" with Zamri Rosli + short 1-line bio.</div>
+      </div>
+    </div>
+    <div class="rule-row" style="border:none;">
+      <div class="rule-num">8</div>
+      <div class="rule-text">No sidebar on mobile — single column <span class="badge badge-must">Must</span>
+        <div class="rule-sub">99% of your audience is mobile. Sidebar collapses below post content on small screens.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
