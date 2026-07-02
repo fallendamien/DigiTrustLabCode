@@ -193,4 +193,40 @@ if (Test-Path $rankMathPath) {
     Write-Host "  Stripped seo-by-rank-math/: $rmFiles files removed" -ForegroundColor Green
 }
 
+# --- Phase 11: Strip unused Bricks editor assets ---
+# Bricks ships ~500 files in assets/ — most are Builder editor JS/CSS/SVG/icons.
+# Frontend only loads 3 files: bricks.min.js, frontend-layer.min.css, content-default.min.css
+Write-Host "`n--- Phase 11: Strip unused Bricks editor assets ---" -ForegroundColor Cyan
+$bricksAssetsPath = "$staticDir\wp-content\themes\bricks\assets"
+$phase11Count = 0
+
+if (Test-Path $bricksAssetsPath) {
+    # Keep list: only files the frontend HTML actually references
+    $keepFiles = @(
+        "js\bricks.min.js"
+        "css\frontend-layer.min.css"
+        "css\frontend\content-default.min.css"
+    )
+
+    # Also keep images/ (small, may be referenced by CSS)
+    $allFiles = Get-ChildItem $bricksAssetsPath -Recurse -File
+    foreach ($f in $allFiles) {
+        $relativePath = $f.FullName.Substring($bricksAssetsPath.Length + 1).Replace("/", "\")
+        if ($keepFiles -notcontains $relativePath -and $f.Directory.Name -ne "images") {
+            Remove-Item $f.FullName -Force
+            $phase11Count++
+        }
+    }
+
+    # Clean up empty directories (preserve images/ folder)
+    Get-ChildItem $bricksAssetsPath -Directory -Recurse | Sort-Object { $_.FullName.Length } -Descending | Where-Object {
+        (Get-ChildItem $_.FullName -Force).Count -eq 0 -and $_.Name -ne "images"
+    } | Remove-Item -Force
+
+    Write-Host "  Stripped unused Bricks editor assets: $phase11Count files removed" -ForegroundColor Green
+    Write-Host "  Kept: bricks.min.js, frontend-layer.min.css, content-default.min.css, images/" -ForegroundColor Gray
+} else {
+    Write-Host "  Bricks assets directory not found - skipping" -ForegroundColor Yellow
+}
+
 Write-Host "`n✅ Post-processing complete!" -ForegroundColor Green
