@@ -411,3 +411,362 @@ The negative lookahead `(?!/)` ensures `https://` links are not affected.
   $c = [System.IO.File]::ReadAllText("D:\Coding Zone\digitrust-lab-static\privasi\index.html")
   ([regex]::Matches($c, 'href="//[^"]*"')).Count  # Should be 0
   ```
+
+---
+
+## Footer Template: Old Code Element Overriding Native Bricks Elements
+
+**Date:** 2026-07-02
+**Category:** bricks-template-content-conflict
+**Severity:** High (footer styling not reflecting GUI changes on live site)
+**Time Spent:** ~30 minutes
+
+### Symptoms
+
+- Footer template (post ID 46) was modified via Bricks Builder GUI to use native Section/Container/Block/Text-link elements with `13px` font size
+- Local WordPress frontend showed correct `13px` styling
+- After Simply Static export + deploy, live site still showed old `11px` hardcoded footer
+- Static HTML files contained both the old code element (`brxe-rmdoll`) AND the new native elements (`brxe-bzutch`), with the code element rendering first and overriding
+
+### Root Cause
+
+Bricks stores template data in three separate meta keys:
+- `_bricks_page_header_2` — header area elements
+- `_bricks_page_content_2` — content area elements
+- `_bricks_page_footer_2` — footer area elements
+
+The footer template had:
+- `_bricks_page_footer_2` → new native Bricks elements (Section, Container, Block, Text links) with `13px` styling ✅
+- `_bricks_page_content_2` → old hardcoded HTML "code" element (`rmdoll`) with `11px` styling ❌
+
+When Simply Static exports, it renders ALL three areas. The content area's code element appeared in the `<main id="brx-content">` section, and the footer area's native elements appeared in `<footer id="brx-footer">`. However, the code element's HTML included its own `<footer>` tag with inline styles, which visually overrode the native footer.
+
+The Bricks Builder GUI only shows the footer area elements in the structure tree when editing a footer template — the content area elements are invisible in the editor, making this a "hidden" conflict with no GUI fix.
+
+### Solution
+
+Since there's no GUI way to edit or delete content area elements from a footer template (Bricks only shows footer area elements in the editor), a one-shot mu-plugin was used to delete the `_bricks_page_content_2` meta key:
+
+```php
+// One-shot: Clear _bricks_page_content_2 from footer template (post 46)
+// Trigger: http://digitrust-lab.local/?fix_footer_content=1
+// Then DELETE
+add_action('init', function() {
+    if (!isset($_GET['fix_footer_content'])) return;
+    global $wpdb;
+    $deleted = $wpdb->query($wpdb->prepare(
+        "DELETE FROM {$wpdb->postmeta} WHERE post_id = %d AND meta_key = '_bricks_page_content_2'",
+        46
+    ));
+    die("Deleted _bricks_page_content_2 from footer template. Rows: " . $deleted);
+});
+```
+
+After deleting the meta key, re-exported via Simply Static, ran post-process script, deployed via wrangler — live site now shows native Bricks footer with correct `13px` styling.
+
+### Prevention
+
+- When migrating Bricks templates from code elements to native elements, check ALL three meta keys (`_bricks_page_header_2`, `_bricks_page_content_2`, `_bricks_page_footer_2`) for leftover code elements
+- The Bricks GUI only shows the area matching the template type (header templates show header area, footer templates show footer area) — content area elements are hidden
+- If GUI changes don't reflect after export, inspect the static HTML for duplicate rendering (e.g., both `brxe-rmdoll` and `brxe-bzutch` present)
+- Use this SQL to check for leftover content area elements:
+  ```sql
+  SELECT meta_key FROM wp_postmeta WHERE post_id = 46 AND meta_key LIKE '_bricks_page%';
+  ```
+
+---
+
+## Static Export Bloat Optimization (2,694 → 1,836 files)
+
+**Date:** 2026-07-02
+**Category:** export-optimization
+**Severity:** Low (deployment speed + storage)
+**Time Spent:** ~20 minutes
+
+### Problem
+
+Simply Static exported 2,694 files per build, but only 11 were actual content pages. 68% of files were `wp-includes/` core assets not used by Bricks Builder, and 163 were Bricks editor-only SVG icons.
+
+### Root Cause
+
+1. **`wp-includes/blocks/` (705 files)** — Simply Static's `Wp_Includes_Crawler` hardcodes `$dirs = ['css/', 'js/', 'fonts/', 'images/', 'blocks/']` with no filter to exclude `blocks/`. The `is_core_include_asset()` function short-circuits exclusion checks for all wp-includes URLs, so Simply Static's "Exclude URLs" setting cannot remove them.
+
+2. **Bricks `assets/svg/builder/` (163 files)** — Theme Assets Crawler recursively scans all theme directories. The `ss_skip_crawl_theme_directories` filter exists but doesn't include `assets/svg/builder` by default.
+
+### Solution
+
+**Two-part approach:**
+
+1. **Mu-plugin** (`mu-plugins/ss-skip-dirs.php`) — Uses `ss_skip_crawl_theme_directories` filter to skip `assets/svg/builder` at crawl time. Prevents 163 files from being discovered.
+
+2. **Post-process Phase 8** (`post-process-static.ps1`) — Deletes `wp-includes/blocks/` from the static export directory after Simply Static transfers files. This is necessary because `is_core_include_asset()` prevents URL-level exclusion.
+
+### Result
+
+| Metric | Before | After | Change |
+|--------|--------|-------|--------|
+| Total files | 2,694 | 1,836 | -868 (32%) |
+| Deploy upload time | ~3.5 sec | ~1.6 sec | 54% faster |
+
+### Prevention
+
+- The mu-plugin (`ss-skip-dirs.php`) is permanent — it runs on every export
+- Phase 8 in post-process script is permanent — it runs after every export
+- If Bricks adds new builder-only directories, add them to the `ss_skip_crawl_theme_directories` filter
+- Verify file count after each export: should be ~1,830-1,850 range
+
+---
+
+## Bricks MCP — `missing_name` Error on `content` Add Action
+
+**Date:** 2026-07-02
+**Severity:** Low (wasted 3 retries)
+
+### Problem
+
+When using the Bricks MCP `content` tool with `action: "add"`, passing `name` inside the `element` JSON object results in:
+```
+{"code":"missing_name","message":"name is required. Provide the Bricks element type (e.g. heading, container, section)."}
+```
+
+### Root Cause
+
+The `content` tool schema lists `name` as a **top-level parameter**, not a field inside `element`. I kept nesting it: `element: {"name": "block"}` instead of passing `name: "block"` directly.
+
+### Fix
+
+Pass `name` as a top-level parameter:
+```
+✅ name: "block", parent_id: "eptixc", post_id: 21
+❌ element: {"name": "block", ...}
+```
+
+### Prevention Rule
+
+**ALWAYS read MCP tool schema parameter names before calling.** When a tool returns `missing_X`, check if `X` is a top-level parameter in the schema — don't assume it goes inside a nested object. Retry with the correct structure on the first error, don't repeat the same mistake.
+
+---
+
+## Bricks MCP — Claude Desktop Connection (3 Issues Resolved)
+
+**Date:** 2026-07-02
+**Severity:** High (blocked all Claude Desktop ↔ Bricks MCP communication)
+**Time to resolve:** ~30 minutes
+
+### Problem
+
+Claude Desktop could not connect to Bricks MCP on LocalWP. Three separate issues were encountered:
+
+1. **Self-signed certificate rejection** — `DEPTH_ZERO_SELF_SIGNED_CERT`
+2. **OAuth discovery timeout** — `mcp-remote` spent 60+ seconds on OAuth discovery, exceeding Claude Desktop's 60s timeout
+3. **SSE format mismatch** — Bricks MCP returns `text/event-stream` (SSE) but Claude Desktop expects plain JSON over stdio
+
+### Root Cause
+
+| Issue | Cause |
+|-------|-------|
+| Self-signed cert | LocalWP uses its own SSL cert; Node.js rejects by default |
+| OAuth timeout | `mcp-remote` always does OAuth discovery first, which is slow with self-signed certs |
+| SSE mismatch | Bricks MCP endpoint returns SSE format; `mcp-remote` handles this but the custom bridge needed explicit SSE parsing |
+
+### Solution: Custom stdio ↔ SSE Bridge
+
+`mcp-remote` doesn't work for LocalWP + Claude Desktop because OAuth discovery takes too long. Instead, use a custom Node.js bridge script that:
+- Skips OAuth entirely (direct HTTP POST with Basic auth)
+- Bypasses self-signed cert via `NODE_TLS_REJECT_UNAUTHORIZED=0`
+- Parses SSE responses and outputs clean JSON to stdout
+
+**Bridge file:** `C:\Users\Zamri\bricks-mcp-bridge.mjs`
+
+**Claude Desktop config (`claude_desktop_config.json`):**
+```json
+"bricks-mcp": {
+  "command": "C:\\nvm4w\\nodejs\\node.exe",
+  "args": ["C:\\Users\\Zamri\\bricks-mcp-bridge.mjs"]
+}
+```
+
+(The bridge itself sets `NODE_TLS_REJECT_UNAUTHORIZED=0`, so no `env` block is required.)
+
+**Bridge script key logic:**
+```javascript
+// 1. Content-Length framing in both directions
+// 2. Stream SSE responses via response.body.getReader()
+// 3. Race the reader against a deadline so it cannot hang forever
+// 4. Fire-and-forget notifications (no id → no response expected)
+// 5. keepalive: false on every fetch to avoid stuck reused connections
+```
+
+### What Was Tried (Failed Approaches)
+
+| Approach | Result | Why It Failed |
+|----------|--------|---------------|
+| `type: "http"` + `url` | Not recognized | Claude Desktop doesn't support HTTP MCP natively |
+| `npx mcp-remote` (no env) | Cert error | `DEPTH_ZERO_SELF_SIGNED_CERT` |
+| `npx mcp-remote` + `NODE_TLS_REJECT_UNAUTHORIZED=0` | 60s timeout | OAuth discovery too slow |
+| `npx mcp-remote` + `--transport http-only` | 60s timeout | Still does OAuth discovery |
+| `mcp-remote` via wrapper.bat | 60s timeout | Same OAuth issue |
+| Custom bridge (v1, no SSE parsing) | JSON parse errors | Output raw `event:`/`data:` lines |
+| **Custom bridge (v2, SSE parsing)** | ✅ **Works** | Correctly extracts JSON from SSE |
+
+### Prevention Rules
+
+1. **ALWAYS set `NODE_TLS_REJECT_UNAUTHORIZED=0`** for any MCP server connecting to LocalWP from Claude Desktop
+2. **NEVER use `mcp-remote` for LocalWP sites** — OAuth discovery takes 60+ seconds with self-signed certs, exceeding Claude Desktop's timeout
+3. **ALWAYS parse SSE format** when bridging HTTP MCP endpoints to stdio — Bricks MCP returns `text/event-stream`, not plain JSON
+4. **Use the custom bridge script** (`bricks-mcp-bridge.mjs`) as the standard approach for Claude Desktop ↔ Bricks MCP on LocalWP
+
+---
+
+## Bricks MCP — Bridge Works, Claude Desktop Still Says "Could Not Attach"
+
+**Date:** 2026-07-02
+**Category:** mcp-client-session-binding
+**Severity:** High (Claude Desktop cannot expose Bricks MCP tools despite working bridge)
+
+### Symptoms
+
+- Claude Desktop shows `Could not attach to MCP server: bricks-mcp`
+- MCP log shows older failed `mcp-remote` attempts with:
+  - `DEPTH_ZERO_SELF_SIGNED_CERT`
+  - `MCP error -32001: Request timed out`
+- Later log entries use the custom bridge (`C:\Users\Zamri\bricks-mcp-bridge.mjs`) and sometimes succeed:
+  - `Message from server: id=0 result`
+  - `tools/list`
+  - `tools/call`
+- The latest failing launches show only:
+  - `Message from client: method="initialize"`
+  - about 60 seconds later, `notifications/cancelled`
+  - `Server transport closed (renderer released port)`
+
+### Root Cause
+
+The Bricks MCP endpoint and custom bridge were reachable, but the bridge used `await response.text()` for normal JSON-RPC requests. Bricks MCP returns `text/event-stream` responses, and some SSE responses remain open instead of closing immediately. When that happened, the bridge received the server response but did not write it back to Claude Desktop until the stream ended.
+
+Claude Desktop then waited about 60 seconds, sent `notifications/cancelled`, and released the renderer port.
+
+This made the issue look like a Claude Desktop attach/session problem, but the sharper root cause was bridge-side SSE handling: the bridge needed to stream `data:` lines and forward the matching JSON-RPC response immediately.
+
+### Verified Current Config
+
+Claude Desktop config path:
+
+```text
+C:\Users\Zamri\AppData\Roaming\Claude\claude_desktop_config.json
+```
+
+Current `bricks-mcp` entry is correct:
+
+```json
+"bricks-mcp": {
+  "command": "C:\\nvm4w\\nodejs\\node.exe",
+  "args": ["C:\\Users\\Zamri\\bricks-mcp-bridge.mjs"]
+}
+```
+
+(The bridge itself sets `NODE_TLS_REJECT_UNAUTHORIZED=0`, so no `env` block is needed in the config.)
+
+### Fix
+
+Patched `C:\Users\Zamri\bricks-mcp-bridge.mjs`:
+
+- Added streaming SSE handling via `response.body.getReader()`
+- Parses `data:` lines as they arrive
+- Writes Content-Length-framed JSON-RPC responses immediately
+- Cancels the stream after the response matching the request ID is forwarded
+- Added a **real deadline inside the SSE reader** — the fetch timeout only aborts the HTTP request, but a slow/open SSE body can still hang the reader, so the reader is now raced against the same deadline
+- Sends **notifications as fire-and-forget** (`notifications/initialized` has no `id`; the server never replies, so the bridge no longer waits for a response)
+- Disabled **HTTP keep-alive** (`keepalive: false`) so a cancelled SSE reader cannot leave a reused connection in a stuck state
+- Uses a 30 second bridge-side timeout so Claude gets an explicit JSON-RPC error instead of a silent 60s hang
+
+After patching, a direct local test returned:
+
+- `initialize` response from `bricks-mcp` version `1.5.1`
+- successful `tools/list` response with the Bricks MCP tools
+
+Then fully restart Claude Desktop:
+
+1. Quit Claude Desktop from the system tray.
+2. In Task Manager, end any remaining `Claude.exe` and Bricks MCP `node.exe` processes.
+3. Reopen Claude Desktop.
+4. Start a brand-new conversation.
+5. Test with a simple Bricks request such as `list bricks templates`.
+
+### Prevention
+
+- Do not return to `mcp-remote` for LocalWP; the custom bridge is the working path.
+- If the log shows `initialize` then `notifications/cancelled` about 60 seconds later, check whether the bridge is:
+  - streaming SSE responses instead of waiting for `response.text()`
+  - treating notifications as fire-and-forget instead of waiting for a server response
+  - racing the SSE reader against a timeout instead of letting it hang forever
+- Keep secrets out of chat/log summaries. Redact `Authorization: Basic ...` values when sharing logs.
+- After editing the bridge, fully restart Claude Desktop (kill all `Claude.exe` and `node.exe` processes) so the new bridge is loaded.
+
+---
+
+## Bricks MCP — THE Root Cause: Wrong stdio Framing (Content-Length vs NDJSON)
+
+**Date:** 2026-07-02
+**Category:** mcp-stdio-framing
+**Severity:** Critical (bridge silently ignored every Claude message → 60s timeout on every launch)
+**Time Spent:** Several hours across multiple sessions
+
+### Symptoms
+
+- Every Claude Desktop launch: `Message from client: method="initialize" id=0` → **60 seconds of total silence** → `notifications/cancelled` → `Server transport closed (renderer released port)`
+- The bridge logged `Server started and connected successfully`, so it *looked* fine
+- One lucky window (12:54–13:17) worked (initialize + tools/list + 4 tool calls), which wrongly pointed suspicion at LocalWP/PHP-FPM hangs
+- Direct `curl`/`node fetch` to the endpoint returned **200 in ~420ms** with valid SSE — proving the **server was healthy** the whole time
+
+### Root Cause (the real one)
+
+The **MCP stdio transport uses newline-delimited JSON (NDJSON)** — one JSON object per line, delimited by `\n`. It does **NOT** use LSP-style `Content-Length:` framing.
+
+The bridge was doing the opposite on **both** sides:
+
+1. **Input parser bug (fatal):** `tryParseMessages()` started with `readBuffer.indexOf('\r\n\r\n')` and `return`ed immediately when not found. NDJSON never contains `\r\n\r\n`, so the parser bailed **before** reaching its newline fallback. Result: `handleMessage()` was **never called** — the bridge silently discarded every message Claude sent.
+2. **Output framing bug:** `writeMessage()` wrote `Content-Length: N\r\n\r\n` + body. Even if a response was produced, Claude's NDJSON reader could not parse a Content-Length frame, so it waited and cancelled at 60s.
+
+### Diagnosis Method (repeatable)
+
+Spawn the bridge exactly as Claude does and feed it a newline-terminated `initialize`, dumping raw stdout:
+
+```js
+// bridge-framing-test.mjs — spawn bridge, send NDJSON initialize, print raw stdout
+const child = spawn('C:\\nvm4w\\nodejs\\node.exe', ['C:\\Users\\Zamri\\bricks-mcp-bridge.mjs']);
+child.stdin.write(JSON.stringify({jsonrpc:'2.0',id:0,method:'initialize',params:{protocolVersion:'2025-03-26',capabilities:{},clientInfo:{name:'t',version:'1'}}}) + '\n');
+```
+
+- **Before fix:** `Total bytes received: 0` + no `[bridge]` stderr → parser never dispatched the message
+- **After fix:** `[bridge] in req initialize id=0`, `SSE out 0 result`, and raw NDJSON `{"jsonrpc":"2.0","id":0,"result":{...}}\n` → `OUTPUT FRAMING: raw/NDJSON`
+
+### Fix
+
+In `C:\Users\Zamri\bricks-mcp-bridge.mjs`:
+
+```javascript
+// OUTPUT: newline-delimited JSON, not Content-Length
+function writeMessage(obj) {
+  stdout.write(JSON.stringify(obj) + '\n');
+}
+
+// INPUT: split on newlines, one JSON object per line
+function tryParseMessages() {
+  while (true) {
+    const nlIdx = readBuffer.indexOf('\n');
+    if (nlIdx === -1) return;                 // wait for a complete line
+    const line = readBuffer.slice(0, nlIdx).toString('utf8').trim();
+    readBuffer = readBuffer.slice(nlIdx + 1);
+    if (line) handleMessage(line);
+  }
+}
+```
+
+The SSE streaming logic (`streamSseResponse`), fire-and-forget notifications, timeout race, and `keepalive:false` from the previous fix were all correct and were kept.
+
+### Prevention Rules
+
+1. **MCP stdio = NDJSON, always.** Read and write one JSON object per `\n`. Never use `Content-Length:` framing for MCP stdio (that's the LSP convention, a different protocol).
+2. **When `initialize` → 60s silence → `notifications/cancelled` with the bridge logging "started successfully", suspect FRAMING, not the server.** Silence for the full 60s (with no bridge-side error) means Claude's messages never reached `handleMessage`, or its responses were unparseable.
+3. **Prove server health independently first** — a direct `node fetch`/`curl` to the endpoint isolates server vs. bridge in seconds. Here it returned 200 in ~420ms, immediately ruling out LocalWP.
+4. **Test the bridge in isolation** by spawning it and piping a `\n`-terminated `initialize`; confirm raw stdout is NDJSON before blaming Claude.

@@ -4,6 +4,9 @@
 $staticDir = "D:\Coding Zone\digitrust-lab-static"
 
 # --- Phase 0: Inject search bar into header (Simply Static strips form/input tags) ---
+# SAFETY NET: As of 2026-07-02, Simply Static preserves <form> tags inside Bricks code
+# elements, so this phase injects 0 files. Kept as a safety net in case a future
+# Simply Static update reverts to stripping form tags.
 $searchBarHTML = '<div style="display:flex;align-items:center;gap:12px;"><form action="/" method="get" style="display:flex;align-items:center;position:relative;"><input type="text" name="s" placeholder="Cari..." style="border:1px solid #EBEBEB;border-radius:6px;padding:5px 12px;font-size:12px;font-family:' + "'Plus Jakarta Sans'" + ',system-ui,sans-serif;width:180px;outline:none;height:32px;box-sizing:border-box;"><button type="submit" style="background:none;border:none;cursor:pointer;position:absolute;right:8px;top:50%;transform:translateY(-50%);padding:0;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B6B6B" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg></button></form><a href="#" style="background:#E8621A;color:#fff;font-family:' + "'Plus Jakarta Sans'" + ',system-ui,sans-serif;font-size:12px;font-weight:600;padding:7px 14px;border-radius:6px;text-decoration:none;white-space:nowrap;">Dapatkan Panduan Percuma</a></div>'
 
 Write-Host "`n--- Phase 0: Inject search bar into headers ---" -ForegroundColor Cyan
@@ -126,6 +129,68 @@ $dummyPostPath = "$staticDir\simply-static-export-pipeline-will-be-deleted-after
 if (Test-Path $dummyPostPath) {
     Remove-Item $dummyPostPath -Recurse -Force
     Write-Host "`nRemoved dummy post directory" -ForegroundColor Green
+}
+
+# --- Phase 8: Remove wp-includes/blocks/ (Gutenberg block assets not used by Bricks) ---
+# Saves ~705 files. Bricks Builder doesn't use Gutenberg blocks.
+$blocksPath = "$staticDir\wp-includes\blocks"
+if (Test-Path $blocksPath) {
+    $blockFiles = (Get-ChildItem $blocksPath -Recurse -File).Count
+    Remove-Item $blocksPath -Recurse -Force
+    Write-Host "`n--- Phase 8: Strip unused wp-includes/blocks/ ---" -ForegroundColor Cyan
+    Write-Host "  Removed $blockFiles files from wp-includes/blocks/" -ForegroundColor Green
+}
+
+# --- Phase 9: Strip unused wp-includes/ assets (jQuery, TinyMCE, admin images, etc.) ---
+# Frontend only loads wp-emoji-release.min.js and wp-emoji-loader.min.js from wp-includes/js/
+# Everything else is WordPress admin/editor assets not needed on a static Bricks frontend.
+Write-Host "`n--- Phase 9: Strip unused wp-includes/ assets ---" -ForegroundColor Cyan
+$phase9Count = 0
+
+# 9a: Remove wp-includes/js/ EXCEPT emoji files
+$jsPath = "$staticDir\wp-includes\js"
+if (Test-Path $jsPath) {
+    $emojiFiles = @("wp-emoji-release.min.js", "wp-emoji-loader.min.js")
+    $jsFiles = Get-ChildItem $jsPath -Recurse -File
+    foreach ($f in $jsFiles) {
+        if ($emojiFiles -notcontains $f.Name) {
+            Remove-Item $f.FullName -Force
+            $phase9Count++
+        }
+    }
+    # Clean up empty directories
+    Get-ChildItem $jsPath -Directory -Recurse | Sort-Object { $_.FullName.Length } -Descending | Where-Object { (Get-ChildItem $_.FullName -Force).Count -eq 0 } | Remove-Item -Force
+    Write-Host "  Stripped wp-includes/js/ (kept emoji files): $phase9Count files removed" -ForegroundColor Green
+}
+
+# 9b: Remove wp-includes/images/ entirely (admin icons, smilies, media UI)
+$imagesPath = "$staticDir\wp-includes\images"
+if (Test-Path $imagesPath) {
+    $imgFiles = (Get-ChildItem $imagesPath -Recurse -File).Count
+    Remove-Item $imagesPath -Recurse -Force
+    $phase9Count += $imgFiles
+    Write-Host "  Stripped wp-includes/images/: $imgFiles files removed" -ForegroundColor Green
+}
+
+# 9c: Remove wp-includes/css/ entirely (admin styles, classic-themes is only a sourceURL comment)
+$cssPath = "$staticDir\wp-includes\css"
+if (Test-Path $cssPath) {
+    $cssFiles = (Get-ChildItem $cssPath -Recurse -File).Count
+    Remove-Item $cssPath -Recurse -Force
+    $phase9Count += $cssFiles
+    Write-Host "  Stripped wp-includes/css/: $cssFiles files removed" -ForegroundColor Green
+}
+
+Write-Host "  Phase 9 total: $phase9Count files removed" -ForegroundColor Green
+
+# --- Phase 10: Strip unused wp-content/plugins/seo-by-rank-math/ ---
+# Rank Math only contributes inline JSON-LD schema — no CSS/JS files are loaded by frontend.
+Write-Host "`n--- Phase 10: Strip unused rank-math plugin assets ---" -ForegroundColor Cyan
+$rankMathPath = "$staticDir\wp-content\plugins\seo-by-rank-math"
+if (Test-Path $rankMathPath) {
+    $rmFiles = (Get-ChildItem $rankMathPath -Recurse -File).Count
+    Remove-Item $rankMathPath -Recurse -Force
+    Write-Host "  Stripped seo-by-rank-math/: $rmFiles files removed" -ForegroundColor Green
 }
 
 Write-Host "`n✅ Post-processing complete!" -ForegroundColor Green

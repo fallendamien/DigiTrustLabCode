@@ -77,7 +77,7 @@
 | Opt-in Subtext | 400 | 10px | `#6B6B6B` | "Percuma. Berhenti langgan..." |
 | Related Title | 600 | 11px | `#1A1A1A` | Popular post titles |
 | Share Label | 400 | 12px | `#6B6B6B` | "Kongsi:" |
-| Footer Text | 400 | 11px | `#888888` | Copyright, footer links |
+| Footer Text | 400 | 13px | `#888888` | Copyright, footer links |
 
 ---
 
@@ -205,8 +205,8 @@
 - Background: `#1A1A1A`
 - Padding: 16px 24px
 - Layout: flex, space-between, align-center
-- Copyright: 11px, `#888888`
-- Footer links: 11px, `#888888`, 16px gap
+- Copyright: 13px, `#888888`
+- Footer links: 13px, `#888888`, 16px gap
 - Sticky to bottom via flexbox: `body { display: flex; flex-direction: column; min-height: 100vh; } footer { margin-top: auto; }`
 
 ---
