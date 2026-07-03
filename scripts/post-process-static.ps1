@@ -229,4 +229,57 @@ if (Test-Path $bricksAssetsPath) {
     Write-Host "  Bricks assets directory not found - skipping" -ForegroundColor Yellow
 }
 
+# --- Phase 12: Inject responsive footer CSS ---
+# Bricks _cssCustom for footer doesn't always export via Simply Static.
+# This injects responsive footer styles directly into HTML files.
+Write-Host "`n--- Phase 12: Inject responsive footer CSS ---" -ForegroundColor Cyan
+$footerCSS = '<style id="dtl-footer-responsive">#brxe-fjwxog{max-width:100% !important;width:100% !important;}@media(max-width:767px){#brxe-fjwxog{flex-direction:column !important;gap:8px !important;align-items:center !important;justify-content:center !important;}#brxe-xdttkp{display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:center !important;width:100% !important;}#brxe-caxuwn{text-align:center !important;}#brxe-wbhhph{display:flex !important;flex-direction:column !important;gap:6px !important;align-items:center !important;justify-content:center !important;width:100% !important;}}</style>'
+$phase12Count = 0
+$allHtmlForFooter = Get-ChildItem $staticDir -Filter "*.html" -Recurse | Where-Object { $_.FullName -notmatch 'wp-content|wp-includes' }
+foreach ($file in $allHtmlForFooter) {
+    $content = [System.IO.File]::ReadAllText($file.FullName)
+    if ($content -match 'brxe-fjwxog') {
+        # Remove any previously injected footer CSS
+        $content = $content -replace '<style id="dtl-footer-responsive">.*?</style>', ''
+        # Also remove old version without ID
+        $content = $content -replace '<style>#brxe-fjwxog\{max-width:100%.*?</style>', ''
+        # Inject fresh
+        $content = $content -replace '</head>', "$footerCSS</head>"
+        [System.IO.File]::WriteAllText($file.FullName, $content)
+        $phase12Count++
+    }
+}
+Write-Host "  Injected responsive footer CSS into $phase12Count files" -ForegroundColor Green
+
+# --- Phase 13: Fix Simply Static stripping <style> tags on content pages ---
+# Simply Static converts <style> tags in page content to <p> tags with escaped HTML.
+# This fixes privasi, hubungi, disclaimer, and any other page with this issue.
+Write-Host "`n--- Phase 13: Fix stripped <style> tags on content pages ---" -ForegroundColor Cyan
+$phase13Count = 0
+$allHtmlForStyleFix = Get-ChildItem $staticDir -Filter "*.html" -Recurse | Where-Object { $_.FullName -notmatch 'wp-content|wp-includes' }
+foreach ($file in $allHtmlForStyleFix) {
+    $content = [System.IO.File]::ReadAllText($file.FullName)
+    $modified = $false
+    # Pattern: <p>#brx-content &gt; h1:first-child { display: none !important; }</p>
+    if ($content -match '<p>#brx-content &gt; h1:first-child \{ display: none !important; \}</p>') {
+        $content = $content -replace '<p>#brx-content &gt; h1:first-child \{ display: none !important; \}</p>', '<style>#brx-content > h1:first-child { display: none !important; }</style>'
+        $modified = $true
+    }
+    # Also fix unescaped version just in case
+    if ($content -match '<p>#brx-content > h1:first-child \{ display: none !important; \}</p>') {
+        $content = $content -replace '<p>#brx-content > h1:first-child \{ display: none !important; \}</p>', '<style>#brx-content > h1:first-child { display: none !important; }</style>'
+        $modified = $true
+    }
+    # Fix broken font-family on dtl-page-wrap (missing font-family declaration)
+    if ($content -match 'padding:40px 20px;,system-ui,sans-serif') {
+        $content = $content -replace 'padding:40px 20px;,system-ui,sans-serif', "padding:40px 20px;font-family:'Plus Jakarta Sans',system-ui,sans-serif"
+        $modified = $true
+    }
+    if ($modified) {
+        [System.IO.File]::WriteAllText($file.FullName, $content)
+        $phase13Count++
+    }
+}
+Write-Host "  Fixed stripped <style> tags and broken font-family in $phase13Count files" -ForegroundColor Green
+
 Write-Host "`n✅ Post-processing complete!" -ForegroundColor Green

@@ -770,3 +770,44 @@ The SSE streaming logic (`streamSseResponse`), fire-and-forget notifications, ti
 2. **When `initialize` → 60s silence → `notifications/cancelled` with the bridge logging "started successfully", suspect FRAMING, not the server.** Silence for the full 60s (with no bridge-side error) means Claude's messages never reached `handleMessage`, or its responses were unparseable.
 3. **Prove server health independently first** — a direct `node fetch`/`curl` to the endpoint isolates server vs. bridge in seconds. Here it returned 200 in ~420ms, immediately ruling out LocalWP.
 4. **Test the bridge in isolation** by spawning it and piping a `\n`-terminated `initialize`; confirm raw stdout is NDJSON before blaming Claude.
+
+---
+
+## Claude Desktop "Failed to call tool" — stdio buffer limit (2026-07-03)
+
+**Symptom:** Claude Desktop UI shows "Failed to call tool 'template'" for every tool call, despite bridge logs showing successful responses (`hasResult=true hasError=false`, `result(1 blocks)`). Claude's AI hallucinates causes like "server not connected" or "auth missing".
+
+**Root cause:** Claude Desktop (v1.18286.0) has a **stdio buffer size limit** (~8KB). The Bricks MCP server's `tools/list` response was **19.5KB** (11 tools with full schemas, enums, annotations, outputSchema). This caused Claude Desktop to silently fail processing the tools/list response, which in turn caused all subsequent tool calls to fail — even though the bridge correctly sent the tool call results.
+
+**Full root cause chain (why tool calls failed even though bridge returned success):**
+1. Claude Desktop launches bridge → bridge sends `tools/list` response (19.5KB) → **Claude Desktop silently fails to parse it** (exceeds ~8KB stdio buffer)
+2. Claude Desktop never registers the tools properly → **tool registry is broken from startup**
+3. Every `tools/call` after that fails with "Failed to call tool 'template'" — not because the call fails, but because Claude Desktop's tool registry was never populated
+4. The bridge keeps working perfectly — logs show `hasResult=true hasError=false` — but Claude Desktop can't process the results because it doesn't recognize the tool
+5. Claude's AI hallucinates causes → "server not connected", "auth missing", "MCP server isn't running" — all wrong. The server was never the problem.
+
+**Key insight:** The fix was NOT in the tool call path. It was in the **tool discovery phase** (`tools/list`) that happens at startup. Once Claude Desktop could properly load all 11 tools (trimmed to 7.5KB), everything else worked automatically.
+
+**Debugging journey:**
+1. Logs showed every tool call succeeding on the bridge side (`WRITE stdout ... hasResult=true hasError=false`)
+2. Added `isError: false` injection — didn't fix it
+3. Downgraded `protocolVersion` from `2025-03-26` to `2024-11-05` — didn't fix it
+4. Created a **mock bridge** with hardcoded minimal responses (235 bytes tools/list) — **worked!**
+5. This proved the issue was in the response size, not the bridge logic
+6. Truncated tools/list to 3 tools (4KB) — worked but `template` tool was missing
+7. Final fix: trim all 11 tools' schemas (descriptions to 80 chars, remove annotations/outputSchema, keep only `action` enum + `response_format` + param name hints) → 7.5KB — **all 11 tools visible and callable**
+
+**Fix applied in `bricks-mcp-bridge.mjs`:**
+- `processLine()`: When `tools/list` response > 8KB, strip each tool to minimal schema — keep all param names + types, truncate action enum to 5 values, strip descriptions (except action), remove annotations/outputSchema → 7.9KB
+- `processLine()`: Inject `isError: false` on all tool call results (defensive)
+- `processLine()`: Downgrade `protocolVersion` to `2024-11-05` (defensive)
+- `handleMessage()`: Parse `_additional_params` string into structured arguments before forwarding to WordPress (safety net for any params Claude sends as fallback string)
+- Same trims applied to non-SSE response path
+- Suppressed Node.js TLS warning on stderr (Claude Desktop may interpret stderr as bridge error)
+
+**Prevention rules:**
+1. **Claude Desktop has a stdio buffer limit (~8KB).** Any single NDJSON message larger than this will silently fail. Always trim large MCP responses in the bridge.
+2. **Mock bridge test is the definitive isolation test.** If a hardcoded minimal bridge works but the real one doesn't, the issue is in response formatting/size — not protocol or transport.
+3. **Claude's AI hallucinates causes for MCP failures.** It will say "server not connected" or "auth missing" even when logs prove otherwise. Trust the logs, not Claude's diagnosis.
+4. **tools/list is the most likely response to exceed the limit** because it contains all tool schemas with full property descriptions, enums, and annotations.
+5. **When trimming tool schemas, ALWAYS keep real parameter names.** Replacing params with a `_additional_params` hint string causes WordPress to reject tool calls (`isError=true`) because it doesn't recognize the parameters. Keep all param names + types, only strip descriptions and non-action enums.
