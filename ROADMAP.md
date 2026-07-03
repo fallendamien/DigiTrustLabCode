@@ -1,86 +1,167 @@
 # DigiTrust Lab — Roadmap
 
-> **Status:** 🚧 In Development
-> **Current Phase:** Phase 1 - Foundation
-> **Last Updated:** 2026-07-03
+> **Status:** 🚧 In Progress
+> **Current Phase:** Phase 1 — Foundation
+> **Last Updated:** 2026-07-03 (Session 5)
+> **Monthly Revenue:** RM 69 (1 sale, pre-blog era)
 
 ---
 
 ## Progress Overview
 
 ```
-Phase 1: Foundation                ████░░░░░░ 40%
-Phase 2: Content Compounding       ░░░░░░░░░░  0%
-Phase 3: Traffic Growth            ░░░░░░░░░░  0%
-Phase 4: Scale & Optimize          ░░░░░░░░░░  0%
+Phase 1: Foundation         ████████░░ 80%
+Phase 2: Compounding        ░░░░░░░░░░  0%
+Phase 3: Traffic Growth     ░░░░░░░░░░  0%
+Phase 4: Scale              ░░░░░░░░░░  0%
 ```
 
 ---
 
-## Phase 1: Foundation 🏗️
+## Phase 1: Foundation 🏗️ (Month 1–3)
 
-**Goal:** Blog live + 10 posts + Etsy shop open + 5 listings + affiliate registered
+**Goal:** Blog live + 10 posts + Etsy shop open + 5 listings + MailerLite Day 1
+**Income target:** RM 0–397/month
+**Status:** In progress — infrastructure done, content not started
 
-- [x] Git repository initialized
-- [x] Windsurf workspace bootstrapped (AGENTS.md, WINDSURF.md, .windsurf/rules)
-- [x] Install WordPress + Bricks on digitrustlab.com
-- [x] Set up blog structure (/blog) with core pages
-- [x] Header/footer templates (logo, nav, search bar, CTA, footer links)
-- [x] Simply Static export pipeline + Cloudflare Pages deployment
-- [x] Blog live at blog.digitrustlab.com
-- [ ] Verify ClickRank ownership (JS snippet)
+### Blog Build
+- [x] Install Local WP + WordPress locally (WordPress 7.0, PHP 8.2.29, Nginx, MySQL 8.4.0)
+- [x] Activate Bricks Builder Ultimate 2.3.8 (license active ✅)
+- [x] Install Rank Math SEO 1.0.272 (active, usage tracking OFF)
+- [x] Install Simply Static 3.7.7 (active)
+- [x] WordPress core settings configured (tagline, timezone Kuala Lumpur, permalink = Post name)
+- [x] Delete default WP content (Hello World post + Sample Page → Trash)
+- [x] Create blog categories (AI Tools / Digital Side Hustle / Canva & Design / AI untuk Perniagaan Kecil)
+- [x] Build Bricks Single Post Template (Post Title → Meta Data → Excerpt → TOC → Post Content → Social Sharing → Related Posts → Comments) — condition: Post type = Post
+- [x] Build Header template (logo, nav, search bar, CTA)
+- [x] Build Footer template (copyright, links)
+- [x] Configure Simply Static (Relative Path = /blog, Deploy = Local Directory, Output = D:/Coding Zone/digitrust-lab-static)
+- [x] First static export completed (2631 files, 8 min)
+- [x] GitHub Desktop repo created and published (`fallendamien/DigiTrustLabCode`, pushing to `master`)
+- [x] Connect Cloudflare Pages to repo — deployed via Wrangler CLI
+- [x] Add Cloudflare DNS CNAME — **blog.digitrustlab.com is LIVE**
+- [x] Post-process script handles Simply Static export bugs (form stripping, double-slash links) — `scripts/post-process-static.ps1`
+- [x] TROUBLESHOOTING.md documents known issues
+- [x] Create core pages: Tentang Kami, Polisi Privasi, Disclaimer, Hubungi Kami
+- [x] Nav labels standardized to Malay (Tentang Kami, Hubungi Kami, Polisi Privasi)
+- [x] Git repository initialized + Windsurf workspace bootstrapped (AGENTS.md, .windsurf/rules)
+- [x] Bricks template backup system (rule + skill + workflow) — all 4 templates exported as v1 + v2
+- [x] Fix mobile side menu contrast (white text on dark background)
+- [x] Fix Tentang Kami URL slug (/tentang → /tentang-kami) + nav menu link
+- [x] Fix Tentang Kami page element hierarchy (section > container > content with proper padding)
+- [x] Fix footer mobile centering (copyright + links centered on mobile, horizontal with 24px gap)
+- [x] Restore header template (new ID 140) after MCP destructive action — documented in AGENTS.md + TROUBLESHOOTING.md
+- [ ] **Delete test post** ("Simply Static export pipeline..." test post still in WP Admin → Posts)
+- [ ] **SEO pass on core pages** — Tentang Kami done (2026-07-01, see below); Privasi/Disclaimer/Hubungi Kami pending
+- [ ] Set up Google Analytics 4
+- [ ] Set up Google Search Console + submit sitemap
+- [ ] Verify ClickRank ownership (JS snippet) — blog is live, ready to do now
 - [ ] Add digitrustlab.com to Screpy
-- [ ] Set up Google Search Console + GA4
-- [ ] Register Klikjer affiliate
-- [ ] Register JV Warrior affiliate
-- [ ] Create Etsy shop (choose clean name)
-- [ ] Create first 3 Etsy listings
-- [ ] Write first blog post (WriterZen → write → ClickRank)
-- [ ] Set up MailerLite free account
-- [ ] Create lead magnet PDF ("50 Prompt AI Percuma")
+- [ ] Connect ClickRank to Google Search Console
+
+### Tentang Kami — SEO Pass (Completed 2026-07-01)
+- [x] Identified weak/translated-sounding Malay copy on `/tentang/`
+- [x] Rewrote body copy — natural Malay voice, first-person founder ("Zed") framing, retained category keywords (AI tools, side hustle digital, perniagaan kecil)
+- [x] Drafted new title tag: "Tentang DigiTrust Lab - AI Tools & Side Hustle Digital Malaysia"
+- [x] Drafted new meta description (148 chars, includes 3 category keywords + experience/trust signal)
+- [x] Apply rewrite in WordPress (Bricks) — pushed live 2026-07-03
+- [ ] Set Rank Math schema type to `Person`/`AboutPage`, link "Zed" as author entity
+- [ ] Set Rank Math focus keyword field
+- [ ] Confirm OG/social share image is set
+- [ ] Cross-check keyword choices against actual WriterZen data (current keywords are category-level estimates, not volume-validated)
+- [ ] Repeat same pass for Polisi Privasi, Disclaimer, Hubungi Kami
+
+### Email List (Day 1 — same week as blog launch)
+- [ ] Create MailerLite free account
+- [ ] Add simple opt-in to blog sidebar/footer
+- [ ] Create lead magnet PDF: "50 Prompt AI Percuma untuk Perniagaan Malaysia"
+- [ ] Replace simple opt-in with lead magnet opt-in (Week 2–3)
+
+### Affiliates (Week 1)
+- [ ] Register Klikjer (klikjer.com/affiliate)
+- [ ] Register JV Warrior (jvwarrior.com/access/aff/signup)
+- [ ] Apply AI Labs Malaysia (ailabs.com.my/affiliate-program) — Month 1
+
+### Etsy Shop (Week 3–4)
+- [ ] Competitor research on Etsy (15 min) — check saturation before listing
+- [ ] Create Etsy shop — English name (PromptLabSEA / AIStudioMY / ZamriDesigns)
+- [ ] List product #1: 30 AI Prompts for FB & IG Ads (Bahasa Melayu) — RM 15–25
+- [ ] List product #2: 5 Canva Templates for IG Story (Small Business) — RM 12–20
+- [ ] List product #3: Notion Dashboard for Freelancers (Malaysian Edition) — RM 18–30
+- [ ] List product #4: 50 AI Prompts for Creating Digital eBooks — RM 15–25
+- [ ] List product #5: Bundle — 30 AI Prompts + 5 Canva Templates — RM 29–39
+
+### Blog Posts (1 post/week — Malay-first 70%) — 0 of 10 published
+- [ ] Post #1: Cara Buat Iklan FB yang Convert (Pengalaman Burn RM390) → AI Mastery affiliate
+- [ ] Post #2: 10 AI Tools Percuma untuk Perniagaan Malaysia 2026 → AI Mastery affiliate
+- [ ] Post #3: Cara Jana Pendapatan dengan Canva Templates → Etsy listing link
+- [ ] Post #4: Prompt AI untuk Buat Iklan Instagram yang Menarik → Etsy prompt pack
+- [ ] Post #5: Review Modul AI Mastery: Worth It Ke? → AI Mastery direct sale
+- [ ] Post #6: Cara Buat eBook Digital dengan AI (Step-by-Step) → Klikjer affiliate
+- [ ] Post #7: 5 Template Notion untuk Freelancer Malaysia → Etsy Notion template
+- [ ] Post #8: Cara Mula Jual Digital Products di Etsy Malaysia → Etsy + blog cross-link
+- [ ] Post #9: AI vs Canva: Mana Lebih Baik untuk Design? → Both affiliate + Etsy
+- [ ] Post #10: Cara Buat Landing Page yang Convert (Bricks Builder) → AI Mastery + Bricks
+
+### Off-Page SEO (Week 1 — ongoing)
+- [ ] Reddit/Lowyat answers — 2–3x/week, link naturally to blog posts
+- [ ] Create Pinterest account — pin every blog post + every Etsy listing
+- [ ] Set up Web 2.0 profiles (Medium, Dev.to, LinkedIn) — repurpose blog posts
 
 ---
 
-## Phase 2: Content Compounding 🎨
+## Phase 2: Compounding 🔥 (Month 4–6)
 
-**Goal:** 25 blog posts + 15 Etsy listings + AdSense approved + email list 100+
+**Goal:** 25 blog posts + 15 Etsy listings + AdSense approved + Canva Pro affiliate
+**Income target:** RM 200–1,273/month
+**Status:** Not started
 
-- [ ] 15 additional blog posts (2-3/month)
-- [ ] 10 additional Etsy listings (2-3/month)
-- [ ] Apply for Google AdSense
-- [ ] Register Canva Pro affiliate
-- [ ] Register iCore Hosting affiliate
+- [ ] Register Canva Pro affiliate (Month 2 — after first Etsy Canva listing live)
+- [ ] Register iCore Hosting affiliate (Month 2 — after blog live)
+- [ ] Apply Google AdSense (Month 4–5, after ~20 posts)
+- [ ] Reach 15 Etsy listings
+- [ ] Reach 25 blog posts
+- [ ] Add Canva Pro affiliate link inside every Canva template product
+- [ ] Create first English pillar post (3,000+ words, global audience)
+- [ ] Upgrade MailerLite opt-in with lead magnet PDF
 - [ ] Create Pinterest account (pins for every Etsy listing)
-- [ ] Launch email newsletter with lead magnet
 - [ ] Register Agent Builder affiliate
-- [ ] Apply for AI Labs Malaysia affiliate
 
 ---
 
-## Phase 3: Traffic Growth ☁️
+## Phase 3: Traffic Growth 📊 (Month 7–12)
 
-**Goal:** 50 blog posts + 25 Etsy listings + Ezoic active + email list 500+
+**Goal:** 50 posts + 25 Etsy + Ezoic active + 500+ email subs + DA 15–25
+**Income target:** RM 800–4,015/month
+**Status:** Not started
 
-- [ ] 25 additional blog posts
-- [ ] 10 additional Etsy listings
-- [ ] Upgrade to Ezoic (10K+ visits)
+- [ ] Apply Ezoic (when 10K+ visits/month)
+- [ ] Register Shopify MY affiliate
+- [ ] Register Agent Builder affiliate (after WordPress blog running 3+ months)
+- [ ] Reach 50 blog posts
+- [ ] Reach 25–35 Etsy listings
+- [ ] Reach 500 email subscribers
+- [ ] Start KDP (Kindle Direct Publishing) — AI-generated low-content books
+- [ ] Email newsletter sponsorship (when 500+ subscribers)
 - [ ] Monthly pillar posts (3,000+ words)
 - [ ] Refresh/update old posts
-- [ ] KDP low-content books launched
 - [ ] Sponsored posts (DA 20+)
 
 ---
 
-## Phase 4: Scale & Optimize 🚀
+## Phase 4: Scale 🚀 (Month 13–24)
 
-**Goal:** 100+ blog posts + 50 Etsy listings + Mediavine + RM5K+/month
+**Goal:** 100+ posts + 50 Etsy + Mediavine + Own course + RM 5K+/month
+**Income target:** RM 3,000–18,400/month
+**Status:** Not started
 
-- [ ] 50 additional blog posts
-- [ ] 25 additional Etsy listings
-- [ ] Upgrade to Mediavine (50K sessions/month)
-- [ ] Launch own course (RM 199-499)
+- [ ] Apply Mediavine (when 50K sessions/month)
+- [ ] Launch own course: "Panduan Lengkap Jana Pendapatan dengan AI untuk Perniagaan Malaysia"
+- [ ] Reach 100+ blog posts
+- [ ] Reach 50 Etsy listings
+- [ ] Reach 1,000+ email subscribers
 - [ ] Gumroad premium bundles
-- [ ] Email list 1,000-3,000 subscribers
+- [ ] Revisit web services option (BCL landing pages for MY resellers)
 - [ ] Salary replacement achieved
 
 ---
@@ -99,27 +180,138 @@ Phase 4: Scale & Optimize          ░░░░░░░░░░  0%
 
 - [ ] Convert Single Post template (ID 10) from Code element to native Bricks elements
 - [ ] Convert Blog Archive template (ID 52) from Code element to native Bricks elements
-- [ ] Bricks template backup system (rule + skill + workflow) ✅ Created 2026-07-03
+- [x] Bricks template backup system (rule + skill + workflow) ✅ Created 2026-07-03
+
+---
+
+## Key Milestones
+
+- ✅ Meta Ads run — 1 confirmed sale (Mohamad Rafek, RM 69, Jun 10 2026)
+- ✅ SEO tool stack complete (WriterZen + ClickRank + Screpy — all lifetime)
+- ✅ Bricks Builder Ultimate owned (unlimited sites, lifetime)
+- ✅ Domain digitrustlab.com live on Cloudflare
+- ✅ Long-term plan finalised + gaps fixed (Jun 28 2026)
+- ✅ Local WP installed + WordPress 7.0 running locally
+- ✅ Bricks Builder 2.3.8 installed + licensed (ACTIVE)
+- ✅ Rank Math SEO installed + configured (usage tracking OFF)
+- ✅ Simply Static installed + configured (/blog path, local dir output)
+- ✅ WordPress settings configured (timezone KL, permalink = post name)
+- ✅ Default WP content deleted (Hello World + Sample Page)
+- ✅ Blog categories created (AI Tools, Digital Side Hustle, Canva & Design, AI untuk Perniagaan Kecil)
+- ✅ Bricks Single Post Template built + condition set (Post type = Post)
+- ✅ Header + Footer templates built
+- ✅ First static export completed (2631 files → D:/Coding Zone/digitrust-lab-static)
+- ✅ GitHub repo published (`fallendamien/DigiTrustLabCode`)
+- ✅ Cloudflare Pages deployed via Wrangler CLI
+- ✅ **Blog LIVE at blog.digitrustlab.com (confirmed 2026-07-01)**
+- ✅ Core pages live (Tentang Kami, Polisi Privasi, Disclaimer, Hubungi Kami)
+- ✅ Tentang Kami SEO/copy pass completed + pushed live (2026-07-03)
+- ✅ Bricks template backup system + all 4 templates exported v1 + v2 (2026-07-03)
+- ✅ Mobile menu contrast fix + footer mobile centering + Tentang Kami padding fix (2026-07-03)
+- ✅ Header template restored (ID 140) after MCP destructive action (2026-07-03)
+- 🎯 First blog post published — target: this week (0 of 10 done — content is now the bottleneck, not infra)
+- 🎯 First Etsy sale — target: Month 2
+- 🎯 First affiliate commission — target: Month 3
+- 🎯 RM 200/month — target: Month 6
+- 🎯 RM 1,000/month — target: Month 9–12
+- 🎯 Salary replacement — target: Month 18–24
+
+---
+
+## Current KPIs
+
+| Metric | Current | Target (Month 12) |
+|---|---|---|
+| Blog posts live | 0 | 50+ |
+| Monthly blog visits | 0 | 10,000+ |
+| Etsy listings | 0 | 25+ |
+| Email subscribers | 0 | 500+ |
+| Keywords top 10 | 0 | 15+ |
+| Monthly revenue | RM 69 (pre-blog) | RM 2,000+ |
+
+---
+
+## Local WP Stack (Confirmed)
+
+| Component | Version | Status |
+|---|---|---|
+| WordPress | 7.0 | ✅ Running at digitrust-lab.local |
+| PHP | 8.2.29 | ✅ |
+| Web Server | Nginx | ✅ |
+| Database | MySQL 8.4.0 | ✅ |
+| Bricks Builder | 2.3.8 Ultimate | ✅ Licensed |
+| Rank Math SEO | 1.0.272 | ✅ Active |
+| Simply Static | 3.7.7 | ✅ Active |
+| Cloudflare Pages | — | ✅ Deployed |
+
+**WP Admin:** http://digitrust-lab.local/wp-admin/
+**Local site path:** ~\Local Sites\digitrust-lab\
+**Live blog:** https://blog.digitrustlab.com/
+**GitHub repo:** https://github.com/fallendamien/DigiTrustLabCode
+**Deploy command:** `npx wrangler pages deploy . --project-name=digitrust-lab-static --branch=main`
+**Simply Static generate URL:** `https://digitrust-lab.local/wp-admin/admin.php?page=simply-static-generate`
+
+---
+
+## IMMEDIATE NEXT SESSION — Start Here
+
+1. **Delete test post** — WP Admin → Posts → trash the "Simply Static export pipeline..." test post
+2. **Write Post #1** — Cara Buat Iklan FB yang Convert (Pengalaman Burn RM390) — pull keyword from WriterZen first, then write → ClickRank optimize → publish → static export → deploy
+3. **Set up Google Search Console + GA4** — do this right after Post #1 goes live so indexing starts immediately
+4. **Set up MailerLite** — Day 1 priority, still outstanding
+5. **SEO pass on remaining core pages** — Polisi Privasi, Disclaimer, Hubungi Kami
+
+---
+
+## Revenue Stack
+
+```
+Layer 5 (Month 18+): Mediavine Premium Ads
+Layer 4 (Month 12+): Ezoic Display Ads
+Layer 3 (Month 1+):  Affiliate — Klikjer + JV Warrior + Canva Pro + AI Labs
+Layer 2 (Month 1+):  Etsy Digital Products
+Layer 1 (Month 1+):  Blog SEO Content — THE ENGINE
+```
+
+---
+
+## Language Strategy
+
+- **Blog:** Malay-first 70% (low competition SEA) + English 30% (pillar posts, higher RPM, backlink bait)
+- **Etsy:** English titles + English descriptions. Malay content inside the product itself.
+- **Rule:** Never translate same post into both languages (duplicate content)
+- **Voice note (added 2026-07-01):** Early core-page copy (Tentang Kami) read as translated/stiff Malay rather than natural voice. Going forward, write Malay copy directly in Malay (not as an English-to-Malay translation) and read it aloud for naturalness before publishing.
+
+---
+
+## Off-Page SEO — Closed Loop (No Outreach Needed)
+
+```
+Etsy listing (DA 88) → links to blog post
+Blog post → links to Etsy listing
+Pinterest pin → links to both
+```
+
+Reddit/Lowyat answers 2–3x/week + Web 2.0 profiles (Medium, Dev.to) — one-time setup.
+
+---
+
+## What NOT To Do
+
+- ❌ Run paid ads again — proven failure at current stage
+- ❌ More than 1 post/week initially — quality > quantity
+- ❌ Spread across too many platforms — Blog + Etsy + 2 affiliates only
+- ❌ Quit day job before Month 18
+- ❌ Skip email list — start Day 1, not Month 2
+- ❌ Keep building infrastructure once blog is live — content is now the bottleneck
 
 ---
 
 ## Notes
 
-**Tech Stack:**
-- Blog: WordPress + Bricks Builder
-- SEO: WriterZen + ClickRank + Screpy (all lifetime)
-- Etsy: Digital products (Canva templates, prompt packs, Notion templates)
-- Email: MailerLite (free tier)
-- Analytics: Google Analytics 4 + Search Console
-- Affiliate: Klikjer, JV Warrior, AI Labs, Canva Pro, iCore, Agent Builder
-
-**Key Milestones:**
-- ✅ Git repo initialized (2026-06-28)
-- ✅ Windsurf workspace bootstrapped (2026-06-28)
-- ✅ Blog live at blog.digitrustlab.com (2026-07-01)
-- ✅ Bricks template backup system + all 4 templates exported (2026-07-03)
-- 🎯 First blog post: Target July 2026
-- 🎯 First Etsy sale: Target August 2026
-- 🎯 RM 1,000/month: Target December 2026
-- 🎯 RM 3,000/month: Target June 2027
-- 🎯 Salary replacement: Target December 2027
+**Tech stack:** Local WP → Bricks Builder Ultimate → Simply Static → GitHub → Cloudflare Pages (RM0/month)
+**SEO tools:** WriterZen (keyword research) → ClickRank (optimize) → Screpy (track)
+**Payment:** BCL.my (AI Mastery reseller, keep as-is) → Etsy Payments (own products)
+**Domain:** digitrustlab.com (Cloudflare Registrar, Zone ID: 94c8c2bff83a3ed15b7405d507eca68e)
+**Bricks license key:** edc873f3106bc0f7337ec60ff03e6fa6
+**GitHub repo:** fallendamien/DigiTrustLabCode (branch: master)

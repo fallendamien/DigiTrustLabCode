@@ -157,6 +157,7 @@ The previous sessions spent 45+ minutes writing PHP mu-plugins, dealing with ser
 - This is a WordPress + Simply Static + Cloudflare Pages blog, not a traditional codebase
 - Static files live in `D:\Coding Zone\digitrust-lab-static`
 - WordPress local URL: `https://digitrust-lab.local`
+- Simply Static generate URL: `https://digitrust-lab.local/wp-admin/admin.php?page=simply-static-generate` (NOT `simply-static` — that's settings, not generate)
 - Live URL: `https://blog.digitrustlab.com`
 - Deploy command: `npx wrangler pages deploy . --project-name=digitrust-lab-static --branch=main`
 - Bricks MCP endpoint: `https://digitrust-lab.local/wp-json/bricks-mcp/v1/mcp`
