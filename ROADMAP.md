@@ -2,7 +2,7 @@
 
 > **Status:** 🚧 In Development
 > **Current Phase:** Phase 1 - Foundation
-> **Last Updated:** 2026-07-02
+> **Last Updated:** 2026-07-03
 
 ---
 
@@ -95,6 +95,12 @@ Phase 4: Scale & Optimize          ░░░░░░░░░░  0%
 - Online community (Discord/Telegram)
 - B2B consulting (AI implementation for Malaysian SMEs)
 
+### Tech Debt 🔧
+
+- [ ] Convert Single Post template (ID 10) from Code element to native Bricks elements
+- [ ] Convert Blog Archive template (ID 52) from Code element to native Bricks elements
+- [ ] Bricks template backup system (rule + skill + workflow) ✅ Created 2026-07-03
+
 ---
 
 ## Notes
@@ -111,6 +117,7 @@ Phase 4: Scale & Optimize          ░░░░░░░░░░  0%
 - ✅ Git repo initialized (2026-06-28)
 - ✅ Windsurf workspace bootstrapped (2026-06-28)
 - ✅ Blog live at blog.digitrustlab.com (2026-07-01)
+- ✅ Bricks template backup system + all 4 templates exported (2026-07-03)
 - 🎯 First blog post: Target July 2026
 - 🎯 First Etsy sale: Target August 2026
 - 🎯 RM 1,000/month: Target December 2026
