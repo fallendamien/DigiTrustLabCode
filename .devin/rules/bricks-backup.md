@@ -1,6 +1,10 @@
+---
+trigger: always_on
+---
+
 # Bricks Template Backup Rule
 
-**Priority:** High
+**Priority:** High  
 **Scope:** Workspace-level (DigiTrust Lab only)
 
 ## Rule
