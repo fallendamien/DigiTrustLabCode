@@ -1,0 +1,129 @@
+{
+  "title": "DigiTrust Lab — Header",
+  "templateType": "header",
+  "content": [
+    {
+      "id": "ptgpgt",
+      "name": "section",
+      "parent": 0,
+      "children": ["regccr"],
+      "settings": {
+        "_padding": { "top": "0", "bottom": "0", "left": "0", "right": "0" },
+        "_heightMin": "52px",
+        "_background": { "color": { "raw": "#FFFFFF" } },
+        "_cssCustom": "#brxe-ptgpgt { position: sticky; top: 0; z-index: 999; }"
+      }
+    },
+    {
+      "id": "regccr",
+      "name": "container",
+      "parent": "ptgpgt",
+      "children": ["gtfddr", "fsuqgq", "tgfddg"],
+      "settings": {
+        "_justifyContent": "space-between",
+        "_alignItems": "center",
+        "_width": "100%",
+        "_widthMax": "1200px",
+        "_padding": { "bottom": "0", "left": "20px", "right": "20px", "top": "0" },
+        "_margin": { "left": "auto", "right": "auto" },
+        "_direction": "row",
+        "_height": "52px",
+        "_cssCustom": "#brxe-regccr { gap: 10px; }"
+      }
+    },
+    {
+      "id": "gtfddr",
+      "name": "block",
+      "parent": "regccr",
+      "children": ["kgddes"],
+      "settings": {
+        "_width": "auto",
+        "_height": "auto",
+        "_alignItems": "center",
+        "_cssCustom": "#brxe-gtfddr { gap: 0; flex-shrink: 0; }",
+        "_direction": "row"
+      }
+    },
+    {
+      "id": "fsuqgq",
+      "name": "nav-menu",
+      "parent": "regccr",
+      "children": [],
+      "settings": {
+        "menu": "7",
+        "label": "Nav Menu",
+        "_cssCustom": "#brxe-fsuqgq a { color: #1A1A1A; font-size: 13px; font-weight: 500; } #brxe-fsuqgq a:hover { color: #E8621A; } #brxe-fsuqgq .current-menu-item a, #brxe-fsuqgq .current_page_item a { color: #E8621A; } @media (max-width: 767px) { #brxe-fsuqgq .bricks-nav-menu-wrapper { display: none !important; } #brxe-fsuqgq .bricks-mobile-menu-toggle { display: flex !important; } }"
+      }
+    },
+    {
+      "id": "qcpjhq",
+      "name": "search",
+      "parent": "tgfddg",
+      "children": [],
+      "settings": {
+        "showLabel": false,
+        "searchOverlayTitle": "Cari...",
+        "style": "overlay",
+        "searchStyle": "overlay",
+        "placeholder": "Cari...",
+        "_cssCustom": "#brxe-qcpjhq { width: 140px; display: flex; align-items: center; margin-right: 10px; } #brxe-qcpjhq form { position: relative; margin: 0; width: 100%; } #brxe-qcpjhq input { padding: 6px 28px 6px 10px; font-size: 12px; background: #F5F3EE; color: #1A1A1A; border: 1px solid #EBEBEB; border-radius: 6px; width: 100%; height: 32px; box-sizing: border-box; line-height: 1; } #brxe-qcpjhq input::placeholder { color: #6B6B6B; } #brxe-qcpjhq label { display: none; } #brxe-qcpjhq form::after { content: ''; position: absolute; right: 8px; top: 50%; transform: translateY(-50%); width: 14px; height: 14px; background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236B6B6B' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E\"); background-repeat: no-repeat; background-position: center; background-size: contain; pointer-events: none; }"
+      }
+    },
+    {
+      "id": "gheflg",
+      "name": "button",
+      "parent": "tgfddg",
+      "children": [],
+      "settings": {
+        "text": "Dapatkan Panduan Percuma",
+        "style": "primary",
+        "_background": { "color": { "raw": "#E8621A" } },
+        "_border": { "radius": { "top": "6px", "right": "6px", "bottom": "6px", "left": "6px" } },
+        "_cssCustom": "#brxe-gheflg:hover { background: #D4551A !important; }",
+        "_padding": { "top": "7px", "bottom": "7px", "left": "14px", "right": "14px" },
+        "_typography": { "color": { "hex": "#FFFFFF" }, "font-size": "12px", "font-weight": "600" },
+        "link": { "type": "external", "url": "/mula" }
+      }
+    },
+    {
+      "id": "kgddes",
+      "name": "heading",
+      "parent": "gtfddr",
+      "children": [],
+      "settings": {
+        "_cssCustom": "#brxe-kgddes { flex-shrink: 0; display: flex; align-items: center; text-decoration: none; gap: 8px; } #brxe-kgddes::before { content: ''; display: inline-block; width: 28px; height: 28px; background: #E8621A; border-radius: 6px; } @media (max-width: 767px) { #brxe-kgddes { font-size: 14px; } #brxe-kgddes::before { width: 24px; height: 24px; } }",
+        "_height": "auto",
+        "_typography": { "color": { "hex": "#1A1A1A" }, "font-size": "16px", "font-weight": "700" },
+        "_width": "auto",
+        "link": { "type": "external", "url": "/" },
+        "tag": "div",
+        "text": "DigiTrust Lab"
+      }
+    },
+    {
+      "id": "tgfddg",
+      "name": "block",
+      "parent": "regccr",
+      "children": ["qcpjhq", "gheflg"],
+      "settings": {
+        "_alignItems": "center",
+        "_cssCustom": "#brxe-tgfddg { gap: 10px; flex-shrink: 0; display: flex; align-items: center; justify-content: flex-end; } @media (max-width: 991px) { #brxe-tgfddg { display: none; } }",
+        "_direction": "row",
+        "_height": "auto",
+        "_justifyContent": "flex-end",
+        "_width": "auto"
+      }
+    }
+  ],
+  "pageSettings": [],
+  "templateSettings": {
+    "templateConditions": [
+      {
+        "id": "vbvtht",
+        "main": "any"
+      }
+    ]
+  },
+  "exportedAt": "2026-07-03",
+  "exportedBy": "Windsurf Cascade"
+}
