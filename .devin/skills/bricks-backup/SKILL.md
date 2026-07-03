@@ -1,25 +1,7 @@
 # Bricks Template Backup Skill
 
-## When to Activate
-
-- Before any MCP template editing session (header, footer, single post, blog archive)
-- After successful template restructure or major element changes
-- Monthly routine backup (1st of month)
-- Pre-deploy checkpoint before Simply Static export
-- User explicitly requests backup or says `/backup-bricks-templates`
-
-## What It Does
-
-Exports Bricks templates as JSON files to `bricks-exports/` with version numbering, then git commits.
-
-## Templates
-
-| Template | ID | File |
-|----------|----|------|
-| Header | 21 | `bricks-exports/header-v{N}.json` |
-| Footer | 46 | `bricks-exports/footer-v{N}.json` |
-| Single Post | 10 | `bricks-exports/single-post-v{N}.json` |
-| Blog Archive | 52 | `bricks-exports/blog-archive-v{N}.json` |
+> **Triggered by:** Rule `.devin/rules/bricks-backup.md`  
+> **Quick trigger:** `/backup-bricks-templates`
 
 ## Execution Steps
 
@@ -52,7 +34,7 @@ git commit -m "backup: Bricks templates v{N} snapshot
 - If more than 3 versions exist for a template, move oldest to `bricks-exports/archive/`
 - Never delete — only move
 
-## Restore Instructions
+## Restore
 
 ### Via Bricks MCP
 Read the JSON file, then:
@@ -64,10 +46,3 @@ mcp1_template(action=import, template_data={JSON content})
 1. Bricks → Templates → Import
 2. Upload the JSON file
 3. Apply to target template
-
-## Guardrails
-
-- Never overwrite existing version files — always increment
-- Never skip git commit
-- Never backup during active Simply Static export
-- Only backup templates listed above unless user requests others
