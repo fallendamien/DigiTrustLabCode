@@ -61,6 +61,25 @@ NEVER write PHP mu-plugins or direct DB queries for Bricks tasks when MCP is ava
 ALL Bricks JSON must use native element names and follow Bricks schema.
 ```
 
+### ⚠️ Bricks MCP Destructive Actions (CRITICAL)
+
+**These MCP actions silently destroy data. Always backup before using.**
+
+| Action | What Happens | Prevention |
+|--------|-------------|------------|
+| `template update` with `type` change | **Wipes ALL elements** — returns `elements: []` | NEVER change type after elements exist |
+| `content update_content` | **Replaces ALL elements** — not just the one you pass | Always provide the COMPLETE element array |
+| `content delete` with `element_id` | **Trashes the entire post** — not just the element | NEVER use on templates with elements |
+
+**Correct workflow for creating Bricks templates via MCP:**
+```
+1. `content create` — create template with title, post_type, status, AND elements all at once
+2. `template set` — set template type and conditions (type + conditions together)
+3. `content update_content` — update individual elements if needed (provide FULL array)
+```
+
+**NEVER use `template update` to change type after elements exist.**
+
 ### What Happened (Lesson Learned)
 
 The previous sessions spent 45+ minutes writing PHP mu-plugins, dealing with serialized arrays, `wp_hash()` signatures, and DB queries — for tasks that would have taken **2 minutes in the Bricks GUI** (changing nav labels, editing page text, updating footer links).

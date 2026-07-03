@@ -811,3 +811,36 @@ The SSE streaming logic (`streamSseResponse`), fire-and-forget notifications, ti
 3. **Claude's AI hallucinates causes for MCP failures.** It will say "server not connected" or "auth missing" even when logs prove otherwise. Trust the logs, not Claude's diagnosis.
 4. **tools/list is the most likely response to exceed the limit** because it contains all tool schemas with full property descriptions, enums, and annotations.
 5. **When trimming tool schemas, ALWAYS keep real parameter names.** Replacing params with a `_additional_params` hint string causes WordPress to reject tool calls (`isError=true`) because it doesn't recognize the parameters. Keep all param names + types, only strip descriptions and non-action enums.
+
+---
+
+## Bricks MCP `template update` Wipes Elements
+
+**Date:** 2026-07-03
+**Severity:** High (header template completely lost all elements)
+
+### Problem
+
+Using Bricks MCP `template update` action to change the template type (e.g., from `content` to `header`) **silently deletes all elements** in the template. The API returns success but `elements: []` is empty.
+
+### Root Cause
+
+The Bricks MCP `template update` action clears the elements array when changing the `type` field. This is destructive and irreversible — the elements are gone with no warning.
+
+### Fix
+
+Restored from backup JSON (`bricks-exports/header-v1.json`) by:
+1. Creating a new template with `content create` (type set at creation time)
+2. Writing elements with `content update_content`
+3. Setting conditions with `template set`
+
+### Prevention Rules
+
+1. **NEVER use `template update` to change type after elements exist.** The `type` field must be set at creation time only.
+2. **Correct workflow for creating Bricks templates via MCP:**
+   - Step 1: `content create` — create template with title, post_type, status, AND elements all at once
+   - Step 2: `template set` — set template type and conditions
+   - Step 3: `content update_content` — update individual elements if needed
+3. **Always backup templates before any MCP operations.** Use `/backup-bricks-templates` workflow.
+4. **The `content update_content` action replaces ALL elements** — provide the complete element array, not just the one you want to update.
+5. **The `content delete` action with element_id trashes the entire post** — not just the element. Be extremely careful.
