@@ -1570,13 +1570,28 @@ Export is read-only (no license). Import requires a license (write operation).
 
 **Elements:** `element:add`, `element:update`, `element:remove`, `element:get_conditions`, `element:set_conditions` [license]
 
-**Templates:** `template:list`, `template:get`, `template:create`, `template:update`, `template:delete`, `template:duplicate`, `template:get_popup_settings`, `template:set_popup_settings` [license]
+**Templates (metadata only):** `template:list`, `template:get`, `template:create`, `template:update` (title/status/slug/type/tags/bundles only), `template:delete`, `template:duplicate`, `template:get_popup_settings`, `template:set_popup_settings` [license]
+
+> ⚠️ **`template:update` does NOT write elements.** It only updates template metadata (title, status, slug, type, tags, bundles). The `elements` parameter appears in the schema but is silently ignored — the function `update_template_meta()` in `BricksService.php:851` never reads it. To write/replace elements, use `content:update_content` with `post_id` instead.
 
 **Template Conditions:** `template_condition:types`, `template_condition:set`, `template_condition:resolve`
 
 **Template Taxonomies:** `template_taxonomy:list_tags`, `template_taxonomy:list_bundles`, `template_taxonomy:create_tag`, `template_taxonomy:create_bundle`, `template_taxonomy:delete_tag`, `template_taxonomy:delete_bundle`
 
 **Components:** `component:list`, `component:get`, `component:create` [license], `component:update` [license], `component:delete` [license], `component:instantiate` [license], `component:update_properties` [license], `component:fill_slot` [license]
+
+**Design:** `design` tool with 6 valid domains:
+
+| Domain | Purpose | Key Actions |
+|--------|---------|-------------|
+| `theme_style` | Theme style presets | `list`, `get`, `create`, `update`, `delete`, `apply`, `remove` |
+| `global_class` | Global CSS classes | `list`, `get`, `create`, `update`, `delete`, `batch_create`, `batch_delete`, `import_css`, `list_categories`, `create_category`, `delete_category` |
+| `color_palette` | Color palettes | `list`, `get`, `create`, `update`, `delete`, `add_color`, `update_color`, `delete_color` |
+| `global_variable` | Design token variables | `list`, `get`, `create`, `update`, `delete`, `batch_create`, `batch_delete` |
+| `typography_scale` | Typography scale tokens | `list`, `get`, `create`, `update`, `delete` |
+| `font` | Font management | `get_status`, `get_adobe_fonts`, `update_settings` |
+
+> ⚠️ **Do NOT use** `colors`, `variables`, `classes`, or `global_css` as domain names — these are invalid and will silently fail. The `match()` dispatch in `Router.php:4885` only accepts the 6 values above.
 
 **Other:** `get_site_info`, `wordpress`, `get_builder_guide`
 
@@ -1599,6 +1614,9 @@ Export is read-only (no license). Import requires a license (write operation).
 15. **Popup triggers are NOT popup settings** — triggers use `_interactions` on elements (click, scroll, exit intent). `_bricks_template_settings` only stores display behavior (close, backdrop, sizing, limits). These are separate systems managed by different tools.
 16. **`toggle-mode` needs dark mode colors** — The toggle element only works if dark mode variants are configured in the Bricks color manager. Without them, the button renders but does nothing.
 17. **Builder paste/import behavior settings** — `builderHtmlCssConverter` controls HTML/CSS paste conversion (`confirm`|`enabled`|`disabled`), `builderGlobalClassesImport` controls global class auto-import on paste (`confirm`|`enabled`|`disabled`). Both default to `confirm`. Read via `bricks:get_settings` with `category: builder`.
+18. **`design` tool domain names are strict** — Only 6 values accepted: `theme_style`, `global_class`, `color_palette`, `global_variable`, `typography_scale`, `font`. Using `colors`, `variables`, `classes`, or `global_css` silently fails with a generic "Tool execution failed" error. Source: `Router.php:4885` `match()` dispatch.
+19. **`template:update` silently ignores `elements`** — The `elements` parameter is in the schema but `update_template_meta()` only handles `title`, `status`, `slug`, `type`, `tags`, `bundles`. Elements are never written. Returns success with unchanged data — a silent no-op. Use `content:update_content` with `post_id` to write elements. Source: `BricksService.php:851-937`.
+20. **`template:list` type filter uses Bricks-internal slugs** — `type: "content"` (not `"single"`), `type: "header"`, `type: "footer"`, `type: "archive"`, `type: "search"`, `type: "error"`, `type: "section"`, `type: "popup"`, `type: "password_protection"`. Using `"single"` fails with "invalid arguments" (MCP schema validation rejects before reaching PHP).
 
 ## Connection Troubleshooting
 

@@ -63,7 +63,7 @@
   },
   "staticExport": {
     "wordpressUrl": "https://digitrust-lab.local",
-    "liveUrl": "https://blog.digitrustlab.com",
+    "liveUrl": "https://www.digitrustlab.com",
     "staticDir": "D:\\Coding Zone\\digitrust-lab-static",
     "postProcessScript": "G:\\Zamzam Biznez\\DigiTrustLabCode\\scripts\\post-process-static.ps1",
     "deployCommand": "npx wrangler pages deploy . --project-name=digitrust-lab-static --branch=main"

@@ -1,6 +1,8 @@
 # DigiTrust Lab — Troubleshooting
 
 > Project-specific issues and solutions. Not a development project — no global lessons needed.
+>
+> ⚠️ **POLICY UPDATE (2026-07-04):** All post-process scripts, wrangler CLI, and PowerShell automation have been **BANNED**. Historical entries below may reference these tools, but they must NOT be used going forward. Everything via Bricks GUI or Bricks MCP. Deploy via Cloudflare dashboard only.
 
 ---
 
@@ -90,8 +92,7 @@ npx wrangler pages deploy . --project-name=digitrust-lab-static --branch=main
 
 ### Prevention
 
-- Use `wrangler pages deploy` as the primary deploy method
-- Optionally reconnect Git integration in Cloudflare Pages dashboard for auto-deploy backup
+- Use `wrangler pages deploy` or Cloudflare dashboard for deployment
 
 ---
 
@@ -405,7 +406,7 @@ The negative lookahead `(?!/)` ensures `https://` links are not affected.
 
 ### Prevention
 
-- **Always run `post-process-static.ps1` after every Simply Static export** — it fixes both the search bar injection (Phase 0) and double-slash links (Phase 6)
+- **Always run `post-process-static.ps1` after every Simply Static export** — ~~DEPRECATED~~ Do NOT use. All fixes must be done via Bricks GUI/MCP.
 - After export, verify links with:
   ```powershell
   $c = [System.IO.File]::ReadAllText("D:\Coding Zone\digitrust-lab-static\privasi\index.html")
@@ -511,7 +512,7 @@ Simply Static exported 2,694 files per build, but only 11 were actual content pa
 ### Prevention
 
 - The mu-plugin (`ss-skip-dirs.php`) is permanent — it runs on every export
-- Phase 8 in post-process script is permanent — it runs after every export
+- Phase 8 in post-process script is ~~DEPRECATED~~ — do NOT use. All export optimization must be done via Bricks/Simply Static settings.
 - If Bricks adds new builder-only directories, add them to the `ss_skip_crawl_theme_directories` filter
 - Verify file count after each export: should be ~1,830-1,850 range
 
@@ -829,7 +830,7 @@ The Bricks MCP `template update` action clears the elements array when changing 
 
 ### Fix
 
-Restored from backup JSON (`bricks-exports/header-v1.json`) by:
+Restored by:
 1. Creating a new template with `content create` (type set at creation time)
 2. Writing elements with `content update_content`
 3. Setting conditions with `template set`
@@ -841,6 +842,130 @@ Restored from backup JSON (`bricks-exports/header-v1.json`) by:
    - Step 1: `content create` — create template with title, post_type, status, AND elements all at once
    - Step 2: `template set` — set template type and conditions
    - Step 3: `content update_content` — update individual elements if needed
-3. **Always backup templates before any MCP operations.** Use `/backup-bricks-templates` workflow.
-4. **The `content update_content` action replaces ALL elements** — provide the complete element array, not just the one you want to update.
-5. **The `content delete` action with element_id trashes the entire post** — not just the element. Be extremely careful.
+3. **The `content update_content` action replaces ALL elements** — provide the complete element array, not just the one you want to update.
+4. **The `content delete` action with element_id trashes the entire post** — not just the element. Be extremely careful.
+
+---
+
+## Bricks MCP `design` Tool — Wrong Domain Names Cause Silent Failure
+
+**Date:** 2026-07-04
+**Severity:** Medium (blocks design token management via MCP)
+
+### Problem
+
+The `design` MCP tool fails with a generic `"Tool execution failed"` error when using guessed domain names like `colors`, `variables`, `classes`, or `global_css`. Only `theme_style` works because it happens to be the correct name.
+
+### Root Cause
+
+The plugin's `Router.php` (line 4885) uses a PHP `match()` expression with strict domain matching. Only 6 exact strings are accepted:
+
+```
+'theme_style', 'global_class', 'color_palette', 'global_variable', 'typography_scale', 'font'
+```
+
+Any other value hits the `default` branch returning a `WP_Error`, which the MCP bridge converts to a generic failure message — swallowing the actual error text that would have listed the valid domains.
+
+### Solution
+
+Use the exact domain names from the table below:
+
+| Wrong Name | Correct Domain |
+|------------|---------------|
+| `colors` | `color_palette` |
+| `variables` | `global_variable` |
+| `classes` / `global_classes` | `global_class` |
+| `global_css` | (no equivalent — use `global_class` with `import_css` action) |
+
+### Prevention
+
+- Always reference `BRICKS-BUILDER-GUIDE.md` → "Design" section for valid domain names
+- The `design` tool schema exposes parameters like `color_id`, `variable_id`, `classes_data` — these are for specific actions within valid domains, not indicators of domain names
+
+### Verified Working (2026-07-04)
+
+```
+design(action="list", domain="theme_style")      → ✅ 200 OK
+design(action="list", domain="color_palette")    → ✅ 200 OK
+design(action="list", domain="global_variable")  → ✅ 200 OK
+design(action="list", domain="global_class")     → ✅ 200 OK
+design(action="list", domain="typography_scale") → ✅ 200 OK
+design(action="get_status", domain="font")       → ✅ 200 OK
+```
+
+---
+
+## Bricks MCP `template:update` Silently Ignores `elements` Parameter
+
+**Date:** 2026-07-04
+**Severity:** High (silent data loss — writes appear to succeed but don't persist)
+
+### Problem
+
+Calling `template` with `action: "update"`, a `template_id`, and an `elements` array returns a success response with template metadata — but the elements are never written. A subsequent `template:get` shows the template unchanged.
+
+### Root Cause
+
+`template:update` calls `update_template_meta()` in `BricksService.php:851-937`. This function only handles:
+- `title` → `post_title`
+- `status` → `post_status`
+- `slug` → `post_name`
+- `type` → `_bricks_template_type` meta
+- `tags` / `bundles` → taxonomy terms
+
+**The `elements` key is never read.** It's present in the MCP schema but not wired to any write logic. The function returns `true` (success), then `tool_update_template` fetches the unchanged template content and returns it — making it look like a successful response.
+
+### Solution
+
+Use `content:update_content` with `post_id` to write/replace elements:
+
+```
+content(action="update_content", post_id=<template_id>, elements=[...])
+```
+
+**NOT:**
+```
+template(action="update", template_id=<id>, elements=[...])  ← silently ignores elements
+```
+
+### Tool Responsibility Matrix
+
+| Task | Tool | Action |
+|------|------|--------|
+| Update template title/status/slug | `template` | `update` |
+| Update template type | `template` | `update` (⚠️ wipes elements if type changes) |
+| Update template tags/bundles | `template` | `update` |
+| Write/replace elements | `content` | `update_content` |
+| Set template conditions | `template` | `set` |
+| Create new template with elements | `content` | `create` (include elements at creation time) |
+
+### Prevention
+
+- **NEVER** use `template:update` to write elements — it's a metadata-only operation
+- **ALWAYS** use `content:update_content` with `post_id` for element changes
+- The `elements` parameter in `template:update`'s schema is misleading — ignore it
+
+---
+
+## Bricks MCP `template:list` — Invalid `type: "single"` Filter
+
+**Date:** 2026-07-04
+**Severity:** Low (clear error message, easy to identify)
+
+### Problem
+
+Using `type: "single"` with `template:list` fails with "invalid arguments" error.
+
+### Root Cause
+
+The MCP schema enforces a strict enum for the `type` parameter. `"single"` is not a valid Bricks template type — Bricks calls single-post templates `content`, not `single`.
+
+### Valid Template Types
+
+```
+header, footer, archive, search, error, content, section, popup, password_protection
+```
+
+### Solution
+
+Use `type: "content"` instead of `type: "single"` when filtering for single post templates.

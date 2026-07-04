@@ -2,7 +2,7 @@
 
 > **Status:** 🚧 In Progress
 > **Current Phase:** Phase 1 — Foundation
-> **Last Updated:** 2026-07-03 (Session 5)
+> **Last Updated:** 2026-07-04 (Session 6)
 > **Monthly Revenue:** RM 69 (1 sale, pre-blog era)
 
 ---
@@ -10,7 +10,7 @@
 ## Progress Overview
 
 ```
-Phase 1: Foundation         ████████░░ 80%
+Phase 1: Foundation         █████████░ 90%
 Phase 2: Compounding        ░░░░░░░░░░  0%
 Phase 3: Traffic Growth     ░░░░░░░░░░  0%
 Phase 4: Scale              ░░░░░░░░░░  0%
@@ -32,25 +32,29 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [x] WordPress core settings configured (tagline, timezone Kuala Lumpur, permalink = Post name)
 - [x] Delete default WP content (Hello World post + Sample Page → Trash)
 - [x] Create blog categories (AI Tools / Digital Side Hustle / Canva & Design / AI untuk Perniagaan Kecil)
-- [x] Build Bricks Single Post Template (Post Title → Meta Data → Excerpt → TOC → Post Content → Social Sharing → Related Posts → Comments) — condition: Post type = Post
-- [x] Build Header template (logo, nav, search bar, CTA)
-- [x] Build Footer template (copyright, links)
+- [x] Build Bricks Single Post Template (ID 10) — native Bricks elements, zero Code elements (rebuilt 2026-07-04)
+- [x] Build Header template (ID 185) — logo, nav, search bar, CTA (rebuilt 2026-07-04)
+- [x] Build Footer template (ID 46) — native Bricks elements (rebuilt 2026-07-04)
+- [x] Build Blog Archive template (ID 52) — native Bricks elements, zero Code elements (rebuilt 2026-07-04)
 - [x] Configure Simply Static (Relative Path = /blog, Deploy = Local Directory, Output = D:/Coding Zone/digitrust-lab-static)
 - [x] First static export completed (2631 files, 8 min)
 - [x] GitHub Desktop repo created and published (`fallendamien/DigiTrustLabCode`, pushing to `master`)
 - [x] Connect Cloudflare Pages to repo — deployed via Wrangler CLI
 - [x] Add Cloudflare DNS CNAME — **blog.digitrustlab.com is LIVE**
-- [x] Post-process script handles Simply Static export bugs (form stripping, double-slash links) — `scripts/post-process-static.ps1`
 - [x] TROUBLESHOOTING.md documents known issues
 - [x] Create core pages: Tentang Kami, Polisi Privasi, Disclaimer, Hubungi Kami
 - [x] Nav labels standardized to Malay (Tentang Kami, Hubungi Kami, Polisi Privasi)
 - [x] Git repository initialized + Windsurf workspace bootstrapped (AGENTS.md, .windsurf/rules)
-- [x] Bricks template backup system (rule + skill + workflow) — all 4 templates exported as v1 + v2
 - [x] Fix mobile side menu contrast (white text on dark background)
 - [x] Fix Tentang Kami URL slug (/tentang → /tentang-kami) + nav menu link
 - [x] Fix Tentang Kami page element hierarchy (section > container > content with proper padding)
 - [x] Fix footer mobile centering (copyright + links centered on mobile, horizontal with 24px gap)
-- [x] Restore header template (new ID 140) after MCP destructive action — documented in AGENTS.md + TROUBLESHOOTING.md
+- [x] Restore header template (new ID 185) after MCP destructive action — documented in AGENTS.md + TROUBLESHOOTING.md
+- [x] **GUI-First Policy 100% clean** — all 4 templates rebuilt with native Bricks elements, zero Code elements (2026-07-04)
+- [x] Bricks MCP full tool audit — 41 tool calls tested, 38 pass, 3 expected failures (2026-07-04)
+- [x] Bridge enum truncation bug fixed — full action enums now visible to Claude Desktop (2026-07-04)
+- [x] Document `template:update` silently ignores `elements` param — use `content:update_content` instead
+- [x] Document `type: "content"` (not `"single"`) for template type filter
 - [ ] **Delete test post** ("Simply Static export pipeline..." test post still in WP Admin → Posts)
 - [ ] **SEO pass on core pages** — Tentang Kami done (2026-07-01, see below); Privasi/Disclaimer/Hubungi Kami pending
 - [ ] Set up Google Analytics 4
@@ -180,7 +184,6 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 
 - [ ] Convert Single Post template (ID 10) from Code element to native Bricks elements
 - [ ] Convert Blog Archive template (ID 52) from Code element to native Bricks elements
-- [x] Bricks template backup system (rule + skill + workflow) ✅ Created 2026-07-03
 
 ---
 
@@ -206,7 +209,6 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - ✅ **Blog LIVE at blog.digitrustlab.com (confirmed 2026-07-01)**
 - ✅ Core pages live (Tentang Kami, Polisi Privasi, Disclaimer, Hubungi Kami)
 - ✅ Tentang Kami SEO/copy pass completed + pushed live (2026-07-03)
-- ✅ Bricks template backup system + all 4 templates exported v1 + v2 (2026-07-03)
 - ✅ Mobile menu contrast fix + footer mobile centering + Tentang Kami padding fix (2026-07-03)
 - ✅ Header template restored (ID 140) after MCP destructive action (2026-07-03)
 - 🎯 First blog post published — target: this week (0 of 10 done — content is now the bottleneck, not infra)
@@ -248,7 +250,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 **Local site path:** ~\Local Sites\digitrust-lab\
 **Live blog:** https://blog.digitrustlab.com/
 **GitHub repo:** https://github.com/fallendamien/DigiTrustLabCode
-**Deploy command:** `npx wrangler pages deploy . --project-name=digitrust-lab-static --branch=main`
+**Deploy:** `npx wrangler pages deploy . --project-name=digitrust-lab-static --branch=main` (or Cloudflare dashboard)
 **Simply Static generate URL:** `https://digitrust-lab.local/wp-admin/admin.php?page=simply-static-generate`
 
 ---
