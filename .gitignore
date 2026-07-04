@@ -38,6 +38,9 @@ wp-content/uploads/
 wp-content/upgrade/
 wp-content/backup-*/
 
+# Wrangler CLI cache
+.wrangler/
+
 # Agentic AI folders (machine-specific symlinks, not portable across machines)
 # Keep: AGENTS.md, WINDSURF.md, CLAUDE.md, .codex/instructions.md (portable text files)
 .codex/skills/
