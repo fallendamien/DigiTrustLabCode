@@ -10,21 +10,37 @@ This file contains project-specific rules and operating standards for AI coding 
 
 This is a blogging business project, NOT a development project. The user does not want raw code hassles, background scripts, or post-processing pipelines. Everything must use Bricks' own standard operations and tools.
 
-## 🔴 CRITICAL: Blog Archive Template (ID 52) — READ BEFORE TOUCHING
+## 🔴 FROZEN: Templates 185 (Header) and 52 (Blog Archive)
 
-This template has broken TWICE (2026-07-04) by being re-saved with flattened
-structure — every element ends up with `parent: 0` instead of proper nesting,
-and `_cssCustom` selectors end up pointing at stale auto-regenerated IDs.
-Root cause: Devin opening/saving this template, either via Bricks GUI or an
-MCP write that didn't preserve the `children` array correctly.
+**EFFECTIVE IMMEDIATELY (2026-07-05): These templates are FROZEN. Do NOT touch them.**
 
-**Before touching template ID 52 (or any Bricks template) again:**
-1. Run `template:get` FIRST and check every element has a correct `parent` field (not `0` unless it's the root section)
-2. When writing, always include explicit `children` arrays and correct `parent` refs on every element — never partially edit
-3. After writing, immediately `template:get` again to confirm nesting held
-4. Do NOT open a template in the Bricks visual editor and hit save unless the structure has already been verified — opening/saving in the GUI appears to be a trigger for this flattening bug
+Do not read them. Do not write them. Do not open them in the Bricks GUI. Do not attempt to fix them.
+If a task requires changes to these templates, STOP and tell Zamri: "This requires touching a frozen template. Escalate to Claude."
 
-**Symptom when broken:** Blog Archive title/subtitle render left-aligned instead of centered, because the `_cssCustom` selector targets an element ID that no longer exists after the flattened save regenerated new IDs.
+**Background:** As of 2026-07-04, Devin has caused the flattening bug THREE times on these
+two templates. Every write via MCP `content:update_content` regenerates all element IDs,
+flattens all `parent` fields to `0`, and breaks `_cssCustom` selectors. The bug is in the
+Bricks MCP API itself — not fixable from our side. Templates are frozen until a solution
+is found (e.g., switching to Respira MCP which has snapshot/rollback).
+
+## ✅ Devin's Permitted Scope
+
+**You ARE permitted to:**
+- Create and edit WordPress POSTS and PAGES (content only, not Bricks templates)
+- Manage menus via Bricks MCP menu tools
+- Run Simply Static export (WP Admin → Simply Static → Generate → Push)
+- Run Wrangler deploy
+- Edit AGENTS.md, ROADMAP.md, STATE.json, NEXT.md
+- Install or configure plugins (not Bricks templates)
+
+**You are NOT permitted to:**
+- Touch template IDs 185 or 52 via any method (read, write, GUI, MCP)
+- Use post-processing scripts, PowerShell, or mu-plugins for any styling task
+
+## ✅ Current Priority: Write and Publish Post #1
+
+This is the only task that matters right now. Do NOT work on any template, design,
+or infrastructure task unless Zamri explicitly instructs it.
 
 ## 🔴 UNRESOLVED: Category/Taxonomy Archives Don't Use Custom Template
 
@@ -66,97 +82,44 @@ custom template isn't being used there at all.
 **Bricks MCP is installed and active on digitrust-lab.local.** Connected to Windsurf and Claude Desktop.
 
 **Full tool reference:** `.devin/rules/bricks-standard-guide.md` (always_on)
-
-**Rule: For ANY Bricks template task (read, write, modify, create), use Bricks MCP tools. NO EXCEPTIONS for styling/layout/visual changes. Only fall back to direct DB/PHP if MCP is literally unavailable (server down).**
-
-### 📖 Bricks Builder Guide (REFERENCE FILE)
-
-**Full reference:** `.devin/rules/bricks-standard-guide.md`
-
-**Quick summary:**
-- **`BRICKS-BUILDER-GUIDE.md`** — Local reference for Bricks MCP element settings, style properties, animations, query loops, forms, components, popups, and gotchas
-- **ALWAYS read it before editing Bricks elements via MCP** — prevents common trial-and-error mistakes (e.g. `_gap` doesn't work on containers, use `_cssCustom` instead; `#brxe-{id}` not `%root%`; `_widthMax` not `_maxWidth`)
+**Builder guide:** `BRICKS-BUILDER-GUIDE.md` — read BEFORE editing Bricks elements via MCP
 
 ### Decision Matrix
 
 | Task | Use GUI | Use Bricks MCP | Use Non-Bricks Code | Why |
 |------|---------|----------------|---------------------|-----|
-| Change nav labels | ✅ Bricks → Header template → edit text | ⚠️ Possible | ❌ | 2 min in GUI |
 | Edit page content | ✅ WordPress → Pages → edit | ⚠️ Possible | ❌ | Standard WP editing |
-| Change footer links/labels | ✅ Bricks → Footer template → edit | ⚠️ Possible | ❌ | 2 min in GUI |
 | Add/remove pages | ✅ WordPress → Pages | ❌ | ❌ | Standard WP |
 | Change colors/typography | ✅ Bricks → Settings → Custom CSS | ✅ `design` tool | ❌ | Visual editor or MCP |
-| Add/remove nav items | ✅ Bricks → Header template | ✅ `menu` tool | ❌ | Drag and drop or MCP |
-| Rebuild template structure | ⚠️ Guide user in GUI | ✅ `content` tool (`update_content`) | ❌ | `template:update` only does metadata |
-| Read template data | ❌ | ✅ `template` tool (`get`) | ❌ | MCP is cleanest read path |
-| Write/replace elements | ❌ | ✅ `content` tool (`update_content`) | ❌ | `template:update` silently ignores `elements` |
-| Create/manage global classes | ❌ | ✅ `design` tool | ❌ | MCP is primary for design tokens |
 | Manage WP menus | ✅ Appearance → Menus | ✅ `menu` tool | ❌ | GUI or MCP |
-| Search bar | ✅ Bricks → add Search element | ✅ `content` tool | ❌ | Native Bricks element |
 | Deploy to Cloudflare | ✅ Cloudflare dashboard upload | ❌ | ✅ Wrangler CLI | Deploy tool only, not Bricks internal |
+| ⛔ Touch Template 185/52 | ❌ FROZEN | ❌ FROZEN | ❌ FROZEN | Escalate to Claude |
 
-### Protocol
-
-```
-BEFORE doing anything for this project, ask:
-
-1. Can this be done in the Bricks Builder GUI? → If YES, guide the user to do it there
-2. Can this be done via Bricks MCP? → If YES, use MCP tools (template, content, design, menu, etc.)
-3. Can this be done in the WordPress admin GUI? → If YES, guide the user to do it there
-4. None of the above? → STOP. Do not use scripts, PowerShell, post-processing, or any non-Bricks method.
-
-NEVER use raw HTML Code elements, inline styles, or non-Bricks frameworks for template structure.
-NEVER use element name "code" in Bricks JSON.
-NEVER write PHP mu-plugins or direct DB queries for Bricks tasks.
-NEVER use post-process scripts, PowerShell, or background code for Bricks styling/template tasks.
-Wrangler CLI is allowed for deployment only (not for Bricks internal operations).
-ALL Bricks JSON must use native element names and follow Bricks schema.
-```
-
-### ⚠️ Bricks MCP Destructive Actions (CRITICAL)
-
-**These MCP actions silently destroy data. Always backup before using.**
+### ⚠️ Bricks MCP Destructive Actions
 
 | Action | What Happens | Prevention |
 |--------|-------------|------------|
-| `template update` with `type` change | **Wipes ALL elements** — returns `elements: []` | NEVER change type after elements exist |
-| `template update` with `elements` param | **Silently ignores `elements`** — returns success but elements unchanged | Use `content update_content` with `post_id` to write elements |
-| `content update_content` | **Replaces ALL elements** — not just the one you pass | Always provide the COMPLETE element array |
-| `content delete` with `element_id` | **Trashes the entire post** — not just the element | NEVER use on templates with elements |
+| `template update` with `type` change | **Wipes ALL elements** | NEVER change type after elements exist |
+| `template update` with `elements` param | **Silently ignores `elements`** | Use `content update_content` with `post_id` |
+| `content update_content` | **Replaces ALL elements** + regenerates IDs (flattening bug) | ⛔ FROZEN for templates 185 & 52 |
+| `content delete` with `element_id` | **Trashes the entire post** | NEVER use on templates with elements |
 
-**Correct workflow for creating Bricks templates via MCP:**
-```
-1. `content create` — create template with title, post_type, status, AND elements all at once
-2. `template set` — set template type and conditions (type + conditions together)
-3. `content update_content` — update individual elements if needed (provide FULL array)
-```
+### Incident Log (Lessons Learned)
 
-**NEVER use `template update` to change type after elements exist.**
-**NEVER use `template update` to write elements — it only updates metadata (title, status, slug, type, tags, bundles). Use `content update_content` with `post_id` instead.**
+**Incident 1:** Spent 45+ min writing PHP mu-plugins for a 2-min GUI task.
+**Incident 2 (2026-07-04):** Post-process CSS injection fought with Bricks native CSS, making mobile menu worse.
+**Incident 3 (2026-07-04):** AI-created JSON backups had structural issues on re-import. User banned all AI-created backups.
+**Incident 4 (2026-07-04/05):** Flattening bug destroyed templates 185 & 52 THREE times via MCP writes. Templates now FROZEN.
 
-### What Happened (Lesson Learned — MULTIPLE TIMES)
+**Root cause:** Reaching for scripts/MCP writes instead of Bricks standard operations.
 
-**Incident 1:** Previous sessions spent 45+ minutes writing PHP mu-plugins, dealing with serialized arrays, `wp_hash()` signatures, and DB queries — for tasks that would have taken **2 minutes in the Bricks GUI**.
-
-**Incident 2 (2026-07-04):** Instead of using Bricks MCP to fix footer layout, mobile menu animation, and Tentang Kami padding, CSS was injected via `post-process-static.ps1`. The injected CSS fought with Bricks' native CSS, making the mobile menu animation WORSE (sudden disappear, jittery opening). The padding fix also didn't work because post-process CSS was being overridden by Bricks' own exported styles.
-
-**Incident 3 (2026-07-04):** JSON backup files created by AI had structural issues when re-imported via Bricks GUI — elements were missing after import. User decided to handle all backups manually and banned all AI-created backup mechanisms.
-
-**Root cause:** Reaching for PowerShell/scripts instead of Bricks standard operations.
-
-**Lesson: EVERYTHING via Bricks standard procedures. NO scripts. NO post-processing. NO exceptions.**
-
-### The Correct Workflow
+### Correct Workflow
 
 ```
 1. Make all changes via Bricks Builder GUI (primary) or Bricks MCP (when GUI impractical)
 2. Run Simply Static export (WP Admin → Simply Static → Generate)
 3. Deploy via Wrangler CLI or Cloudflare dashboard
 ```
-
-### When Code IS Appropriate
-
-**NEVER for Bricks tasks.** All Bricks work must be done through Bricks GUI or Bricks MCP. No scripts, no post-processing, no background code for Bricks internal operations. Wrangler CLI for deployment is the only exception.
 
 ## Default Expectations
 
@@ -193,10 +156,10 @@ ALL Bricks JSON must use native element names and follow Bricks schema.
 
 | Template | ID | Type | Status |
 |----------|----|------|--------|
-| Header | 185 | header | ✅ Native elements |
+| Header | 185 | header | 🔴 FROZEN — do not touch |
 | Footer | 46 | footer | ✅ Native elements |
 | Single Post | 10 | content | ✅ Native elements |
-| Blog Archive | 52 | archive | ✅ Native elements |
+| Blog Archive | 52 | archive | 🔴 FROZEN — do not touch |
 
 ## Notes
 

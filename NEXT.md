@@ -2,13 +2,12 @@
 
 ## Current State
 
-- ✅ Blog is LIVE at https://blog.digitrustlab.com
+- ✅ Blog is LIVE at https://www.digitrustlab.com
 - WordPress + Bricks Builder + Simply Static + Cloudflare Pages pipeline working
-- All 4 templates native Bricks elements (zero Code elements): Header (185), Footer (46), Single Post (10), Blog Archive (52)
+- 🔴 Templates 185 (Header) and 52 (Blog Archive) are FROZEN — do not touch via any method
 - Core pages: Homepage, Tentang Kami, Polisi Privasi, Disclaimer, Hubungi Kami
-- Bricks MCP bridge enum truncation bug fixed (2026-07-04) — full action enums visible to Claude Desktop
-- Bricks MCP full tool audit complete (2026-07-04) — 41 calls tested, all working correctly
-- TROUBLESHOOTING.md documents 13+ known issues with solutions
+- Bricks MCP bridge tools/list trimming fixed (2026-07-04) — response under 8KB
+- TROUBLESHOOTING.md documents 14+ known issues with solutions
 
 ## Completed (Sessions 1-6, 2026-06-28 to 2026-07-04)
 
@@ -32,19 +31,26 @@
 
 ## Next Steps (Priority Order)
 
-1. **Write first blog post** — WriterZen keyword research → write → ClickRank optimization
-2. **Set up Google Search Console + GA4** — verify ownership, submit sitemap
-3. **Verify ClickRank ownership** — JS snippet on blog
-4. **Add digitrustlab.com to Screpy** — monitoring
-5. **Register Klikjer affiliate** — free, 50% commission, Malaysian eBooks
-6. **Register JV Warrior affiliate** — Malaysian digital products
-7. **Create Etsy shop** — choose clean shop name (NOT DigiTrust Lab)
-8. **Create first Etsy listing** — "30 Prompt AI untuk Iklan FB & IG (Bahasa Melayu)"
-9. **Set up MailerLite** — free account, newsletter form on blog
-10. **Create lead magnet PDF** — "50 Prompt AI Percuma"
+1. **Write and publish Post #1** — THE ONLY PRIORITY RIGHT NOW
+2. Set up Google Search Console + GA4 — verify ownership, submit sitemap
+3. Verify ClickRank ownership — JS snippet on blog
+4. Add digitrustlab.com to Screpy — monitoring
+5. Register Klikjer affiliate — free, 50% commission, Malaysian eBooks
+6. Register JV Warrior affiliate — Malaysian digital products
+7. Create Etsy shop — choose clean shop name (NOT DigiTrust Lab)
+8. Create first Etsy listing — "30 Prompt AI untuk Iklan FB & IG (Bahasa Melayu)"
+9. Set up MailerLite — free account, newsletter form on blog
+10. Create lead magnet PDF — "50 Prompt AI Percuma"
+
+## Scope Restrictions
+
+- **FROZEN:** Template 185 (Header) and Template 52 (Blog Archive) — do not touch
+- **Permitted:** Posts, pages, menus, Simply Static export, Wrangler deploy, project docs
+- **NOT Permitted:** Any template writes, post-processing scripts, Bricks GUI template editing
 
 ## Important Notes
 
 - **Bricks-Only Policy**: ALL changes via Bricks Builder GUI or Bricks MCP. NO scripts, NO post-processing.
+- **Frozen Templates**: 185 (Header) and 52 (Blog Archive) — do not read, write, or open via any method
 - **Export workflow**: GUI/MCP edits → Simply Static export → wrangler deploy (or Cloudflare dashboard)
 - **Deploy**: `npx wrangler pages deploy "D:\Coding Zone\digitrust-lab-static" --project-name=digitrust-lab-static --branch=main --commit-dirty=true` (or Cloudflare dashboard). Always use the full path — deploying from the wrong directory deploys source code instead of static HTML.

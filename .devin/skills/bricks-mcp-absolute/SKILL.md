@@ -5,6 +5,13 @@
 **Trigger:** ANY task involving visual/styling changes to Bricks elements.
 **Full rule:** See `AGENTS.md` § PRIORITY #1. **No exceptions for styling/layout/visual changes.**
 
+## 🔴 FROZEN TEMPLATES — DO NOT TOUCH
+
+**Template 185 (Header) and Template 52 (Blog Archive) are FROZEN.**
+
+Do NOT read, write, open in Bricks GUI, or attempt to fix these templates via any method.
+If a task requires changes to these templates, **STOP and tell Zamri**: "This requires touching a frozen template. Escalate to Claude."
+
 ## Protocol
 
 ### Step 1: Identify the Approach
@@ -20,26 +27,26 @@ NEVER use post-process scripts, PowerShell, or any background code for Bricks ta
 Wrangler CLI is allowed for deployment only.
 ```
 
+### ✅ Permitted Scope
+- Create and edit WordPress POSTS and PAGES (content only, not Bricks templates)
+- Manage menus via Bricks MCP menu tools
+- Run Simply Static export (WP Admin → Simply Static → Generate → Push)
+- Run Wrangler deploy
+- Install or configure plugins (not Bricks templates)
+- Manage media via Bricks MCP
+
+### ❌ NOT Permitted
+- Write to template IDs 185 or 52 via any method
+- Open template 185 or 52 in the Bricks visual editor
+- Use `content:update_content` on post_id 185 or 52
+- Use post-processing scripts, PowerShell, or mu-plugins for any styling task
+
 ### Step 2: Read the Builder Guide
 
 Read `BRICKS-BUILDER-GUIDE.md` before editing elements. Key gotchas documented there:
 - `_gap` doesn't work on containers → use `_cssCustom`
 - `#brxe-{id}` not `%root%` for CSS selectors
 - `_widthMax` not `_maxWidth`
-
-### ⚠️ Step 2.5: Pre-Write Verification (CRITICAL)
-
-**Before ANY `content update_content` call on an existing template:**
-
-1. **READ FIRST:** Call `template get` (or `content get` with `post_id`) to retrieve current elements
-2. **VERIFY STRUCTURE:** Check every element has correct `parent` field (not `0` unless root section) and `children` arrays are intact
-3. **PRESERVE NESTING:** When writing back, ALWAYS include explicit `children` arrays and correct `parent` refs on every element — never partially edit
-4. **VERIFY AFTER WRITE:** Immediately call `template get` again to confirm nesting held and element IDs haven't changed
-5. **NEVER open/save in Bricks GUI** without verifying structure first — GUI saves can trigger the flattening bug
-
-**Known bug:** `content update_content` on template ID 52 (and possibly others) can flatten the structure — all elements get `parent: 0` and new auto-generated IDs, breaking `_cssCustom` selectors that reference old IDs.
-
-**Symptom:** Title/subtitle render left-aligned instead of centered because `#brxe-{old_id}` CSS selector points at an element ID that no longer exists after the flattened save.
 
 ### Step 3: Use the Right MCP Tool
 
@@ -58,7 +65,6 @@ Read `BRICKS-BUILDER-GUIDE.md` before editing elements. Key gotchas documented t
 
 ### Step 4: Verify After Changes
 
-1. **Verify template structure** — `template get` to confirm nesting held (see Step 2.5)
-2. Re-export via Simply Static (WP Admin → Simply Static → Generate)
-3. Deploy via Wrangler CLI or Cloudflare dashboard
-4. Visually verify on live site
+1. Re-export via Simply Static (WP Admin → Simply Static → Generate)
+2. Deploy via Wrangler CLI or Cloudflare dashboard
+3. Visually verify on live site

@@ -25,25 +25,39 @@ When this rule triggers, auto-load:
 |-------|------|---------|
 | `bricks-mcp-absolute` | `.devin/skills/bricks-mcp-absolute/SKILL.md` | MCP tool selection and execution protocol |
 
+## 🔴 FROZEN TEMPLATES (185 & 52)
+
+**Templates 185 (Header) and 52 (Blog Archive) are FROZEN.**
+
+Do NOT:
+- Read, write, or open these templates in Bricks GUI
+- Use `content:update_content` on post_id 185 or 52
+- Attempt to fix, modify, or restore them via any method
+
+If a task requires changes to these templates, **STOP and tell Zamri**: "This requires touching a frozen template. Escalate to Claude."
+
 ## Scope Matrix
 
-### Bricks MCP (THE ONLY TOOL for visual/styling changes)
-- Reading/writing templates, elements, global classes, theme styles
-- Managing WordPress menus, media, components
-- Page-level CSS/JS management
-- Design tokens (palettes, variables, typography scales, fonts)
-- Padding, margins, layout, responsive CSS, mobile menu styling
-- Animation transitions, colors, fonts — ALL visual properties
+### ✅ Permitted Scope
+- Create and edit WordPress POSTS and PAGES (content only, not Bricks templates)
+- Manage menus via Bricks MCP menu tools
+- Run Simply Static export (WP Admin → Simply Static → Generate → Push)
+- Run Wrangler deploy
+- Edit AGENTS.md, ROADMAP.md, STATE.json, NEXT.md
+- Install or configure plugins (not Bricks templates)
+- Manage media via Bricks MCP
 
-### NEVER Allowed
-- Post-process scripts (PowerShell, Python, or any background code)
+### ❌ NOT Permitted
+- Write to template IDs 185 or 52 via any method
+- Open template 185 or 52 in the Bricks visual editor
+- Use `content:update_content` on post_id 185 or 52
+- Use post-processing scripts, PowerShell, or mu-plugins for any styling task
 - Raw HTML Code elements in Bricks templates (element name "code")
 - Inline HTML/CSS/JS pretending to be Bricks elements
 - Non-Bricks frameworks (React, Vue, etc.) injected into templates
 - Random PHP that doesn't use Bricks APIs or WordPress hooks
 - PHP mu-plugins for Bricks tasks
 - Any script that modifies static HTML files after Simply Static export
-- **`content update_content` without pre-write verification** — can flatten element structure (all `parent: 0`, new IDs, broken `_cssCustom` selectors). See AGENTS.md § "Blog Archive Template (ID 52)"
 
 ### Allowed (Non-Bricks, deploy only)
 - Wrangler CLI for Cloudflare Pages deployment — deploy tool only, not Bricks internal
