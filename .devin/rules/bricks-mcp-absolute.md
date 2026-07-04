@@ -43,6 +43,7 @@ When this rule triggers, auto-load:
 - Random PHP that doesn't use Bricks APIs or WordPress hooks
 - PHP mu-plugins for Bricks tasks
 - Any script that modifies static HTML files after Simply Static export
+- **`content update_content` without pre-write verification** — can flatten element structure (all `parent: 0`, new IDs, broken `_cssCustom` selectors). See AGENTS.md § "Blog Archive Template (ID 52)"
 
 ### Allowed (Non-Bricks, deploy only)
 - Wrangler CLI for Cloudflare Pages deployment — deploy tool only, not Bricks internal

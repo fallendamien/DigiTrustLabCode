@@ -10,6 +10,57 @@ This file contains project-specific rules and operating standards for AI coding 
 
 This is a blogging business project, NOT a development project. The user does not want raw code hassles, background scripts, or post-processing pipelines. Everything must use Bricks' own standard operations and tools.
 
+## 🔴 CRITICAL: Blog Archive Template (ID 52) — READ BEFORE TOUCHING
+
+This template has broken TWICE (2026-07-04) by being re-saved with flattened
+structure — every element ends up with `parent: 0` instead of proper nesting,
+and `_cssCustom` selectors end up pointing at stale auto-regenerated IDs.
+Root cause: Devin opening/saving this template, either via Bricks GUI or an
+MCP write that didn't preserve the `children` array correctly.
+
+**Before touching template ID 52 (or any Bricks template) again:**
+1. Run `template:get` FIRST and check every element has a correct `parent` field (not `0` unless it's the root section)
+2. When writing, always include explicit `children` arrays and correct `parent` refs on every element — never partially edit
+3. After writing, immediately `template:get` again to confirm nesting held
+4. Do NOT open a template in the Bricks visual editor and hit save unless the structure has already been verified — opening/saving in the GUI appears to be a trigger for this flattening bug
+
+**Symptom when broken:** Blog Archive title/subtitle render left-aligned instead of centered, because the `_cssCustom` selector targets an element ID that no longer exists after the flattened save regenerated new IDs.
+
+## 🔴 UNRESOLVED: Category/Taxonomy Archives Don't Use Custom Template
+
+Template ID 52 (Blog Archive) has condition `{"main": "archiveType", "archiveType": "any"}`
+set via `template_condition:set`. This correctly applies to `/blog/` (post type
+archive) but does NOT apply to `/category/ai-tools/` or `/category/digital-side-hustle/`
+(taxonomy term archives).
+
+**Confirmed via DOM inspection:** on category pages, `#brx-content` contains ONLY
+`<div class="brxe-container"><div class="bricks-no-posts-wrapper">...</div></div>`
+— none of our template's elements (section/header block/heading/grid) are present
+at all. This means Bricks is not loading template 52 on taxonomy archives — it's
+using some other fallback entirely.
+
+**What was tried (didn't work):**
+- `archiveType: any` condition alone
+- Adding a second condition `archivePostType: post`
+- Adding `hasLoop: true` + `is_main_query: true` to the query object per the Bricks
+  MCP builder guide's Archive Templates section
+
+**Needs investigation:**
+- Check `bricks:get_condition_schema` or `template_condition:types` for the correct
+  condition to target taxonomy archives specifically (may need something like
+  `archiveType: taxonomy` or a `terms` condition type, not `archivePostType`)
+- Verify whether Bricks WP core theme even supports a single template covering
+  BOTH post-type archives AND taxonomy archives, or if they need separate
+  templates/conditions
+- Check in Bricks GUI directly: Template 52 → Settings → Conditions, to see what
+  the visual condition picker actually offers for taxonomy targeting
+
+**Workaround in place:** `.bricks-archive-title-wrapper { display: none !important; }`
+in WP Additional CSS hides the ugly "Category: X" heading. The "Nothing found"
+state is cosmetic-only until Post #1 exists, but the missing centered header/grid
+styling on category pages will persist even after posts are published, since the
+custom template isn't being used there at all.
+
 ### 🧩 Bricks MCP Server (PRIMARY TOOL)
 
 **Bricks MCP is installed and active on digitrust-lab.local.** Connected to Windsurf and Claude Desktop.

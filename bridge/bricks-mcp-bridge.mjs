@@ -70,29 +70,33 @@ async function streamSseResponse(response, msg, deadline) {
       }
 
       // Trim large tools/list responses — Claude Desktop has a stdio buffer limit (~8KB)
-      // Keep all parameter names (critical for tool calls) but strip descriptions and non-action enums
+      // Keep all parameter names (critical for tool calls) but strip aggressively
       if (parsed.result && parsed.result.tools && Array.isArray(parsed.result.tools)) {
         const originalSize = JSON.stringify(parsed).length;
         if (originalSize > 8000) {
           for (const tool of parsed.result.tools) {
-            // Truncate description to 80 chars
-            if (tool.description && tool.description.length > 80) {
-              tool.description = tool.description.substring(0, 80) + '...';
+            // Truncate description to 60 chars
+            if (tool.description && tool.description.length > 60) {
+              tool.description = tool.description.substring(0, 60) + '...';
             }
-            // Remove annotations and outputSchema — not needed for tool discovery
+            // Remove annotations, outputSchema, defaults — not needed for tool discovery
             delete tool.annotations;
             delete tool.outputSchema;
-            // Keep all param names + types + enums, strip descriptions to save space
-            // Enums are critical — MCP schema validation rejects values not in the enum
+            delete tool.defaults;
             if (tool.inputSchema && tool.inputSchema.properties) {
               for (const key of Object.keys(tool.inputSchema.properties)) {
                 const prop = tool.inputSchema.properties[key];
                 const trimmed = { type: prop.type || 'string' };
-                // Keep full enum for all properties — truncated enums cause "Failed to call tool" errors
-                if (prop.enum) {
+                // Only keep enum for 'action' property — other enums (status, type, response_format)
+                // are not validated by Claude Desktop and just waste space
+                if (key === 'action' && prop.enum) {
                   trimmed.enum = prop.enum;
                 }
                 tool.inputSchema.properties[key] = trimmed;
+              }
+              // Strip required to just 'action' — other required fields cause false validation errors
+              if (tool.inputSchema.required) {
+                tool.inputSchema.required = tool.inputSchema.required.includes('action') ? ['action'] : [];
               }
             }
           }

@@ -27,6 +27,20 @@ Read `BRICKS-BUILDER-GUIDE.md` before editing elements. Key gotchas documented t
 - `#brxe-{id}` not `%root%` for CSS selectors
 - `_widthMax` not `_maxWidth`
 
+### ⚠️ Step 2.5: Pre-Write Verification (CRITICAL)
+
+**Before ANY `content update_content` call on an existing template:**
+
+1. **READ FIRST:** Call `template get` (or `content get` with `post_id`) to retrieve current elements
+2. **VERIFY STRUCTURE:** Check every element has correct `parent` field (not `0` unless root section) and `children` arrays are intact
+3. **PRESERVE NESTING:** When writing back, ALWAYS include explicit `children` arrays and correct `parent` refs on every element — never partially edit
+4. **VERIFY AFTER WRITE:** Immediately call `template get` again to confirm nesting held and element IDs haven't changed
+5. **NEVER open/save in Bricks GUI** without verifying structure first — GUI saves can trigger the flattening bug
+
+**Known bug:** `content update_content` on template ID 52 (and possibly others) can flatten the structure — all elements get `parent: 0` and new auto-generated IDs, breaking `_cssCustom` selectors that reference old IDs.
+
+**Symptom:** Title/subtitle render left-aligned instead of centered because `#brxe-{old_id}` CSS selector points at an element ID that no longer exists after the flattened save.
+
 ### Step 3: Use the Right MCP Tool
 
 | Task | MCP Tool | Key Properties |
@@ -44,6 +58,7 @@ Read `BRICKS-BUILDER-GUIDE.md` before editing elements. Key gotchas documented t
 
 ### Step 4: Verify After Changes
 
-1. Re-export via Simply Static (WP Admin → Simply Static → Generate)
-2. Deploy via Wrangler CLI or Cloudflare dashboard
-3. Visually verify on live site
+1. **Verify template structure** — `template get` to confirm nesting held (see Step 2.5)
+2. Re-export via Simply Static (WP Admin → Simply Static → Generate)
+3. Deploy via Wrangler CLI or Cloudflare dashboard
+4. Visually verify on live site

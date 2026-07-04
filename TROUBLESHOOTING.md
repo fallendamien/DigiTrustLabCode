@@ -969,3 +969,47 @@ header, footer, archive, search, error, content, section, popup, password_protec
 ### Solution
 
 Use `type: "content"` instead of `type: "single"` when filtering for single post templates.
+
+---
+
+## Bricks MCP `content update_content` Flattens Element Structure
+
+**Date:** 2026-07-04
+**Severity:** Critical (template structure destroyed, CSS selectors broken)
+**Affected Template:** ID 52 (Blog Archive) — broken TWICE
+
+### Symptoms
+
+- After calling `content update_content` with a full element array (including `children` and `parent` fields), a subsequent `template get` shows:
+  - ALL elements have `parent: 0` (flattened — no nesting)
+  - ALL `children` arrays are missing
+  - Element IDs have been regenerated (e.g., `b3hdbl` → `dppqck`)
+- `_cssCustom` selectors referencing old IDs (e.g., `#brxe-b3hdbl`) no longer match any element
+- Title/subtitle render left-aligned instead of centered
+- The template appears to have no structure — just a flat list of elements
+
+### Root Cause
+
+The Bricks MCP `content update_content` action regenerates element IDs on save, even when explicit IDs are passed in the element array. When IDs are regenerated:
+
+1. The `parent` field references (which used old IDs) become invalid
+2. Bricks resets all `parent` fields to `0` since the referenced IDs no longer exist
+3. `children` arrays are not preserved — they're derived from `parent` fields during rendering
+4. `_cssCustom` selectors using `#brxe-{old_id}` break because the elements now have new IDs
+
+This can also be triggered by opening a template in the Bricks visual editor and saving — the GUI appears to regenerate IDs on save.
+
+### Prevention Rules
+
+1. **ALWAYS `template get` BEFORE writing** — verify current structure and element IDs
+2. **When writing, ALWAYS include explicit `children` arrays and correct `parent` refs** — never partially edit
+3. **ALWAYS `template get` AFTER writing** — confirm nesting held and IDs haven't changed
+4. **NEVER open/save a template in Bricks GUI** without verifying structure first — GUI saves can trigger the same flattening
+5. **If IDs regenerate on every save**, update `_cssCustom` selectors to match the NEW IDs after each write
+6. **Consider using Bricks GUI for structural edits** on templates with complex `_cssCustom` dependencies — MCP writes may not preserve IDs reliably
+
+### Documented In
+
+- `AGENTS.md` → "CRITICAL: Blog Archive Template (ID 52) — READ BEFORE TOUCHING"
+- `.devin/skills/bricks-mcp-absolute/SKILL.md` → Step 2.5: Pre-Write Verification
+- `.devin/rules/bricks-mcp-absolute.md` → NEVER Allowed section
