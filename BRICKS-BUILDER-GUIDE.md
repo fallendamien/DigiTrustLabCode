@@ -1,5 +1,7 @@
 # Bricks MCP Builder Guide
 
+> ⚠️ **Tool names in this guide refer to the old Bricks MCP (decommissioned 2026-07-05).** The active MCP is now **Respira** (`respira_*` tools). Bricks Builder concepts, element settings schemas, `_cssCustom` patterns, and gotchas documented here still apply — only the tool names differ.
+
 Patterns and reference for AI models building Bricks Builder pages via MCP tools.
 
 ## Golden Rule: Batch Creation

@@ -2,13 +2,13 @@
 trigger: always_on
 ---
 
-# Bricks MCP Absolute Priority
+# Respira MCP Absolute Priority
 
 **Priority:** CRITICAL — see `AGENTS.md` § PRIORITY #1 for full rule, incident log, and workflow.
 
 ## Quick Decision Table
 
-| Use Bricks MCP | Use GUI | Use Non-Bricks |
+| Use Respira MCP | Use GUI | Use Non-Bricks |
 |----------------|---------|---------------|
 | Padding, margins, layout | Simple text edits | ❌ NEVER |
 | Colors, fonts, typography | Nav label changes | ❌ NEVER |
@@ -25,33 +25,27 @@ When this rule triggers, auto-load:
 |-------|------|---------|
 | `bricks-mcp-absolute` | `.devin/skills/bricks-mcp-absolute/SKILL.md` | MCP tool selection and execution protocol |
 
-## 🔴 FROZEN TEMPLATES (185 & 52)
+## ✅ Templates 185 & 52 — UNFROZEN (Respira MCP active)
 
-**Templates 185 (Header) and 52 (Blog Archive) are FROZEN.**
+Templates 185 (Header) and 52 (Blog Archive) are editable via Respira MCP. Respira snapshots before every write.
 
-Do NOT:
-- Read, write, or open these templates in Bricks GUI
-- Use `content:update_content` on post_id 185 or 52
-- Attempt to fix, modify, or restore them via any method
-
-If a task requires changes to these templates, **STOP and tell Zamri**: "This requires touching a frozen template. Escalate to Claude."
+- Always run `respira_extract_builder_content` before editing
+- Keep `snapshot_uuid` from response for rollback via `respira_restore_snapshot`
 
 ## Scope Matrix
 
 ### ✅ Permitted Scope
 - Create and edit WordPress POSTS and PAGES (content only, not Bricks templates)
-- Manage menus via Bricks MCP menu tools
+- Manage menus via Respira MCP menu tools
 - Run Simply Static export (WP Admin → Simply Static → Generate → Push)
 - Run Wrangler deploy
 - Edit AGENTS.md, ROADMAP.md, STATE.json, NEXT.md
-- Install or configure plugins (not Bricks templates)
-- Manage media via Bricks MCP
+- Install or configure plugins
+- Manage media via Respira MCP
 
 ### ❌ NOT Permitted
-- Write to template IDs 185 or 52 via any method
-- Open template 185 or 52 in the Bricks visual editor
-- Use `content:update_content` on post_id 185 or 52
 - Use post-processing scripts, PowerShell, or mu-plugins for any styling task
+- Use the old Bricks MCP endpoint (`/wp-json/bricks-mcp/v1/mcp`) — decommissioned
 - Raw HTML Code elements in Bricks templates (element name "code")
 - Inline HTML/CSS/JS pretending to be Bricks elements
 - Non-Bricks frameworks (React, Vue, etc.) injected into templates

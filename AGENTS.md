@@ -4,38 +4,33 @@ This file contains project-specific rules and operating standards for AI coding 
 
 ## 🔴 PRIORITY #1: Bricks-Only Policy (CRITICAL)
 
-**RULE: EVERYTHING inside Bricks must be done via Bricks standard procedures — Bricks Builder GUI or Bricks MCP. NO post-processing scripts. NO PowerShell CSS injection. NO background code. NO internal hacks. NO exceptions. If it can't be done through Bricks GUI or Bricks MCP, it doesn't get done.**
+**RULE: EVERYTHING inside Bricks must be done via Bricks standard procedures — Bricks Builder GUI or Respira MCP. NO post-processing scripts. NO PowerShell CSS injection. NO background code. NO internal hacks. NO exceptions. If it can't be done through Bricks GUI or Respira MCP, it doesn't get done.**
 
 **Exception:** Wrangler CLI is allowed for Cloudflare Pages deployment only — it's a deploy tool, not a Bricks internal operation.
 
 This is a blogging business project, NOT a development project. The user does not want raw code hassles, background scripts, or post-processing pipelines. Everything must use Bricks' own standard operations and tools.
 
-## 🔴 FROZEN: Templates 185 (Header) and 52 (Blog Archive)
+## ✅ Templates 185 & 52 — UNFROZEN (Respira MCP active)
 
-**EFFECTIVE IMMEDIATELY (2026-07-05): These templates are FROZEN. Do NOT touch them.**
+**As of 2026-07-05, Respira MCP replaced the old Bricks MCP.** Respira takes a snapshot before every write and supports one-call rollback. The flattening bug was caused by the old Bricks MCP's `content:update_content` action — Respira does not use that API.
 
-Do not read them. Do not write them. Do not open them in the Bricks GUI. Do not attempt to fix them.
-If a task requires changes to these templates, STOP and tell Zamri: "This requires touching a frozen template. Escalate to Claude."
-
-**Background:** As of 2026-07-04, Devin has caused the flattening bug THREE times on these
-two templates. Every write via MCP `content:update_content` regenerates all element IDs,
-flattens all `parent` fields to `0`, and breaks `_cssCustom` selectors. The bug is in the
-Bricks MCP API itself — not fixable from our side. Templates are frozen until a solution
-is found (e.g., switching to Respira MCP which has snapshot/rollback).
+Templates 185 (Header) and 52 (Blog Archive) are now editable via Respira MCP with confidence. Always use `respira_extract_builder_content` before editing and keep the returned `snapshot_uuid` for rollback if needed.
 
 ## ✅ Devin's Permitted Scope
 
 **You ARE permitted to:**
-- Create and edit WordPress POSTS and PAGES (content only, not Bricks templates)
-- Manage menus via Bricks MCP menu tools
+- Create and edit WordPress POSTS, PAGES, and Bricks templates via Respira MCP
+- Manage menus via Respira MCP menu tools
 - Run Simply Static export (WP Admin → Simply Static → Generate → Push)
 - Run Wrangler deploy
 - Edit AGENTS.md, ROADMAP.md, STATE.json, NEXT.md
-- Install or configure plugins (not Bricks templates)
+- Install or configure plugins
+- Manage media via Respira MCP
 
 **You are NOT permitted to:**
-- Touch template IDs 185 or 52 via any method (read, write, GUI, MCP)
 - Use post-processing scripts, PowerShell, or mu-plugins for any styling task
+- Use the old Bricks MCP endpoint (`/wp-json/bricks-mcp/v1/mcp`) — it is decommissioned
+- Use Raw HTML Code elements in Bricks templates
 
 ## ✅ Current Priority: Write and Publish Post #1
 
@@ -77,32 +72,29 @@ state is cosmetic-only until Post #1 exists, but the missing centered header/gri
 styling on category pages will persist even after posts are published, since the
 custom template isn't being used there at all.
 
-### 🧩 Bricks MCP Server (PRIMARY TOOL)
+### 🧩 Respira MCP (PRIMARY TOOL — replaced old Bricks MCP 2026-07-05)
 
-**Bricks MCP is installed and active on digitrust-lab.local.** Connected to Windsurf and Claude Desktop.
+**Respira MCP is active on digitrust-lab.local.** Connected to Windsurf and Claude Desktop.
 
-**Full tool reference:** `.devin/rules/bricks-standard-guide.md` (always_on)
-**Builder guide:** `BRICKS-BUILDER-GUIDE.md` — read BEFORE editing Bricks elements via MCP
+**Builder guide:** `BRICKS-BUILDER-GUIDE.md` — Bricks element concepts still apply (settings schema, `_cssCustom`, gotchas). Tool names in the guide refer to old Bricks MCP — use equivalent Respira tools instead.
 
 ### Decision Matrix
 
-| Task | Use GUI | Use Bricks MCP | Use Non-Bricks Code | Why |
+| Task | Use GUI | Use Respira MCP | Use Non-Bricks Code | Why |
 |------|---------|----------------|---------------------|-----|
-| Edit page content | ✅ WordPress → Pages → edit | ⚠️ Possible | ❌ | Standard WP editing |
-| Add/remove pages | ✅ WordPress → Pages | ❌ | ❌ | Standard WP |
-| Change colors/typography | ✅ Bricks → Settings → Custom CSS | ✅ `design` tool | ❌ | Visual editor or MCP |
-| Manage WP menus | ✅ Appearance → Menus | ✅ `menu` tool | ❌ | GUI or MCP |
-| Deploy to Cloudflare | ✅ Cloudflare dashboard upload | ❌ | ✅ Wrangler CLI | Deploy tool only, not Bricks internal |
-| ⛔ Touch Template 185/52 | ❌ FROZEN | ❌ FROZEN | ❌ FROZEN | Escalate to Claude |
+| Edit page/template content | ✅ WordPress/Bricks GUI | ✅ `respira_update_element` | ❌ | Primary tools |
+| Add/remove pages | ✅ WordPress → Pages | ✅ `respira_create_custom_post` | ❌ | Either works |
+| Change colors/typography | ✅ Bricks GUI | ✅ `respira_update_bricks_*` | ❌ | Visual editor or MCP |
+| Manage WP menus | ✅ Appearance → Menus | ✅ `respira_*_menu*` tools | ❌ | GUI or MCP |
+| Deploy to Cloudflare | ✅ Cloudflare dashboard | ❌ | ✅ Wrangler CLI | Deploy tool only |
+| Edit templates 185/52 | ✅ With care | ✅ With snapshot | ❌ | Respira has rollback |
 
-### ⚠️ Bricks MCP Destructive Actions
+### ⚠️ Respira MCP Safety Protocol
 
-| Action | What Happens | Prevention |
-|--------|-------------|------------|
-| `template update` with `type` change | **Wipes ALL elements** | NEVER change type after elements exist |
-| `template update` with `elements` param | **Silently ignores `elements`** | Use `content update_content` with `post_id` |
-| `content update_content` | **Replaces ALL elements** + regenerates IDs (flattening bug) | ⛔ FROZEN for templates 185 & 52 |
-| `content delete` with `element_id` | **Trashes the entire post** | NEVER use on templates with elements |
+- Every write auto-captures a snapshot — response includes `snapshot_uuid`
+- Rollback: `respira_restore_snapshot` with the `snapshot_uuid`
+- Before ANY template edit: run `respira_extract_builder_content` to see current state
+- The old flattening bug (`content:update_content` regenerating IDs) does NOT affect Respira
 
 ### Incident Log (Lessons Learned)
 
@@ -156,10 +148,10 @@ custom template isn't being used there at all.
 
 | Template | ID | Type | Status |
 |----------|----|------|--------|
-| Header | 185 | header | 🔴 FROZEN — do not touch |
+| Header | 185 | header | ✅ Editable via Respira MCP (snapshot before edit) |
 | Footer | 46 | footer | ✅ Native elements |
 | Single Post | 10 | content | ✅ Native elements |
-| Blog Archive | 52 | archive | 🔴 FROZEN — do not touch |
+| Blog Archive | 52 | archive | ✅ Editable via Respira MCP (snapshot before edit) |
 
 ## Notes
 
@@ -169,8 +161,7 @@ custom template isn't being used there at all.
 - Simply Static generate URL: `https://digitrust-lab.local/wp-admin/admin.php?page=simply-static-generate` (NOT `simply-static` — that's settings, not generate)
 - Live URL: `https://www.digitrustlab.com` (fully migrated from `blog.digitrustlab.com`, which no longer has a DNS record — do not reference the old subdomain)
 - Deploy: `npx wrangler pages deploy "D:\Coding Zone\digitrust-lab-static" --project-name=digitrust-lab-static --branch=main --commit-dirty=true` (or Cloudflare dashboard upload). **Always use the full path** — deploying from the wrong directory deploys source code instead of static HTML. `--commit-dirty=true` silences the git warning when running from inside a git repo.
-- Bricks MCP endpoint: `https://digitrust-lab.local/wp-json/bricks-mcp/v1/mcp`
-- Bricks MCP connected to: Windsurf, Claude Desktop
-- Bricks MCP bridge: `C:\Users\Zamri\bricks-mcp-bridge.mjs` (Claude Desktop only — Windsurf uses native MCP)
-- Bridge fix (2026-07-04): Enum truncation bug fixed — full action enums now preserved for all tools
+- Respira MCP: connected to Windsurf and Claude Desktop (replaced old Bricks MCP on 2026-07-05)
+- Respira API key stored in Claude Desktop via `.mcpb` install and in Windsurf `mcp_config.json`
+- Old Bricks MCP bridge (`bricks-mcp-bridge.mjs`) is decommissioned — do not use
 - Template type filter: Use `type: "content"` (not `"single"`) for single post templates
