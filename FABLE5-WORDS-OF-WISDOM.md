@@ -3,6 +3,10 @@
 
 ---
 
+Fair ask. You're about to enter the hardest stretch of this whole plan — the part where you publish into silence for months. That's exactly where dallycatguide died in 2022. So let me give you the honest case, not the hype.
+
+---
+
 ## 💰 The Math That Makes Blogs Different
 
 Your Meta Ads run: **RM501 spent → 1 sale → RM69.** The moment you stopped paying, revenue stopped. That's *renting* traffic.
