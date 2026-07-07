@@ -4,12 +4,14 @@
 
 - ✅ Blog is LIVE at https://www.digitrustlab.com
 - WordPress + Bricks Builder + Simply Static + Cloudflare Pages pipeline working
-- 🔴 Templates 185 (Header) and 52 (Blog Archive) are FROZEN — do not touch via any method
+- ✅ Templates 185 & 52 UNFROZEN — Respira MCP active with snapshot/rollback (2026-07-05)
+- ✅ Respira MCP replaced old Bricks MCP — connected to Windsurf + Claude Desktop
+- ✅ Template 10 sidebar fixed — Post Popular query loop + Panduan Percuma email form
 - Core pages: Homepage, Tentang Kami, Polisi Privasi, Disclaimer, Hubungi Kami
-- Bricks MCP bridge tools/list trimming fixed (2026-07-04) — response under 8KB
 - TROUBLESHOOTING.md documents 14+ known issues with solutions
+- 4 project workflows created: /seo-audit, /a11y-scan, /monday-audit, /two-pass-build
 
-## Completed (Sessions 1-6, 2026-06-28 to 2026-07-04)
+## Completed (Sessions 1-7, 2026-06-28 to 2026-07-05)
 
 - ✅ Git repo initialized, Windsurf workspace bootstrapped
 - ✅ Long-term revenue plan + affiliate research
@@ -28,6 +30,11 @@
 - ✅ Bricks MCP full tool audit — 41 calls tested, 38 pass, 3 expected failures
 - ✅ Bridge enum truncation bug fixed — Claude Desktop now sees all tool actions
 - ✅ Documented `template:update` silently ignores `elements` + `type: "content"` not `"single"`
+- ✅ Migrated Bricks MCP → Respira MCP (2026-07-05) — old endpoint decommissioned
+- ✅ Templates 185 & 52 unfrozen — Respira snapshots before every write
+- ✅ Respira Prompt Book integrated into AGENTS.md + BRICKS-BUILDER-GUIDE.md
+- ✅ Template 10 sidebar fixed — query loop + email form matching design spec
+- ✅ 4 project workflows created: /seo-audit, /a11y-scan, /monday-audit, /two-pass-build
 
 ## Next Steps (Priority Order)
 
@@ -44,13 +51,18 @@
 
 ## Scope Restrictions
 
-- **FROZEN:** Template 185 (Header) and Template 52 (Blog Archive) — do not touch
-- **Permitted:** Posts, pages, menus, Simply Static export, Wrangler deploy, project docs
-- **NOT Permitted:** Any template writes, post-processing scripts, Bricks GUI template editing
+- **UNFROZEN:** Templates 185 (Header) and 52 (Blog Archive) — editable via Respira MCP (snapshot before edit)
+- **Permitted:** Posts, pages, menus, Simply Static export, Wrangler deploy, project docs, template edits via Respira
+- **NOT Permitted:** Old Bricks MCP endpoint (decommissioned), post-processing scripts, Raw HTML Code elements
 
 ## Important Notes
 
-- **Bricks-Only Policy**: ALL changes via Bricks Builder GUI or Bricks MCP. NO scripts, NO post-processing.
-- **Frozen Templates**: 185 (Header) and 52 (Blog Archive) — do not read, write, or open via any method
-- **Export workflow**: GUI/MCP edits → Simply Static export → wrangler deploy (or Cloudflare dashboard)
-- **Deploy**: `npx wrangler pages deploy "D:\Coding Zone\digitrust-lab-static" --project-name=digitrust-lab-static --branch=main --commit-dirty=true` (or Cloudflare dashboard). Always use the full path — deploying from the wrong directory deploys source code instead of static HTML.
+- **Bricks-Only Policy**: ALL changes via Bricks Builder GUI or Respira MCP. NO scripts, NO post-processing.
+- **Templates**: 185 & 52 unfrozen — use Respira MCP with snapshot, rollback via `respira_restore_snapshot`
+- **MailerLite TODO**: Template 10 sidebar has Bricks native form — replace with MailerLite embed when account created
+- **Export workflow**: GUI/MCP edits → Simply Static export → wrangler deploy
+- **Deploy command**: Run from `D:\Coding Zone\digitrust-lab-static`:
+  ```powershell
+  npx wrangler pages deploy . --project-name=digitrust-lab-static
+  ```
+  No wrangler.toml needed. Wrangler caches uploaded files — only changed files get re-uploaded.

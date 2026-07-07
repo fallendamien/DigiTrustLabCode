@@ -4,6 +4,33 @@
 
 Patterns and reference for AI models building Bricks Builder pages via MCP tools.
 
+## Bricks-Specific Respira Tips
+
+Bricks has the deepest design-system support in Respira's lineup. Use these phrasing tips to get on-brand results:
+
+- **"Reuse my global classes"** — new sections extend your design system instead of piling up inline styles
+- **"Follow my theme styles"** — new elements inherit your Bricks theme style settings
+- **"Use my existing global colors and fonts"** — prevents hardcoded hex values
+- **Name elements by what they say** — "the heading that says 'Our Services'" beats "the third element"
+- **Reference by admin label** — "update the module labeled Hero Headline" for precise targeting
+
+### Bricks Design System Tools (Respira)
+
+| Tool | Purpose |
+|------|---------|
+| `respira_list_bricks_global_classes` | See existing global CSS classes |
+| `respira_create_bricks_global_class` | Create reusable class |
+| `respira_update_bricks_global_class` | Update existing class settings |
+| `respira_get_bricks_color_palette` | Read color palette |
+| `respira_update_bricks_color_palette` | Update palette |
+| `respira_get_bricks_theme_styles` | Read theme styles |
+| `respira_update_bricks_theme_styles` | Update theme styles |
+| `respira_get_bricks_typography` | Read typography scales |
+| `respira_update_bricks_typography` | Update typography variables |
+| `respira_list_bricks_components` | List reusable components |
+| `respira_bricks_style_profile` | Analyze a page's design patterns |
+| `respira_bricks_design_system` | Export full design system in one call |
+
 ## Golden Rule: Batch Creation
 
 Always create full pages in one `create_bricks_page` call using simplified nested format. Never add elements one at a time.

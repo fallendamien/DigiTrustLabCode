@@ -78,6 +78,33 @@ custom template isn't being used there at all.
 
 **Builder guide:** `BRICKS-BUILDER-GUIDE.md` — Bricks element concepts still apply (settings schema, `_cssCustom`, gotchas). Tool names in the guide refer to old Bricks MCP — use equivalent Respira tools instead.
 
+### 📝 Respira Session Primer
+
+**For Claude Desktop / ChatGPT sessions:** Paste this first, once per session, before any work:
+
+> You're connected to my WordPress site through Respira. Before doing anything, detect my page builder and read my site's structure, then follow Respira's safe workflow: edit through the builder's native modules (never raw HTML), and duplicate or snapshot a page before changing it live. Confirm what builder I'm on and what you can do.
+
+**For Windsurf sessions:** Not needed — AGENTS.md and `.devin/rules/` already provide this context automatically.
+
+**Optional intent line** (add to the primer to focus the session):
+> Today we're [specific task] — read [page/template] structure first.
+
+### The 4 Write Workflows
+
+| # | Workflow | When | Example |
+|---|----------|------|---------|
+| 1 | **Small edit** | Text, colors, one element | "Change the button to say 'Get a quote'" |
+| 2 | **Redesign existing** | Restructure existing page | "Read homepage structure, then rewrite the hero section" |
+| 3 | **Build from scratch** | New page | "Build a draft about page with these sections..." |
+| 4 | **Two-pass build** | Content-heavy pages (max control) | "Build skeleton with placeholder labels, then fill each section" |
+
+### Anti-Patterns (NEVER do)
+
+- ❌ Ask for raw HTML — builder can't edit it later
+- ❌ Skip the read step — agent guesses wrong
+- ❌ Edit live without snapshot/duplicate
+- ❌ One giant ask — break it into sections instead
+
 ### Decision Matrix
 
 | Task | Use GUI | Use Respira MCP | Use Non-Bricks Code | Why |
@@ -96,6 +123,50 @@ custom template isn't being used there at all.
 - Before ANY template edit: run `respira_extract_builder_content` to see current state
 - The old flattening bug (`content:update_content` regenerating IDs) does NOT affect Respira
 
+### ⚠️ Respira Honest Limits
+
+- **Undo is per-page, not per-element** — snapshots capture/restore whole pages. Work in smaller sessions for fine-grained history.
+- **Media files are not versioned** — snapshots cover page structure/content, not image binaries. Deleting media requires explicit approval.
+- **Large single builds hit AI client ceilings** — a 300-element page in one call may get trimmed by the model. Use chunking: skeleton first, then append sections per request.
+- **Language is lossy** — no tool fixes an ambiguous ask. The primer + read-first habit exist because misunderstandings happen.
+
+### 📝 Blog-Specific Recipes (Copy-Paste Prompts)
+
+Use these in any Respira-connected environment (Claude Desktop, ChatGPT, Windsurf):
+
+**SEO refresh on a post:**
+> Run an SEO analysis on [post]. Then fix the mechanical findings: title tag, meta description, heading hierarchy, image alt text, and internal links to related posts. Show me anything that needs a judgment call.
+
+**Accessibility pass:**
+> Scan [post] for accessibility issues. Fix missing alt text, unlabeled buttons and broken heading order. Give me a short report of what you fixed and what needs a human decision.
+
+**Monday morning audit:**
+> Give me a site health snapshot: pages changed in the last week, anything that looks broken, SEO issues on the top 5 pages, and one prioritized list of what to fix this week.
+
+**New page (two-pass build):**
+> Build a draft [type] page: [list sections in order, one line each]. Use placeholder labels for every text module. Then read it back and confirm the structure before we fill in copy.
+
+### 🎯 Key Respira Skills for Blogging
+
+| Skill | What It Does | When to Use |
+|-------|-------------|-------------|
+| `seo-aeo-amplifier` | On-page SEO + Answer Engine Optimization audit with schema markup | After publishing a post |
+| `wordpress-ai-image-optimizer` | Compress, WebP convert, resize, rename images locally | Before deploying |
+| `internal-link-builder` | Analyzes all content, maps topic relationships, suggests internal links | After publishing several posts |
+| `brand-voice-synthesizer` | Reads 5-10 posts, extracts your brand voice for consistent AI content | Before writing posts with AI |
+| `stale-content-detector` | Finds posts that haven't been updated, suggests refresh/redirect/archive | Monthly maintenance |
+| `conversion-audit` | Audits for CTA hierarchy, form length, social proof, trust signals | Optimizing key pages |
+| `design-system-synthesizer` | Extracts your site's design system (colors, typography, components) | One-time setup |
+| `activity-report-composer` | Turns audit log into a polished report | Client or self reporting |
+
+### 🔄 Playbooks (Save Repeatable Workflows)
+
+When you and the agent work out a workflow you'll want again, save it as a playbook:
+
+> Save what we just did as a playbook called [name], so next time I can just say "run the [name] report".
+
+Playbooks are stored on the WordPress site itself and show up as tools the agent can run on demand. Use `respira_create_playbook`, `respira_list_playbooks`, `respira_delete_playbook`.
+
 ### Incident Log (Lessons Learned)
 
 **Incident 1:** Spent 45+ min writing PHP mu-plugins for a 2-min GUI task.
@@ -108,7 +179,7 @@ custom template isn't being used there at all.
 ### Correct Workflow
 
 ```
-1. Make all changes via Bricks Builder GUI (primary) or Bricks MCP (when GUI impractical)
+1. Make all changes via Bricks Builder GUI (primary) or Respira MCP (when GUI impractical)
 2. Run Simply Static export (WP Admin → Simply Static → Generate)
 3. Deploy via Wrangler CLI or Cloudflare dashboard
 ```
@@ -126,6 +197,88 @@ custom template isn't being used there at all.
 - Use relevant emojis for headings, status, and scannability instead of plain wall-of-text responses.
 - Keep technical explanations clear, but make the presentation feel lively and easy to scan.
 
+## 🎙️ DigiTrust Lab Writing Voice (ALL content — posts, pages, copy)
+
+**Core principle:** Write Malay copy directly in Malay. Never translate from English — translated Malay sounds stiff and robotic. If it wouldn't sound natural said out loud to a Malaysian friend, rewrite it.
+
+### Voice Characteristics
+
+| Trait | Do ✅ | Don't ❌ |
+|-------|--------|----------|
+| Pronoun | `korang`, `kami` | `anda`, `pengguna` |
+| Tone | Casual, warm, like talking to a friend | Formal, corporate, legal-sounding |
+| Sentence length | Short, punchy, scannable | Long winding clauses |
+| Opener | Direct, honest, relatable | Press release / marketing fluff |
+| Mixed language | Natural Malay + occasional English terms (AI, tools, content) | Full formal BM or full English |
+
+### Humour — Make Them Smile, Not Just Read
+
+DigiTrust Lab content should have a light sense of humour woven in naturally — not forced jokes, but the kind of dry wit that makes someone smile while reading. Think: a Malaysian friend explaining tech stuff over teh tarik.
+
+**How to add humour naturally:**
+- Self-deprecating honesty: *"Saya pun pernah buat silap ni — jangan gelak."*
+- Relatable exaggeration: *"Buka laptop, bukak 47 tabs, akhirnya tutup semua balik."*
+- Gentle sarcasm about obvious things: *"Kami tahu polisi privasi bukan benda paling best nak baca..."*
+- Unexpected honest admissions: *"Jujur cakap, kami pun tak expect ia akan work."*
+- Lighthearted aside in brackets: *"(percaya ke tak, memang boleh)"* or *"(yes, serius ni)"*
+
+**Rules for humour:**
+- Never punch down or mock the reader
+- Keep it relevant — don't force a joke where none fits
+- One or two light moments per page/post is enough — don't overdo it
+- Humour works best in openers, transitions, and asides — not in conclusions or CTAs
+
+### Punctuation — Write Like a Malaysian, Not Like AI
+
+**Em dash (`—`) rule:** Use sparingly. Maximum 1 per post/page, only when genuinely needed. Malay prose flows naturally with commas, `iaitu`, `memandangkan`, `sebab`, `jadi`, or a new sentence entirely. Frequent em dashes are a strong AI-writing tell in Malay because native writers almost never use them.
+
+| Instead of `—` | Use this |
+|---|---|
+| `AI tools dah canggih — korang kena tahu cara guna.` | `AI tools dah canggih, jadi korang kena tahu cara guna.` |
+| `Kami tulis dari pengalaman — bukan teori semata.` | `Kami tulis dari pengalaman sebenar, bukan teori semata.` |
+| `Ini bukan kursus — ini perkongsian jujur.` | `Ini bukan kursus. Ini perkongsian jujur.` |
+
+**Other AI punctuation patterns to avoid:**
+- ❌ Stacking em dashes within the same sentence
+- ❌ Starting bullets with em dashes
+- ❌ Using `—` as a substitute for a full stop
+- ❌ Overusing `...` (ellipsis) for dramatic pauses — one or two per post max
+
+### Red Flag Phrases — Always Rewrite These
+
+- ❌ `"Privasi anda penting bagi kami"` → sounds like a copy-paste template
+- ❌ `"Anda berhak untuk"` → translated legalese
+- ❌ `"Kami sentiasa terbuka"` → press release language
+- ❌ `"Kunjungi link external pada risiko anda sendiri"` → sounds threatening
+- ❌ `"Untuk pertanyaan umum, kerjasama, atau sokongan"` → call center language
+- ❌ Any sentence that starts with `"Maklumat di blog ini adalah untuk tujuan..."` → textbook opening
+
+### Green Light Patterns — Use These
+
+- ✅ `"Kami tahu page ni biasanya boring — tapi kami nak jelaskan dengan cara yang mudah faham."`
+- ✅ `"Kami tak jual data sesiapa kepada sesiapa."` — direct, reassuring
+- ✅ `"Tu janji kami."` — personal, accountable
+- ✅ `"Biasanya dalam masa 48 jam pada hari bekerja."` — plain, no jargon
+- ✅ `"Kalau korang nak tahu tentang...korang dah ada kat tempat yang betul."` — warm, inclusive
+
+### Page-Specific Voice Notes
+
+**Tentang Kami:** Personal founder story tone. "Kami" = Zed + AI partner. Avoid bullet-point brochure style — write in flowing paragraphs with personality.
+
+**Polisi Privasi / Disclaimer:** Still needs to be clear and accurate, but written in plain language. Add a human touch — acknowledge these pages are normally boring. Keep legal meaning, strip corporate language.
+
+**Hubungi Kami:** Friendly invitation, not a corporate FAQ. Feels like you're genuinely happy to hear from readers.
+
+**Blog posts:** Casual Malay, first-person, experience-led. Opener should hook emotionally or with a relatable scenario. Never start with a definition or statistics dump.
+
+### Core Pages — Approved Rewrites (2026-07-06)
+
+All 4 core pages were audited and rewritten with natural voice on 2026-07-06. Use these as the voice benchmark for all future content:
+- Tentang Kami ✅ rewritten
+- Polisi Privasi ✅ rewritten  
+- Disclaimer ✅ rewritten
+- Hubungi Kami ✅ rewritten
+
 ## Troubleshooting Reference (CRITICAL)
 
 **This is a blogging business project, NOT a development project.**
@@ -140,7 +293,7 @@ custom template isn't being used there at all.
 
 | File | Purpose |
 |------|---------|
-| `BRICKS-BUILDER-GUIDE.md` | Bricks MCP reference — read BEFORE editing Bricks elements |
+| `BRICKS-BUILDER-GUIDE.md` | Bricks element reference — read BEFORE editing Bricks elements (tool names are old Bricks MCP, use Respira equivalents) |
 | `TROUBLESHOOTING.md` | All known issues, fixes, and prevention rules |
 | `DESIGN.md` | Design system source of truth (colors, typography, components) |
 
@@ -153,6 +306,27 @@ custom template isn't being used there at all.
 | Single Post | 10 | content | ✅ Native elements |
 | Blog Archive | 52 | archive | ✅ Editable via Respira MCP (snapshot before edit) |
 
+### Bricks Template Cache — Simply Static Export Issue (CRITICAL)
+
+**Symptom:** You update a Bricks template via Respira MCP (e.g. footer link), WordPress renders the change correctly, but Simply Static export still outputs the OLD content.
+
+**Root cause:** Bricks caches rendered template HTML separately from the database. `update_element` changes the data, but Bricks keeps serving cached HTML to Simply Static's crawler.
+
+**Fix (3 steps — all required):**
+1. **Bricks → Settings → Regenerate CSS files** (clears CSS cache)
+2. **Bricks → Settings → Regenerate code signatures** (clears code cache — confirm the dialog alert)
+3. **Re-save the template** via `respira_update_page` with `status: "publish"` (forces Bricks to re-render)
+
+Then run Simply Static export — the fresh render will be picked up.
+
+**Manual GUI steps to clear Bricks cache:**
+1. WP Admin → Bricks → Settings
+2. Click **"Regenerate CSS files"** button
+3. Click **"Regenerate code signatures"** button (accept the confirmation dialog)
+4. Go to Bricks → Templates → edit the template → click **"Update"** to re-save
+
+**When to do this:** Any time a Bricks template change (footer, header, archive) doesn't appear in the Simply Static export despite WordPress showing it correctly.
+
 ## Notes
 
 - This is a WordPress + Simply Static + Cloudflare Pages blog, not a traditional codebase
@@ -160,7 +334,11 @@ custom template isn't being used there at all.
 - WordPress local URL: `https://digitrust-lab.local`
 - Simply Static generate URL: `https://digitrust-lab.local/wp-admin/admin.php?page=simply-static-generate` (NOT `simply-static` — that's settings, not generate)
 - Live URL: `https://www.digitrustlab.com` (fully migrated from `blog.digitrustlab.com`, which no longer has a DNS record — do not reference the old subdomain)
-- Deploy: `npx wrangler pages deploy "D:\Coding Zone\digitrust-lab-static" --project-name=digitrust-lab-static --branch=main --commit-dirty=true` (or Cloudflare dashboard upload). **Always use the full path** — deploying from the wrong directory deploys source code instead of static HTML. `--commit-dirty=true` silences the git warning when running from inside a git repo.
+- Deploy: Run from `D:\Coding Zone\digitrust-lab-static`:
+  ```powershell
+  npx wrangler pages deploy . --project-name=digitrust-lab-static
+  ```
+  No wrangler.toml needed. Wrangler caches uploaded files — only changed files get re-uploaded. Must run from the static output directory, not the repo.
 - Respira MCP: connected to Windsurf and Claude Desktop (replaced old Bricks MCP on 2026-07-05)
 - Respira API key stored in Claude Desktop via `.mcpb` install and in Windsurf `mcp_config.json`
 - Old Bricks MCP bridge (`bricks-mcp-bridge.mjs`) is decommissioned — do not use

@@ -1,0 +1,209 @@
+---
+name: activity-report-composer
+description: "Turn Respira's audit log into a polished report. Reads the activity log, categorizes actions (edits, creations, deletions, media uploads, plugin changes), and produces a client-ready summary with totals, highlights, and a timeline."
+license: MIT
+metadata:
+  author: Respira for WordPress
+  author_url: https://respira.press
+  version: 1.0.0
+  mcp-server: respira-wordpress
+  category: reporting
+---
+
+# Activity Report Composer
+
+**Version:** 1.0.0
+**Updated:** 2026-05-24
+**Category:** reporting
+**Status:** stable
+**Requires:** Respira for WordPress plugin 7.1+ + MCP server
+
+---
+
+## Description
+
+Turn Respira's audit log into a polished, client-ready report. Reads the activity log (what was edited, created, deleted, uploaded, changed), categorizes the actions, and produces a structured summary with totals, highlights, and a timeline.
+
+This is the "what did we do this month?" skill. Perfect for monthly retainers, client reporting, or personal tracking.
+
+---
+
+## What it produces
+
+A markdown report with:
+
+1. **Executive summary** — one paragraph the client actually reads
+2. **Totals table** — pages edited, posts created, media uploaded, plugins updated, etc.
+3. **Highlights** — the 3–5 most impactful changes with context
+4. **Timeline** — chronological list of significant actions
+5. **Next steps** — what's planned or recommended based on the activity
+
+---
+
+## When to Use
+
+- End of month client report
+- Weekly standup summary
+- Quarterly review
+- After a major work session (cleanup, migration, redesign)
+- When a client asks "what have you been doing?"
+
+---
+
+## Trigger Phrases
+
+- "generate activity report"
+- "what did we do this month"
+- "monthly report"
+- "client report"
+- "summarize recent activity"
+- "activity summary"
+- "what changed on my site"
+
+---
+
+## Execution Workflow
+
+### Step 1 — Confirm site + time range
+
+Call `respira_get_active_site`.
+
+Ask the user: *"What time range? This month, last month, last 7 days, or a custom range?"*
+
+Default to "this month" if unclear.
+
+### Step 2 — Pull activity data
+
+Call `respira_generate_activity_report` with the time range parameters. This returns structured data about all actions taken on the site during the period, including:
+
+- Pages created / edited / deleted
+- Posts created / edited / published
+- Media uploaded / optimized / deleted
+- Plugins installed / activated / deactivated / updated / deleted
+- Menus created / modified
+- Theme settings changed
+- Builder content modified
+- Options updated
+
+Each action includes: timestamp, action type, target object, actor (who did it), and a brief description.
+
+### Step 3 — Categorize + analyze
+
+Group actions by category:
+
+| Category | Actions |
+|---|---|
+| Content (pages + posts) | created, edited, published, deleted |
+| Media | uploaded, optimized, updated, deleted |
+| Plugins | installed, activated, deactivated, updated, deleted |
+| Appearance | menus, theme settings, builder content |
+| Configuration | options, settings, user management |
+| SEO | meta tags, schema, redirects |
+
+For each category, count actions and identify the most significant ones.
+
+### Step 4 — Identify highlights
+
+Pick the 3–5 most impactful changes. "Impactful" means:
+
+- New pages or posts published (content growth)
+- Major edits (full page rewrites, template changes)
+- Performance improvements (image optimization, plugin cleanup)
+- Security improvements (plugin updates, vulnerability fixes)
+- Structural changes (menu reorganization, new navigation)
+
+### Step 5 — Build the timeline
+
+Create a chronological list of significant actions (skip trivial ones like "updated alt text on image #42"). Group by day for readability.
+
+### Step 6 — Compose the report
+
+```markdown
+# 📊 Activity Report — {site_name}
+
+**Period:** {start_date} to {end_date}
+**Generated:** {timestamp}
+
+---
+
+## Executive Summary
+
+{one paragraph: "This month we published {n} new posts, optimized {n} images (saving {x}MB), updated {n} plugins, and restructured the main navigation. The site is faster, cleaner, and has {n} more indexed pages than last month."}
+
+---
+
+## Totals
+
+| Category | Actions | Details |
+|---|---|---|
+| Pages | {n} edited, {n} created | {list of page titles} |
+| Posts | {n} published, {n} drafted | {list of post titles} |
+| Media | {n} uploaded, {n} optimized | {total size saved} |
+| Plugins | {n} updated, {n} deactivated | {list} |
+| Menus | {n} modified | {which menus} |
+| SEO | {n} meta updates | {scope} |
+
+---
+
+## Highlights
+
+### 1. {highlight title}
+**What:** {description}
+**When:** {date}
+**Why it matters:** {impact explanation}
+
+### 2. {highlight title}
+...
+
+### 3. {highlight title}
+...
+
+---
+
+## Timeline
+
+### {date}
+- {action} — {target} — {description}
+- {action} — {target} — {description}
+
+### {date}
+- {action} — {target} — {description}
+
+---
+
+## Next Steps
+
+Based on this period's activity, recommended for next period:
+
+1. {recommendation}
+2. {recommendation}
+3. {recommendation}
+
+---
+
+*Report generated by Activity Report Composer · Powered by Respira for WordPress*
+```
+
+### Step 7 — Offer customization
+
+Ask: *"Want me to adjust the tone (formal / casual), add a specific section, or focus on a particular category?"*
+
+If the user wants a different format (e.g., email-ready plain text, or a more formal tone), regenerate accordingly.
+
+---
+
+## Hard rules
+
+- **The report is factual, not promotional.** Don't inflate numbers or describe trivial changes as "major improvements." If the month was quiet, the report says so honestly.
+- **Actor attribution matters.** If actions were taken by different team members, attribute them. Don't take credit for someone else's work.
+- **Deletions are reported honestly.** If pages were deleted, say so. Don't hide destructive actions from the client.
+- **The "next steps" section is recommendations, not commitments.** Don't promise work that hasn't been agreed to.
+- **Time range is explicit.** Always show the period at the top. Don't imply the report covers a different range than it does.
+
+---
+
+## Telemetry
+
+Records: site URL hash, time range, n_actions in log, n_categories, success/failure, total duration. No action details, no page titles, no user names sent.
+
+Endpoint: `POST https://www.respira.press/api/skills/track-usage`

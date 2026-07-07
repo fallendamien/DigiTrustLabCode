@@ -2,7 +2,7 @@
 
 > **Status:** 🚧 In Progress
 > **Current Phase:** Phase 1 — Foundation
-> **Last Updated:** 2026-07-04 (Session 6)
+> **Last Updated:** 2026-07-07 (Session 8)
 > **Monthly Revenue:** RM 69 (1 sale, pre-blog era)
 
 ---
@@ -10,7 +10,7 @@
 ## Progress Overview
 
 ```
-Phase 1: Foundation         █████████░ 90%
+Phase 1: Foundation         ██████████ 98%
 Phase 2: Compounding        ░░░░░░░░░░  0%
 Phase 3: Traffic Growth     ░░░░░░░░░░  0%
 Phase 4: Scale              ░░░░░░░░░░  0%
@@ -33,6 +33,11 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [x] Delete default WP content (Hello World post + Sample Page → Trash)
 - [x] Create blog categories (AI Tools / Digital Side Hustle / Canva & Design / AI untuk Perniagaan Kecil)
 - [x] Build Bricks Single Post Template (ID 10) — native Bricks elements, zero Code elements (rebuilt 2026-07-04)
+- [x] Fix Template 10 sidebar — Post Popular query loop + Panduan Percuma email form (2026-07-05)
+- [x] Migrate Bricks MCP → Respira MCP (2026-07-05) — old endpoint decommissioned, Respira active on Windsurf + Claude Desktop
+- [x] Unfreeze templates 185 & 52 — Respira snapshots before every write, rollback via snapshot_uuid
+- [x] Integrate Respira Prompt Book into AGENTS.md + BRICKS-BUILDER-GUIDE.md (primer, workflows, recipes, skills, playbooks)
+- [x] Create 4 project workflows: /seo-audit, /a11y-scan, /monday-audit, /two-pass-build (2026-07-05)
 - [x] Build Header template (ID 185) — logo, nav, search bar, CTA (rebuilt 2026-07-04)
 - [x] Build Footer template (ID 46) — native Bricks elements (rebuilt 2026-07-04)
 - [x] Build Blog Archive template (ID 52) — native Bricks elements, zero Code elements (rebuilt 2026-07-04)
@@ -56,7 +61,10 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [x] Document `template:update` silently ignores `elements` param — use `content:update_content` instead
 - [x] Document `type: "content"` (not `"single"`) for template type filter
 - [ ] **Delete test post** ("Simply Static export pipeline..." test post still in WP Admin → Posts)
-- [ ] **SEO pass on core pages** — Tentang Kami done (2026-07-01, see below); Privasi/Disclaimer/Hubungi Kami pending
+- [x] **SEO pass + voice rewrite on all core pages** — Tentang Kami, Polisi Privasi, Disclaimer, Hubungi Kami rewritten with natural casual Malay voice (2026-07-07)
+- [x] **DigiTrust Lab Writing Voice guide** — documented in AGENTS.md with red flags, green light patterns, humour guidelines (2026-07-07)
+- [x] **Mobile header fixed** — Template 185 mobile layout: logo+hamburger row 1, full-width CTA button row 2 (2026-07-07)
+- [x] **Draft pages cleaned** — Respira duplicate (ID 244) + default Privacy Policy (ID 3) deleted (2026-07-07)
 - [ ] Set up Google Analytics 4
 - [ ] Set up Google Search Console + submit sitemap
 - [ ] Verify ClickRank ownership (JS snippet) — blog is live, ready to do now
@@ -73,7 +81,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [ ] Set Rank Math focus keyword field
 - [ ] Confirm OG/social share image is set
 - [ ] Cross-check keyword choices against actual WriterZen data (current keywords are category-level estimates, not volume-validated)
-- [ ] Repeat same pass for Polisi Privasi, Disclaimer, Hubungi Kami
+- [x] Repeat same pass for Polisi Privasi, Disclaimer, Hubungi Kami (2026-07-07)
 
 ### Email List (Day 1 — same week as blog launch)
 - [ ] Create MailerLite free account
@@ -182,8 +190,10 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 
 ### Tech Debt 🔧
 
-- [ ] Convert Single Post template (ID 10) from Code element to native Bricks elements
-- [ ] Convert Blog Archive template (ID 52) from Code element to native Bricks elements
+- [x] Convert Single Post template (ID 10) from Code element to native Bricks elements
+- [x] Convert Blog Archive template (ID 52) from Code element to native Bricks elements
+- [ ] Replace Bricks native form on Template 10 sidebar with MailerLite embed (when MailerLite account created)
+- [ ] Clean leftover metadata on Template 10 (after_children/after_element from failed MCP inject — harmless but untidy)
 
 ---
 
@@ -211,6 +221,8 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - ✅ Tentang Kami SEO/copy pass completed + pushed live (2026-07-03)
 - ✅ Mobile menu contrast fix + footer mobile centering + Tentang Kami padding fix (2026-07-03)
 - ✅ Header template restored (ID 140) after MCP destructive action (2026-07-03)
+- ✅ Respira MCP migrated + templates unfrozen (2026-07-05)
+- ✅ Template 10 sidebar matches design spec (2026-07-05)
 - 🎯 First blog post published — target: this week (0 of 10 done — content is now the bottleneck, not infra)
 - 🎯 First Etsy sale — target: Month 2
 - 🎯 First affiliate commission — target: Month 3
@@ -258,10 +270,10 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 ## IMMEDIATE NEXT SESSION — Start Here
 
 1. **Delete test post** — WP Admin → Posts → trash the "Simply Static export pipeline..." test post
-2. **Write Post #1** — Cara Buat Iklan FB yang Convert (Pengalaman Burn RM390) — pull keyword from WriterZen first, then write → ClickRank optimize → publish → static export → deploy
-3. **Set up Google Search Console + GA4** — do this right after Post #1 goes live so indexing starts immediately
+2. **Simply Static → Generate → Wrangler deploy** — push all today's changes live (core page rewrites + mobile header fix)
+3. **Write Post #1** — "AI Bukan Robot Ganti Kerja Anda — Ini Cara Ramai Orang Guna AI di 2026" (evergreen Malay-first intro post) — pull keyword from WriterZen first, then write → ClickRank optimize → publish → static export → deploy
 4. **Set up MailerLite** — Day 1 priority, still outstanding
-5. **SEO pass on remaining core pages** — Polisi Privasi, Disclaimer, Hubungi Kami
+5. **Set up Google Search Console + GA4** — do this right after Post #1 goes live so indexing starts immediately
 
 ---
 
@@ -282,7 +294,7 @@ Layer 1 (Month 1+):  Blog SEO Content — THE ENGINE
 - **Blog:** Malay-first 70% (low competition SEA) + English 30% (pillar posts, higher RPM, backlink bait)
 - **Etsy:** English titles + English descriptions. Malay content inside the product itself.
 - **Rule:** Never translate same post into both languages (duplicate content)
-- **Voice note (added 2026-07-01):** Early core-page copy (Tentang Kami) read as translated/stiff Malay rather than natural voice. Going forward, write Malay copy directly in Malay (not as an English-to-Malay translation) and read it aloud for naturalness before publishing.
+- **Voice standard (updated 2026-07-06):** All core pages audited and rewritten with natural casual Malay voice. Full voice guide documented in `AGENTS.md` under "DigiTrust Lab Writing Voice". Key rule: write Malay directly in Malay, never translate from English. Use `korang`/`kami`, avoid `anda`/`pengguna`. All future content must follow this standard — posts, pages, email copy, everything.
 
 ---
 

@@ -2,7 +2,9 @@
 
 > Project-specific issues and solutions. Not a development project — no global lessons needed.
 >
-> ⚠️ **POLICY UPDATE (2026-07-04):** All post-process scripts, wrangler CLI, and PowerShell automation have been **BANNED**. Historical entries below may reference these tools, but they must NOT be used going forward. Everything via Bricks GUI or Bricks MCP. Deploy via Cloudflare dashboard only.
+> ⚠️ **POLICY UPDATE (2026-07-06):** Wrangler CLI is **ALLOWED** for Cloudflare Pages deployment only (per AGENTS.md). Post-process scripts and PowerShell CSS injection remain **BANNED** — all styling via Bricks GUI or Respira MCP. Historical entries below may reference banned tools, but those approaches must NOT be used.
+>
+> **Old Bricks MCP is DECOMMISSIONED (2026-07-05).** Use Respira MCP only. The bridge script entries below are kept for historical reference but are no longer relevant.
 
 ---
 
@@ -406,7 +408,7 @@ The negative lookahead `(?!/)` ensures `https://` links are not affected.
 
 ### Prevention
 
-- **Always run `post-process-static.ps1` after every Simply Static export** — ~~DEPRECATED~~ Do NOT use. All fixes must be done via Bricks GUI/MCP.
+- **Post-process scripts are BANNED** — all fixes must be done via Bricks GUI or Respira MCP before export.
 - After export, verify links with:
   ```powershell
   $c = [System.IO.File]::ReadAllText("D:\Coding Zone\digitrust-lab-static\privasi\index.html")
@@ -512,7 +514,7 @@ Simply Static exported 2,694 files per build, but only 11 were actual content pa
 ### Prevention
 
 - The mu-plugin (`ss-skip-dirs.php`) is permanent — it runs on every export
-- Phase 8 in post-process script is ~~DEPRECATED~~ — do NOT use. All export optimization must be done via Bricks/Simply Static settings.
+- Phase 8 post-process is BANNED — all export optimization must be done via Bricks/Simply Static settings.
 - If Bricks adds new builder-only directories, add them to the `ss_skip_crawl_theme_directories` filter
 - Verify file count after each export: should be ~1,830-1,850 range
 
