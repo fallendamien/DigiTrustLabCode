@@ -1,19 +1,22 @@
 # Design System: DigiTrust Lab
 
 > Source of truth for AI agents when generating or enhancing UI components for the DigiTrust Lab blog.
+>
+> **Last Updated:** 2026-07-10 (Session 10) — reflects native Bricks elements, homepage build, and lessons learned
 
 ---
 
 ## 1. Visual Theme & Atmosphere
 
-**Warm, editorial, trustworthy.** The design evokes a premium digital magazine feel — clean warm-white backgrounds, burnt orange accents, and a structured two-column layout. Content-first approach with generous whitespace and readable typography. The aesthetic bridges "tech blog" and "Malaysian lifestyle publication" — approachable but authoritative.
+**Warm, editorial, trustworthy.** The design evokes a premium digital magazine feel — clean warm-white backgrounds, burnt orange accents, and a structured two-column layout on posts. The homepage uses a modern full-width section layout with a hero, post card grid, email CTA, and category pills. Content-first approach with generous whitespace and readable typography. The aesthetic bridges "tech blog" and "Malaysian lifestyle publication" — approachable but authoritative.
 
 **Key characteristics:**
 - Light mode only (no dark mode planned)
 - Warm neutral palette (not pure white/black)
-- Orange accent used sparingly for CTAs and highlights
-- Card-based components with subtle borders
+- Orange accent used sparingly for CTAs, category pills, and highlights
+- Card-based components with subtle borders and hover effects
 - Plus Jakarta Sans throughout — modern, friendly, geometric
+- Native Bricks elements (no code elements or `dtl-*` classes — those are legacy)
 
 ---
 
@@ -44,6 +47,9 @@
 | **CTA Gradient Start** | `#FFF3EE` | CTA box gradient (light orange) |
 | **CTA Gradient End** | `#FFEADD` | CTA box gradient (deeper orange) |
 | **CTA Border** | `#F5C4A0` | CTA box border |
+| **Category Pill BG** | `rgba(232,98,26,0.1)` | Category pill background (semi-transparent orange) |
+| **Reading Time Pill BG** | `#1a1a1a` | Reading time pill background (solid black) |
+| **Reading Time Pill Text** | `#FFFFFF` | Reading time pill text (white on black) |
 | **Facebook Blue** | `#1877F2` | Facebook share button |
 | **Black** | `#000000` | Twitter/X share button |
 | **WhatsApp Green** | `#25D366` | WhatsApp share button |
@@ -99,6 +105,26 @@
 | **Sidebar Card** | `#FFFFFF` | 1px solid `#EBEBEB` | 10px | 16px |
 | **TOC Box** | `#F5F3EE` | none | 8px | 14px 16px |
 | **CTA Box** | gradient `#FFF3EE`→`#FFEADD` | 1px solid `#F5C4A0` | 10px | 16px |
+| **Post Card (homepage)** | `#FFFFFF` | 1px solid `#EBEBEB` | 10px | 16px |
+
+### Post Card (Homepage Latest Posts)
+
+- Container: white bg, 1px border `#EBEBEB`, 10px radius, 16px padding
+- Hover: subtle elevation via `transform: translateY(-2px)` + box-shadow
+- Image: fixed height (200px), `object-fit: cover`, 4px radius at top
+- Category pill: `rgba(232,98,26,0.1)` bg, `#E8621A` text, 12px radius, inline-block
+- Title: 16px, 700 weight, `#1A1A1A`, link with hover color change
+- Excerpt: 14px, `#6B6B6B`, 2-line clamp (`-webkit-line-clamp: 2`)
+- Reading time pill: `#1a1a1a` bg, `#FFFFFF` text, 12px radius, inline-block
+
+### Pills (Meta Badges)
+
+| Type | Background | Text | Radius | Font |
+|------|-----------|------|--------|------|
+| **Category Pill** | `rgba(232,98,26,0.1)` | `#E8621A` | 12px | 11px / 600 |
+| **Reading Time Pill** | `#1a1a1a` | `#FFFFFF` | 12px | 11px / 600 |
+
+**Note:** Reading time pill style is unified across homepage and blog archive (Template 52) — solid black bg, white text. Applied via `_cssCustom` using `.brxe-{id}` class selector (NOT `#brxe-{id}` — see TROUBLESHOOTING.md).
 
 ### Sidebar Card Title
 
@@ -139,7 +165,7 @@
 
 ## 5. Spacing & Layout
 
-### Layout Structure
+### Layout Structure — Single Post (Template 10)
 
 ```
 ┌─────────────────────────────────────────┐
@@ -152,6 +178,47 @@
 │ border-right: 1px    │                  │
 ├──────────────────────┴──────────────────┤
 │ Footer (#1A1A1A bg, 16px 24px padding) │
+└─────────────────────────────────────────┘
+```
+
+### Layout Structure — Homepage (Page ID 280)
+
+```
+┌─────────────────────────────────────────┐
+│ Header (Template 185, #FAFAF8 bg)      │
+├─────────────────────────────────────────┤
+│ Hero Section (full-width)               │
+│  - Eyebrow text (orange, 12px/600)      │
+│  - H1 heading (28px/700, sentence case) │
+│  - Subtext (16px, #6B6B6B)              │
+├─────────────────────────────────────────┤
+│ Latest Posts (query loop, 3-col grid)   │
+│  - Section heading + "Lihat semua" link │
+│  - Post cards (image, category, title,  │
+│    excerpt, reading time pill)          │
+├─────────────────────────────────────────┤
+│ Email CTA Section                        │
+│  - Gradient bg, email opt-in            │
+├─────────────────────────────────────────┤
+│ Category Pills Section                   │
+│  - Category links as pill badges        │
+├─────────────────────────────────────────┤
+│ Footer (Template 46, #1A1A1A bg)        │
+└─────────────────────────────────────────┘
+```
+
+### Layout Structure — Blog Archive (Template 52)
+
+```
+┌─────────────────────────────────────────┐
+│ Header (Template 185)                   │
+├─────────────────────────────────────────┤
+│ Blog heading + tagline (centered)       │
+│ Post grid (query loop, responsive cols)  │
+│  - Post cards (same style as homepage)   │
+│ Pagination                              │
+├─────────────────────────────────────────┤
+│ Footer (Template 46)                    │
 └─────────────────────────────────────────┘
 ```
 
@@ -207,44 +274,36 @@
 - Layout: flex, space-between, align-center
 - Copyright: 13px, `#888888`
 - Footer links: 13px, `#888888`, 16px gap
-- Sticky to bottom via flexbox: `body { display: flex; flex-direction: column; min-height: 100vh; } footer { margin-top: auto; }`
+- Sticky to bottom via: `body { display: flex; flex-direction: column; min-height: 100vh; overflow-x: clip; }` + `#brx-content { flex: 1 1 auto; }`
+- **IMPORTANT:** Use `overflow-x: clip` NOT `overflow-x: hidden` — `hidden` collapses `min-height: 100vh` in Chromium (see TROUBLESHOOTING.md)
 
 ---
 
-## 7. CSS Class Naming Convention
+## 7. CSS Approach — Native Bricks Elements
 
-All custom classes use the `dtl-` prefix (DigiTrust Lab):
+The site now uses **native Bricks elements** styled via Bricks' settings and `_cssCustom`. The old `dtl-*` classes from the code-element era are **legacy** and no longer the primary styling mechanism.
 
-| Class | Element |
-|-------|---------|
-| `.dtl-post-wrap` | Outer flex container (main + sidebar) |
-| `.dtl-main` | Main content column |
-| `.dtl-sidebar` | Sidebar column |
-| `.dtl-category` | Category label above title |
-| `.dtl-h1` | Post/page title |
-| `.dtl-meta` | Author meta row (flex) |
-| `.dtl-avatar` | Circular author avatar |
-| `.dtl-meta-name` | Author name |
-| `.dtl-meta-info` | Date + reading time |
-| `.dtl-excerpt` | Italic excerpt with orange left border |
-| `.dtl-toc` | Table of contents box |
-| `.dtl-toc-title` | TOC heading |
-| `.dtl-body` | Article body content |
-| `.dtl-cta` | CTA box (gradient bg) |
-| `.dtl-cta-label` | CTA "Rekomendasi" label |
-| `.dtl-cta-title` | CTA heading text |
-| `.dtl-cta-btn` | CTA orange button |
-| `.dtl-share` | Share row (flex) |
-| `.dtl-share-label` | "Kongsi:" label |
-| `.dtl-share-btn` | Individual share circle |
-| `.dtl-sidebar-card` | White card in sidebar |
-| `.dtl-sidebar-title` | Card title with orange underline |
-| `.dtl-optin-input` | Email input field |
-| `.dtl-optin-btn` | Submit button |
-| `.dtl-optin-sub` | Subtext below opt-in |
-| `.dtl-related` | Popular post item (flex) |
-| `.dtl-related-thumb` | Thumbnail placeholder |
-| `.dtl-related-title` | Post title in sidebar |
+### Styling Methods (in priority order)
+
+1. **Bricks element settings** — `_typography`, `_backgroundColor`, `_padding`, `_margin`, etc. (set via Respira MCP or Bricks GUI)
+2. **`_cssCustom` on individual elements** — for properties not exposed as Bricks settings (e.g., `object-fit`, `line-clamp`, hover effects)
+3. **`bricks_global_settings.customCss`** — for site-wide rules (body, `#brx-content`, `#brx-header`, `#brx-footer`, overflow fixes)
+
+### Selector Convention
+
+| Context | Selector | Why |
+|---------|----------|-----|
+| **Standalone elements** | `#brxe-{id}` | Element ID is stable |
+| **Inside query loops** | `.brxe-{id}` | IDs regenerate per iteration — class matches all iterations |
+| **Global layout** | `#brx-content`, `#brx-header`, `#brx-footer` | Bricks area IDs, stable across all pages |
+
+**CRITICAL:** Elements inside query loops get new IDs on each iteration. Always use `.brxe-{id}` (class) not `#brxe-{id}` (ID) for `_cssCustom` on loop elements. See TROUBLESHOOTING.md.
+
+### Legacy `dtl-*` Classes (Reference Only)
+
+These classes existed in the old code-element templates. They are NOT used in current native Bricks elements but may appear in historical references:
+
+`dtl-post-wrap`, `dtl-main`, `dtl-sidebar`, `dtl-category`, `dtl-h1`, `dtl-meta`, `dtl-avatar`, `dtl-meta-name`, `dtl-meta-info`, `dtl-excerpt`, `dtl-toc`, `dtl-toc-title`, `dtl-body`, `dtl-cta`, `dtl-cta-label`, `dtl-cta-title`, `dtl-cta-btn`, `dtl-share`, `dtl-share-label`, `dtl-share-btn`, `dtl-sidebar-card`, `dtl-sidebar-title`, `dtl-optin-input`, `dtl-optin-btn`, `dtl-optin-sub`, `dtl-related`, `dtl-related-thumb`, `dtl-related-title`
 
 ---
 
@@ -261,54 +320,106 @@ All custom classes use the `dtl-` prefix (DigiTrust Lab):
 
 | Breakpoint | Behavior |
 |------------|----------|
-| **Desktop** (>768px) | Two-column with sidebar |
-| **Mobile** (≤768px) | Single column, sidebar collapses below content |
+| **Desktop** (>768px) | Two-column with sidebar (posts), full-width sections (homepage) |
+| **Mobile** (≤768px) | Single column, sidebar collapses below content, post grid → 1 column |
 
 **Mobile rules:**
 - Sidebar stacks below main content
-- Nav links collapse (hamburger or horizontal scroll)
+- Nav links collapse (hamburger / off-canvas menu)
 - Main column padding reduces to 16px
 - Font sizes stay the same (already mobile-friendly)
 - CTA box remains full-width
+- Homepage post grid collapses to 1 column
+- `body { overflow-x: clip }` prevents horizontal scroll from off-canvas menu (see TROUBLESHOOTING.md)
+- Gutenberg content pages: `width: 100%; box-sizing: border-box` required with `max-width` to prevent mobile overflow
 
 ---
 
 ## 10. Page Templates
 
+### Homepage (Page ID: 280)
+
+Full-width section layout (no sidebar) with 4 sections:
+1. **Hero** — eyebrow text (orange), H1 heading (sentence case), subtext
+2. **Latest Posts** — query loop with 3-column post card grid, section heading + "Lihat semua" link
+3. **Email CTA** — gradient background, email opt-in
+4. **Category Pills** — category links as pill badges
+
+**Hero copy (current):**
+- Eyebrow: `AI Tools & Side Hustle Digital untuk warga Malaysia`
+- H1: `Korang pun boleh guna AI untuk buat kerja dan jana pendapatan` (sentence case)
+
+**Note:** Query loops on pages require a Bricks editor save to activate on frontend (see TROUBLESHOOTING.md).
+
 ### Single Post Template (ID: 10)
 
 Full two-column layout with:
-- Category label, H1, author meta, excerpt, TOC, body, CTA box, share buttons
+- Category label, H1, author meta (avatar + name + date/reading time), excerpt, TOC, body, CTA box, share buttons
 - Sidebar: opt-in card + popular posts card
+- Reading time: native Bricks `post-reading-time` element with `suffix: " min baca"`
+- Date: `{post_date}` dynamic tag
+- Author name: `{author_name}` dynamic tag (NOT `{post_author}`)
+- Post URL links: `link: {type: "external", url: "{post_url}"}` (NOT `type: "dynamic"`)
 
 ### Blog Archive Template (ID: 52)
 
-Post grid/list with:
-- Post cards (thumbnail, category, title, excerpt, meta)
-- Same sidebar as single post
+Post grid with:
+- Heading "Blog DigiTrust Lab" + tagline (centered)
+- Post cards (thumbnail, category pill, title, excerpt, reading time pill)
+- Reading time pill: solid black `#1a1a1a` bg, white text (unified with homepage)
 - Pagination at bottom
+- No sidebar (full-width layout)
+- Template condition: `ids: ['277']` (targets Blog page ID, NOT `archiveType` — see TROUBLESHOOTING.md)
 
-### Static Page Template (for Privasi, Disclaimer, Hubungi, Tentang)
+### Header Template (ID: 185)
 
-**Current state:** Plain, unstyled — using default WordPress template.
+Native Bricks elements (no code elements):
+- Logo, navigation, nav CTA button
+- Mobile off-canvas menu
+- Background: `#FAFAF8`, border-bottom: 1px solid `#EBEBEB`
 
-**Target state:** Should use a simplified version of the single post layout:
-- Header (same as blog)
-- Centered content column (max-width 620px, no sidebar)
-- Page title with orange category-style label above
-- Styled content with `dtl-body` typography
-- CTA box at bottom (where relevant)
-- Footer (same as blog)
+### Footer Template (ID: 46)
+
+Native Bricks elements:
+- Copyright text, footer links
+- Background: `#1A1A1A`, text: `#888888`
+- 13px font size
+
+### Static Pages (Privasi, Disclaimer, Hubungi, Tentang)
+
+Gutenberg content pages styled via global CSS:
+- `#brx-content.wordpress { width: 100%; max-width: 800px; margin: 0 auto; padding: 60px 24px 80px; box-sizing: border-box; }`
+- No sidebar, centered content column
+- No category labels (those are for blog posts only)
 
 ---
 
-## 11. Design Rules (from spec)
+## 11. Design Rules (from spec, updated)
 
-1. **Max content width 720px** — optimal for Malay readability (65-70 chars/line)
+1. **Max content width 620px (posts) / 800px (pages)** — optimal for Malay readability (65-70 chars/line)
 2. **Featured image 1200×630px** — for social sharing and Google snippets
-3. **Sticky sidebar on desktop** — opt-in stays visible while scrolling
+3. **Sticky sidebar on desktop (posts only)** — opt-in stays visible while scrolling
 4. **Orange CTA box in every post** — 1 contextual affiliate box per post, mid-content
-5. **Reading time in post meta** — reduces bounce rate, auto-calculated by Rank Math
+5. **Reading time in post meta** — reduces bounce rate. Calculated via custom PHP function `post_date_reading_time()` using `{echo:}` tag (NOT Rank Math — see TROUBLESHOOTING.md)
 6. **WhatsApp in share buttons** — Malaysian audience shares via WhatsApp primarily
 7. **Author bio with name + photo** — Google E-E-A-T signal
 8. **No sidebar on mobile** — single column, 99% mobile audience
+9. **Reading time pill unified** — solid black `#1a1a1a` bg, white text, consistent across homepage and blog archive
+10. **`overflow-x: clip` not `hidden`** — `hidden` collapses `min-height: 100vh` in Chromium
+11. **`.brxe-{id}` for query loop elements** — IDs regenerate per iteration, use class selectors not ID selectors
+12. **Homepage has no sidebar** — full-width sections, post card grid instead
+
+---
+
+## 12. Key Element IDs (Quick Reference)
+
+| Page/Template | ID | Key Elements |
+|---------------|-----|--------------|
+| Homepage | 280 | Hero (eyebrow `2994e0`, H1 `dbb365`), Latest Posts query loop, Email CTA, Category Pills |
+| Blog Archive | 52 (template) | Heading, tagline, post card query loop, reading time pill (`n62cj0`), pagination |
+| Single Post | 10 (template) | Category, H1, author meta, excerpt, TOC, body, CTA, share, sidebar |
+| Header | 185 (template) | Logo, nav, CTA button, mobile menu |
+| Footer | 46 (template) | Copyright, footer links |
+| Blog Page | 277 | WordPress posts page (set in Settings → Reading) |
+
+**Note:** Element IDs within templates may change after Bricks editor saves. Always run `respira_extract_builder_content` to get current IDs before editing.

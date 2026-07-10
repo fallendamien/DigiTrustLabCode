@@ -1,3 +1,8 @@
+---
+name: marketing-skills-index
+description: Routing table for marketing skills — repurpose content, email sequences, ICP research, SEO audits, competitor analysis, UTM tracking. Triggers on marketing/SEO/content strategy requests.
+---
+
 # Marketing Skills Index (Pruned for DigiTrust Lab)
 
 > **Purpose:** Lightweight routing table for Claude Desktop. When a user request matches a trigger below, read the corresponding skill file from the marketing skills folder before executing. These are content/SEO/strategy skills — paid ads skills have been excluded (not running ads yet).

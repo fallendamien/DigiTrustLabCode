@@ -2,7 +2,7 @@
 
 > **Status:** 🚧 In Progress
 > **Current Phase:** Phase 1 — Foundation
-> **Last Updated:** 2026-07-07 (Session 8)
+> **Last Updated:** 2026-07-10 (Session 10)
 > **Monthly Revenue:** RM 69 (1 sale, pre-blog era)
 
 ---
@@ -10,7 +10,7 @@
 ## Progress Overview
 
 ```
-Phase 1: Foundation         ██████████ 98%
+Phase 1: Foundation         ██████████ 100% ✅
 Phase 2: Compounding        ░░░░░░░░░░  0%
 Phase 3: Traffic Growth     ░░░░░░░░░░  0%
 Phase 4: Scale              ░░░░░░░░░░  0%
@@ -22,7 +22,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 
 **Goal:** Blog live + 10 posts + Etsy shop open + 5 listings + MailerLite Day 1
 **Income target:** RM 0–397/month
-**Status:** In progress — infrastructure done, content not started
+**Status:** Infrastructure complete — homepage built, all templates done, content is the only remaining bottleneck
 
 ### Blog Build
 - [x] Install Local WP + WordPress locally (WordPress 7.0, PHP 8.2.29, Nginx, MySQL 8.4.0)
@@ -60,16 +60,20 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [x] Bridge enum truncation bug fixed — full action enums now visible to Claude Desktop (2026-07-04)
 - [x] Document `template:update` silently ignores `elements` param — use `content:update_content` instead
 - [x] Document `type: "content"` (not `"single"`) for template type filter
-- [ ] **Delete test post** ("Simply Static export pipeline..." test post still in WP Admin → Posts)
+- [x] **Delete test post** — Hello World post already trashed (confirmed 2026-07-09)
 - [x] **SEO pass + voice rewrite on all core pages** — Tentang Kami, Polisi Privasi, Disclaimer, Hubungi Kami rewritten with natural casual Malay voice (2026-07-07)
 - [x] **DigiTrust Lab Writing Voice guide** — documented in AGENTS.md with red flags, green light patterns, humour guidelines (2026-07-07)
 - [x] **Mobile header fixed** — Template 185 mobile layout: logo+hamburger row 1, full-width CTA button row 2 (2026-07-07)
 - [x] **Draft pages cleaned** — Respira duplicate (ID 244) + default Privacy Policy (ID 3) deleted (2026-07-07)
+- [x] **Build homepage (ID 280)** — Hero + Latest Posts query loop + Email CTA + Category pills (2026-07-10)
+- [x] **Fix homepage query loop** — Bricks editor save required to activate hasLoop on pages (2026-07-10)
+- [x] **Reading time pill unified** — solid black (#1a1a1a) + white text on both homepage and blog archive (2026-07-10)
+- [x] **Hero copy refined** — "AI Tools & Side Hustle Digital untuk warga Malaysia" (2026-07-10)
 - [ ] Set up Google Analytics 4
 - [ ] Set up Google Search Console + submit sitemap
-- [ ] Verify ClickRank ownership (JS snippet) — blog is live, ready to do now
+- [x] Verify ClickRank ownership (JS snippet) — snippet added to bricks_code_head, verified ✅ (2026-07-09)
 - [ ] Add digitrustlab.com to Screpy
-- [ ] Connect ClickRank to Google Search Console
+- [ ] Connect ClickRank to Google Search Console — pending GSC setup
 
 ### Tentang Kami — SEO Pass (Completed 2026-07-01)
 - [x] Identified weak/translated-sounding Malay copy on `/tentang/`
@@ -104,16 +108,16 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [ ] List product #5: Bundle — 30 AI Prompts + 5 Canva Templates — RM 29–39
 
 ### Blog Posts (1 post/week — Malay-first 70%) — 0 of 10 published
-- [ ] Post #1: Cara Buat Iklan FB yang Convert (Pengalaman Burn RM390) → AI Mastery affiliate
-- [ ] Post #2: 10 AI Tools Percuma untuk Perniagaan Malaysia 2026 → AI Mastery affiliate
-- [ ] Post #3: Cara Jana Pendapatan dengan Canva Templates → Etsy listing link
-- [ ] Post #4: Prompt AI untuk Buat Iklan Instagram yang Menarik → Etsy prompt pack
-- [ ] Post #5: Review Modul AI Mastery: Worth It Ke? → AI Mastery direct sale
-- [ ] Post #6: Cara Buat eBook Digital dengan AI (Step-by-Step) → Klikjer affiliate
-- [ ] Post #7: 5 Template Notion untuk Freelancer Malaysia → Etsy Notion template
-- [ ] Post #8: Cara Mula Jual Digital Products di Etsy Malaysia → Etsy + blog cross-link
-- [ ] Post #9: AI vs Canva: Mana Lebih Baik untuk Design? → Both affiliate + Etsy
-- [ ] Post #10: Cara Buat Landing Page yang Convert (Bricks Builder) → AI Mastery + Bricks
+- [ ] Post #1: AI Bukan Robot Ganti Kerja Anda — Ini Cara Ramai Orang Guna AI di 2026 (evergreen intro, Malay-first) → AI Mastery affiliate
+- [ ] Post #2: Cara Buat Iklan FB yang Convert (Pengalaman Burn RM390) → AI Mastery affiliate *(moved from #1 — needs proven success story first)*
+- [ ] Post #3: 10 AI Tools Percuma untuk Perniagaan Malaysia 2026 → AI Mastery affiliate
+- [ ] Post #4: Cara Jana Pendapatan dengan Canva Templates → Etsy listing link
+- [ ] Post #5: Prompt AI untuk Buat Iklan Instagram yang Menarik → Etsy prompt pack
+- [ ] Post #6: Review Modul AI Mastery: Worth It Ke? → AI Mastery direct sale
+- [ ] Post #7: Cara Buat eBook Digital dengan AI (Step-by-Step) → Klikjer affiliate
+- [ ] Post #8: 5 Template Notion untuk Freelancer Malaysia → Etsy Notion template
+- [ ] Post #9: Cara Mula Jual Digital Products di Etsy Malaysia → Etsy + blog cross-link
+- [ ] Post #10: AI vs Canva: Mana Lebih Baik untuk Design? → Both affiliate + Etsy
 
 ### Off-Page SEO (Week 1 — ongoing)
 - [ ] Reddit/Lowyat answers — 2–3x/week, link naturally to blog posts
@@ -223,6 +227,13 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - ✅ Header template restored (ID 140) after MCP destructive action (2026-07-03)
 - ✅ Respira MCP migrated + templates unfrozen (2026-07-05)
 - ✅ Template 10 sidebar matches design spec (2026-07-05)
+- ✅ ClickRank ownership verified + snippet live on all pages (2026-07-09)
+- ✅ SEO-CHEATSHEET.md created + keyword research done for Post #1 (cara guna AI, KD=0, 140/mo) (2026-07-09)
+- ✅ FABLE5-WORDS-OF-WISDOM.md created (2026-07-09)
+- ✅ Em dash writing rule added to AGENTS.md (2026-07-09)
+- ✅ Homepage built with 4 sections (Hero, Latest Posts, Email CTA, Category Pills) (2026-07-10)
+- ✅ Query loop fix documented — Bricks pages need editor save to activate hasLoop (2026-07-10)
+- ✅ Reading time pill design unified across homepage + blog archive (2026-07-10)
 - 🎯 First blog post published — target: this week (0 of 10 done — content is now the bottleneck, not infra)
 - 🎯 First Etsy sale — target: Month 2
 - 🎯 First affiliate commission — target: Month 3
@@ -260,7 +271,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 
 **WP Admin:** http://digitrust-lab.local/wp-admin/
 **Local site path:** ~\Local Sites\digitrust-lab\
-**Live blog:** https://blog.digitrustlab.com/
+**Live blog:** https://www.digitrustlab.com/
 **GitHub repo:** https://github.com/fallendamien/DigiTrustLabCode
 **Deploy:** `npx wrangler pages deploy . --project-name=digitrust-lab-static --branch=main` (or Cloudflare dashboard)
 **Simply Static generate URL:** `https://digitrust-lab.local/wp-admin/admin.php?page=simply-static-generate`
@@ -269,11 +280,11 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 
 ## IMMEDIATE NEXT SESSION — Start Here
 
-1. **Delete test post** — WP Admin → Posts → trash the "Simply Static export pipeline..." test post
-2. **Simply Static → Generate → Wrangler deploy** — push all today's changes live (core page rewrites + mobile header fix)
-3. **Write Post #1** — "AI Bukan Robot Ganti Kerja Anda — Ini Cara Ramai Orang Guna AI di 2026" (evergreen Malay-first intro post) — pull keyword from WriterZen first, then write → ClickRank optimize → publish → static export → deploy
-4. **Set up MailerLite** — Day 1 priority, still outstanding
-5. **Set up Google Search Console + GA4** — do this right after Post #1 goes live so indexing starts immediately
+1. **Task 4: Bricks cache clear + Simply Static export + Wrangler deploy** — push homepage live
+2. **Write Post #1** — "AI Bukan Robot Ganti Kerja Anda — Ini Cara Ramai Orang Guna AI di 2026" → WriterZen keyword research → write → ClickRank optimize → publish → static export → deploy
+3. **Set up MailerLite** — Day 1 priority, still outstanding
+4. **Set up Google Search Console + GA4** — do this right after Post #1 goes live so indexing starts immediately
+5. **Register Klikjer affiliate** — Week 1 task, still pending
 
 ---
 

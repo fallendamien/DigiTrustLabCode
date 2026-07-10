@@ -15,6 +15,9 @@
 ### Week 2
 - [x] Create blog structure (/blog) with categories
 - [x] Create core pages (Tentang Kami, Hubungi Kami, Polisi Privasi, Disclaimer)
+- [x] Build homepage (Hero + Latest Posts query loop + Email CTA + Category pills)
+- [x] Fix blog archive reading time pill (solid black + white text, consistent with homepage)
+- [x] Fix homepage query loop (Bricks editor save required to activate hasLoop on pages)
 - [ ] Write first blog post (WriterZen → write → ClickRank optimize)
 - [ ] Create first Etsy listing (30 AI Prompts for FB & IG Ads)
 - [ ] Verify ClickRank ownership (JS snippet)

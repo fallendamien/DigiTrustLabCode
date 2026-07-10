@@ -1015,3 +1015,426 @@ This can also be triggered by opening a template in the Bricks visual editor and
 - `AGENTS.md` → "CRITICAL: Blog Archive Template (ID 52) — READ BEFORE TOUCHING"
 - `.devin/skills/bricks-mcp-absolute/SKILL.md` → Step 2.5: Pre-Write Verification
 - `.devin/rules/bricks-mcp-absolute.md` → NEVER Allowed section
+
+---
+
+## Global Horizontal Overflow on All Pages (Mobile)
+
+**Date:** 2026-07-09
+**Category:** css-overflow
+**Severity:** High (all pages horizontally scrollable on mobile)
+**Time Spent:** ~45 minutes
+
+### Symptoms
+
+- Every page on the site had horizontal scroll on mobile
+- Content clipped on left edge, text/elements bleeding off right edge
+- Affected all page types: blog archive, Gutenberg content pages, static pages
+- Gutenberg content pages (Hubungi Kami, Polisi Privasi, Disclaimer) worst affected
+
+### Root Cause (multi-layered)
+
+Three separate issues compounding each other:
+
+1. **`body { display: flex; flex-direction: column }` in Global CSS** — the original sticky footer fix created a flex formatting context on body. This caused child elements to behave as flex items, breaking normal block layout and contributing to overflow on mobile.
+
+2. **`.bricks-mobile-menu-overlay` at `left: -300px`** — Bricks' off-canvas mobile menu drawer sits 300px off the left edge of the viewport. Browsers count this in `scrollWidth`, making every page appear horizontally scrollable even when no real content overflows.
+
+3. **`#brx-content.wordpress { max-width: 800px; margin: 0 auto }` without `width: 100%`** — The Gutenberg content pages CSS set `max-width: 800px` but didn't constrain `width`. On a 412px mobile viewport, the element rendered at its natural 800px width and bled off both sides.
+
+### Diagnosis Method
+
+Used claude-in-chrome JS injection to find every overflowing element:
+
+```javascript
+const vw = document.documentElement.clientWidth;
+document.querySelectorAll('*').forEach(el => {
+  const rect = el.getBoundingClientRect();
+  if (rect.right > vw + 2) {
+    console.log(el.tagName, el.className, rect.right);
+  }
+});
+```
+
+Also confirmed `overflow-x: hidden` on a parent collapses `min-height: 100vh` in Chromium — use `overflow-x: clip` instead (same visual effect, doesn't create a new formatting context).
+
+### Fix
+
+Updated `bricks_global_settings.customCss` via Respira MCP (`respira_update_option`). **No Bricks cache clearing needed** — `bricks_global_settings` is in the WP options table, not Bricks' CSS cache. Simply Static picks it up fresh on next export.
+
+**Final working CSS:**
+
+```css
+/* === BASE === */
+body {
+  background: var(--dtl-bg);
+  font-family: var(--dtl-font);
+  color: var(--dtl-text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: clip; /* clip not hidden — hidden collapses min-height in Chromium */
+}
+
+/* === STICKY FOOTER === */
+#brx-content {
+  flex: 1 1 auto;
+}
+
+/* === OVERFLOW FIX === */
+#brx-header,
+#brx-footer {
+  overflow-x: clip;
+  box-sizing: border-box;
+}
+
+/* Mobile off-canvas menu — prevent it contributing to scroll width */
+.bricks-mobile-menu-wrapper,
+.bricks-mobile-menu-overlay {
+  overflow: hidden;
+}
+
+img, video, iframe, embed, object {
+  max-width: 100%;
+  height: auto;
+}
+
+/* === GUTENBERG CONTENT PAGES === */
+#brx-content.wordpress,
+#brx-content.post-type-page {
+  width: 100%;           /* CRITICAL — without this, renders at max-width on mobile */
+  padding: 60px 24px 80px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+```
+
+### Key Learnings
+
+- **`overflow-x: hidden` vs `overflow-x: clip`** — `hidden` creates a Block Formatting Context which collapses `min-height: 100vh` on the element in Chromium. Always use `clip` for horizontal overflow suppression on layout-critical elements.
+- **`max-width` without `width: 100%` on flex/block children** — on mobile, `max-width: 800px` without `width: 100%` allows the element to render at its natural/content width. Always pair with `width: 100%; box-sizing: border-box`.
+- **Bricks off-canvas menu always causes `scrollWidth > viewport`** — `.bricks-mobile-menu-overlay` and `.bricks-mobile-menu-wrapper` sit off-canvas at `left: -300px`. Must apply `overflow: hidden` to these classes globally.
+- **`bricks_global_settings` edits USUALLY export fresh without cache clearing** — this option is read directly from the WP options table at render time. However, Bricks sometimes caches the inline CSS block (`bricks-frontend-inline-inline-css`), causing Simply Static to crawl a stale version. If a CSS change is missing from the export despite being live on WordPress, clear Bricks cache (Regenerate CSS files + Regenerate code signatures in Bricks → Settings) and re-export. Confirmed on 2026-07-09: `overflow-x:clip` was live on local WP but missing from the Simply Static export until cache was cleared.
+- **Sticky footer: target `#brx-content { flex: 1 1 auto }`, not `body { display: flex }`** — Bricks already sets `display: flex; flex-direction: column` on body via `.brx-body`. We only need to ensure `#brx-content` grows to fill available space.
+
+### Prevention
+
+- When adding any `max-width` constraint to a block-level element, always include `width: 100%; box-sizing: border-box`
+- Never use `overflow-x: hidden` on `html` or `body` — use `clip` instead
+- After any global CSS change, run the JS overflow detector on both the blog archive AND a Gutenberg content page before deploying
+
+---
+
+## Deploy Pipeline (correct workflow)
+
+**Date:** 2026-07-09
+**Category:** deploy-automation
+**Severity:** Prevention (stops recurring stale-deploy issues)
+
+### The Problem
+
+Three silent failure points caused "fixed on local, broken on live" repeatedly:
+
+1. **Wrong directory** — `wrangler` run from `C:\Users\Zamri` hits `EBUSY: NTUSER.DAT` and never deploys
+2. **Skipped Simply Static** — deploying without re-exporting ships the previous static folder
+3. **No verification** — local is assumed equal to live; nothing checks
+
+### The Fix: `deploy.ps1`
+
+A deploy script at `D:\Coding Zone\digitrust-lab-static\deploy.ps1` that:
+
+1. **Hardcodes the static directory** via `Set-Location` — can be run from any directory
+2. **Pre-deploy freshness guard** — checks newest file mtime; warns if older than 10 minutes
+3. **Post-deploy verification** — fetches the live site after a 15s CDN wait and checks for a CSS marker (`overflow-x: clip`). Prints green PASS or red FAIL with remediation instructions
+
+### Correct Workflow
+
+1. **(If CSS/template changed) Clear Bricks cache** — WP Admin → Bricks → Settings → click "Regenerate CSS files" → click "Regenerate code signatures" (accept the dialog)
+2. **Run Simply Static export** — WP Admin → Simply Static → Generate (wait for "Done!")
+3. **Run `.\deploy.ps1`** — from `D:\Coding Zone\digitrust-lab-static` (or any directory, the script hardcodes the path)
+4. **Trust the PASS/FAIL output** — green PASS means live site verified; red FAIL means follow the remediation steps printed by the script (clear Bricks cache → re-export → re-deploy)
+
+### Configurable Marker
+
+The expected CSS marker is stored near the top of `deploy.ps1`:
+
+```powershell
+$ExpectedMarker = "overflow-x: clip"
+```
+
+Update this when the CSS changes. The marker must match the **exact** string Bricks renders (note the space after the colon). The marker must be a string unique to the post-fix inline CSS that appears on every page.
+
+### What the Script Does NOT Do
+
+- ❌ Does NOT modify CSS or HTML content
+- ❌ Does NOT run post-processing scripts
+- ❌ Does NOT edit Bricks templates
+- ❌ Does NOT clear Bricks cache
+
+It is deploy-automation and verification only — fully compliant with AGENTS.md Bricks-only policy.
+
+---
+
+## Blog Page 404 — Missing Posts Page Setting (2026-07-09)
+
+**Symptom:** Published post "Apa Itu AI?" (ID 256) exists in WP Admin → Posts with status "Publish", but `/blog/` returns 404 and the post URL also returns 404 on local WordPress.
+
+**Root cause:** Two issues:
+1. **No Blog page existed** — WordPress had no page with slug `blog` to serve as the posts archive
+2. **No posts page set in Reading Settings** — Settings → Reading → "Posts page" was set to "— Select —" (0), meaning WordPress didn't know which page to use for the blog archive
+
+**Fix (3 steps):**
+
+1. **Create a Blog page** via Respira MCP:
+   ```
+   respira_create_custom_post(type: "page", title: "Blog", slug: "blog", status: "publish")
+   ```
+   Result: Page ID 277 created at `/blog/` (original page ID 260 was deleted and recreated)
+
+2. **Set Blog page as posts page** in Settings → Reading:
+   - WP Admin → Settings → Reading
+   - Set "Posts page" to "Blog" (ID 277)
+   - Click Save
+
+3. **Flush permalinks:**
+   - WP Admin → Settings → Permalinks
+   - Click Save (no changes needed — just re-saves to flush rewrite rules)
+
+**Verification:**
+- `/blog/` → ✅ Returns "Blog - DigiTrust Lab" with post listed
+- `/apa-itu-ai/` → ✅ Returns the published post
+
+**Note on post slug:** The post slug is `apa-itu-ai` (short), NOT the full title-based slug `apa-itu-ai-dan-kenapa-ia-bukan-setakat-robot-dalam-filem`. Always check the actual slug via `respira_read_post` before testing URLs.
+
+**When to do this:** Any time a published post doesn't appear on the blog page or returns 404. Check Settings → Reading first — if "Posts page" is unset, that's the cause.
+
+**Prevention:** Always ensure a Blog page exists and is set as the posts page before publishing any blog posts.
+
+---
+
+## Blog Archive Template 52 Not Rendering — 3 Root Causes (2026-07-09)
+
+**Symptom:** `/blog/` shows the default Bricks `posts` widget (random element IDs like `brxe-b91484`, `brxe-af1efa`) instead of our custom Template 52 design (heading "Blog DigiTrust Lab", tagline, post card grid with elements `d1sect`, `d4titl`, `d5grid`, etc.).
+
+**Root cause — 3 issues found and fixed:**
+
+### Issue 1: Template status was `private` (PRIMARY CAUSE)
+
+Bricks queries templates with `post_status: 'publish'` only in `get_all_templates_by_type()` (`includes/database.php` line 766). Template 52 was set to `private`, making it **completely invisible** to Bricks' template matching system. No condition could ever match because the template was never in the candidate list.
+
+**Fix:** `respira_update_custom_post(type: "bricks_template", id: 52, status: "publish")`
+
+### Issue 2: `archiveType: any` does NOT match the WordPress posts page
+
+WordPress `is_home()` (the posts page at `/blog/`) returns `false` for `is_archive()`. Bricks treats `is_home()` as `content_type: 'content'` (`database.php` line 492), NOT as an archive. The `archiveType` condition is only evaluated inside `if ( is_archive() && $condition['main'] === 'archiveType' )` (`database.php` line 961). Since `is_home()` returns `false` for `is_archive()`, the `archiveType: any` condition can **NEVER** match on `/blog/`.
+
+**Fix:** Removed `archiveType: any` condition entirely.
+
+### Issue 3: Old `ids` condition referenced deleted page ID 260
+
+Previous template conditions included `ids: ['260']` for a Blog page that was deleted and recreated as page ID 277. The stale ID meant the `ids` condition never matched the current posts page.
+
+**Fix:** Set `ids: ['277']` as the sole condition. On `is_home()`, Bricks sets `$post_id = get_option('page_for_posts')` (277) (`database.php` line 438-439). The `ids` condition matches this with score 10 (highest priority, `database.php` line 911-913).
+
+### How conditions were saved
+
+The `_bricks_template_settings` meta key (which stores `templateConditions`) is protected. Direct Respira meta updates appeared to succeed but didn't reliably persist. The reliable method is Bricks' own AJAX save endpoint:
+
+```javascript
+// Run in browser console on a WP admin page
+const formData = new FormData();
+formData.append('action', 'bricks_save_post');
+formData.append('postId', '52');
+formData.append('nonce', window.bricksData?.nonce || '36dae4decb');
+formData.append('templateSettings', JSON.stringify({
+  templateConditions: [
+    { id: 'cond001', main: 'ids', ids: ['277'] }
+  ]
+}));
+fetch('/wp-admin/admin-ajax.php', { method: 'POST', body: formData })
+  .then(r => r.json()).then(console.log);
+```
+
+### Verification
+
+- `/blog/` → ✅ Shows "Blog DigiTrust Lab" heading, tagline, and post card grid
+- `/apa-itu-ai/` → ✅ Single post still works correctly
+- No default `brxe-posts` widget visible
+
+### Key Bricks Source Code References
+
+| File | Line(s) | What it does |
+|------|---------|--------------|
+| `includes/database.php` | 438-439 | Sets `$post_id = page_for_posts` on `is_home()` |
+| `includes/database.php` | 492 | Maps `is_home` to `content_type: 'content'` |
+| `includes/database.php` | 766 | Queries templates with `post_status: 'publish'` only |
+| `includes/database.php` | 897-928 | `ids` condition matching — score 10 (highest) |
+| `includes/database.php` | 961 | `archiveType` condition — gated behind `if ( is_archive() )` |
+| `includes/ajax.php` | 2306-2313 | Bricks AJAX save for `templateSettings` |
+
+**When to do this:** Any time a Bricks template is not rendering on a page where it should. Check:
+1. Template status is `publish` (not `private`)
+2. Condition type matches the WordPress page type (`ids` for posts page, `archiveType` for actual archives)
+3. `ids` condition references the current page ID (not a deleted/recreated one)
+
+**Prevention:** Always verify template status is `publish` after creating or importing Bricks templates. Never use `archiveType` conditions for the WordPress posts page (`is_home()`) — use `ids` targeting the Blog page ID instead.
+
+## Template 10 — Broken Dynamic Tags on Single Post (2026-07-10)
+
+**Symptom:** On every single post page (e.g. `/apa-itu-ai/`), three meta elements showed raw dynamic tag text instead of resolved values:
+- Orange avatar circle: `{post_author:initial}` (raw text, not "Z")
+- Author name: `{post_author}` (raw text, not "Zed")
+- Date/reading time: `{rank_math_reading_time}` (raw text, not a date)
+
+### Root Causes (3 independent issues)
+
+**1. `{post_author:initial}` — invalid tag syntax**
+
+Bricks has no `:initial` modifier. The available author tags are: `author_id`, `author_name`, `author_bio`, `author_email`, `author_website`, `author_archive_url`, `author_avatar`, `author_meta` (see `provider-wp.php` lines 117-152). No character-level filter exists (`num_words` exists for word trimming, but no `num_chars` or `:initial`).
+
+**Fix:** Hardcoded `"Z"` — single-author blog, no dynamic tag available.
+
+**2. `{post_author}` — wrong tag name**
+
+The correct Bricks tag for author display name is `{author_name}`, NOT `{post_author}` or `{post_author:name}`. Bricks registers author tags with the `author_` prefix (not `post_author:`). The tag resolves via `get_author_tag_value()` in `provider-wp.php` line 1562-1581, which checks `first_name + last_name` first, then falls back to `display_name`.
+
+**Fix:** Changed to `{author_name}` → resolves to "Zed".
+
+**3. `{rank_math_reading_time}` — no such dynamic tag exists**
+
+Rank Math does not register any Bricks dynamic data tag. And `{post_reading_time}` is NOT a dynamic data tag either — it's a Bricks **element type** (`post-reading-time`). The element calculates reading time via JavaScript on the frontend (or server-side inside query loops using `str_word_count` / `ceil`). There is no way to output reading time inside a `text-basic` element's `text` field.
+
+**Fix:** Restructured `mtxtcl` (meta text column) into a flex-wrap row:
+- `mnamet` (author name) → `width: 100%` (takes full line 1)
+- `minfot` (date) → text changed to `{post_date} ·` (date + separator)
+- Injected native `post-reading-time` element (ID: `891b1e`) into `mtxtcl` → styled with `color: #6B6B6B`, `font-size: 12px`, `suffix: " min baca"`, `contentSelector: "#brxe-bodycn"`
+
+### Also: Post title link on /blog/ (Template 52)
+
+**Root cause:** Heading element `mnjhh4` on Template 52 had `link: {type: "dynamic", dynamicData: "{post_url}"}`. The `type: "dynamic"` link type does NOT resolve `{post_url}`. Bricks `set_link_attributes()` in `base.php` (lines 2405-2426) requires `type: "external"` when the URL contains a dynamic data tag. The `external` type detects the `{...}` pattern and routes it through `bricks_render_dynamic_data()` with `context: 'link'`.
+
+**Fix:** Changed to `link: {type: "external", url: "{post_url}"}`.
+
+### Key Bricks Source Code References
+
+| File | Line(s) | What it does |
+|------|---------|--------------|
+| `provider-wp.php` | 117-152 | Registers `author_*` dynamic data tags (NOT `post_author:*`) |
+| `provider-wp.php` | 1562-1581 | `get_author_tag_value()` — resolves `author_name` to `first_name + last_name` or `display_name` |
+| `provider-wp.php` | 37-94 | Registers `post_*` dynamic data tags (`post_title`, `post_url`, `post_date`, etc.) — no `post_reading_time` |
+| `elements/post-reading-time.php` | 66-123 | Native reading time element — JS-based on frontend, `str_word_count` in loops |
+| `elements/base.php` | 2405-2426 | `set_link_attributes()` for `type: "external"` — detects `{...}` pattern, routes through `bricks_render_dynamic_data()` |
+
+### Prevention
+
+1. **Always verify tag names** in `provider-wp.php` before using them — Bricks uses `author_*` prefix, not `post_author:*`
+2. **Reading time is an element, not a tag** — use the native `post-reading-time` element, not a dynamic data tag in a text field
+3. **For post URL links** — use `link: {type: "external", url: "{post_url}"}`, NOT `type: "dynamic"` with `dynamicData`
+4. **No character-level extraction** — Bricks has `num_words` filter but no `num_chars` or `:initial` modifier
+
+---
+
+## Bricks `{echo:}` Dynamic Tags — Only First Tag Processed Per Text Field (2026-07-10)
+
+**Symptom:** When combining `{echo:post_date_reading_time}` with another dynamic tag (e.g., `{post_date}`) in the same Bricks `text-basic` element's `text` field, only the first tag resolves. The second `{echo:}` tag renders as raw text or is skipped entirely.
+
+**Root cause:** Bricks' dynamic data parser in `providers.php` processes dynamic tags sequentially but stops parsing after the first `{echo:}` tag by default. The `bricks/code/echo_everywhere` filter (`__return_true`) allows `{echo:}` tags to render everywhere, but the parser still only handles one `{echo:}` tag per field — subsequent `{echo:}` tags in the same field are not parsed.
+
+**Fix:** Create a single PHP function that combines all needed data into one string, then use a single `{echo:function_name}` tag:
+
+```php
+// In digitrustlab-archive-title.php plugin
+function post_date_reading_time() {
+    $post_id = get_the_ID();
+    if (!$post_id) return '';
+    $date = get_the_date('F j, Y', $post_id);
+    $content = get_post_field('post_content', $post_id);
+    $word_count = str_word_count(wp_strip_all_tags($content));
+    $minutes = max(1, ceil($word_count / 200));
+    return $date . ' &middot; ' . $minutes . ' min read';
+}
+```
+
+Then in Bricks: `{echo:post_date_reading_time}` → outputs "July 9, 2026 · 4 min read"
+
+**Required filters in the plugin:**
+```php
+add_filter('bricks/code/echo_everywhere', '__return_true');
+add_filter('bricks/code/echo_function_names', function ($names) {
+    return true; // Allow all echo functions (safe on local dev)
+});
+```
+
+**Prevention:** Never combine multiple `{echo:}` tags in one text field. Consolidate into a single PHP function that returns the full combined string.
+
+---
+
+## Homepage Query Loop Not Rendering — Bricks Pages Need Editor Save to Activate `hasLoop` (2026-07-10)
+
+**Symptom:** After injecting a "Latest Posts" section with a query loop container (element with `hasLoop: true` and `query` settings) onto the homepage (page ID 280) via Respira MCP, the query loop did not render on the frontend. The settings were correctly stored in the database (confirmed via `respira_extract_builder_content`), but the frontend showed only the static elements — no post cards.
+
+Respira also returned warnings: "Unknown control 'hasLoop' for the Bricks 'container' element" and "Unknown control 'query' for the Bricks 'container' element".
+
+**Root cause:** Bricks' frontend renderer does not automatically process `hasLoop` and `query` settings on **pages** (post_type: `page`) when they're written via MCP/API without a subsequent editor save. The settings exist in the database, but Bricks' rendering pipeline needs a "save event" from the visual editor to register and activate the query loop on the frontend.
+
+This is specific to **pages** — Bricks **templates** (post_type: `bricks_template`) process query loops from database settings without needing an editor save.
+
+**Fix:** Manually open the page in the Bricks editor and save:
+1. Navigate to `https://digitrust-lab.local/?bricks=run` (or WP Admin → Pages → Home → Edit with Bricks)
+2. Confirm the query loop settings are present in the editor (they will be — they're in the DB)
+3. Click Save
+4. Frontend now renders the query loop correctly
+
+**Prevention:** After injecting query loops onto pages via Respira MCP, always open the page in the Bricks editor and save once to activate the loop on the frontend. Templates don't need this step — only pages.
+
+---
+
+## `_cssCustom` Selectors in Query Loops — Use `.brxe-{id}` Not `#brxe-{id}` (2026-07-10)
+
+**Symptom:** Custom CSS applied via `_cssCustom` on elements inside a query loop container did not render. The category pill (background color), reading time pill (background color), card hover effect, image sizing, title link color, and excerpt line-clamp all appeared unstyled — transparent backgrounds, no hover effect, no image sizing.
+
+**Root cause:** Elements inside a Bricks query loop get **new element IDs on each iteration**. The original element ID (e.g., `16aef2`) only matches the first iteration. Subsequent iterations have different IDs, so `#brxe-16aef2` (ID selector) only styles the first card.
+
+Additionally, Bricks renders loop elements with **class** selectors (`.brxe-16aef2`) rather than ID selectors in some contexts, meaning `#brxe-{id}` may not match the rendered DOM at all.
+
+**Fix:** Use **class selectors** (`.brxe-{id}`) instead of **ID selectors** (`#brxe-{id}`) in `_cssCustom` for any element inside a query loop:
+
+```css
+/* ❌ WRONG — only matches first iteration or doesn't match at all */
+#brxe-16aef2 { background: rgba(232,98,26,0.1); }
+
+/* ✅ CORRECT — matches all iterations via class */
+.brxe-16aef2 { background: rgba(232,98,26,0.1); }
+```
+
+**Elements updated on homepage (ID 280):**
+
+| Element | ID | Purpose | Selector |
+|---------|-----|---------|----------|
+| Category pill | `16aef2` | Orange pill background | `.brxe-16aef2` |
+| Reading time pill | `c66b36` | Black pill background | `.brxe-c66b36` |
+| Card container | `4c6189` | Hover effect | `#brxe-4c6189` (OK — container ID is stable) |
+| Image | `60b016` | Fixed height + object-fit | `#brxe-60b016 img` (OK) |
+| Title | `fa7ecb` | Link color + hover | `#brxe-fa7ecb a` (OK) |
+| Excerpt | `ccbefc` | 2-line clamp | `#brxe-ccbefc` (OK) |
+
+**Note:** Container-level elements (card wrapper, image, title, excerpt) worked fine with `#brxe-{id}` because their IDs remain stable. Only the pill elements (which are `text-basic` elements rendered inside the loop) needed class selectors. When in doubt, use `.brxe-{id}` for all elements inside a query loop.
+
+**Prevention:** For any `_cssCustom` on elements inside a query loop, default to `.brxe-{id}` class selectors. Only use `#brxe-{id}` for container/wrapper elements that have stable IDs across iterations.
+
+---
+
+## Simply Static "Push" Button — Not Labeled "Generate" or "Export" (2026-07-10)
+
+**Category:** ui-navigation
+**Severity:** Low (workflow confusion)
+
+**Issue:** The Simply Static generate page (`/wp-admin/admin.php?page=simply-static-generate`) does not have a button labeled "Generate" or "Export" or "Generate Static Site". The trigger button is labeled **"Push"** with class `components-button generate`.
+
+**Navigation:**
+- WP Admin → Simply Static → Generate → click **"Push"** button (top of the page, next to nav items)
+- Page title changes to "(X%) Simply Static - Generate" during export
+- Wait for completion (typically 5-8 minutes for ~2,600 files)
+
+**Prevention:** When instructing someone to run a Simply Static export, tell them to click "Push", not "Generate" — the button label is counterintuitive.

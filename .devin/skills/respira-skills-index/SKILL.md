@@ -1,3 +1,8 @@
+---
+name: respira-skills-index
+description: Routing table for Respira WordPress skills — SEO, AEO, accessibility, image optimization, internal links, brand voice, conversion audit, stale content, activity reports. Triggers on WordPress site management and optimization requests.
+---
+
 # Respira Skills Index
 
 > **Purpose:** Lightweight routing table for Claude Desktop. When a user request matches a trigger below, read the corresponding SKILL.md from the workspace before executing. Never guess a skill's workflow without reading the file first.

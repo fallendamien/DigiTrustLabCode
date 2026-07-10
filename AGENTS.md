@@ -37,40 +37,28 @@ Templates 185 (Header) and 52 (Blog Archive) are now editable via Respira MCP wi
 This is the only task that matters right now. Do NOT work on any template, design,
 or infrastructure task unless Zamri explicitly instructs it.
 
+## ✅ RESOLVED: Blog Archive Template 52 Now Rendering on /blog/ (2026-07-09)
+
+**Fixed:** Template 52 was not rendering on `/blog/` due to 3 root causes:
+1. **Template status was `private`** — Bricks only queries `publish` templates (database.php line 766)
+2. **`archiveType: any` doesn't match `is_home()`** — Bricks treats posts page as `content_type: content`, not archive (database.php line 492, 961)
+3. **Stale `ids: ['260']`** — Blog page was deleted and recreated as ID 277
+
+**Fix applied:** Status → `publish`, condition → `ids: ['277']` only (score 10 match). See `TROUBLESHOOTING.md` → "Blog Archive Template 52 Not Rendering" for full details.
+
 ## 🔴 UNRESOLVED: Category/Taxonomy Archives Don't Use Custom Template
 
-Template ID 52 (Blog Archive) has condition `{"main": "archiveType", "archiveType": "any"}`
-set via `template_condition:set`. This correctly applies to `/blog/` (post type
-archive) but does NOT apply to `/category/ai-tools/` or `/category/digital-side-hustle/`
-(taxonomy term archives).
+Template 52 now works on `/blog/` (posts page) via `ids: ['277']` condition, but does NOT apply to `/category/ai-tools/` or `/category/digital-side-hustle/` (taxonomy term archives).
 
-**Confirmed via DOM inspection:** on category pages, `#brx-content` contains ONLY
-`<div class="brxe-container"><div class="bricks-no-posts-wrapper">...</div></div>`
-— none of our template's elements (section/header block/heading/grid) are present
-at all. This means Bricks is not loading template 52 on taxonomy archives — it's
-using some other fallback entirely.
-
-**What was tried (didn't work):**
-- `archiveType: any` condition alone
-- Adding a second condition `archivePostType: post`
-- Adding `hasLoop: true` + `is_main_query: true` to the query object per the Bricks
-  MCP builder guide's Archive Templates section
+**Why:** The `ids` condition only matches the specific Blog page ID. Category pages are true WordPress archives (`is_archive() = true`), so they need an `archiveType` condition — but Template 52 currently has no `archiveType` condition (it was removed because it didn't work for the posts page).
 
 **Needs investigation:**
-- Check `bricks:get_condition_schema` or `template_condition:types` for the correct
-  condition to target taxonomy archives specifically (may need something like
-  `archiveType: taxonomy` or a `terms` condition type, not `archivePostType`)
-- Verify whether Bricks WP core theme even supports a single template covering
-  BOTH post-type archives AND taxonomy archives, or if they need separate
-  templates/conditions
-- Check in Bricks GUI directly: Template 52 → Settings → Conditions, to see what
-  the visual condition picker actually offers for taxonomy targeting
+- Add a second condition `archiveType: ['term']` to Template 52 (this WILL match category pages since `is_archive()` is true there)
+- Or create a separate template for category archives with `archiveType: ['term']` condition
+- Verify in Bricks GUI: Template 52 → Settings → Conditions, to see what the visual condition picker offers for taxonomy targeting
 
 **Workaround in place:** `.bricks-archive-title-wrapper { display: none !important; }`
-in WP Additional CSS hides the ugly "Category: X" heading. The "Nothing found"
-state is cosmetic-only until Post #1 exists, but the missing centered header/grid
-styling on category pages will persist even after posts are published, since the
-custom template isn't being used there at all.
+in WP Additional CSS hides the ugly "Category: X" heading.
 
 ### 🧩 Respira MCP (PRIMARY TOOL — replaced old Bricks MCP 2026-07-05)
 
@@ -326,6 +314,53 @@ Then run Simply Static export — the fresh render will be picked up.
 4. Go to Bricks → Templates → edit the template → click **"Update"** to re-save
 
 **When to do this:** Any time a Bricks template change (footer, header, archive) doesn't appear in the Simply Static export despite WordPress showing it correctly.
+
+## 🧠 Skills Auto-Trigger Table (For Claude Desktop)
+
+Claude Desktop cannot read `.devin/` or `.windsurf/` rules. When a user request matches a trigger below, read the corresponding `SKILL.md` file before executing. Only skills that require Respira MCP, WriterZen, or DigiTrust Lab-specific context are listed — generic marketing tasks (email sequences, UTM tracking, competitor analysis, content repurposing) can be handled natively without a skill file.
+
+### Respira MCP Skills (require WordPress + Respira connection)
+
+| Trigger Phrases | Skill File | What It Does |
+|----------------|-----------|--------------|
+| "amplify my seo", "seo audit", "aeo audit", "optimize for search" | `.devin/skills/seo-aeo-amplifier/SKILL.md` | On-page SEO + AEO audit with schema markup via Respira MCP |
+| "extract my brand voice", "analyze my tone", "writing style" | `.devin/skills/brand-voice-synthesizer/SKILL.md` | Reads your posts, extracts DigiTrust Lab brand voice |
+| "build internal links", "link my content", "topic relationships" | `.devin/skills/internal-link-builder/SKILL.md` | Analyzes your content via Respira MCP, suggests internal links |
+| "stale content", "old posts", "content refresh" | `.devin/skills/stale-content-detector/SKILL.md` | Finds posts that haven't been updated via Respira MCP |
+| "compress images", "webp convert", "optimize images" | `.devin/skills/wordpress-ai-image-optimizer/SKILL.md` | Compress, WebP convert, resize images via Respira MCP |
+| "site dna", "wordpress audit", "site health check" | `.devin/skills/wordpress-site-dna/SKILL.md` | Full WordPress site audit via Respira MCP |
+| "activity report", "what did I do", "audit log report" | `.devin/skills/activity-report-composer/SKILL.md` | Turns Respira audit log into a polished report |
+| "prime the agent", "session start", "load site context" | `.devin/skills/prime-the-agent/SKILL.md` | Fast session starter — loads site, builder, schemas |
+| "bricks mcp", "mcp tool selection", "bricks via mcp" | `.devin/skills/bricks-mcp-absolute/SKILL.md` | MCP tool selection and execution protocol for Bricks |
+
+### WriterZen Skill (requires specific tool workflow)
+
+| Trigger Phrases | Skill File | What It Does |
+|----------------|-----------|--------------|
+| "keyword research", "find keywords", "writerzen", "seed keyword", "kd analysis" | `.devin/skills/writerzen-keyword-research/SKILL.md` | WriterZen keyword research — Malaysia, Malay, KD < 20 |
+
+### Marketing Skills (on-demand only)
+
+For broader marketing strategy (competitor teardown, E2E SEO, ICP research, content repurposing, email sequences, programmatic SEO, UTM tracking), read `.devin/skills/marketing-skills-index/SKILL.md` when explicitly asked. These are not auto-triggered — Claude handles generic marketing tasks natively.
+
+### How to Use (For Claude Desktop)
+
+1. Match the user's request against trigger phrases in the tables above
+2. Read the full `SKILL.md` file from the listed path
+3. Follow the skill's workflow
+4. Only load one skill at a time (the matching one)
+5. Combine with Respira MCP tools when relevant (e.g., SEO strategy → then Respira on-page fixes)
+
+## 🔍 WriterZen Keyword Research
+
+**Before writing any blog post, research the keyword first.** Load the `writerzen-keyword-research` skill for the full workflow.
+
+**Quick reference:**
+- Tool: WriterZen → Keyword Explorer
+- Location: Malaysia | Language: Malay
+- Target: KD by Content < 20, some search volume
+- Save to: WriterZen Keyword List → "DigiTrust Lab Blog Posts"
+- Record metrics in: `SEO-CHEATSHEET.md`
 
 ## Notes
 
