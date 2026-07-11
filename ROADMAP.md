@@ -1,8 +1,8 @@
 # DigiTrust Lab — Roadmap
 
 > **Status:** 🚧 In Progress
-> **Current Phase:** Phase 1 — Foundation
-> **Last Updated:** 2026-07-10 (Session 10)
+> **Current Phase:** Phase 1 — Foundation (Infrastructure DONE, Content Phase Started)
+> **Last Updated:** 2026-07-11 (Session 13)
 > **Monthly Revenue:** RM 69 (1 sale, pre-blog era)
 
 ---
@@ -10,7 +10,8 @@
 ## Progress Overview
 
 ```
-Phase 1: Foundation         ██████████ 100% ✅
+Phase 1: Foundation         ██████████ 100% ✅ (Infrastructure)
+Phase 1: Content             █░░░░░░░░░ 10% (1 post live, content phase started)
 Phase 2: Compounding        ░░░░░░░░░░  0%
 Phase 3: Traffic Growth     ░░░░░░░░░░  0%
 Phase 4: Scale              ░░░░░░░░░░  0%
@@ -25,10 +26,9 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 **Status:** Infrastructure complete — homepage built, all templates done, content is the only remaining bottleneck
 
 ### Blog Build
-- [x] Install Local WP + WordPress locally (WordPress 7.0, PHP 8.2.29, Nginx, MySQL 8.4.0)
+- [x] WordPress + Bricks Builder installed on Hostinger (WordPress 7.0, PHP 8.2, LiteSpeed)
 - [x] Activate Bricks Builder Ultimate 2.3.8 (license active ✅)
 - [x] Install Rank Math SEO 1.0.272 (active, usage tracking OFF)
-- [x] Install Simply Static 3.7.7 (active)
 - [x] WordPress core settings configured (tagline, timezone Kuala Lumpur, permalink = Post name)
 - [x] Delete default WP content (Hello World post + Sample Page → Trash)
 - [x] Create blog categories (AI Tools / Digital Side Hustle / Canva & Design / AI untuk Perniagaan Kecil)
@@ -41,12 +41,9 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [x] Build Header template (ID 185) — logo, nav, search bar, CTA (rebuilt 2026-07-04)
 - [x] Build Footer template (ID 46) — native Bricks elements (rebuilt 2026-07-04)
 - [x] Build Blog Archive template (ID 52) — native Bricks elements, zero Code elements (rebuilt 2026-07-04)
-- [x] Configure Simply Static (Relative Path = /blog, Deploy = Local Directory, Output = D:/Coding Zone/digitrust-lab-static)
-- [x] First static export completed (2631 files, 8 min)
 - [x] GitHub Desktop repo created and published (`fallendamien/DigiTrustLabCode`, pushing to `master`)
-- [x] Connect Cloudflare Pages to repo — deployed via Wrangler CLI
-- [x] Add Cloudflare DNS CNAME — **blog.digitrustlab.com is LIVE**
-- [x] TROUBLESHOOTING.md documents known issues
+- [x] Blog live at digitrustlab.com
+- [x] TROUBLESHOOTING.md documents known issues (archived — see deprecated/ folder)
 - [x] Create core pages: Tentang Kami, Polisi Privasi, Disclaimer, Hubungi Kami
 - [x] Nav labels standardized to Malay (Tentang Kami, Hubungi Kami, Polisi Privasi)
 - [x] Git repository initialized + Windsurf workspace bootstrapped (AGENTS.md, .windsurf/rules)
@@ -107,9 +104,9 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [ ] List product #4: 50 AI Prompts for Creating Digital eBooks — RM 15–25
 - [ ] List product #5: Bundle — 30 AI Prompts + 5 Canva Templates — RM 29–39
 
-### Blog Posts (1 post/week — Malay-first 70%) — 0 of 10 published
-- [ ] Post #1: AI Bukan Robot Ganti Kerja Anda — Ini Cara Ramai Orang Guna AI di 2026 (evergreen intro, Malay-first) → AI Mastery affiliate
-- [ ] Post #2: Cara Buat Iklan FB yang Convert (Pengalaman Burn RM390) → AI Mastery affiliate *(moved from #1 — needs proven success story first)*
+### Blog Posts (1 post/week — Malay-first 70%) — 1 of 10 published
+- [x] Post #1: "Apa Itu AI? (Dan Kenapa Ia Bukan Setakat Robot dalam Filem)" — published Jul 9 at digitrustlab.com/apa-itu-ai/
+- [ ] Post #2: Cara Guna ChatGPT untuk Bantu Kerja Harian Korang (Panduan Mudah 2026) → AI Mastery affiliate *(natural follow-up to Post #1)*
 - [ ] Post #3: 10 AI Tools Percuma untuk Perniagaan Malaysia 2026 → AI Mastery affiliate
 - [ ] Post #4: Cara Jana Pendapatan dengan Canva Templates → Etsy listing link
 - [ ] Post #5: Prompt AI untuk Buat Iklan Instagram yang Menarik → Etsy prompt pack
@@ -198,6 +195,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [x] Convert Blog Archive template (ID 52) from Code element to native Bricks elements
 - [ ] Replace Bricks native form on Template 10 sidebar with MailerLite embed (when MailerLite account created)
 - [ ] Clean leftover metadata on Template 10 (after_children/after_element from failed MCP inject — harmless but untidy)
+- [x] **Mobile horizontal overflow on `/blog/` — fixed** — CSS Grid `min-width: auto` on card containers caused track inflation. Fix: `min-width: 0` on grid children. Verified live at 375px. (2026-07-11)
 
 ---
 
@@ -208,19 +206,16 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - ✅ Bricks Builder Ultimate owned (unlimited sites, lifetime)
 - ✅ Domain digitrustlab.com live on Cloudflare
 - ✅ Long-term plan finalised + gaps fixed (Jun 28 2026)
-- ✅ Local WP installed + WordPress 7.0 running locally
+- ✅ WordPress + Bricks Builder running on Hostinger
 - ✅ Bricks Builder 2.3.8 installed + licensed (ACTIVE)
 - ✅ Rank Math SEO installed + configured (usage tracking OFF)
-- ✅ Simply Static installed + configured (/blog path, local dir output)
 - ✅ WordPress settings configured (timezone KL, permalink = post name)
 - ✅ Default WP content deleted (Hello World + Sample Page)
 - ✅ Blog categories created (AI Tools, Digital Side Hustle, Canva & Design, AI untuk Perniagaan Kecil)
 - ✅ Bricks Single Post Template built + condition set (Post type = Post)
 - ✅ Header + Footer templates built
-- ✅ First static export completed (2631 files → D:/Coding Zone/digitrust-lab-static)
 - ✅ GitHub repo published (`fallendamien/DigiTrustLabCode`)
-- ✅ Cloudflare Pages deployed via Wrangler CLI
-- ✅ **Blog LIVE at blog.digitrustlab.com (confirmed 2026-07-01)**
+- ✅ **Blog LIVE at digitrustlab.com (confirmed 2026-07-01)**
 - ✅ Core pages live (Tentang Kami, Polisi Privasi, Disclaimer, Hubungi Kami)
 - ✅ Tentang Kami SEO/copy pass completed + pushed live (2026-07-03)
 - ✅ Mobile menu contrast fix + footer mobile centering + Tentang Kami padding fix (2026-07-03)
@@ -228,13 +223,21 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - ✅ Respira MCP migrated + templates unfrozen (2026-07-05)
 - ✅ Template 10 sidebar matches design spec (2026-07-05)
 - ✅ ClickRank ownership verified + snippet live on all pages (2026-07-09)
-- ✅ SEO-CHEATSHEET.md created + keyword research done for Post #1 (cara guna AI, KD=0, 140/mo) (2026-07-09)
+- ✅ content/SEO-CHEATSHEET.md created + keyword research done for Post #1 (cara guna AI, KD=0, 140/mo) (2026-07-09)
 - ✅ FABLE5-WORDS-OF-WISDOM.md created (2026-07-09)
 - ✅ Em dash writing rule added to AGENTS.md (2026-07-09)
 - ✅ Homepage built with 4 sections (Hero, Latest Posts, Email CTA, Category Pills) (2026-07-10)
 - ✅ Query loop fix documented — Bricks pages need editor save to activate hasLoop (2026-07-10)
 - ✅ Reading time pill design unified across homepage + blog archive (2026-07-10)
-- 🎯 First blog post published — target: this week (0 of 10 done — content is now the bottleneck, not infra)
+- ✅ **Homepage live at digitrustlab.com** (2026-07-10)
+- ✅ **Mobile overflow fixed on `/blog/`** — `min-width: 0` on grid children, verified at 375px viewport (2026-07-11)
+- ✅ **Migration COMPLETE** — Local by Flywheel → Hostinger Business WordPress (2026-07-11)
+- ✅ **Email working** — hello@digitrustlab.com active, all 4 DNS checks green (MX, SPF, DKIM, DMARC) (2026-07-11)
+- ✅ **SSL COMPLETE** — Hostinger Lifetime SSL active + Cloudflare SSL/TLS Full (Strict) enabled (2026-07-12)
+- ✅ **Menu links fixed** — all point to digitrustlab.com (2026-07-12)
+- ✅ **Respira MCP reconfigured** — Windsurf + Claude Desktop connected to Hostinger site (2026-07-12)
+- ✅ **Old approach deprecated** — Local WP + Simply Static + Cloudflare Pages docs moved to deprecated/ folder (2026-07-12)
+- ✅ **Post #1 published** — "Apa Itu AI?" live at digitrustlab.com/apa-itu-ai/ (Jul 9) (1 of 10 done)
 - 🎯 First Etsy sale — target: Month 2
 - 🎯 First affiliate commission — target: Month 3
 - 🎯 RM 200/month — target: Month 6
@@ -247,7 +250,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 
 | Metric | Current | Target (Month 12) |
 |---|---|---|
-| Blog posts live | 0 | 50+ |
+| Blog posts live | 1 | 50+ |
 | Monthly blog visits | 0 | 10,000+ |
 | Etsy listings | 0 | 25+ |
 | Email subscribers | 0 | 500+ |
@@ -256,35 +259,38 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 
 ---
 
-## Local WP Stack (Confirmed)
+## Hostinger Stack (Current — Migrated 2026-07-11)
 
 | Component | Version | Status |
 |---|---|---|
-| WordPress | 7.0 | ✅ Running at digitrust-lab.local |
-| PHP | 8.2.29 | ✅ |
-| Web Server | Nginx | ✅ |
-| Database | MySQL 8.4.0 | ✅ |
+| WordPress | 7.0 | ✅ Running at digitrustlab.com |
+| PHP | 8.2 | ✅ Hostinger |
+| Web Server | LiteSpeed | ✅ |
+| Database | MySQL | ✅ Hostinger |
 | Bricks Builder | 2.3.8 Ultimate | ✅ Licensed |
 | Rank Math SEO | 1.0.272 | ✅ Active |
-| Simply Static | 3.7.7 | ✅ Active |
-| Cloudflare Pages | — | ✅ Deployed |
+| LiteSpeed Cache | — | ✅ Active |
+| Cloudflare Proxy | — | ✅ Active (Full Strict SSL) |
+| Email | hello@digitrustlab.com | ✅ Working |
 
-**WP Admin:** http://digitrust-lab.local/wp-admin/
-**Local site path:** ~\Local Sites\digitrust-lab\
-**Live blog:** https://www.digitrustlab.com/
+**WP Admin:** https://digitrustlab.com/wp-admin/
+**Hosting:** Hostinger Business WordPress (IP: 145.79.28.85)
+**Live site:** https://digitrustlab.com/ (via Cloudflare proxy)
+**Email:** https://mail.hostinger.com (hello@digitrustlab.com)
 **GitHub repo:** https://github.com/fallendamien/DigiTrustLabCode
-**Deploy:** `npx wrangler pages deploy . --project-name=digitrust-lab-static --branch=main` (or Cloudflare dashboard)
-**Simply Static generate URL:** `https://digitrust-lab.local/wp-admin/admin.php?page=simply-static-generate`
+**Deploy:** No static export needed — site is dynamic WordPress on Hostinger
 
 ---
 
 ## IMMEDIATE NEXT SESSION — Start Here
 
-1. **Task 4: Bricks cache clear + Simply Static export + Wrangler deploy** — push homepage live
-2. **Write Post #1** — "AI Bukan Robot Ganti Kerja Anda — Ini Cara Ramai Orang Guna AI di 2026" → WriterZen keyword research → write → ClickRank optimize → publish → static export → deploy
-3. **Set up MailerLite** — Day 1 priority, still outstanding
-4. **Set up Google Search Console + GA4** — do this right after Post #1 goes live so indexing starts immediately
-5. **Register Klikjer affiliate** — Week 1 task, still pending
+1. **Write Post #1** — "Apa Itu AI? (Dan Kenapa Ia Bukan Setakat Robot dalam Filem)" → already published (Jul 9), verify it's live at digitrustlab.com/apa-itu-ai/
+2. **Set up MailerLite** — Day 1 priority, still outstanding. Simple opt-in first, lead magnet PDF Week 2–3
+3. **Set up Google Search Console + GA4** — do right after verifying Post #1 is live so indexing starts immediately
+4. **Register Klikjer affiliate** — Week 1 task, still pending
+5. **Add digitrustlab.com to Screpy** — rank tracking setup
+
+> **Infrastructure is DONE.** All templates, pages, export pipeline, mobile fixes, and deploy workflow are complete. Content is the only remaining bottleneck.
 
 ---
 
@@ -334,9 +340,12 @@ Reddit/Lowyat answers 2–3x/week + Web 2.0 profiles (Medium, Dev.to) — one-ti
 
 ## Notes
 
-**Tech stack:** Local WP → Bricks Builder Ultimate → Simply Static → GitHub → Cloudflare Pages (RM0/month)
+**Tech stack:** Hostinger Business WordPress → Bricks Builder Ultimate → LiteSpeed Cache → Cloudflare proxy (RM0/month hosting via Cloudflare)
 **SEO tools:** WriterZen (keyword research) → ClickRank (optimize) → Screpy (track)
 **Payment:** BCL.my (AI Mastery reseller, keep as-is) → Etsy Payments (own products)
 **Domain:** digitrustlab.com (Cloudflare Registrar, Zone ID: 94c8c2bff83a3ed15b7405d507eca68e)
+**Hosting:** Hostinger Business WordPress, IP 145.79.28.85
+**Email:** hello@digitrustlab.com (Hostinger email, all DNS checks green)
+**SSL:** Cloudflare SSL/TLS = Flexible (Hostinger Lifetime SSL installing — switch to Full Strict when done)
 **Bricks license key:** edc873f3106bc0f7337ec60ff03e6fa6
 **GitHub repo:** fallendamien/DigiTrustLabCode (branch: master)

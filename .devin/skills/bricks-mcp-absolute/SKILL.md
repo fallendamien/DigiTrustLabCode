@@ -23,14 +23,11 @@ Is this a visual/styling change?
     → NO → Use Respira MCP anyway
 
 NEVER use post-process scripts, PowerShell, or any background code for Bricks tasks.
-Wrangler CLI is allowed for deployment only.
 ```
 
 ### ✅ Permitted Scope
 - Create and edit WordPress POSTS, PAGES, and Bricks templates via Respira MCP
 - Manage menus via Respira MCP menu tools
-- Run Simply Static export (WP Admin → Simply Static → Generate → Push)
-- Run Wrangler deploy
 - Install or configure plugins
 - Manage media via Respira MCP
 
@@ -63,6 +60,5 @@ Read `BRICKS-BUILDER-GUIDE.md` before editing elements. Key gotchas still apply:
 
 ### Step 4: Verify After Changes
 
-1. Re-export via Simply Static (WP Admin → Simply Static → Generate)
-2. Deploy via Wrangler CLI or Cloudflare dashboard
-3. Visually verify on live site
+1. Visually verify on live site (`https://digitrustlab.com`)
+2. Changes go live immediately — no build or deploy step needed

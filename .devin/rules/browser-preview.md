@@ -1,5 +1,6 @@
 ---
 trigger: always_on
+description: Pop out browser preview so user can see visual changes in real-time during Bricks template edits or page verification
 ---
 
 # Browser Preview Rule
@@ -10,7 +11,7 @@ trigger: always_on
 
 - After navigating to a page for visual verification
 - After making Bricks template changes that affect the frontend
-- After deploying or running Simply Static export
+- After making changes that affect the frontend
 - Any time browser navigation or visual inspection is needed
 
 ## Why

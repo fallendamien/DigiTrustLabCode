@@ -1126,6 +1126,60 @@ img, video, iframe, embed, object {
 
 ---
 
+## CSS Grid `1fr` Tracks Expand to Fit Content (Mobile Overflow)
+
+**Date:** 2026-07-11
+**Category:** css-overflow
+**Severity:** High (blog archive + homepage + category pages all had horizontal scroll on mobile)
+
+### Problem
+
+Blog archive (`/blog/`), category pages (`/category/ai-tools/`), and homepage all had `body.scrollWidth: 1120px` on a 375px mobile viewport — massive horizontal overflow.
+
+### Root Cause
+
+Two issues combined:
+
+1. **Bricks query loop containers lose `id` attribute in rendered HTML** — elements like `d5grid` and `qefl9u` render with class `brxe-d5grid` but NO `id="brxe-d5grid"`. CSS selectors using `#brxe-d5grid` don't match. Must use class selector `.brxe-d5grid` instead.
+
+2. **CSS Grid `1fr` tracks expand to fit intrinsic content** — `grid-template-columns: repeat(3, 1fr)` creates tracks that expand to fit the largest child's intrinsic width (e.g., a 1100px-wide post card). This is per CSS Grid spec: `1fr` is equivalent to `minmax(auto, 1fr)`, and `auto` minimum means the track will never shrink below the content's intrinsic size.
+
+### Fix
+
+Use `minmax(0, 1fr)` instead of `1fr` to allow tracks to shrink below content size, plus `min-width: 0` on grid children:
+
+```css
+.brxe-d5grid {
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.brxe-d5grid > * {
+  min-width: 0 !important;
+  overflow: hidden;
+}
+@media (max-width: 767px) {
+  .brxe-d5grid {
+    grid-template-columns: minmax(0,1fr) !important;
+  }
+}
+```
+
+### Key Learnings
+
+- **Bricks query loop containers lose `id` attributes** — always use `.brxe-{id}` class selectors, never `#brxe-{id}` ID selectors for query loop elements
+- **`1fr` ≠ `minmax(0, 1fr)`** — `1fr` expands to fit content, `minmax(0, 1fr)` respects container width
+- **`min-width: 0` on grid children** — prevents children from forcing the grid track wider than the container
+- **Bricks `_display: "grid"` native setting** — adds `brx-grid` class and generates `.brxe-{id}.brxe-container { display: grid }` CSS, but does NOT set `grid-template-columns` — you must add that via `_cssCustom`
+
+### Prevention
+
+- Always use `minmax(0, 1fr)` in `grid-template-columns` for responsive grids
+- Always use class selectors `.brxe-{id}` not ID selectors `#brxe-{id}` for Bricks query loop elements
+- Add `min-width: 0` to grid children to prevent content from expanding tracks
+
+---
+
 ## Deploy Pipeline (correct workflow)
 
 **Date:** 2026-07-09
@@ -1438,3 +1492,385 @@ Additionally, Bricks renders loop elements with **class** selectors (`.brxe-16ae
 - Wait for completion (typically 5-8 minutes for ~2,600 files)
 
 **Prevention:** When instructing someone to run a Simply Static export, tell them to click "Push", not "Generate" — the button label is counterintuitive.
+
+---
+
+## Simply Static Homepage Export Bug — `.local` TLD Rejected (2026-07-10)
+
+**Category:** simply-static
+**Severity:** Critical (homepage not exported)
+
+**Symptom:** Simply Static export completes successfully (2,590+ files transferred) but `index.html` in the output directory is NOT updated — it retains the old timestamp and old content. No error is reported by Simply Static. Other files (CSS, JS, robots.txt) are updated correctly.
+
+**Root Cause:** `wp_http_validate_url()` silently rejects URLs with `.local` TLD. Simply Static's Homepage URL crawler tries to fetch `https://digitrust-lab.local/` to include in the export, but WordPress's URL validator rejects it as "not a valid URL". The crawler skips the front page with zero error output. The homepage HTML is never fetched, so the existing `index.html` in the output directory is never overwritten.
+
+**Diagnostics:** Simply Static → Diagnostics tab shows "Is not a valid URL" warning for the homepage URL.
+
+**Fix:** Add `https://digitrust-lab.local/` to Simply Static → Settings → General → **Additional URLs** field. This forces Simply Static to include the homepage URL in the export queue, bypassing the `wp_http_validate_url()` rejection.
+
+**After fix:** Homepage exports correctly on every Push. `index.html` timestamp updates to current export time. New content (hero text, pills, etc.) appears in the static output.
+
+**Verification:** After export, check `D:\Coding Zone\digitrust-lab-static\index.html`:
+- `LastWriteTime` must be today
+- Search for recent content keywords (e.g. "warga Malaysia", "brxe-b8bfe4")
+- If still stale → re-save page via Respira + re-export
+
+**Prevention:** The `additional_urls` workaround is permanently in place. No action needed on future exports. If the homepage stops exporting again, check the Additional URLs setting first.
+
+---
+
+## Blog Archive Horizontal Scroll on Mobile — CSS Grid `min-width: auto` Gotcha (2026-07-11)
+
+**Category:** layout, mobile, css-grid  
+**Severity:** High (layout broken on all mobile viewports)  
+**Affected URL:** `/blog/` and any page using Template 52 (blog archive)  
+**Affected element:** `brxe-d5grid` (the 3-column post card grid container)
+
+### Symptom
+`/blog/` shows a horizontal scrollbar on mobile. Post cards overflow the viewport width. Problem does not appear on desktop. Previous "fixes" (adding `overflow-x: hidden` to parent section and wrapper container) did not resolve it — scroll remained.
+
+### Why Previous Fixes Failed
+Adding `overflow-x: hidden` / `clip` to `brxe-d1sect` (section) and `brxe-d2wrap` (wrapper) only *masks* the overflow visually on the parent. The grid tracks themselves were still computing `gridTemplateColumns: 1100px 0px` instead of the correct `~230px 230px`. Hiding overflow on an ancestor hides symptoms, not the cause.
+
+### Root Cause — CSS Grid `min-width: auto` Track Inflation
+
+This is a CSS Grid specification behaviour that is almost universally misunderstood:
+
+1. `brxe-d5grid` has `grid-template-columns: repeat(2, 1fr)` at `max-width: 991px` — this CSS is correct
+2. At 500px viewport each `1fr` track should resolve to `~230px`
+3. **BUT:** CSS Grid items default to `min-width: auto`, meaning each grid item refuses to shrink below its **min-content size**
+4. The excerpt text element `brxe-61bw2h` inside each card has `white-space: normal` + `word-break: normal` — its min-content width is ~803px (the longest unbreakable character run)
+5. Grid tracks cannot shrink below the item's min-content size → tracks inflate to `1100px` each
+6. `brxe-qefl9u` (card container) has `overflow: hidden` which hides its internal bleed, creating the illusion of containment — but the `1100px` grid track still causes the page-level scroll
+
+**Live inspection evidence at 500px viewport:**
+```
+brxe-d5grid  offsetWidth: 460px  scrollWidth: 1100px  computedGrid: "1100px 0px"
+brxe-qefl9u  computedWidth: 1100px  (grid item, min-width: auto → inflated)
+brxe-61bw2h  computedWidth: 803px   (text block driving min-content expansion)
+```
+
+### The Fix — One Line of CSS
+
+Add `min-width: 0` to the grid item container `brxe-qefl9u`. This overrides the `min-width: auto` default and allows grid tracks to shrink freely to their `1fr` allocation.
+
+**Update `_cssCustom` on element `brxe-qefl9u` in Template 52:**
+```css
+.brxe-qefl9u {
+  overflow: hidden;
+  min-width: 0;   /* KEY FIX — allow grid item to shrink below min-content */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.brxe-qefl9u:hover {
+  transform: translateY(-3px);
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 20px;
+}
+```
+
+Or target all direct grid children via the grid container `_cssCustom`:
+```css
+#brxe-d5grid > * { min-width: 0; }
+```
+
+**Do NOT** use `overflow-x: hidden/clip` on the section or wrapper as a substitute — that only masks symptoms and breaks `position: sticky` children.
+
+### Verification Steps
+1. Open `https://digitrust-lab.local/blog/` in Chrome DevTools → iPhone SE (375px)
+2. Inspect `brxe-d5grid` computed style → `gridTemplateColumns` should show two equal columns (~`177px 177px`) not `1100px 0px`
+3. Confirm no horizontal scrollbar
+4. Run Simply Static export + Wrangler deploy
+5. Verify `https://www.digitrustlab.com/blog/` on real mobile device
+
+### Prevention Rule (add to all future grid builds)
+Whenever building a CSS Grid layout in Bricks, always add `min-width: 0` to grid item containers. Bricks containers default to `min-width: auto` which causes track inflation whenever items contain text or images with non-zero intrinsic sizes. Affects post card grids, feature grids, pricing tables — any multi-column grid with text content.
+
+---
+
+## Simply Static — Blog Page (`/blog/`) Never Exported (2026-07-11)
+
+**Category:** simply-static
+**Severity:** Critical (`/blog/` missing entirely from static output)
+**Affected URL:** `/blog/` → `D:\Coding Zone\digitrust-lab-static\blog\index.html`
+
+### Symptom
+`blog/` folder in the static output directory is completely empty — no `index.html` exists at all. Simply Static runs to completion without errors, but `/blog/` is never written. This is separate from the homepage bug (which was about stale content) — here the file is entirely absent.
+
+### Root Cause — TWO separate problems (both confirmed from debug log)
+
+**Problem 1: URL not in discovery queue**
+The WordPress "Blog" page (ID 277, slug `/blog/`) is the **Posts Page** (`page_for_posts = 277`). WordPress's `get_posts()` suppresses this page from query results by default — it's treated as a virtual archive, not a regular page. So the `post_type` crawler never finds it. The `home` crawler only handles the front page. Result: `/blog/` is never discovered.
+
+**Problem 2: Local by Flywheel cURL loopback deadlock (the real blocker)**
+Even after adding `/blog/` to `additional_urls` (which correctly queues it), Simply Static's fetcher timed out trying to fetch it:
+
+```
+[class-ss-url-fetcher.php:529] Fetching URL: https://digitrust-lab.local/blog/?simply_static_page=171437
+[class-ss-url-fetcher.php:204] cURL error 28: Operation timed out after 30005 milliseconds with 0 bytes received
+```
+
+Local by Flywheel uses single-threaded PHP-FPM. When Simply Static's background job (occupying the only PHP thread) tries to cURL `https://digitrust-lab.local/blog/`, the request deadlocks — the PHP thread is already busy. The homepage (`/`) is fetched first in the queue before the deadlock window; `/blog/` hits the queue ~3 minutes later when PHP-FPM is locked.
+
+**Why other pages work:** Individual posts and static pages are fetched earlier in the queue, before the loopback deadlock window occurs. `/blog/` specifically gets queued later and always hits the timeout.
+
+### Fix
+
+**Step 1:** Add both URLs to Simply Static `additional_urls` (already done via Respira):
+```
+https://digitrust-lab.local/
+https://digitrust-lab.local/blog/
+```
+
+**Step 2:** Install mu-plugin `ss-blog-page-fix.php` at `wp-content/mu-plugins/` with three fixes:
+```php
+// Fix 1: Allow WordPress loopback requests (WP 5.6+ blocks these by default)
+add_filter( 'http_request_host_is_external', '__return_true' );
+
+// Fix 2: Increase cURL timeout for digitrust-lab.local from 30s to 90s
+add_filter( 'http_request_args', function ( $args, $url ) {
+    if ( strpos( $url, 'digitrust-lab.local' ) !== false ) {
+        $args['timeout'] = 90;
+    }
+    return $args;
+}, 10, 2 );
+
+// Fix 3: Always inject blog page URL into Simply Static queue during setup
+add_filter( 'ss_setup_task_additional_urls', function ( $additional_urls ) {
+    $blog_page_id = (int) get_option( 'page_for_posts' );
+    if ( $blog_page_id > 0 ) {
+        $blog_url = get_permalink( $blog_page_id );
+        if ( is_string( $blog_url ) && strpos( $additional_urls, rtrim( $blog_url, '/' ) ) === false ) {
+            $additional_urls .= ( $additional_urls ? "\n" : '' ) . $blog_url;
+        }
+    }
+    return $additional_urls;
+} );
+```
+
+### Verification
+1. After export completes, check debug log at `wp-content/uploads/simply-static/[key]-debug.txt`
+2. Should show `/blog/` fetched successfully (no cURL error 28)
+3. Check `D:\Coding Zone\digitrust-lab-static\blog\index.html` exists with today's timestamp
+4. File should contain `min-width: 0` in the embedded CSS
+5. File should contain "Blog DigiTrust Lab" heading text
+6. Deploy via Wrangler, verify `https://www.digitrustlab.com/blog/` loads on mobile
+
+### If cURL error 28 persists
+
+**Option 1 — Run export via WP CLI (avoids loopback deadlock entirely):**
+Open Local by Flywheel → Site Shell and run:
+```bash
+wp simply-static run
+```
+This runs the export in the CLI thread instead of the browser's PHP-FPM thread, avoiding the single-threaded deadlock that causes cURL error 28 on `/blog/`.
+
+**Option 2 — Nuclear option (manual fetch):**
+The timeout may still occur even with the mu-plugin. Fetch the blog page HTML manually:
+```bash
+# On your machine, fetch the rendered blog page and save it
+curl -k https://digitrust-lab.local/blog/ -o "D:\Coding Zone\digitrust-lab-static\blog\index.html"
+# Then find-replace all digitrust-lab.local with www.digitrustlab.com in that file
+# Then Wrangler deploy
+```
+
+### Post-Session Cleanup (run after multiple exports)
+
+After 3+ Simply Static exports in one session, Local WP gets sluggish. Run in Site Shell:
+
+```bash
+# 1. Clear WP transients and object cache
+wp transient delete --all
+wp cache flush
+```
+
+Then in Adminer (Local → Database → Open Adminer):
+```sql
+TRUNCATE TABLE wp_simply_static_pages;
+```
+
+**Note:** `wp db query` does NOT work in Local by Flywheel Site Shell on Windows — MySQL uses a socket file, not `localhost:3306`. Always use Adminer for direct SQL queries.
+
+Also turn off Simply Static debug mode (`debugging_mode: "0"`) via Respira when diagnosis is complete — the debug log grows fast (6.7MB in one session). Debug mode is currently OFF as of 2026-07-11.
+
+---
+
+## Local WP DB Health Check & Cleanup (2026-07-11)
+
+**Trigger:** After 3+ Simply Static exports in one session, or when Local WP feels sluggish.
+
+**Root cause of bloat:** Each Simply Static export adds ~600-2500 rows to `wp_simply_static_pages`, creates 700+ temp files (73 MB), and leaves expired transients. Respira snapshots accumulate with every write. Audit logs grow indefinitely.
+
+### What to Clean (via Adminer)
+
+Open **Local → Database → Open Adminer → SQL command**, paste:
+
+```sql
+-- 1. Clear stale Simply Static export records
+TRUNCATE TABLE wp_simply_static_pages;
+
+-- 2. Keep only last 10 Respira snapshots (each is a full page backup)
+DELETE FROM wp_respira_snapshots WHERE id NOT IN (
+  SELECT id FROM (SELECT id FROM wp_respira_snapshots ORDER BY id DESC LIMIT 10) AS t
+);
+
+-- 3. Keep only last 50 Respira audit log entries
+DELETE FROM wp_respira_audit_log WHERE id NOT IN (
+  SELECT id FROM (SELECT id FROM wp_respira_audit_log ORDER BY id DESC LIMIT 50) AS t
+);
+
+-- 4. Clear completed Action Scheduler tasks
+DELETE FROM wp_actionscheduler_actions WHERE status='complete';
+DELETE FROM wp_actionscheduler_logs;
+
+-- 5. Delete expired transients
+DELETE FROM wp_options WHERE option_name LIKE '_transient_timeout_%' AND option_value < UNIX_TIMESTAMP();
+DELETE FROM wp_options WHERE option_name LIKE '_transient_%' AND option_name NOT LIKE '_transient_timeout_%'
+  AND option_name NOT IN (
+    SELECT REPLACE(option_name, '_transient_timeout_', '_transient_')
+    FROM wp_options WHERE option_name LIKE '_transient_timeout_%' AND option_value >= UNIX_TIMESTAMP()
+  );
+
+-- 6. Reclaim disk space
+OPTIMIZE TABLE wp_options, wp_postmeta, wp_respira_snapshots, wp_respira_audit_log;
+```
+
+### What to Clean (via PowerShell / File System)
+
+```powershell
+# Simply Static temp files (can be 70+ MB after multiple exports)
+Remove-Item "C:\Users\Zamri\Local Sites\digitrust-lab\app\public\wp-content\uploads\simply-static\temp-files\*" -Recurse -Force
+
+# Truncate error logs (after debugging is done)
+Clear-Content "C:\Users\Zamri\Local Sites\digitrust-lab\logs\php\error.log"
+Clear-Content "C:\Users\Zamri\Local Sites\digitrust-lab\logs\nginx\error.log"
+```
+
+### What to Clean (via Site Shell / WP CLI)
+
+```bash
+wp transient delete --all
+wp cache flush
+```
+
+### DB Size Baseline (healthy state after cleanup)
+
+| Table | Rows | Size |
+|-------|------|------|
+| `wp_options` | ~234 | ~6 MB (normal — stores SS config) |
+| `wp_simply_static_pages` | 0 | 0 MB (TRUNCATED) |
+| `wp_respira_snapshots` | 10 | ~0.1 MB |
+| `wp_respira_audit_log` | 50 | ~0.02 MB |
+| `wp_postmeta` | ~355 | ~1.4 MB |
+| `wp_posts` | ~169 | ~0.27 MB |
+
+**Total DB after cleanup: ~8 MB** (down from ~12 MB bloated)
+
+### Diagnostic Query (check before cleanup)
+
+```sql
+SELECT table_name, table_rows,
+  ROUND(data_length/1024/1024,2) AS data_mb,
+  ROUND(index_length/1024/1024,2) AS index_mb,
+  ROUND((data_length+index_length)/1024/1024,2) AS total_mb
+FROM information_schema.tables
+WHERE table_schema='local'
+ORDER BY (data_length+index_length) DESC LIMIT 10;
+```
+
+If `wp_simply_static_pages` shows 1000+ rows or `wp_respira_snapshots` shows 100+ rows, run the cleanup.
+
+### When NOT to Clean
+
+- **Before a Simply Static export** — the `wp_simply_static_pages` table is used during export. Clean it AFTER export is complete, not before.
+- **If you need to rollback a Respira change** — old snapshots are needed for `respira_restore_snapshot`. Only clean snapshots older than your current working session.
+
+---
+
+## Local WP Hanging — wp-cron + PHP-FPM Worker Exhaustion (2026-07-11)
+
+**Symptom:** Local WP becomes unresponsive after a few seconds of use. All pages timeout (homepage, wp-admin, REST API). PHP-FPM workers alive but not responding. No new errors in any log after restart.
+
+**Root cause:** Two compounding issues:
+
+1. **wp-cron fires on every page load.** On Local by Flywheel with only 2 PHP-FPM workers, a heavy scheduled task (Simply Static or Respira background job) locks both workers. Site works for 2 min after restart, then dies again with zero new errors.
+
+2. **Simply Static admin page polling.** The Simply Static Generate page continuously polls API endpoints (`activity-log`, `is-running`, `export-log`) — 634 requests logged in one session. Combined with wp-cron, workers get overwhelmed and die.
+
+**Evidence:**
+- Nginx error log: 1,342 "no live upstreams" errors in one session
+- 634 Simply Static polling requests
+- 7 wp-cron requests in error log
+- Site stable for 60+ seconds after `DISABLE_WP_CRON` applied
+
+**Fix applied:**
+
+1. Added to `wp-config.php` (before "That's all, stop editing!" line):
+```php
+// Prevent wp-cron from auto-firing on every page load (locks PHP-FPM workers)
+define( 'DISABLE_WP_CRON', true );
+```
+
+2. Closed Simply Static Generate browser tab after export completed (stops polling flood).
+
+**Run cron manually when needed:**
+```bash
+wp cron event run --due-now
+```
+
+**Impact of DISABLE_WP_CRON:**
+- ❌ Background scheduled tasks won't fire automatically (Simply Static scheduled exports, Respira queue processing)
+- ✅ Update badges still appear when you visit wp-admin (WP Admin does fresh update checks on page load regardless of cron)
+- ✅ Manually run `wp cron event run --due-now` anytime to fire pending jobs
+- ✅ For a local dev site, this is the correct tradeoff
+
+**Prevention:**
+- Always close Simply Static Generate tab after export is done
+- After 3+ exports in one session, run DB health check cleanup (see section above)
+- Don't run Respira writes on Post ID 10 (90s PHP-FPM lock per write)
+- Consider increasing `pm.max_children` in `php-fpm.d/www.conf.hbs` if hangs persist
+
+---
+
+## Simply Static Admin Page Polling — PHP-FPM Worker Flood (2026-07-11)
+
+**Symptom:** Site becomes sluggish or unresponsive while the Simply Static → Generate page is open in the browser.
+
+**Root cause:** The Simply Static Generate admin page continuously polls REST API endpoints to show export progress:
+- `/wp-json/simply-static/v1/activity-log`
+- `/wp-json/simply-static/v1/is-running`
+- `/wp-json/simply-static/v1/export-log`
+
+Each poll request consumes a PHP-FPM worker. With only 2 workers on Local by Flywheel, the polling flood leaves no workers for actual page requests.
+
+**Evidence:** 634 polling requests in Nginx error log during a single session.
+
+**Fix:** Close the Simply Static Generate browser tab after export is complete. Do not leave it open.
+
+**Alternative:** Use WP CLI instead of the browser UI for exports:
+```bash
+wp simply-static run
+```
+This runs the export in the CLI thread and avoids the browser polling entirely.
+
+---
+
+## WP CLI via Local by Flywheel Site Shell (2026-07-11)
+
+**Availability:** Local by Flywheel exposes WP CLI via the "Open Site Shell" button. Working directory: `C:\Users\Zamri\Local Sites\digitrust-lab\app\public`
+
+**Key commands:**
+
+| Command | Purpose |
+|---------|---------|
+| `wp simply-static run` | Run Simply Static export in CLI (avoids browser PHP-FPM deadlock) |
+| `wp cache flush` | Flush WordPress object cache |
+| `wp transient delete --all` | Delete all transients |
+| `wp cron event run --due-now` | Manually fire pending cron jobs (needed since `DISABLE_WP_CRON`) |
+| `wp plugin list` | List installed plugins with status |
+| `wp option get simply-static` | Read Simply Static settings |
+
+**Limitation:** `wp db query` does NOT work on Local by Flywheel Site Shell on Windows. MySQL uses a socket file, not `localhost:3306`. Use **Adminer** (Local → Database → Open Adminer) for direct SQL queries instead.
+
+**When to use CLI vs Respira MCP:**
+- **CLI:** Simply Static export, cache flush, transient cleanup, plugin audit, cron events
+- **Respira MCP:** Element/page/option edits (auto-snapshots), template edits, menu management
+- **NEVER** use CLI for template/element edits — always Bricks GUI or Respira MCP

@@ -20,7 +20,7 @@ description: WriterZen keyword research workflow for DigiTrust Lab. Triggers on 
 3. Search seed keyword
 4. Check metrics — target KD by Content < 20, some search volume
 5. Check SERP Overview — small MY blogs ranking = winnable
-6. Update `SEO-CHEATSHEET.md` with confirmed metrics
+6. Update `content/content-calendar.md` with confirmed metrics (per-post entry)
 7. Save keyword to WriterZen Keyword List → "DigiTrust Lab Blog Posts" (one keyword per post, in blog post order)
 
 ## Keyword List Details
@@ -42,7 +42,8 @@ description: WriterZen keyword research workflow for DigiTrust Lab. Triggers on 
 
 ## Reference
 
-- Full KD scale reference: `SEO-CHEATSHEET.md`
+- Full KD scale reference: `content/SEO-CHEATSHEET.md`
+- Per-post keyword metrics: `content/content-calendar.md`
 - Blog post publishing order: WriterZen Keyword List → "DigiTrust Lab Blog Posts"
 
 ## Rules
@@ -51,4 +52,4 @@ description: WriterZen keyword research workflow for DigiTrust Lab. Triggers on 
 - **One keyword per post:** Each blog post targets exactly one primary keyword
 - **Malay language:** All keyword research targets Malay search terms
 - **Malaysia location:** All volume and competition data must be Malaysia-specific
-- **Update SEO-CHEATSHEET.md:** Record confirmed metrics after every research session
+- **Update content/content-calendar.md:** Record confirmed metrics in the per-post entry after every research session

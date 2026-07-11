@@ -1,10 +1,10 @@
 {
   "project": "DigiTrust Lab",
   "owner": "Zamri Rosli",
-  "lastSession": "2026-07-01",
-  "currentObjective": "Blog live with working header/footer/search bar. Next: content creation, SEO setup, affiliate registration",
-  "currentPhase": "Phase 1 - Foundation",
-  "phaseProgress": "40%",
+  "lastSession": "2026-07-12",
+  "currentObjective": "Infrastructure fully complete. SSL Full (Strict) active. Docs cleaned up. Next: content creation, SEO setup, affiliate registration",
+  "currentPhase": "Phase 2 - Content & Growth",
+  "phaseProgress": "15%",
   "blockers": [],
   "completed": [
     "Git repo initialized",
@@ -12,18 +12,33 @@
     "Long-term revenue plan created",
     "Affiliate research completed",
     "Project artifacts created (ROADMAP, README, NEXT, STATE)",
-    "WordPress + Bricks Builder installed on LocalWP",
+    "WordPress + Bricks Builder installed on Hostinger",
     "Blog structure created (homepage, tentang, privasi, disclaimer, hubungi)",
     "Header template with logo, nav, search bar, CTA",
     "Footer template with copyright and links",
-    "Simply Static export pipeline configured",
-    "Post-process script (search bar injection, double-slash fix, category label removal)",
-    "Cloudflare Pages deployment via Wrangler CLI",
-    "Blog live at blog.digitrustlab.com",
     "Nav labels standardized (Tentang Kami, Hubungi Kami, Polisi Privasi)",
     "Tentang page updated (Zed instead of personal name, 2022)",
-    "Category labels removed from static pages",
-    "TROUBLESHOOTING.md with 9 documented issues"
+    "Homepage built (ID 280) with Hero + Latest Posts + Email CTA + Category Pills",
+    "Homepage live at digitrustlab.com",
+    "Mobile horizontal overflow fixed on /blog/",
+    "All infrastructure complete — content is the only remaining bottleneck",
+    "Migration completed: Local by Flywheel → Hostinger Business WordPress (2026-07-11)",
+    "All-in-One WP Migration import successful",
+    "LiteSpeed Cache active on Hostinger",
+    "Simply Static + third-party Bricks MCP deleted",
+    "Built-in Bricks MCP disabled",
+    "WordPress URLs updated to HTTPS",
+    "Cloudflare DNS updated: A record → 145.79.28.85 (Hostinger)",
+    "Cloudflare SSL/TLS: Full (Strict) mode, Always Use HTTPS, Automatic HTTPS Rewrites enabled",
+    "Cloudflare caching: Standard aggressive, 4hr browser TTL",
+    "Respira MCP reconnected to Hostinger site",
+    "Email setup complete: hello@digitrustlab.com working (MX, SPF, DKIM, DMARC all green)",
+    "DNS records corrected: MX → mx1/mx2.hostinger.com, SPF → _spf.mail.hostinger.com",
+    "Hostinger Lifetime SSL active (2026-07-12)",
+    "Cloudflare SSL/TLS upgraded from Flexible to Full (Strict) (2026-07-12)",
+    "Menu links fixed — all point to digitrustlab.com (2026-07-12)",
+    "Respira MCP configs updated for Windsurf + Claude Desktop (2026-07-12)",
+    "Old approach docs deprecated and moved to deprecated/ folder (2026-07-12)"
   ],
   "nextSteps": [
     "Write first blog post (WriterZen → write → ClickRank)",
@@ -45,12 +60,14 @@
   },
   "tools": {
     "writerZen": "ready",
-    "clickRank": "dashboard-configured-pending-verification",
+    "clickRank": "verified-active",
     "screpy": "account-active-pending-domain",
     "bricksBuilder": "installed-and-configured",
     "mailerLite": "not-setup-week1-priority",
-    "simplyStatic": "installed-and-configured",
-    "cloudflarePages": "deployed"
+    "hostinger": "active — Business WordPress plan, IP 145.79.28.85",
+    "litespeedCache": "active on Hostinger",
+    "email": "active — hello@digitrustlab.com working, all 4 DNS checks green",
+    "ssl": "Full (Strict) — Hostinger Lifetime SSL active, Cloudflare Full (Strict) enabled"
   },
   "affiliatePrograms": {
     "klikjer": "not-registered",
@@ -61,12 +78,13 @@
     "agentBuilder": "not-registered",
     "shopifyMY": "not-registered"
   },
-  "staticExport": {
-    "wordpressUrl": "https://digitrust-lab.local",
-    "liveUrl": "https://www.digitrustlab.com",
-    "staticDir": "D:\\Coding Zone\\digitrust-lab-static",
-    "postProcessScript": "G:\\Zamzam Biznez\\DigiTrustLabCode\\scripts\\post-process-static.ps1",
-    "deployCommand": "npx wrangler pages deploy . --project-name=digitrust-lab-static --branch=main"
+  "architecture": {
+    "wordpressUrl": "https://digitrustlab.com",
+    "liveUrl": "https://digitrustlab.com",
+    "hosting": "Hostinger Business WordPress (145.79.28.85)",
+    "cdn": "Cloudflare (proxied)",
+    "ssl": "Full (Strict) — Hostinger Lifetime SSL + Cloudflare edge",
+    "type": "dynamic WordPress (no static export)"
   },
   "planFile": "C:\\Users\\Zamri\\.windsurf\\plans\\digitrust-lab-ultimate-long-term-plan-cbce9f.md"
 }

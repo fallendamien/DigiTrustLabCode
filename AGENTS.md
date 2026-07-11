@@ -2,11 +2,19 @@
 
 This file contains project-specific rules and operating standards for AI coding agents.
 
-## 🔴 PRIORITY #1: Bricks-Only Policy (CRITICAL)
+## 📁 File Architecture — Who Reads What
+
+| Layer | Purpose | Read By |
+|-------|---------|---------|
+| `AGENTS.md` | Voice, copy policy, project rules — single source of truth | All agents (Claude, Devin, Windsurf, ChatGPT) |
+| `.devin/rules/` | Operational behaviour — safety checks, tool constraints | Devin only (auto-loaded every session) |
+| `.devin/skills/` | On-demand task recipes — SEO audit, keyword research, image optimisation | Devin only (trigger-based, not auto-loaded) |
+
+**Rule:** Never duplicate content/voice standards into `.devin/rules/` — keep AGENTS.md as the single source. `.devin/rules/` should only contain operational behaviour constraints (e.g. "never edit template without snapshot").
+
+## 🚫 PRIORITY #1: Bricks-Only Policy (CRITICAL)
 
 **RULE: EVERYTHING inside Bricks must be done via Bricks standard procedures — Bricks Builder GUI or Respira MCP. NO post-processing scripts. NO PowerShell CSS injection. NO background code. NO internal hacks. NO exceptions. If it can't be done through Bricks GUI or Respira MCP, it doesn't get done.**
-
-**Exception:** Wrangler CLI is allowed for Cloudflare Pages deployment only — it's a deploy tool, not a Bricks internal operation.
 
 This is a blogging business project, NOT a development project. The user does not want raw code hassles, background scripts, or post-processing pipelines. Everything must use Bricks' own standard operations and tools.
 
@@ -16,21 +24,21 @@ This is a blogging business project, NOT a development project. The user does no
 
 Templates 185 (Header) and 52 (Blog Archive) are now editable via Respira MCP with confidence. Always use `respira_extract_builder_content` before editing and keep the returned `snapshot_uuid` for rollback if needed.
 
-## ✅ Devin's Permitted Scope
+## ✅ Agent's Permitted Scope
 
 **You ARE permitted to:**
 - Create and edit WordPress POSTS, PAGES, and Bricks templates via Respira MCP
 - Manage menus via Respira MCP menu tools
-- Run Simply Static export (WP Admin → Simply Static → Generate → Push)
-- Run Wrangler deploy
 - Edit AGENTS.md, ROADMAP.md, STATE.json, NEXT.md
 - Install or configure plugins
 - Manage media via Respira MCP
+- Run SEO, accessibility, and performance audits via Respira MCP
 
 **You are NOT permitted to:**
 - Use post-processing scripts, PowerShell, or mu-plugins for any styling task
 - Use the old Bricks MCP endpoint (`/wp-json/bricks-mcp/v1/mcp`) — it is decommissioned
 - Use Raw HTML Code elements in Bricks templates
+- Use non-Bricks frameworks (React, Vue, etc.) injected into templates
 
 ## ✅ Current Priority: Write and Publish Post #1
 
@@ -44,7 +52,7 @@ or infrastructure task unless Zamri explicitly instructs it.
 2. **`archiveType: any` doesn't match `is_home()`** — Bricks treats posts page as `content_type: content`, not archive (database.php line 492, 961)
 3. **Stale `ids: ['260']`** — Blog page was deleted and recreated as ID 277
 
-**Fix applied:** Status → `publish`, condition → `ids: ['277']` only (score 10 match). See `TROUBLESHOOTING.md` → "Blog Archive Template 52 Not Rendering" for full details.
+**Fix applied:** Status → `publish`, condition → `ids: ['277']` only (score 10 match).
 
 ## 🔴 UNRESOLVED: Category/Taxonomy Archives Don't Use Custom Template
 
@@ -62,7 +70,7 @@ in WP Additional CSS hides the ugly "Category: X" heading.
 
 ### 🧩 Respira MCP (PRIMARY TOOL — replaced old Bricks MCP 2026-07-05)
 
-**Respira MCP is active on digitrust-lab.local.** Connected to Windsurf and Claude Desktop.
+**Respira MCP is active on digitrustlab.com (live Hostinger site).** Connected to Windsurf and Claude Desktop.
 
 **Builder guide:** `BRICKS-BUILDER-GUIDE.md` — Bricks element concepts still apply (settings schema, `_cssCustom`, gotchas). Tool names in the guide refer to old Bricks MCP — use equivalent Respira tools instead.
 
@@ -95,14 +103,13 @@ in WP Additional CSS hides the ugly "Category: X" heading.
 
 ### Decision Matrix
 
-| Task | Use GUI | Use Respira MCP | Use Non-Bricks Code | Why |
-|------|---------|----------------|---------------------|-----|
-| Edit page/template content | ✅ WordPress/Bricks GUI | ✅ `respira_update_element` | ❌ | Primary tools |
-| Add/remove pages | ✅ WordPress → Pages | ✅ `respira_create_custom_post` | ❌ | Either works |
-| Change colors/typography | ✅ Bricks GUI | ✅ `respira_update_bricks_*` | ❌ | Visual editor or MCP |
-| Manage WP menus | ✅ Appearance → Menus | ✅ `respira_*_menu*` tools | ❌ | GUI or MCP |
-| Deploy to Cloudflare | ✅ Cloudflare dashboard | ❌ | ✅ Wrangler CLI | Deploy tool only |
-| Edit templates 185/52 | ✅ With care | ✅ With snapshot | ❌ | Respira has rollback |
+| Task | Use GUI | Use Respira MCP | Why |
+|------|---------|----------------|-----|
+| Edit page/template content | ✅ WordPress/Bricks GUI | ✅ `respira_update_element` | Primary tools |
+| Add/remove pages | ✅ WordPress → Pages | ✅ `respira_create_custom_post` | Either works |
+| Change colors/typography | ✅ Bricks GUI | ✅ `respira_update_bricks_*` | Visual editor or MCP |
+| Manage WP menus | ✅ Appearance → Menus | ✅ `respira_*_menu*` tools | GUI or MCP |
+| Edit templates 185/52 | ✅ With care | ✅ With snapshot | Respira has rollback |
 
 ### ⚠️ Respira MCP Safety Protocol
 
@@ -168,8 +175,7 @@ Playbooks are stored on the WordPress site itself and show up as tools the agent
 
 ```
 1. Make all changes via Bricks Builder GUI (primary) or Respira MCP (when GUI impractical)
-2. Run Simply Static export (WP Admin → Simply Static → Generate)
-3. Deploy via Wrangler CLI or Cloudflare dashboard
+2. Changes go live immediately on the Hostinger server — no build or deploy step needed
 ```
 
 ## Default Expectations
@@ -241,6 +247,34 @@ DigiTrust Lab content should have a light sense of humour woven in naturally —
 - ❌ `"Untuk pertanyaan umum, kerjasama, atau sokongan"` → call center language
 - ❌ Any sentence that starts with `"Maklumat di blog ini adalah untuk tujuan..."` → textbook opening
 
+### 🚫 Anti-Salesy Copy Policy (added 2026-07-10)
+
+**Rule:** DigiTrust Lab copy must never sound like a sales pitch. We lead with usefulness, not with money promises.
+
+**The specific trigger:** Any phrase that implies "use this → make money" in a direct, pushy way is banned from UI copy — buttons, sidebar widgets, CTA boxes, opt-in forms, hero text, anywhere.
+
+**Banned patterns in UI copy:**
+
+| ❌ Salesy | ✅ Replace with |
+|---|---|
+| `jana duit` in widget/CTA copy | Focus on the action benefit instead — `buat kerja`, `jimat masa`, `mudahkan hidup` |
+| `jana pendapatan` in above-the-fold hero | OK in blog post body, NOT in hero headline |
+| `dapatkan duit` / `buat duit` | Never in UI copy |
+| `tingkatkan jualan` | Only in blog post body, not in opt-in or CTA buttons |
+| Stacking benefit claims: `jimat masa, jana duit, kurangkan kerja` | Pick one — the strongest and most specific one |
+
+**Why:** "Jana duit" reads as bombastic and desperate when placed in sidebar widgets or hero copy. The reader already knows this site is about making money — they came here for that. Hitting them with it again in every widget cheapens the brand.
+
+**Correct approach:** Let the *content* make the money promise implicitly. UI copy should be about the *immediate action benefit* — what they get right now by clicking or subscribing.
+
+**Approved sidebar/CTA copy pattern (reference):**
+```
+Title:   Dapatkan Panduan Percuma
+Body:    50 Prompt AI yang korang boleh guna terus untuk buat kerja dan jimat masa.
+Sub:     Percuma sepenuhnya. Unsubscribe bila-bila masa.
+Button:  Hantar →
+```
+
 ### Green Light Patterns — Use These
 
 - ✅ `"Kami tahu page ni biasanya boring — tapi kami nak jelaskan dengan cara yang mudah faham."`
@@ -248,6 +282,21 @@ DigiTrust Lab content should have a light sense of humour woven in naturally —
 - ✅ `"Tu janji kami."` — personal, accountable
 - ✅ `"Biasanya dalam masa 48 jam pada hari bekerja."` — plain, no jargon
 - ✅ `"Kalau korang nak tahu tentang...korang dah ada kat tempat yang betul."` — warm, inclusive
+
+### Natural Malay Flow Patterns
+
+AI-generated Malay has predictable awkwardness — half-casual/half-formal mixing, over-translated English terms, unfinished sentences, textbook intros. The full fix guide with before/after tables lives in:
+
+**📖 `.devin/skills/malay-voice-guide/SKILL.md`** — Load this skill before writing or reviewing any Malay content.
+
+Quick summary of the 7 patterns:
+1. **No formal + casual mixing** — `korang` + `manfaatkan` = uncanny valley
+2. **Code-switch naturally** — `content` not `kandungan`, `marketing` not `pemasaran`
+3. **Complete every thought** — vague claims need concrete examples right after
+4. **Skip textbook intros** — no `AI bermaksud...` or `Dalam artikel ini...`
+5. **Use casual transitions** — `jadi` not `oleh itu`, `tapi` not `walau bagaimanapun`
+6. **Emphasise like a Malaysian** — `confirm`, `memang`, `wajib` not `sangat`, `amat`
+7. **Always contract** — `tak` not `tidak`, `dah` not `sudah`, `sebab` not `kerana`
 
 ### Page-Specific Voice Notes
 
@@ -263,26 +312,15 @@ DigiTrust Lab content should have a light sense of humour woven in naturally —
 
 All 4 core pages were audited and rewritten with natural voice on 2026-07-06. Use these as the voice benchmark for all future content:
 - Tentang Kami ✅ rewritten
-- Polisi Privasi ✅ rewritten  
+- Polisi Privasi ✅ rewritten
 - Disclaimer ✅ rewritten
 - Hubungi Kami ✅ rewritten
 
-## Troubleshooting Reference (CRITICAL)
-
-**This is a blogging business project, NOT a development project.**
-
-- **ALWAYS** read `TROUBLESHOOTING.md` at session start before working on this project
-- **ALWAYS** check `TROUBLESHOOTING.md` before suggesting fixes or approaches — documented issues may already have solutions
-- **ALWAYS** append new issues to `TROUBLESHOOTING.md` when encountering problems that took >5 minutes to resolve
-- **DO NOT** use global `lessons.md` for this project — all project-specific issues stay in `TROUBLESHOOTING.md`
-- **DO NOT** create separate troubleshooting files — one file, appended chronologically
-
-### Quick Reference
+## Quick Reference
 
 | File | Purpose |
 |------|---------|
 | `BRICKS-BUILDER-GUIDE.md` | Bricks element reference — read BEFORE editing Bricks elements (tool names are old Bricks MCP, use Respira equivalents) |
-| `TROUBLESHOOTING.md` | All known issues, fixes, and prevention rules |
 | `DESIGN.md` | Design system source of truth (colors, typography, components) |
 
 ### Key Template IDs
@@ -293,27 +331,6 @@ All 4 core pages were audited and rewritten with natural voice on 2026-07-06. Us
 | Footer | 46 | footer | ✅ Native elements |
 | Single Post | 10 | content | ✅ Native elements |
 | Blog Archive | 52 | archive | ✅ Editable via Respira MCP (snapshot before edit) |
-
-### Bricks Template Cache — Simply Static Export Issue (CRITICAL)
-
-**Symptom:** You update a Bricks template via Respira MCP (e.g. footer link), WordPress renders the change correctly, but Simply Static export still outputs the OLD content.
-
-**Root cause:** Bricks caches rendered template HTML separately from the database. `update_element` changes the data, but Bricks keeps serving cached HTML to Simply Static's crawler.
-
-**Fix (3 steps — all required):**
-1. **Bricks → Settings → Regenerate CSS files** (clears CSS cache)
-2. **Bricks → Settings → Regenerate code signatures** (clears code cache — confirm the dialog alert)
-3. **Re-save the template** via `respira_update_page` with `status: "publish"` (forces Bricks to re-render)
-
-Then run Simply Static export — the fresh render will be picked up.
-
-**Manual GUI steps to clear Bricks cache:**
-1. WP Admin → Bricks → Settings
-2. Click **"Regenerate CSS files"** button
-3. Click **"Regenerate code signatures"** button (accept the confirmation dialog)
-4. Go to Bricks → Templates → edit the template → click **"Update"** to re-save
-
-**When to do this:** Any time a Bricks template change (footer, header, archive) doesn't appear in the Simply Static export despite WordPress showing it correctly.
 
 ## 🧠 Skills Auto-Trigger Table (For Claude Desktop)
 
@@ -360,21 +377,15 @@ For broader marketing strategy (competitor teardown, E2E SEO, ICP research, cont
 - Location: Malaysia | Language: Malay
 - Target: KD by Content < 20, some search volume
 - Save to: WriterZen Keyword List → "DigiTrust Lab Blog Posts"
-- Record metrics in: `SEO-CHEATSHEET.md`
+- Record metrics in: `content/content-calendar.md` (per-post entry)
 
 ## Notes
 
-- This is a WordPress + Simply Static + Cloudflare Pages blog, not a traditional codebase
-- Static files live in `D:\Coding Zone\digitrust-lab-static`
-- WordPress local URL: `https://digitrust-lab.local`
-- Simply Static generate URL: `https://digitrust-lab.local/wp-admin/admin.php?page=simply-static-generate` (NOT `simply-static` — that's settings, not generate)
-- Live URL: `https://www.digitrustlab.com` (fully migrated from `blog.digitrustlab.com`, which no longer has a DNS record — do not reference the old subdomain)
-- Deploy: Run from `D:\Coding Zone\digitrust-lab-static`:
-  ```powershell
-  npx wrangler pages deploy . --project-name=digitrust-lab-static
-  ```
-  No wrangler.toml needed. Wrangler caches uploaded files — only changed files get re-uploaded. Must run from the static output directory, not the repo.
+- This is a WordPress blog hosted on Hostinger, using Bricks Builder theme
+- Live URL: `https://digitrustlab.com` (WordPress is served directly — no static export or build step)
+- WP Admin URL: `https://digitrustlab.com/wp-admin/`
 - Respira MCP: connected to Windsurf and Claude Desktop (replaced old Bricks MCP on 2026-07-05)
 - Respira API key stored in Claude Desktop via `.mcpb` install and in Windsurf `mcp_config.json`
 - Old Bricks MCP bridge (`bricks-mcp-bridge.mjs`) is decommissioned — do not use
 - Template type filter: Use `type: "content"` (not `"single"`) for single post templates
+- Previous architecture (Local WP + Simply Static + Cloudflare Pages) was fully decommissioned on 2026-07-12 — see `deprecated/` folder for archived documentation

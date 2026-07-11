@@ -35,10 +35,8 @@ Templates 185 (Header) and 52 (Blog Archive) are editable via Respira MCP. Respi
 ## Scope Matrix
 
 ### ✅ Permitted Scope
-- Create and edit WordPress POSTS and PAGES (content only, not Bricks templates)
+- Create and edit WordPress POSTS, PAGES, and Bricks templates via Respira MCP
 - Manage menus via Respira MCP menu tools
-- Run Simply Static export (WP Admin → Simply Static → Generate → Push)
-- Run Wrangler deploy
 - Edit AGENTS.md, ROADMAP.md, STATE.json, NEXT.md
 - Install or configure plugins
 - Manage media via Respira MCP
@@ -51,7 +49,4 @@ Templates 185 (Header) and 52 (Blog Archive) are editable via Respira MCP. Respi
 - Non-Bricks frameworks (React, Vue, etc.) injected into templates
 - Random PHP that doesn't use Bricks APIs or WordPress hooks
 - PHP mu-plugins for Bricks tasks
-- Any script that modifies static HTML files after Simply Static export
-
-### Allowed (Non-Bricks, deploy only)
-- Wrangler CLI for Cloudflare Pages deployment — deploy tool only, not Bricks internal
+- Any script that modifies static HTML files

@@ -33,5 +33,5 @@ trigger: always_on
 | `respira_list_menus` / `respira_create_menu_item` | WordPress menu management |
 | `respira_restore_snapshot` | Rollback any write using `snapshot_uuid` |
 
-**MCP Endpoint:** `https://digitrust-lab.local` (Respira auto-negotiates `/wp-json/respira/v2`)
+**MCP Endpoint:** `https://digitrustlab.com` (Respira auto-negotiates `/wp-json/respira/v2`)
 
