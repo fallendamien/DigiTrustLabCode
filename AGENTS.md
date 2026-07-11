@@ -14,7 +14,7 @@ This file contains project-specific rules and operating standards for AI coding 
 
 ## 🚫 PRIORITY #1: Bricks-Only Policy (CRITICAL)
 
-**RULE: EVERYTHING inside Bricks must be done via Bricks standard procedures — Bricks Builder GUI or Respira MCP. NO post-processing scripts. NO PowerShell CSS injection. NO background code. NO internal hacks. NO exceptions. If it can't be done through Bricks GUI or Respira MCP, it doesn't get done.**
+**RULE: EVERYTHING inside Bricks must be done via Respira MCP (primary) or Bricks Builder GUI (fallback). NO post-processing scripts. NO PowerShell CSS injection. NO background code. NO internal hacks. NO exceptions. If it can't be done through Respira MCP or Bricks GUI, it doesn't get done.**
 
 This is a blogging business project, NOT a development project. The user does not want raw code hassles, background scripts, or post-processing pipelines. Everything must use Bricks' own standard operations and tools.
 
@@ -103,13 +103,16 @@ in WP Additional CSS hides the ugly "Category: X" heading.
 
 ### Decision Matrix
 
-| Task | Use GUI | Use Respira MCP | Why |
-|------|---------|----------------|-----|
-| Edit page/template content | ✅ WordPress/Bricks GUI | ✅ `respira_update_element` | Primary tools |
-| Add/remove pages | ✅ WordPress → Pages | ✅ `respira_create_custom_post` | Either works |
-| Change colors/typography | ✅ Bricks GUI | ✅ `respira_update_bricks_*` | Visual editor or MCP |
-| Manage WP menus | ✅ Appearance → Menus | ✅ `respira_*_menu*` tools | GUI or MCP |
-| Edit templates 185/52 | ✅ With care | ✅ With snapshot | Respira has rollback |
+| Task | Use Respira MCP (Primary) | Use Bricks GUI (Fallback) | Why |
+|------|---------------------------|--------------------------|-----|
+| Edit page/template content | ✅ `respira_update_element` | Only if Respira can't | Respira has snapshot + rollback |
+| Add/remove pages | ✅ `respira_create_custom_post` | Only if Respira can't | Respira is faster, no browser needed |
+| Change colors/typography | ✅ `respira_update_bricks_*` | Only for visual preview | Respira writes directly to DB |
+| Manage WP menus | ✅ `respira_*_menu*` tools | Only if Respira can't | Respira is faster |
+| Edit templates 185/52 | ✅ With snapshot | ❌ Avoid | Respira has rollback, GUI doesn't |
+| Manage media | ✅ `respira_upload_media` | Only if Respira can't | Respira handles sideload + alt text |
+| SEO/accessibility audits | ✅ `respira_analyze_*` | ❌ Not available in GUI | Respira-only feature |
+| Content text edits | ✅ `respira_update_element` | ✅ Quick GUI edits OK | Either works, Respira preferred |
 
 ### ⚠️ Respira MCP Safety Protocol
 
@@ -174,8 +177,9 @@ Playbooks are stored on the WordPress site itself and show up as tools the agent
 ### Correct Workflow
 
 ```
-1. Make all changes via Bricks Builder GUI (primary) or Respira MCP (when GUI impractical)
-2. Changes go live immediately on the Hostinger server — no build or deploy step needed
+1. Use Respira MCP as the PRIMARY tool for all Bricks/WP changes
+2. Fall back to Bricks Builder GUI only when Respira MCP can't do the task
+3. Changes go live immediately on the Hostinger server — no build or deploy step needed
 ```
 
 ## Default Expectations

@@ -18,10 +18,12 @@ Templates 185 (Header) and 52 (Blog Archive) are editable via Respira MCP with c
 ```
 Is this a visual/styling change?
   → YES → Use Respira MCP. NO EXCEPTIONS.
-  → NO → Is this a simple text edit?
-    → YES → Guide user to WordPress/Bricks GUI
+  → NO → Is this a content/text edit?
+    → YES → Use Respira MCP (primary). Bricks GUI OK for quick edits but Respira preferred.
     → NO → Use Respira MCP anyway
 
+Respira MCP is the PRIMARY tool for ALL Bricks/WP tasks.
+Bricks Builder GUI is FALLBACK ONLY — use when Respira can't do the task.
 NEVER use post-process scripts, PowerShell, or any background code for Bricks tasks.
 ```
 

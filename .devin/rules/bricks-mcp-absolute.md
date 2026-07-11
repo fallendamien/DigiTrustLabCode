@@ -8,14 +8,16 @@ trigger: always_on
 
 ## Quick Decision Table
 
-| Use Respira MCP | Use GUI | Use Non-Bricks |
-|----------------|---------|---------------|
-| Padding, margins, layout | Simple text edits | ❌ NEVER |
-| Colors, fonts, typography | Nav label changes | ❌ NEVER |
-| Animation, transitions | Page content text | ❌ NEVER |
-| Responsive CSS | | ❌ NEVER |
-| Mobile menu styling | | ❌ NEVER |
-| Footer layout | | ❌ NEVER |
+| Use Respira MCP (Primary) | Use Bricks GUI (Fallback only) | Use Non-Bricks |
+|---------------------------|-------------------------------|---------------|
+| Padding, margins, layout | Only if Respira can't do it | ❌ NEVER |
+| Colors, fonts, typography | Only for visual preview | ❌ NEVER |
+| Animation, transitions | Only if Respira can't do it | ❌ NEVER |
+| Responsive CSS | Only if Respira can't do it | ❌ NEVER |
+| Mobile menu styling | Only if Respira can't do it | ❌ NEVER |
+| Footer layout | Only if Respira can't do it | ❌ NEVER |
+| Content text edits | Quick GUI edits OK (Respira preferred) | ❌ NEVER |
+| SEO/accessibility audits | ❌ Not available in GUI | ❌ NEVER |
 
 ## Skill Activation
 
