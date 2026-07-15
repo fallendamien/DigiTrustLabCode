@@ -71,6 +71,13 @@
 - [x] **Keep all plugins updated** — all plugins current as of 2026-07-15
 - [x] **Add security headers** — X-Frame-Options, X-Content-Type-Options, Referrer-Policy (added via .htaccess on Hostinger)
 
+### AI Search Optimization (COMPLETED 2026-07-15)
+
+- [x] **Enable LLMs.txt file** — generated at `https://digitrustlab.com/llms.txt`, validated successfully
+- [x] **Enable Web2Agent** — AI discovery service active, content updates tracked for AI indexes
+
+> These features complement ClickRank (traditional SEO) by helping ChatGPT, Perplexity, Claude, and Gemini discover and cite DigiTrust Lab content.
+
 ### Migration Steps (COMPLETED)
 
 1. ✅ Sign up Hostinger Business WordPress plan

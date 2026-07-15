@@ -66,6 +66,8 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [x] **Fix homepage query loop** — Bricks editor save required to activate hasLoop on pages (2026-07-10)
 - [x] **Reading time pill unified** — solid black (#1a1a1a) + white text on both homepage and blog archive (2026-07-10)
 - [x] **Hero copy refined** — "AI Tools & Side Hustle Digital untuk warga Malaysia" (2026-07-10)
+- [x] **LLMs.txt enabled** — generated at `https://digitrustlab.com/llms.txt`, validated successfully, helps AI search engines discover content (2026-07-15)
+- [x] **Web2Agent enabled** — AI discovery service active, content updates tracked for ChatGPT/Perplexity/Claude indexes (2026-07-15)
 - [ ] Set up Google Analytics 4
 - [ ] Set up Google Search Console + submit sitemap
 - [x] Verify ClickRank ownership (JS snippet) — snippet added to bricks_code_head, verified ✅ (2026-07-09)
