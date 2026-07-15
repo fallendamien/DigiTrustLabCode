@@ -1,6 +1,6 @@
 ---
 trigger: always_on
-description: Manage content planning files — update content-calendar.md with keyword metrics, post status, and publishing plan. Cross-reference from SEO-CHEATSHEET, AGENTS.md, writerzen skill, and breadcrumbs.
+description: Manage content planning files — update content-calendar.md with keyword metrics, post status, and publishing plan. Cross-reference from SEO-CHEATSHEET, AGENTS.md, WriterZen research pipeline skill, and breadcrumbs.
 ---
 
 # Content Planning Management
@@ -29,7 +29,7 @@ description: Manage content planning files — update content-calendar.md with k
 | `AGENTS.md` | Reference path to `content/content-calendar.md` for post planning |
 | `ROADMAP.md` | Milestone updates when posts are published |
 | `NEXT.md` | Current task references to content calendar |
-| `.devin/skills/writerzen-keyword-research/SKILL.md` | Point to `content/content-calendar.md` for recording metrics |
+| `.devin/skills/writerzen-keyword-research/SKILL.md` | Full WriterZen research pipeline (Topic Discovery → Keyword Explorer → Keyword Planner → Content Brief → Outline). 29 source files in `content/writerzen-guide/`. Point to `content/content-calendar.md` for recording metrics |
 
 ## When This Rule Activates
 
@@ -37,4 +37,5 @@ description: Manage content planning files — update content-calendar.md with k
 - Keyword research is completed for a new post
 - A post is published or status changes
 - User asks about content planning or publishing schedule
-- WriterZen keyword research session completes
+- WriterZen research pipeline session completes (Topic Discovery → Keyword Explorer → Keyword Planner → Content Brief → Outline)
+- User mentions any WriterZen tool: Topic Discovery, Keyword Explorer, Golden Filter, Keyword Planner, Domain Filter, Domain Authority, Content Brief

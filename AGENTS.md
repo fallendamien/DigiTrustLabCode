@@ -293,7 +293,7 @@ AI-generated Malay has predictable awkwardness — half-casual/half-formal mixin
 
 **📖 `.devin/skills/malay-voice-guide/SKILL.md`** — Load this skill before writing or reviewing any Malay content.
 
-Quick summary of the 7 patterns:
+Quick summary of the 12 sections (7 core + 5 scraped from Malaysian sites):
 1. **No formal + casual mixing** — `korang` + `manfaatkan` = uncanny valley
 2. **Code-switch naturally** — `content` not `kandungan`, `marketing` not `pemasaran`
 3. **Complete every thought** — vague claims need concrete examples right after
@@ -301,6 +301,8 @@ Quick summary of the 7 patterns:
 5. **Use casual transitions** — `jadi` not `oleh itu`, `tapi` not `walau bagaimanapun`
 6. **Emphasise like a Malaysian** — `confirm`, `memang`, `wajib` not `sangat`, `amat`
 7. **Always contract** — `tak` not `tidak`, `dah` not `sudah`, `sebab` not `kerana`
+8. **cyberbitra patterns** — reduplication, `jom` transitions, `memang+adj`, `padahal`, `takde lawan`, double `sangat`, `cukup+adj`, code-switching verbs, familiar comparisons
+9. **baya.my patterns** — rhetorical question openers, problem reframe (`Masalahnya bukan X. Masalahnya Y`), `just` minimisation, `Tak perlu X` staccato reassurance, `tinggal` final-step, `Verdict:` comparisons, `Pro tip:` code-switching, `Yang best pasal` enthusiasm, `Nampak tak` check-in
 
 ### Page-Specific Voice Notes
 
@@ -358,7 +360,7 @@ Claude Desktop cannot read `.devin/` or `.windsurf/` rules. When a user request 
 
 | Trigger Phrases | Skill File | What It Does |
 |----------------|-----------|--------------|
-| "keyword research", "find keywords", "writerzen", "seed keyword", "kd analysis" | `.devin/skills/writerzen-keyword-research/SKILL.md` | WriterZen keyword research — Malaysia, Malay, KD < 20 |
+| "keyword research", "find keywords", "writerzen", "seed keyword", "kd analysis", "golden filter", "keyword clustering", "topic discovery", "content brief", "keyword planner", "domain filter", "domain authority", "outline building", "SERP analysis" | `.devin/skills/writerzen-keyword-research/SKILL.md` | Full WriterZen research pipeline: Topic Discovery → Keyword Explorer → Keyword Planner → Content Brief → Outline → Writing. Deep on research, light on AI writing. 29 source files in `content/writerzen-guide/` |
 
 ### Marketing Skills (on-demand only)
 
@@ -372,16 +374,19 @@ For broader marketing strategy (competitor teardown, E2E SEO, ICP research, cont
 4. Only load one skill at a time (the matching one)
 5. Combine with Respira MCP tools when relevant (e.g., SEO strategy → then Respira on-page fixes)
 
-## 🔍 WriterZen Keyword Research
+## 🔍 WriterZen Research Pipeline
 
-**Before writing any blog post, research the keyword first.** Load the `writerzen-keyword-research` skill for the full workflow.
+**Before writing any blog post, complete the full research pipeline.** Load the `writerzen-keyword-research` skill for the complete workflow.
+
+**Pipeline:** Topic Discovery → Keyword Explorer → Keyword Planner → Content Brief → Outline → Write
 
 **Quick reference:**
-- Tool: WriterZen → Keyword Explorer
+- Tools: Topic Discovery, Keyword Explorer, Keyword Planner, Content Creator
 - Location: Malaysia | Language: Malay
-- Target: KD by Content < 20, some search volume
+- Target: Golden Score < 10, KD < 20, All-in-Title < 10, Weak Spot ≥ 2
 - Save to: WriterZen Keyword List → "DigiTrust Lab Blog Posts"
 - Record metrics in: `content/content-calendar.md` (per-post entry)
+- Deep reference: 29 course files in `content/writerzen-guide/`
 
 ## Notes
 

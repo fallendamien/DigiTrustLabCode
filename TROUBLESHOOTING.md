@@ -1874,3 +1874,107 @@ This runs the export in the CLI thread and avoids the browser polling entirely.
 - **CLI:** Simply Static export, cache flush, transient cleanup, plugin audit, cron events
 - **Respira MCP:** Element/page/option edits (auto-snapshots), template edits, menu management
 - **NEVER** use CLI for template/element edits — always Bricks GUI or Respira MCP
+
+---
+
+## Respira Tool Selection — Nested Objects & Link Updates (2026-07-12)
+
+**Severity:** Low (workflow efficiency, not a blocker)
+
+### Problem
+
+Updating button `link` settings on Homepage (ID 280) via Respira MCP failed in two ways:
+1. `respira_apply_builder_patch` with `null` values to clear form settings → reported success but was a **no-op** (Bricks treats `null` as "skip this key", not "delete it")
+2. `respira_update_element` with nested `{"link": {"type": "external", "url": "..."}}` → **JSON parse error** in tool call serialization
+
+### Root Cause
+
+- `apply_builder_patch` treats `null` values as "don't change" — not "clear this setting"
+- `update_element` has issues serializing nested JSON objects in the `updates` parameter
+- `batch_update` handles nested objects correctly because its `operations` array structure serializes more cleanly
+
+### Fix — Tool Selection Guide
+
+| Tool | Good For | Gotcha |
+|------|----------|--------|
+| `respira_batch_update` | Multi-element updates with nested objects (links, typography) | ✅ Most reliable for `link: {type, url}` |
+| `respira_update_element` | Single element, flat settings | ❌ Nested objects can cause JSON errors |
+| `respira_apply_builder_patch` | Flat setting updates | `null` = skip, NOT delete. Use empty string `""` or empty array `[]` to clear |
+| `respira_update_module` | Module-level updates with `attributes` merge | Use `attributes` for nested data |
+
+### Lesson
+
+When updating button links or any setting with nested objects (`link`, `image`, `query`), **always use `respira_batch_update`** — not `update_element` or `apply_builder_patch`.
+
+---
+
+## Bricks `html` Element Not Rendering on Frontend (2026-07-12)
+
+**Severity:** Medium (affects MailerLite embed on Homepage + Single Post Template)
+
+### Problem
+
+After converting a Bricks `code` element to `html` type via Respira MCP (to host MailerLite embed `<div class="ml-embedded" data-form="cUeVaM"></div>`), the element disappears from the rendered page entirely. Bricks drops it — no `#brxe-{id}` div, no content, nothing.
+
+Affected elements:
+- `afb8cc` on Homepage (ID 280) — "Panduan Percuma" section
+- `nofkdz` on Single Post Template (ID 10) — sidebar "Panduan Percuma" widget
+
+### Root Cause
+
+Bricks caches rendered HTML separately from the database. When element type changes from `code` to `html` via API, Bricks' renderer doesn't always pick up the type change. The DB shows `type: "html"` with correct `code` setting, but Bricks' frontend renderer still treats it as the old `code` element type (which it strips for security if `signature` is stale).
+
+Additionally, leftover form settings (`actions`, `fields`, `submitButtonText`, `signature`, etc.) from the old `code` element type can confuse Bricks' renderer about what element type it is.
+
+### Fix
+
+1. **Via Respira MCP:** Update element type to `html`, ensure `code` setting has the HTML content, clear form-related settings
+2. **Via Bricks GUI (required):** Open the page/template in Bricks Builder → the `html` element may show "no html markup defined" → paste the HTML content into the element's `code` field → click **Update** to save
+
+The manual GUI save forces Bricks to re-process the element and regenerate its render cache. Respira MCP alone cannot force this re-render.
+
+### Verification
+
+After the GUI save:
+1. Purge LiteSpeed cache
+2. Navigate to the live page with `?nocache=1`
+3. Check `document.querySelector('.ml-embedded')` exists in browser console
+
+### Lesson
+
+Converting Bricks element types (`code` → `html`) via API requires a follow-up manual save in Bricks GUI to force re-rendering. The API changes the DB data, but Bricks' renderer needs a GUI save to pick up type changes.
+
+---
+
+## Stale `yellow-scorpion` URLs on Homepage (2026-07-12)
+
+**Severity:** Low (cosmetic, but looks unprofessional)
+
+### Problem
+
+Homepage (ID 280) had 6 buttons linking to the old Hostinger temporary domain `yellow-scorpion-144584.hostingersite.com` instead of `digitrustlab.com`:
+
+| Element ID | Button Text | Old URL | New URL |
+|------------|-------------|---------|---------|
+| `fd31b1` | Baca Artikel Terbaru | `yellow-scorpion.../blog/` | `digitrustlab.com/blog/` |
+| `575dbf` | Tentang Kami | `yellow-scorpion.../tentang-kami/` | `digitrustlab.com/tentang-kami/` |
+| `e94721` | 🤖 AI Tools | `yellow-scorpion.../category/ai-tools/` | `digitrustlab.com/category/ai-tools/` |
+| `a22c51` | 💰 Side Hustle | `yellow-scorpion.../category/digital-side-hustle/` | `digitrustlab.com/category/digital-side-hustle/` |
+| `c4c1d5` | 🎨 Canva & Design | `yellow-scorpion.../category/canva-design/` | `digitrustlab.com/category/canva-design/` |
+| `980438` | 🏪 AI untuk Bisnes | `yellow-scorpion.../category/ai-untuk-perniagaan-kecil/` | `digitrustlab.com/category/ai-untuk-perniagaan-kecil/` |
+
+### Root Cause
+
+Homepage was built while the site was still on the Hostinger temporary domain. When the domain was changed to `digitrustlab.com`, button links hardcoded with `type: "external"` were not automatically updated. Bricks `internal` link types would have updated automatically, but `external` links are static strings.
+
+### Fix
+
+Used `respira_batch_update` to update all 6 button `link.url` settings in a single call. LiteSpeed cache purge required after.
+
+### Prevention
+
+When building pages, use `type: "internal"` for links to site pages/categories whenever possible. Internal links adapt to domain changes automatically. Only use `type: "external"` for cross-domain links.
+
+### Lesson
+
+After domain migration, audit all pages for hardcoded `yellow-scorpion` or temporary domain URLs. Use `respira_extract_builder_content` and search for the old domain string in the JSON output.

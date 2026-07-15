@@ -349,6 +349,92 @@ cyberbitra explains new concepts by comparing to something everyone knows:
 
 **Rule:** `Benda ni sama macam [familiar thing], tapi [difference]` — this is how Malaysians explain new tech. Always anchor to something the reader already uses.
 
+## Section 12 — Baya.my patterns (Malaysian digital products + AI tools blog)
+
+Scraped from baya.my/blog — Malaysian platform blog covering exactly DigiTrust Lab's niche: AI tools, digital products, side hustles for Malaysians. Uses `korang` consistently with clean, professional-casual register.
+
+### Rhetorical question opener
+
+Baya opens articles with a relatable question that names the reader's pain:
+
+- `Korang pernah tak Google "cara buat website sendiri" dan terus overwhelmed dengan pilihan?`
+- `Korang spend duit untuk ads, post content setiap hari, tapi conversion rate masih rendah.`
+
+**Rule:** Open with `Korang pernah tak [specific frustrating experience]?` — immediately signals "we know exactly what you're going through." More effective than generic hooks.
+
+### Problem reframe pattern
+
+Baya reframes the reader's frustration by shifting blame from them to the tools:
+
+- `Masalahnya bukan takde tools. Masalahnya terlalu banyak tools, dan kebanyakan dibuat untuk orang yang dah biasa coding`
+- `Masalahnya mungkin bukan ads korang. Masalahnya mungkin korang tak ada landing page.`
+
+**Rule:** `Masalahnya bukan [X]. Masalahnya [Y]` — validates the reader's struggle, then redirects to the real issue. Feels like a friend diagnosing your problem, not a lecturer.
+
+### "Just" minimisation pattern
+
+Baya uses `just` to make intimidating tasks feel trivial:
+
+- `Korang just describe produk dan AI akan generate:`
+- `Tinggal generate. Dalam Baya, korang just describe produk dan AI buat semuanya`
+- `Korang just perlu provide context:`
+
+**Rule:** `korang just [simple action]` — strips away complexity. Tells the reader "this is easier than you think." Works especially well for AI tool tutorials.
+
+### Short declarative reassurance
+
+Baya uses rapid-fire short sentences to reassure and build confidence:
+
+- `Tak perlu stok. Tak perlu pos. Tak perlu warehouse.`
+- `Tak perlu coding langsung`
+- `Tak perlu SSM, tak perlu merchant account.`
+
+**Rule:** String 2-3 `Tak perlu [X]` sentences together to demolish objections. Each one removes a mental barrier. The rhythm is distinctly Malaysian — staccato, practical, no fluff.
+
+### "Tinggal" as "all that's left"
+
+Baya uses `tinggal` (remaining/left) to signal the final easy step after setup:
+
+- `Bila dah ada semua info, tinggal generate.`
+- `Produk siap. Sales page siap. Payment siap. Sekarang share!`
+
+**Rule:** `tinggal [simple action]` — implies everything hard is already done, this last step is trivial. Great for CTA transitions.
+
+### Verdict pattern for comparisons
+
+Baya uses a consistent `Verdict:` label when comparing options:
+
+- `Verdict: Power tapi steep learning curve. Sesuai kalau korang memang nak deep dive.`
+- `Verdict: Best untuk Malaysian creators yang nak jual produk digital tanpa pening kepala.`
+
+**Rule:** End comparison sections with `Verdict: [honest assessment]. Sesuai kalau [specific audience].` — gives readers a clear takeaway without being pushy. The honesty (`Power tapi steep learning curve`) builds trust.
+
+### "Pro tip" code-switching
+
+Baya uses English `Pro tip:` labels mixed into Malay content:
+
+- `Pro tip: Baya baru je launch SEO & Social settings yang allow korang customize semua ni`
+- `Pro tip: Guna affiliate system untuk biar orang lain promote produk korang.`
+
+**Rule:** `Pro tip: [Malay sentence with English tech terms]` — the English label signals "this is insider knowledge" while the content stays casual Malay. Natural Malaysian code-switching.
+
+### "Yang best pasal" enthusiasm marker
+
+Baya uses `Yang best pasal` to pivot to a highlight:
+
+- `Yang best pasal approach ni, korang boleh cakap dengan AI macam cakap dengan designer.`
+- `Yang best pasal Baya, korang tak perlu tahu coding atau design.`
+
+**Rule:** `Yang best pasal [thing] ni, [benefit]` — natural Malaysian way to express enthusiasm without sounding like marketing copy. More authentic than "Yang menarik tentang..." or "Kelebihan utama..."
+
+### "Nampak tak" check-in pattern
+
+Baya checks reader understanding with `Nampak tak`:
+
+- `Nampak tak kenapa ramai orang tertarik? Kos rendah, margin tinggi, dan boleh automate sepenuhnya.`
+
+**Rule:** `Nampak tak [why something is good]?` — conversational comprehension check. Feels like a friend explaining something and making sure you're following. More natural than "Seperti yang dapat dilihat..."
+
 ## Sources (Updated)
 
 - Preply Malay Slang Guide (30+ examples with usage context)
@@ -357,4 +443,5 @@ cyberbitra explains new concepts by comparing to something everyone knows:
 - Hijabista (hijabista.com.my) — beauty/fashion, mix of casual + product-focused
 - Harmonikawan (hy.vitamin.my) — health/wellness, very conversational first-person
 - Midjourney Mahir (midjourneymahir.com) — AI tech blog, closest to DigiTrust Lab niche
-- **Cyberbitra (cyberbitra.com) — AI tech blog, fully casual Malaysian Malay, same niche**
+- Cyberbitra (cyberbitra.com) — AI tech blog, fully casual Malaysian Malay, same niche
+- **Baya (baya.my/blog) — Malaysian digital products + AI platform blog, exact niche match, `korang`-register throughout**
