@@ -100,7 +100,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [x] Activate Akismet Anti-spam (spam protection for comments + forms)
 - [x] Update Respira plugin (updated to latest)
 - [x] Keep all plugins updated (all current as of 2026-07-15)
-- [ ] Add Cloudflare security headers (X-Frame-Options, X-Content-Type-Options, Referrer-Policy — skipped, add later)
+- [x] Add security headers (X-Frame-Options, X-Content-Type-Options, Referrer-Policy — added via .htaccess on Hostinger)
 
 ### Email List (Day 1 — same week as blog launch)
 - [ ] Create MailerLite free account

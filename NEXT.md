@@ -69,7 +69,7 @@
 - [x] **Activate Akismet Anti-spam** — spam protection for comments + forms
 - [x] **Update Respira plugin** — updated to latest via WP Admin → Plugins
 - [x] **Keep all plugins updated** — all plugins current as of 2026-07-15
-- [ ] **Add Cloudflare security headers** — X-Frame-Options, X-Content-Type-Options, Referrer-Policy (skipped — add later via .htaccess or Cloudflare Transform Rules)
+- [x] **Add security headers** — X-Frame-Options, X-Content-Type-Options, Referrer-Policy (added via .htaccess on Hostinger)
 
 ### Migration Steps (COMPLETED)
 
