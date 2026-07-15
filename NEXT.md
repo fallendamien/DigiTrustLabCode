@@ -74,7 +74,7 @@
 ### AI Search Optimization (COMPLETED 2026-07-15)
 
 - [x] **Enable LLMs.txt file** — generated at `https://digitrustlab.com/llms.txt`, validated successfully
-- [x] **Enable Web2Agent** — AI discovery service active, content updates tracked for AI indexes
+- [x] **Enable Web2Agent** — AI discovery service active, content updates tracked for AI indexes (initial spinner lag resolved after Cloudflare propagation)
 
 > These features complement ClickRank (traditional SEO) by helping ChatGPT, Perplexity, Claude, and Gemini discover and cite DigiTrust Lab content.
 
