@@ -84,6 +84,24 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [ ] Cross-check keyword choices against actual WriterZen data (current keywords are category-level estimates, not volume-validated)
 - [x] Repeat same pass for Polisi Privasi, Disclaimer, Hubungi Kami (2026-07-07)
 
+### Security Hardening (COMPLETED 2026-07-15)
+- [x] Change admin username (created `zed_dtl`, transferred posts, deleted `admin`)
+- [x] Change admin password (20+ char, stored in password manager)
+- [x] Enable 2FA on WP Admin (WP 2FA plugin by Melapress — TOTP)
+- [x] Enable 2FA on Hostinger hPanel (Account → Security)
+- [x] Install Limit Login Attempts (block IPs after 3 failed attempts)
+- [x] Hide WP login URL (WPS Hide Login — login URL changed to `/dtl-login`)
+- [x] Disable XML-RPC (Hostinger security toggle)
+- [x] Disable application passwords (Hostinger security toggle)
+- [x] Force HTTPS (Hostinger security toggle)
+- [x] Enable Cloudflare Bot Fight Mode (Security → Bots)
+- [x] Enable Cloudflare AI Labyrinth (blocks rogue AI scrapers)
+- [x] Enable Cloudflare Leaked Credentials Detection (blocks compromised passwords)
+- [x] Activate Akismet Anti-spam (spam protection for comments + forms)
+- [x] Update Respira plugin (updated to latest)
+- [x] Keep all plugins updated (all current as of 2026-07-15)
+- [ ] Add Cloudflare security headers (X-Frame-Options, X-Content-Type-Options, Referrer-Policy — skipped, add later)
+
 ### Email List (Day 1 — same week as blog launch)
 - [ ] Create MailerLite free account
 - [ ] Add simple opt-in to blog sidebar/footer
@@ -347,5 +365,5 @@ Reddit/Lowyat answers 2–3x/week + Web 2.0 profiles (Medium, Dev.to) — one-ti
 **Hosting:** Hostinger Business WordPress, IP 145.79.28.85
 **Email:** hello@digitrustlab.com (Hostinger email, all DNS checks green)
 **SSL:** Cloudflare SSL/TLS = Flexible (Hostinger Lifetime SSL installing — switch to Full Strict when done)
-**Bricks license key:** edc873f3106bc0f7337ec60ff03e6fa6
+**Bricks license key:** stored in Bitwarden (removed from repo for security)
 **GitHub repo:** fallendamien/DigiTrustLabCode (branch: master)

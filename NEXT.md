@@ -52,6 +52,25 @@
 
 > **Infrastructure COMPLETE. SSL Full (Strict) active. Docs cleaned up. Content phase begins.**
 
+### 🔐 Security Hardening (COMPLETED 2026-07-15)
+
+- [x] **Change admin username** — created `zed_dtl`, transferred posts, deleted `admin`
+- [x] **Change admin password** — 20+ char random, stored in password manager
+- [x] **Enable 2FA on WP Admin** — WP 2FA plugin (Melapress) installed + TOTP configured
+- [x] **Enable 2FA on Hostinger hPanel** — Account → Security → Two-factor authentication
+- [x] **Install Limit Login Attempts** — plugin installed + configured (3 retries, 20min lockout)
+- [x] **Hide WP login URL** — WPS Hide Login installed, login URL changed to `/dtl-login`
+- [x] **Disable XML-RPC** — enabled via Hostinger security toggle
+- [x] **Disable application passwords** — enabled via Hostinger security toggle
+- [x] **Force HTTPS** — enabled via Hostinger security toggle
+- [x] **Enable Cloudflare Bot Fight Mode** — Security → Bots → ON
+- [x] **Enable Cloudflare AI Labyrinth** — blocks rogue AI scrapers
+- [x] **Enable Cloudflare Leaked Credentials Detection** — blocks compromised passwords at login
+- [x] **Activate Akismet Anti-spam** — spam protection for comments + forms
+- [x] **Update Respira plugin** — updated to latest via WP Admin → Plugins
+- [x] **Keep all plugins updated** — all plugins current as of 2026-07-15
+- [ ] **Add Cloudflare security headers** — X-Frame-Options, X-Content-Type-Options, Referrer-Policy (skipped — add later via .htaccess or Cloudflare Transform Rules)
+
 ### Migration Steps (COMPLETED)
 
 1. ✅ Sign up Hostinger Business WordPress plan
