@@ -144,7 +144,9 @@ Use these in any Respira-connected environment (Claude Desktop, ChatGPT, Windsur
 **New page (two-pass build):**
 > Build a draft [type] page: [list sections in order, one line each]. Use placeholder labels for every text module. Then read it back and confirm the structure before we fill in copy.
 
-### 🎯 Key Respira Skills for Blogging
+### 🎯 Key Skills for Blogging
+
+**Respira MCP Skills (WordPress-side):**
 
 | Skill | What It Does | When to Use |
 |-------|-------------|-------------|
@@ -156,6 +158,20 @@ Use these in any Respira-connected environment (Claude Desktop, ChatGPT, Windsur
 | `conversion-audit` | Audits for CTA hierarchy, form length, social proof, trust signals | Optimizing key pages |
 | `design-system-synthesizer` | Extracts your site's design system (colors, typography, components) | One-time setup |
 | `activity-report-composer` | Turns audit log into a polished report | Client or self reporting |
+
+**Windsurf Skills (Content & SEO planning):**
+
+| Skill | What It Does | When to Use |
+|-------|-------------|-------------|
+| `content-strategy` | Plans content pillars, topic clusters, keyword research by buyer stage | Before deciding what to write |
+| `copywriting` | Writes conversion-focused marketing copy (headlines, CTAs, page structure) | Writing new posts or pages |
+| `copy-editing` | Seven Sweeps Framework for polishing existing copy | Reviewing/editing drafts before publishing |
+| `ai-seo` | Optimizes content for AI search citation (ChatGPT, Perplexity, Google AI Overviews) | After publishing, for AI visibility |
+| `schema-markup` | Implements structured data (JSON-LD) for rich results | After publishing, for enhanced search results |
+| `lead-magnets` | Plans lead magnet format, gating strategy, landing page structure | Building email list |
+| `doc-co-authoring` | Structured workflow for long-form content (whitepapers, ebooks, guides) | Creating pillar content |
+| `grill-me` | Relentless interview to stress-test a plan or idea before execution | Before committing to a content strategy |
+| `grill-with-docs` | Same as grill-me but produces ADRs and glossary as you go | Documenting strategic decisions |
 
 ### 🔄 Playbooks (Save Repeatable Workflows)
 

@@ -24,3 +24,10 @@ description: Run SEO analysis on a post and fix mechanical issues
 - Always snapshot before writing — keep `snapshot_uuid` for rollback
 - Do NOT auto-fix keyword strategy or content decisions — surface those to the user
 - If the post has no featured image, flag it (design spec rule #2: 1200×630px required)
+
+## Related Skills
+
+- **ai-seo**: Run after this audit to optimize for AI search citation (ChatGPT, Perplexity, Google AI Overviews)
+- **schema-markup**: Use to implement or fix structured data findings from the audit
+- **content-strategy**: For broader content planning based on audit findings
+- **copy-editing**: For polishing content during the audit fix pass
