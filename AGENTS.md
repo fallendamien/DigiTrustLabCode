@@ -329,6 +329,25 @@ All 4 core pages were audited and rewritten with natural voice on 2026-07-06. Us
 | `BRICKS-BUILDER-GUIDE.md` | Bricks element reference — read BEFORE editing Bricks elements (tool names are old Bricks MCP, use Respira equivalents) |
 | `DESIGN.md` | Design system source of truth (colors, typography, components) |
 
+### Page Editing Guidelines
+
+| Page / Content | Content stored in | Edit via |
+|---|---|---|
+| Home (ID 280) | Bricks `_bricks_data` | Bricks only |
+| Tentang Kami (ID 72) | Bricks `_bricks_data` | Bricks only |
+| Disclaimer (ID 74) | Gutenberg `post_content` | WP native (easier) |
+| Hubungi Kami (ID 75) | Gutenberg `post_content` | WP native (easier) |
+| Privasi (ID 73) | Gutenberg `post_content` | WP native (easier) |
+| Blog posts (body text) | Gutenberg `post_content` | WP native (easier) |
+| Blog post template (sidebar, meta, layout) | Bricks template ID 10 | Bricks only |
+
+**Rules:**
+- New simple text pages → WP native Gutenberg (consistent with Disclaimer/Hubungi/Privasi)
+- New pages needing custom layout → Bricks
+- When pasting text into Bricks editor → always `Ctrl+Shift+V` (plain text, no rogue CSS classes)
+- `respira_update_page` with `content` = writes to WP `post_content` only — useless for Bricks pages
+- `respira_find_element` + `respira_update_element` = correct way to edit Bricks page content via MCP
+
 ### Key Template IDs
 
 | Template | ID | Type | Status |
