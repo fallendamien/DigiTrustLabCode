@@ -2054,3 +2054,63 @@ Each optimized page gets:
 ### Lesson
 
 The ClickRank bulk titles tool is safe to use — it only touches the SEO title tag for search engines and browser tabs. Page content and H1 headings remain untouched.
+
+---
+
+## Screpy Uptime 404 — Stale Project from Mid-Migration (2026-07-18)
+
+**Category:** monitoring
+**Severity:** High (Screpy reported site as down since July 11 — 49% uptime over 30 days)
+**Time Spent:** ~4 hours (1am–5am overnight debugging session)
+
+### Symptoms
+
+- Screpy's uptime monitor reported HTTP 404 on every 10-min check for digitrustlab.com
+- Continuous failures since the July 11 Hostinger migration — 30-day uptime showed 49%
+- Site was genuinely up (confirmed 200 OK from 10+ external global checkers throughout)
+- Settings-level fixes (toggling Uptime off/on, disabling Cloudflare Bot Fight Mode + AI Labyrinth) did **not** resolve it
+
+### Root Cause
+
+The Screpy **project itself** was created mid-migration (added between 20:50–21:36 on July 11, right during the DNS cutover / SSL mode flipping between Full → Flexible → Full-Strict). Its very first-ever check caught the real SSL 525 error from that transition, and the monitor never had a single clean check afterward — Screpy kept the incident open continuously, later manifesting as 404s instead of 525s.
+
+**Key finding:** Cloudflare Bot Fight Mode + AI Labyrinth were **not** the cause. Confirmed via Cloudflare security event logs showing zero blocks at the failure timestamps. Re-enabling both features after the fix proved Uptime stayed green.
+
+### Fix
+
+**Deleted the old Screpy project entirely and re-added it via Import from GSC (Search Console)**, giving it a clean, GSC-verified domain (`https://digitrustlab.com/`) and a fresh backend record with no inherited bad state.
+
+Steps taken:
+1. Purged Hostinger server-level cache (hPanel → Cache → Clear cache)
+2. Confirmed Hostinger IP Manager has no blocks (was never the cause)
+3. Disabled then **re-enabled** Cloudflare Bot Fight Mode + AI Labyrinth (net: unchanged from before session)
+4. Deleted old Screpy project (`dfd8e2388f`) → recreated via GSC import (new project ID `wgspvb7lc3`)
+5. New project settings: Country=Malaysia, Language=Malay, Timezone=Asia/Kuala_Lumpur, Uptime interval=10min, notification email=zamrirosli@gmail.com
+6. Confirmed live: Uptime = Up (200), Core Web Vitals now tracking correct homepage URL
+
+### What Didn't Work
+
+| Attempt | Result |
+|---------|--------|
+| Toggling Uptime monitor off/on | No change — same 404s |
+| Disabling Cloudflare Bot Fight Mode | No change — confirmed not the cause via security logs |
+| Disabling Cloudflare AI Labyrinth | No change — confirmed not the cause |
+| Purging Hostinger server cache | No change — cache was never the issue |
+
+### Lesson
+
+When a monitoring service is added during infrastructure migration (especially mid-DNS-cutover or SSL mode changes), its first check can poison the project state permanently. **Delete and recreate the project from scratch** rather than trying to fix settings on a project that never had a clean baseline. Importing from Google Search Console ensures the domain is verified and gets a fresh backend record.
+
+### Known Outstanding Items
+
+1. **301 redirect needed:** `digitrustlab.com/form/modul-ai-mastery` currently 404s — page moved to `store.digitrustlab.com/form/modul-ai-mastery` during migration but no 301 was set up. Rank Math 404 Monitor shows 4 logged 404 URLs / 14 hits. Set up redirects via Rank Math Redirections (WP Admin → Rank Math → Redirections).
+2. **Screpy Core Web Vitals delete bug:** old project's delete button didn't persist after two confirmed clicks + reload — likely a Screpy UI bug. Moot now since the whole project was deleted.
+3. **Response time note:** Uptime avg response is ~1160ms — on the slower side. Worth a PageSpeed/TTFB pass later (LiteSpeed cache tuning, image sizing) but not blocking.
+
+### Infra State (confirmed unchanged)
+
+- Cloudflare SSL/TLS: Full (Strict) — stable since July 12
+- Cloudflare Bot Fight Mode: On
+- Cloudflare AI Labyrinth: On
+- Cloudflare Always Online: Off
+- Hostinger server cache: purged fresh

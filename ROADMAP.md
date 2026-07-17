@@ -264,6 +264,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - ✅ **MailerLite setup** — account 2502865 active, embed form cUeVaM live on homepage + single post sidebar (2026-07-18)
 - ✅ **Sitemap submitted** — /sitemap_index.xml to Google Search Console, 8 pages discovered (2026-07-18)
 - ✅ **ClickRank keyword tracker active** — 5 keywords tracked for Malaysia, all devices (2026-07-18)
+- ✅ **Screpy uptime fixed** — stale project from mid-migration deleted, recreated via GSC import, uptime green (2026-07-18)
 - 🎯 First Etsy sale — target: Month 2
 - 🎯 First affiliate commission — target: Month 3
 - 🎯 RM 200/month — target: Month 6

@@ -49,12 +49,13 @@
     "Security hardening completed — admin username changed, 2FA enabled, Limit Login Attempts, WPS Hide Login, XML-RPC disabled, Cloudflare Bot Fight Mode + AI Labyrinth + Leaked Credentials Detection, Akismet active, security headers added (2026-07-15)",
     "AI Search Optimization completed — llms.txt generated at /llms.txt, Web2Agent active for AI discovery (2026-07-15)",
     "ClickRank keyword tracker active — 5 keywords added: apa itu AI, cara guna ChatGPT, cara buat poster guna chatgpt, cara edit gambar guna chatgpt, cara buat resume guna chatgpt (2026-07-18)",
-    "ClickRank bulk titles tool investigated — confirmed it changes SEO <title> tags only, not H1 or page content (2026-07-18)"
+    "ClickRank bulk titles tool investigated — confirmed it changes SEO <title> tags only, not H1 or page content (2026-07-18)",
+    "Screpy uptime fixed — stale project from mid-migration deleted, recreated via GSC import (project wgspvb7lc3), uptime green (2026-07-18)"
   ],
   "nextSteps": [
     "Write Post #2 — cara guna ChatGPT (WriterZen → write → publish → ClickRank)",
     "Add more keywords to ClickRank tracker as posts are published",
-    "Add digitrustlab.com to Screpy",
+    "Set up 301 redirects — /form/modul-ai-mastery → store.digitrustlab.com + check Rank Math 404 Monitor",
     "Register Klikjer affiliate",
     "Register JV Warrior affiliate",
     "Create Etsy shop",
@@ -71,7 +72,7 @@
   "tools": {
     "writerZen": "ready",
     "clickRank": "verified-active — 5 keywords tracked (apa itu AI, cara guna ChatGPT, cara buat poster guna chatgpt, cara edit gambar guna chatgpt, cara buat resume guna chatgpt), Malaysia, all devices",
-    "screpy": "account-active-pending-domain",
+    "screpy": "active — project wgspvb7lc3, recreated via GSC import, uptime monitoring green (2026-07-18)",
     "bricksBuilder": "installed-and-configured",
     "mailerLite": "active — account 2502865, embed form cUeVaM live on homepage + single post sidebar",
     "hostinger": "active — Business WordPress plan, IP 145.79.28.85",
