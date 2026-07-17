@@ -1,447 +1,229 @@
-# Malay Voice Guide — Natural Malaysian Casual Malay Patterns
+# Malay Voice Guide — Semi-Formal Bahasa Melayu Standard
 
 **Trigger:** ANY task involving writing, editing, or reviewing Malay content (blog posts, pages, copy, CTA text).
 
 **Full voice rules:** See `AGENTS.md` § "DigiTrust Lab Writing Voice" for core voice characteristics, anti-salesy policy, and red flag phrases.
 
-## The Problem
+**Reference style:** PandaiTech.my, Ecentral.my — professional but accessible, not textbook-dry.
 
-AI-generated Malay has predictable tells. It falls into an uncanny valley — too formal for casual, too casual for formal. These patterns fix the most common issues.
+**Authoritative reference:** Dewan Bahasa dan Pustaka (DBP) — `dbp.gov.my/pedoman-dan-panduan-bahasa-melayu/` for spelling, grammar, and formal BM standards.
 
-## 1. Half-Casual / Half-Formal Mixing
+## The Standard
 
-The biggest tell. AI mixes casual pronouns with formal vocabulary in the same sentence.
+DigiTrust Lab uses **semi-formal Bahasa Melayu** — proper baku (standard Malay), grammatically correct, clear and conversational but professional. Not textbook-dry like government websites, but never casual slang either. Think of it as a knowledgeable mentor explaining tech to you: respectful, clear, engaging, but using proper language.
 
-| ❌ AI Malay | ✅ Natural Malaysian | Why |
+## 1. Semi-Formal BM Standard — Definition & References
+
+Semi-formal BM sits between casual spoken Malay (`korang`, `tak`, `je`) and fully formal textbook Malay (`berikut adalah`, `sebagaimana yang diketahui`). It uses proper grammar and standard vocabulary while remaining accessible and conversational.
+
+| Trait | Casual (OLD — do NOT use) | Semi-Formal (NEW) | Fully Formal (too dry) |
+|------|--------------------------|-------------------|----------------------|
+| Pronoun | `korang` | `anda` | `pembaca` |
+| Negation | `tak`, `takleh` | `tidak` | `tidak sama sekali` |
+| Filler | `confirm`, `gila`, `je` | Remove — use proper equivalents | N/A |
+| Sentence | Short, punchy, slangy | Clear, complete, grammatical | Long, complex clauses |
+| Tone | Like talking to a friend | Like a knowledgeable mentor | Like a textbook |
+
+**Reference sites:**
+- **PandaiTech.my** — semi-formal AI tech blog, closest to DigiTrust Lab's niche
+- **Ecentral.my** — semi-formal tech info blog
+- **Jobstreet Malaysia** (my.jobstreet.com) — formal career advice articles
+- **Dewan Bahasa dan Pustaka** (dbp.gov.my) — authoritative BM reference for spelling and grammar
+
+## 2. Pronoun & Address
+
+| ❌ Casual (do NOT use) | ✅ Semi-Formal | Context |
 |---|---|---|
-| `korang boleh manfaatkan AI untuk meningkatkan produktiviti` | `korang boleh guna AI untuk buat kerja lebih cepat` | `manfaatkan` + `meningkatkan` = formal. `guna` + `lebih cepat` = how we talk |
-| `kami akan kongsikan cara yang berkesan` | `kami nak kongsi cara yang betul-betul jadi` | `berkesan` sounds like a brochure. `betul-betul jadi` sounds real |
-| `ini membolehkan korang untuk...` | `ni korang boleh...` | `membolehkan` is textbook. `korang boleh` is conversation |
-| `ia sangat berguna untuk perniagaan` | `memang berguna la kalau korang ada business` | `perniagaan` = news anchor. `business` = what Malaysians actually say |
+| `korang` | `anda` | Addressing the reader |
+| `kita` (inclusive) | `kami` (company voice) | When DigiTrust Lab speaks as a brand |
+| `dia` (for people) | `beliau` | Referencing professionals/experts |
+| `dia` (for things) | `ia` | Referencing objects/concepts |
+| `korang semua` | `anda semua` or just `anda` | Addressing multiple readers |
 
-**Rule:** If you use `korang`, the rest of the sentence must match that casual level. No `manfaatkan`, `meningkatkan`, `membolehkan`, `perniagaan`, `berkesan` in the same sentence as `korang`.
+**Rule:** Always use `anda` for the reader. Use `kami` when DigiTrust Lab speaks collectively. Use `beliau` for named professionals. Never use `korang`, `kau`, `awak` in any content.
 
-## 2. Code-Switching — When and How Much
+## 3. Full Forms vs Contractions
 
-Malaysians naturally mix Malay + English. AI either over-formalises (all BM) or over-translates English terms into awkward BM.
+Semi-formal BM uses full forms. Contractions are a casual register marker and should not appear in DigiTrust Lab content.
 
-| ❌ Wrong | ✅ Natural | Rule |
+| ❌ Casual contraction | ✅ Semi-formal full form | Notes |
 |---|---|---|
-| `alat kecerdasan buatan` | `AI tools` | Don't translate established tech terms |
-| `perniagaan kecil` | `business kecil-kecilan` or `small business` | `perniagaan` is too formal for casual context |
-| `kandungan` | `content` | `kandungan` sounds like food nutrition label |
-| `pemasaran` | `marketing` | Nobody says `pemasaran` in real life |
-| `platform media sosial` | `social media` | Just say it in English |
-| `templat` | `template` | Keep it English |
-| `mula guna` | `start guna` or `cubalah` | `mula` is OK but `start` is more natural in casual context |
+| `tak` | `tidak` | Always use full form |
+| `takleh` | `tidak boleh` | Always use full form |
+| `dah` | `sudah` | Use `sudah` in semi-formal. `telah` for completed actions |
+| `tu` | `tersebut` or `itu` | `tersebut` for specific references, `itu` for general |
+| `ni` | `ini` | Always use full form |
+| `sebab` | `kerana` or `sebab` | `kerana` in formal sections, `sebab` acceptable in conversational passages |
+| `macam` | `seperti` or `macam` | `seperti` in formal sections, `macam` acceptable in examples |
+| `bila` | `apabila` | Use `apabila` in semi-formal |
+| `nak` | `akan` or `hendak` | Use `akan` for future, `hendak` for intention |
 
-**Rule:** Tech/business terms stay in English. Common verbs and connectors stay in Malay. The mix should feel like how a Malaysian actually speaks — not a textbook.
+**Rule:** Default to full forms. `sebab` and `macam` are acceptable in conversational passages within blog posts, but `tidak`, `sudah`, `ini`, `itu`, `apabila` should always be full form.
 
-## 3. Sentence Completion — Don't Leave Thoughts Hanging
+## 4. Code-Switching Rules
 
-AI Malay often introduces a point but doesn't land it. The sentence feels unfinished or anticlimactic.
+English tech terms stay in English. Common nouns and verbs use BM. No slang code-switching.
 
-| ❌ Hanging | ✅ Complete | Fix |
+| ✅ Keep in English | ✅ Use BM | ❌ Slang code-switching (do NOT use) |
 |---|---|---|
-| `AI dah ubah banyak benda.` (then moves on) | `AI dah ubah banyak benda. Cara kita kerja, cara kita buat content, cara kita cari maklumat — semuanya.` | Add the specifics that make it feel real |
-| `Korang boleh guna AI untuk banyak benda.` | `Korang boleh guna AI untuk banyak benda — tulis emel, buat ringkasan, cari idea, macam-macam.` | Always follow vague claims with concrete examples |
-| `Ini akan membantu korang.` | `Ni confirm bantu kalau korang selalu stuck nak mula tulis.` | Add the specific scenario where it helps |
+| AI, ChatGPT, API, tools | kandungan (content) | `confirm` |
+| prompt, template, dashboard | perniagaan (business) | `gila` |
+| login, download, upload | pemasaran (marketing) | `je` (as filler) |
+| software, hardware | pengguna (user) | `kat sini` |
+| email, website, blog | tetapan (settings) | `macam mana` (use `bagaimana`) |
 
-**Rule:** After any general statement, ask "macam mana?" or "contoh?" — if the answer isn't in the next sentence, add it.
+**Rule:** Established tech terms (AI, ChatGPT, API, prompt, tools) stay in English — do not translate them. Common nouns that have standard BM equivalents should use BM (`kandungan`, `perniagaan`, `pemasaran`). Slang English words used as Malay fillers (`confirm`, `gila`, `je`, `kat sini`) must be replaced with proper BM equivalents.
 
-## 4. Opening Lines — Skip the Textbook Intro
+## 5. Sentence Structure — Complete Every Thought
 
-AI Malay loves to define things formally before getting to the point. Malaysians don't talk like that.
+Every general statement needs concrete examples. No hanging claims. No vague promises.
 
-| ❌ Textbook opener | ✅ Natural opener |
+| ❌ Hanging / vague | ✅ Complete with examples |
 |---|---|
-| `AI bermaksud Artificial Intelligence, atau dalam Bahasa Melayu, Kecerdasan Buatan.` | `Korang dah dengar je "AI" ni, kan? Tapi apa sebenarnya?` |
-| `Dalam artikel ini, kami akan membincangkan...` | `Jom kami tunjuk macam mana...` or just start directly |
-| `Terdapat banyak tools AI yang tersedia...` | `Banyak AI tools kat luar sana, tapi ni yang paling worth untuk mula-mula:` |
+| `AI telah mengubah banyak perkara.` (then moves on) | `AI telah mengubah banyak perkara — cara kita bekerja, cara kita menghasilkan kandungan, cara kita mencari maklumat.` |
+| `Anda boleh guna AI untuk banyak benda.` | `Anda boleh guna AI untuk banyak perkara — menulis emel, membuat ringkasan, mencari idea, dan pelbagai lagi.` |
+| `Ini akan membantu anda.` | `Ini sangat membantu jika anda sering menghadapi kesukaran untuk memulakan penulisan.` |
 
-**Rule:** Never start with a definition or "dalam artikel ini". Start with a question, a relatable scenario, or just jump straight into the point.
+**Rule:** After any general statement, ask "seperti apa?" or "contohnya?" — if the answer isn't in the next sentence, add it.
 
-## 5. Transitions — Flow Like Conversation, Not Essay
+## 6. Opening Lines — Hook Without Textbook Intros
 
-| ❌ Essay transition | ✅ Natural transition |
+Never start with a formal definition or "dalam artikel ini". Hook with a relatable scenario, question, or observation — but in proper BM.
+
+| ❌ Textbook opener | ✅ Semi-formal hook |
 |---|---|
-| `Selain itu,` | `Lagi satu,` or `Bukan tu je,` |
-| `Walau bagaimanapun,` | `Tapi,` or `Tapi jujur cakap,` |
-| `Oleh itu,` | `Jadi,` or `Sebab tu,` |
-| `Kesimpulannya,` | `Intinya,` or `So,` or just start the conclusion directly |
-| `Pertama sekali,` | `Pertama,` or `Benda pertama,` or just start with the point |
+| `AI bermaksud Artificial Intelligence, atau dalam Bahasa Melayu, Kecerdasan Buatan.` | `Pernahkah anda tertanya-tanya apa sebenarnya AI dan bagaimana ia berfungsi?` |
+| `Dalam artikel ini, kami akan membincangkan...` | `Mari kita lihat bagaimana AI boleh membantu kerja harian anda.` |
+| `Terdapat banyak tools AI yang tersedia...` | `Banyak alat AI tersedia hari ini, tetapi ini yang paling berguna untuk bermula:` |
 
-**Rule:** If a transition word sounds like it belongs in a school essay, replace it. Malaysian casual writing uses `jadi`, `tapi`, `lagi satu`, `pasal tu`, or just starts a new sentence.
+**Rule:** Start with a question, a relatable scenario, or jump straight into the point. Never start with a dictionary definition or a "dalam artikel ini" preamble.
 
-## 6. Emphasis — How Malaysians Actually Emphasise
+## 7. Transitions — Clear and Professional
 
-| ❌ AI emphasis | ✅ Natural emphasis |
+Semi-formal BM uses proper transitions. Casual transitions (`jadi`, `tapi`, `lagi satu`) are acceptable in conversational blog post passages but not in formal sections.
+
+| Formal transition (use in formal sections) | Conversational transition (OK in blog posts) | ❌ Slang (do NOT use) |
+|---|---|---|
+| `Selain itu,` | `Selain itu,` or `Jadi,` | `Lagi satu,` (too casual) |
+| `Walau bagaimanapun,` | `Walau bagaimanapun,` or `Tetapi,` | `Tapi jujur cakap,` |
+| `Oleh itu,` | `Oleh itu,` or `Jadi,` | `Sebab tu,` |
+| `Kesimpulannya,` | `Kesimpulannya,` or `Intinya,` | `So,` |
+| `Pertama sekali,` | `Pertama,` | `Benda pertama,` |
+
+**Rule:** Default to formal transitions (`Selain itu`, `Walau bagaimanapun`, `Oleh itu`). `Jadi` and `Tetapi` are acceptable in conversational blog passages. Never use `pasal tu`, `sebab tu`, `So` as transitions.
+
+## 8. Emphasis — Professional Intensifiers
+
+| ❌ Casual emphasis (do NOT use) | ✅ Semi-formal emphasis |
 |---|---|
-| `sangat penting` | `memang kena tahu` or `wajib` |
-| `amat berguna` | `confirm berguna` or `memang jadi` |
-| `tidak boleh dipertikaikan` | `tak boleh nafikan` |
-| `secara signifikan` | `confirm berbeza` or `ramai sangat` |
-| `penting untuk diketahui` | `korang kena tahu benda ni` |
+| `confirm berguna` | `sangat berguna` or `pasti berguna` |
+| `memang jadi` | `berkesan` or `terbukti` |
+| `wajib tahu` (slang tone) | `perlu diketahui` or `penting untuk diketahui` |
+| `tak boleh nafikan` | `tidak dapat dinafikan` |
+| `betul-betul jadi` | `benar-benar berkesan` |
 
-**Rule:** Replace formal intensifiers (`sangat`, `amat`, `secara`) with Malaysian emphatic words (`confirm`, `memang`, `wajib`, `betul-betul`, `memang jadi`).
+**Note:** `memang` is acceptable in semi-formal context as a natural emphasis marker (`memang penting`, `memang berguna`). Use it moderately.
 
-## 7. Contractions and Short Forms
+**Rule:** Replace casual emphatic words (`confirm`, `gila`, `wajib` as slang) with proper intensifiers (`sangat`, `amat`, `penting`, `pasti`, `terbukti`). `memang` is acceptable in moderation.
 
-Malaysian casual Malay naturally contracts words. AI tends to write everything in full.
+## 9. Humour — Light Wit Without Slang
 
-| ❌ Full form | ✅ Natural contraction |
+DigiTrust Lab content should have a light sense of humour — not forced jokes, but dry wit that makes someone smile while reading. Think: a knowledgeable mentor who occasionally adds a human touch.
+
+**How to add humour in semi-formal BM:**
+- Self-deprecating honesty: *"Kami juga pernah melakukan kesilapan ini — jangan tertawa."*
+- Relatable exaggeration: *"Membuka laptop, membuka 47 tab, akhirnya menutup semula semuanya."*
+- Gentle sarcasm about obvious things: *"Kami tahu polisi privasi bukan bacaan paling menarik..."*
+- Unexpected honest admissions: *"Jujur, kami juga tidak menjangka ia akan berjaya."*
+- Lighthearted aside in brackets: *"(percaya atau tidak, memang boleh)"*
+
+**Rules for humour:**
+- Never punch down or mock the reader
+- Keep it relevant — don't force a joke where none fits
+- One or two light moments per page/post is enough
+- Humour works best in openers, transitions, and asides — not in conclusions or CTAs
+- All humour must use proper BM — no slang-based humour
+
+## 10. Punctuation — Write Properly, Not Like AI
+
+**Em dash (`—`) rule:** Use sparingly. Maximum 1 per post/page, only when genuinely needed. Malay prose flows naturally with commas, `iaitu`, `memandangkan`, `kerana`, `jadi`, or a new sentence entirely.
+
+| Instead of `—` | Use this |
 |---|---|
-| `tidak` | `tak` |
-| `tidak boleh` | `tak boleh` or `takleh` |
-| `tersebut` | `tu` |
-| `ini` | `ni` |
-| `untuk` | `untuk` (keep) or `nak` (when meaning "want to") |
-| `sudah` | `dah` |
-| `akan` | `akan` (keep) or `nak` (casual future) |
-| `seperti` | `macam` |
-| `kerana` | `sebab` |
-| `apabila` | `bila` |
+| `AI tools telah canggih — anda perlu tahu cara guna.` | `AI tools telah canggih, jadi anda perlu tahu cara menggunakannya.` |
+| `Kami tulis dari pengalaman — bukan teori semata.` | `Kami tulis dari pengalaman sebenar, bukan teori semata.` |
+| `Ini bukan kursus — ini perkongsian jujur.` | `Ini bukan kursus. Ini perkongsian jujur.` |
 
-**Rule:** In casual content, always use the contracted form. Full forms (`tidak`, `tersebut`, `kerana`, `apabila`) sound like a news report.
+**Other AI punctuation patterns to avoid:**
+- ❌ Stacking em dashes within the same sentence
+- ❌ Starting bullets with em dashes
+- ❌ Using `—` as a substitute for a full stop
+- ❌ Overusing `...` (ellipsis) for dramatic pauses — one or two per post max
 
-## 8. Sentence Particles — The Secret Sauce
+## 11. Red Flag Phrases — Always Rewrite These
 
-These tiny words at the end of sentences are what make Malay sound naturally Malaysian. AI never uses them. Real Malaysians always do.
+### Salesy / Corporate red flags (existing)
+- ❌ `"Privasi anda penting bagi kami"` → sounds like a copy-paste template
+- ❌ `"Anda berhak untuk"` → translated legalese
+- ❌ `"Kami sentiasa terbuka"` → press release language
+- ❌ `"Kunjungi link external pada risiko anda sendiri"` → sounds threatening
+- ❌ `"Untuk pertanyaan umum, kerjasama, atau sokongan"` → call center language
+- ❌ Any sentence that starts with `"Maklumat di blog ini adalah untuk tujuan..."` → textbook opening
 
-| Particle | Meaning | Example | When to use |
-|---|---|---|---|
-| `lah` | Friendly emphasis | `Cuba lah dulu, baru tahu.` | Softening a suggestion or command |
-| `kan` | Seeking agreement | `Cuaca panas hari ni kan?` | When you expect the reader to nod along |
-| `je` | Only / just | `Itu je yang korang kena buat.` | Minimising something — "that's all" |
-| `pun` | Even / also | `Tak pun, guna yang percuma dulu.` | Offering an alternative |
-| `lah` + `je` | "That's it" | `Senang lah je, tak susah pun.` | Reassuring the reader it's easy |
-| `kot` | I think / maybe | `Yang ni lagi bagus kot.` | Hedging a recommendation |
-| `la` (short) | Casual filler | `Memang macam tu la sekarang.` | Natural sentence ender — don't overuse |
+### Casual slang red flags (NEW — do NOT use)
+- ❌ `korang` → use `anda`
+- ❌ `tak` → use `tidak`
+- ❌ `je` (as filler) → remove or use proper equivalent
+- ❌ `confirm` (as emphasis) → use `pasti`, `sangat`, `terbukti`
+- ❌ `gila` (as intensifier) → use `sangat`, `amat`
+- ❌ `kat sini` → use `di sini`
+- ❌ `macam mana` → use `bagaimana`
+- ❌ `boleh je` → use `anda boleh`
+- ❌ `senang je` → use `mudah` or `senang`
+- ❌ `takleh` → use `tidak boleh`
+- ❌ `dah` → use `sudah` or `telah`
+- ❌ `nak` (as future marker) → use `akan` or `hendak`
 
-**Rule:** Use 1 particle per sentence max. Never stack (`lah kan`, `lah je kot`). One is enough to sound natural.
+## 12. Green Light Patterns — Use These
 
-## 9. Real Malaysian Blog Patterns (Scraped from Live Sites)
+Semi-formal BM examples that hit the right tone — professional but accessible:
 
-These patterns come from actual high-traffic Malaysian blogs (Telekung Najwa, Irine Nadia, Hijabista, Harmonikawan). Study the rhythm.
+- ✅ `"Kami tahu halaman ini biasanya membosankan, tetapi kami akan menerangkan dengan cara yang mudah difahami."`
+- ✅ `"Kami tidak menjual data sesiapa kepada sesiapa."` — direct, reassuring
+- ✅ `"Itu janji kami."` — personal, accountable
+- ✅ `"Biasanya dalam masa 48 jam pada hari bekerja."` — plain, no jargon
+- ✅ `"Jika anda ingin mengetahui tentang...anda berada di tempat yang betul."` — warm, inclusive
+- ✅ `"Pernahkah anda tertanya-tanya bagaimana AI berfungsi di sebalik skrin?"` — engaging question hook
+- ✅ `"Mari kita mulakan dengan asasnya."` — conversational but proper
+- ✅ `"Kami juga pernah menghadapi masalah yang sama."` — empathetic, honest
 
-### Opening with relatable scenario
+## 13. DBP Reference — Authoritative BM Guidance
 
-| ❌ AI opener | ✅ Real Malaysian blog opener |
-|---|---|
-| `Dalam artikel ini, kami akan membincangkan...` | `Pernah tak korang buka Shopee, tiba-tiba scroll jumpa benda cantik sangat sampai rasa nak tekan Add to Cart terus?` (Telekung Najwa) |
-| `Terdapat banyak pilihan...` | `Honestly, dulu bila tengok iklan dekat tv, tak rasa sangat pun nak pergi. Rupanya sangkaan tu MELESET sama sekali ya!` (Irine Nadia) |
+When uncertain about spelling, grammar, or word choice, consult **Dewan Bahasa dan Pustaka (DBP)**:
 
-### Using `confirm` as emphasis
+- **Pedoman dan Panduan Bahasa Melayu:** `dbp.gov.my/pedoman-dan-panduan-bahasa-melayu/`
+- **Khidmat Nasihat DBP:** `kndbp.dbp.gov.my` — for specific grammar questions
+- **Pusat Rujukan Persuratan Melayu:** `prpmv1.dbp.gov.my` — for terminology and references
 
-Real Malaysian blogs use `confirm` naturally as a confidence marker:
+### Key DBP Rules to Remember
 
-- `confirm korang dah tahu macam mana nak pilih` (Telekung Najwa)
-- `mak ayah pun confirm akan happy tau` (Irine Nadia)
-- `Confirm selamat, halal dan juga murah` (Hijabista)
+| Rule | Correct | Incorrect |
+|------|---------|-----------|
+| `ialah` for noun predicates | `AI ialah teknologi...` | `AI adalah teknologi...` |
+| `adalah` for adjective/sendiri predicates | `Ini adalah penting.` | `Ini ialah penting.` |
+| Use `ia` not `ianya` | `ia boleh membantu` | `ianya boleh membantu` |
+| `dalam kalangan` not `di kalangan` | `dalam kalangan pengguna` | `di kalangan pengguna` |
+| `daripada` for origin/member | `daripada Malaysia` | `dari Malaysia` (when meaning origin) |
+| `dari` for direction/time | `dari Kuala Lumpur ke Johor` | `daripada KL ke Johor` (when meaning direction) |
+| `berbahaya` not `merbahaya` | `berbahaya` | `merbahaya` |
+| `istirahat` not `istirehat` | `istirahat` | `istirehat` |
 
-**Rule:** `confirm` replaces `pasti`, `sudah tentu`, `tidak diragukan`. Use it freely in casual content.
-
-### Mixing English mid-sentence naturally
-
-| Pattern | Example from real blogs |
-|---|---|
-| English noun in Malay sentence | `scroll jumpa telekung cantik` / `tekan Add to Cart terus` |
-| English adjective after Malay noun | `material tak selesa` / `kain cotton berkualiti` |
-| English verb in Malay context | `booking 2-3 hari sebelum` / `survey sendiri dekat website` |
-| English exclamation | `BEST SANGAT-SANGAT!!` / `Memang lawa teruk!` |
-
-### The `korang` + question hook pattern
-
-Real blogs open by directly addressing the reader with a question:
-
-- `Pernah tak korang...` (Telekung Najwa)
-- `Korang pernah buat tak...?` (Harmonikawan)
-- `Apa yang korang rasa bila...` (common pattern)
-
-**Rule:** Blog post openers should use `Pernah tak korang...` or `Korang pernah...` as the hook. It's the most natural Malaysian blog opener.
-
-### Humour through self-deprecation
-
-Real Malaysian blogs use self-deprecating humour naturally:
-
-- `duit mengalir macam ayaq terjun mengenangkan duit tiket` (Irine Nadia)
-- `Lebih dari jakun lah! hahah` (Irine Nadia)
-- `cinta itu buta, dan macam-macam lagi` (Harmonikawan)
-
-**Rule:** Self-deprecating asides with `hahah` (not `haha` — the extra `h` is Malaysian style) make content feel human.
-
-### The `tau` / `taw` reassurance pattern
-
-Malaysian blogs use `tau` (know) at the end of sentences to reassure or emphasise:
-
-- `confirm akan happy tau` (Irine Nadia)
-- `muka jadi ketat atau labuh tak sesuai tau` (Telekung Najwa)
-- `yang ni korang boleh survey sendiri dekat mana-mana website ya` (Irine Nadia)
-
-**Rule:** Adding `tau` or `taw` at the end of a tip/warning softens it — feels like a friend giving advice, not a manual.
+**Rule:** When in doubt about a word, check DBP first. Consistent use of DBP-standard spelling and grammar builds authority and trust with readers and search engines.
 
 ## Sources
 
-- Preply Malay Slang Guide (30+ examples with usage context)
-- Telekung Najwa (telekungnajwa.my) — e-commerce blog, casual Malay product guides
-- Irine Nadia (irinenadia.com.my) — lifestyle/family blog, first-person casual
-- Hijabista (hijabista.com.my) — beauty/fashion, mix of casual + product-focused
-- Harmonikawan (hy.vitamin.my) — health/wellness, very conversational first-person
-- Midjourney Mahir (midjourneymahir.com) — **AI tech blog, closest to DigiTrust Lab niche**
-
-## 10. Malaysian AI Tech Blog Patterns (from Midjourney Mahir)
-
-The closest reference site to DigiTrust Lab. They write about AI tools in casual Malay — same audience, same niche.
-
-### TL;DR pattern
-
-Real Malaysian tech blogs use a TL;DR summary at the top:
-
-```
-TL;DR: Pada 2026, terdapat lebih 15 alat AI berkuasa yang boleh digunakan secara percuma oleh pengguna Malaysia...
-```
-
-**Rule:** Start posts with a `TL;DR:` line — 1-2 sentences summarising the whole post. This is standard in Malaysian tech blogs and matches DigiTrust Lab's scannable style.
-
-### The "myth busting" opener
-
-Instead of textbook definitions, open by busting a common assumption:
-
-| ❌ Textbook | ✅ Myth-busting opener (Midjourney Mahir style) |
-|---|---|
-| `AI bermaksud Artificial Intelligence...` | `Dua tahun lepas, semua orang kata "AI percuma tak bagus, kena subscribe baru dapat yang betul." Pada 2026, gambaran itu dah berubah sepenuhnya.` |
-
-**Rule:** Open with what people *think* is true, then immediately contradict it. This is more engaging than defining terms.
-
-### Mixing `korang` with `anda` strategically
-
-Midjourney Mahir uses both `anda` and `korang` — but in different contexts:
-
-| Context | Pronoun | Example |
-|---|---|---|
-| Tips/instructions | `korang` | `Kalau nak data spesifik, letak kata kunci macam "statistik"` |
-| General info/TL;DR | `anda` | `anda boleh gunakan AI secara percuma untuk tulis emel` |
-| Direct recommendation | `korang` | `Confirm kerja jadi lancar dan bergaya!` |
-
-**Rule:** `anda` is OK in TL;DR and general statements. `korang` for tips, recommendations, and direct address. This mirrors how Malaysians actually switch registers.
-
-### The `confirm` + adjective pattern
-
-Midjourney Mahir uses `confirm` as a confidence marker at the end of sentences:
-
-- `Confirm kerja jadi lancar dan bergaya!`
-- `confirm dapat jawapan lebih tepat`
-
-**Rule:** `confirm` at the end of a sentence = Malaysian way of saying "guaranteed" without sounding salesy.
-
-### Honest limitations section
-
-Real tech blogs include honest downsides. Midjourney Mahir has a `Had dan Kekangan` section:
-
-```
-Tier percuma ada batasannya. Berikut yang biasanya terhad:
-- Kelajuan: Tier percuma biasanya lebih perlahan...
-- Konteks: Model percuma biasanya ada had panjang perbualan...
-```
-
-**Rule:** Always include limitations honestly. Malaysian readers trust content that admits weaknesses. Use `Jujur` or `Had dan Kekangan` as the section header.
-
-### The `Boleh je` pattern
-
-Casual Malaysian way of saying "you can just...":
-
-- `Boleh je guna Perplexity AI sebagai pelengkap` (You can just use Perplexity as a complement)
-- `Boleh je guna ChatGPT atau Bing Chat` (You can just use ChatGPT or Bing Chat)
-
-**Rule:** `Boleh je` replaces `anda boleh`, `anda berpeluang untuk`, `anda digalakkan untuk`. It's the casual way to suggest something without being pushy.
-
-### `Senang je` / `Mudah je` pattern
-
-Malaysian tech blogs simplify instructions with `je` (just/only):
-
-- `Senang je, tak susah pun`
-- `Mudah je nak guna`
-
-**Rule:** When explaining something simple, use `senang je` or `mudah je` to reassure the reader. Don't over-explain — the `je` already says "this is all you need to do."
-
-## 11. Cyberbitra Patterns (Malaysian AI Tech Blog)
-
-cyberbitra.com writes entirely in casual Malaysian Malay about AI tools — same niche, same audience as DigiTrust Lab. Goldmine of natural patterns.
-
-### Reduplication for emphasis and variety
-
-Malaysians repeat words to mean "all sorts of" or "various":
-
-| Pattern | Example | Meaning |
-|---|---|---|
-| `macam-macam` | `macam-macam kerja` | all sorts of work |
-| `benda benda` | `benda benda yang simple` | simple things (casual plural) |
-| `sembang-sembang` | `just sembang-sembang` | just chatting around |
-| `macam-macam lagi` | `buat lawak, dan macam-macam lagi` | and so on / etc. |
-
-**Rule:** Use reduplication (`macam-macam`, `benda benda`, `sembang-sembang`) instead of formal `pelbagai`, `bagai`, `dan lain-lain`. This is how Malaysians naturally express plurality in casual speech.
-
-### `Jom` as transition
-
-cyberbitra uses `Jom` (let's go) to transition into detailed sections:
-
-- `Jom go through satu per satu untuk korang betul-betul faham`
-
-**Rule:** `Jom` + English verb phrase = natural Malaysian transition. Replaces formal `Mari kita bincangkan` or `Seterusnya`.
-
-### `memang` + English adjective
-
-| Pattern | Example |
-|---|---|
-| `memang smooth` | `cara dia layan sembang memang smooth` |
-| `memang sesuai` | `Model GPT-4 ni memang sesuai untuk korang buat kerja yang lebih heavy` |
-| `memang takde lawan` | `ChatGPT Plus memang takde lawan` |
-
-**Rule:** `memang` before an adjective or noun phrase = strongest Malaysian endorsement. Replaces `sangat`, `amat`, `pasti`.
-
-### `padahal` for plot twist
-
-cyberbitra uses `padahal` (when in fact / but actually) to create contrast:
-
-- `seolah-olah korang bersembang dengan kawan korang yang betul padahal ChatGPT ni cuma AI je`
-
-**Rule:** `padahal` at the end of a thought = "but actually..." — creates a punchy reveal. More natural than `walau bagaimanapun` or `namun begitu`.
-
-### `takde lawan` as superlative
-
-- `ChatGPT Plus memang takde lawan` (ChatGPT Plus has no rival)
-
-**Rule:** `takde lawan` = Malaysian way of saying "the best, unbeatable." Use sparingly for genuine endorsements, not for every product.
-
-### Double `sangat` for extra emphasis
-
-- `satu model pemprosesan bahasa yang sangat sangat mantap`
-
-**Rule:** Repeating `sangat` (very very) is natural Malaysian emphasis. Don't use triple — double is the max before it sounds exaggerated.
-
-### `cukup` + adjective = "good enough"
-
-| Pattern | Example |
-|---|---|
-| `cukup bagus` | `dah cukup bagus untuk korang tanya benda benda yang simple` |
-| `cukup power` | `GPT-4 mini cukup power untuk tackle banyak task` |
-
-**Rule:** `cukup` + adjective = "good enough for..." — Malaysian way of saying something meets the bar without overselling it.
-
-### Code-switching verbs naturally
-
-cyberbitra switches verbs mid-sentence without hesitation:
-
-| Malay frame | English verb | Full sentence |
-|---|---|---|
-| `korang boleh` | `handle` | `ChatGPT masih boleh handle dengan baik` |
-| `korang nak` | `tackle` | `cukup power untuk tackle banyak task` |
-| `korang akan` | `perasan` | `korang akan perasan ada banyak improvement` |
-| `dia boleh` | `follow` | `boleh follow flow perbualan` |
-
-**Rule:** English verbs inside Malay sentence frames are the most natural Malaysian tech writing. Don't force Malay translations of `handle`, `tackle`, `follow`, `improve`.
-
-### Familiar comparison pattern
-
-cyberbitra explains new concepts by comparing to something everyone knows:
-
-- `Benda ni sama macam Google, tapi statement yang dikeluarkan tu boleh jadi salah`
-
-**Rule:** `Benda ni sama macam [familiar thing], tapi [difference]` — this is how Malaysians explain new tech. Always anchor to something the reader already uses.
-
-## Section 12 — Baya.my patterns (Malaysian digital products + AI tools blog)
-
-Scraped from baya.my/blog — Malaysian platform blog covering exactly DigiTrust Lab's niche: AI tools, digital products, side hustles for Malaysians. Uses `korang` consistently with clean, professional-casual register.
-
-### Rhetorical question opener
-
-Baya opens articles with a relatable question that names the reader's pain:
-
-- `Korang pernah tak Google "cara buat website sendiri" dan terus overwhelmed dengan pilihan?`
-- `Korang spend duit untuk ads, post content setiap hari, tapi conversion rate masih rendah.`
-
-**Rule:** Open with `Korang pernah tak [specific frustrating experience]?` — immediately signals "we know exactly what you're going through." More effective than generic hooks.
-
-### Problem reframe pattern
-
-Baya reframes the reader's frustration by shifting blame from them to the tools:
-
-- `Masalahnya bukan takde tools. Masalahnya terlalu banyak tools, dan kebanyakan dibuat untuk orang yang dah biasa coding`
-- `Masalahnya mungkin bukan ads korang. Masalahnya mungkin korang tak ada landing page.`
-
-**Rule:** `Masalahnya bukan [X]. Masalahnya [Y]` — validates the reader's struggle, then redirects to the real issue. Feels like a friend diagnosing your problem, not a lecturer.
-
-### "Just" minimisation pattern
-
-Baya uses `just` to make intimidating tasks feel trivial:
-
-- `Korang just describe produk dan AI akan generate:`
-- `Tinggal generate. Dalam Baya, korang just describe produk dan AI buat semuanya`
-- `Korang just perlu provide context:`
-
-**Rule:** `korang just [simple action]` — strips away complexity. Tells the reader "this is easier than you think." Works especially well for AI tool tutorials.
-
-### Short declarative reassurance
-
-Baya uses rapid-fire short sentences to reassure and build confidence:
-
-- `Tak perlu stok. Tak perlu pos. Tak perlu warehouse.`
-- `Tak perlu coding langsung`
-- `Tak perlu SSM, tak perlu merchant account.`
-
-**Rule:** String 2-3 `Tak perlu [X]` sentences together to demolish objections. Each one removes a mental barrier. The rhythm is distinctly Malaysian — staccato, practical, no fluff.
-
-### "Tinggal" as "all that's left"
-
-Baya uses `tinggal` (remaining/left) to signal the final easy step after setup:
-
-- `Bila dah ada semua info, tinggal generate.`
-- `Produk siap. Sales page siap. Payment siap. Sekarang share!`
-
-**Rule:** `tinggal [simple action]` — implies everything hard is already done, this last step is trivial. Great for CTA transitions.
-
-### Verdict pattern for comparisons
-
-Baya uses a consistent `Verdict:` label when comparing options:
-
-- `Verdict: Power tapi steep learning curve. Sesuai kalau korang memang nak deep dive.`
-- `Verdict: Best untuk Malaysian creators yang nak jual produk digital tanpa pening kepala.`
-
-**Rule:** End comparison sections with `Verdict: [honest assessment]. Sesuai kalau [specific audience].` — gives readers a clear takeaway without being pushy. The honesty (`Power tapi steep learning curve`) builds trust.
-
-### "Pro tip" code-switching
-
-Baya uses English `Pro tip:` labels mixed into Malay content:
-
-- `Pro tip: Baya baru je launch SEO & Social settings yang allow korang customize semua ni`
-- `Pro tip: Guna affiliate system untuk biar orang lain promote produk korang.`
-
-**Rule:** `Pro tip: [Malay sentence with English tech terms]` — the English label signals "this is insider knowledge" while the content stays casual Malay. Natural Malaysian code-switching.
-
-### "Yang best pasal" enthusiasm marker
-
-Baya uses `Yang best pasal` to pivot to a highlight:
-
-- `Yang best pasal approach ni, korang boleh cakap dengan AI macam cakap dengan designer.`
-- `Yang best pasal Baya, korang tak perlu tahu coding atau design.`
-
-**Rule:** `Yang best pasal [thing] ni, [benefit]` — natural Malaysian way to express enthusiasm without sounding like marketing copy. More authentic than "Yang menarik tentang..." or "Kelebihan utama..."
-
-### "Nampak tak" check-in pattern
-
-Baya checks reader understanding with `Nampak tak`:
-
-- `Nampak tak kenapa ramai orang tertarik? Kos rendah, margin tinggi, dan boleh automate sepenuhnya.`
-
-**Rule:** `Nampak tak [why something is good]?` — conversational comprehension check. Feels like a friend explaining something and making sure you're following. More natural than "Seperti yang dapat dilihat..."
-
-## Sources (Updated)
-
-- Preply Malay Slang Guide (30+ examples with usage context)
-- Telekung Najwa (telekungnajwa.my) — e-commerce blog, casual Malay product guides
-- Irine Nadia (irinenadia.com.my) — lifestyle/family blog, first-person casual
-- Hijabista (hijabista.com.my) — beauty/fashion, mix of casual + product-focused
-- Harmonikawan (hy.vitamin.my) — health/wellness, very conversational first-person
-- Midjourney Mahir (midjourneymahir.com) — AI tech blog, closest to DigiTrust Lab niche
-- Cyberbitra (cyberbitra.com) — AI tech blog, fully casual Malaysian Malay, same niche
-- **Baya (baya.my/blog) — Malaysian digital products + AI platform blog, exact niche match, `korang`-register throughout**
+- **PandaiTech.my** — semi-formal AI tech blog, closest reference for DigiTrust Lab
+- **Ecentral.my** — semi-formal tech info blog
+- **Jobstreet Malaysia** (my.jobstreet.com) — formal career advice articles
+- **Dewan Bahasa dan Pustaka** (dbp.gov.my) — authoritative BM reference for spelling, grammar, and standards
+- **Hashmeta** (hashmeta.com) — Malaysian content marketing research and trends

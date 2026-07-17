@@ -126,7 +126,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 
 ### Blog Posts (1 post/week — Malay-first 70%) — 1 of 10 published
 - [x] Post #1: "Apa Itu AI? (Dan Kenapa Ia Bukan Setakat Robot dalam Filem)" — published Jul 9 at digitrustlab.com/apa-itu-ai/
-- [ ] Post #2: Cara Guna ChatGPT untuk Bantu Kerja Harian Korang (Panduan Mudah 2026) → AI Mastery affiliate *(natural follow-up to Post #1)*
+- [ ] Post #2: Cara Guna ChatGPT untuk Membantu Kerja Harian Anda (Panduan Mudah 2026) → AI Mastery affiliate *(natural follow-up to Post #1)*
 - [ ] Post #3: 10 AI Tools Percuma untuk Perniagaan Malaysia 2026 → AI Mastery affiliate
 - [ ] Post #4: Cara Jana Pendapatan dengan Canva Templates → Etsy listing link
 - [ ] Post #5: Prompt AI untuk Buat Iklan Instagram yang Menarik → Etsy prompt pack
@@ -331,7 +331,7 @@ Layer 1 (Month 1+):  Blog SEO Content — THE ENGINE
 - **Blog:** Malay-first 70% (low competition SEA) + English 30% (pillar posts, higher RPM, backlink bait)
 - **Etsy:** English titles + English descriptions. Malay content inside the product itself.
 - **Rule:** Never translate same post into both languages (duplicate content)
-- **Voice standard (updated 2026-07-06):** All core pages audited and rewritten with natural casual Malay voice. Full voice guide documented in `AGENTS.md` under "DigiTrust Lab Writing Voice". Key rule: write Malay directly in Malay, never translate from English. Use `korang`/`kami`, avoid `anda`/`pengguna`. All future content must follow this standard — posts, pages, email copy, everything.
+- **Voice standard (updated 2026-07-17):** All content uses semi-formal Bahasa Melayu. Full voice guide documented in `AGENTS.md` under "DigiTrust Lab Writing Voice". Key rule: write Malay directly in Malay, never translate from English. Use `anda`/`kami`, avoid `korang`. BM baku with English tech terms only. All future content must follow this standard — posts, pages, email copy, everything.
 
 ---
 

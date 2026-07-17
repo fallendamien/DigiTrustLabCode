@@ -347,7 +347,7 @@ Full-width section layout (no sidebar) with 4 sections:
 
 **Hero copy (current):**
 - Eyebrow: `AI Tools & Side Hustle Digital untuk warga Malaysia`
-- H1: `Korang pun boleh guna AI untuk buat kerja dan jana pendapatan` (sentence case)
+- H1: `Anda boleh guna AI untuk membuat kerja dan menjana pendapatan` (sentence case)
 
 **Note:** Query loops on pages require a Bricks editor save to activate on frontend (see TROUBLESHOOTING.md).
 

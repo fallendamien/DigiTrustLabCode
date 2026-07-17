@@ -213,42 +213,45 @@ Playbooks are stored on the WordPress site itself and show up as tools the agent
 
 ## 🎙️ DigiTrust Lab Writing Voice (ALL content — posts, pages, copy)
 
-**Core principle:** Write Malay copy directly in Malay. Never translate from English — translated Malay sounds stiff and robotic. If it wouldn't sound natural said out loud to a Malaysian friend, rewrite it.
+**Core principle:** Write Malay copy directly in Malay using **semi-formal Bahasa Melayu**. Never translate from English — translated Malay sounds stiff and robotic. Use proper baku (standard Malay), `anda` for the reader, full forms (`tidak` not `tak`), and no slang. Reference style: PandaiTech.my, Ecentral.my — professional but accessible.
+
+**Authoritative reference:** Dewan Bahasa dan Pustaka (DBP) — `dbp.gov.my/pedoman-dan-panduan-bahasa-melayu/` for spelling, grammar, and formal BM standards.
 
 ### Voice Characteristics
 
 | Trait | Do ✅ | Don't ❌ |
 |-------|--------|----------|
-| Pronoun | `korang`, `kami` | `anda`, `pengguna` |
-| Tone | Casual, warm, like talking to a friend | Formal, corporate, legal-sounding |
-| Sentence length | Short, punchy, scannable | Long winding clauses |
-| Opener | Direct, honest, relatable | Press release / marketing fluff |
-| Mixed language | Natural Malay + occasional English terms (AI, tools, content) | Full formal BM or full English |
+| Pronoun | `anda`, `kami` | `korang`, `kau`, `awak` |
+| Tone | Semi-formal, professional but accessible, like a knowledgeable mentor | Casual slang OR textbook-dry formal |
+| Sentence length | Clear, complete, scannable | Long winding clauses OR short punchy slang |
+| Opener | Engaging question or relatable scenario in proper BM | Press release, textbook definition, or slang hook |
+| Mixed language | BM baku with English tech terms only (AI, tools, API, ChatGPT) | Slang code-switching (`confirm`, `gila`, `je`) OR full BM translation of tech terms |
 
-### Humour — Make Them Smile, Not Just Read
+### Humour — Light Wit Without Slang
 
-DigiTrust Lab content should have a light sense of humour woven in naturally — not forced jokes, but the kind of dry wit that makes someone smile while reading. Think: a Malaysian friend explaining tech stuff over teh tarik.
+DigiTrust Lab content should have a light sense of humour woven in naturally — not forced jokes, but the kind of dry wit that makes someone smile while reading. Think: a knowledgeable mentor who occasionally adds a human touch.
 
-**How to add humour naturally:**
-- Self-deprecating honesty: *"Saya pun pernah buat silap ni — jangan gelak."*
-- Relatable exaggeration: *"Buka laptop, bukak 47 tabs, akhirnya tutup semua balik."*
-- Gentle sarcasm about obvious things: *"Kami tahu polisi privasi bukan benda paling best nak baca..."*
-- Unexpected honest admissions: *"Jujur cakap, kami pun tak expect ia akan work."*
-- Lighthearted aside in brackets: *"(percaya ke tak, memang boleh)"* or *"(yes, serius ni)"*
+**How to add humour naturally (in semi-formal BM):**
+- Self-deprecating honesty: *"Kami juga pernah melakukan kesilapan ini — jangan tertawa."*
+- Relatable exaggeration: *"Membuka laptop, membuka 47 tab, akhirnya menutup semula semuanya."*
+- Gentle sarcasm about obvious things: *"Kami tahu polisi privasi bukan bacaan paling menarik..."*
+- Unexpected honest admissions: *"Jujur, kami juga tidak menjangka ia akan berjaya."*
+- Lighthearted aside in brackets: *"(percaya atau tidak, memang boleh)"*
 
 **Rules for humour:**
 - Never punch down or mock the reader
 - Keep it relevant — don't force a joke where none fits
 - One or two light moments per page/post is enough — don't overdo it
 - Humour works best in openers, transitions, and asides — not in conclusions or CTAs
+- All humour must use proper BM — no slang-based humour
 
-### Punctuation — Write Like a Malaysian, Not Like AI
+### Punctuation — Write Properly, Not Like AI
 
-**Em dash (`—`) rule:** Use sparingly. Maximum 1 per post/page, only when genuinely needed. Malay prose flows naturally with commas, `iaitu`, `memandangkan`, `sebab`, `jadi`, or a new sentence entirely. Frequent em dashes are a strong AI-writing tell in Malay because native writers almost never use them.
+**Em dash (`—`) rule:** Use sparingly. Maximum 1 per post/page, only when genuinely needed. Malay prose flows naturally with commas, `iaitu`, `memandangkan`, `kerana`, `jadi`, or a new sentence entirely. Frequent em dashes are a strong AI-writing tell in Malay because native writers almost never use them.
 
 | Instead of `—` | Use this |
 |---|---|
-| `AI tools dah canggih — korang kena tahu cara guna.` | `AI tools dah canggih, jadi korang kena tahu cara guna.` |
+| `AI tools telah canggih — anda perlu tahu cara guna.` | `AI tools telah canggih, jadi anda perlu tahu cara menggunakannya.` |
 | `Kami tulis dari pengalaman — bukan teori semata.` | `Kami tulis dari pengalaman sebenar, bukan teori semata.` |
 | `Ini bukan kursus — ini perkongsian jujur.` | `Ini bukan kursus. Ini perkongsian jujur.` |
 
@@ -260,12 +263,27 @@ DigiTrust Lab content should have a light sense of humour woven in naturally —
 
 ### Red Flag Phrases — Always Rewrite These
 
+**Salesy / Corporate red flags:**
 - ❌ `"Privasi anda penting bagi kami"` → sounds like a copy-paste template
 - ❌ `"Anda berhak untuk"` → translated legalese
 - ❌ `"Kami sentiasa terbuka"` → press release language
 - ❌ `"Kunjungi link external pada risiko anda sendiri"` → sounds threatening
 - ❌ `"Untuk pertanyaan umum, kerjasama, atau sokongan"` → call center language
 - ❌ Any sentence that starts with `"Maklumat di blog ini adalah untuk tujuan..."` → textbook opening
+
+**Casual slang red flags (do NOT use):**
+- ❌ `korang` → use `anda`
+- ❌ `tak` → use `tidak`
+- ❌ `je` (as filler) → remove or use proper equivalent
+- ❌ `confirm` (as emphasis) → use `pasti`, `sangat`, `terbukti`
+- ❌ `gila` (as intensifier) → use `sangat`, `amat`
+- ❌ `kat sini` → use `di sini`
+- ❌ `macam mana` → use `bagaimana`
+- ❌ `boleh je` → use `anda boleh`
+- ❌ `senang je` → use `mudah` or `senang`
+- ❌ `takleh` → use `tidak boleh`
+- ❌ `dah` → use `sudah` or `telah`
+- ❌ `nak` (as future marker) → use `akan` or `hendak`
 
 ### 🚫 Anti-Salesy Copy Policy (added 2026-07-10)
 
@@ -290,18 +308,21 @@ DigiTrust Lab content should have a light sense of humour woven in naturally —
 **Approved sidebar/CTA copy pattern (reference):**
 ```
 Title:   Dapatkan Panduan Percuma
-Body:    50 Prompt AI yang korang boleh guna terus untuk buat kerja dan jimat masa.
+Body:    50 Prompt AI yang anda boleh guna terus untuk membuat kerja dan menjimatkan masa.
 Sub:     Percuma sepenuhnya. Unsubscribe bila-bila masa.
 Button:  Hantar →
 ```
 
 ### Green Light Patterns — Use These
 
-- ✅ `"Kami tahu page ni biasanya boring — tapi kami nak jelaskan dengan cara yang mudah faham."`
-- ✅ `"Kami tak jual data sesiapa kepada sesiapa."` — direct, reassuring
-- ✅ `"Tu janji kami."` — personal, accountable
+Semi-formal BM examples that hit the right tone — professional but accessible:
+
+- ✅ `"Kami tahu halaman ini biasanya membosankan, tetapi kami akan menerangkan dengan cara yang mudah difahami."`
+- ✅ `"Kami tidak menjual data sesiapa kepada sesiapa."` — direct, reassuring
+- ✅ `"Itu janji kami."` — personal, accountable
 - ✅ `"Biasanya dalam masa 48 jam pada hari bekerja."` — plain, no jargon
-- ✅ `"Kalau korang nak tahu tentang...korang dah ada kat tempat yang betul."` — warm, inclusive
+- ✅ `"Jika anda ingin mengetahui tentang...anda berada di tempat yang betul."` — warm, inclusive
+- ✅ `"Pernahkah anda tertanya-tanya bagaimana AI berfungsi di sebalik skrin?"` — engaging question hook
 
 ### Natural Malay Flow Patterns
 
@@ -309,34 +330,38 @@ AI-generated Malay has predictable awkwardness — half-casual/half-formal mixin
 
 **📖 `.devin/skills/malay-voice-guide/SKILL.md`** — Load this skill before writing or reviewing any Malay content.
 
-Quick summary of the 12 sections (7 core + 5 scraped from Malaysian sites):
-1. **No formal + casual mixing** — `korang` + `manfaatkan` = uncanny valley
-2. **Code-switch naturally** — `content` not `kandungan`, `marketing` not `pemasaran`
-3. **Complete every thought** — vague claims need concrete examples right after
-4. **Skip textbook intros** — no `AI bermaksud...` or `Dalam artikel ini...`
-5. **Use casual transitions** — `jadi` not `oleh itu`, `tapi` not `walau bagaimanapun`
-6. **Emphasise like a Malaysian** — `confirm`, `memang`, `wajib` not `sangat`, `amat`
-7. **Always contract** — `tak` not `tidak`, `dah` not `sudah`, `sebab` not `kerana`
-8. **cyberbitra patterns** — reduplication, `jom` transitions, `memang+adj`, `padahal`, `takde lawan`, double `sangat`, `cukup+adj`, code-switching verbs, familiar comparisons
-9. **baya.my patterns** — rhetorical question openers, problem reframe (`Masalahnya bukan X. Masalahnya Y`), `just` minimisation, `Tak perlu X` staccato reassurance, `tinggal` final-step, `Verdict:` comparisons, `Pro tip:` code-switching, `Yang best pasal` enthusiasm, `Nampak tak` check-in
+Quick summary of the 13 sections (semi-formal BM standard):
+1. **Semi-Formal BM Standard** — definition, reference sites (PandaiTech.my, Ecentral.my, DBP)
+2. **Pronoun & Address** — `anda` not `korang`, `kami` for company voice, `beliau` for professionals
+3. **Full Forms vs Contractions** — `tidak` not `tak`, `sudah` not `dah`, `apabila` not `bila`
+4. **Code-Switching Rules** — Tech terms stay English (AI, tools, API). Common nouns use BM. No slang.
+5. **Sentence Structure** — Complete every thought with concrete examples
+6. **Opening Lines** — Hook with question/scenario in proper BM, no textbook intros
+7. **Transitions** — `Selain itu`, `Walau bagaimanapun`, `Oleh itu` (formal); `Jadi`, `Tetapi` (conversational OK)
+8. **Emphasis** — `sangat`, `amat`, `penting`, `pasti`, `terbukti` (not `confirm`, `gila`, `wajib` as slang)
+9. **Humour** — Light wit in proper BM, no slang-based humour
+10. **Punctuation** — Em dash max 1 per post, avoid AI punctuation patterns
+11. **Red Flag Phrases** — Salesy/corporate + casual slang red flags with replacements
+12. **Green Light Patterns** — Semi-formal examples from PandaiTech.my, Ecentral.my style
+13. **DBP Reference** — `ialah` vs `adalah`, `ia` not `ianya`, `dalam kalangan`, `daripada` vs `dari`
 
 ### Page-Specific Voice Notes
 
-**Tentang Kami:** Personal founder story tone. "Kami" = Zed + AI partner. Avoid bullet-point brochure style — write in flowing paragraphs with personality.
+**Tentang Kami:** Personal founder story tone. "Kami" = Zed + AI partner. Semi-formal BM, flowing paragraphs with personality. Use `beliau` for professional references.
 
-**Polisi Privasi / Disclaimer:** Still needs to be clear and accurate, but written in plain language. Add a human touch — acknowledge these pages are normally boring. Keep legal meaning, strip corporate language.
+**Polisi Privasi / Disclaimer:** Clear and accurate, written in plain semi-formal BM. Add a human touch — acknowledge these pages are normally boring. Keep legal meaning, strip corporate language.
 
-**Hubungi Kami:** Friendly invitation, not a corporate FAQ. Feels like you're genuinely happy to hear from readers.
+**Hubungi Kami:** Friendly invitation in semi-formal BM, not a corporate FAQ. Feels like you're genuinely happy to hear from readers.
 
-**Blog posts:** Casual Malay, first-person, experience-led. Opener should hook emotionally or with a relatable scenario. Never start with a definition or statistics dump.
+**Blog posts:** Semi-formal BM, first-person, experience-led. Opener should hook emotionally or with a relatable scenario. Never start with a definition or statistics dump.
 
-### Core Pages — Approved Rewrites (2026-07-06)
+### Core Pages — Voice Standard (updated 2026-07-17)
 
-All 4 core pages were audited and rewritten with natural voice on 2026-07-06. Use these as the voice benchmark for all future content:
-- Tentang Kami ✅ rewritten
-- Polisi Privasi ✅ rewritten
-- Disclaimer ✅ rewritten
-- Hubungi Kami ✅ rewritten
+All core pages are being re-rewritten in semi-formal BM (previous 2026-07-06 casual rewrites are SUPERSEDED). The semi-formal standard applies to all content: posts, pages, templates, email copy, everything.
+- Tentang Kami — re-rewrite in semi-formal BM
+- Polisi Privasi — re-rewrite in semi-formal BM
+- Disclaimer — re-rewrite in semi-formal BM
+- Hubungi Kami — re-rewrite in semi-formal BM
 
 ## Quick Reference
 
@@ -422,6 +447,9 @@ For broader marketing strategy (competitor teardown, E2E SEO, ICP research, cont
 - Save to: WriterZen Keyword List → "DigiTrust Lab Blog Posts"
 - Record metrics in: `content/content-calendar.md` (per-post entry)
 - Deep reference: 29 course files in `content/writerzen-guide/`
+- **Content Creator project**: Always select existing "DigiTrust Lab" project (readonly dropdown — click to open, select from table). Never create new Content Creator projects.
+- **Content Brief fields**: Fill ALL 6 fields (Content format, Writing Tone, Target Audience, Author perspective, Content Angle, Note for writer). Use Playwright `fill()` for text inputs — native JS setter doesn't trigger Vue reactivity on Audience/Perspective fields.
+- **Content Creator toggles (SERP View / AI Assistant):** Leave both OFF. They currently add no useful UI. Generate/update the AI outline via the explicit "Set up & Start building outline" / "Generate outline" buttons instead.
 
 ## Notes
 

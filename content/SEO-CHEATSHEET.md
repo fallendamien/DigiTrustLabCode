@@ -1,5 +1,5 @@
 # SEO Quick Reference Cheatsheet
-> DigiTrust Lab — last updated 2026-07-07
+> DigiTrust Lab — last updated 2026-07-17
 
 ---
 
@@ -27,6 +27,31 @@
 
 > 💡 **Pro tip:** High Google Ads KD + Low Content/Traffic/Signal KD = gold mine.
 > Advertisers see value, but organic competition is weak. That's your gap.
+
+---
+
+## 💳 WriterZen Limits & Credits Reference
+
+Check remaining quotas before heavy research runs:
+
+**URL:** `https://app.writerzen.net/user/profile-setting?tab=limit`
+**Path:** Settings → Limits & Remaining
+
+Plan: **AppSumo Tier 2 (Lifetime)** — Next reset: Aug 04, 2026
+
+| Limit | Remaining / Total | Notes |
+|-------|-------------------|-------|
+| Topic Lookup / Day | 75 / 75 | Topic Discovery searches (resets daily) |
+| Keyword Lookup / Day | 74 / 75 | Keyword Explorer searches (resets daily) |
+| Keyword Credit / Month | 39,926 / 40,000 | Golden Filter consumes 1 credit per keyword in result set |
+| Article / Month | 68 / 70 | Content Creator / AI writing |
+| Plagiarism Word Check / Day | 40,000 / 40,000 | Plagiarism checks (resets daily) |
+| AI Words / Month | 7,708 / 8,000 | AI-generated content words |
+| Keyword List / Plan | 47 / 50 | Saved keyword lists |
+
+> Last checked: 2026-07-17 after `apa itu ai` content brief + audit session. Update after each research session.
+
+Check this page before large batches of Topic Discovery or Golden Filter runs to avoid hitting the daily/monthly caps.
 
 ---
 

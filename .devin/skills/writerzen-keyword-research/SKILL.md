@@ -26,6 +26,54 @@ description: WriterZen full research pipeline for DigiTrust Lab. Triggers on key
 
 ---
 
+## ⚠️ Quota Check Protocol (MANDATORY)
+
+**Before any research session, check remaining quotas to plan usage across the month.**
+
+**Limits page URL:** `https://app.writerzen.net/user/profile-setting?tab=limit`
+**Path:** Settings → Limits & Remaining
+**Reference doc:** `content/SEO-CHEATSHEET.md` → "WriterZen Limits & Credits Reference"
+
+### When to Check
+
+| Trigger | Action |
+|---------|--------|
+| **Start of any Keyword Explorer session** | Navigate to limits page, note remaining Keyword Lookup/Day and Keyword Credit |
+| **Before activating Golden Filter** | Golden Filter costs 1 Keyword Credit PER keyword in the result set — calculate cost first (e.g. 39 keywords = 39 credits) |
+| **Before Topic Discovery** | Check Topic Lookup/Day remaining |
+| **End of session** | Note credits consumed, update `content/SEO-CHEATSHEET.md` limits table if running low |
+| **Monthly planning** | Check Keyword Credit/Month and AI Words/Month to budget across remaining posts |
+
+### Current Plan: AppSumo Tier 2 (Lifetime)
+
+| Limit | Allowance | What Consumes It |
+|-------|-----------|-----------------|
+| Topic Lookup / Day | 75 | 1 per Topic Discovery seed keyword |
+| Keyword Lookup / Day | 75 | 1 per Keyword Explorer search |
+| Keyword Credit / Month | 40,000 | 1 per keyword when Golden Filter is activated |
+| Article / Month | 70 | Content Creator articles |
+| Plagiarism Word Check / Day | 40,000 | Plagiarism scans |
+| AI Words / Month | 8,000 | AI-generated content |
+| Keyword List / Plan | 50 | Saved keyword lists |
+
+### Budgeting Rule of Thumb
+
+**Publishing schedule:**
+- **Month 1 (launch sprint):** 1 post/day or 1 post/2 days — target 15-30 posts to build topical authority fast
+- **Long-form content (>2,000 words):** 2-3 days per post
+- **Month 2+:** Slow down to 2-3 posts/week once initial content base is established
+
+**Credit budgeting for Month 1 sprint:**
+- ~20-30 Keyword Explorer searches needed (1 per topic/keyword)
+- Golden Filter cost: estimate before activating — check keyword idea count (e.g. "39 keywords" = 39 credits)
+- **Batch research strategy:** Run Topic Discovery + Keyword Explorer for 5-10 keywords per session, then write posts in sequence without re-searching
+- **Always confirm the credit cost** in the Golden Filter confirmation dialog before clicking "Confirm"
+- If Keyword Credit/Month drops below 10,000 — switch to selective Golden Filter (only top 3-5 keywords per search, not entire result sets)
+- If Keyword Credit/Month drops below 5,000 — skip Golden Filter entirely, rely on manual KD/Allintitle checks via SERP overview
+- **Recycle research:** One Keyword Explorer search with 39 ideas can fuel 5-10 posts from the same cluster — don't waste searches on near-duplicate keywords
+
+---
+
 ## The Pipeline (Overview)
 
 ```
@@ -312,7 +360,15 @@ Click **Suggest Content Brief** in the bottom taskbar → WriterZen auto-generat
 | **Perspective** | First person / third person / instructional | Conversational first person |
 | **Seed Keyword** | Primary target keyword | From research |
 | **Content Format** | Article / listicle / guide / review | Match SERP type |
-| **Writing Tone** | Tone of voice | Conversational, accessible Malay |
+| **Writing Tone** | Tone of voice | Informative/Explanatory |
+
+### Note for Writer Template
+
+When generating a content brief, use this as the **Note for writer** field:
+
+```
+Gunakan Bahasa Melayu semi-formal. Guna 'anda', bukan 'korang'. Ejaan penuh, bukan singkatan. Elakkan slang dan code-switching berlebihan. Rujuk DBP untuk ejaan dan tatabahasa yang betul.
+```
 
 ### Bulk Content Generation
 

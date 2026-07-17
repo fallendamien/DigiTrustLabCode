@@ -114,7 +114,7 @@
 18. **Create first Etsy listing** — "30 Prompt AI untuk Iklan FB & IG (Bahasa Melayu)"
 19. **Create lead magnet PDF** — "50 Prompt AI Percuma"
 20. **Write Post #2** — `cara guna ChatGPT` (est. 1,600–2,400 searches/mo MY, very low KD)
-    - Title: "Cara Guna ChatGPT untuk Bantu Kerja Harian Korang (Panduan Mudah 2026)"
+    - Title: "Cara Guna ChatGPT untuk Membantu Kerja Harian Anda (Panduan Mudah 2026)"
     - Slug: `/cara-guna-chatgpt/`
     - Category: AI Tools
     - Language: Malay
