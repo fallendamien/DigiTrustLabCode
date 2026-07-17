@@ -2,6 +2,25 @@
 
 > Publishing plan — Month 1 launch sprint: 1 post/day or every 2 days (target 15-30 posts). One keyword per post (Malay, Malaysia-targeted). All metrics validated via WriterZen Keyword Explorer + Golden Filter.
 
+## 📌 Pre-Publish Checklist (EVERY post)
+
+| Step | What | When |
+|------|------|------|
+| 1 | Proofread against Malay voice guide | Before publishing |
+| 2 | Rank Math: Focus keyword + SEO title + meta description | Before publishing |
+| 3 | Rank Math: Schema type = `Article` | Before publishing |
+| 4 | Rank Math: **Pillar Content checkbox** — is this post a foundational topic? | Before publishing |
+| 5 | Featured image set | Before publishing |
+
+### Pillar Content Decision Guide
+
+| Is it Pillar? | Criteria | Examples |
+|---------------|----------|----------|
+| ✅ **Yes — enable checkbox** | Broad, foundational topic. Other posts will link back to it. Covers "what is" or "complete guide" territory. | "Apa Itu AI?", "Panduan Lengkap ChatGPT untuk Pemula", "SEO untuk Bisnes Kecil" |
+| ❌ No — leave unchecked | Narrow, specific, how-to topic. Links TO pillar content, not FROM it. | "Cara Guna ChatGPT untuk Saham", "5 AI Tools Percuma 2026", "Cara Tulis Prompt yang Bagus" |
+
+**Rule of thumb:** If 3+ future posts would naturally link to this post for context, it's pillar content.
+
 ## Post #1 — PUBLISHED ✅
 
 | Field | Value |
@@ -26,10 +45,11 @@
 | Top competitor | pandaitech.my/blog/apa-itu-ai (small MY blog, beatable) |
 | SERP notes | 6 of top 10 are small MY blogs/sites — outrankable |
 | Validated | 2026-07-16 via WriterZen Keyword Explorer + Golden Filter |
-| Content brief | **Title:** Apa Itu AI? Penerangan Ringkas dan Jelas tentang Teknologi yang Anda Guna Setiap Hari · **Format:** Blog post · **Tone:** Informative/Explanatory · **Audience:** Pemula Malaysia yang ingin faham AI dan mula guna dalam kehidupan harian · **Perspective:** Pakar AI tempatan yang menerangkan konsep teknologi dengan bahasa mudah · **Angle:** Penerangan ringkas dan jelas tentang apa itu AI untuk rakyat Malaysia — bukan robot filem, tetapi teknologi yang anda sudah guna setiap hari tanpa sedar · **Word count target:** 810 · **Note for writer:** Gunakan Bahasa Melayu semi-formal. Guna 'anda', bukan 'korang'. Ejaan penuh, bukan singkatan. Elakkan slang dan code-switching berlebihan. Rujuk DBP untuk ejaan dan tatabahasa yang betul. |
+| Content brief | **Title:** Apa Itu AI? Penerangan Ringkas dan Jelas tentang Teknologi yang Anda Guna Setiap Hari · **Format:** Blog post · **Tone:** Informative/Explanatory · **Audience:** Pemula Malaysia yang ingin faham AI dan mula guna dalam kehidupan harian · **Perspective:** Pakar AI tempatan yang menerangkan konsep teknologi dengan bahasa mudah · **Angle:** Penerangan ringkas dan jelas tentang apa itu AI untuk rakyat Malaysia — bukan robot filem, tetapi teknologi yang anda sudah guna setiap hari tanpa sedar · **Word count target:** 810 · **Note for writer:** Gunakan Bahasa Melayu baku dengan laras formal–semi-formal yang semula jadi. Gunakan struktur formal yang lengkap apabila bunyinya tepat dan lancar ketika dibaca dengan kuat; gunakan gaya semi-formal untuk mengekalkan kemesraan dan kebolehfahaman. Jangan ringkaskan ayat secara mekanikal hanya untuk menjadikannya kurang formal. Utamakan ketepatan makna, tatabahasa DBP, kelancaran apabila dibaca dengan kuat, kejelasan pada bacaan pertama, dan keserasian dengan perenggan. Guna 'anda', bukan 'korang'. Gunakan ejaan penuh, bukan singkatan, serta elakkan slang dan code-switching berlebihan. Untuk istilah English yang terjemahan BM-nya janggal (copy & paste, drag & drop, brainstorm, feedback, deadline, install, request), kekalkan istilah English dan gunakan cetak miring dalam ayat BM. Jangan gunakan cetak miring untuk nama jenama (ChatGPT, Google Maps), akronim (AI, API), atau kata pinjaman yang sudah biasa (online, download, email, blog). |
 | Audit date | 2026-07-17 |
-| Audit findings | Strengths: semi-formal Malay voice, "3 jenis AI", "AI vs robot filem", "adakah AI ganti kerja" address real fears. Gaps filled: (1) expanded daily-life examples with Google Maps/Waze, Lazada/Shopee, Netflix, Spotify, Meta AI/WhatsApp, (2) added "Siapakah yang cipta AI" history note, (3) added "Bagaimana AI berfungsi" simple ML explanation, (4) added privacy/security section. |
+| Audit findings | Strengths: natural formal–semi-formal Malay voice, "3 jenis AI", "AI vs robot filem", "adakah AI ganti kerja" address real fears. Gaps filled: (1) expanded daily-life examples with Google Maps/Waze, Lazada/Shopee, Netflix, Spotify, Meta AI/WhatsApp, (2) added "Siapakah yang cipta AI" history note, (3) added "Bagaimana AI berfungsi" simple ML explanation, (4) added privacy/security section. |
 | Optimized version | Duplicate draft created (Post ID 320), SEO score 85/100. Awaiting approval to replace original. |
+| Pillar Content | ✅ Yes — foundational AI topic that future posts will link back to. **Rank Math "This post is Pillar Content" checkbox should be enabled.** |
 
 ## Post #2 — PLANNED
 
@@ -61,7 +81,7 @@
 | Notes | Natural follow-up to Post #1. 39 keyword ideas — strong cluster for multiple posts. |
 | Secondary keywords | `cara buat poster guna chatgpt` (70/mo), `cara edit gambar guna chatgpt` (50/mo), `cara guna chatgpt di whatsapp` (40/mo) |
 | Cluster | Topic: "panduan lengkap chatgpt kreatif" (3 clusters, 15 keywords, total vol 400) |
-| Content brief | **Angle:** Panduan lengkap cara guna ChatGPT percuma untuk pemula — langkah asas, tips, kelebihan tanpa kos. **Audience:** Beginners interested in ChatGPT. **Format:** How-to guide. **Perspective:** Expert and helpful. **Tone:** Informative/Explanatory. **Note for writer:** Gunakan Bahasa Melayu semi-formal. Guna 'anda', bukan 'korang'. Ejaan penuh, bukan singkatan. Elakkan slang dan code-switching berlebihan. Rujuk DBP untuk ejaan dan tatabahasa yang betul. |
+| Content brief | **Angle:** Panduan lengkap cara guna ChatGPT percuma untuk pemula — langkah asas, tips, kelebihan tanpa kos. **Audience:** Beginners interested in ChatGPT. **Format:** How-to guide. **Perspective:** Expert and helpful. **Tone:** Informative/Explanatory. **Note for writer:** Gunakan Bahasa Melayu baku dengan laras formal–semi-formal yang semula jadi. Gunakan struktur formal yang lengkap apabila bunyinya tepat dan lancar ketika dibaca dengan kuat; gunakan gaya semi-formal untuk mengekalkan kemesraan dan kebolehfahaman. Jangan ringkaskan ayat secara mekanikal hanya untuk menjadikannya kurang formal. Utamakan ketepatan makna, tatabahasa DBP, kelancaran apabila dibaca dengan kuat, kejelasan pada bacaan pertama, dan keserasian dengan perenggan. Guna 'anda', bukan 'korang'. Gunakan ejaan penuh, bukan singkatan, serta elakkan slang dan code-switching berlebihan. Untuk istilah English yang terjemahan BM-nya janggal (copy & paste, drag & drop, brainstorm, feedback, deadline, install, request), kekalkan istilah English dan gunakan cetak miring dalam ayat BM. Jangan gunakan cetak miring untuk nama jenama (ChatGPT, Google Maps), akronim (AI, API), atau kata pinjaman yang sudah biasa (online, download, email, blog). |
 
 ## Post #3 — PLANNED
 

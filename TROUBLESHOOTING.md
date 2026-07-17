@@ -5,6 +5,8 @@
 > ⚠️ **POLICY UPDATE (2026-07-06):** Wrangler CLI is **ALLOWED** for Cloudflare Pages deployment only (per AGENTS.md). Post-process scripts and PowerShell CSS injection remain **BANNED** — all styling via Bricks GUI or Respira MCP. Historical entries below may reference banned tools, but those approaches must NOT be used.
 >
 > **Old Bricks MCP is DECOMMISSIONED (2026-07-05).** Use Respira MCP only. The bridge script entries below are kept for historical reference but are no longer relevant.
+>
+> **Simply Static + Wrangler pipeline is DECOMMISSIONED (2026-07-12).** The site is now served directly from Hostinger WordPress with LiteSpeed Cache + Cloudflare proxy. The Simply Static entries below are kept for historical reference only — do NOT follow them as current workflow.
 
 ---
 
@@ -1978,3 +1980,77 @@ When building pages, use `type: "internal"` for links to site pages/categories w
 ### Lesson
 
 After domain migration, audit all pages for hardcoded `yellow-scorpion` or temporary domain URLs. Use `respira_extract_builder_content` and search for the old domain string in the JSON output.
+
+---
+
+## Bricks Template Cache Invalidation (Hostinger Live Site) (2026-07-12)
+
+**Category:** bricks-cache
+**Severity:** Medium (template changes not appearing on live site)
+**Time Spent:** ~20 minutes
+
+### Symptoms
+
+After updating a Bricks template via Respira MCP (e.g. footer link or single-post template custom CSS), WordPress renders the change correctly in the admin preview, but the live site still shows the old styling/content after a reasonable cache-purge window.
+
+### Root Cause
+
+Bricks caches rendered template HTML/CSS separately from the database. `respira_update_element` changes the data in the DB, but Bricks may keep serving cached rendered output to front-end requests until the template is explicitly re-saved and/or Bricks CSS/code caches are regenerated.
+
+This is specific to the **Hostinger live site** architecture (LiteSpeed Cache + Cloudflare proxy). The old Local by Flywheel + Simply Static pipeline didn't have this issue because Simply Static always re-rendered from DB on export.
+
+### Fix (do these in order)
+
+1. **Bricks → Settings → Regenerate CSS files** (clears CSS cache)
+2. **Bricks → Settings → Regenerate code signatures** (clears code cache — accept confirmation dialog)
+3. **Re-save the template** via `respira_update_custom_post(type: "bricks_template", id: <template_id>, status: "publish", edit_target: "live")` or re-save in Bricks editor — forces Bricks to re-render from the updated DB content
+4. **Purge LiteSpeed Cache** (WP Admin → LiteSpeed → Toolbox → Purge All)
+5. **Purge Cloudflare cache** if necessary (Cloudflare dashboard → Caching → Purge Everything)
+
+### When to do this
+
+Any time a Bricks template change (header, footer, archive, single post) doesn't appear on the live site despite WordPress showing it correctly in preview/admin.
+
+### Prevention
+
+- After any Respira MCP write to a Bricks template, always clear Bricks CSS cache + purge LiteSpeed before checking the live site
+- Don't assume the change failed just because Cloudflare is serving stale HTML — check WP admin preview first to confirm the DB write succeeded
+- The old Simply Static → Wrangler → Cloudflare Pages pipeline was decommissioned on 2026-07-12. The site now runs directly on Hostinger WordPress with LiteSpeed Cache + Cloudflare proxy
+
+---
+
+## ClickRank Bulk Titles Tool — What It Changes (2026-07-18)
+
+**Category:** seo-tooling
+**Severity:** Info (clarification, not a bug)
+
+### What the Tool Does
+
+The ClickRank Bulk Titles tool (`https://app.clickrank.ai/en/bulk/titles`) modifies the **SEO `<title>` tag** — the text inside `<title>...</title>` in the page's `<head>`. This is:
+
+- The blue clickable link in **Google search results**
+- The label shown in **browser tabs**
+- The title in **social media link previews**
+
+### What It Does NOT Change
+
+| Not Changed | What This Means |
+|-------------|-----------------|
+| H1 heading on the page body | The visible headline users see when reading the post |
+| WordPress post title | The title shown in WP Admin editor |
+| URL / slug | The permalink stays the same |
+| Page content | Body text, images, etc. untouched |
+
+### How It Works on DigiTrust Lab
+
+The tool lists all 12 pages from digitrustlab.com with their **Current Title** column. Clicking "Optimize Title" generates an AI-optimized SEO title and applies it via the ClickRank verification script (added to `<head>` on 2026-07-09). The script directly modifies the `<title>` tag on the live page.
+
+Each optimized page gets:
+- **"Optimize Title"** button — generate new SEO title
+- **"Revert to Original Title"** button — undo changes
+- **"View Page Details"** link — per-page optimization report
+- **Metrics column** — clicks, impressions, position from Search Console data
+
+### Lesson
+
+The ClickRank bulk titles tool is safe to use — it only touches the SEO title tag for search engines and browser tabs. Page content and H1 headings remain untouched.

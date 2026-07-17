@@ -388,6 +388,8 @@ Check `https://digitrust-lab.local/` — should show the new homepage, not the b
 
 ## Task 4 — Bricks Cache Clear + Deploy
 
+> ⚠️ **Simply Static + Wrangler deploy is no longer used.** The site is served directly from Hostinger WordPress (LiteSpeed Cache + Cloudflare proxy). The export/deploy steps below are kept for historical reference only.
+
 After ALL tasks above are complete:
 
 ### 4a — Clear Bricks cache
@@ -399,14 +401,16 @@ After ALL tasks above are complete:
    respira_update_page(id: [home_page_id], status: "publish", edit_target: "live")
    ```
 
-### 4b — Simply Static export
-WP Admin → Simply Static → Generate → wait for completion
+### 4b — Old export/deploy step (historical)
+The previous workflow was: WP Admin → Simply Static → Generate → wait for completion.
 
-### 4c — Wrangler deploy
+### 4c — Old Wrangler deploy step (historical)
 From `D:\Coding Zone\digitrust-lab-static`:
 ```powershell
 npx wrangler pages deploy . --project-name=digitrust-lab-static --branch=main
 ```
+
+**Current workflow:** After saving Bricks changes and purging LiteSpeed Cache, the live site updates automatically.
 
 ---
 

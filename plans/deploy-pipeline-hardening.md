@@ -1,5 +1,7 @@
 # Deploy Pipeline Hardening
 
+> ⚠️ **DEPRECATED (2026-07-12):** The Simply Static → Wrangler → Cloudflare Pages pipeline was decommissioned when the site migrated to Hostinger WordPress with LiteSpeed Cache + Cloudflare proxy. This plan is kept for historical reference only — the current workflow is: write/publish in WordPress → purge LiteSpeed Cache → verify live.
+
 ## Goal
 Stop stale-CSS deploys from recurring by eliminating the 3 silent failure points in the Simply Static → Wrangler pipeline: wrong directory, skipped export, and no verification.
 

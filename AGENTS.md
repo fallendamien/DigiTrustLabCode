@@ -126,6 +126,7 @@ in WP Additional CSS hides the ugly "Category: X" heading.
 - **Undo is per-page, not per-element** — snapshots capture/restore whole pages. Work in smaller sessions for fine-grained history.
 - **Media files are not versioned** — snapshots cover page structure/content, not image binaries. Deleting media requires explicit approval.
 - **Large single builds hit AI client ceilings** — a 300-element page in one call may get trimmed by the model. Use chunking: skeleton first, then append sections per request.
+- **Post excerpts may not update via `respira_update_post`** — the `excerpt` parameter is accepted in the schema but does not reliably persist. If the excerpt panel in WP Admin still shows the old text after a Respira update, edit it directly in WP Admin (Post editor → Settings → Excerpt) and save.
 - **Language is lossy** — no tool fixes an ambiguous ask. The primer + read-first habit exist because misunderstandings happen.
 
 ### 📝 Blog-Specific Recipes (Copy-Paste Prompts)
@@ -213,7 +214,7 @@ Playbooks are stored on the WordPress site itself and show up as tools the agent
 
 ## 🎙️ DigiTrust Lab Writing Voice (ALL content — posts, pages, copy)
 
-**Core principle:** Write Malay copy directly in Malay using **semi-formal Bahasa Melayu**. Never translate from English — translated Malay sounds stiff and robotic. Use proper baku (standard Malay), `anda` for the reader, full forms (`tidak` not `tak`), and no slang. Reference style: PandaiTech.my, Ecentral.my — professional but accessible.
+**Core principle:** Write Malay copy directly in Malay using **natural formal–semi-formal Bahasa Melayu**. Combine polished formal sentence structures with the warmth and accessibility of semi-formal writing. Never translate mechanically from English. Use proper baku (standard Malay), `anda` for the reader, full forms (`tidak` not `tak`), and no slang. Reference style: TrueNetLab.com (formal-natural tech), BarakahDigital.com.my (formal–semi-formal mix), Exabytes.my/blog BM section (formal business tech), PandaiTech.my (semi-formal comparison), Ecentral.my (formal grammar patterns) — professional, natural, and accessible.
 
 **Authoritative reference:** Dewan Bahasa dan Pustaka (DBP) — `dbp.gov.my/pedoman-dan-panduan-bahasa-melayu/` for spelling, grammar, and formal BM standards.
 
@@ -222,16 +223,35 @@ Playbooks are stored on the WordPress site itself and show up as tools the agent
 | Trait | Do ✅ | Don't ❌ |
 |-------|--------|----------|
 | Pronoun | `anda`, `kami` | `korang`, `kau`, `awak` |
-| Tone | Semi-formal, professional but accessible, like a knowledgeable mentor | Casual slang OR textbook-dry formal |
-| Sentence length | Clear, complete, scannable | Long winding clauses OR short punchy slang |
+| Tone | Natural formal–semi-formal: polished and grammatically complete, yet warm and accessible | Casual slang OR bureaucratic, academic, textbook-dry prose |
+| Sentence structure | Use formal constructions when they sound clearer and more natural aloud; vary length for rhythm and clarity | Mechanically simplify every sentence OR use long, winding clauses |
+| **Tatabahasa** | **Every sentence MUST have complete grammar — especially a proper verb (kata kerja). Missing verbs make sentences sound stagnant and broken.** | **Loose colloquial structure with missing verbs (`banyak proses ulang-ulang` instead of `banyak melibatkan proses berulang`)** |
+| **Comma usage** | **Use commas strategically to create natural breathing pauses. A sentence that runs flat from start to finish feels breathless.** (`Jadi persoalannya, bukan...` — comma creates a deliberate pause) | **No pause points at all — sentences run straight through without rhythm** |
 | Opener | Engaging question or relatable scenario in proper BM | Press release, textbook definition, or slang hook |
-| Mixed language | BM baku with English tech terms only (AI, tools, API, ChatGPT) | Slang code-switching (`confirm`, `gila`, `je`) OR full BM translation of tech terms |
+| Mixed language | BM baku with English tech terms (AI, tools, API, ChatGPT) + natural English retention for awkward BM translations (`copy & paste`, `drag & drop`, `brainstorm`, `feedback`, `deadline`). English terms italicized in BM sentences for visual clarity. | Slang code-switching (`confirm`, `gila`, `je`) OR forced awkward BM translations (`salin & tampal`, `seret & lepas`) OR English terms not italicized |
+| **"Malaysia" usage** | **Avoid inserting "Malaysia" / "rakyat Malaysia" / "warga Malaysia" into copy unless the context specifically requires it (e.g., a keyword target). The audience is already Malaysian — no need to belabour it.** | **Stuffing "Malaysia" into every title, description, or sentence for SEO padding (`Blog AI Malaysia`, `untuk rakyat Malaysia`, `AI tools Malaysia` in body copy) — sounds bombastic and unnatural** |
+
+### Register Selection — The Read-Aloud Rule
+
+Do not reject a sentence merely because it is fully formal. Formal wording is preferred when it sounds natural, precise, and smooth when read aloud. Use semi-formal phrasing where it improves warmth or accessibility.
+
+**Decision order:**
+1. Grammatically correct and faithful to the intended meaning
+2. Natural when read aloud by a Malaysian speaker
+3. Clear to a general reader on the first reading
+4. Consistent with the surrounding paragraph
+
+**Preferred example:** `Tanpa memerlukan kefahaman konsep matematik yang rumit` — polished and formal, but still natural aloud. Do not automatically flatten it to `Tanpa perlu faham matematik yang rumit` merely to make the prose less formal.
+
+**Rule:** Simplify bureaucratic or academic wording, not good formal Malay. The target is natural prose, not the lowest possible level of formality.
+
+**Concrete before → after examples:** See `.devin/skills/malay-voice-guide/SKILL.md` § "Concrete Before → After Examples" for 12 real editing patterns from Post #1, plus guidance on which casual sentences to leave as-is (humour, punchiness, parallel structure).
 
 ### Humour — Light Wit Without Slang
 
 DigiTrust Lab content should have a light sense of humour woven in naturally — not forced jokes, but the kind of dry wit that makes someone smile while reading. Think: a knowledgeable mentor who occasionally adds a human touch.
 
-**How to add humour naturally (in semi-formal BM):**
+**How to add humour naturally (in formal–semi-formal BM):**
 - Self-deprecating honesty: *"Kami juga pernah melakukan kesilapan ini — jangan tertawa."*
 - Relatable exaggeration: *"Membuka laptop, membuka 47 tab, akhirnya menutup semula semuanya."*
 - Gentle sarcasm about obvious things: *"Kami tahu polisi privasi bukan bacaan paling menarik..."*
@@ -315,7 +335,7 @@ Button:  Hantar →
 
 ### Green Light Patterns — Use These
 
-Semi-formal BM examples that hit the right tone — professional but accessible:
+Natural formal–semi-formal BM examples that hit the right tone — polished, professional, and accessible:
 
 - ✅ `"Kami tahu halaman ini biasanya membosankan, tetapi kami akan menerangkan dengan cara yang mudah difahami."`
 - ✅ `"Kami tidak menjual data sesiapa kepada sesiapa."` — direct, reassuring
@@ -330,38 +350,56 @@ AI-generated Malay has predictable awkwardness — half-casual/half-formal mixin
 
 **📖 `.devin/skills/malay-voice-guide/SKILL.md`** — Load this skill before writing or reviewing any Malay content.
 
-Quick summary of the 13 sections (semi-formal BM standard):
-1. **Semi-Formal BM Standard** — definition, reference sites (PandaiTech.my, Ecentral.my, DBP)
+Quick summary of the 13 sections (natural formal–semi-formal BM standard):
+1. **Natural Formal–Semi-Formal BM Standard** — contextual register, read-aloud test, and reference sites (PandaiTech.my, Ecentral.my, DBP)
 2. **Pronoun & Address** — `anda` not `korang`, `kami` for company voice, `beliau` for professionals
 3. **Full Forms vs Contractions** — `tidak` not `tak`, `sudah` not `dah`, `apabila` not `bila`
-4. **Code-Switching Rules** — Tech terms stay English (AI, tools, API). Common nouns use BM. No slang.
+4. **Code-Switching Rules** — Tech terms stay English (AI, tools, API). Common nouns use BM. No slang. English retention for awkward BM translations (`copy & paste`, `drag & drop`, `brainstorm`, `feedback`, `deadline`). English terms italicized in BM sentences (except brand names, acronyms, and absorbed loan words).
 5. **Sentence Structure** — Complete every thought with concrete examples
 6. **Opening Lines** — Hook with question/scenario in proper BM, no textbook intros
 7. **Transitions** — `Selain itu`, `Walau bagaimanapun`, `Oleh itu` (formal); `Jadi`, `Tetapi` (conversational OK)
 8. **Emphasis** — `sangat`, `amat`, `penting`, `pasti`, `terbukti` (not `confirm`, `gila`, `wajib` as slang)
 9. **Humour** — Light wit in proper BM, no slang-based humour
-10. **Punctuation** — Em dash max 1 per post, avoid AI punctuation patterns
+10. **Punctuation** — Em dash max 1 per post, avoid AI punctuation patterns. **Blockquote** (`<blockquote>`) for all notes, heads-up, callouts, and closing sign-offs. **Always match the brand blockquote style exactly:** orange left border `#e8621a`, light peach background `#fff8f5`, italic, Plus Jakarta Sans font, 14px font-size, `#3a3a3a` text color, `0 6px 6px 0` border-radius. For Bricks pages, add this CSS to the container element's `_cssCustom`.
 11. **Red Flag Phrases** — Salesy/corporate + casual slang red flags with replacements
-12. **Green Light Patterns** — Semi-formal examples from PandaiTech.my, Ecentral.my style
+12. **Green Light Patterns** — Natural formal–semi-formal examples in the PandaiTech.my and Ecentral.my style
 13. **DBP Reference** — `ialah` vs `adalah`, `ia` not `ianya`, `dalam kalangan`, `daripada` vs `dari`
 
 ### Page-Specific Voice Notes
 
-**Tentang Kami:** Personal founder story tone. "Kami" = Zed + AI partner. Semi-formal BM, flowing paragraphs with personality. Use `beliau` for professional references.
+**Tentang Kami:** Personal founder story tone. "Kami" = Zed + AI partner. Natural formal–semi-formal BM with flowing paragraphs and personality. Use `beliau` for professional references.
 
-**Polisi Privasi / Disclaimer:** Clear and accurate, written in plain semi-formal BM. Add a human touch — acknowledge these pages are normally boring. Keep legal meaning, strip corporate language.
+**Polisi Privasi / Disclaimer:** Clear and accurate, written in plain formal–semi-formal BM. Add a human touch — acknowledge these pages are normally boring. Keep legal meaning, strip bureaucratic and corporate language.
 
-**Hubungi Kami:** Friendly invitation in semi-formal BM, not a corporate FAQ. Feels like you're genuinely happy to hear from readers.
+**Hubungi Kami:** Friendly invitation in natural formal–semi-formal BM, not a corporate FAQ. Feels like you're genuinely happy to hear from readers.
 
-**Blog posts:** Semi-formal BM, first-person, experience-led. Opener should hook emotionally or with a relatable scenario. Never start with a definition or statistics dump.
+**Blog posts:** Natural formal–semi-formal BM, first-person, experience-led. Use polished formal constructions when they read naturally aloud; use semi-formal warmth for accessibility. Opener should hook emotionally or with a relatable scenario. Never start with a definition or statistics dump.
+
+### Malay Proofreading Workflow (updated 2026-07-17)
+
+No dedicated Malay proofreading tool is used. DewanEja 11 was evaluated but not purchased. LanguageTool browser extension is paywalled. ProWritingAid is English-only. The workflow is:
+
+1. **Writer drafts** in WordPress editor (or anywhere)
+2. **Before publishing** — paste the full draft here and say "proofread this"
+3. **AI checks against** `malay-voice-guide/SKILL.md`: spelling, grammar, contextual formal–semi-formal register, read-aloud flow, word choice, English term retention, italic policy, blockquote style, DBP rules
+4. **Apply fixes** — writer applies suggested corrections
+5. **Rank Math SEO checklist** (before clicking Publish):
+   - [ ] Focus keyword set
+   - [ ] SEO title and meta description written
+   - [ ] **Pillar Content checkbox** — enable if this post is a foundational/broad topic that other posts will link back to (e.g. "Apa Itu AI?" = pillar; "Cara Guna ChatGPT untuk Saham" = spoke, not pillar)
+   - [ ] Schema type set to `Article` (or `BlogPosting`)
+   - [ ] Featured image set (required for schema)
+6. **Publish**
+
+Optional: Claude Desktop can provide a second opinion with a fresh perspective.
 
 ### Core Pages — Voice Standard (updated 2026-07-17)
 
-All core pages are being re-rewritten in semi-formal BM (previous 2026-07-06 casual rewrites are SUPERSEDED). The semi-formal standard applies to all content: posts, pages, templates, email copy, everything.
-- Tentang Kami — re-rewrite in semi-formal BM
-- Polisi Privasi — re-rewrite in semi-formal BM
-- Disclaimer — re-rewrite in semi-formal BM
-- Hubungi Kami — re-rewrite in semi-formal BM
+All core pages are being re-rewritten in natural formal–semi-formal BM (previous 2026-07-06 casual rewrites are SUPERSEDED). This contextual register standard applies to all content: posts, pages, templates, email copy, everything.
+- Tentang Kami — re-rewrite in natural formal–semi-formal BM
+- Polisi Privasi — re-rewrite in natural formal–semi-formal BM
+- Disclaimer — re-rewrite in natural formal–semi-formal BM
+- Hubungi Kami — re-rewrite in natural formal–semi-formal BM
 
 ## Quick Reference
 

@@ -1,10 +1,10 @@
 {
   "project": "DigiTrust Lab",
   "owner": "Zamri Rosli",
-  "lastSession": "2026-07-15",
-  "currentObjective": "Security hardening complete (14/15 items). WriterZen skill rebuilt. Next: content creation, SEO setup, affiliate registration",
+  "lastSession": "2026-07-18",
+  "currentObjective": "Infrastructure complete. ClickRank keyword tracker active with 5 keywords. GA4 + Search Console connected. MailerLite live. Next: write Post #2 (cara guna ChatGPT), affiliate registration, Etsy shop",
   "currentPhase": "Phase 2 - Content & Growth",
-  "phaseProgress": "15%",
+  "phaseProgress": "20%",
   "blockers": [],
   "completed": [
     "Git repo initialized",
@@ -38,18 +38,28 @@
     "Cloudflare SSL/TLS upgraded from Flexible to Full (Strict) (2026-07-12)",
     "Menu links fixed — all point to digitrustlab.com (2026-07-12)",
     "Respira MCP configs updated for Windsurf + Claude Desktop (2026-07-12)",
-    "Old approach docs deprecated and moved to deprecated/ folder (2026-07-12)"
+    "Old approach docs deprecated and moved to deprecated/ folder (2026-07-12)",
+    "GA4 account renamed to 'Zamri Rosli' (2026-07-18)",
+    "Old GTM DailyCatGuide account deleted (2026-07-18)",
+    "Old GA4 properties trashed: DailyCatGuide Prop (x2) + Zamros website account (2026-07-18)",
+    "Rank Math Analytics connected to Search Console + GA4 (2026-07-18)",
+    "GA4 tag (G-LNJ7G442EK) installed on frontend via Rank Math (2026-07-18)",
+    "MailerLite account created (ID 2502865) — embed form cUeVaM live on homepage + single post sidebar",
+    "Sitemap submitted to Google Search Console — /sitemap_index.xml, Status: Success, 8 pages discovered (2026-07-18)",
+    "Security hardening completed — admin username changed, 2FA enabled, Limit Login Attempts, WPS Hide Login, XML-RPC disabled, Cloudflare Bot Fight Mode + AI Labyrinth + Leaked Credentials Detection, Akismet active, security headers added (2026-07-15)",
+    "AI Search Optimization completed — llms.txt generated at /llms.txt, Web2Agent active for AI discovery (2026-07-15)",
+    "ClickRank keyword tracker active — 5 keywords added: apa itu AI, cara guna ChatGPT, cara buat poster guna chatgpt, cara edit gambar guna chatgpt, cara buat resume guna chatgpt (2026-07-18)",
+    "ClickRank bulk titles tool investigated — confirmed it changes SEO <title> tags only, not H1 or page content (2026-07-18)"
   ],
   "nextSteps": [
-    "Write first blog post (WriterZen → write → ClickRank)",
-    "Set up Google Search Console + GA4",
-    "Verify ClickRank ownership (JS snippet, after blog is live)",
+    "Write Post #2 — cara guna ChatGPT (WriterZen → write → publish → ClickRank)",
+    "Add more keywords to ClickRank tracker as posts are published",
     "Add digitrustlab.com to Screpy",
     "Register Klikjer affiliate",
     "Register JV Warrior affiliate",
     "Create Etsy shop",
     "Create first Etsy listing",
-    "Set up MailerLite"
+    "Create lead magnet PDF — '50 Prompt AI Percuma' (replace simple opt-in with lead magnet)"
   ],
   "keyMetrics": {
     "blogPosts": 0,
@@ -60,14 +70,17 @@
   },
   "tools": {
     "writerZen": "ready",
-    "clickRank": "verified-active",
+    "clickRank": "verified-active — 5 keywords tracked (apa itu AI, cara guna ChatGPT, cara buat poster guna chatgpt, cara edit gambar guna chatgpt, cara buat resume guna chatgpt), Malaysia, all devices",
     "screpy": "account-active-pending-domain",
     "bricksBuilder": "installed-and-configured",
-    "mailerLite": "not-setup-week1-priority",
+    "mailerLite": "active — account 2502865, embed form cUeVaM live on homepage + single post sidebar",
     "hostinger": "active — Business WordPress plan, IP 145.79.28.85",
     "litespeedCache": "active on Hostinger",
     "email": "active — hello@digitrustlab.com working, all 4 DNS checks green",
-    "ssl": "Full (Strict) — Hostinger Lifetime SSL active, Cloudflare Full (Strict) enabled"
+    "ssl": "Full (Strict) — Hostinger Lifetime SSL active, Cloudflare Full (Strict) enabled",
+    "googleAnalytics": "connected — GA4 account 'Zamri Rosli', property 'DigiTrust Lab', Measurement ID G-LNJ7G442EK, tag live on frontend",
+    "googleSearchConsole": "connected — https://digitrustlab.com/ verified, linked to Rank Math",
+    "rankMathAnalytics": "connected — Search Console + Analytics both green, data fetching active"
   },
   "affiliatePrograms": {
     "klikjer": "not-registered",

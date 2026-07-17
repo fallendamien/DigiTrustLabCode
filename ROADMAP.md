@@ -2,7 +2,7 @@
 
 > **Status:** 🚧 In Progress
 > **Current Phase:** Phase 1 — Foundation (Infrastructure DONE, Content Phase Started)
-> **Last Updated:** 2026-07-11 (Session 13)
+> **Last Updated:** 2026-07-18 (Session 14)
 > **Monthly Revenue:** RM 69 (1 sale, pre-blog era)
 
 ---
@@ -11,7 +11,7 @@
 
 ```
 Phase 1: Foundation         ██████████ 100% ✅ (Infrastructure)
-Phase 1: Content             █░░░░░░░░░ 10% (1 post live, content phase started)
+Phase 1: Content             ██░░░░░░░░ 20% (1 post live, GA4 + Search Console connected, content phase ongoing)
 Phase 2: Compounding        ░░░░░░░░░░  0%
 Phase 3: Traffic Growth     ░░░░░░░░░░  0%
 Phase 4: Scale              ░░░░░░░░░░  0%
@@ -68,11 +68,12 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [x] **Hero copy refined** — "AI Tools & Side Hustle Digital untuk warga Malaysia" (2026-07-10)
 - [x] **LLMs.txt enabled** — generated at `https://digitrustlab.com/llms.txt`, validated successfully, helps AI search engines discover content (2026-07-15)
 - [x] **Web2Agent enabled** — AI discovery service active, content updates tracked for ChatGPT/Perplexity/Claude indexes (2026-07-15)
-- [ ] Set up Google Analytics 4
-- [ ] Set up Google Search Console + submit sitemap
+- [x] Set up Google Analytics 4 — GA4 property 'DigiTrust Lab' (G-LNJ7G442EK) connected to Rank Math, tag live on frontend (2026-07-18)
+- [x] Set up Google Search Console — https://digitrustlab.com/ verified, connected to Rank Math Analytics (2026-07-18)
+- [x] Submit sitemap to Google Search Console — /sitemap_index.xml submitted, Status: Success, 8 pages discovered (2026-07-18)
 - [x] Verify ClickRank ownership (JS snippet) — snippet added to bricks_code_head, verified ✅ (2026-07-09)
 - [ ] Add digitrustlab.com to Screpy
-- [ ] Connect ClickRank to Google Search Console — pending GSC setup
+- [ ] Connect ClickRank to Google Search Console — pending sitemap submission
 
 ### Tentang Kami — SEO Pass (Completed 2026-07-01)
 - [x] Identified weak/translated-sounding Malay copy on `/tentang/`
@@ -105,8 +106,8 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [x] Add security headers (X-Frame-Options, X-Content-Type-Options, Referrer-Policy — added via .htaccess on Hostinger)
 
 ### Email List (Day 1 — same week as blog launch)
-- [ ] Create MailerLite free account
-- [ ] Add simple opt-in to blog sidebar/footer
+- [x] Create MailerLite free account — account ID 2502865 ✅
+- [x] Add simple opt-in to blog sidebar/footer — embed form cUeVaM live on homepage + single post sidebar ✅
 - [ ] Create lead magnet PDF: "50 Prompt AI Percuma untuk Perniagaan Malaysia"
 - [ ] Replace simple opt-in with lead magnet opt-in (Week 2–3)
 
@@ -213,7 +214,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 
 - [x] Convert Single Post template (ID 10) from Code element to native Bricks elements
 - [x] Convert Blog Archive template (ID 52) from Code element to native Bricks elements
-- [ ] Replace Bricks native form on Template 10 sidebar with MailerLite embed (when MailerLite account created)
+- [x] Replace Bricks native form on Template 10 sidebar with MailerLite embed — form cUeVaM live ✅
 - [ ] Clean leftover metadata on Template 10 (after_children/after_element from failed MCP inject — harmless but untidy)
 - [x] **Mobile horizontal overflow on `/blog/` — fixed** — CSS Grid `min-width: auto` on card containers caused track inflation. Fix: `min-width: 0` on grid children. Verified live at 375px. (2026-07-11)
 
@@ -257,7 +258,12 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - ✅ **Menu links fixed** — all point to digitrustlab.com (2026-07-12)
 - ✅ **Respira MCP reconfigured** — Windsurf + Claude Desktop connected to Hostinger site (2026-07-12)
 - ✅ **Old approach deprecated** — Local WP + Simply Static + Cloudflare Pages docs moved to deprecated/ folder (2026-07-12)
-- ✅ **Post #1 published** — "Apa Itu AI?" live at digitrustlab.com/apa-itu-ai/ (Jul 9) (1 of 10 done)
+- ✅ **GA4 + Search Console connected** — Rank Math Analytics green, GA4 tag (G-LNJ7G442EK) installed on frontend, old DailyCatGuide + Zamros accounts cleaned up (2026-07-18)
+- ✅ **Security hardening completed** — admin username changed to zed_dtl, 2FA enabled (WP + Hostinger), Limit Login Attempts, WPS Hide Login (/dtl-login), XML-RPC disabled, Cloudflare Bot Fight Mode + AI Labyrinth + Leaked Credentials Detection, Akismet active, security headers via .htaccess (2026-07-15)
+- ✅ **AI Search Optimization completed** — llms.txt live at /llms.txt, Web2Agent active for AI content discovery (2026-07-15)
+- ✅ **MailerLite setup** — account 2502865 active, embed form cUeVaM live on homepage + single post sidebar (2026-07-18)
+- ✅ **Sitemap submitted** — /sitemap_index.xml to Google Search Console, 8 pages discovered (2026-07-18)
+- ✅ **ClickRank keyword tracker active** — 5 keywords tracked for Malaysia, all devices (2026-07-18)
 - 🎯 First Etsy sale — target: Month 2
 - 🎯 First affiliate commission — target: Month 3
 - 🎯 RM 200/month — target: Month 6
@@ -304,9 +310,9 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 
 ## IMMEDIATE NEXT SESSION — Start Here
 
-1. **Write Post #1** — "Apa Itu AI? (Dan Kenapa Ia Bukan Setakat Robot dalam Filem)" → already published (Jul 9), verify it's live at digitrustlab.com/apa-itu-ai/
-2. **Set up MailerLite** — Day 1 priority, still outstanding. Simple opt-in first, lead magnet PDF Week 2–3
-3. **Set up Google Search Console + GA4** — do right after verifying Post #1 is live so indexing starts immediately
+1. ✅ **Post #1 published** — "Apa Itu AI?" live at digitrustlab.com/apa-itu-ai/ (Jul 9)
+2. ✅ **MailerLite set up** — account 2502865, embed form cUeVaM live on homepage + sidebar
+3. ✅ **Sitemap submitted** — /sitemap_index.xml, Status: Success, 8 pages discovered (Jul 18)
 4. **Register Klikjer affiliate** — Week 1 task, still pending
 5. **Add digitrustlab.com to Screpy** — rank tracking setup
 
@@ -331,7 +337,7 @@ Layer 1 (Month 1+):  Blog SEO Content — THE ENGINE
 - **Blog:** Malay-first 70% (low competition SEA) + English 30% (pillar posts, higher RPM, backlink bait)
 - **Etsy:** English titles + English descriptions. Malay content inside the product itself.
 - **Rule:** Never translate same post into both languages (duplicate content)
-- **Voice standard (updated 2026-07-17):** All content uses semi-formal Bahasa Melayu. Full voice guide documented in `AGENTS.md` under "DigiTrust Lab Writing Voice". Key rule: write Malay directly in Malay, never translate from English. Use `anda`/`kami`, avoid `korang`. BM baku with English tech terms only. All future content must follow this standard — posts, pages, email copy, everything.
+- **Voice standard (updated 2026-07-17):** All content uses natural formal–semi-formal Bahasa Melayu. Full voice guide is documented in `AGENTS.md` under "DigiTrust Lab Writing Voice". Key rule: write Malay directly in Malay, never translate mechanically from English, and select register sentence by sentence using the read-aloud test. Preserve polished formal constructions when they sound natural, precise, and clear; use semi-formal phrasing for warmth and accessibility. Use `anda`/`kami`, avoid `korang`, follow BM baku, and retain appropriate English tech terms. This standard applies to posts, pages, email copy, and all future content.
 
 ---
 

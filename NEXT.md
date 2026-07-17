@@ -14,6 +14,11 @@
 - Core pages: Homepage, Tentang Kami, Polisi Privasi, Disclaimer, Hubungi Kami
 - 4 project workflows created: /seo-audit, /a11y-scan, /monday-audit, /two-pass-build
 - ✅ **Infrastructure is DONE. Content is the only remaining bottleneck.**
+- ✅ **Google Search Console + GA4 connected** — Rank Math Analytics green, GA4 tag live (2026-07-18)
+- ✅ **Security hardening completed** — admin username changed, 2FA (WP + Hostinger), Limit Login Attempts, WPS Hide Login (/dtl-login), XML-RPC disabled, Cloudflare Bot Fight Mode + AI Labyrinth + Leaked Credentials Detection, Akismet, security headers via .htaccess (2026-07-15)
+- ✅ **AI Search Optimization completed** — llms.txt live at /llms.txt, Web2Agent active for AI discovery (2026-07-15)
+- ✅ **ClickRank keyword tracker active** — 5 keywords added (apa itu AI, cara guna ChatGPT, cara buat poster guna chatgpt, cara edit gambar guna chatgpt, cara buat resume guna chatgpt), targeting Malaysia, all devices (2026-07-18)
+- ✅ **ClickRank bulk titles investigated** — confirmed it changes SEO `<title>` tags only, not H1 or page content (2026-07-18)
 
 ## Completed (Sessions 1-12, 2026-06-28 to 2026-07-11)
 
@@ -104,16 +109,19 @@
 
 ### Post-Migration (Content Phase)
 
-11. **Verify Post #1 is live** — "Apa Itu AI?" published Jul 9, check digitrustlab.com/apa-itu-ai/
-12. **Set up Google Search Console + GA4** — verify ownership, submit sitemap
-13. **Set up MailerLite** — free account, newsletter form on blog
-14. **Add digitrustlab.com to Screpy** — monitoring
-15. **Register Klikjer affiliate** — free, 50% commission, Malaysian eBooks
-16. **Register JV Warrior affiliate** — Malaysian digital products
-17. **Create Etsy shop** — choose clean shop name (NOT DigiTrust Lab)
-18. **Create first Etsy listing** — "30 Prompt AI untuk Iklan FB & IG (Bahasa Melayu)"
-19. **Create lead magnet PDF** — "50 Prompt AI Percuma"
-20. **Write Post #2** — `cara guna ChatGPT` (est. 1,600–2,400 searches/mo MY, very low KD)
+11. ✅ **Post #1 live** — "Apa Itu AI?" published at digitrustlab.com/apa-itu-ai/ (2026-07-09)
+12. ✅ **Set up Google Search Console + GA4** — Search Console verified, GA4 property 'DigiTrust Lab' connected, tag installed (2026-07-18)
+13. ✅ **Set up MailerLite** — account created (ID 2502865), embed form cUeVaM live on homepage + single post sidebar
+14. ✅ **ClickRank keyword tracker** — 5 keywords added, targeting Malaysia, all devices (2026-07-18)
+15. ✅ **Security hardening** — admin username changed, 2FA, Limit Login Attempts, WPS Hide Login, Cloudflare Bot/AI/Leaked Credentials, Akismet, security headers (2026-07-15)
+16. ✅ **AI Search Optimization** — llms.txt + Web2Agent active (2026-07-15)
+17. **Add digitrustlab.com to Screpy** — monitoring
+18. **Register Klikjer affiliate** — free, 50% commission, Malaysian eBooks
+19. **Register JV Warrior affiliate** — Malaysian digital products
+20. **Create Etsy shop** — choose clean shop name (NOT DigiTrust Lab)
+21. **Create first Etsy listing** — "30 Prompt AI untuk Iklan FB & IG (Bahasa Melayu)"
+22. **Create lead magnet PDF** — "50 Prompt AI Percuma"
+23. **Write Post #2** — `cara guna ChatGPT` (est. 1,600–2,400 searches/mo MY, very low KD)
     - Title: "Cara Guna ChatGPT untuk Membantu Kerja Harian Anda (Panduan Mudah 2026)"
     - Slug: `/cara-guna-chatgpt/`
     - Category: AI Tools
@@ -132,7 +140,7 @@
 
 - **Bricks-Only Policy**: ALL changes via Bricks Builder GUI or Respira MCP. NO scripts, NO post-processing.
 - **Templates**: 185 & 52 unfrozen — use Respira MCP with snapshot, rollback via `respira_restore_snapshot`
-- **MailerLite TODO**: Template 10 sidebar has Bricks native form — replace with MailerLite embed when account created
+- **MailerLite**: ✅ Account 2502865 active — embed form cUeVaM live on homepage + single post sidebar. Next: create lead magnet PDF to replace simple opt-in
 - **Workflow**: Write in WordPress → Publish → Live instantly (LiteSpeed Cache + Cloudflare proxy)
 - **Email**: hello@digitrustlab.com ✅ WORKING — all 4 DNS checks green, mailbox active at mail.hostinger.com
 - **SSL**: Full (Strict) — Hostinger Lifetime SSL active + Cloudflare Full (Strict) enabled (2026-07-12)

@@ -367,7 +367,7 @@ Click **Suggest Content Brief** in the bottom taskbar → WriterZen auto-generat
 When generating a content brief, use this as the **Note for writer** field:
 
 ```
-Gunakan Bahasa Melayu semi-formal. Guna 'anda', bukan 'korang'. Ejaan penuh, bukan singkatan. Elakkan slang dan code-switching berlebihan. Rujuk DBP untuk ejaan dan tatabahasa yang betul.
+Gunakan Bahasa Melayu baku dengan laras formal–semi-formal yang semula jadi. Gunakan struktur formal yang lengkap apabila bunyinya tepat dan lancar ketika dibaca dengan kuat; gunakan gaya semi-formal untuk mengekalkan kemesraan dan kebolehfahaman. Jangan ringkaskan ayat secara mekanikal hanya untuk menjadikannya kurang formal. Utamakan ketepatan makna, tatabahasa DBP, kelancaran apabila dibaca dengan kuat, kejelasan pada bacaan pertama, dan keserasian dengan perenggan. Guna 'anda', bukan 'korang'. Gunakan ejaan penuh, bukan singkatan, serta elakkan slang dan code-switching berlebihan. Untuk istilah English yang terjemahan BM-nya janggal (copy & paste, drag & drop, brainstorm, feedback, deadline, install, request), kekalkan istilah English dan gunakan cetak miring dalam ayat BM. Jangan gunakan cetak miring untuk nama jenama (ChatGPT, Google Maps), akronim (AI, API), atau kata pinjaman yang sudah biasa (online, download, email, blog).
 ```
 
 ### Bulk Content Generation

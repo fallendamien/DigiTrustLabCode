@@ -359,9 +359,11 @@ Navigate to `https://digitrust-lab.local/blog/` and confirm:
 
 ---
 
-### Step 7 — Simply Static export + deploy
+### Step 7 — Verify + Cache Clear
 
-Only after local verification passes:
+> ⚠️ **Simply Static export is no longer used.** The site is served directly from Hostinger WordPress (LiteSpeed Cache + Cloudflare proxy). The instructions below are kept for historical reference only.
+
+After local verification passes, the old workflow was:
 
 1. WP Admin → Simply Static → Generate → wait for completion
 2. From `D:\Coding Zone\digitrust-lab-static`:
@@ -369,6 +371,8 @@ Only after local verification passes:
    npx wrangler pages deploy . --project-name=digitrust-lab-static --branch=main
    ```
 3. Verify `https://www.digitrustlab.com/blog/` shows the post card
+
+**Current workflow:** Bricks changes are live immediately after saving + purging LiteSpeed Cache.
 
 ---
 
