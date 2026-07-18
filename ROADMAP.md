@@ -11,7 +11,7 @@
 
 ```
 Phase 1: Foundation         ██████████ 100% ✅ (Infrastructure)
-Phase 1: Content             ██░░░░░░░░ 20% (1 post live, GA4 + Search Console connected, content phase ongoing)
+Phase 1: Content             ███░░░░░░░ 25% (2 posts live, WriterZen Option C pipeline established, GA4 + Search Console connected)
 Phase 2: Compounding        ░░░░░░░░░░  0%
 Phase 3: Traffic Growth     ░░░░░░░░░░  0%
 Phase 4: Scale              ░░░░░░░░░░  0%
@@ -125,9 +125,9 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [ ] List product #4: 50 AI Prompts for Creating Digital eBooks — RM 15–25
 - [ ] List product #5: Bundle — 30 AI Prompts + 5 Canva Templates — RM 29–39
 
-### Blog Posts (1 post/week — Malay-first 70%) — 1 of 10 published
+### Blog Posts (1 post/week — Malay-first 70%) — 2 of 10 published
 - [x] Post #1: "Apa Itu AI? (Dan Kenapa Ia Bukan Setakat Robot dalam Filem)" — published Jul 9 at digitrustlab.com/apa-itu-ai/
-- [ ] Post #2: Cara Guna ChatGPT untuk Membantu Kerja Harian Anda (Panduan Mudah 2026) → AI Mastery affiliate *(natural follow-up to Post #1)*
+- [x] Post #2: "Cara Guna ChatGPT untuk Membantu Kerja Harian Anda (Panduan Mudah 2026)" — published Jul 18 at digitrustlab.com/cara-guna-chatgpt/ via WriterZen Option C pipeline
 - [ ] Post #3: 10 AI Tools Percuma untuk Perniagaan Malaysia 2026 → AI Mastery affiliate
 - [ ] Post #4: Cara Jana Pendapatan dengan Canva Templates → Etsy listing link
 - [ ] Post #5: Prompt AI untuk Buat Iklan Instagram yang Menarik → Etsy prompt pack

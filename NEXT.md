@@ -20,6 +20,7 @@
 - ✅ **ClickRank keyword tracker active** — 5 keywords added (apa itu AI, cara guna ChatGPT, cara buat poster guna chatgpt, cara edit gambar guna chatgpt, cara buat resume guna chatgpt), targeting Malaysia, all devices (2026-07-18)
 - ✅ **ClickRank bulk titles investigated** — confirmed it changes SEO `<title>` tags only, not H1 or page content (2026-07-18)
 - ✅ **Screpy uptime fixed** — old project (dfd8e2388f) deleted, recreated via GSC import (new project wgspvb7lc3), uptime green (2026-07-18)
+- ✅ **Post #2 published** — "Cara Guna ChatGPT untuk Membantu Kerja Harian Anda (Panduan Mudah 2026)" live at /cara-guna-chatgpt/ via WriterZen Option C pipeline (2026-07-18)
 
 ## Completed (Sessions 1-12, 2026-06-28 to 2026-07-11)
 
@@ -117,20 +118,16 @@
 15. ✅ **Security hardening** — admin username changed, 2FA, Limit Login Attempts, WPS Hide Login, Cloudflare Bot/AI/Leaked Credentials, Akismet, security headers (2026-07-15)
 16. ✅ **AI Search Optimization** — llms.txt + Web2Agent active (2026-07-15)
 17. ✅ **Add digitrustlab.com to Screpy** — project recreated via GSC import, uptime green (2026-07-18)
-18. **Set up 301 redirects** — `digitrustlab.com/form/modul-ai-mastery` → `store.digitrustlab.com/form/modul-ai-mastery` + check Rank Math 404 Monitor for other logged 404s
-19. **Register Klikjer affiliate** — free, 50% commission, Malaysian eBooks
-20. **Register JV Warrior affiliate** — Malaysian digital products
-21. **Create Etsy shop** — choose clean shop name (NOT DigiTrust Lab)
-22. **Create first Etsy listing** — "30 Prompt AI untuk Iklan FB & IG (Bahasa Melayu)"
-23. **Create lead magnet PDF** — "50 Prompt AI Percuma"
-24. **Write Post #2** — `cara guna ChatGPT` (est. 1,600–2,400 searches/mo MY, very low KD)
-    - Title: "Cara Guna ChatGPT untuk Membantu Kerja Harian Anda (Panduan Mudah 2026)"
-    - Slug: `/cara-guna-chatgpt/`
+18. ✅ **Post #2 published** — "Cara Guna ChatGPT untuk Membantu Kerja Harian Anda (Panduan Mudah 2026)" live at /cara-guna-chatgpt/ (2026-07-18)
+19. **Set up 301 redirects** — `digitrustlab.com/form/modul-ai-mastery` → `store.digitrustlab.com/form/modul-ai-mastery` + check Rank Math 404 Monitor for other logged 404s
+20. **Register Klikjer affiliate** — free, 50% commission, Malaysian eBooks
+21. **Register JV Warrior affiliate** — Malaysian digital products
+22. **Create Etsy shop** — choose clean shop name (NOT DigiTrust Lab)
+23. **Create first Etsy listing** — "30 Prompt AI untuk Iklan FB & IG (Bahasa Melayu)"
+24. **Create lead magnet PDF** — "50 Prompt AI Percuma"
+25. **Write Post #3** — 10 AI Tools Percuma untuk Perniagaan Malaysia 2026
     - Category: AI Tools
-    - Language: Malay
-    - Outline: Apa itu ChatGPT → Cara start (free vs paid) → 5 cara praktikal (emel, ringkasan, idea konten, terjemah, jadual) → Prompt tips → CTA AI Mastery Module
-    - Internal link: → Post #1 /apa-itu-ai/
-    - Also add to WriterZen keyword list: "DigiTrust Lab Blog Posts"
+    - Use WriterZen Option C pipeline (Keyword Explorer → Keyword Planner → Content Brief → Content Creator → publish)
 
 ## Scope Restrictions
 

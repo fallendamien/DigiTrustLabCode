@@ -51,7 +51,7 @@
 | Optimized version | Duplicate draft created (Post ID 320), SEO score 85/100. Awaiting approval to replace original. |
 | Pillar Content | ✅ Yes — foundational AI topic that future posts will link back to. **Rank Math "This post is Pillar Content" checkbox should be enabled.** |
 
-## Post #2 — PLANNED
+## Post #2 — PUBLISHED ✅
 
 | Field | Value |
 |-------|-------|
@@ -59,7 +59,10 @@
 | Keyword | `cara guna ChatGPT` |
 | Slug | `/cara-guna-chatgpt/` |
 | Category | AI Tools |
-| Status | Not started |
+| Status | Published (2026-07-18) |
+| URL | /cara-guna-chatgpt/ |
+| Post ID | 351 |
+| WriterZen Article ID | 243549 |
 | Avg Volume | 210/mo |
 | Last Month | 170 |
 | Highest | 390 |
@@ -165,14 +168,42 @@
 
 ---
 
-## Workflow
+## Workflow (Option C — Standard Pipeline)
 
-1. **Research keyword** — WriterZen → Keyword Explorer (Malay, Malaysia)
-2. **Record metrics** — Update `content/SEO-CHEATSHEET.md`
-3. **Fill calendar entry** — Title, keyword, category
-4. **Write post** — In WordPress via Respira or Bricks GUI
-5. **Publish** — Set status to `publish` via Respira MCP (live instantly on Hostinger)
-6. **Mark as published** — Update this calendar
+1. **Research keyword** — WriterZen → Keyword Explorer (Malay, Malaysia) → Golden Filter
+2. **Record metrics** — Update this calendar + `content/SEO-CHEATSHEET.md`
+3. **Keyword Planner** — Add keyword to existing project "DigiTrust Lab Blog Posts" (ID: 178201) → Cluster into Topic
+4. **Suggest Content Brief** — From Keyword Planner cluster → Click "Suggest Content Brief" → Manually adjust all 6 brief fields using values from this calendar
+5. **Create Article** — Select existing "DigiTrust Lab" project → Check "Write article title, description & outline" → Click Create
+6. **Content Creator Step 1: Outline** — Review AI-generated outline, adjust headings, plan internal links
+7. **Content Creator Step 2: Keywords** — Select ~8-10 relevant keywords from Competitor's keywords + Suggested by WriterZen
+8. **Content Creator Step 3: Write** — Use "Write all for me" (AI Creativity Level = 1) → Run Show Analysis → Run Plagiarism Check → Save
+9. **Publish to WordPress** — Copy content from WriterZen → Update draft via `respira_update_post` → Set Rank Math SEO fields → Set featured image → Publish
+10. **Verify on live site** — Navigate to URL, check rendering, SEO title, internal links
+11. **Mark as published** — Update this calendar
+
+> **Never skip the Content Creator pipeline.** The outline must be generated through WriterZen's AI + competitor research, not manually planned.
+
+## Content Structure Strategy
+
+### WriterZen Organization Hierarchy
+
+| Level | What It Is | Example |
+|-------|-----------|--------|
+| **Topic** | Organizational container for related clusters. Auto-named by WriterZen. NOT a target for a single post. | `panduan lengkap chatgpt kreatif` (vol: 400 = sum of all clusters) |
+| **Cluster** | Group of closely related keywords → ONE article targets one cluster. | `cara guna chatgpt` (vol: 260) |
+| **Keyword** | Individual search term within a cluster. | `cara guna chatgpt`, `cara nak guna chatgpt`, `cara guna chatgpt free` |
+
+### Content Hierarchy & Internal Linking
+
+| Post | Type | Links To | Links From |
+|------|------|----------|------------|
+| Post #1: Apa Itu AI? | **Pillar** | — | Post #2, future ChatGPT posts |
+| Post #2: Cara Guna ChatGPT | **Sub-pillar** | → Post #1 (`/apa-itu-ai/`) | Future posts (cara buat poster, cara edit gambar) |
+| Future: Cara Buat Poster Guna ChatGPT | **Leaf** | → Post #1, → Post #2 | — |
+| Future: Cara Edit Gambar Guna ChatGPT | **Leaf** | → Post #1, → Post #2 | — |
+
+**Rule:** Pillar content = broad foundational topic. Sub-pillar = specific aspect of pillar. Leaf = specific how-to under sub-pillar. Always link upward in the hierarchy.
 
 ## Categories Available
 
