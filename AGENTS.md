@@ -472,11 +472,13 @@ For broader marketing strategy (competitor teardown, E2E SEO, ICP research, cont
 4. Only load one skill at a time (the matching one)
 5. Combine with Respira MCP tools when relevant (e.g., SEO strategy → then Respira on-page fixes)
 
-## 🔍 WriterZen Research Pipeline
+## 🔍 WriterZen Research Pipeline (Option C — Standard)
 
-**Before writing any blog post, complete the full research pipeline.** Load the `writerzen-keyword-research` skill for the complete workflow.
+**Before writing any blog post, run `/write-post` for the full end-to-end pipeline.** Load the `writerzen-keyword-research` skill for keyword research, then follow the Option C workflow for content creation.
 
-**Pipeline:** Topic Discovery → Keyword Explorer → Keyword Planner → Content Brief → Outline → Write
+**Option C Pipeline:** Keyword Explorer → Keyword Planner (Suggest Content Brief + manually adjust 6 fields) → Content Creator (outline → keywords → write) → publish via Respira MCP → internal linking → documentation
+
+> **Never skip the Content Creator pipeline.** The outline must be generated through WriterZen's AI + competitor research, not manually planned.
 
 **Quick reference:**
 - Tools: Topic Discovery, Keyword Explorer, Keyword Planner, Content Creator
@@ -488,6 +490,8 @@ For broader marketing strategy (competitor teardown, E2E SEO, ICP research, cont
 - **Content Creator project**: Always select existing "DigiTrust Lab" project (readonly dropdown — click to open, select from table). Never create new Content Creator projects.
 - **Content Brief fields**: Fill ALL 6 fields (Content format, Writing Tone, Target Audience, Author perspective, Content Angle, Note for writer). Use Playwright `fill()` for text inputs — native JS setter doesn't trigger Vue reactivity on Audience/Perspective fields.
 - **Content Creator toggles (SERP View / AI Assistant):** Leave both OFF. They currently add no useful UI. Generate/update the AI outline via the explicit "Set up & Start building outline" / "Generate outline" buttons instead.
+- **Internal linking (required):** Plan links in outline phase → insert outbound links during publish → run `internal-link-builder` skill after publish to add inbound links from older posts
+- **Full workflow:** See `.devin/workflows/write-post.md` for the complete step-by-step process
 
 ## Notes
 
