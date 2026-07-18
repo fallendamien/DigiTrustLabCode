@@ -18,11 +18,51 @@ This file contains project-specific rules and operating standards for AI coding 
 
 This is a blogging business project, NOT a development project. The user does not want raw code hassles, background scripts, or post-processing pipelines. Everything must use Bricks' own standard operations and tools.
 
+## 🚫 PRIORITY #2: CSS Grid in Bricks — Incident on `#brxe-778413` (Learned 2026-07-18, Updated 2026-07-19)
+
+**Incident:** On homepage element `#brxe-778413` (page ID 280), blog post cards stacked vertically instead of displaying in a 3-column grid. Full debugging timeline and evidence in `docs/bricks-grid-issue-report.md`.
+
+**What was observed on this element:**
+- Plain `1fr` grid tracks expanded to ~1100px each instead of sharing space equally (observed via `getComputedStyle`)
+- Native `_display: grid` added a `brx-grid` class that triggered Bricks frontend JS, which overrode `grid-template-columns` with pixel values — even with `!important` CSS rules
+- Child cards (`#brxe-4c6189`, class `brxe-container`) had computed `width: 1100px`
+- `_cssCustom` survived CSS regeneration — the original "CSS stripping" diagnosis was wrong
+
+**Deployed workaround (verified on this element only):**
+```css
+#brxe-CONTAINER_ID{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:20px !important;width:100% !important;}
+#brxe-CONTAINER_ID > *{min-width:0 !important;max-width:100% !important;width:100% !important;}
+@media(max-width:991px){#brxe-CONTAINER_ID{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}}
+@media(max-width:767px){#brxe-CONTAINER_ID{grid-template-columns:1fr !important;}}
+```
+
+**Key points:**
+- `minmax(0, 1fr)` — forces tracks to shrink below content size (plain `1fr` expanded to content width on this element)
+- `> * { width: 100% !important }` — overrides the observed 1100px width on child elements for this container
+- `_cssCustom` survived CSS regeneration in this session
+- On this element, native `_display: grid` + `_gridTemplateColumns` was overridden by Bricks JS — **reproduce and verify before assuming the same on other elements**
+
+**After any Respira DB-level write to Bricks elements:**
+1. Regenerate Bricks CSS (WP Admin → Bricks → Settings → Regenerate CSS files)
+2. Purge LiteSpeed Cache (WP Admin → LiteSpeed → Toolbox → Purge All - LSCache)
+3. Verify frontend with `?nocache=1`
+
 ## ✅ Templates 185 & 52 — UNFROZEN (Respira MCP active)
 
 **As of 2026-07-05, Respira MCP replaced the old Bricks MCP.** Respira takes a snapshot before every write and supports one-call rollback. The flattening bug was caused by the old Bricks MCP's `content:update_content` action — Respira does not use that API.
 
 Templates 185 (Header) and 52 (Blog Archive) are now editable via Respira MCP with confidence. Always use `respira_extract_builder_content` before editing and keep the returned `snapshot_uuid` for rollback if needed.
+
+## 🚫 PRIORITY #3: Query Loop Placement Rules (CRITICAL — Learned 2026-07-18)
+
+**RULE: Query Loop belongs on the CARD container ONLY — never on the Section or grid container. Only ONE Query Loop should be active in the element hierarchy.**
+
+**What happened:** Query Loop was enabled on 3 nested elements (Section, grid container, AND card container). Bricks rendered one grid per post — each grid had 1 card + 2 empty columns = massive empty space on the right side of the homepage.
+
+**Correct structure for blog card grids:**
+- Section: Query Loop OFF
+- Grid container: Query Loop OFF, Display: Grid (native), Columns: 3, Gap: 20px
+- Card container: Query Loop ON, Query type: Post, postsPerPage: 3
 
 ## ✅ Agent's Permitted Scope
 
@@ -389,7 +429,20 @@ No dedicated Malay proofreading tool is used. DewanEja 11 was evaluated but not 
    - [ ] **Pillar Content checkbox** — enable if this post is a foundational/broad topic that other posts will link back to (e.g. "Apa Itu AI?" = pillar; "Cara Guna ChatGPT untuk Saham" = spoke, not pillar)
    - [ ] Schema type set to `Article` (or `BlogPosting`)
    - [ ] Featured image set (required for schema)
+   - [ ] **Click WordPress Save/Update button** after ANY block editor change (Rank Math, Schema Builder, meta boxes) — modal-level saves are NOT enough
 6. **Publish**
+7. **Rank Math sidebar optimization (MANDATORY — Phase 5.5 of write-post workflow):**
+   - [ ] Open Rank Math sidebar in WP editor, check score (aim 80+)
+   - [ ] **Title Readability:** SEO title has power word (English: Ultimate, Proven, Essential) + sentiment word (English: Best, Amazing, Powerful) + number (year counts). Malay words NOT recognized by Rank Math.
+   - [ ] **Additional — Keyword density:** 0.5%–2.5%. Add focus keyword naturally in intro, transitions, FAQ if too low.
+   - [ ] **Additional — Dofollow link:** At least 1 external link must be dofollow. If Rank Math auto-nofollows, add domain to Settings → Links → Nofollow Exclude Domains.
+   - [ ] **Content Readability:** ToC plugin active (Easy Table of Contents), proper heading hierarchy H2→H3→H4.
+   - [ ] Record final score in `content-calendar.md`
+8. **ClickRank optimization (MANDATORY — Phase 6 of write-post workflow):**
+   - [ ] ClickRank → Bulk → Titles → "Optimize Title" for the new post
+   - [ ] Add focus keyword to ClickRank keyword tracker (Malaysia, all devices)
+
+**Full workflow:** See `.devin/workflows/write-post.md` for the complete step-by-step process including Phase 5.5 (Rank Math) and Phase 6 (ClickRank).
 
 Optional: Claude Desktop can provide a second opinion with a fresh perspective.
 

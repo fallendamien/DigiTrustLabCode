@@ -69,10 +69,17 @@ Check this page before large batches of Topic Discovery or Golden Filter runs to
 3. Write post around target keyword
    → Use keyword naturally in: title, H1, first paragraph, URL slug
 
-4. ClickRank
-   → Paste written post → optimize for Google + AI search
+4. Rank Math sidebar optimization (Phase 5.5 — MANDATORY)
+   → Check score in WP editor sidebar (aim 80+)
+   → Fix Title Readability: power word + sentiment word + number (English words only)
+   → Fix Additional: keyword density 0.5-2.5%, at least 1 dofollow outbound link
+   → Fix Content Readability: ToC plugin active, heading hierarchy H2→H3→H4
 
-5. Screpy (Month 2+)
+5. ClickRank (Phase 6 — MANDATORY)
+   → Bulk Titles: optimize SEO title via AI
+   → Keyword Tracker: add focus keyword (Malaysia, all devices)
+
+6. Screpy (Month 2+)
    → Track keyword ranking once post is indexed
 ```
 
