@@ -145,11 +145,18 @@ This phase runs AFTER the post is published (Phase 5) but BEFORE documentation (
 - **SERP View / AI Assistant toggles:** Leave OFF during Step 1 (Outline)
 - **Never skip the Content Creator pipeline** — outline must be generated through WriterZen's AI + competitor research
 - **Featured image:** Always use ChatGPT/DALL-E (NOT Openverse stock photos). Use the standard prompt template below. Cross-check visual style against Post #1 (`/apa-itu-ai/`)
+- **Image filenames (MANDATORY):** Every time you provide a DALL-E prompt, ALSO provide the SEO-optimized filename. Format: `{post-slug}-{image-description}.png` (lowercase, hyphens only, no underscores). Example: `apa-itu-ai-neural-network.png`. This applies to both featured images and in-content images.
+- **In-content images (SEO best practice):** Add images under H2 sections to break up text, increase time on page, and earn Google Image search traffic. Workflow: (1) Agent audits post and identifies H2s needing images, (2) Agent provides prompts + filenames, (3) User generates in ChatGPT/DALL-E and uploads to WordPress Media, (4) Agent inserts each image into correct section with Malay alt text and caption.
 
-### Featured Image Prompt Template (ChatGPT / DALL-E)
+### Image Prompt Template (ChatGPT / DALL-E)
+
+**Always provide BOTH the prompt AND the filename together:**
 
 ```
-Flat illustration style. [SUBJECT DESCRIPTION]. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. [ICONS FLOATING AROUND]. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+Prompt:
+Flat illustration style. [SUBJECT DESCRIPTION]. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. [VISUAL ELEMENT — see variation guide below]. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+
+Filename: {post-slug}-{image-description}.png
 ```
 
 **Design system (never change these):**
@@ -164,17 +171,47 @@ Flat illustration style. [SUBJECT DESCRIPTION]. Simple geometric shapes, bold ou
 | Aspect ratio | 16:9 (wide format, min 1024×576) |
 | Text in image | NEVER — no text or words |
 
-**Example (Post #1 — "Apa Itu AI"):**
+**Visual element variation guide (rotate these — avoid repeating "icons floating around" every time):**
+
+| Variation | Example |
+|-----------|---------|
+| Icons floating around | Icons floating around: chat bubble, lightbulb, gears |
+| Geometric patterns | Subtle geometric patterns and dotted lines connecting elements |
+| Abstract shapes | Abstract organic shapes flowing through the composition |
+| Minimalist negative space | Minimalist composition with generous negative space and a single focal element |
+| Split composition | Split scene showing before/after or contrast between two concepts |
+| Isometric scene | Isometric view of the scene with layered depth |
+| Top-down flat lay | Top-down flat lay perspective of objects arranged on a surface |
+
+**Rule:** Vary the visual element style across images within the same post so they feel like a curated art collection, not a template repeat. The color palette and flat illustration style stay consistent — the composition and decorative elements change. Think "art lover's blog," not "corporate stock art."
+
+**DALL-E anatomy fix (MANDATORY):** DALL-E frequently generates images with missing, deformed, or unnaturally positioned hands and arms. ALWAYS append this to prompts featuring humans or robots: `"Both person and robot have complete visible arms and hands with natural positioning."` If the generated image still has hand issues, regenerate with emphasis: `"All hands fully rendered with five fingers each, arms complete from shoulder to fingertips, natural pose."`
+
+**Gemini image reference workflow (for fixing background color or style drift):** When an AI generator produces a great composition but wrong background color or style, use Gemini's image reference feature to recreate it on-brand:
+1. Upload the image you like to Gemini
+2. Ask: "Re-create this exact scene but with warm off-white (#FAFAF8) background, flat illustration style, charcoal (#1A1A1A) outlines, orange (#E8621A) accents, white highlights. All human hands must have five fingers. No text, labels, logos, or watermarks."
+3. Gemini preserves the composition while fixing the brand colors
+4. Save the result with the same SEO filename and re-upload to WordPress Media
+
+**Example (Post #1 — "Apa Itu AI" — featured image, icons floating):**
 > Flat illustration style. A Malaysian man sitting at a desk with a glowing brain icon on a computer screen. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Icons floating around: chat bubble, lightbulb, gears. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
 
-**Example (Post #2 — "Cara Guna ChatGPT"):**
-> Flat illustration style. A split scene: left side shows a messy desk with scattered papers and a frustrated person, right side shows the same desk organized with a glowing ChatGPT interface on a tablet, tasks neatly sorted into folders. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Icons floating around: magic wand, folder, calendar, coffee cup. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+**Example (Post #2 — "Cara Guna ChatGPT" — split composition):**
+> Flat illustration style. A split scene: left side shows a messy desk with scattered papers and a frustrated person, right side shows the same desk organized with a glowing ChatGPT interface on a tablet, tasks neatly sorted into folders. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Subtle geometric patterns connecting the two sides. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+
+**Example (Post #1 in-content — "Bagaimana AI Berfungsi" — minimalist, illustrates article analogy):**
+> Flat illustration style. A child pointing at different animals on flashcards — a cat, a dog, a bird — learning to recognize patterns, with a parallel digital grid showing the same concept with data points being sorted into categories. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Minimalist composition with generous negative space and a single focal element. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+
+**Key lesson:** When creating in-content images, illustrate the *analogy or metaphor* used in that section's text — not the literal concept. This creates unique visuals per section and avoids repetitive imagery (e.g. don't use a brain icon for every AI-related image).
 
 **Important:** Each post's illustration must have a distinctly different composition and subject — do not reuse the same scene layout (person at desk with screen). Vary the perspective, objects, and visual metaphor for every post.
 - **Internal links (outbound):** Always link new post UP to pillar/parent content during Phase 5 (1-3 links)
 - **Internal links (inbound):** Always run `internal-link-builder` skill in Phase 6 to add links from older posts TO the new post
 - **Internal link planning:** Always plan links in Phase 2 (outline) before writing — note anchor text and target URLs
 - **SEO meta:** Always set Rank Math title (≤60 chars), description (≤160 chars), focus keyword, primary category
-- **Rank Math optimization (MANDATORY):** Never skip Phase 5.5 — check Rank Math sidebar, fix Title Readability (power word + sentiment word + number), Additional (keyword density 0.5-2.5%, at least 1 dofollow outbound link), and Content Readability (ToC plugin active). Aim for 80+ score. Use English power/sentiment words (Rank Math doesn't recognize Malay words). The only unfixable error is "Use Content AI" (PRO feature).
+- **Rank Math optimization (MANDATORY):** Never skip Phase 5.5 — check Rank Math sidebar. Aim for 80+ score. Use English power/sentiment words (Rank Math doesn't recognize Malay words).
+  - **Essential checks (MUST fix):** keyword in title, URL, meta description, intro (first 10% of content), subheadings, image alt text · keyword density 0.5-2.5% · content ≥600 words · has images · has internal links · schema markup
+  - **Cosmetic checks (skip — not worth the effort):** sentiment word in title · power word in title · "Use Content AI" (PRO upsell) · all outbound links nofollow (Rank Math wants 1 dofollow external link — not always practical for a blog that links internally)
+  - **Note:** The Respira Rank Math API (`respira_analyze_rankmath`) reports `computed_score` which only covers the 13 essential checks. The WP Admin sidebar score includes cosmetic checks too, so it will show a lower number. Don't chase 100/100 in the sidebar — focus on the essential checks being green.
 - **ClickRank optimization (MANDATORY):** Never skip ClickRank in Phase 6 — optimize title via Bulk Titles tool and add focus keyword to keyword tracker. ClickRank handles ongoing title optimization and rank tracking that Rank Math doesn't do.
 - **Content standardization:** Always strip `<h1>` tags from WriterZen content (template handles title), remove redundant "Malaysia" mentions, and cross-check formatting against Post #1 as the reference standard
