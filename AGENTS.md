@@ -439,7 +439,7 @@ No dedicated Malay proofreading tool is used. DewanEja 11 was evaluated but not 
 
 1. **Writer drafts** in WordPress editor (or anywhere)
 2. **Before publishing** — paste the full draft here and say "proofread this"
-3. **AI checks against** `malay-voice-guide/SKILL.md`: spelling, grammar, contextual formal–semi-formal register, read-aloud flow, word choice, English term retention, italic policy, blockquote style, DBP rules
+3. **AI checks against** `malay-voice-guide/SKILL.md`: spelling, grammar, contextual formal–semi-formal register, read-aloud flow, word choice, English term retention, italic policy, blockquote style, DBP rules, **brand name capitalization**
 4. **Apply fixes** — writer applies suggested corrections
 5. **Rank Math SEO checklist** (before clicking Publish):
    - [ ] Focus keyword set

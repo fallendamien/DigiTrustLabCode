@@ -226,6 +226,31 @@ When using English terms within BM sentences, **italicize them** so readers can 
 
 **Rule:** Italicize English verbs, adjectives, and informal terms that are code-switched into BM sentences (_brainstorm_, _copy & paste_, _drag & drop_, _shopping_, _feedback_, _deadline_, _request_, _install_, _draft_). Do NOT italicize brand names, acronyms, or fully absorbed loan words.
 
+### 4d. Brand Name Capitalization (MANDATORY)
+
+Brand names and product names must ALWAYS use their official capitalization in body text. Never write them in lowercase — even when the focus keyword is lowercase for SEO purposes. The Rank Math focus keyword field stays lowercase (matching search queries), but the actual content text must use proper brand capitalization.
+
+| Brand | ✅ Correct | ❌ Wrong |
+|-------|-----------|----------|
+| ChatGPT | ChatGPT | chatgpt, Chatgpt |
+| Gemini | Gemini | gemini |
+| Claude | Claude | claude |
+| OpenAI | OpenAI | openai |
+| Google | Google | google |
+| Microsoft | Microsoft | microsoft |
+| Canva | Canva | canva |
+| Notion | Notion | notion |
+| Midjourney | Midjourney | midjourney |
+| DALL-E | DALL-E | dall-e |
+| Netflix | Netflix | netflix |
+| Spotify | Spotify | spotify |
+| WhatsApp | WhatsApp | whatsapp |
+| YouTube | YouTube | youtube |
+| Shopee | Shopee | shopee |
+| Lazada | Lazada | lazada |
+
+**Rule:** ALWAYS capitalize brand names in content. The only place brand names appear lowercase is in: (1) URL slugs, (2) image filenames, (3) Rank Math focus keyword field. Everywhere else in the article body, headings, captions, and alt text — use official brand capitalization.
+
 ## 5. Sentence Structure — Complete Every Thought
 
 Every general statement needs concrete examples. No hanging claims. No vague promises.
