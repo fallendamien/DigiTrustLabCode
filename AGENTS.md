@@ -582,6 +582,7 @@ For broader marketing strategy (competitor teardown, E2E SEO, ICP research, cont
 - Target: Golden Score < 10, KD < 20, All-in-Title < 10, Weak Spot ≥ 2
 - Save to: WriterZen Keyword List → "DigiTrust Lab Blog Posts"
 - Record metrics in: `content/content-calendar.md` (per-post entry)
+- Image prompts: `content/image-prompts.md` (copy-paste Gemini prompts + filenames per post; update when publishing)
 - Deep reference: 29 course files in `content/writerzen-guide/`
 - **Content Creator project**: Always select existing "DigiTrust Lab" project (readonly dropdown — click to open, select from table). Never create new Content Creator projects.
 - **Content Brief fields**: Fill ALL 6 fields (Content format, Writing Tone, Target Audience, Author perspective, Content Angle, Note for writer). Use Playwright `fill()` for text inputs — native JS setter doesn't trigger Vue reactivity on Audience/Perspective fields.

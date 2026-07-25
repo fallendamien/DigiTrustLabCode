@@ -237,6 +237,7 @@ This phase runs AFTER the post is published (Phase 6) but BEFORE documentation (
 - **Featured image:** Always use Gemini Nano Banana 2 (NOT Openverse stock photos). Use the standard prompt template below. Cross-check visual style against Post #1 (`/apa-itu-ai/`)
 - **Image filenames (MANDATORY):** Every time you provide a Gemini prompt, ALSO provide the SEO-optimized filename. Format: `{post-slug}-{image-description}.png` (lowercase, hyphens only, no underscores). Example: `apa-itu-ai-neural-network.png`. This applies to both featured images and in-content images.
 - **In-content images (SEO best practice):** Add images under H2 sections to break up text, increase time on page, and earn Google Image search traffic. Workflow: (1) Agent audits post and identifies H2s needing images, (2) Agent provides prompts + filenames, (3) User generates in Gemini Nano Banana 2 and uploads to WordPress Media, (4) Agent inserts each image into correct section with Malay alt text and caption.
+- **Image prompts library:** All prompts and filenames are stored in `content/image-prompts.md`. Published posts have content-derived prompts; planned posts are TBD until content is drafted. **Update this file** when a post is published (replace TBD with actual prompts) or when a new post is planned (add a TBD section).
 
 ### Image Prompt Template (Gemini Nano Banana 2)
 
