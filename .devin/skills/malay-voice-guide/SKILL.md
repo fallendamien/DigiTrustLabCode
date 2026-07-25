@@ -251,6 +251,18 @@ Brand names and product names must ALWAYS use their official capitalization in b
 
 **Rule:** ALWAYS capitalize brand names in content. The only place brand names appear lowercase is in: (1) URL slugs, (2) image filenames, (3) Rank Math focus keyword field. Everywhere else in the article body, headings, captions, and alt text — use official brand capitalization.
 
+### 4e. Word Choice — "Jika" not "Kalau" (MANDATORY)
+
+Use **Jika** (formal/semi-formal) instead of **Kalau** (informal/colloquial) for conditional sentences. DigiTrust Lab uses a semi-formal register — "Kalau" is too casual for written content.
+
+| ✅ Correct | ❌ Wrong |
+|-----------|----------|
+| Jika anda perlukan AI... | Kalau anda perlukan AI... |
+| Jika anda pelajar... | Kalau anda pelajar... |
+| Jika anda baru bermula... | Kalau anda baru bermula... |
+
+**Rule:** ALWAYS use "Jika" in all written content. "Kalau" is spoken/informal Malay and does not match the DigiTrust Lab semi-formal register. Scan for "Kalau" during proofreading and replace with "Jika".
+
 ## 5. Sentence Structure — Complete Every Thought
 
 Every general statement needs concrete examples. No hanging claims. No vague promises.
