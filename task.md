@@ -28,7 +28,7 @@
 ### Week 3-4
 - [ ] Create 2nd Etsy listing (5 Canva Templates for IG Story)
 - [ ] Create 3rd Etsy listing (Notion Dashboard for Freelancers)
-- [ ] Write 2nd blog post (10 AI Tools Percuma untuk Perniagaan)
+- [ ] Write 2nd blog post (10 Prompt AI untuk Buat Illustration Flat)
 - [ ] Create lead magnet PDF (50 Prompt AI Percuma)
 - [ ] Replace simple opt-in with lead magnet opt-in
 - [ ] Set up Web 2.0 profiles (Medium, Dev.to, LinkedIn)

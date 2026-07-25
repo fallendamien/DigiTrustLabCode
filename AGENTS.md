@@ -92,19 +92,23 @@ or infrastructure task unless Zamri explicitly instructs it.
 **Status:** Fully working on `/blog/`. Layout: archive title → hero post (1) → "Artikel Lain" label → 3-column grid (9) → pagination.
 - **Full fix details:** See `docs/template-52-layout.md`
 
-## 🔴 UNRESOLVED: Category/Taxonomy Archives Don't Use Custom Template
+## ✅ RESOLVED: Category/Taxonomy Archives — Empty Categories Redirect (2026-07-23)
 
-Template 52 now works on `/blog/` (posts page) via `ids: ['277']` condition, but does NOT apply to `/category/ai-tools/` or `/category/digital-side-hustle/` (taxonomy term archives).
+**Root cause:** Not a template issue. Empty categories (`ai-untuk-perniagaan-kecil`, `canva-design`, `digital-side-hustle`) have 0 posts assigned. WordPress + Rank Math's `noindex_empty_taxonomies` setting correctly redirects empty archives to the homepage. This is standard SEO practice.
 
-**Why:** The `ids` condition only matches the specific Blog page ID. Category pages are true WordPress archives (`is_archive() = true`), so they need an `archiveType` condition — but Template 52 currently has no `archiveType` condition (it was removed because it didn't work for the posts page).
+**Current categories (updated 2026-07-25):**
+- `ai-tools` — 3 posts ✅ (works correctly on `/category/ai-tools/`)
+- `canva-design` — 0 posts (redirects to homepage — correct, will work once posts assigned)
+- `prompt-engineering` — 0 posts (NEW — replaces Digital Side Hustle)
+- `digital-skills` — 0 posts (NEW — replaces AI untuk Perniagaan Kecil)
+- `digital-side-hustle` — DELETED (implied income claims)
+- `ai-untuk-perniagaan-kecil` — DELETED (business advice without results)
 
-**Needs investigation:**
-- Add a second condition `archiveType: ['term']` to Template 52 (this WILL match category pages since `is_archive()` is true there)
-- Or create a separate template for category archives with `archiveType: ['term']` condition
-- Verify in Bricks GUI: Template 52 → Settings → Conditions, to see what the visual condition picker offers for taxonomy targeting
+**Fix:** No fix needed. Categories will automatically work once posts are assigned to them. The "missing canonical" warnings in Screpy are a side effect of the redirect — Screpy sees the homepage canonical instead.
 
-**Workaround in place:** `.bricks-archive-title-wrapper { display: none !important; }`
-in WP Additional CSS hides the ugly "Category: X" heading.
+**Action:** When publishing future posts about side hustles, Canva, or business AI, assign them to the appropriate categories. The category pages will automatically start working.
+
+**Workaround still in place:** `.bricks-archive-title-wrapper { display: none !important; }` in WP Additional CSS hides the "Category: X" heading on category pages that do have posts.
 
 ### 🧩 Respira MCP (PRIMARY TOOL — replaced old Bricks MCP 2026-07-05)
 
@@ -157,6 +161,7 @@ in WP Additional CSS hides the ugly "Category: X" heading.
 - Every write auto-captures a snapshot — response includes `snapshot_uuid`
 - Rollback: `respira_restore_snapshot` with the `snapshot_uuid`
 - Before ANY template edit: run `respira_extract_builder_content` to see current state
+- **MailerLite embed check:** Existing MailerLite embeds use Bricks Code elements. Keep **Execute Code ON** and verify it before saving; when disabled, the frontend displays the embed as raw HTML instead of rendering the form.
 - The old flattening bug (`content:update_content` regenerating IDs) does NOT affect Respira
 
 ### ⚠️ Respira Honest Limits
@@ -176,6 +181,9 @@ Use these in any Respira-connected environment (Claude Desktop, ChatGPT, Windsur
 
 **Accessibility pass:**
 > Scan [post] for accessibility issues. Fix missing alt text, unlabeled buttons and broken heading order. Give me a short report of what you fixed and what needs a human decision.
+
+**Readability pass (fix "sea of text"):**
+> Audit [post] for wall-of-text sections. Move images above the fold, convert warning lists into callout boxes, restyle example prompts as blockquotes. Keep all wording and SEO structure intact.
 
 **Monday morning audit:**
 > Give me a site health snapshot: pages changed in the last week, anything that looks broken, SEO issues on the top 5 pages, and one prioritized list of what to fix this week.
@@ -205,6 +213,7 @@ Use these in any Respira-connected environment (Claude Desktop, ChatGPT, Windsur
 | `content-strategy` | Plans content pillars, topic clusters, keyword research by buyer stage | Before deciding what to write |
 | `copywriting` | Writes conversion-focused marketing copy (headlines, CTAs, page structure) | Writing new posts or pages |
 | `copy-editing` | Seven Sweeps Framework for polishing existing copy | Reviewing/editing drafts before publishing |
+| `readability-pass` | Breaks up walls of text: image placement, callout boxes, blockquote examples | After publishing, when post looks too dense |
 | `ai-seo` | Optimizes content for AI search citation (ChatGPT, Perplexity, Google AI Overviews) | After publishing, for AI visibility |
 | `schema-markup` | Implements structured data (JSON-LD) for rich results | After publishing, for enhanced search results |
 | `lead-magnets` | Plans lead magnet format, gating strategy, landing page structure | Building email list |
@@ -350,15 +359,28 @@ DigiTrust Lab content should have a light sense of humour woven in naturally —
 
 | ❌ Salesy | ✅ Replace with |
 |---|---|
-| `jana duit` in widget/CTA copy | Focus on the action benefit instead — `buat kerja`, `jimat masa`, `mudahkan hidup` |
-| `jana pendapatan` in above-the-fold hero | OK in blog post body, NOT in hero headline |
-| `dapatkan duit` / `buat duit` | Never in UI copy |
-| `tingkatkan jualan` | Only in blog post body, not in opt-in or CTA buttons |
+| `jana duit` / `jana pendapatan` / `menjana pendapatan` | NEVER use anywhere — not in UI copy, not in blog post titles, not in hero headlines |
+| `buat duit` / `dapatkan duit` / `buat duit mudah` | NEVER use anywhere — replaced with tool-focused language |
+| `untuk perniagaan anda` / `untuk bisnes anda` | NEVER use — positions as business guru without results |
+| `tingkatkan jualan` | Only in blog post body when discussing real results, not in opt-in or CTA buttons |
+| `jual digital products` / `mula jual di Etsy` | Avoid in titles — focus on the skill, not the selling |
 | Stacking benefit claims: `jimat masa, jana duit, kurangkan kerja` | Pick one — the strongest and most specific one |
 
-**Why:** "Jana duit" reads as bombastic and desperate when placed in sidebar widgets or hero copy. The reader already knows this site is about making money — they came here for that. Hitting them with it again in every widget cheapens the brand.
+**Why:** The user has not yet achieved business success (FB ads failure, no proven income). Teaching others to "make money" without results is inauthentic and damages credibility. The blog's purpose is to share genuine learning and tool expertise — not to promise income.
 
-**Correct approach:** Let the *content* make the money promise implicitly. UI copy should be about the *immediate action benefit* — what they get right now by clicking or subscribing.
+**Correct approach:** Focus on "here's how to use this tool well" — not "here's how to make money." Affiliate links are natural tool mentions, not sales pitches. Business/income posts ONLY when real results exist to share honestly.
+
+### Content Authenticity Rules (added 2026-07-25)
+
+**Core principle:** The blog is a practitioner sharing knowledge — not a business guru teaching success. Content must be authentic and educational first.
+
+- NEVER use income claims in titles, body, or UI: "jana pendapatan", "buat duit", "untuk perniagaan anda", "menjana pendapatan", "buat duit mudah"
+- NEVER position as business guru or success story — you're a practitioner sharing what you learn
+- Focus on: "here's how to use this tool well" — not "here's how to make money"
+- Affiliate links are natural tool mentions, not sales pitches
+- Business/income posts ONLY when you have real results to share honestly
+- Prompt gallery posts: show the prompt + the result + the tool used. No income promises.
+- Content categories: AI Tools, Canva & Design, Prompt Engineering, Digital Skills (NOT Digital Side Hustle or AI untuk Perniagaan — those are deleted)
 
 **Approved sidebar/CTA copy pattern (reference):**
 ```
@@ -385,20 +407,21 @@ AI-generated Malay has predictable awkwardness — half-casual/half-formal mixin
 
 **📖 `.devin/skills/malay-voice-guide/SKILL.md`** — Load this skill before writing or reviewing any Malay content.
 
-Quick summary of the 13 sections (natural formal–semi-formal BM standard):
+Quick summary of the 14 sections (natural formal–semi-formal BM standard):
 1. **Natural Formal–Semi-Formal BM Standard** — contextual register, read-aloud test, and reference sites (PandaiTech.my, Ecentral.my, DBP)
 2. **Pronoun & Address** — `anda` not `korang`, `kami` for company voice, `beliau` for professionals
 3. **Full Forms vs Contractions** — `tidak` not `tak`, `sudah` not `dah`, `apabila` not `bila`
 4. **Code-Switching Rules** — Tech terms stay English (AI, tools, API). Common nouns use BM. No slang. English retention for awkward BM translations (`copy & paste`, `drag & drop`, `brainstorm`, `feedback`, `deadline`). English terms italicized in BM sentences (except brand names, acronyms, and absorbed loan words).
-5. **Sentence Structure** — Complete every thought with concrete examples
-6. **Opening Lines** — Hook with question/scenario in proper BM, no textbook intros
-7. **Transitions** — `Selain itu`, `Walau bagaimanapun`, `Oleh itu` (formal); `Jadi`, `Tetapi` (conversational OK)
-8. **Emphasis** — `sangat`, `amat`, `penting`, `pasti`, `terbukti` (not `confirm`, `gila`, `wajib` as slang)
-9. **Humour** — Light wit in proper BM, no slang-based humour
-10. **Punctuation** — Em dash max 1 per post, avoid AI punctuation patterns. **Blockquote** (`<blockquote>`) for all notes, heads-up, callouts, and closing sign-offs. **Always match the brand blockquote style exactly:** orange left border `#e8621a`, light peach background `#fff8f5`, italic, Plus Jakarta Sans font, 14px font-size, `#3a3a3a` text color, `0 6px 6px 0` border-radius. For Bricks pages, add this CSS to the container element's `_cssCustom`.
-11. **Red Flag Phrases** — Salesy/corporate + casual slang red flags with replacements
-12. **Green Light Patterns** — Natural formal–semi-formal examples in the PandaiTech.my and Ecentral.my style
-13. **DBP Reference** — `ialah` vs `adalah`, `ia` not `ianya`, `dalam kalangan`, `daripada` vs `dari`
+5. **"Malaysia" Usage — CRITICAL** — Do NOT explicitly mention "Malaysia", "rakyat Malaysia", or "warga Malaysia" in titles, content, or meta unless contextually necessary (e.g., geographic facts, comparing Malaysian vs international context, or keyword target literally includes "Malaysia"). The .my domain, Malay language, and local context already signal the audience. Repeatedly saying "Malaysia" sounds bombastic and like SEO padding. If removing "Malaysia" doesn't change the meaning, remove it.
+6. **Sentence Structure** — Complete every thought with concrete examples
+7. **Opening Lines** — Hook with question/scenario in proper BM, no textbook intros
+8. **Transitions** — `Selain itu`, `Walau bagaimanapun`, `Oleh itu` (formal); `Jadi`, `Tetapi` (conversational OK)
+9. **Emphasis** — `sangat`, `amat`, `penting`, `pasti`, `terbukti` (not `confirm`, `gila`, `wajib` as slang)
+10. **Humour** — Light wit in proper BM, no slang-based humour
+11. **Punctuation** — Em dash max 1 per post, avoid AI punctuation patterns. **Blockquote** (`<blockquote>`) for all notes, heads-up, callouts, and closing sign-offs. **Always match the brand blockquote style exactly:** orange left border `#e8621a`, light peach background `#fff8f5`, italic, Plus Jakarta Sans font, 14px font-size, `#3a3a3a` text color, `0 6px 6px 0` border-radius. For Bricks pages, add this CSS to the container element's `_cssCustom`.
+12. **Red Flag Phrases** — Salesy/corporate + casual slang red flags with replacements
+13. **Green Light Patterns** — Natural formal–semi-formal examples in the PandaiTech.my and Ecentral.my style
+14. **DBP Reference** — `ialah` vs `adalah`, `ia` not `ianya`, `dalam kalangan`, `daripada` vs `dari`
 
 ### Page-Specific Voice Notes
 
@@ -433,9 +456,34 @@ No dedicated Malay proofreading tool is used. DewanEja 11 was evaluated but not 
    - [ ] **Additional — Dofollow link:** At least 1 external link must be dofollow. If Rank Math auto-nofollows, add domain to Settings → Links → Nofollow Exclude Domains.
    - [ ] **Content Readability:** ToC plugin active (Easy Table of Contents), proper heading hierarchy H2→H3→H4.
    - [ ] Record final score in `content-calendar.md`
-8. **ClickRank optimization (MANDATORY — Phase 6 of write-post workflow):**
-   - [ ] ClickRank → Bulk → Titles → "Optimize Title" for the new post
-   - [ ] Add focus keyword to ClickRank keyword tracker (Malaysia, all devices)
+8. **Rank tracking (MANDATORY — Phase 7 of write-post workflow):**
+   - [ ] ClickRank → AI Overview Tracker → Add focus keyword + URL (Malaysia, Malay)
+   - [ ] Screpy → Rank Tracker → Add focus keyword + URL (Malaysia, desktop+mobile)
+   - [ ] Both tools are required — ClickRank = AI Overview/AEO tracking, Screpy = traditional SERP rank tracking
+   - [ ] **ClickRank title/meta optimization is OPTIONAL** — see ClickRank Usage Policy below
+
+### ClickRank Usage Policy (updated 2026-07-24)
+
+**Primary purpose for DigiTrust Lab:** AI Overview Rank Tracker — tracks whether our content appears in Google's AI-generated answers. This is the main reason we use ClickRank.
+
+**Secondary features (use with caution):**
+
+| Feature | Use? | Policy |
+|---|---|---|
+| **AI Overview Tracker** | ✅ Always | Add every published post's focus keyword + URL (Malaysia, Malay) |
+| **Title optimization** | ⚠️ Optional | AI suggestions tend to be over-dramatic. Review carefully — reject hype words like "Ultimate", "Game-Changing", "Secret". Only accept if natural and matches our calm, helpful Malay voice. Manual titles are always preferred. |
+| **Meta description optimization** | ⚠️ Optional | Same policy as titles — review for hype, edit to match voice, reject overly dramatic wording |
+| **Smart Internal Links** | ⚠️ Review | Suggestions are usually safe (based on existing content text). Review anchor text naturalness before approving. |
+| **Image Alt Text** | ❌ Skip | We manage alt text manually in Malay via Respira MCP |
+| **Schema Markup** | ❌ Skip | Rank Math already handles schema |
+| **AI Model Compatibility** | 🟢 Optional | Can run occasionally to check if AI models parse our pages correctly |
+
+**Voice standard for ClickRank suggestions:**
+- Reject words: Ultimate, Proven, Secret, Game-Changing, Revolutionary, Shocking, Mind-Blowing
+- Accept words: Panduan, Tips, Cara, Mudah, Praktikal, Lengkap, Bermula
+- If a suggestion feels "boombastic" or unnatural in Malay context → reject it
+- Manual editing after accepting is always allowed
+- When in doubt → ask the user before applying any ClickRank suggestion
 
 **Full workflow:** See `.devin/workflows/write-post.md` for the complete step-by-step process including Phase 5.5 (Rank Math) and Phase 6 (ClickRank).
 

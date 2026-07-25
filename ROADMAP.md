@@ -31,7 +31,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [x] Install Rank Math SEO 1.0.272 (active, usage tracking OFF)
 - [x] WordPress core settings configured (tagline, timezone Kuala Lumpur, permalink = Post name)
 - [x] Delete default WP content (Hello World post + Sample Page → Trash)
-- [x] Create blog categories (AI Tools / Digital Side Hustle / Canva & Design / AI untuk Perniagaan Kecil)
+- [x] Create blog categories (AI Tools / Canva & Design / Prompt Engineering / Digital Skills) — updated 2026-07-25, old categories deleted
 - [x] Build Bricks Single Post Template (ID 10) — native Bricks elements, zero Code elements (rebuilt 2026-07-04)
 - [x] Fix Template 10 sidebar — Post Popular query loop + Panduan Percuma email form (2026-07-05)
 - [x] Migrate Bricks MCP → Respira MCP (2026-07-05) — old endpoint decommissioned, Respira active on Windsurf + Claude Desktop
@@ -128,14 +128,14 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 ### Blog Posts (1 post/week — Malay-first 70%) — 2 of 10 published
 - [x] Post #1: "Apa Itu AI? (Dan Kenapa Ia Bukan Setakat Robot dalam Filem)" — published Jul 9 at digitrustlab.com/apa-itu-ai/
 - [x] Post #2: "Cara Guna ChatGPT untuk Membantu Kerja Harian Anda (Panduan Mudah 2026)" — published Jul 18 at digitrustlab.com/cara-guna-chatgpt/ via WriterZen Option C pipeline
-- [ ] Post #3: 10 AI Tools Percuma untuk Perniagaan Malaysia 2026 → AI Mastery affiliate
-- [ ] Post #4: Cara Jana Pendapatan dengan Canva Templates → Etsy listing link
-- [ ] Post #5: Prompt AI untuk Buat Iklan Instagram yang Menarik → Etsy prompt pack
-- [ ] Post #6: Review Modul AI Mastery: Worth It Ke? → AI Mastery direct sale
-- [ ] Post #7: Cara Buat eBook Digital dengan AI (Step-by-Step) → Klikjer affiliate
-- [ ] Post #8: 5 Template Notion untuk Freelancer Malaysia → Etsy Notion template
-- [ ] Post #9: Cara Mula Jual Digital Products di Etsy Malaysia → Etsy + blog cross-link
-- [ ] Post #10: AI vs Canva: Mana Lebih Baik untuk Design? → Both affiliate + Etsy
+- [ ] Post #3: 10 AI Tools Percuma untuk Perniagaan 2026 → AI Mastery affiliate
+- [ ] Post #4: 10 Prompt AI untuk Buat Illustration Flat (dengan Contoh) → Prompt Engineering
+- [ ] Post #5: Cara Buat Poster Canva dengan AI: Panduan Step-by-Step → Canva Pro affiliate
+- [ ] Post #6: ChatGPT vs Gemini vs Claude: Mana Terbaik untuk Anda? → AI Tools
+- [ ] Post #7: Cara Buat Nota Rapi dengan AI: Tips untuk Pelajar & Pekerja → Digital Skills
+- [ ] Post #8: 5 Template Notion untuk Urus Kerja Harian Anda → Digital Skills
+- [ ] Post #9: Cara Buat AI Art dengan Gemini: 10 Prompt yang Berkesan → Prompt Engineering
+- [ ] Post #10: AI vs Canva: Mana Lebih Baik untuk Design? → Canva Pro affiliate
 
 ### Off-Page SEO (Week 1 — ongoing)
 - [ ] Reddit/Lowyat answers — 2–3x/week, link naturally to blog posts
@@ -190,7 +190,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 **Status:** Not started
 
 - [ ] Apply Mediavine (when 50K sessions/month)
-- [ ] Launch own course: "Panduan Lengkap Jana Pendapatan dengan AI untuk Perniagaan Malaysia"
+- [ ] Launch own course: "Panduan Lengkap AI Tools untuk Produktiviti dan Kreativiti" (title TBD based on real results)
 - [ ] Reach 100+ blog posts
 - [ ] Reach 50 Etsy listings
 - [ ] Reach 1,000+ email subscribers
@@ -232,7 +232,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - ✅ Rank Math SEO installed + configured (usage tracking OFF)
 - ✅ WordPress settings configured (timezone KL, permalink = post name)
 - ✅ Default WP content deleted (Hello World + Sample Page)
-- ✅ Blog categories created (AI Tools, Digital Side Hustle, Canva & Design, AI untuk Perniagaan Kecil)
+- ✅ Blog categories created (AI Tools, Canva & Design, Prompt Engineering, Digital Skills) — updated 2026-07-25
 - ✅ Bricks Single Post Template built + condition set (Post type = Post)
 - ✅ Header + Footer templates built
 - ✅ GitHub repo published (`fallendamien/DigiTrustLabCode`)

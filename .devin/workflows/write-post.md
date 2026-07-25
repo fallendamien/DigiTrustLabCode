@@ -87,10 +87,13 @@ This is the standard workflow for every DigiTrust Lab blog post. Follow these st
    - Content Angle (textarea — unique angle for this article)
    - Note for writer (textarea — writing guidelines, language style from AGENTS.md voice guide)
 5. Click **Create Article**:
+   - ⚠️ **CRITICAL: Select project FIRST** — the modal does NOT auto-select the last used project. The "Create" button stays disabled until you manually click the Project dropdown and select "DigiTrust Lab". This is the #1 reason the button appears stuck.
    - Project: Select existing "DigiTrust Lab" (NEVER create new)
    - AI Assistant: Check "Write article title, description & outline"
+   - Also check "Write the whole article" (per Write all for me strategy)
    - Language: Malay, Location: Malaysia
-6. Click **Create**
+6. Go to **Content Brief** tab in the modal — verify all 6 fields are populated from step 4
+7. Click **Create** (button enables only after project is selected)
 
 ### Phase 3: Content Creator Step 1 — Outline
 
@@ -160,7 +163,7 @@ This is the standard workflow for every DigiTrust Lab blog post. Follow these st
    - Set content, title, status=draft
    - Set Rank Math SEO meta: `rank_math_title`, `rank_math_description`, `rank_math_focus_keyword`, `rank_math_primary_category`
    - Set categories
-5. **Generate featured image via ChatGPT (DALL-E)** (NOT Openverse stock photos — those break visual consistency):
+5. **Generate featured image via Gemini Nano Banana 2** (NOT Openverse stock photos — those break visual consistency):
    - Use the standard DigiTrust Lab illustration prompt template (see Key Rules below)
    - Style: flat illustration, brand colors, 16:9 aspect ratio
    - Download the generated image, then sideload via `respira_sideload_image`
@@ -192,30 +195,35 @@ This phase runs AFTER the post is published (Phase 6) but BEFORE documentation (
 5. **Re-check score** — aim for 80+. The only unfixable error is "Use Content AI" (Rank Math PRO feature)
 6. **Record the final score** in the post's content-calendar.md entry
 
-### Phase 7: Post-Publish — ClickRank + Internal Linking + Documentation
+### Phase 7: Post-Publish — Rank Tracking + Internal Linking + Documentation
 
-1. **Run ClickRank optimization** (app.clickrank.ai):
-   - **Bulk Titles** — Navigate to ClickRank → Bulk → Titles, find the new post, click "Optimize Title" to generate an AI-optimized SEO title. This modifies the `<title>` tag directly on the live page via the ClickRank verification script.
-   - **Keyword Tracker** — Add the post's focus keyword to the ClickRank keyword tracker (Malaysia, all devices) if not already tracked. This monitors ranking progress over time.
-   - ClickRank complements Rank Math: Rank Math scores the on-page SEO, ClickRank handles ongoing title optimization and rank tracking
-2. **Run internal link builder** — Use the `internal-link-builder` skill to scan existing posts and add links pointing TO the new post:
+1. **Run ClickRank tracking** (app.clickrank.ai):
+   - **AI Overview Tracker** — Add the post's focus keyword + URL to ClickRank AI Overview Tracker (Malaysia, Malay language). This monitors AI Overview visibility and organic ranking. This is the PRIMARY reason we use ClickRank.
+   - **Title/Meta optimization** — OPTIONAL. ClickRank's AI suggestions tend to be over-dramatic (hype words like "Ultimate", "Proven", "Secret"). Only apply if the suggestion is natural and matches our calm, helpful Malay voice. Manual titles are always preferred. When in doubt, ask the user.
+   - ClickRank complements Rank Math: Rank Math scores the on-page SEO, ClickRank handles AI Overview tracking
+2. **Add keyword to Screpy** (app.screpy.com):
+   - Navigate to Screpy → Rank Tracker → Add Keyword
+   - Add the post's focus keyword + URL (Malaysia location, desktop + mobile)
+   - Screpy tracks traditional Google SERP rankings, competitor comparison, and page health
+   - **Why both tools:** ClickRank = AI Overview/AEO tracking, Screpy = traditional SERP rank tracking + technical audits. They serve different purposes.
+3. **Run internal link builder** — Use the `internal-link-builder` skill to scan existing posts and add links pointing TO the new post:
    - Trigger: "build internal links" or load skill from `.devin/skills/internal-link-builder/SKILL.md`
    - This finds mentions of the new post's topic in older posts and adds contextual links back
    - Review the plan before applying (skill always asks for confirmation)
    - This is critical: the new post links UP to pillar content (done in Phase 5), but old posts must also link DOWN to the new post
-3. Update `content/content-calendar.md`:
+4. Update `content/content-calendar.md`:
    - Change status to PUBLISHED ✅
    - Add URL, publish date, Post ID, WriterZen Article ID
    - Record final Rank Math score
-4. Update `STATE.json`:
+5. Update `STATE.json`:
    - Add to completed list
    - Increment blogPosts count
    - Update nextSteps (remove this post, add next post)
-5. Update `NEXT.md`:
+6. Update `NEXT.md`:
    - Mark Post as ✅ published
    - Add next post to task list
-6. Update `ROADMAP.md` if applicable
-7. Git commit + push all documentation updates
+7. Update `ROADMAP.md` if applicable
+8. Git commit + push all documentation updates
 
 ## Key Rules
 
@@ -226,11 +234,11 @@ This phase runs AFTER the post is published (Phase 6) but BEFORE documentation (
 - **Keyword Planner Project:** Always use "DigiTrust Lab Blog Posts" (ID: 178201)
 - **SERP View / AI Assistant toggles:** Leave OFF during Step 1 (Outline)
 - **Never skip the Content Creator pipeline** — outline must be generated through WriterZen's AI + competitor research
-- **Featured image:** Always use ChatGPT/DALL-E (NOT Openverse stock photos). Use the standard prompt template below. Cross-check visual style against Post #1 (`/apa-itu-ai/`)
-- **Image filenames (MANDATORY):** Every time you provide a DALL-E prompt, ALSO provide the SEO-optimized filename. Format: `{post-slug}-{image-description}.png` (lowercase, hyphens only, no underscores). Example: `apa-itu-ai-neural-network.png`. This applies to both featured images and in-content images.
-- **In-content images (SEO best practice):** Add images under H2 sections to break up text, increase time on page, and earn Google Image search traffic. Workflow: (1) Agent audits post and identifies H2s needing images, (2) Agent provides prompts + filenames, (3) User generates in ChatGPT/DALL-E and uploads to WordPress Media, (4) Agent inserts each image into correct section with Malay alt text and caption.
+- **Featured image:** Always use Gemini Nano Banana 2 (NOT Openverse stock photos). Use the standard prompt template below. Cross-check visual style against Post #1 (`/apa-itu-ai/`)
+- **Image filenames (MANDATORY):** Every time you provide a Gemini prompt, ALSO provide the SEO-optimized filename. Format: `{post-slug}-{image-description}.png` (lowercase, hyphens only, no underscores). Example: `apa-itu-ai-neural-network.png`. This applies to both featured images and in-content images.
+- **In-content images (SEO best practice):** Add images under H2 sections to break up text, increase time on page, and earn Google Image search traffic. Workflow: (1) Agent audits post and identifies H2s needing images, (2) Agent provides prompts + filenames, (3) User generates in Gemini Nano Banana 2 and uploads to WordPress Media, (4) Agent inserts each image into correct section with Malay alt text and caption.
 
-### Image Prompt Template (ChatGPT / DALL-E)
+### Image Prompt Template (Gemini Nano Banana 2)
 
 **Always provide BOTH the prompt AND the filename together:**
 
@@ -264,10 +272,23 @@ Filename: {post-slug}-{image-description}.png
 | Split composition | Split scene showing before/after or contrast between two concepts |
 | Isometric scene | Isometric view of the scene with layered depth |
 | Top-down flat lay | Top-down flat lay perspective of objects arranged on a surface |
+| Cinematic editorial poster | Large irregular framed scene, dramatic silhouettes, a simple adjacent symbolic object, plus dashed orbital lines and small geometric accents |
+
+### Optional: Cinematic Editorial-Poster Variation
+
+Use this selectively for high-concept articles, cautionary topics, myth-vs-reality explainers, or a dramatic visual metaphor. It is an accent style, **not the default**.
+
+- Keep the DigiTrust Lab palette: warm off-white `#FAFAF8`, orange `#E8621A`, charcoal `#1A1A1A`, white highlights.
+- Use a large irregular framed/vignette scene, strong outlines, foreground silhouettes, cinematic depth, and slight retro print energy.
+- Add a simple adjacent symbolic object and subtle dashed orbital lines or geometric accents to connect the composition.
+- **Never request a direct imitation of a named living artist or copy a reference composition.** Describe visual traits instead.
+- Avoid logos, watermarks, legible text, gore, overly dark scenes, or excessive detail that harms the clean blog aesthetic.
+
+**Prompt addition:** `Cinematic editorial-poster composition: a large irregular framed vignette scene with dramatic orange-and-charcoal contrast, bold black outlines, foreground silhouettes, a simple symbolic object outside the frame, and subtle dashed orbital lines with small geometric accents. Flat, clean, text-free, with slight retro print energy.`
 
 **Rule:** Vary the visual element style across images within the same post so they feel like a curated art collection, not a template repeat. The color palette and flat illustration style stay consistent — the composition and decorative elements change. Think "art lover's blog," not "corporate stock art."
 
-**DALL-E anatomy fix (MANDATORY):** DALL-E frequently generates images with missing, deformed, or unnaturally positioned hands and arms. ALWAYS append this to prompts featuring humans or robots: `"Both person and robot have complete visible arms and hands with natural positioning."` If the generated image still has hand issues, regenerate with emphasis: `"All hands fully rendered with five fingers each, arms complete from shoulder to fingertips, natural pose."`
+**Anatomy fix (MANDATORY):** AI image generators frequently produce images with missing, deformed, or unnaturally positioned hands and arms. ALWAYS append this to prompts featuring humans or robots: `"Both person and robot have complete visible arms and hands with natural positioning."` If the generated image still has hand issues, regenerate with emphasis: `"All hands fully rendered with five fingers each, arms complete from shoulder to fingertips, natural pose."`
 
 **Gemini image reference workflow (for fixing background color or style drift):** When an AI generator produces a great composition but wrong background color or style, use Gemini's image reference feature to recreate it on-brand:
 1. Upload the image you like to Gemini
@@ -284,6 +305,9 @@ Filename: {post-slug}-{image-description}.png
 **Example (Post #1 in-content — "Bagaimana AI Berfungsi" — minimalist, illustrates article analogy):**
 > Flat illustration style. A child pointing at different animals on flashcards — a cat, a dog, a bird — learning to recognize patterns, with a parallel digital grid showing the same concept with data points being sorted into categories. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Minimalist composition with generous negative space and a single focal element. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
 
+**Example (cinematic editorial poster — myth-vs-reality explainer):**
+> Flat cinematic editorial-poster illustration. A large irregular framed vignette shows a giant charcoal robot looming over a small city while human silhouettes run in the foreground, representing a fictional AI fear. Outside the frame, a simple calculator represents practical everyday AI. Connect the two scenes with subtle dashed orbital lines and small orange geometric accents. Bold black outlines, dramatic orange-and-charcoal contrast, warm off-white (#FAFAF8) background, orange (#E8621A) accents, charcoal (#1A1A1A) elements, white highlights, slight retro print energy. Clean, modern, minimal. No text, words, logos, or watermarks. Wide format 16:9.
+
 **Key lesson:** When creating in-content images, illustrate the *analogy or metaphor* used in that section's text — not the literal concept. This creates unique visuals per section and avoids repetitive imagery (e.g. don't use a brain icon for every AI-related image).
 
 **Important:** Each post's illustration must have a distinctly different composition and subject — do not reuse the same scene layout (person at desk with screen). Vary the perspective, objects, and visual metaphor for every post.
@@ -296,5 +320,6 @@ Filename: {post-slug}-{image-description}.png
   - **External links (dofollow):** Add 1-2 natural dofollow external links to authoritative sources (Wikipedia, official product pages like openai.com). Link when mentioning a factual reference or named entity — don't force it. This passes small trust signals to Google and clears the Rank Math "all outbound links are nofollow" warning.
   - **Cosmetic checks (skip — not worth the effort):** sentiment word in title · power word in title · "Use Content AI" (PRO upsell)
   - **Note:** The Respira Rank Math API (`respira_analyze_rankmath`) reports `computed_score` which only covers the 13 essential checks. The WP Admin sidebar score includes cosmetic checks too, so it will show a lower number. Don't chase 100/100 in the sidebar — focus on the essential checks being green.
-- **ClickRank optimization (MANDATORY):** Never skip ClickRank in Phase 7 — optimize title via Bulk Titles tool and add focus keyword to keyword tracker. ClickRank handles ongoing title optimization and rank tracking that Rank Math doesn't do.
+- **Rank tracking (MANDATORY):** Never skip Phase 7 steps 1-2 — every published post's focus keyword + URL must be added to BOTH ClickRank AI Overview Tracker (Malaysia, Malay) AND Screpy Rank Tracker (Malaysia, desktop+mobile). ClickRank = AI Overview/AEO visibility, Screpy = traditional SERP rank tracking + technical audits. Both serve different purposes and both are required.
+- **ClickRank title/meta optimization (OPTIONAL):** ClickRank's AI suggestions tend to be over-dramatic. Only apply if natural and matches our calm Malay voice. Reject hype words (Ultimate, Proven, Secret, Game-Changing). Accept natural words (Panduan, Tips, Cara, Mudah, Praktikal, Lengkap). Manual titles always preferred. When in doubt, ask the user. See full policy in AGENTS.md → "ClickRank Usage Policy".
 - **Content standardization:** Always strip `<h1>` tags from WriterZen content (template handles title), remove redundant "Malaysia" mentions, and cross-check formatting against Post #1 as the reference standard

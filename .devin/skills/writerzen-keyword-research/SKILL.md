@@ -280,7 +280,7 @@ Each cluster shows intent labels and SERP type — helps decide what format your
 ### Bottom Taskbar Actions
 
 - **Suggest Content Brief** — auto-generates a brief from the selected cluster
-- **Create Article** — sends keywords to Content Creator
+- **Create Article** — sends keywords to Content Creator. ⚠️ **GOTCHA:** The "Create a new article" modal does NOT auto-select the last used project. You MUST manually click the Project dropdown and select your project — the "Create" button stays disabled until you do. This is the #1 cause of a stuck/disabled Create button.
 - **Activate Metrics** — unlocks DA Score, Weak Spot, and Domain Focus (uses credits)
 - **Domain Filter** — competitive analysis tool
 - **Domain Focus** — zoom into a single domain's performance
@@ -374,6 +374,21 @@ Gunakan Bahasa Melayu baku dengan laras formal–semi-formal yang semula jadi. G
 
 Generate briefs for multiple clusters at once — useful when planning a content cluster (pillar + supporting articles).
 
+### ⚠️ Create Article Modal — Project Selection Gotcha
+
+**Issue:** The "Create" button in the "Create a new article" modal stays disabled even when all fields (checkboxes, content brief) are filled.
+
+**Root cause:** The Project field is empty — the modal does NOT auto-select the last used project.
+
+**Fix:** Always select the project from the dropdown FIRST, then check AI assistant checkboxes, then verify Content Brief tab. The Create button enables immediately after project selection.
+
+**Order of operations in the modal:**
+1. General tab → Select Project from dropdown (e.g. "DigiTrust Lab")
+2. General tab → Check "Write article title, description & outline"
+3. General tab → Check "Write the whole article"
+4. Content Brief tab → Verify fields are populated
+5. Click Create (now enabled)
+
 > **Deep reference:** `content/writerzen-guide/12-keyword-planner-content-brief-article-creation.md`
 
 ---
@@ -432,6 +447,19 @@ Two types:
 
 **Critical principle:** Keywords must flow naturally. Never stuff. The LLM handles this natively — provide the keyword list and let it write naturally.
 
+### ⚠️ Highlight Keywords Toggle (ENABLE BEFORE EDITING)
+
+**What it does:** Visually highlights all target keywords that are already included in the article content, making it easy to see which keywords are missing (showing 0/N count).
+
+**Where:** Keywords sidebar panel → "Highlight keywords" checkbox (DOM: `#switch-enable-serp`)
+
+**How to toggle:** Use JS evaluate — Playwright click times out because a `<label>` intercepts pointer events:
+```js
+document.getElementById('switch-enable-serp').click()
+```
+
+**When:** ALWAYS enable this BEFORE reviewing or editing content. It shows you exactly where keywords appear and where they're missing, so you can naturally weave them in.
+
 ### Step 3: Content Writing
 
 - Writing interface with left (research) and right (editor) panels
@@ -439,6 +467,7 @@ Two types:
 - Bullet-to-paragraph feature for quick expansion
 - Content Score and Show Analysis for optimization feedback
 - Plagiarism checker integrated
+- **Highlight Keywords toggle** — enable before editing to see included vs missing keywords
 
 ### Google NLP (Optional — English Only)
 

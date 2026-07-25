@@ -1,6 +1,6 @@
 # DigiTrust Lab
 
-> Faceless Malaysian digital product reseller + blog business focused on AI tools, digital side hustles, and Canva/design tutorials for the Southeast Asian market.
+> Faceless Malaysian blog sharing authentic AI tool tutorials, Canva/design tips, prompt engineering showcases, and digital productivity skills — in Bahasa Melayu.
 
 ## Status
 

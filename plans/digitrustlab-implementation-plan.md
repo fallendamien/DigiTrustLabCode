@@ -1,4 +1,7 @@
 # DigiTrust Lab — Implementation Plan
+
+> ⚠️ **DEPRECATED (2026-07-25):** This is a historical implementation document. Categories referenced (Digital Side Hustle, AI untuk Perniagaan Kecil) have been deleted. Copy references ("perniagaan anda", "jana pendapatan") have been repositioned. Simply Static pipeline decommissioned (now on Hostinger directly). See `AGENTS.md` for current content strategy.
+
 > **For:** Windsurf execution  
 > **Stack:** Local WP → Bricks Builder 2.3.8 → Simply Static → GitHub → Cloudflare Pages  
 > **WP Admin:** https://digitrust-lab.local/wp-admin/  
@@ -254,7 +257,9 @@ GitHub Desktop:
 ### E2. Embed in Blog Sidebar
 
 In Bricks Single Post Template → Sidebar column → Email opt-in card:
-- Replace placeholder content with MailerLite embed (Code element, Execute code ON)
+- Replace placeholder content with MailerLite embed (Code element, Execute Code ON)
+- Before every save, verify **Execute Code remains ON**. If it is OFF, Bricks prints the MailerLite embed as raw HTML instead of rendering the form.
+- After saving, verify the actual MailerLite form renders on the frontend; raw `<div class="ml-embedded" ...>` output means Execute Code is disabled.
 
 ### E3. Lead Magnet PDF (Week 2–3)
 

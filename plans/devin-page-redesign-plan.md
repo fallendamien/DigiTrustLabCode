@@ -1,5 +1,7 @@
 # Devin Task: Redesign Homepage + Fix /blog/ + Fix Category Pages
 
+> ⚠️ **DEPRECATED (2026-07-25):** This is a historical planning document. Categories referenced (Digital Side Hustle, AI untuk Bisnes) have been deleted. Hero copy references ("jana pendapatan", "side hustle") have been repositioned. See `AGENTS.md` for current content strategy.
+
 ## Context
 
 DigiTrust Lab — Malaysian digital blog (AI Tools + Side Hustle). Static site: Local WP → Bricks Builder 2.3.8 → Simply Static → Wrangler → Cloudflare Pages.

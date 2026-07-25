@@ -86,75 +86,99 @@
 | Cluster | Topic: "panduan lengkap chatgpt kreatif" (3 clusters, 15 keywords, total vol 400) |
 | Content brief | **Angle:** Panduan lengkap cara guna ChatGPT percuma untuk pemula — langkah asas, tips, kelebihan tanpa kos. **Audience:** Beginners interested in ChatGPT. **Format:** How-to guide. **Perspective:** Expert and helpful. **Tone:** Informative/Explanatory. **Note for writer:** Gunakan Bahasa Melayu baku dengan laras formal–semi-formal yang semula jadi. Gunakan struktur formal yang lengkap apabila bunyinya tepat dan lancar ketika dibaca dengan kuat; gunakan gaya semi-formal untuk mengekalkan kemesraan dan kebolehfahaman. Jangan ringkaskan ayat secara mekanikal hanya untuk menjadikannya kurang formal. Utamakan ketepatan makna, tatabahasa DBP, kelancaran apabila dibaca dengan kuat, kejelasan pada bacaan pertama, dan keserasian dengan perenggan. Guna 'anda', bukan 'korang'. Gunakan ejaan penuh, bukan singkatan, serta elakkan slang dan code-switching berlebihan. Untuk istilah English yang terjemahan BM-nya janggal (copy & paste, drag & drop, brainstorm, feedback, deadline, install, request), kekalkan istilah English dan gunakan cetak miring dalam ayat BM. Jangan gunakan cetak miring untuk nama jenama (ChatGPT, Google Maps), akronim (AI, API), atau kata pinjaman yang sudah biasa (online, download, email, blog). |
 
-## Post #3 — PLANNED
+## Post #3 — PUBLISHED ✅
 
 | Field | Value |
 |-------|-------|
-| Title | 10 AI Tools Percuma untuk Perniagaan Malaysia 2026 |
-| Keyword | TBD |
+| Title | Cara Buat Prompt ChatGPT: Panduan Mudah untuk Pemula |
+| SEO Title | Cara Buat Prompt ChatGPT: Panduan Lengkap untuk Pemula 2026 |
+| Keyword | `cara buat prompt chatgpt` |
 | Category | AI Tools |
-| Status | Not started |
-| Affiliate | AI Mastery |
+| Status | Published (2026-07-21) |
+| URL | /cara-buat-prompt-chatgpt/ |
+| Post ID | 437 |
+| WriterZen Article ID | 243611 |
+| Rank Math Score | 100/100 (Grade A) |
+| Word Count | 927 |
+| Images | 4 (1 featured + 3 in-content) |
+| Internal Links | 2 (/apa-itu-ai/, /cara-guna-chatgpt/) |
+| External Links | 1 (openai.com/chatgpt — dofollow) |
+| Affiliate | None |
 
 ## Post #4 — PLANNED
 
 | Field | Value |
 |-------|-------|
-| Title | Cara Jana Pendapatan dengan Canva Templates |
+| Title | 10 Prompt AI untuk Buat Illustration Flat (dengan Contoh) |
 | Keyword | TBD |
-| Category | Canva & Design |
+| Category | Prompt Engineering |
 | Status | Not started |
-| Affiliate | Etsy listing link |
+| Affiliate | None (prompt gallery post) |
+| Type | Prompt gallery |
 
 ## Post #5 — PLANNED
 
 | Field | Value |
 |-------|-------|
-| Title | Prompt AI untuk Buat Iklan Instagram yang Menarik |
+| Title | Cara Buat Poster Canva dengan AI: Panduan Step-by-Step |
 | Keyword | TBD |
-| Category | AI Tools |
+| Category | Canva & Design |
 | Status | Not started |
-| Affiliate | Etsy prompt pack |
+| Affiliate | Canva Pro affiliate |
+| Type | Tutorial |
 
-## Post #6 — PLANNED
+## Post #6 — PUBLISHED ✅
 
 | Field | Value |
 |-------|-------|
-| Title | Review Modul AI Mastery: Worth It Ke? |
-| Keyword | TBD |
+| Title | ChatGPT vs Gemini vs Claude: Panduan Pilihan AI 2026 |
+| Primary Keyword | chatgpt vs gemini vs claude |
+| Search Volume | 40/mo (last month), 110 avg 12mo |
+| KD (Google Ads) | 11 |
+| KD (Content) | 0 |
+| CPC | $0.70 |
+| Secondary Keywords | chatgpt vs gemini vs claude which is better, for writing, for coding, free versions, pros and cons, for students, 2026, pricing, vs perplexity |
 | Category | AI Tools |
-| Status | Not started |
-| Affiliate | AI Mastery direct sale |
+| Status | Published ✅ |
+| URL | https://digitrustlab.com/chatgpt-vs-gemini-vs-claude-panduan-pilihan-ai-2026/ |
+| Post ID | 490 |
+| Published Date | 2026-07-26 |
+| Rank Math Score | 84/100 (Grade B) |
+| Affiliate | None (comparison post) |
+| Type | Comparison |
 
 ## Post #7 — PLANNED
 
 | Field | Value |
 |-------|-------|
-| Title | Cara Buat eBook Digital dengan AI (Step-by-Step) |
+| Title | Cara Buat Nota Rapi dengan AI: Tips untuk Pelajar & Pekerja |
 | Keyword | TBD |
-| Category | Digital Side Hustle |
+| Category | Digital Skills |
 | Status | Not started |
-| Affiliate | Klikjer |
+| Affiliate | None |
+| Type | Tutorial |
 
 ## Post #8 — PLANNED
 
 | Field | Value |
 |-------|-------|
-| Title | 5 Template Notion untuk Freelancer Malaysia |
+| Title | 5 Template Notion untuk Urus Kerja Harian Anda |
 | Keyword | TBD |
-| Category | Digital Side Hustle |
+| Category | Digital Skills |
 | Status | Not started |
-| Affiliate | Etsy Notion template |
+| Affiliate | None |
+| Type | Template guide |
 
 ## Post #9 — PLANNED
 
 | Field | Value |
 |-------|-------|
-| Title | Cara Mula Jual Digital Products di Etsy Malaysia |
+| Title | Cara Buat AI Art dengan Gemini: 10 Prompt yang Berkesan |
 | Keyword | TBD |
-| Category | Digital Side Hustle |
+| Category | Prompt Engineering |
 | Status | Not started |
-| Affiliate | Etsy + blog cross-link |
+| Affiliate | None (prompt gallery post) |
+| Type | Prompt gallery |
 
 ## Post #10 — PLANNED
 
@@ -164,7 +188,8 @@
 | Keyword | TBD |
 | Category | Canva & Design |
 | Status | Not started |
-| Affiliate | Both AI Mastery + Etsy |
+| Affiliate | Canva Pro affiliate |
+| Type | Comparison |
 
 ---
 
@@ -205,9 +230,35 @@
 
 **Rule:** Pillar content = broad foundational topic. Sub-pillar = specific aspect of pillar. Leaf = specific how-to under sub-pillar. Always link upward in the hierarchy.
 
-## Categories Available
+## Categories Available (updated 2026-07-25)
 
-- AI Tools
-- Digital Side Hustle
-- Canva & Design
-- AI untuk Bisnes
+- AI Tools — reviews, tutorials, comparisons
+- Canva & Design — tutorials, templates, design tips
+- Prompt Engineering — prompt gallery posts, AI art showcases
+- Digital Skills — Notion, WordPress, productivity tools
+
+**Deleted categories:** Digital Side Hustle (implied income claims), AI untuk Bisnes / AI untuk Perniagaan Kecil (business advice without results)
+
+---
+
+## Prompt Gallery Concept
+
+**Phase 1 (Month 1-3):** Individual blog posts with prompt showcases
+- Each post = 5-10 prompts + generated images + tool mention
+- Use existing Gemini Nano Banana 2 workflow + DigiTrust Lab brand colors
+- Pinterest-pinnable images
+- Affiliate links embedded naturally (tool used = affiliate link)
+
+**Phase 2 (Month 4-6):** Build `/prompt-gallery/` hub page
+- Visual grid of all prompt-generated images
+- Filterable by style (flat illustration, realistic, poster, etc.)
+- Links back to individual posts
+- Becomes Pinterest board + link bait
+
+**Future posts (Month 2-3+):**
+- "Cara Guna Notion untuk Susun Projek AI Anda"
+- "10 Prompt AI untuk Thumbnail YouTube yang Menarik"
+- "Cara Buat Logo Minimalist dengan AI Prompt"
+- "Gemini vs Midjourney: Mana Lebih Baik untuk AI Art?"
+- "Cara Edit Gambar dengan AI (3 Tools Percuma)"
+- "Panduan Lengkap Canva AI: Magic Media, Magic Edit, Magic Write"

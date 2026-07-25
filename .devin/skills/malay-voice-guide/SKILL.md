@@ -408,6 +408,36 @@ When uncertain about spelling, grammar, or word choice, consult **Dewan Bahasa d
 
 **Rule:** When in doubt about a word, check DBP first. Consistent use of DBP-standard spelling and grammar builds authority and trust with readers and search engines.
 
+## Content Authenticity Rules (added 2026-07-25)
+
+**Core principle:** The blog is a practitioner sharing knowledge — not a business guru teaching success. Content must be authentic and educational first.
+
+### Banned Phrases (NEVER use anywhere — titles, body, UI copy)
+
+| ❌ Banned | ✅ Use Instead |
+|---|---|
+| `jana pendapatan` / `menjana pendapatan` | Focus on the skill: `buat kerja`, `jimat masa`, `mudahkan hidup` |
+| `buat duit` / `buat duit mudah` / `dapatkan duit` | Focus on the tool: `guna AI untuk...`, `cara buat...` |
+| `untuk perniagaan anda` / `untuk bisnes anda` | Focus on the user: `untuk anda`, `untuk kerja harian` |
+| `jual digital products` / `mula jual di Etsy` | Focus on the creation: `buat digital products`, `cara design...` |
+
+### Positioning
+
+- **You are:** A practitioner sharing what you learn — not a success story or business guru
+- **Tone:** "Here's how to use this tool well" — not "Here's how to make money"
+- **Affiliate links:** Natural tool mentions, not sales pitches
+- **Business/income posts:** ONLY when you have real results to share honestly
+- **Prompt gallery posts:** Show the prompt + the result + the tool used. No income promises.
+
+### Content Categories (updated 2026-07-25)
+
+- AI Tools — reviews, tutorials, comparisons
+- Canva & Design — tutorials, templates, design tips
+- Prompt Engineering — prompt gallery posts, AI art showcases
+- Digital Skills — Notion, WordPress, productivity tools
+
+**Deleted categories:** Digital Side Hustle (implied income claims), AI untuk Perniagaan Kecil (business advice without results)
+
 ## Sources
 
 - **PandaiTech.my** — semi-formal AI tech blog, closest reference for DigiTrust Lab

@@ -247,6 +247,8 @@ Static pages (Privasi, Disclaimer, Hubungi) had orange `dtl-category` labels abo
 
 These labels looked awkward and out of place — they're designed for blog post categories (e.g., "Digital Side Hustle" above an article), not standalone legal/info pages.
 
+> **Note (2026-07-25):** "Digital Side Hustle" category has been deleted. Current categories: AI Tools, Canva & Design, Prompt Engineering, Digital Skills.
+
 ### Root Cause
 
 Reused the blog post layout CSS class pattern for static pages without considering the context. Category labels make sense on posts but are nonsensical on pages that have no "category".
@@ -1965,6 +1967,8 @@ Homepage (ID 280) had 6 buttons linking to the old Hostinger temporary domain `y
 | `c4c1d5` | 🎨 Canva & Design | `yellow-scorpion.../category/canva-design/` | `digitrustlab.com/category/canva-design/` |
 | `980438` | 🏪 AI untuk Bisnes | `yellow-scorpion.../category/ai-untuk-perniagaan-kecil/` | `digitrustlab.com/category/ai-untuk-perniagaan-kecil/` |
 
+> **Note (2026-07-25):** "Digital Side Hustle" and "AI untuk Bisnes" categories have been deleted. New categories: "Prompt Engineering" (`/category/prompt-engineering/`) and "Digital Skills" (`/category/digital-skills/`). The category pills on the homepage should be updated to reflect the new categories.
+
 ### Root Cause
 
 Homepage was built while the site was still on the Hostinger temporary domain. When the domain was changed to `digitrustlab.com`, button links hardcoded with `type: "external"` were not automatically updated. Bricks `internal` link types would have updated automatically, but `external` links are static strings.
@@ -2114,3 +2118,69 @@ When a monitoring service is added during infrastructure migration (especially m
 - Cloudflare AI Labyrinth: On
 - Cloudflare Always Online: Off
 - Hostinger server cache: purged fresh
+
+---
+
+## WriterZen Create Article Modal — Create Button Stays Disabled
+
+**Date:** 2026-07-25
+**Category:** writerzen-ui-gotcha
+**Severity:** Medium (blocks article creation workflow)
+
+### Problem
+
+In WriterZen Keyword Planner, clicking "Create article" opens the "Create a new article" modal. After filling all fields (checking AI assistant checkboxes, filling Content Brief tab), the "Create" button remains disabled — preventing article creation.
+
+### Root Cause
+
+The **Project field** in the General tab is empty. The modal does NOT auto-select the last used project. Even though all other fields are filled, the Vue.js form validation requires a project to be selected before enabling the Create button.
+
+### Fix
+
+1. Open the "Create a new article" modal by clicking "Create article"
+2. On the **General** tab, click the Project dropdown (labeled "Choose a project or create new")
+3. Select your existing project (e.g. "DigiTrust Lab") from the list
+4. Check both AI assistant checkboxes ("Write article title, description & outline" + "Write the whole article")
+5. Go to **Content Brief** tab — verify all fields are populated
+6. The **Create** button is now enabled — click it
+
+### Prevention
+
+Always select the project FIRST in the modal, before doing anything else. The modal resets every time it opens — it never remembers the last selected project.
+
+### Verified
+
+2026-07-25 — Button changed from `disabled: true` to `disabled: false` immediately after selecting "DigiTrust Lab" from the project dropdown.
+
+---
+
+## MailerLite Embed Displays Raw HTML in Bricks (2026-07-26)
+
+**Category:** bricks-code-execution
+**Severity:** High (lead-capture form does not render)
+
+### Problem
+
+The MailerLite signup area at the bottom of the page displayed its embed markup as raw HTML instead of rendering the MailerLite form.
+
+### Root Cause
+
+The Bricks Code element containing the MailerLite embed had **Execute Code disabled**. Bricks therefore printed the stored markup rather than executing/rendering the embed.
+
+### Fix
+
+1. Open the affected page or template in Bricks Builder.
+2. Select the MailerLite Code element.
+3. Enable **Execute Code** in the Content panel.
+4. Click **Update** to persist the change.
+5. Verify the rendered MailerLite form on the frontend.
+
+### Prevention
+
+- Keep **Execute Code ON** for every existing MailerLite Code element.
+- Before saving related Bricks changes, explicitly verify the toggle is still enabled.
+- Frontend verification must confirm the actual form renders; visible `<div class="ml-embedded" ...>` markup indicates the toggle is OFF.
+
+### Verified
+
+2026-07-26 — User enabled Execute Code in Bricks and confirmed the raw HTML issue was fixed manually. Pieces LTM verification was unavailable (`Session not found or closed`); evidence came from the user's screenshot and explicit correction.

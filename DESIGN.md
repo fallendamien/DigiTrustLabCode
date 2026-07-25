@@ -345,9 +345,9 @@ Full-width section layout (no sidebar) with 4 sections:
 3. **Email CTA** — gradient background, email opt-in
 4. **Category Pills** — category links as pill badges
 
-**Hero copy (current):**
-- Eyebrow: `AI Tools & Side Hustle Digital untuk warga Malaysia`
-- H1: `Anda boleh guna AI untuk membuat kerja dan menjana pendapatan` (sentence case)
+**Hero copy (current — updated 2026-07-25 to remove income claims):**
+- Eyebrow: `AI Tools & Design Tutorial dalam Bahasa Melayu`
+- H1: `Anda boleh guna AI untuk membuat kerja dengan lebih mudah dan kreatif` (sentence case)
 
 **Note:** Query loops on pages require a Bricks editor save to activate on frontend (see TROUBLESHOOTING.md).
 

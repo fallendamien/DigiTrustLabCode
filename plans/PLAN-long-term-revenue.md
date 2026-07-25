@@ -129,11 +129,13 @@ Layer 1 (Month 1+): Blog SEO Content (the engine that feeds everything)
 | Add digitrustlab.com to Screpy | Screpy | 15 min |
 | Set up Google Analytics 4 | GA4 | 1 hr |
 
-**Blog categories:**
+**Blog categories (updated 2026-07-25):**
 - AI Tools (reviews, tutorials, comparisons)
-- Digital Side Hustle (cara jana duit online)
-- Canva/Design Tutorials
-- AI untuk Perniagaan Kecil
+- Canva & Design (tutorials, templates, design tips)
+- Prompt Engineering (prompt gallery posts, AI art showcases)
+- Digital Skills (Notion, WordPress, productivity tools)
+
+**Deleted categories:** Digital Side Hustle (implied income claims), AI untuk Perniagaan Kecil (business advice without results)
 
 ### 1.2 First 10 Blog Posts (Week 2-12)
 
@@ -146,20 +148,20 @@ Layer 1 (Month 1+): Blog SEO Content (the engine that feeds everything)
 
 **Language note:** All 10 first posts are in Bahasa Melayu — this is intentional, not a mistake. Malay content has low SEO competition and targets the right audience. English pillar posts come in Phase 2.
 
-**First 10 post topics (priority order):**
+**First 10 post topics (updated 2026-07-25 — authentic educational focus):**
 
-| # | Title (working) | Target Keyword | Monetization Hook |
-|---|----------------|----------------|-------------------|
-| 1 | Cara Buat Iklan FB yang Convert (Pengalaman Burn RM390) | "cara buat iklan facebook" | AI Mastery affiliate |
-| 2 | 10 AI Tools Percuma untuk Perniagaan Malaysia 2026 | "ai tools percuma malaysia" | AI Mastery affiliate |
-| 3 | Cara Jana Pendapatan dengan Canva Templates | "jana duit canva" | Etsy listing link |
-| 4 | Prompt AI untuk Buat Iklan Instagram yang Menarik | "prompt ai iklan instagram" | Etsy prompt pack |
-| 5 | Review Modul AI Mastery: Worth It Ke? | "modul ai mastery review" | AI Mastery direct sale |
-| 6 | Cara Buat eBook Digital dengan AI (Step-by-Step) | "buat ebook dengan ai" | Klikjer affiliate |
-| 7 | 5 Template Notion untuk Freelancer Malaysia | "notion template malaysia" | Etsy Notion template |
-| 8 | Cara Mula Jual Digital Products di Etsy Malaysia | "jual digital products etsy" | Etsy + blog cross-link |
-| 9 | AI vs Canva: Mana Lebih Baik untuk Design? | "ai vs canva design" | Both affiliate + Etsy |
-| 10 | Cara Buat Landing Page yang Convert (Bricks Builder) | "landing page convert malaysia" | AI Mastery + Bricks |
+| # | Title (working) | Category | Type |
+|---|----------------|----------|------|
+| 1 | Apa Itu AI? (Dan Kenapa Ia Bukan Setakat Robot dalam Filem) | AI Tools | Pillar |
+| 2 | Cara Guna ChatGPT untuk Membantu Kerja Harian Anda | AI Tools | Sub-pillar |
+| 3 | 10 AI Tools Percuma untuk Perniagaan 2026 | AI Tools | List |
+| 4 | 10 Prompt AI untuk Buat Illustration Flat (dengan Contoh) | Prompt Engineering | Prompt gallery |
+| 5 | Cara Buat Poster Canva dengan AI: Panduan Step-by-Step | Canva & Design | Tutorial |
+| 6 | ChatGPT vs Gemini vs Claude: Mana Terbaik untuk Anda? | AI Tools | Comparison |
+| 7 | Cara Buat Nota Rapi dengan AI: Tips untuk Pelajar & Pekerja | Digital Skills | Tutorial |
+| 8 | 5 Template Notion untuk Urus Kerja Harian Anda | Digital Skills | Template guide |
+| 9 | Cara Buat AI Art dengan Gemini: 10 Prompt yang Berkesan | Prompt Engineering | Prompt gallery |
+| 10 | AI vs Canva: Mana Lebih Baik untuk Design? | Canva & Design | Comparison |
 
 **Posting cadence:** 1 post/week (10-15 hrs/week budget allows this)
 
@@ -429,7 +431,7 @@ Once you have:
 - Etsy sales data showing what people want
 - AI Mastery resell experience
 
-→ Create your own course: "Panduan Lengkap Jana Pendapatan dengan AI untuk Perniagaan Malaysia"
+→ Create your own course: "Panduan Lengkap AI Tools untuk Produktiviti dan Kreativiti" (title TBD based on real results)
 
 | Platform | Fee | Why |
 |----------|-----|-----|
