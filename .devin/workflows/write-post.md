@@ -132,13 +132,19 @@ This is the standard workflow for every DigiTrust Lab blog post. Follow these st
 3. Let AI generate the full draft based on the content brief + outline
 4. Review generated content section by section
 5. **Edit for DigiTrust Lab voice** — match the semi-formal Malay standard from AGENTS.md voice guide
-6. Run **Show Analysis** — fix any flagged SEO issues
-7. Run **Plagiarism Check** — ensure 0% plagiarism
-8. **Note all Analysis improvements** for cross-checking in Phase 6/6.5:
+6. **Reformat walls of text into rich visual structure** (MANDATORY — see Key Rules → "Content formatting"):
+   - WriterZen AI produces flat walls of text — every section must be reformatted
+   - Use the full formatting toolkit: blockquotes, bullet/numbered lists, bold labels, before/after blocks, contrast pairs, warning/tip boxes
+   - Copy-paste blockquote template from Key Rules (orange border, warm bg, rounded corners)
+   - Run the Formatting Checklist (Key Rules) before publishing — no section should be a sea of text
+   - Reference standards: Post #2 (`/cara-guna-chatgpt/`) and Post #3 (`/cara-buat-prompt-chatgpt/`)
+7. Run **Show Analysis** — fix any flagged SEO issues
+8. Run **Plagiarism Check** — ensure 0% plagiarism
+9. **Note all Analysis improvements** for cross-checking in Phase 6/6.5:
    - Write down every "Problems" and "Improvements" item from the analysis panel
    - These get addressed during WordPress publishing and Rank Math optimization
    - Common items: content length, images, internal/external links, title length
-9. Save (not Done — keep article in Content Creator)
+10. Save (not Done — keep article in Content Creator)
 
 ### Phase 6: Publish to WordPress via Respira MCP
 
@@ -170,7 +176,14 @@ This is the standard workflow for every DigiTrust Lab blog post. Follow these st
    - Set alt text describing the illustration in Malay
 6. Set featured image via `respira_update_post` with `featured_media`
 7. Publish via `respira_update_post` with `status=publish`
-8. Verify on live site: navigate to URL, check rendering, SEO title, internal links, featured image
+8. **Set post excerpt via WordPress editor (NOT Respira — `excerpt` param is unreliable):**
+   - Navigate to `wp-admin/post.php?post={ID}&action=edit`
+   - Open Settings sidebar (gear icon) → Post tab
+   - Click "Add an excerpt…" button
+   - Type 155–160 char Malay summary including focus keyword
+   - Close excerpt modal
+   - Click Save/Update button (`button.editor-post-publish-button`)
+9. Verify on live site: navigate to URL, check rendering, SEO title, internal links, featured image
 
 ### Phase 6.5: Rank Math Sidebar Optimization (MANDATORY — Never Skip)
 
@@ -197,33 +210,42 @@ This phase runs AFTER the post is published (Phase 6) but BEFORE documentation (
 
 ### Phase 7: Post-Publish — Rank Tracking + Internal Linking + Documentation
 
-1. **Run ClickRank tracking** (app.clickrank.ai):
-   - **AI Overview Tracker** — Add the post's focus keyword + URL to ClickRank AI Overview Tracker (Malaysia, Malay language). This monitors AI Overview visibility and organic ranking. This is the PRIMARY reason we use ClickRank.
+1. **ClickRank — Keyword Tracker** (app.clickrank.ai/en/tracker):
+   - Add the post's **primary focus keyword** only (the one set in Rank Math) + URL
+   - Set country to Malaysia, device to All
+   - **Do NOT add secondary keyword variants** — ClickRank auto-discovers those from Search Console. Only the focus keyword goes here. Keep the list clean.
+   - This tracks traditional Google SERP rankings + impressions
+2. **ClickRank — AI Overview Tracker** (app.clickrank.ai/en/ai-toolkit/overview-tracker):
+   - Add the same focus keyword + URL (Malaysia, Malay language)
+   - This is the PRIMARY reason we use ClickRank — monitors AI Overview visibility and organic ranking
    - **Title/Meta optimization** — OPTIONAL. ClickRank's AI suggestions tend to be over-dramatic (hype words like "Ultimate", "Proven", "Secret"). Only apply if the suggestion is natural and matches our calm, helpful Malay voice. Manual titles are always preferred. When in doubt, ask the user.
-   - ClickRank complements Rank Math: Rank Math scores the on-page SEO, ClickRank handles AI Overview tracking
-2. **Add keyword to Screpy** (app.screpy.com):
-   - Navigate to Screpy → Rank Tracker → Add Keyword
-   - Add the post's focus keyword + URL (Malaysia location, desktop + mobile)
+3. **Screpy — Rank Tracker** (app.screpy.com → Rank Tracker → Add keywords):
+   - Add the post's **primary focus keyword** only + URL (Malaysia, Malay, desktop + mobile)
    - Screpy tracks traditional Google SERP rankings, competitor comparison, and page health
    - **Why both tools:** ClickRank = AI Overview/AEO tracking, Screpy = traditional SERP rank tracking + technical audits. They serve different purposes.
-3. **Run internal link builder** — Use the `internal-link-builder` skill to scan existing posts and add links pointing TO the new post:
+4. **Screpy — Re-run Crawler** (app.screpy.com → Pages → Analyze button):
+   - Click "Analyze" to trigger a new crawl — this auto-discovers new post URLs for SEO health monitoring
+   - Screpy does NOT have manual per-page URL addition — the crawler finds pages automatically
+   - New posts published after the last crawl won't appear until the crawler runs again
+   - **Screpy Uptime** monitors the domain (digitrustlab.com) as a whole, not individual pages
+5. **Run internal link builder** — Use the `internal-link-builder` skill to scan existing posts and add links pointing TO the new post:
    - Trigger: "build internal links" or load skill from `.devin/skills/internal-link-builder/SKILL.md`
    - This finds mentions of the new post's topic in older posts and adds contextual links back
    - Review the plan before applying (skill always asks for confirmation)
    - This is critical: the new post links UP to pillar content (done in Phase 5), but old posts must also link DOWN to the new post
-4. Update `content/content-calendar.md`:
+6. Update `content/content-calendar.md`:
    - Change status to PUBLISHED ✅
    - Add URL, publish date, Post ID, WriterZen Article ID
    - Record final Rank Math score
-5. Update `STATE.json`:
+7. Update `STATE.json`:
    - Add to completed list
    - Increment blogPosts count
    - Update nextSteps (remove this post, add next post)
-6. Update `NEXT.md`:
+8. Update `NEXT.md`:
    - Mark Post as ✅ published
    - Add next post to task list
-7. Update `ROADMAP.md` if applicable
-8. Git commit + push all documentation updates
+9. Update `ROADMAP.md` if applicable
+10. Git commit + push all documentation updates
 
 ## Key Rules
 
@@ -238,6 +260,7 @@ This phase runs AFTER the post is published (Phase 6) but BEFORE documentation (
 - **Image filenames (MANDATORY):** Every time you provide a Gemini prompt, ALSO provide the SEO-optimized filename. Format: `{post-slug}-{image-description}.png` (lowercase, hyphens only, no underscores). Example: `apa-itu-ai-neural-network.png`. This applies to both featured images and in-content images.
 - **In-content images (SEO best practice):** Add images under H2 sections to break up text, increase time on page, and earn Google Image search traffic. Workflow: (1) Agent audits post and identifies H2s needing images, (2) Agent provides prompts + filenames, (3) User generates in Gemini Nano Banana 2 and uploads to WordPress Media, (4) Agent inserts each image into correct section with Malay alt text and caption.
 - **Image prompts library:** All prompts and filenames are stored in `content/image-prompts.md`. Published posts have content-derived prompts; planned posts are TBD until content is drafted. **Update this file** when a post is published (replace TBD with actual prompts) or when a new post is planned (add a TBD section).
+- **Post Excerpt (MANDATORY):** Every post MUST have a manual excerpt (155–160 characters). The excerpt is a concise Malay summary that includes the focus keyword. It appears on blog archive pages, category pages, search results, and RSS feeds. Without it, WordPress auto-generates a truncated first paragraph which often cuts off awkwardly. **Must be set via WordPress editor** (Settings sidebar → Post tab → "Add an excerpt…") — NOT via Respira's `excerpt` parameter, which is unreliable and silently ignored on some posts. Always click Save/Update after setting the excerpt.
 
 ### Image Prompt Template (Gemini Nano Banana 2)
 
@@ -324,3 +347,70 @@ Use this selectively for high-concept articles, cautionary topics, myth-vs-reali
 - **Rank tracking (MANDATORY):** Never skip Phase 7 steps 1-2 — every published post's focus keyword + URL must be added to BOTH ClickRank AI Overview Tracker (Malaysia, Malay) AND Screpy Rank Tracker (Malaysia, desktop+mobile). ClickRank = AI Overview/AEO visibility, Screpy = traditional SERP rank tracking + technical audits. Both serve different purposes and both are required.
 - **ClickRank title/meta optimization (OPTIONAL):** ClickRank's AI suggestions tend to be over-dramatic. Only apply if natural and matches our calm Malay voice. Reject hype words (Ultimate, Proven, Secret, Game-Changing). Accept natural words (Panduan, Tips, Cara, Mudah, Praktikal, Lengkap). Manual titles always preferred. When in doubt, ask the user. See full policy in AGENTS.md → "ClickRank Usage Policy".
 - **Content standardization:** Always strip `<h1>` tags from WriterZen content (template handles title), remove redundant "Malaysia" mentions, and cross-check formatting against Post #1 as the reference standard
+- **Content formatting (MANDATORY — Learned 2026-07-26, Updated 2026-07-26):** WriterZen's "Write all for me" AI produces walls of text — flat paragraphs with no visual breaks. **Every article must be richly formatted with varied visual elements.** No section should be a mere sea of text. Apply these formatting types throughout every article:
+
+  ### Rich Formatting Toolkit (USE ALL APPROPRIATE TYPES)
+
+  | Formatting Type | When to Use | HTML Pattern |
+  |----------------|-------------|--------------|
+  | **Bullet lists** | Enumerations, features, tips, reasons | `<ul><li>...</li></ul>` |
+  | **Numbered lists** | Steps, sequences, rankings | `<ol><li>...</li></ol>` |
+  | **Bold labels** | Start of each bullet for scannability | `<li><strong>Label</strong> — description</li>` |
+  | **Blockquotes** | Examples, key quotes, before/after comparisons | See template below |
+  | **Contrast pairs** | Dos and don'ts, good vs bad | `<li><strong>Elakkan:</strong> ...</li><li><strong>Gunakan:</strong> ...</li>` |
+  | **Before/after blocks** | Instructional examples (bad vs good prompt, wrong vs right approach) | Two blockquotes back-to-back with labeled headers |
+  | **Inline emphasis** | English terms in BM sentences | `<em>prompt</em>, <em>brainstorming</em>` |
+  | **Warning/tip boxes** | Important cautions, pro tips | See box template below |
+  | **Short paragraphs** | One idea per paragraph — never more than 3-4 sentences without a visual break | — |
+  | **Figures with captions** | In-content images | `<figure class="wp-block-image"><img ... /><figcaption>...</figcaption></figure>` |
+  | **Internal links** | Contextual anchor text linking to related posts | `<a href="...">natural anchor text</a>` |
+
+  ### Blockquote Template (DigiTrust Lab Standard — copy-paste this)
+
+  ```html
+  <blockquote style="border-left:3px solid #E8621A;padding:8px 16px;margin:12px 0;background:#F5F3EE;border-radius:0 6px 6px 0;">
+  <p><strong>Contoh label:</strong></p>
+  <p><em>"Example content here."</em></p>
+  <p>Explanation of what happens when you use this example.</p>
+  </blockquote>
+  ```
+
+  **Blockquote design system:**
+  - Left border: `3px solid #E8621A` (DigiTrust Lab orange)
+  - Background: `#F5F3EE` (warm off-white, slightly darker than page bg)
+  - Border radius: `0 6px 6px 0` (rounded right side only)
+  - Padding: `8px 16px`
+  - Margin: `12px 0`
+  - Use for: examples, before/after comparisons, key quotes, important callouts
+
+  ### Warning/Tip Box Template
+
+  ```html
+  <div style="background:#FFF8F5;border-left:3px solid #E8621A;border-radius:0 6px 6px 0;padding:12px 16px;margin:16px 0;">
+  <p><strong>⚠️ Amaran penting:</strong> Warning text here.</p>
+  <p><strong>Tip:</strong> Helpful tip text here.</p>
+  </div>
+  ```
+
+  ### Formatting Checklist (Run After Every AI Draft)
+
+  Before publishing ANY post, verify:
+  - [ ] No section is a wall of text (3+ paragraphs without a list, blockquote, or visual break)
+  - [ ] All enumerations use bullet or numbered lists
+  - [ ] All examples use blockquotes (not plain paragraphs)
+  - [ ] All list items have bold labels where applicable
+  - [ ] Dos/don'ts sections use "Elakkan" vs "Gunakan" contrast pairs
+  - [ ] At least 2-3 blockquotes per instructional article
+  - [ ] English terms italicized with `<em>` tags
+  - [ ] Paragraphs are short (max 3-4 sentences)
+  - [ ] Warning/tip boxes used for important callouts
+
+  ### Reference Standards
+
+  | Post | What to Copy |
+  |------|-------------|
+  | Post #2 (`/cara-guna-chatgpt/`) | Blockquotes for examples, bullet lists with bold labels, warning boxes, FAQ section |
+  | Post #3 (`/cara-buat-prompt-chatgpt/`) | Before/after blockquote pairs, contrast pairs, bullet lists with bold labels (reformatted 2026-07-26) |
+  | Post #1 (`/apa-itu-ai/`) | Clean paragraph flow with lists, figure captions, natural internal links |
+
+  **Why this matters:** Rich formatting improves time-on-page, reduces bounce rate, increases readability on mobile, and matches the visual quality that Google's helpful content system rewards. Walls of text get skipped — structured content gets read. This is a non-negotiable quality standard for DigiTrust Lab.

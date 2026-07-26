@@ -588,6 +588,7 @@ For broader marketing strategy (competitor teardown, E2E SEO, ICP research, cont
 - **Content Brief fields**: Fill ALL 6 fields (Content format, Writing Tone, Target Audience, Author perspective, Content Angle, Note for writer). Use Playwright `fill()` for text inputs — native JS setter doesn't trigger Vue reactivity on Audience/Perspective fields.
 - **Content Creator toggles (SERP View / AI Assistant):** Leave both OFF. They currently add no useful UI. Generate/update the AI outline via the explicit "Set up & Start building outline" / "Generate outline" buttons instead.
 - **Internal linking (required):** Plan links in outline phase → insert outbound links during publish → run `internal-link-builder` skill after publish to add inbound links from older posts
+- **Content formatting (MANDATORY — NON-NEGOTIABLE):** Every article must be richly formatted — NO sea of text. Use blockquotes (orange `#E8621A` border, `#F5F3EE` bg), bullet/numbered lists with bold labels, before/after example blocks, "Elakkan" vs "Gunakan" contrast pairs, warning/tip boxes, `<em>` for English terms, short paragraphs (max 3-4 sentences). At least 2-3 blockquotes per instructional article. Reference standards: Post #2 and Post #3. See `.devin/workflows/write-post.md` → Key Rules → "Content formatting" for full toolkit, templates, and checklist.
 - **Full workflow:** See `.devin/workflows/write-post.md` for the complete step-by-step process
 
 ## Notes

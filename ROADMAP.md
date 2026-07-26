@@ -275,14 +275,19 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 
 ## Current KPIs
 
-| Metric | Current | Target (Month 12) |
-|---|---|---|
-| Blog posts live | 1 | 50+ |
-| Monthly blog visits | 0 | 10,000+ |
-| Etsy listings | 0 | 25+ |
-| Email subscribers | 0 | 500+ |
-| Keywords top 10 | 0 | 15+ |
-| Monthly revenue | RM 69 (pre-blog) | RM 2,000+ |
+| Metric | Current | Target (Month 12) | Last Checked |
+|---|---|---|---|
+| Blog posts live | 4 | 50+ | Jul 26, 2026 |
+| Monthly blog visits | 0 | 10,000+ | — |
+| Etsy listings | 0 | 25+ | — |
+| Email subscribers | 0 | 500+ | — |
+| Keywords top 10 | 1 | 15+ | Jul 26, 2026 (ClickRank) |
+| Monthly revenue | RM 69 (pre-blog) | RM 2,000+ | — |
+| Moz Domain Authority (DA) | 6 | 20–25 | Jul 26, 2026 |
+| Ahrefs Domain Rating (DR) | 0 | 20–25 | Jul 26, 2026 |
+| Moz Page Authority (homepage) | 14 | 30+ | Jul 26, 2026 |
+| Google impressions | 47 | 5,000+ | Jul 26, 2026 (ClickRank) |
+| Countries with impressions | 2 (MY, US) | 5+ | Jul 26, 2026 (ClickRank) |
 
 ---
 
@@ -338,7 +343,46 @@ Layer 1 (Month 1+):  Blog SEO Content — THE ENGINE
 - **Blog:** Malay-first 70% (low competition SEA) + English 30% (pillar posts, higher RPM, backlink bait)
 - **Etsy:** English titles + English descriptions. Malay content inside the product itself.
 - **Rule:** Never translate same post into both languages (duplicate content)
-- **Voice standard (updated 2026-07-17):** All content uses natural formal–semi-formal Bahasa Melayu. Full voice guide is documented in `AGENTS.md` under "DigiTrust Lab Writing Voice". Key rule: write Malay directly in Malay, never translate mechanically from English, and select register sentence by sentence using the read-aloud test. Preserve polished formal constructions when they sound natural, precise, and clear; use semi-formal phrasing for warmth and accessibility. Use `anda`/`kami`, avoid `korang`, follow BM baku, and retain appropriate English tech terms. This standard applies to posts, pages, email copy, and all future content.
+
+---
+
+## International Expansion Strategy 🌏
+
+**Principle:** Build authority locally first → expand globally. Domain authority compounds and carries over to new content.
+
+### Phase-by-Phase Expansion
+
+| Phase | Timeline | Focus | Audience |
+|---|---|---|---|
+| **Now (Phase 1–2)** | Months 1–6 | BM content, local backlinks, topical authority | Malaysia, Brunei, Singapore Malay speakers |
+| **Growth (Phase 3)** | Months 6–12 | Stabilize rankings, DA ~15–25, ~20–30 quality posts | Same + organic international discovery |
+| **Expansion (Phase 4+)** | Year 1+ | Launch English content targeting global keywords | USA, global English speakers |
+
+### Why Local-First Works
+
+- **Easier early wins** — Ranking for "apa itu AI" in Malaysia is far easier than "what is AI" globally
+- **Backlinks compound** — Local press, Malaysian directories, regional mentions all feed DA
+- **Google remembers trust** — 12 months of quality content + steady traffic > brand-new site
+- **Content engine is proven** — By expansion time, workflow + voice guide + publishing process are established
+
+### Expansion Triggers (When to Start English Content)
+
+- [ ] DA reaches ~20+ (check via ClickRank or Moz)
+- [ ] Consistent non-Malaysia clicks in Search Console over 2–3 months (not just impressions)
+- [ ] ~20–30 quality BM posts live
+- [ ] Stable traffic from Google Search (not dependent on social)
+
+### How Expansion Would Work
+
+1. Add an English category (e.g. `/category/en/` or separate English section)
+2. Rewrite or create new English versions of best-performing BM posts with US/global examples
+3. Target comparison keywords that work in English (e.g. "ChatGPT vs Gemini vs Claude")
+4. Keep BM content alive — bilingual sites are legitimate, don't abandon the local audience
+5. DA from BM content inherits to English content on the same domain
+
+### Voice Standard (updated 2026-07-17)
+
+All content uses natural formal–semi-formal Bahasa Melayu. Full voice guide is documented in `AGENTS.md` under "DigiTrust Lab Writing Voice". Key rule: write Malay directly in Malay, never translate mechanically from English, and select register sentence by sentence using the read-aloud test. Preserve polished formal constructions when they sound natural, precise, and clear; use semi-formal phrasing for warmth and accessibility. Use `anda`/`kami`, avoid `korang`, follow BM baku, and retain appropriate English tech terms. This standard applies to posts, pages, email copy, and all future content.
 
 ---
 

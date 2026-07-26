@@ -143,9 +143,11 @@
 | URL | https://digitrustlab.com/chatgpt-vs-gemini-vs-claude-panduan-pilihan-ai-2026/ |
 | Post ID | 490 |
 | Published Date | 2026-07-26 |
-| Rank Math Score | 84/100 (Grade B) |
+| Rank Math Score | 100/100 (Grade A) — optimized 2026-07-26 |
 | Affiliate | None (comparison post) |
 | Type | Comparison |
+| ClickRank | ✅ Done — added "chatgpt vs gemini vs claude" (Malaysia, URL tracked) |
+| Screpy | ✅ Done — added "chatgpt vs gemini vs claude" (Both Desktop & Mobile, MY/MS) |
 
 ## Post #7 — PLANNED
 
