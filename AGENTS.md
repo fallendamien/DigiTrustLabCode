@@ -110,6 +110,10 @@ or infrastructure task unless Zamri explicitly instructs it.
 
 **Workaround still in place:** `.bricks-archive-title-wrapper { display: none !important; }` in WP Additional CSS hides the "Category: X" heading on category pages that do have posts.
 
+### 🎨 WordPress Additional CSS Backup
+
+All custom CSS added via WordPress Customizer → Additional CSS is backed up in `docs/tablepress-custom-css.md`. **Whenever CSS changes are made to the Customizer, update that backup file in the same session.** This includes TablePress styling, Bricks workarounds, and any other site-wide CSS rules.
+
 ### 🧩 Respira MCP (PRIMARY TOOL — replaced old Bricks MCP 2026-07-05)
 
 **Respira MCP is active on digitrustlab.com (live Hostinger site).** Connected to Windsurf and Claude Desktop.
