@@ -125,7 +125,10 @@
 | Selected keywords (8) | cara buat gambar ai (720) · free (140) · gemini (110) · muka sendiri (70) · di chatgpt (40) · dari foto (10) · sendiri (10) · kartun (10) — combined 1,110 |
 | SERP check | 6 of 10 results are small MY blogs (siraplimau, profhariz, sifoo, siakapkeli, wasapbot) — winnable. Canva ×2 = product pages, Astro Awani + Kosmo = news |
 | Category | Prompt Engineering |
-| Status | **DRAFTING** — AI draft generated 2026-07-29, pending edit pass |
+| Status | **DRAFT IN WORDPRESS** — Post ID `536`, awaiting images then publish |
+| WP Post ID | `536` · slug `cara-buat-gambar-ai` · category Prompt Engineering (id 8) |
+| SEO title | Cara Buat Gambar AI Percuma: Panduan Lengkap untuk Pemula 2026 (62 chars) |
+| Rank Math | **95/100 Grade A** — 12 of 13 pass. Only "has images" outstanding (needs the 4 Gemini images) |
 | WriterZen Article | Content Creator report `243737` — ⛔ **SUPERSEDED, DO NOT PUBLISH FROM IT** |
 | **Authoritative content** | ✅ `content/drafts/post-4-cara-buat-gambar-ai.html` (repo) — this is what ships via Respira |
 | Draft title (AI) | Panduan Lengkap: Cara Buat Gambar AI – Definisi, Manfaat, dan Langkah Mudah Membuat Gambar AI Percuma *(too long for SEO title — shorten to ≤60 chars)* |
