@@ -1,3 +1,8 @@
+---
+name: internal-link-builder
+description: Strategic internal link building for WordPress sites via Respira MCP. Analyzes all published content, maps topic relationships, identifies high-value linking opportunities between pages, and presents a plan for approval before making any changes. Use whenever someone mentions internal links, link building, content interlinking, orphaned pages, topic clusters, pillar pages, or wants to improve internal link structure for SEO.
+---
+
 # Internal Link Builder
 
 **Version:** 1.2.0

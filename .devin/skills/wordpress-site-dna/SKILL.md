@@ -1,3 +1,8 @@
+---
+name: wordpress-site-dna
+description: Archaeological analysis of WordPress sites via Respira MCP — uncover what's running, detect technical debt, identify optimization opportunities across builders (Bricks, Elementor, Divi, WPBakery, Beaver, Oxygen, Breakdance, Divi 4/5, WPBakery, Uncode, Spectra, Kadence Blocks, GenerateBlocks, SeedProd). Use when onboarding a new WordPress site, diagnosing unknown architecture, or planning a migration/refactor.
+---
+
 # WordPress Site DNA
 
 **Version:** 1.1.0

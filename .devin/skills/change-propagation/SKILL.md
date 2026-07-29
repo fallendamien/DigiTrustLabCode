@@ -1,3 +1,8 @@
+---
+name: change-propagation
+description: Auto-scan and apply ANY policy/style/standard change across all related files when the user requests it, so the user never has to ask "also update X." Use when the user says "update the policy", "new rule", "add a rule", "change the standard", or any request to modify a project-wide convention.
+---
+
 # Change Propagation Protocol
 
 > When user requests ANY policy/style/standard change, auto-scan all related files and apply everywhere — never make the user ask "also update X."

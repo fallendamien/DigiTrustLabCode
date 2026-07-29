@@ -1,3 +1,8 @@
+---
+name: bricks-mcp-absolute
+description: Enforce Respira MCP as the ONLY tool for any visual/styling change to Bricks elements (padding, margins, colors, fonts, animations, layout, responsive CSS, mobile menu, footer). Use on EVERY task that touches Bricks templates — no exceptions, no raw HTML/CSS/JS, no post-processing scripts.
+---
+
 # Respira MCP Absolute — Skill
 
 ## When to Use

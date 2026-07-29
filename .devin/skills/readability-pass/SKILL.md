@@ -1,3 +1,8 @@
+---
+name: readability-pass
+description: Break up walls of text in blog posts by adding visual resting points — images, pull quotes, callouts, stat blocks, tables. Use after publishing a post with dense paragraphs and no visual breaks, when a post has 0 in-content images, when Rank Math flags density, or when user says "sea of text", "wall of text", "too dense", "hard to read", or before starting a new post to set a visual standard.
+---
+
 # Readability Pass — Breaking Up Walls of Text
 
 ## Trigger

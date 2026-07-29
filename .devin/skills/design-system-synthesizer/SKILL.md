@@ -1,3 +1,8 @@
+---
+name: design-system-synthesizer
+description: Read a WordPress site's representative pages, theme files, and media library via Respira MCP to extract a complete reusable design system (logo, color palette, typography, spacing, component patterns) and persist it to the site so every future page matches the existing brand. Use when establishing brand consistency, onboarding a new site, or before building new pages.
+---
+
 # Design System Synthesizer
 
 **Version:** 1.2.0

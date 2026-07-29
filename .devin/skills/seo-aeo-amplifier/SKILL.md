@@ -1,3 +1,8 @@
+---
+name: seo-aeo-amplifier
+description: Comprehensive on-page SEO and Answer Engine Optimization (AEO) audit and auto-fix system for WordPress via Respira MCP. Scans all content, detects issues, generates schema markup, optimizes meta titles/descriptions/H1s. Use for SEO audits, AEO optimization, schema markup, meta tag fixes, Rank Math optimization, or improving AI search visibility (ChatGPT, Perplexity, Claude, Gemini citations).
+---
+
 # SEO & AEO Amplifier
 
 **Version:** 1.3.0

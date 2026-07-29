@@ -1,3 +1,8 @@
+---
+name: brand-voice-synthesizer
+description: Extract and persist a per-site brand voice profile for WordPress via Respira MCP, then enforce that voice across all content creation and review tasks. Use whenever writing, editing, or auditing Malay/English copy, brand consistency checks, or wiring the voice profile into the broader brand system (Page Template Library, Design System Synthesizer).
+---
+
 # Brand Voice Synthesizer
 
 **Version:** 1.1.0
