@@ -130,7 +130,22 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
 
 4. **Decision:**
    - **Weak Spot ≥ 2** → proceed to Phase 2
-   - **Weak Spot 0–1** → the top 10 is all high-authority. Go back to Phase 0a and pick a different candidate angle. Do not write it anyway
+   - **Weak Spot 0–1** → the top 10 is high-authority. **Do not write it yet** — run the fallback protocol below
+
+#### Fallback protocol when the gate fails (do this before ANY override)
+
+> ⚠️ "Go back to Phase 0a" means **pick a different candidate from the Topic Discovery output you already have** — it does NOT mean re-running Topic Discovery. That run already produced dozens of candidate angles; re-running the same seed burns a lookup and returns the same topics. Only re-run Topic Discovery when the existing candidates are exhausted, or when moving to a different subject area entirely. (Unmined depth in an existing run: the per-card **"Show ideas"** panels, and re-reading at a different Relevance setting.)
+
+1. Pick 2-4 alternative angles from the existing Topic Discovery output
+2. Run each through Keyword Explorer (1 lookup each — cheap). **Check volume first** — many trending Malay phrases have literally 0 search volume because the interest lives on TikTok/Facebook, not Google
+3. For any survivor with real volume, check its SERP for news-domination (high-DA outlets = unwinnable for a new site)
+4. **Compare against the original candidate.** Then:
+   - **A better option exists** → take it, no override needed
+   - **All alternatives are worse** → an override may be justified, but only as a *comparative, evidence-backed* decision. Never override on the first failure without testing alternatives — that is rationalisation, not judgement
+
+**If overriding, record ALL of this in `content/content-calendar.md`:** the measured Weak Spot values, every alternative tested and why it was rejected, the specific reasons the keyword is still viable (All-in-Title, LDA, intent-mismatched SERP slots), an honest ranking-timeline expectation, who approved it, and a revisit trigger. An undocumented override is not permitted — the audit trail is what separates a judgement call from ignoring the gate. See Post #4 (2026-07-29) for the reference example.
+
+**Useful context when weighing an override:** DA is Moz's third-party estimate and **Google does not use it**, so Weak Spot is a proxy built on a proxy — a strong sanity check, not physics. Weigh it against All-in-Title (direct competition signal), LDA (proof a small site can hold a slot), and how many page-1 slots are intent-mismatched (product pages and news articles are far more displaceable than dedicated guides).
 5. *(Optional, high-value)* Run **Domain Filter** → filter for social domains (YouTube, Reddit, Quora) ranking in top 10. Social results in the SERP = a genuine content gap a blog post can fill
 6. Record **Weak Spot** and **Average DA** in the post's `content-calendar.md` entry
 

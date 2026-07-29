@@ -125,11 +125,46 @@
 | Selected keywords (8) | cara buat gambar ai (720) · free (140) · gemini (110) · muka sendiri (70) · di chatgpt (40) · dari foto (10) · sendiri (10) · kartun (10) — combined 1,110 |
 | SERP check | 6 of 10 results are small MY blogs (siraplimau, profhariz, sifoo, siakapkeli, wasapbot) — winnable. Canva ×2 = product pages, Astro Awani + Kosmo = news |
 | Category | Prompt Engineering |
-| Status | Research done — next: cluster into new Planner project, then Weak Spot gate |
+| Status | **APPROVED TO WRITE — documented override** (see below) · next: Content Brief |
 | Affiliate | None |
 | Type | Beginner guide (sub-pillar) |
-| WriterZen jobs | Topic Discovery `244849` · Keyword Explorer `1560055` |
+| WriterZen jobs | Topic Discovery `244849` · Keyword Explorer `1560055` · Planner project `178376` ("Post 4 — Cara Buat Gambar AI") |
 | Research date | 2026-07-29 (30-day freshness expires 2026-08-28) |
+
+### ⚠️ DOCUMENTED OVERRIDE — Weak Spot gate failed (2026-07-29)
+
+**The gate:** `Weak Spot ≥ 2` required. **Measured: 1.** No keyword in the cluster reached 2.
+
+| Keyword | Weak Spot | Avg DA | LDA | HDA |
+|---------|----------:|-------:|----:|----:|
+| cara buat gambar ai | 1 | 66 | 12 | 90 |
+| …ai gemini | 1 | 64.5 | 11 | 90 |
+| …ai di chatgpt | 1 | 64.1 | 11 | 90 |
+| …ai kartun | 1 | 61.4 | 11 | 90 |
+| …ai free / muka sendiri / sendiri / dari foto | 0 | 71.5–73.4 | 43 | 90 |
+
+**The gate was followed, not bypassed.** Per the workflow, alternative angles from the Topic Discovery output were tested before any override was considered:
+
+| Alternative tested | Result | Why rejected |
+|--------------------|--------|--------------|
+| `cara repair gambar lama` | Volume **0** | No demand. Google reads "repair" as electronics repair (SERP returned TV repair articles) |
+| `cara buat gambar figura 3d` | Volume **0** | No demand despite viral trend content existing |
+| `nano banana` (head term) | 33,100 vol | SERP is Astro Awani, Amanz, LinkedIn — news-dominated, unwinnable for a new site |
+| `nano banana` (how-to + question long tail) | **~120 vol total** | Demand doesn't exist in search; tutorial interest lives on TikTok/Facebook |
+
+**Market pattern found:** Malay AI-image search splits into two extremes — high-volume branded/generic terms owned by high-DA news and established blogs, or hyper-specific phrases with zero volume. There is no low-competition middle in this space.
+
+**Override rationale:**
+1. It is the **only** candidate with real demand *and* uncontested on-page targeting (All-in-Title **0** — no page optimises a title for this phrase while 720/mo search it)
+2. KD by Content 0, KD by Signal 0
+3. **LDA 12** — a genuinely small site already holds a top-10 slot, so the SERP is not closed
+4. 4 of 10 page-1 slots are **intent-mismatched** (Canva product pages ×2, Astro Awani + Kosmo news) — displaceable by content that actually answers the query. Real competitors are only Sirap Limau, ProfHariz, Sifoo
+5. DA is Moz's third-party estimate — **Google does not use it**. Weak Spot is a useful proxy, not a veto
+6. Value is structural: this is the **sub-pillar hub** that future leaf posts (styles, Gemini, raya posters, flat illustration) link up to
+
+**Expectation set honestly:** not position #1, and not fast. Realistically **6–12 months** to page 1 for the head term; long-tail variants (`free`, `gemini`, `muka sendiri`) should land sooner. Approved by Zamri on 2026-07-29 with this timeline understood.
+
+**Revisit trigger:** if this post has not reached page 1 within 12 months, re-evaluate whether the space is viable at DigiTrust Lab's authority level before writing further leaf posts under it.
 
 **Excluded from this post (future leaf posts):**
 - `bergerak` (40) + `jadi video` (10) → separate post on AI **video** generation
