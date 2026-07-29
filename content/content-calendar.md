@@ -105,16 +105,37 @@
 | External Links | 1 (openai.com/chatgpt — dofollow) |
 | Affiliate | None |
 
-## Post #4 — PLANNED
+## Post #4 — RESEARCH DONE (keyword confirmed 2026-07-29)
+
+> **Scope changed 2026-07-29.** Was *"10 Prompt AI untuk Buat Illustration Flat"* — a style-specific prompt gallery. Topic Discovery found **zero Malay search demand for "flat illustration"** across 76 topics, so the post was repositioned as a **beginner sub-pillar** on generating AI images. Style-specific posts (flat illustration, anime, 3D figura) become leaf posts linking up to this one.
 
 | Field | Value |
 |-------|-------|
-| Title | 10 Prompt AI untuk Buat Illustration Flat (dengan Contoh) |
-| Keyword | TBD |
+| Title (provisional) | Cara Buat Gambar AI: Panduan Lengkap untuk Pemula 2026 |
+| **Primary Keyword** | **cara buat gambar ai** |
+| Search Volume | **720/mo** (12-mo avg) · last month 390 · highest 1,600 · lowest 170 |
+| **Golden Score** | **1.0** (target <10 — excellent) |
+| **All-in-Title** | **0** (target <10 — zero pages optimise this phrase in their title) |
+| KD by Content | 0 |
+| KD by Signal | 0 |
+| KD by Traffic | 1 |
+| KD by Google Ads | 47 (ad-bidding metric, not organic) |
+| CPC | $1.06 |
+| Cluster total volume | 2,010 across 141 keyword ideas |
+| Selected keywords (8) | cara buat gambar ai (720) · free (140) · gemini (110) · muka sendiri (70) · di chatgpt (40) · dari foto (10) · sendiri (10) · kartun (10) — combined 1,110 |
+| SERP check | 6 of 10 results are small MY blogs (siraplimau, profhariz, sifoo, siakapkeli, wasapbot) — winnable. Canva ×2 = product pages, Astro Awani + Kosmo = news |
 | Category | Prompt Engineering |
-| Status | Not started |
-| Affiliate | None (prompt gallery post) |
-| Type | Prompt gallery |
+| Status | Research done — next: cluster into new Planner project, then Weak Spot gate |
+| Affiliate | None |
+| Type | Beginner guide (sub-pillar) |
+| WriterZen jobs | Topic Discovery `244849` · Keyword Explorer `1560055` |
+| Research date | 2026-07-29 (30-day freshness expires 2026-08-28) |
+
+**Excluded from this post (future leaf posts):**
+- `bergerak` (40) + `jadi video` (10) → separate post on AI **video** generation
+- `anime`, `miniatur`, `viral`, `figura 3D`, flat illustration → style-specific leaf posts
+- `gratis`, `di hp`, `berbicara` → Indonesian-language variants, not Malay
+- ⚠️ **Passport photos — do NOT cover.** Demand exists, but the SERP carries an Astro Awani report of authorities warning applicants *against* AI passport photos. Publishing a how-to would advise something officially discouraged.
 
 ## Post #5 — PLANNED
 
@@ -197,17 +218,24 @@
 
 ## Workflow (Option C — Standard Pipeline)
 
-1. **Research keyword** — WriterZen → Keyword Explorer (Malay, Malaysia) → Golden Filter
-2. **Record metrics** — Update this calendar + `content/SEO-CHEATSHEET.md`
-3. **Keyword Planner** — Add keyword to existing project "DigiTrust Lab Blog Posts" (ID: 178201) → Cluster into Topic
-4. **Suggest Content Brief** — From Keyword Planner cluster → Click "Suggest Content Brief" → Manually adjust all 6 brief fields using values from this calendar
-5. **Create Article** — Select existing "DigiTrust Lab" project → Check "Write article title, description & outline" → Click Create
-6. **Content Creator Step 1: Outline** — Review AI-generated outline, adjust headings, plan internal links
-7. **Content Creator Step 2: Keywords** — Select ~8-10 relevant keywords from Competitor's keywords + Suggested by WriterZen
-8. **Content Creator Step 3: Write** — Use "Write all for me" (AI Creativity Level = 1) → Run Show Analysis → Run Plagiarism Check → Save
-9. **Publish to WordPress** — Copy content from WriterZen → Update draft via `respira_update_post` → Set Rank Math SEO fields → Set featured image → Publish
-10. **Verify on live site** — Navigate to URL, check rendering, SEO title, internal links
-11. **Mark as published** — Update this calendar
+> **Full step-by-step:** `.devin/workflows/write-post.md` is the authoritative version. This is the summary.
+
+0. **Quota check** — WriterZen Settings → Limits. Note Keyword Credit + AI Words remaining before spending any
+1. **Topic Discovery** — Seed the broad topic (Malay, Malaysia) → find the winnable angle → confirm or revise the planned title. Titles here are provisional until this step
+2. **Research keyword** — WriterZen → Keyword Explorer (Malay, Malaysia) → **apply Golden Filter** (Golden Score ≤10, All-in-Title ≤10, Volume ≥100) → manual SERP check that small MY blogs rank
+3. **Record metrics** — Update this calendar (include Golden Score + All-in-Title) + `content/SEO-CHEATSHEET.md`
+4. **Keyword Planner** — Add keywords to Keyword List "DigiTrust Lab Blog Posts" (ID: 68708) → Cluster into a **NEW** Planner project named for this post (clustering is one-time; it cannot append to an existing project)
+5. **Verify beatable** — Activate Metrics → **Weak Spot ≥ 2** required. If 0–1, go back to step 1 and pick another angle
+6. **Suggest Content Brief** — From Keyword Planner cluster → Click "Suggest Content Brief" → Manually adjust all 6 brief fields using values from this calendar
+7. **Create Article** — Select existing "DigiTrust Lab" project FIRST (Create button stays disabled otherwise) → Check "Write article title, description & outline" → Click Create
+8. **Content Creator Step 1: Outline** — Review AI-generated outline, adjust headings, plan internal links
+9. **Content Creator Step 2: Keywords** — Enable **Highlight Keywords** toggle first → prioritize Opportunity keywords over Competitive → select ~8-10
+10. **Content Creator Step 3: Write** — Use "Write all for me" (AI Creativity Level = 1) → reformat walls of text → Run Show Analysis → Run Plagiarism Check → Save
+11. **Publish to WordPress** — Copy content from WriterZen → Update draft via `respira_update_post` → Set Rank Math SEO fields → Set featured image → Publish → set excerpt via WP editor
+12. **Rank Math optimization** — Sidebar check, aim 80+, fix essential checks
+13. **Verify on live site** — Navigate to URL, check rendering, SEO title, internal links
+14. **Rank tracking** — ClickRank (AI Overview + Keyword Tracker) + Screpy Rank Tracker, focus keyword only
+15. **Mark as published** — Update this calendar
 
 > **Never skip the Content Creator pipeline.** The outline must be generated through WriterZen's AI + competitor research, not manually planned.
 

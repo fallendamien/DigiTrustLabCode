@@ -576,9 +576,20 @@ For broader marketing strategy (competitor teardown, E2E SEO, ICP research, cont
 
 **Before writing any blog post, run `/write-post` for the full end-to-end pipeline.** Load the `writerzen-keyword-research` skill for keyword research, then follow the Option C workflow for content creation.
 
-**Option C Pipeline:** Keyword Explorer → Keyword Planner (Suggest Content Brief + manually adjust 6 fields) → Content Creator (outline → keywords → write) → publish via Respira MCP → internal linking → documentation
+**Option C Pipeline:** Quota check → **Topic Discovery** → Keyword Explorer (**+ Golden Filter**) → Keyword List → Cluster into a NEW Planner project → **Verify Weak Spot ≥ 2** → Keyword Planner (Suggest Content Brief + manually adjust 6 fields) → Content Creator (outline → keywords → write) → publish via Respira MCP → Rank Math → rank tracking → internal linking → documentation
 
 > **Never skip the Content Creator pipeline.** The outline must be generated through WriterZen's AI + competitor research, not manually planned.
+
+> ### ⛔ Four research gates — never skip these (added 2026-07-29)
+>
+> These were previously absent from this summary, so agents (Devin included) jumped straight to Keyword Explorer and silently skipped the research front-half. All four are MANDATORY:
+>
+> 1. **Quota check** — WriterZen → Settings → Limits, BEFORE spending anything. Golden Filter costs 1 credit per keyword in the result set. **AI Words cap is 8,000/month (~8 AI-drafted posts)** — check the balance covers this post before choosing "Write all for me".
+> 2. **Topic Discovery FIRST** — never start at Keyword Explorer with a guessed keyword. Seed the broad topic, find the winnable angle, then confirm or revise the planned title. **Titles in `content-calendar.md` are provisional until Topic Discovery validates them** — the keyword decides the title, not the reverse.
+> 3. **Golden Filter** — apply in Keyword Explorer before clustering. Golden Score ≤10, All-in-Title ≤10, Volume ≥100 (volume may relax to 50 for Malay long-tail; **never relax the other two**). Then manually check the SERP for small Malaysian blogs ranking — metrics give numbers, the SERP gives reality.
+> 4. **Weak Spot gate** — in Keyword Planner, click *Activate Metrics* and read Weak Spot. **≥ 2 required to proceed.** If 0–1, the top 10 is all high-authority: go back to Topic Discovery and pick another angle. Do not write it anyway.
+>
+> **Keyword Planner projects:** create a **NEW** project per post topic — WriterZen clustering is one-time and cannot append. Legacy project 178201 is NOT a reuse target. (The Keyword List "DigiTrust Lab Blog Posts" ID 68708 *is* reused — one permanent list for all posts.)
 
 **Quick reference:**
 - Tools: Topic Discovery, Keyword Explorer, Keyword Planner, Content Creator

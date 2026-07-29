@@ -1,5 +1,5 @@
 ---
-description: Write and publish a blog post using the WriterZen Option C pipeline (Keyword Explorer → Keyword List → Keyword Planner → Content Brief → Content Creator → publish via Respira MCP)
+description: Write and publish a blog post using the WriterZen Option C pipeline. Starts with a quota check and Topic Discovery (never skip these — do NOT start at Keyword Explorer with a guessed keyword), then Keyword Explorer + Golden Filter → Keyword List → cluster into a NEW Keyword Planner project → Weak Spot ≥ 2 gate → Content Brief → Content Creator → publish via Respira MCP → Rank Math → ClickRank/Screpy rank tracking.
 ---
 
 # Write & Publish a Blog Post (Option C Pipeline)
@@ -10,9 +10,10 @@ This is the standard workflow for every DigiTrust Lab blog post. Follow these st
 
 - WriterZen account active (app.writerzen.net)
 - Respira MCP connected to digitrustlab.com
-- Existing WriterZen Keyword Planner project: "DigiTrust Lab Blog Posts" (ID: 178201)
-- Existing Content Creator project: "DigiTrust Lab"
-- Existing Keyword List: "DigiTrust Lab Blog Posts" (ID: 68708)
+- Existing Content Creator project: "DigiTrust Lab" (reuse — never create new)
+- Existing Keyword List: "DigiTrust Lab Blog Posts" (ID: 68708) — the one permanent list for all posts
+- Keyword Planner: a **new project per post topic** is created during Phase 1. Legacy project 178201 exists but is NOT a reuse target
+- WriterZen quota headroom — verify in Phase -1 before starting
 
 ## WriterZen Tool Hierarchy (CRITICAL — know this before starting)
 
@@ -38,12 +39,42 @@ This is the standard workflow for every DigiTrust Lab blog post. Follow these st
 
 ## Steps
 
-### Phase 0: Keyword Research (Keyword Explorer → Keyword List)
+### Phase -1: Quota Check (MANDATORY — before any research session)
+
+Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keyword ideas = 39 credits). Never start research blind.
+
+1. Navigate to `https://app.writerzen.net/user/profile-setting?tab=limit`
+2. Record remaining: **Topic Lookup/Day**, **Keyword Lookup/Day**, **Keyword Credit/Month**, **AI Words/Month**
+3. Apply the budget rules:
+   - Keyword Credit < 10,000 → selective Golden Filter only (top 3-5 keywords, not full result sets)
+   - Keyword Credit < 5,000 → skip Golden Filter, fall back to manual KD + All-in-Title checks via SERP overview
+   - **AI Words/Month = 8,000 total.** At ~1,000 words/post, "Write all for me" (Phase 5) supports roughly **8 posts/month**. If the remaining balance won't cover this post, switch to "I'll write myself" and draft natively instead.
+4. Note consumption at end of session; update `content/SEO-CHEATSHEET.md` limits table if running low
+
+> **30-day freshness rule:** WriterZen search results expire after 30 days. If the last Keyword Explorer run for this topic is older than 30 days, start a fresh search — do NOT reuse stale metrics.
+
+### Phase 0a: Topic Discovery (find the winnable angle BEFORE committing to a title)
+
+> **Why this exists:** DigiTrust Lab is a low-DA site. Picking a title first and hunting for a keyword afterwards is backwards — it commits you to an angle before checking whether it's rankable. Topic Discovery reverses that. Planned titles in `content-calendar.md` are **provisional** until this phase confirms them.
+
+1. Navigate to WriterZen → Topic Discovery
+2. Set **Language: Malay**, **Location: Malaysia**
+3. Enter the broad seed for the planned post (e.g. "prompt AI illustration", not the full title)
+4. Set **Relevancy: Closely** (start narrow; widen only if results are thin)
+5. Sort **By Search Volume**
+6. Review the topic cards:
+   - **Golden star** = upward search volume trend → prioritize these
+   - Open **Show Ideas** on the strongest cards → read *Headlines to Consider*, *Google Suggest Insights*, *Related Google Searches*
+7. Pick 2-4 candidate angles/subtopics that look narrower and more winnable than the original planned title
+8. **Confirm or revise the planned title** in `content-calendar.md` based on what Topic Discovery found
+9. Carry the candidate seeds into Phase 0b
+
+### Phase 0b: Keyword Research (Keyword Explorer → Golden Filter → Keyword List)
 
 1. Navigate to WriterZen → Keyword Explorer
 2. Set **Language: Malay**, **Location: Malaysia**
 3. Check "Save language & location as default"
-4. Enter target keyword (e.g. "cara prompt chatgpt")
+4. Enter the candidate seed from Phase 0a (e.g. "cara prompt chatgpt")
 5. Click Search
 6. Analyze results:
    - **Search volume** — check if sufficient (even 10-20/mo is OK if KD=0)
@@ -51,11 +82,19 @@ This is the standard workflow for every DigiTrust Lab blog post. Follow these st
    - **Keyword ideas** — review all variants (phrase match + also searched for)
    - **Total search volume** — combined cluster volume
    - **SERP Overview** — check competitor content quality
-7. Select the top 5-10 most relevant keyword variants (highest volume, most relevant intent)
-8. Click **Add to** → **Add keyword to LIST** (NOT "Add keyword to group"!)
-9. Select existing list: "DigiTrust Lab Blog Posts"
-10. Click **Add**
-11. Record keyword metrics in `content/content-calendar.md`
+7. **Apply Golden Filter (MANDATORY — this is the primary low-DA screen):**
+   - Check the keyword idea count first and confirm the credit cost in the confirmation dialog before clicking Confirm
+   - Thresholds: **Golden Score max 10** · **Search Volume min 100** · **All-in-Title max 10**
+   - If nothing survives at Volume min 100 (common for Malay long-tail), relax volume to 50 — but **never relax Golden Score above 10 or All-in-Title above 10**
+   - Golden Score bands (source `writerzen-guide/07`): **0–30** Level 1 (low competition, high volume — what we want) · **30–70** Level 2 · **70–100** Level 3 (crowded). Gate at **≤10** for low-DA; **≤1.618** is the ideal ceiling WriterZen names the score after. Both figures are sourced — do not "correct" one into the other.
+   - ⚠️ When All-in-Title is 0, the score floors at ~1.0 with a volume tiebreaker rather than computing to 0 — in that case **read All-in-Title, not Golden Score**, as the competition signal
+   - ⚠️ Golden Filter only works on keywords that have All-in-Title data
+8. **Manual SERP sanity check** — metrics give numbers, the SERP gives reality. Open the SERP overview and confirm small Malaysian blogs are ranking in the top 10. If the page 1 is all global giants, the keyword is not winnable regardless of score
+9. Select the surviving top 5-10 keyword variants (highest volume, most relevant intent)
+10. Click **Add to** → **Add keyword to LIST** (NOT "Add keyword to group"!)
+11. Select existing list: "DigiTrust Lab Blog Posts"
+12. Click **Add**
+13. Record keyword metrics in `content/content-calendar.md` — including **Golden Score** and **All-in-Title**, not just volume/KD
 
 ### Phase 1: Keyword List → Keyword Planner (Cluster)
 
@@ -73,6 +112,27 @@ This is the standard workflow for every DigiTrust Lab blog post. Follow these st
 7. Navigate to the new Keyword Planner project
 8. Verify the keywords appear in clusters (check sidebar for topic/cluster names)
 9. Click on the target cluster to view its keywords
+
+### Phase 1.5: Verify the Keyword Is Beatable (Activate Metrics → Weak Spot)
+
+> **Why this exists:** AGENTS.md and the WriterZen skill both set `Weak Spot ≥ 2` as a ranking criterion, but nothing in the pipeline ever measured it. This is the gate that proves a low-DA site can actually take the keyword. Do NOT proceed to the content brief until it passes.
+
+1. In the Keyword Planner project, select the target cluster
+2. Click **Activate Metrics** in the bottom taskbar (consumes keyword credits — confirm the cost first)
+3. Read the new columns:
+
+   | Metric | Meaning | DigiTrust Lab gate |
+   |--------|---------|-------------------|
+   | **Weak Spot** | URLs in top 10 with DA < 30 | **≥ 2** (≥ 3 ideal) |
+   | **LDA** | Lowest DA in top 10 | Lower = more room |
+   | **Average DA** | Mean DA of top 10 | Lower = more winnable |
+   | **HDA** | Highest DA in top 10 | Context only |
+
+4. **Decision:**
+   - **Weak Spot ≥ 2** → proceed to Phase 2
+   - **Weak Spot 0–1** → the top 10 is all high-authority. Go back to Phase 0a and pick a different candidate angle. Do not write it anyway
+5. *(Optional, high-value)* Run **Domain Filter** → filter for social domains (YouTube, Reddit, Quora) ranking in top 10. Social results in the SERP = a genuine content gap a blog post can fill
+6. Record **Weak Spot** and **Average DA** in the post's `content-calendar.md` entry
 
 ### Phase 2: Keyword Planner → Content Brief
 
@@ -113,10 +173,26 @@ This is the standard workflow for every DigiTrust Lab blog post. Follow these st
 
 ### Phase 4: Content Creator Step 2 — Keywords to Include
 
-1. Review **Competitor's Keywords** — add relevant ones (target ~8-10)
-2. Review **Suggested by WriterZen** — add any that fit naturally
-3. Optionally import from a saved WriterZen keyword list
-4. Save keyword list
+1. **Enable the Highlight Keywords toggle FIRST** (before reviewing or editing any content):
+   - Keywords sidebar panel → "Highlight keywords" checkbox (DOM id: `switch-enable-serp`)
+   - Playwright `click()` times out here — a `<label>` intercepts pointer events. Toggle via JS evaluate:
+     ```js
+     document.getElementById('switch-enable-serp').click()
+     ```
+   - This highlights every target keyword already present in the draft and shows the `0/N` missing count, so you can see exactly where to weave keywords in naturally
+2. **Prioritize Opportunity keywords over Competitive keywords** — the two buckets are not equal:
+
+   | Type | What it means | Priority |
+   |------|--------------|----------|
+   | **Opportunity keywords** | Ranking potential that competitors *underuse* | 🥇 Add these first — this is the easiest win |
+   | **Competitive keywords** | Keywords competitors already rank for | Add naturally where they fit |
+
+3. Review **Competitor's Keywords** — add relevant ones (target ~8-10)
+4. Review **Suggested by WriterZen** — add any that fit naturally
+5. Optionally import from a saved WriterZen keyword list
+6. Save keyword list
+
+> **Never keyword-stuff.** Keywords must read naturally in Malay. If a keyword can't be placed without bending the sentence, leave it out — the Rank Math density target (0.5–2.5%) is a floor and ceiling, not a quota to force.
 
 ### Phase 5: Content Creator Step 3 — Write
 
@@ -252,9 +328,15 @@ This phase runs AFTER the post is published (Phase 6) but BEFORE documentation (
 - **Language:** Bahasa Melayu baku, formal–semi-formal, 'anda' not 'korang'
 - **Italic Policy (MANDATORY):** Italicize English terms code-switched into BM sentences using `<em>` tags (e.g. <em>prompt</em>, <em>brainstorming</em>, <em>chat</em>, <em>Sign Up</em>, <em>Enter</em>, <em>vs</em>, <em>chatbot</em>, <em>natural</em>). Do NOT italicize: brand names (ChatGPT, OpenAI), acronyms (AI, NLP, API), or fully absorbed loan words (online, email/emel, blog, download, upload, login, link, video, tutorial). Standardize spelling — use BM spelling "emel" not "email" throughout. See `malay-voice-guide/SKILL.md` §4c for full policy.
 - **AI Creativity Level:** Always set to 1
-- **WriterZen Project:** Always use existing "DigiTrust Lab" — never create new
-- **Keyword Planner Project:** Always use "DigiTrust Lab Blog Posts" (ID: 178201)
+- **Content Creator Project:** Always use existing "DigiTrust Lab" — never create new
+- **Keyword List:** Always use existing "DigiTrust Lab Blog Posts" (ID: 68708) — one permanent list for all posts
+- **Keyword Planner Project:** Create a **NEW** project per post topic (e.g. "Post 4 — Prompt AI Illustration"). WriterZen clustering is one-time and cannot append to an existing project. ⚠️ The older rule "always reuse project ID 178201 / never create new" was **WRONG** — 178201 is a legacy project, not a target. Do not reuse it.
 - **SERP View / AI Assistant toggles:** Leave OFF during Step 1 (Outline)
+- **Quota check (MANDATORY):** Never start a research session without Phase -1. Golden Filter costs 1 credit per keyword; AI Words cap is 8,000/month (~8 posts at 1,000 words)
+- **Golden Filter (MANDATORY):** Always apply in Phase 0b before clustering — Golden Score ≤10, All-in-Title ≤10, Volume ≥100 (relax volume to 50 if needed, never the other two)
+- **Weak Spot gate (MANDATORY):** Never write a post whose target cluster has Weak Spot < 2. Pick a different angle instead
+- **30-day freshness:** Re-run Keyword Explorer if the last search for this topic is older than 30 days
+- **Titles are provisional:** Planned titles in `content-calendar.md` are placeholders until Topic Discovery (Phase 0a) confirms a winnable angle. Keyword decides the title, not the reverse
 - **Never skip the Content Creator pipeline** — outline must be generated through WriterZen's AI + competitor research
 - **Featured image:** Always use Gemini Nano Banana 2 (NOT Openverse stock photos). Use the standard prompt template below. Cross-check visual style against Post #1 (`/apa-itu-ai/`)
 - **Image filenames (MANDATORY):** Every time you provide a Gemini prompt, ALSO provide the SEO-optimized filename. Format: `{post-slug}-{image-description}.png` (lowercase, hyphens only, no underscores). Example: `apa-itu-ai-neural-network.png`. This applies to both featured images and in-content images.

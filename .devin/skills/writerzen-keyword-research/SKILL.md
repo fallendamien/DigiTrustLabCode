@@ -199,23 +199,49 @@ Content ideas grouped into clusters: Questions (what/where/when/why/who/how), Pr
 
 **Golden Score** = probability a keyword will rank. Lower score = higher ranking potential.
 
-**Formula:** Based on Keyword Golden Ratio (KGR):
+**Formula (verified against `writerzen-guide/07`):**
 ```
-KGR = All-in-Title count ÷ Monthly Search Volume
+Golden Score = (All-in-Title ÷ Search Volume) × Class Ratio
 ```
 
-**Golden Score classification:**
-- **< 10:** Excellent — high probability of ranking (prioritize these)
-- **10–36:** Good — worth targeting with good content
-- **36–100:** Fair — possible but harder
-- **> 100:** Poor — avoid for low-DA sites
+Built on Doug Cunnington's Keyword Golden Ratio (`KGR = All-in-Title ÷ Monthly Search Volume`). WriterZen's Class Ratio scaling removes KGR's original 250-searches/month ceiling, so the Golden Score works at any volume.
 
-**Golden Filter settings for DigiTrust Lab (low-DA site):**
+**Class Ratio bands (the real classification — source: `writerzen-guide/07`):**
+
+| Level | All-in-Title | Search Volume | Golden Score range | Meaning |
+|-------|-------------|---------------|-------------------|---------|
+| **Level 1** | < 100 | > 100 | **0–30** | High value — low competition, high demand |
+| **Level 2** | < 100 | < 100 | **30–70** | Medium — low competition, low demand |
+| **Level 3** | > 100 | any | **70–100** | Low value — crowded SERP |
+
+> ⚠️ **Corrected 2026-07-29.** This file previously claimed bands of `<10 excellent · 10–36 good · 36–100 fair · >100 poor`. Those boundaries appear **nowhere** in the WriterZen source material — `36` and `100` were fabricated. The table above is the documented one.
+
+**Two thresholds exist in the source — both are valid, they answer different questions:**
+
+| Threshold | Where it comes from | Use it as |
+|-----------|--------------------|-----------|
+| **≤ 1.618** | `guide/07` — "does not recommend going above 1.618" (the golden ratio the tool is named for) | The **ideal** ceiling. A keyword under this is genuinely low-competition |
+| **≤ 10** | `guide/07` (Method 1 example) + `guide/09` (low-authority filter settings) | The **practical filter setting** for a low-DA site. This is the gate DigiTrust Lab applies |
+
+Keep the gate at **≤ 10** (it is what the source prescribes for low-authority sites), and treat **≤ 1.618** as the quality bar worth aiming for. Do NOT "fix" one of these into the other — both are sourced.
+
+**Golden Filter settings for DigiTrust Lab (low-DA site) — source: `guide/09`:**
 - Golden Score: max 10
 - Search Volume: min 100
 - All-in-Title: max 10
 
-**How to activate:** Click Golden Filter button → set thresholds → Apply. Filter only works on keywords with All-in-Title data available.
+**How to activate:** Click Golden Filter button → set thresholds → Apply. Filter only works on keywords with All-in-Title data available. Cost = 1 keyword credit per keyword in the result set.
+
+**Two filtering methods (source: `guide/07`):**
+
+| Method | Best for | What it returns |
+|--------|----------|----------------|
+| **By Ranking Probability** | Low-authority sites ← **DigiTrust Lab uses this** | Low All-in-Title keywords — lower volume, fewer competitors ("low-hanging fruit") |
+| **By Potential Value** | Established sites with authority + SEO teams | Higher volume but higher All-in-Title — competitive, long-term plays |
+
+**⚠️ Observed behaviour when All-in-Title = 0 (measured 2026-07-29, 141-keyword dataset — NOT documented by WriterZen):**
+The published formula returns `0 ÷ volume = 0`, but the UI displays ~**1.0** instead. Scores cluster at 1.0 with a tiny increment that grows as volume *falls* (720 → `1`, 140 → `1.001`, 110 → `1.002`, 10 → `1.01`), which looks like a floor plus a volume-based tiebreaker so higher-volume keywords sort first. A keyword with All-in-Title 1 jumped to `1.026`.
+**Practical implication:** when All-in-Title is 0 across a cluster, Golden Score is mostly a sorting device — **read All-in-Title as the real competition signal**, and treat 0 as the best possible result.
 
 ### Revenue Forecast
 
@@ -516,14 +542,18 @@ DigiTrust Lab is a new site with low Domain Authority. Strategy:
 
 ### KD Thresholds
 
-| Metric | Target | Ideal |
-|--------|--------|-------|
-| KD by Content | < 20 | 0 |
-| KD by Traffic | < 20 | 0 |
-| KD by Signal | < 20 | 0 |
-| Golden Score | < 10 | < 5 |
-| All-in-Title | < 10 | < 5 |
-| Weak Spot | ≥ 2 | ≥ 3 |
+| Metric | Target | Ideal | Source |
+|--------|--------|-------|--------|
+| KD by Content | < 20 | 0 | 🏠 DigiTrust Lab convention |
+| KD by Traffic | < 20 | 0 | 🏠 DigiTrust Lab convention |
+| KD by Signal | < 20 | 0 | 🏠 DigiTrust Lab convention |
+| Golden Score | ≤ 10 | ≤ 1.618 | 📘 `guide/07` + `guide/09` |
+| All-in-Title | < 10 | 0 | 📘 `guide/09` |
+| Weak Spot | ≥ 2 | ≥ 3 | 📘 `guide/15` |
+| Search Volume | ≥ 100 | — | 📘 `guide/09` (relax to 50 for Malay long-tail) |
+
+> **📘 = documented in the WriterZen course files** (`content/writerzen-guide/`) — do not change without checking the source.
+> **🏠 = DigiTrust Lab's own convention** — WriterZen publishes no KD threshold. These are our house rules and may be tuned; just don't cite them as vendor guidance.
 
 ### Content Calendar Integration
 
