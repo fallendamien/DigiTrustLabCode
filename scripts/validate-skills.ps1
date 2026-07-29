@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-  Validates SKILL.md frontmatter across .devin/skills and .windsurf/skills.
+  Validates SKILL.md frontmatter across project and/or global skill directories.
 
 .DESCRIPTION
   Scans every SKILL.md file under the configured skill directories and verifies:
@@ -11,27 +11,53 @@
     5. The name: value is kebab-case (lowercase letters, digits, hyphens only).
 
   Exits 0 if all skills pass, 1 if any violation is found.
-  Intended as a pre-commit guard or manual check after editing skills.
+  Intended as a pre-commit guard or manual check after creating/editing skills.
+
+  This is the GLOBAL copy (agent-templates/scripts/validate-skills.ps1), callable
+  from any project or from the template root itself. If -SkillRoots is not given,
+  it auto-detects:
+    - If run from inside a project (cwd has .devin/skills and/or .windsurf/skills),
+      those are scanned.
+    - Otherwise, falls back to the global skills library at
+      agent-templates/workspace/skills (this script's own directory tree).
 
 .PARAMETER SkillRoots
-  Array of skill directory roots to scan. Defaults to:
-    .devin/skills and .windsurf/skills
+  Array of skill directory roots to scan. Auto-detected if omitted (see above).
 
 .PARAMETER Strict
   Treat warnings (e.g. lowercase skill.md) as errors. Off by default.
 
 .EXAMPLE
   powershell -NoProfile -ExecutionPolicy Bypass -File scripts/validate-skills.ps1
+  # Run from a project root: scans .devin/skills + .windsurf/skills
+
+.EXAMPLE
+  powershell -NoProfile -ExecutionPolicy Bypass -File "$env:USERPROFILE\.codeium\windsurf\agent-templates\scripts\validate-skills.ps1"
+  # Run from anywhere with no project skill dirs: scans the global skills library
 #>
 
 [CmdletBinding()]
 param(
-    [string[]]$SkillRoots = @('.devin/skills', '.windsurf/skills'),
+    [string[]]$SkillRoots,
     [switch]$Strict
 )
 
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
+
+if (-not $SkillRoots) {
+    $cwd = (Get-Location).Path
+    $projectRoots = @(@('.devin/skills', '.windsurf/skills') | Where-Object {
+        Test-Path -LiteralPath (Join-Path $cwd $_) -PathType Container
+    })
+    if ($projectRoots.Count -gt 0) {
+        $SkillRoots = $projectRoots
+    } else {
+        $globalSkillsRoot = Join-Path (Split-Path -Parent $PSScriptRoot) 'workspace\skills'
+        $SkillRoots = @($globalSkillsRoot)
+        Write-Host "No project skill dirs found in $cwd - falling back to global skills library: $globalSkillsRoot" -ForegroundColor DarkCyan
+    }
+}
 
 $repoRoot = (Get-Location).Path
 $violations = [System.Collections.Generic.List[pscustomobject]]::new()
@@ -64,7 +90,7 @@ function Get-Frontmatter {
 }
 
 foreach ($root in $SkillRoots) {
-    $absRoot = Join-Path $repoRoot $root
+    $absRoot = if ([System.IO.Path]::IsPathRooted($root)) { $root } else { Join-Path $repoRoot $root }
     if (-not (Test-Path -LiteralPath $absRoot -PathType Container)) {
         Write-Host "? Skipping $root - directory not found" -ForegroundColor DarkYellow
         continue
