@@ -1,6 +1,6 @@
 ---
 name: malay-voice-guide
-description: Natural formal-to-semi-formal Bahasa Melayu writing standard for DigiTrust Lab. Use on ANY task involving writing, editing, or reviewing Malay content (blog posts, pages, copy, CTA text). Enforces DBP-aligned spelling/grammar, anti-salesy tone, and red-phrase avoidance. Reference style: PandaiTech.my, Ecentral.my.
+description: "Natural formal-to-semi-formal Bahasa Melayu writing standard for DigiTrust Lab. Use on ANY task involving writing, editing, or reviewing Malay content (blog posts, pages, copy, CTA text). Enforces DBP-aligned spelling/grammar, anti-salesy tone, and red-phrase avoidance. Reference style: PandaiTech.my, Ecentral.my."
 ---
 
 # Malay Voice Guide — Natural Formal–Semi-Formal Bahasa Melayu Standard

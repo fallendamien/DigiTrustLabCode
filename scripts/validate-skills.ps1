@@ -5,10 +5,18 @@
 .DESCRIPTION
   Scans every SKILL.md file under the configured skill directories and verifies:
     1. File is named exactly SKILL.md (uppercase) - flags lowercase skill.md.
-    2. File starts with YAML frontmatter (--- on line 1).
-    3. Frontmatter contains a name: field.
-    4. The name: value matches the parent directory name (kebab-case).
-    5. The name: value is kebab-case (lowercase letters, digits, hyphens only).
+    2. File starts with YAML frontmatter (--- on line 1) with a closing ---.
+    3. Frontmatter is valid, parseable YAML (via Python + PyYAML when available -
+       catches real syntax errors like an unquoted colon inside a description,
+       which a naive key:value regex would miss).
+    4. Frontmatter contains a name: field.
+    5. The name: value matches the parent directory name (kebab-case).
+    6. The name: value is kebab-case (lowercase letters, digits, hyphens only).
+
+  Check 3 requires `python` (or `python3`) with the `pyyaml` package installed.
+  If unavailable, the script automatically falls back to a regex-based
+  key:value extraction (the original behavior) and prints a one-time notice
+  that strict YAML syntax errors may be missed in that mode.
 
   Exits 0 if all skills pass, 1 if any violation is found.
   Intended as a pre-commit guard or manual check after creating/editing skills.
@@ -69,9 +77,103 @@ function Test-KebabCase {
     return $Value -match '^[a-z0-9]+(-[a-z0-9]+)*$'
 }
 
+# -- Real YAML parsing via Python + PyYAML (preferred), regex fallback otherwise --
+
+$script:PythonCmd = $null
+foreach ($candidate in @('python', 'python3')) {
+    if (Get-Command $candidate -ErrorAction SilentlyContinue) {
+        & $candidate -c "import yaml" 2>$null
+        if ($LASTEXITCODE -eq 0) {
+            $script:PythonCmd = $candidate
+            break
+        }
+    }
+}
+
+if ($script:PythonCmd) {
+    Write-Host "Strict YAML parsing enabled via '$($script:PythonCmd)' + PyYAML." -ForegroundColor DarkGray
+} else {
+    Write-Host "NOTE: Python + PyYAML not found - falling back to regex-based frontmatter checks." -ForegroundColor DarkYellow
+    Write-Host "      This mode may miss real YAML syntax errors (e.g. an unquoted colon inside description:)." -ForegroundColor DarkYellow
+}
+
+function Get-FrontmatterBlock {
+    param([string]$FilePath)
+    # Returns the raw YAML text between the --- delimiters, or $null if
+    # the file doesn't open with --- or never closes it.
+    $lines = Get-Content -LiteralPath $FilePath -ErrorAction Stop
+    if ($lines.Count -eq 0 -or $lines[0].TrimEnd() -ne '---') {
+        return $null
+    }
+    for ($i = 1; $i -lt $lines.Count; $i++) {
+        if ($lines[$i].TrimEnd() -eq '---') {
+            if ($i -eq 1) { return '' }
+            return ($lines[1..($i - 1)] -join "`n")
+        }
+    }
+    return $null
+}
+
+# Write the YAML-parsing helper to a real .py file once (not passed inline via
+# `-c`, which PowerShell mangles on Windows when the code contains quotes).
+$script:YamlParserScript = $null
+if ($script:PythonCmd) {
+    $pyCode = @'
+import sys, json, yaml
+try:
+    data = yaml.safe_load(sys.stdin.read())
+    if data is None:
+        data = {}
+    if not isinstance(data, dict):
+        sys.stderr.write('frontmatter is not a mapping (got %s)' % type(data).__name__)
+        sys.exit(1)
+    # default=str handles values PyYAML auto-types as non-JSON-native objects,
+    # e.g. bare ISO dates like `created: 2026-01-15` become datetime.date.
+    sys.stdout.write(json.dumps(data, default=str))
+except yaml.YAMLError as e:
+    sys.stderr.write(str(e).replace('\n', ' '))
+    sys.exit(1)
+'@
+    $script:YamlParserScript = Join-Path ([System.IO.Path]::GetTempPath()) 'validate-skills-yaml-parser.py'
+    [System.IO.File]::WriteAllText($script:YamlParserScript, $pyCode)
+}
+
+function Test-YamlFrontmatter {
+    param([string]$YamlText)
+    # Returns @{ Ok; Error; Data } - Data is a hashtable of parsed keys when
+    # Ok and Python+PyYAML is available; $null when parsing was skipped
+    # (caller should fall back to Get-Frontmatter regex extraction).
+    if (-not $script:PythonCmd -or -not $script:YamlParserScript) {
+        return @{ Ok = $true; Error = $null; Data = $null }
+    }
+
+    $errFile = [System.IO.Path]::GetTempFileName()
+    try {
+        $stdout = $YamlText | & $script:PythonCmd $script:YamlParserScript 2>$errFile
+        $exitCode = $LASTEXITCODE
+        $errText = (Get-Content -LiteralPath $errFile -Raw -ErrorAction SilentlyContinue)
+
+        if ($exitCode -ne 0) {
+            $msg = if ($errText) { $errText.Trim() } else { 'unknown YAML parse error' }
+            return @{ Ok = $false; Error = $msg; Data = $null }
+        }
+
+        $obj = ($stdout -join "`n") | ConvertFrom-Json -ErrorAction Stop
+        $data = @{}
+        foreach ($prop in $obj.PSObject.Properties) { $data[$prop.Name] = $prop.Value }
+        return @{ Ok = $true; Error = $null; Data = $data }
+    } catch {
+        return @{ Ok = $false; Error = $_.Exception.Message; Data = $null }
+    } finally {
+        Remove-Item -LiteralPath $errFile -ErrorAction SilentlyContinue
+    }
+}
+
 function Get-Frontmatter {
     param([string]$FilePath)
-    # Returns a hashtable of frontmatter keys, or $null if no frontmatter.
+    # Regex-based fallback: returns a hashtable of frontmatter keys, or $null
+    # if no frontmatter. Used when Python+PyYAML is unavailable, or as a
+    # secondary extraction path.
     $lines = Get-Content -LiteralPath $FilePath -ErrorAction Stop
     if ($lines.Count -eq 0 -or $lines[0].TrimEnd() -ne '---') {
         return $null
@@ -131,13 +233,13 @@ foreach ($root in $SkillRoots) {
             continue
         }
 
-        $fm = Get-Frontmatter -FilePath $fileToCheck
+        $rawBlock = Get-FrontmatterBlock -FilePath $fileToCheck
 
-        if ($null -eq $fm) {
+        if ($null -eq $rawBlock) {
             $violations.Add([pscustomobject]@{
                 Dir      = $dirName
                 File     = $filenameLabel
-                Issue    = 'Missing YAML frontmatter (file must start with ---)'
+                Issue    = 'Missing YAML frontmatter (file must start with --- and have a closing ---)'
                 Severity = 'ERROR'
             })
             if ($isLowercase) {
@@ -151,7 +253,35 @@ foreach ($root in $SkillRoots) {
             continue
         }
 
-        if (-not $fm.ContainsKey('name')) {
+        $yamlResult = Test-YamlFrontmatter -YamlText $rawBlock
+
+        if (-not $yamlResult.Ok) {
+            $violations.Add([pscustomobject]@{
+                Dir      = $dirName
+                File     = $filenameLabel
+                Issue    = "Invalid YAML frontmatter: $($yamlResult.Error)"
+                Severity = 'ERROR'
+            })
+            if ($isLowercase) {
+                $warnings.Add([pscustomobject]@{
+                    Dir      = $dirName
+                    File     = $filenameLabel
+                    Issue    = 'Filename is lowercase skill.md - rename to SKILL.md'
+                    Severity = 'WARN'
+                })
+            }
+            continue
+        }
+
+        # Prefer the real parsed YAML data; fall back to regex extraction
+        # when Python+PyYAML was unavailable (Data is $null in that case).
+        if ($null -ne $yamlResult.Data) {
+            $fm = $yamlResult.Data
+        } else {
+            $fm = Get-Frontmatter -FilePath $fileToCheck
+        }
+
+        if ($null -eq $fm -or -not $fm.ContainsKey('name')) {
             $violations.Add([pscustomobject]@{
                 Dir      = $dirName
                 File     = $filenameLabel
@@ -169,7 +299,7 @@ foreach ($root in $SkillRoots) {
             continue
         }
 
-        $nameVal = $fm['name']
+        $nameVal = [string]$fm['name']
 
         if ($nameVal -ne $dirName) {
             $violations.Add([pscustomobject]@{
