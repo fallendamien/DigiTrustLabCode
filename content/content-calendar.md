@@ -111,7 +111,7 @@
 
 | Field | Value |
 |-------|-------|
-| Title (provisional) | Cara Buat Gambar AI: Panduan Lengkap untuk Pemula 2026 |
+| Title (final) | Cara Buat Gambar AI Percuma: Panduan Lengkap untuk Pemula 2026 |
 | **Primary Keyword** | **cara buat gambar ai** |
 | Search Volume | **720/mo** (12-mo avg) · last month 390 · highest 1,600 · lowest 170 |
 | **Golden Score** | **1.0** (target <10 — excellent) |

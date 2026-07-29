@@ -4,6 +4,8 @@
 >
 > **Published posts** have content-derived prompts based on actual article text.
 > **Planned posts** are marked TBD — prompts will be written after content is drafted.
+>
+> ⚠️ **`content/content-calendar.md` is the source of truth for post titles.** Section headings here are short labels for scanning, not authoritative titles. If a heading here names a *different topic* rather than a shortened version of the calendar title, the calendar wins — fix this file. (Audited 2026-07-29: Post #4 had genuinely diverged and was corrected; Posts #5, #7–#10 verified as consistent short forms.)
 
 ## 🎨 Design System (never change these)
 

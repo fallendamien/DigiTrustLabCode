@@ -329,6 +329,24 @@ DigiTrust Lab content should have a light sense of humour woven in naturally —
 - ❌ Using `—` as a substitute for a full stop
 - ❌ Overusing `...` (ellipsis) for dramatic pauses — one or two per post max
 
+### ⚠️ The Voice Policy Applies to Site METADATA Too (added 2026-07-29)
+
+The voice rules are not limited to post and page bodies. They apply to **every string a reader can see**, including surfaces that are easy to forget because they are configured once and never revisited:
+
+| Surface | Where | Checked? |
+|---------|-------|----------|
+| **Category / tag descriptions** | WP Admin → Posts → Categories (renders on archive pages) | ✅ Audited + rewritten 2026-07-29 |
+| Menu item labels | Appearance → Menus | ⬜ Not yet audited |
+| Widget titles and text | Appearance → Widgets / Bricks | ⬜ Not yet audited |
+| Site tagline | Settings → General | ⬜ Not yet audited |
+| Form labels, buttons, placeholders | Bricks form elements | ⬜ Not yet audited |
+| Image alt text and captions | Media Library | ⬜ Not yet audited |
+| Rank Math meta titles + descriptions | Per post | ✅ Set per post |
+
+**Why this rule exists:** on 2026-07-29 the **AI Tools** category description was found live on the site reading *"…tools AI yang **korang** boleh guna hari ini — dari ChatGPT sampai ke automation."* It carried the banned pronoun **and** an em dash, and had been rendering on category archive pages unnoticed because voice checks were only ever run against post content. All four category descriptions were rewritten.
+
+**Rule:** when auditing voice, do NOT stop at post bodies. Sweep the metadata surfaces above. Anything written once during setup is the most likely place for stale voice to survive.
+
 ### Red Flag Phrases — Always Rewrite These
 
 **Salesy / Corporate red flags:**
