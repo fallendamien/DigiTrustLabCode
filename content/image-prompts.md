@@ -44,9 +44,15 @@
 
 ## 🔄 Maintenance Rule
 
+**🔢 KEEP SECTIONS IN NUMERICAL ORDER — Post #1, #2, #3 … #10.** Do NOT group by status (published first, planned last) and do NOT append new sections to the bottom. Insert each post at its numbered position. Mixed ordering makes the file hard to scan and hides which posts still need prompts.
+
+> Fixed 2026-07-29: the order had drifted to `#1, #2, #3, #6, #4, #5, #7…` because published posts were appended as they shipped. Reordered numerically.
+
 **When a post is published:** Replace TBD prompts with content-derived ones based on the actual article text. Update the post's status marker from PLANNED to PUBLISHED.
 
-**When a new post is planned:** Add a new section with TBD prompts to this file.
+**When a new post is planned:** Add a new section with TBD prompts **at its numbered position**, not at the end of the file.
+
+**Status markers:** `(PLANNED — TBD)` → `(READY TO GENERATE)` once prompts are written → `(PUBLISHED ✅)` once live.
 
 ---
 
@@ -174,54 +180,6 @@ Flat illustration style. A winding path from a warning triangle on the left to a
 
 ---
 
-## Post #6 — ChatGPT vs Gemini vs Claude (PUBLISHED ✅)
-
-**Slug:** `chatgpt-vs-gemini-vs-claude-panduan-pilihan-ai-2026`
-**URL:** https://digitrustlab.com/chatgpt-vs-gemini-vs-claude-panduan-pilihan-ai-2026/
-**Content summary:** Comparison of ChatGPT (text generation, ease of use), Gemini (coding, complex tasks), Claude (security, privacy). Covers pricing, student suitability, platform availability. Conclusion table with pros/cons. Recommendations by user type.
-
-### Image 1 — Featured (Split Composition)
-
-**Filename:** `chatgpt-vs-gemini-vs-claude-panduan-pilihan-ai-2026-featured.png`
-
-```
-Flat illustration style. Three robot characters standing side by side representing ChatGPT, Gemini, and Claude — one with a chat bubble symbol, one with a diamond symbol, and one with a shield symbol. A student figure in front looking at all three trying to choose. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Split composition showing the three options clearly. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
-```
-
-**Alt text:** Ilustrasi tiga robot AI mewakili ChatGPT, Gemini dan Claude dengan pelajar memilih yang terbaik
-
-### Image 2 — Intro (Minimalist Negative Space)
-
-**Filename:** `chatgpt-vs-gemini-vs-claude-panduan-pilihan-ai-2026-intro.png`
-
-```
-Flat illustration style. A person sitting at a desk with a laptop, three chat bubble icons floating above the screen — each with a distinct symbol inside (chat, diamond, shield) — representing the three AI platforms being considered. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Minimalist composition with generous negative space and a single focal element. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
-```
-
-**Alt text:** Orang duduk di meja dengan laptop dan tiga ikon chat bubble mewakili ChatGPT, Gemini dan Claude
-
-### Image 3 — Comparison (Isometric Scene)
-
-**Filename:** `chatgpt-vs-gemini-vs-claude-panduan-pilihan-ai-2026-comparison.png`
-
-```
-Flat illustration style. An isometric view of three platforms displayed as floating panels — one with a chat bubble icon, one with a diamond icon, one with a shield icon — each on a different level showing their unique strengths. Dotted lines connecting them showing comparison. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Isometric scene with layered depth. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
-```
-
-**Alt text:** Perbandingan isometrik tiga platform AI dengan simbol chat, berlian dan perisai
-
-### Image 4 — Conclusion (Top-Down Flat Lay)
-
-**Filename:** `chatgpt-vs-gemini-vs-claude-panduan-pilihan-ai-2026-conclusion.png`
-
-```
-Flat illustration style. A top-down flat lay of three cards arranged vertically — each card showing a distinct AI symbol (chat bubble, diamond, shield) — with a checklist icon and a graduation cap nearby, representing a student making their final choice. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Top-down flat lay perspective of objects arranged on a surface. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
-```
-
-**Alt text:** Susunan atas-bawah tiga kad AI dengan senarai semak dan topi graduasi untuk pelajar
-
----
-
 ## Post #4 — Cara Buat Gambar AI (READY TO GENERATE)
 
 **Slug:** `cara-buat-gambar-ai`
@@ -285,6 +243,54 @@ Flat illustration style. Minimalist composition with generous negative space: a 
 | Intro | TBD | TBD | TBD |
 | Comparison | TBD | TBD | TBD |
 | Conclusion | TBD | TBD | TBD |
+
+---
+
+## Post #6 — ChatGPT vs Gemini vs Claude (PUBLISHED ✅)
+
+**Slug:** `chatgpt-vs-gemini-vs-claude-panduan-pilihan-ai-2026`
+**URL:** https://digitrustlab.com/chatgpt-vs-gemini-vs-claude-panduan-pilihan-ai-2026/
+**Content summary:** Comparison of ChatGPT (text generation, ease of use), Gemini (coding, complex tasks), Claude (security, privacy). Covers pricing, student suitability, platform availability. Conclusion table with pros/cons. Recommendations by user type.
+
+### Image 1 — Featured (Split Composition)
+
+**Filename:** `chatgpt-vs-gemini-vs-claude-panduan-pilihan-ai-2026-featured.png`
+
+```
+Flat illustration style. Three robot characters standing side by side representing ChatGPT, Gemini, and Claude — one with a chat bubble symbol, one with a diamond symbol, and one with a shield symbol. A student figure in front looking at all three trying to choose. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Split composition showing the three options clearly. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+```
+
+**Alt text:** Ilustrasi tiga robot AI mewakili ChatGPT, Gemini dan Claude dengan pelajar memilih yang terbaik
+
+### Image 2 — Intro (Minimalist Negative Space)
+
+**Filename:** `chatgpt-vs-gemini-vs-claude-panduan-pilihan-ai-2026-intro.png`
+
+```
+Flat illustration style. A person sitting at a desk with a laptop, three chat bubble icons floating above the screen — each with a distinct symbol inside (chat, diamond, shield) — representing the three AI platforms being considered. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Minimalist composition with generous negative space and a single focal element. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+```
+
+**Alt text:** Orang duduk di meja dengan laptop dan tiga ikon chat bubble mewakili ChatGPT, Gemini dan Claude
+
+### Image 3 — Comparison (Isometric Scene)
+
+**Filename:** `chatgpt-vs-gemini-vs-claude-panduan-pilihan-ai-2026-comparison.png`
+
+```
+Flat illustration style. An isometric view of three platforms displayed as floating panels — one with a chat bubble icon, one with a diamond icon, one with a shield icon — each on a different level showing their unique strengths. Dotted lines connecting them showing comparison. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Isometric scene with layered depth. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+```
+
+**Alt text:** Perbandingan isometrik tiga platform AI dengan simbol chat, berlian dan perisai
+
+### Image 4 — Conclusion (Top-Down Flat Lay)
+
+**Filename:** `chatgpt-vs-gemini-vs-claude-panduan-pilihan-ai-2026-conclusion.png`
+
+```
+Flat illustration style. A top-down flat lay of three cards arranged vertically — each card showing a distinct AI symbol (chat bubble, diamond, shield) — with a checklist icon and a graduation cap nearby, representing a student making their final choice. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Top-down flat lay perspective of objects arranged on a surface. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+```
+
+**Alt text:** Susunan atas-bawah tiga kad AI dengan senarai semak dan topi graduasi untuk pelajar
 
 ---
 
