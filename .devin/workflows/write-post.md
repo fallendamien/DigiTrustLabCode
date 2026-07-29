@@ -452,7 +452,7 @@ Use this selectively for high-concept articles, cautionary topics, myth-vs-reali
   |----------------|-------------|--------------|
   | **Bullet lists** | Enumerations, features, tips, reasons | `<ul><li>...</li></ul>` |
   | **Numbered lists** | Steps, sequences, rankings | `<ol><li>...</li></ol>` |
-  | **Bold labels** | Start of each bullet for scannability | `<li><strong>Label</strong> — description</li>` |
+  | **Bold labels** | Start of each bullet for scannability | `<li><strong>Label</strong>: description</li>` ⚠️ use a **colon**, never an em dash |
   | **Blockquotes** | Examples, key quotes, before/after comparisons | See template below |
   | **Contrast pairs** | Dos and don'ts, good vs bad | `<li><strong>Elakkan:</strong> ...</li><li><strong>Gunakan:</strong> ...</li>` |
   | **Before/after blocks** | Instructional examples (bad vs good prompt, wrong vs right approach) | Two blockquotes back-to-back with labeled headers |
@@ -489,9 +489,12 @@ Use this selectively for high-concept articles, cautionary topics, myth-vs-reali
   </div>
   ```
 
+  > ⚠️ **Em dash conflict — resolved 2026-07-29.** This toolkit previously specified `<strong>Label</strong> — description` for bullets, which silently contradicted the AGENTS.md punctuation rule capping em dashes at **1 per post** (they read as an AI tell in Malay). A single 5-item list blew the whole budget. **Always use a colon in list items.** Reserve the one permitted em dash for prose, if used at all. Caught on Post #4, where the drafted article scored 10 dashes against a max of 1.
+
   ### Formatting Checklist (Run After Every AI Draft)
 
   Before publishing ANY post, verify:
+  - [ ] **Em/en dash count ≤ 1** across the whole post (list items use colons, not dashes)
   - [ ] No section is a wall of text (3+ paragraphs without a list, blockquote, or visual break)
   - [ ] All enumerations use bullet or numbered lists
   - [ ] All examples use blockquotes (not plain paragraphs)
