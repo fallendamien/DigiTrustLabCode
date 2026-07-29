@@ -1,8 +1,8 @@
 {
   "project": "DigiTrust Lab",
   "owner": "Zamri Rosli",
-  "lastSession": "2026-07-21",
-  "currentObjective": "Post #3 published (ID 437, Rank Math 100/100). Next: ClickRank optimization, internal link building, then Post #4 keyword research",
+  "lastSession": "2026-07-29",
+  "currentObjective": "Post #4 published (ID 536, Rank Math 100/100). Remaining Phase 7: ClickRank + Screpy rank tracking, Screpy re-crawl, internal-link-builder pass. Then Post #5 or #7 research.",
   "currentPhase": "Phase 2 - Content & Growth",
   "phaseProgress": "30%",
   "blockers": [],
@@ -52,7 +52,16 @@
     "ClickRank bulk titles tool investigated — confirmed it changes SEO <title> tags only, not H1 or page content (2026-07-18)",
     "Screpy uptime fixed — stale project from mid-migration deleted, recreated via GSC import (project wgspvb7lc3), uptime green (2026-07-18)",
     "Post #2 published — Cara Guna ChatGPT untuk Membantu Kerja Harian Anda (Panduan Mudah 2026) via WriterZen Option C pipeline (2026-07-18)",
-    "Post #3 published — Cara Buat Prompt ChatGPT (Post ID 437, Rank Math 100/100) via WriterZen Option C pipeline (2026-07-21)"
+    "Post #3 published — Cara Buat Prompt ChatGPT (Post ID 437, Rank Math 100/100) via WriterZen Option C pipeline (2026-07-21)",
+    "Post #4 published: cara-buat-gambar-ai (ID 536, Rank Math 100/100, 849 words, 4 images)",
+    "Prompt Engineering category activated (was 0 posts)",
+    "write-post workflow fixed: added quota check, Topic Discovery, Golden Filter, Weak Spot gate as mandatory phases",
+    "AGENTS.md Option C pipeline summary fixed - it started at Keyword Explorer, causing agents to skip the research front-half",
+    "Golden Score bands corrected to documented Class Ratio ranges; fabricated 10-36/36-100 bands removed",
+    "Em dash conflict resolved between formatting toolkit and punctuation policy",
+    "Category descriptions rewritten - korang removed from live site",
+    "Voice policy extended to cover site metadata, not just post bodies",
+    "image-prompts.md reordered numerically with ordering rule pinned"
   ],
   "nextSteps": [
     "Run ClickRank optimization for Post #3 (bulk title + add keyword to tracker)",

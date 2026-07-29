@@ -22,6 +22,23 @@
 - ✅ **Screpy uptime fixed** — old project (dfd8e2388f) deleted, recreated via GSC import (new project wgspvb7lc3), uptime green (2026-07-18)
 - ✅ **Post #2 published** — "Cara Guna ChatGPT untuk Membantu Kerja Harian Anda (Panduan Mudah 2026)" live at /cara-guna-chatgpt/ via WriterZen Option C pipeline (2026-07-18)
 - ✅ **Post #3 published** — "Cara Buat Prompt ChatGPT: Panduan Mudah untuk Pemula Malaysia" live at /cara-buat-prompt-chatgpt/ via WriterZen Option C pipeline (2026-07-21)
+- ✅ **Post #4 published** — "Cara Buat Gambar AI Percuma: Panduan Lengkap untuk Pemula 2026" live at /cara-buat-gambar-ai/, Rank Math 100/100, first post through the *corrected* pipeline (2026-07-29)
+
+## Post #4 — ✅ PUBLISHED (2026-07-29)
+
+Live at https://digitrustlab.com/cara-buat-gambar-ai/ · Post ID 536 · Rank Math **100/100** · 849 words · 4 images · Prompt Engineering category (now activated, was empty).
+
+**Keyword:** `cara buat gambar ai` — 720/mo, Golden Score 1.0, All-in-Title **0**.
+**Note:** published under a documented Weak Spot override (measured 1, gate is 2) after four alternative angles were tested and found worse. Full rationale in `content/content-calendar.md`. Expect 6–12 months to page 1, not weeks.
+
+**⚠️ Remaining Phase 7 tasks (NOT done — pick up next session):**
+- [ ] ClickRank → AI Overview Tracker: add `cara buat gambar ai` + URL (Malaysia, Malay)
+- [ ] ClickRank → Keyword Tracker: same keyword + URL (focus keyword only)
+- [ ] Screpy → Rank Tracker: same keyword + URL (Malaysia, desktop + mobile)
+- [ ] Screpy → Pages → Analyze: re-crawl so the new URL is discovered
+- [ ] Run `internal-link-builder` skill so Posts #1, #2, #3 link *down* to this post (it already links up to #1 and #3)
+
+**Pipeline fixes shipped this session** (all committed): quota check, Topic Discovery, Golden Filter and Weak Spot gate added as mandatory phases; AGENTS.md pipeline summary corrected (it started at Keyword Explorer, which is why agents skipped research); Golden Score bands corrected; em dash rule conflict resolved; excerpt method documented after the WP UI silently failed.
 
 ## Post #3 — ✅ COMPLETE (2026-07-21)
 
