@@ -125,7 +125,10 @@
 | Selected keywords (8) | cara buat gambar ai (720) · free (140) · gemini (110) · muka sendiri (70) · di chatgpt (40) · dari foto (10) · sendiri (10) · kartun (10) — combined 1,110 |
 | SERP check | 6 of 10 results are small MY blogs (siraplimau, profhariz, sifoo, siakapkeli, wasapbot) — winnable. Canva ×2 = product pages, Astro Awani + Kosmo = news |
 | Category | Prompt Engineering |
-| Status | **APPROVED TO WRITE — documented override** (see below) · next: Content Brief |
+| Status | **DRAFTING** — AI draft generated 2026-07-29, pending edit pass |
+| WriterZen Article | Content Creator report `243737` (project "DigiTrust Lab") |
+| Draft title (AI) | Panduan Lengkap: Cara Buat Gambar AI – Definisi, Manfaat, dan Langkah Mudah Membuat Gambar AI Percuma *(too long for SEO title — shorten to ≤60 chars)* |
+| Draft stats | 1,016 words · 18 headings · 21 paragraphs · 0 images · 1 of 3 target keywords |
 | Affiliate | None |
 | Type | Beginner guide (sub-pillar) |
 | WriterZen jobs | Topic Discovery `244849` · Keyword Explorer `1560055` · Planner project `178376` ("Post 4 — Cara Buat Gambar AI") |
@@ -165,6 +168,22 @@
 **Expectation set honestly:** not position #1, and not fast. Realistically **6–12 months** to page 1 for the head term; long-tail variants (`free`, `gemini`, `muka sendiri`) should land sooner. Approved by Zamri on 2026-07-29 with this timeline understood.
 
 **Revisit trigger:** if this post has not reached page 1 within 12 months, re-evaluate whether the space is viable at DigiTrust Lab's authority level before writing further leaf posts under it.
+
+### ✅ Note-for-Writer constraints — verified effective (2026-07-29)
+
+The Content Brief "Note for writer" field was loaded with the Malay voice guide plus four explicit prohibitions. Measured against the generated draft:
+
+| Constraint | Count in draft | Result |
+|------------|---------------:|--------|
+| "Malaysia" / "rakyat Malaysia" | **0** | ✅ Prevented at generation |
+| `korang` | **0** | ✅ |
+| Income claims (`jana duit`, `buat duit`) | **0** | ✅ |
+| Contractions (`tak`, `dah`) | **0** | ✅ |
+| `anda` | 34 | ✅ |
+| Em/en dashes | 4 | ⚠️ Policy max 1 — fix in edit pass |
+| `perniagaan` | 2 | ⚠️ Review against anti-salesy rule |
+
+**Reusable finding:** loading the voice guide into Note for Writer *prevents* the three failure modes that previously required manual cleanup on Posts #1–#6. Do this on every future post — it is cheaper than proofreading them out afterwards. Dash count and business-framing still need a manual pass; consider adding both to the Note for Writer template.
 
 **Excluded from this post (future leaf posts):**
 - `bergerak` (40) + `jadi video` (10) → separate post on AI **video** generation
