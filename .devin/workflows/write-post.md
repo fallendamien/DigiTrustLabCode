@@ -267,13 +267,22 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
    - Set alt text describing the illustration in Malay
 6. Set featured image via `respira_update_post` with `featured_media`
 7. Publish via `respira_update_post` with `status=publish`
-8. **Set post excerpt via WordPress editor (NOT Respira — `excerpt` param is unreliable):**
-   - Navigate to `wp-admin/post.php?post={ID}&action=edit`
-   - Open Settings sidebar (gear icon) → Post tab
-   - Click "Add an excerpt…" button
-   - Type 155–160 char Malay summary including focus keyword
-   - Close excerpt modal
-   - Click Save/Update button (`button.editor-post-publish-button`)
+8. **Set post excerpt (NOT via Respira — `excerpt` param is unreliable):**
+
+   ⚠️ **The WP editor UI is ALSO unreliable.** Typing into the "Add an excerpt…" panel and clicking Save draft can appear to work while saving nothing — verified on Post #4 (2026-07-29), where the excerpt read back as empty string after reload despite the panel showing the text.
+
+   **Use the editor's own data store instead — this is the reliable method:**
+   ```js
+   const ex = "…155–160 char Malay summary including the focus keyword…";
+   wp.data.dispatch('core/editor').editPost({ excerpt: ex });
+   await wp.data.dispatch('core/editor').savePost();
+   ```
+   **Then ALWAYS verify by reloading the page** and re-reading — never trust the in-page value:
+   ```js
+   wp.data.select('core/editor').getEditedPostAttribute('excerpt').length  // must be > 0
+   ```
+
+   Three excerpt-setting methods, ranked: `wp.data` store ✅ reliable · WP editor UI ⚠️ silently fails · Respira `excerpt` param ❌ documented as unreliable.
 9. Verify on live site: navigate to URL, check rendering, SEO title, internal links, featured image
 
 ### Phase 6.5: Rank Math Sidebar Optimization (MANDATORY — Never Skip)
