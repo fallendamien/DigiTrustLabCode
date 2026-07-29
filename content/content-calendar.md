@@ -126,7 +126,8 @@
 | SERP check | 6 of 10 results are small MY blogs (siraplimau, profhariz, sifoo, siakapkeli, wasapbot) — winnable. Canva ×2 = product pages, Astro Awani + Kosmo = news |
 | Category | Prompt Engineering |
 | Status | **DRAFTING** — AI draft generated 2026-07-29, pending edit pass |
-| WriterZen Article | Content Creator report `243737` (project "DigiTrust Lab") |
+| WriterZen Article | Content Creator report `243737` — ⛔ **SUPERSEDED, DO NOT PUBLISH FROM IT** |
+| **Authoritative content** | ✅ `content/drafts/post-4-cara-buat-gambar-ai.html` (repo) — this is what ships via Respira |
 | Draft title (AI) | Panduan Lengkap: Cara Buat Gambar AI – Definisi, Manfaat, dan Langkah Mudah Membuat Gambar AI Percuma *(too long for SEO title — shorten to ≤60 chars)* |
 | Draft stats | 1,016 words · 18 headings · 21 paragraphs · 0 images · 1 of 3 target keywords |
 | Affiliate | None |
@@ -168,6 +169,20 @@
 **Expectation set honestly:** not position #1, and not fast. Realistically **6–12 months** to page 1 for the head term; long-tail variants (`free`, `gemini`, `muka sendiri`) should land sooner. Approved by Zamri on 2026-07-29 with this timeline understood.
 
 **Revisit trigger:** if this post has not reached page 1 within 12 months, re-evaluate whether the space is viable at DigiTrust Lab's authority level before writing further leaf posts under it.
+
+### ⛔ WriterZen article 243737 is SUPERSEDED — do not extract from it
+
+The WriterZen draft **looks finished but contains two publish-blocking defects**. It was fully replaced by the repo file `content/drafts/post-4-cara-buat-gambar-ai.html`.
+
+| Defect in WriterZen 243737 | Status in repo draft |
+|----------------------------|----------------------|
+| **Recommends DALL·E as a free tool** — it requires paid credits/ChatGPT Plus. Factually wrong in an article whose premise is "percuma" | ✅ Replaced with Google Gemini (genuinely free, and captures the 110/mo `cara buat gambar ai gemini` keyword) |
+| **Fabricated experience claim** — "platform … yang saya sendiri cuba dan rasai kemudahannya". Nobody tested them. Same class of error as the CRISPE fabrication on Post #3 | ✅ Removed; written neutrally |
+| Only 1 of 3 target keywords | ✅ 3 of 3 |
+| Business framing in headings | ✅ Removed per anti-salesy policy |
+| Typo "Tanpa Baji" | ✅ Fixed in both copies |
+
+**Why this warning exists:** the WriterZen draft is 1,016 words and reads as complete. Without this note, a future session could reasonably extract and publish it, shipping a factual error and a false personal claim to the live site.
 
 ### ✅ Note-for-Writer constraints — verified effective (2026-07-29)
 

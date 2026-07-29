@@ -220,18 +220,54 @@ Flat illustration style. A top-down flat lay of three cards arranged vertically 
 
 ---
 
-## Post #4 — 5 AI Tools Percuma 2026 (PLANNED — TBD)
+## Post #4 — Cara Buat Gambar AI (READY TO GENERATE)
 
-**Slug:** `5-ai-tools-percuma-2026`
+**Slug:** `cara-buat-gambar-ai`
+**Focus keyword:** `cara buat gambar ai`
 
-> Prompts will be written after content is drafted in WriterZen.
+> ⚠️ **Title corrected 2026-07-29.** This entry previously read "5 AI Tools Percuma 2026" — a title that matched neither `content-calendar.md` nor the researched keyword. Three files carried three different titles for Post #4. `content-calendar.md` is the source of truth for post titles.
 
-| Image | Filename | Prompt | Alt Text |
-|-------|----------|--------|----------|
-| Featured | `5-ai-tools-percuma-2026-featured.png` | TBD | TBD |
-| Intro | `5-ai-tools-percuma-2026-intro.png` | TBD | TBD |
-| Comparison | `5-ai-tools-percuma-2026-comparison.png` | TBD | TBD |
-| Conclusion | `5-ai-tools-percuma-2026-conclusion.png` | TBD | TBD |
+> Prompts below are derived from the actual article text in `content/drafts/post-4-cara-buat-gambar-ai.html`. Compositions are rotated per the variation guide so the set reads as a curated collection, not a template repeat.
+
+### 1. Featured — split composition
+
+**Filename:** `cara-buat-gambar-ai-featured.png`
+**Alt text:** `Ilustrasi menunjukkan ayat arahan bertukar menjadi gambar yang dihasilkan oleh AI`
+
+```
+Flat illustration style. A split scene: on the left, a simple speech bubble containing three abstract text lines representing a written instruction; on the right, that same shape blooming into a finished framed picture of a landscape. A thin connecting line links the two halves across the centre. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+```
+
+### 2. Steps section — isometric scene
+
+**Filename:** `cara-buat-gambar-ai-langkah-gemini.png`
+**Alt text:** `Paparan isometrik komputer riba menunjukkan proses menjana gambar AI langkah demi langkah`
+
+```
+Flat illustration style. Isometric view of an open laptop on a desk, with three stacked translucent layers floating above the screen representing sequential steps, each layer slightly offset to show depth and progression. A small download arrow sits at the top layer. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+```
+
+### 3. Prompt-writing section — geometric patterns
+
+**Filename:** `cara-buat-gambar-ai-tulis-prompt.png`
+**Alt text:** `Ilustrasi kucing oren tidur di atas kerusi rotan dengan cahaya matahari petang`
+
+> Illustrates the article's own example prompt, so the image and the text reinforce each other.
+
+```
+Flat illustration style. An orange cat sleeping curled on a rattan chair beside a window, warm late-afternoon light falling across the floor in soft geometric shafts. Subtle geometric patterns and dotted lines radiate outward from the chair, suggesting the descriptive details that produced the scene. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+```
+
+### 4. Limitations section — minimalist negative space
+
+**Filename:** `cara-buat-gambar-ai-had-kekurangan.png`
+**Alt text:** `Ilustrasi minimalis menggambarkan had penggunaan harian alat AI percuma`
+
+> Deliberately avoids depicting hands, since the section text discusses AI rendering hands badly.
+
+```
+Flat illustration style. Minimalist composition with generous negative space: a single simple meter or gauge shape, partially filled, sitting alone in the frame with a small stack of three picture frames beside it — two complete, one faded and incomplete. Suggests a daily usage limit being reached. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+```
 
 ---
 
