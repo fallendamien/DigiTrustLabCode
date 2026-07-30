@@ -12,6 +12,18 @@ This file contains project-specific rules and operating standards for AI coding 
 
 **Rule:** Never duplicate content/voice standards into `.devin/rules/` — keep AGENTS.md as the single source. `.devin/rules/` should only contain operational behaviour constraints (e.g. "never edit template without snapshot").
 
+### ✅ Verify the doctrine actually loaded (run at session start)
+
+```bash
+python scripts/verify-imports.py
+```
+
+Asserts every `@import` target resolves, every symlinked tree points somewhere real, and the load-bearing skills exist. Exit 0 = clean, 1 = something is missing.
+
+**Why this exists:** on 2026-07-30 a symlink migration silently removed three of the four rules `CLAUDE.local.md` imports. Nothing errored — agents simply ran without the Bricks-Only Policy and the content-planning rule for a full working day. **A missing `@import` is indistinguishable from a satisfied one unless something checks.**
+
+Run it also after: editing any symlink, changing `.gitignore`, cloning to a new machine, or starting work in a **git worktree** (`CLAUDE.md` and `CLAUDE.local.md` are gitignored, so a worktree has neither — the script catches that immediately).
+
 ## 🚫 PRIORITY #1: Bricks-Only Policy (CRITICAL)
 
 **RULE: EVERYTHING inside Bricks must be done via Respira MCP (primary) or Bricks Builder GUI (fallback). NO post-processing scripts. NO PowerShell CSS injection. NO background code. NO internal hacks. NO exceptions. If it can't be done through Respira MCP or Bricks GUI, it doesn't get done.**
