@@ -40,7 +40,7 @@
   # Run from a project root: scans .devin/skills + .windsurf/skills
 
 .EXAMPLE
-  powershell -NoProfile -ExecutionPolicy Bypass -File "$env:USERPROFILE\.codeium\windsurf\agent-templates\scripts\validate-skills.ps1"
+  powershell -NoProfile -ExecutionPolicy Bypass -File "$env:APPDATA\devin\agent-templates\scripts\validate-skills.ps1"
   # Run from anywhere with no project skill dirs: scans the global skills library
 #>
 

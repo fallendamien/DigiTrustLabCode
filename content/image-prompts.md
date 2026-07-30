@@ -32,6 +32,68 @@
 | 7 | Abstract organic shapes | Creative/lifestyle topics |
 | 8 | Cinematic editorial poster | Cautionary/myth-busting topics (selective) |
 
+## 🧩 Prompt Template (authoritative — moved here from `write-post.md` 2026-07-30)
+
+**Always provide BOTH the prompt AND the filename together.**
+
+```
+Prompt:
+Flat illustration style. [SUBJECT DESCRIPTION]. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. [VISUAL ELEMENT — see Variation Guide above]. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+
+Filename: {post-slug}-{image-description}.png
+```
+
+**Filename rule (MANDATORY):** lowercase, hyphens only, no underscores. Example: `apa-itu-ai-neural-network.png`. Applies to featured *and* in-content images.
+
+**Composition rule:** Vary the visual element across images within the same post so they read as a curated collection, not a template repeat. The palette and flat style stay fixed; the composition and decorative elements change. Think "art lover's blog", not "corporate stock art". Never reuse the same scene layout (e.g. person at desk with screen) across posts.
+
+### ⚠️ Anatomy Fix (MANDATORY for any human or robot)
+
+AI generators routinely produce missing, deformed, or unnaturally positioned hands and arms. Always append:
+
+> `Both person and robot have complete visible arms and hands with natural positioning.`
+
+If hands are still wrong, regenerate with:
+
+> `All hands fully rendered with five fingers each, arms complete from shoulder to fingertips, natural pose.`
+
+### 🔁 Gemini Image-Reference Workflow (fixing background or style drift)
+
+When a generator produces a great composition but the wrong background colour or style, don't re-prompt from scratch — use Gemini's image reference:
+
+1. Upload the image you like to Gemini
+2. Ask: *"Re-create this exact scene but with warm off-white (#FAFAF8) background, flat illustration style, charcoal (#1A1A1A) outlines, orange (#E8621A) accents, white highlights. All human hands must have five fingers. No text, labels, logos, or watermarks."*
+3. Gemini preserves the composition while fixing the brand colours
+4. Save with the same SEO filename and re-upload to WordPress Media
+
+### 🎬 Cinematic Editorial-Poster Variation (variation #8 — use selectively)
+
+An accent style for high-concept articles, cautionary topics, myth-vs-reality explainers, or a dramatic visual metaphor. **Not the default.**
+
+- Keep the standard palette: `#FAFAF8` / `#E8621A` / `#1A1A1A` / white
+- Large irregular framed/vignette scene, strong outlines, foreground silhouettes, cinematic depth, slight retro print energy
+- Add one simple adjacent symbolic object plus subtle dashed orbital lines or geometric accents
+- **Never request imitation of a named living artist or a copy of a specific reference composition** — describe visual traits instead
+- Avoid logos, watermarks, legible text, gore, or overly dark scenes
+
+**Prompt addition:** `Cinematic editorial-poster composition: a large irregular framed vignette scene with dramatic orange-and-charcoal contrast, bold black outlines, foreground silhouettes, a simple symbolic object outside the frame, and subtle dashed orbital lines with small geometric accents. Flat, clean, text-free, with slight retro print energy.`
+
+### 📚 Worked Examples
+
+**Post #1 — "Apa Itu AI" — featured, icons floating:**
+> Flat illustration style. A Malaysian man sitting at a desk with a glowing brain icon on a computer screen. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Icons floating around: chat bubble, lightbulb, gears. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+
+**Post #2 — "Cara Guna ChatGPT" — split composition:**
+> Flat illustration style. A split scene: left side shows a messy desk with scattered papers and a frustrated person, right side shows the same desk organized with a glowing ChatGPT interface on a tablet, tasks neatly sorted into folders. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Subtle geometric patterns connecting the two sides. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+
+**Post #1 in-content — "Bagaimana AI Berfungsi" — minimalist, illustrates the article's analogy:**
+> Flat illustration style. A child pointing at different animals on flashcards — a cat, a dog, a bird — learning to recognize patterns, with a parallel digital grid showing the same concept with data points being sorted into categories. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Minimalist composition with generous negative space and a single focal element. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+
+**Cinematic editorial poster — myth-vs-reality explainer:**
+> Flat cinematic editorial-poster illustration. A large irregular framed vignette shows a giant charcoal robot looming over a small city while human silhouettes run in the foreground, representing a fictional AI fear. Outside the frame, a simple calculator represents practical everyday AI. Connect the two scenes with subtle dashed orbital lines and small orange geometric accents. Bold black outlines, dramatic orange-and-charcoal contrast, warm off-white (#FAFAF8) background, orange (#E8621A) accents, charcoal (#1A1A1A) elements, white highlights, slight retro print energy. Clean, modern, minimal. No text, words, logos, or watermarks. Wide format 16:9.
+
+> **Key lesson:** For in-content images, illustrate the *analogy or metaphor* used in that section's text — not the literal concept. This produces a unique visual per section and avoids repetitive imagery (don't use a brain icon for every AI-related image).
+
 ## 📝 How to Use This File
 
 1. Find the post you're working on below

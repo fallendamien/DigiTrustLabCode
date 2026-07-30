@@ -41,6 +41,9 @@ wp-content/backup-*/
 # Wrangler CLI cache
 .wrangler/
 
-# Agentic AI folders (machine-specific symlinks, not portable across machines)
-# Keep: AGENTS.md, WINDSURF.md, CLAUDE.md, .codex/instructions.md (portable text files)
+# Agentic AI (machine-specific symlinks + local overrides, not portable across machines)
+# Keep: AGENTS.md, WINDSURF.md, .codex/instructions.md (portable text files)
+# CLAUDE.md is now a symlink to the TSOT — machine-specific, recreate per device
 .codex/skills/
+CLAUDE.md
+CLAUDE.local.md

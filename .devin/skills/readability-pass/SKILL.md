@@ -27,7 +27,7 @@ Blog posts written by AI tend to produce uniform blocks: H2 → paragraph → pa
 - **Mid-content:** Place images under H2 section intros (not at the end)
 - **Aim for 3 images minimum** for a 1500+ word post
 - Use Gemini Nano Banana 2 with the standard DigiTrust Lab prompt template
-- See `write-post.md` → Image Prompt Template section
+- **Prompt template, design system, and worked examples:** `content/image-prompts.md` (authoritative — do not copy the template into other files)
 
 ### Step 3: Callout Boxes for Warnings/Tips
 Convert plain warning/tip lists into styled callout boxes:
@@ -104,3 +104,50 @@ Intro paragraph (1-2)
 ```
 
 **Not every section needs an image.** 3 images + 2 callouts + 2 blockquotes is enough for a 1500-word post. The rest is formatting: short intros, clear lists, separated examples.
+
+---
+
+## Rich Formatting Toolkit (authoritative — moved here from `write-post.md` 2026-07-30)
+
+WriterZen's "Write all for me" AI produces walls of text: flat paragraphs with no visual breaks. **Every article must be richly formatted.** No section should be a sea of text. This toolkit is the full set of tools — use every type that applies.
+
+| Formatting Type | When to Use | HTML Pattern |
+|----------------|-------------|--------------|
+| **Bullet lists** | Enumerations, features, tips, reasons | `<ul><li>...</li></ul>` |
+| **Numbered lists** | Steps, sequences, rankings | `<ol><li>...</li></ol>` |
+| **Bold labels** | Start of each bullet for scannability | `<li><strong>Label</strong>: description</li>` ⚠️ use a **colon**, never an em dash |
+| **Blockquotes** | Examples, key quotes, before/after comparisons | See Step 4 template above |
+| **Contrast pairs** | Dos and don'ts, good vs bad | `<li><strong>Elakkan:</strong> ...</li><li><strong>Gunakan:</strong> ...</li>` |
+| **Before/after blocks** | Instructional examples (bad vs good prompt) | Two blockquotes back-to-back with labelled headers |
+| **Inline emphasis** | English terms in BM sentences | `<em>prompt</em>, <em>brainstorming</em>` |
+| **Warning/tip boxes** | Important cautions, pro tips | See Step 3 template above |
+| **Short paragraphs** | One idea per paragraph — never more than 3-4 sentences without a break | — |
+| **Figures with captions** | In-content images | `<figure class="wp-block-image"><img ... /><figcaption>...</figcaption></figure>` |
+| **Internal links** | Contextual anchor text to related posts | `<a href="...">natural anchor text</a>` |
+
+> ⚠️ **Em dash conflict — resolved 2026-07-29.** This toolkit previously specified `<strong>Label</strong> — description` for bullets, which silently contradicted the AGENTS.md punctuation rule capping em dashes at **1 per post** (they read as an AI tell in Malay). A single 5-item list blew the whole budget. **Always use a colon in list items.** Reserve the one permitted em dash for prose, if used at all. Caught on Post #4, where the draft scored 10 dashes against a max of 1.
+
+### Formatting Checklist (run after every AI draft)
+
+- [ ] **Em/en dash count ≤ 1** across the whole post (list items use colons, not dashes)
+- [ ] No section is a wall of text (3+ paragraphs without a list, blockquote, or visual break)
+- [ ] All enumerations use bullet or numbered lists
+- [ ] All examples use blockquotes (not plain paragraphs)
+- [ ] All list items have bold labels where applicable
+- [ ] Dos/don'ts sections use "Elakkan" vs "Gunakan" contrast pairs
+- [ ] At least 2-3 blockquotes per instructional article
+- [ ] English terms italicized with `<em>` tags
+- [ ] Paragraphs are short (max 3-4 sentences)
+- [ ] Warning/tip boxes used for important callouts
+
+> **Formatting is structure only.** Language quality is a separate failure mode with its own authority: load `.devin/skills/malay-voice-guide/SKILL.md` and run its checks too. A perfectly formatted post can still be full of banned contractions and broken tatabahasa.
+
+### Reference Standards
+
+| Post | What to copy |
+|------|-------------|
+| Post #2 (`/cara-guna-chatgpt/`) | Blockquotes for examples, bullet lists with bold labels, warning boxes, FAQ section |
+| Post #3 (`/cara-buat-prompt-chatgpt/`) | Before/after blockquote pairs, contrast pairs, bullet lists with bold labels |
+| Post #1 (`/apa-itu-ai/`) | Clean paragraph flow with lists, figure captions, natural internal links |
+
+**Why this matters:** Rich formatting improves time-on-page, reduces bounce rate, increases mobile readability, and matches the visual quality Google's helpful content system rewards. Walls of text get skipped; structured content gets read. This is a non-negotiable quality standard for DigiTrust Lab.

@@ -223,11 +223,12 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
 3. Let AI generate the full draft based on the content brief + outline
 4. Review generated content section by section
 5. **Edit for DigiTrust Lab voice** — match the semi-formal Malay standard from AGENTS.md voice guide
-6. **Reformat walls of text into rich visual structure** (MANDATORY — see Key Rules → "Content formatting"):
+6. **Reformat walls of text into rich visual structure** (MANDATORY — load `.devin/skills/readability-pass/SKILL.md` now):
    - WriterZen AI produces flat walls of text — every section must be reformatted
    - Use the full formatting toolkit: blockquotes, bullet/numbered lists, bold labels, before/after blocks, contrast pairs, warning/tip boxes
-   - Copy-paste blockquote template from Key Rules (orange border, warm bg, rounded corners)
-   - Run the Formatting Checklist (Key Rules) before publishing — no section should be a sea of text
+   - Copy-paste the blockquote and callout-box templates from the skill (orange border, warm bg, rounded corners)
+   - Run the skill's **Formatting Checklist** before publishing — no section should be a sea of text
+   - Then load `.devin/skills/malay-voice-guide/SKILL.md` and run its language checks — formatting and language are separate failure modes
    - Reference standards: Post #2 (`/cara-guna-chatgpt/`) and Post #3 (`/cara-buat-prompt-chatgpt/`)
 7. Run **Show Analysis** — fix any flagged SEO issues
 8. Run **Plagiarism Check** — ensure 0% plagiarism
@@ -261,7 +262,7 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
    - Set Rank Math SEO meta: `rank_math_title`, `rank_math_description`, `rank_math_focus_keyword`, `rank_math_primary_category`
    - Set categories
 5. **Generate featured image via Gemini Nano Banana 2** (NOT Openverse stock photos — those break visual consistency):
-   - Use the standard DigiTrust Lab illustration prompt template (see Key Rules below)
+   - Use the standard DigiTrust Lab illustration prompt template from `content/image-prompts.md` (prompt skeleton, design system, variation guide, anatomy fix, worked examples)
    - Style: flat illustration, brand colors, 16:9 aspect ratio
    - Download the generated image, then sideload via `respira_sideload_image`
    - Set alt text describing the illustration in Malay
@@ -362,85 +363,11 @@ This phase runs AFTER the post is published (Phase 6) but BEFORE documentation (
 - **30-day freshness:** Re-run Keyword Explorer if the last search for this topic is older than 30 days
 - **Titles are provisional:** Planned titles in `content-calendar.md` are placeholders until Topic Discovery (Phase 0a) confirms a winnable angle. Keyword decides the title, not the reverse
 - **Never skip the Content Creator pipeline** — outline must be generated through WriterZen's AI + competitor research
-- **Featured image:** Always use Gemini Nano Banana 2 (NOT Openverse stock photos). Use the standard prompt template below. Cross-check visual style against Post #1 (`/apa-itu-ai/`)
-- **Image filenames (MANDATORY):** Every time you provide a Gemini prompt, ALSO provide the SEO-optimized filename. Format: `{post-slug}-{image-description}.png` (lowercase, hyphens only, no underscores). Example: `apa-itu-ai-neural-network.png`. This applies to both featured images and in-content images.
+- **Featured image:** Always use Gemini Nano Banana 2 (NOT Openverse stock photos). Cross-check visual style against Post #1 (`/apa-itu-ai/`)
 - **In-content images (SEO best practice):** Add images under H2 sections to break up text, increase time on page, and earn Google Image search traffic. Workflow: (1) Agent audits post and identifies H2s needing images, (2) Agent provides prompts + filenames, (3) User generates in Gemini Nano Banana 2 and uploads to WordPress Media, (4) Agent inserts each image into correct section with Malay alt text and caption.
-- **Image prompts library:** All prompts and filenames are stored in `content/image-prompts.md`. Published posts have content-derived prompts; planned posts are TBD until content is drafted. **Update this file** when a post is published (replace TBD with actual prompts) or when a new post is planned (add a TBD section).
+- **📍 Image prompts — authoritative source: `content/image-prompts.md`.** That file holds the prompt template, design system constants, variation guide, filename rule, anatomy fix, Gemini image-reference workflow, worked examples, and the per-post prompt library. **Do not copy any of it back into this workflow** — it was duplicated here until 2026-07-30 and the two copies had already drifted apart. Update `image-prompts.md` when a post is published (replace TBD with content-derived prompts) or newly planned (add a TBD section at its numbered position).
 - **Post Excerpt (MANDATORY):** Every post MUST have a manual excerpt (155–160 characters). The excerpt is a concise Malay summary that includes the focus keyword. It appears on blog archive pages, category pages, search results, and RSS feeds. Without it, WordPress auto-generates a truncated first paragraph which often cuts off awkwardly. **Must be set via WordPress editor** (Settings sidebar → Post tab → "Add an excerpt…") — NOT via Respira's `excerpt` parameter, which is unreliable and silently ignored on some posts. Always click Save/Update after setting the excerpt.
 
-### Image Prompt Template (Gemini Nano Banana 2)
-
-**Always provide BOTH the prompt AND the filename together:**
-
-```
-Prompt:
-Flat illustration style. [SUBJECT DESCRIPTION]. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. [VISUAL ELEMENT — see variation guide below]. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
-
-Filename: {post-slug}-{image-description}.png
-```
-
-**Design system (never change these):**
-
-| Element | Value |
-|---------|-------|
-| Style | Flat illustration, simple geometric shapes, bold outlines |
-| Background | Warm off-white `#FAFAF8` (matches blog background) |
-| Primary accent | Orange `#E8621A` (DigiTrust Lab brand) |
-| Dark elements | Dark charcoal `#1A1A1A` |
-| Highlights | White |
-| Aspect ratio | 16:9 (wide format, min 1024×576) |
-| Text in image | NEVER — no text or words |
-
-**Visual element variation guide (rotate these — avoid repeating "icons floating around" every time):**
-
-| Variation | Example |
-|-----------|---------|
-| Icons floating around | Icons floating around: chat bubble, lightbulb, gears |
-| Geometric patterns | Subtle geometric patterns and dotted lines connecting elements |
-| Abstract shapes | Abstract organic shapes flowing through the composition |
-| Minimalist negative space | Minimalist composition with generous negative space and a single focal element |
-| Split composition | Split scene showing before/after or contrast between two concepts |
-| Isometric scene | Isometric view of the scene with layered depth |
-| Top-down flat lay | Top-down flat lay perspective of objects arranged on a surface |
-| Cinematic editorial poster | Large irregular framed scene, dramatic silhouettes, a simple adjacent symbolic object, plus dashed orbital lines and small geometric accents |
-
-### Optional: Cinematic Editorial-Poster Variation
-
-Use this selectively for high-concept articles, cautionary topics, myth-vs-reality explainers, or a dramatic visual metaphor. It is an accent style, **not the default**.
-
-- Keep the DigiTrust Lab palette: warm off-white `#FAFAF8`, orange `#E8621A`, charcoal `#1A1A1A`, white highlights.
-- Use a large irregular framed/vignette scene, strong outlines, foreground silhouettes, cinematic depth, and slight retro print energy.
-- Add a simple adjacent symbolic object and subtle dashed orbital lines or geometric accents to connect the composition.
-- **Never request a direct imitation of a named living artist or copy a reference composition.** Describe visual traits instead.
-- Avoid logos, watermarks, legible text, gore, overly dark scenes, or excessive detail that harms the clean blog aesthetic.
-
-**Prompt addition:** `Cinematic editorial-poster composition: a large irregular framed vignette scene with dramatic orange-and-charcoal contrast, bold black outlines, foreground silhouettes, a simple symbolic object outside the frame, and subtle dashed orbital lines with small geometric accents. Flat, clean, text-free, with slight retro print energy.`
-
-**Rule:** Vary the visual element style across images within the same post so they feel like a curated art collection, not a template repeat. The color palette and flat illustration style stay consistent — the composition and decorative elements change. Think "art lover's blog," not "corporate stock art."
-
-**Anatomy fix (MANDATORY):** AI image generators frequently produce images with missing, deformed, or unnaturally positioned hands and arms. ALWAYS append this to prompts featuring humans or robots: `"Both person and robot have complete visible arms and hands with natural positioning."` If the generated image still has hand issues, regenerate with emphasis: `"All hands fully rendered with five fingers each, arms complete from shoulder to fingertips, natural pose."`
-
-**Gemini image reference workflow (for fixing background color or style drift):** When an AI generator produces a great composition but wrong background color or style, use Gemini's image reference feature to recreate it on-brand:
-1. Upload the image you like to Gemini
-2. Ask: "Re-create this exact scene but with warm off-white (#FAFAF8) background, flat illustration style, charcoal (#1A1A1A) outlines, orange (#E8621A) accents, white highlights. All human hands must have five fingers. No text, labels, logos, or watermarks."
-3. Gemini preserves the composition while fixing the brand colors
-4. Save the result with the same SEO filename and re-upload to WordPress Media
-
-**Example (Post #1 — "Apa Itu AI" — featured image, icons floating):**
-> Flat illustration style. A Malaysian man sitting at a desk with a glowing brain icon on a computer screen. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Icons floating around: chat bubble, lightbulb, gears. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
-
-**Example (Post #2 — "Cara Guna ChatGPT" — split composition):**
-> Flat illustration style. A split scene: left side shows a messy desk with scattered papers and a frustrated person, right side shows the same desk organized with a glowing ChatGPT interface on a tablet, tasks neatly sorted into folders. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Subtle geometric patterns connecting the two sides. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
-
-**Example (Post #1 in-content — "Bagaimana AI Berfungsi" — minimalist, illustrates article analogy):**
-> Flat illustration style. A child pointing at different animals on flashcards — a cat, a dog, a bird — learning to recognize patterns, with a parallel digital grid showing the same concept with data points being sorted into categories. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Minimalist composition with generous negative space and a single focal element. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
-
-**Example (cinematic editorial poster — myth-vs-reality explainer):**
-> Flat cinematic editorial-poster illustration. A large irregular framed vignette shows a giant charcoal robot looming over a small city while human silhouettes run in the foreground, representing a fictional AI fear. Outside the frame, a simple calculator represents practical everyday AI. Connect the two scenes with subtle dashed orbital lines and small orange geometric accents. Bold black outlines, dramatic orange-and-charcoal contrast, warm off-white (#FAFAF8) background, orange (#E8621A) accents, charcoal (#1A1A1A) elements, white highlights, slight retro print energy. Clean, modern, minimal. No text, words, logos, or watermarks. Wide format 16:9.
-
-**Key lesson:** When creating in-content images, illustrate the *analogy or metaphor* used in that section's text — not the literal concept. This creates unique visuals per section and avoids repetitive imagery (e.g. don't use a brain icon for every AI-related image).
-
-**Important:** Each post's illustration must have a distinctly different composition and subject — do not reuse the same scene layout (person at desk with screen). Vary the perspective, objects, and visual metaphor for every post.
 - **Internal links (outbound):** Always link new post UP to pillar/parent content during Phase 6 (1-3 links)
 - **Internal links (inbound):** Always run `internal-link-builder` skill in Phase 7 to add links from older posts TO the new post
 - **Internal link planning:** Always plan links in Phase 3 (outline) before writing — note anchor text and target URLs
@@ -453,73 +380,21 @@ Use this selectively for high-concept articles, cautionary topics, myth-vs-reali
 - **Rank tracking (MANDATORY):** Never skip Phase 7 steps 1-2 — every published post's focus keyword + URL must be added to BOTH ClickRank AI Overview Tracker (Malaysia, Malay) AND Screpy Rank Tracker (Malaysia, desktop+mobile). ClickRank = AI Overview/AEO visibility, Screpy = traditional SERP rank tracking + technical audits. Both serve different purposes and both are required.
 - **ClickRank title/meta optimization (OPTIONAL):** ClickRank's AI suggestions tend to be over-dramatic. Only apply if natural and matches our calm Malay voice. Reject hype words (Ultimate, Proven, Secret, Game-Changing). Accept natural words (Panduan, Tips, Cara, Mudah, Praktikal, Lengkap). Manual titles always preferred. When in doubt, ask the user. See full policy in AGENTS.md → "ClickRank Usage Policy".
 - **Content standardization:** Always strip `<h1>` tags from WriterZen content (template handles title), remove redundant "Malaysia" mentions, and cross-check formatting against Post #1 as the reference standard
-- **Content formatting (MANDATORY — Learned 2026-07-26, Updated 2026-07-26):** WriterZen's "Write all for me" AI produces walls of text — flat paragraphs with no visual breaks. **Every article must be richly formatted with varied visual elements.** No section should be a mere sea of text. Apply these formatting types throughout every article:
+- **📍 Content formatting (MANDATORY) — authoritative source: `.devin/skills/readability-pass/SKILL.md`.** WriterZen's "Write all for me" AI produces walls of text; every article must be reformatted before publishing. That skill holds the Rich Formatting Toolkit (11 types), blockquote and callout-box templates, the em-dash rule, the Formatting Checklist, and the reference standards. **Do not copy it back into this workflow.** Load the skill at Phase 5 step 6 and run its checklist before publishing.
+- **📍 Malay language quality (MANDATORY) — authoritative source: `.devin/skills/malay-voice-guide/SKILL.md`.** Formatting and language are separate failure modes; passing one does not pass the other. Load the skill whenever the draft came from an AI generator, whenever you touch a core page (Privasi / Disclaimer / Tentang Kami — these need a higher register), and always before publishing. Scan every H2/H3 character-by-character for typos: headings surface in Google SERPs, browser tabs, and the ToC, so a typo there is the most visible defect possible. See `docs/malay-voice-audit-2026-07-30.md` for the 23 findings that prompted this rule.
 
-  ### Rich Formatting Toolkit (USE ALL APPROPRIATE TYPES)
+---
 
-  | Formatting Type | When to Use | HTML Pattern |
-  |----------------|-------------|--------------|
-  | **Bullet lists** | Enumerations, features, tips, reasons | `<ul><li>...</li></ul>` |
-  | **Numbered lists** | Steps, sequences, rankings | `<ol><li>...</li></ol>` |
-  | **Bold labels** | Start of each bullet for scannability | `<li><strong>Label</strong>: description</li>` ⚠️ use a **colon**, never an em dash |
-  | **Blockquotes** | Examples, key quotes, before/after comparisons | See template below |
-  | **Contrast pairs** | Dos and don'ts, good vs bad | `<li><strong>Elakkan:</strong> ...</li><li><strong>Gunakan:</strong> ...</li>` |
-  | **Before/after blocks** | Instructional examples (bad vs good prompt, wrong vs right approach) | Two blockquotes back-to-back with labeled headers |
-  | **Inline emphasis** | English terms in BM sentences | `<em>prompt</em>, <em>brainstorming</em>` |
-  | **Warning/tip boxes** | Important cautions, pro tips | See box template below |
-  | **Short paragraphs** | One idea per paragraph — never more than 3-4 sentences without a visual break | — |
-  | **Figures with captions** | In-content images | `<figure class="wp-block-image"><img ... /><figcaption>...</figcaption></figure>` |
-  | **Internal links** | Contextual anchor text linking to related posts | `<a href="...">natural anchor text</a>` |
+## 📂 Where Things Live (read this before adding anything to this file)
 
-  ### Blockquote Template (DigiTrust Lab Standard — copy-paste this)
+This workflow holds **sequential steps only**. Reference material lives in one place each. On 2026-07-30 an audit found the image-prompt template and formatting toolkit duplicated between this file and their real homes — and the two copies had already drifted apart. Do not recreate that.
 
-  ```html
-  <blockquote style="border-left:3px solid #E8621A;padding:8px 16px;margin:12px 0;background:#F5F3EE;border-radius:0 6px 6px 0;">
-  <p><strong>Contoh label:</strong></p>
-  <p><em>"Example content here."</em></p>
-  <p>Explanation of what happens when you use this example.</p>
-  </blockquote>
-  ```
+| Topic | Authoritative file | Used at |
+|-------|-------------------|---------|
+| Image prompts, design system, filenames, worked examples | `content/image-prompts.md` | Phase 6 step 5 |
+| Formatting toolkit, blockquote/callout templates, formatting checklist | `.devin/skills/readability-pass/SKILL.md` | Phase 5 step 6 |
+| Malay voice, tatabahasa, contractions, brand capitalization, DBP rules | `.devin/skills/malay-voice-guide/SKILL.md` | Phase 5 step 5, and before every publish |
+| Keyword research pipeline detail | `.devin/skills/writerzen-keyword-research/SKILL.md` | Phases 0a–1.5 |
+| Per-post keyword metrics, status, titles | `content/content-calendar.md` | Phases 0a, 0b, 7 |
 
-  **Blockquote design system:**
-  - Left border: `3px solid #E8621A` (DigiTrust Lab orange)
-  - Background: `#F5F3EE` (warm off-white, slightly darker than page bg)
-  - Border radius: `0 6px 6px 0` (rounded right side only)
-  - Padding: `8px 16px`
-  - Margin: `12px 0`
-  - Use for: examples, before/after comparisons, key quotes, important callouts
-
-  ### Warning/Tip Box Template
-
-  ```html
-  <div style="background:#FFF8F5;border-left:3px solid #E8621A;border-radius:0 6px 6px 0;padding:12px 16px;margin:16px 0;">
-  <p><strong>⚠️ Amaran penting:</strong> Warning text here.</p>
-  <p><strong>Tip:</strong> Helpful tip text here.</p>
-  </div>
-  ```
-
-  > ⚠️ **Em dash conflict — resolved 2026-07-29.** This toolkit previously specified `<strong>Label</strong> — description` for bullets, which silently contradicted the AGENTS.md punctuation rule capping em dashes at **1 per post** (they read as an AI tell in Malay). A single 5-item list blew the whole budget. **Always use a colon in list items.** Reserve the one permitted em dash for prose, if used at all. Caught on Post #4, where the drafted article scored 10 dashes against a max of 1.
-
-  ### Formatting Checklist (Run After Every AI Draft)
-
-  Before publishing ANY post, verify:
-  - [ ] **Em/en dash count ≤ 1** across the whole post (list items use colons, not dashes)
-  - [ ] No section is a wall of text (3+ paragraphs without a list, blockquote, or visual break)
-  - [ ] All enumerations use bullet or numbered lists
-  - [ ] All examples use blockquotes (not plain paragraphs)
-  - [ ] All list items have bold labels where applicable
-  - [ ] Dos/don'ts sections use "Elakkan" vs "Gunakan" contrast pairs
-  - [ ] At least 2-3 blockquotes per instructional article
-  - [ ] English terms italicized with `<em>` tags
-  - [ ] Paragraphs are short (max 3-4 sentences)
-  - [ ] Warning/tip boxes used for important callouts
-
-  ### Reference Standards
-
-  | Post | What to Copy |
-  |------|-------------|
-  | Post #2 (`/cara-guna-chatgpt/`) | Blockquotes for examples, bullet lists with bold labels, warning boxes, FAQ section |
-  | Post #3 (`/cara-buat-prompt-chatgpt/`) | Before/after blockquote pairs, contrast pairs, bullet lists with bold labels (reformatted 2026-07-26) |
-  | Post #1 (`/apa-itu-ai/`) | Clean paragraph flow with lists, figure captions, natural internal links |
-
-  **Why this matters:** Rich formatting improves time-on-page, reduces bounce rate, increases readability on mobile, and matches the visual quality that Google's helpful content system rewards. Walls of text get skipped — structured content gets read. This is a non-negotiable quality standard for DigiTrust Lab.
+**Rule:** if you find yourself pasting a table or template into this workflow, it belongs in one of the files above. Add a pointer here instead.

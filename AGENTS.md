@@ -629,8 +629,8 @@ For broader marketing strategy (competitor teardown, E2E SEO, ICP research, cont
 - This is a WordPress blog hosted on Hostinger, using Bricks Builder theme
 - Live URL: `https://digitrustlab.com` (WordPress is served directly — no static export or build step)
 - WP Admin URL: `https://digitrustlab.com/wp-admin/`
-- Respira MCP: connected to Windsurf and Claude Desktop (replaced old Bricks MCP on 2026-07-05)
-- Respira API key stored in Claude Desktop via `.mcpb` install and in Windsurf `mcp_config.json`
+- Respira MCP: connected to Devin and Claude Desktop (replaced old Bricks MCP on 2026-07-05)
+- Respira API key stored in Claude Desktop via `.mcpb` install and in Devin `mcp_config.json` (`$env:APPDATA\devin\mcp_config.json`, symlinked to Google Drive TSOT)
 - Old Bricks MCP bridge (`bricks-mcp-bridge.mjs`) is decommissioned — do not use
 - Template type filter: Use `type: "content"` (not `"single"`) for single post templates
 - Previous architecture (Local WP + Simply Static + Cloudflare Pages) was fully decommissioned on 2026-07-12 — see `deprecated/` folder for archived documentation

@@ -414,6 +414,61 @@ blockquote {
 - ❌ `dah` → use `sudah` or `telah`
 - ❌ `nak` (as future marker) → use `akan` or `hendak`
 
+## 11b. Audit Pattern Library — Real Mistakes Found in Published Content
+
+These are actual defects found on the live site during the 2026-07-30 audit of Posts #1–#6 and the core pages. AI drafts and WriterZen output keep reproducing these patterns — scan for them specifically.
+
+| Pattern | ❌ Wrong | ✅ Correct | Found in |
+|---------|---------|-----------|----------|
+| Missing verb prefix | `tidak pernah guna` | `tidak pernah menggunakan` | Disclaimer |
+| Informal observation verb | `kami tengok` | `kami memantau` / `kami melihat` | Privasi |
+| English where BM exists | `boleh check terus` | `boleh semak terus` | Privasi |
+| English noun with BM equivalent | `result` (×3) | `hasil` | Disclaimer |
+| English noun with BM equivalent | `effort` | `usaha` | Disclaimer |
+| Banned contraction in opening line | `tak tahu nak tulis` | `tidak tahu cara menulis` | Post #3 |
+| **Typo in an H2 heading** | `Bagaimana AI Berfungsa` | `Bagaimana AI Berfungsi` | Post #1 |
+| Non-baku loanword | `efisien` | `cekap` | Post #2 |
+| Informal noun | `benda` | `produk`, `alat`, `perkara` | Disclaimer |
+
+> **ℹ️ `efektif` note (updated 2026-07-30):** DBP-recognized (prpm.dbp.gov.my) and allowed in formal/semi-formal BM. `berkesan` is the traditional synonym and remains preferred, but `efektif` is **not a violation**. Only `efisien` is flagged as non-baku.
+
+### 11c. English Words That DO Have Natural BM Equivalents
+
+§4b lists English terms to **retain** because their BM translations are awkward. This is the inverse list — English words that were used in published content where a perfectly natural BM word already exists. There is no excuse for these.
+
+| ❌ Don't retain | ✅ Use BM |
+|---|---|
+| `check` | `semak` |
+| `result` | `hasil` / `keputusan` |
+| `effort` | `usaha` |
+| `benda` (informal, not English but same problem) | `produk`, `alat`, `perkara` |
+
+**Test:** before keeping an English word, ask *"is the BM version awkward, or am I just being lazy?"* §4b is for genuinely awkward translations (`copy & paste`, `deadline`). It is not a licence to leave any English word untranslated.
+
+### 11d. Heading Typo Scan (MANDATORY)
+
+**Scan every H2 and H3 character-by-character before publishing.** Heading typos are the highest-cost defect in the entire content pipeline because they surface in:
+
+- Google search results (SERP snippets pull headings)
+- The browser tab and page title
+- The auto-generated Table of Contents
+- Internal link anchor text
+
+A body-paragraph typo is embarrassing. A heading typo is embarrassing **in public, at scale, indefinitely**. `Berfungsa` sat live on Post #1 from 2026-07-09 to 2026-07-30.
+
+### 11e. Core Pages Need a Higher Register
+
+Privasi, Disclaimer, Tentang Kami, and Hubungi Kami sit at a **higher register than blog posts**. Blog posts may use conversational warmth; core pages are quasi-institutional and readers judge credibility from them.
+
+| On core pages, avoid | Use instead |
+|---|---|
+| `benda` | `produk`, `alat`, `perkara` |
+| `tengok` | `melihat`, `memantau` |
+| `guna` (bare verb) | `menggunakan` |
+| Any contraction | Full form, always |
+
+The warmth stays — `"Kami tahu halaman ini biasanya membosankan"` is still the right opener. What changes is that **every verb carries its full imbuhan** and no informal nouns slip through.
+
 ## 12. Green Light Patterns — Use These
 
 Natural formal–semi-formal BM examples that hit the right tone — polished, professional, and accessible:
