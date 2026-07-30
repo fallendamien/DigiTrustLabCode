@@ -92,6 +92,62 @@ ENGLISH_WITH_BM = {
     r"\brecommend\b": "mengesyorkan",
 }
 
+# Bahasa Indonesia forms that are NOT valid Malay — skill §4f.
+#
+# WHY: AI models routinely emit Indonesian when asked for Malay. The languages
+# share most vocabulary, so an Indonesian word inside Malay prose reads as a
+# slightly odd word choice rather than an error — it survives proofreading.
+# Found live 2026-07-30: `mencoba` had been in Post #1 since publication, and
+# the skill file itself was teaching `menyadarinya` in three example tables.
+#
+# DO NOT over-extend this list. Many words are valid in both languages
+# (paham/faham, kamu, sekarang, jam), and `efektif` was wrongly banned on
+# 2026-07-30 before DBP confirmed it valid. Verify at prpm.dbp.gov.my first.
+INDONESIAN = {
+    # -tas / -ti suffix family (highest-yield systematic check)
+    r"\baktivitas\b": "aktiviti",
+    r"\bkualitas\b": "kualiti",
+    r"\bkomunitas\b": "komuniti",
+    r"\bidentitas\b": "identiti",
+    r"\brealitas\b": "realiti",
+    r"\buniversitas\b": "universiti",
+    r"\bfasilitas\b": "fasiliti / kemudahan",
+    r"\bprioritas\b": "prioriti / keutamaan",
+    r"\bkreativitas\b": "kreativiti",
+    r"\bproduktivitas\b": "produktiviti",
+    # root-vowel families: sadar->sedar, coba->cuba, pikir->fikir
+    r"\bmenyadari\w*": "menyedari…",
+    r"\bkesadaran\b": "kesedaran",
+    r"\bsadar\b": "sedar",
+    r"\bmencoba\w*": "mencuba…",
+    r"\bdicoba\b": "dicuba",
+    r"\bpercobaan\b": "percubaan",
+    r"\bpikiran\b": "fikiran",
+    r"\bmemikirkan\b": "memikirkan (BM: fikir root)",
+    r"\bpemikiran\b": "pemikiran (BM: fikir root)",
+    # Indonesian-only vocabulary
+    r"\bbutuh\w*": "perlu / memerlukan",
+    r"\bkarena\b": "kerana",
+    r"\bkayak\b": "seperti",
+    r"\bgimana\b": "bagaimana",
+    r"\b(?:nggak|enggak)\b": "tidak",
+    r"\bbanget\b": "sangat",
+    r"\bbikin\w*": "buat / membuat",
+    # spelling variants
+    r"\bresiko\b": "risiko",
+    r"\bpraktek\b": "praktik",
+    r"\bsilahkan\b": "sila",
+    r"\bnasehat\b": "nasihat",
+    r"\bmerubah\b": "mengubah",
+}
+
+# `bisa` is a REAL Malay word meaning venom ("bisa ular"). Flagged as WARN only,
+# because the Indonesian sense ("can") is far likelier in this content but a
+# legitimate use must not fail the build. Read the sentence before replacing.
+INDONESIAN_AMBIGUOUS = {
+    r"\bbisa\b": "boleh (unless you mean venom — 'bisa ular')",
+}
+
 # Informal nouns/verbs — flagged everywhere, ERROR on core pages (§11e).
 INFORMAL = {
     r"\bbenda\b": "produk / alat / perkara",
@@ -191,6 +247,17 @@ def scan(cid, label, html):
         if hits:
             out.append(("ERROR", "non-baku",
                         f"'{hits[0].group()}' x{len(hits)} -> {fix}"))
+
+    # -- Bahasa Indonesia forms (skill §4f) --------------------------------
+    for pat, fix in INDONESIAN.items():
+        for m in re.finditer(pat, body, re.I):
+            out.append(("ERROR", "indonesian",
+                        f"'{m.group()}' is Indonesian -> {fix}  ...{snippet(body, m.start())}..."))
+
+    for pat, fix in INDONESIAN_AMBIGUOUS.items():
+        for m in re.finditer(pat, body, re.I):
+            out.append(("WARN", "indonesian?",
+                        f"'{m.group()}' -> {fix}  ...{snippet(body, m.start())}..."))
 
     # -- English where a BM word exists ------------------------------------
     for pat, fix in ENGLISH_WITH_BM.items():

@@ -1,5 +1,6 @@
 ---
-description: Write and publish a blog post using the WriterZen Option C pipeline. Starts with a quota check and Topic Discovery (never skip these — do NOT start at Keyword Explorer with a guessed keyword), then Keyword Explorer + Golden Filter → Keyword List → cluster into a NEW Keyword Planner project → Weak Spot ≥ 2 gate → Content Brief → Content Creator → publish via Respira MCP → Rank Math → ClickRank/Screpy rank tracking.
+name: write-post
+description: "Write and publish a blog post using the WriterZen Option C pipeline. Quota check → Topic Discovery → Golden Filter → Keyword List → cluster → Weak Spot gate → Content Brief → Content Creator → publish via Respira MCP → Rank Math → Malay voice gate → ClickRank/Screpy rank tracking. Includes the hard-won wp.data excerpt method."
 ---
 
 # Write & Publish a Blog Post (Option C Pipeline)
@@ -25,17 +26,18 @@ This is the standard workflow for every DigiTrust Lab blog post. Follow these st
 | **Keyword Planner** | Cluster keywords into topics | Project-based | Planning phase |
 | **Content Creator** | Generate outline + write article | Project-based | Writing phase |
 
-### ⚠️ Keyword List vs Keyword Group (Learned 2026-07-21)
+### ⚠️ Keyword List vs Keyword Group
 
 - **ALWAYS use "Add keyword to LIST"** (permanent) — NEVER "Add keyword to GROUP" (temporary, disappears after session)
 - Keyword List is the bridge between Explorer and Planner
 
-### ⚠️ Project Structure (Updated 2026-07-21 — verified against WriterZen official guide)
+### ⚠️ Project Structure
 
 - **ONE Keyword List** for all blog posts: "DigiTrust Lab Blog Posts" (ID: 68708) — single source of truth
 - **ONE Keyword Planner project PER blog post topic** — WriterZen clustering is one-time, cannot append to existing
 - **ONE Content Creator project**: "DigiTrust Lab" (existing) — all articles under this project
-- Previous rule "never create new Planner projects" was WRONG — WriterZen requires a new project per cluster run
+
+> **Full keyword research detail:** See `.devin/skills/writerzen-keyword-research/SKILL.md` for WriterZen tool walkthrough, Golden Filter thresholds, and Weak Spot gate methodology.
 
 ## Steps
 
@@ -134,7 +136,7 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
 
 #### Fallback protocol when the gate fails (do this before ANY override)
 
-> ⚠️ "Go back to Phase 0a" means **pick a different candidate from the Topic Discovery output you already have** — it does NOT mean re-running Topic Discovery. That run already produced dozens of candidate angles; re-running the same seed burns a lookup and returns the same topics. Only re-run Topic Discovery when the existing candidates are exhausted, or when moving to a different subject area entirely. (Unmined depth in an existing run: the per-card **"Show ideas"** panels, and re-reading at a different Relevance setting.)
+> ⚠️ "Go back to Phase 0a" means **pick a different candidate from the Topic Discovery output you already have** — it does NOT mean re-running Topic Discovery. That run already produced dozens of candidate angles; re-running the same seed burns a lookup and returns the same topics. Only re-run Topic Discovery when the existing candidates are exhausted, or when moving to a different subject area entirely.
 
 1. Pick 2-4 alternative angles from the existing Topic Discovery output
 2. Run each through Keyword Explorer (1 lookup each — cheap). **Check volume first** — many trending Malay phrases have literally 0 search volume because the interest lives on TikTok/Facebook, not Google
@@ -213,7 +215,7 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
 
 **Writing Mode: "Write all for me" (AI Draft → Human Edit)**
 
-> **Strategy (Learned 2026-07-21):** Always use "Write all for me" instead of "I'll write myself".
+> **Strategy:** Always use "Write all for me" instead of "I'll write myself".
 > The detailed content brief (Malay angle, audience, tone, perspective) gives the AI enough
 > context to produce a usable Malay draft. We then refine for DigiTrust Lab voice consistency.
 > This is the most efficient path for a solo blogger — let AI draft, human edits.
@@ -222,13 +224,12 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
 2. Set AI Creativity Level = 1 for best quality
 3. Let AI generate the full draft based on the content brief + outline
 4. Review generated content section by section
-5. **Edit for DigiTrust Lab voice** — match the semi-formal Malay standard from AGENTS.md voice guide
-6. **Reformat walls of text into rich visual structure** (MANDATORY — load `.devin/skills/readability-pass/SKILL.md` now):
+5. **Edit for DigiTrust Lab voice** — match the semi-formal Malay standard from `.devin/skills/malay-voice-guide/SKILL.md`
+6. **Reformat walls of text into rich visual structure** (MANDATORY):
    - WriterZen AI produces flat walls of text — every section must be reformatted
    - Use the full formatting toolkit: blockquotes, bullet/numbered lists, bold labels, before/after blocks, contrast pairs, warning/tip boxes
-   - Copy-paste the blockquote and callout-box templates from the skill (orange border, warm bg, rounded corners)
-   - Run the skill's **Formatting Checklist** before publishing — no section should be a sea of text
-   - Then load `.devin/skills/malay-voice-guide/SKILL.md` and run its language checks — formatting and language are separate failure modes
+   - **See `.devin/skills/readability-pass/SKILL.md`** for the complete Rich Formatting Toolkit, blockquote/callout templates, and Formatting Checklist
+   - Run the Formatting Checklist before publishing — no section should be a sea of text
    - Reference standards: Post #2 (`/cara-guna-chatgpt/`) and Post #3 (`/cara-buat-prompt-chatgpt/`)
 7. Run **Show Analysis** — fix any flagged SEO issues
 8. Run **Plagiarism Check** — ensure 0% plagiarism
@@ -262,8 +263,8 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
    - Set Rank Math SEO meta: `rank_math_title`, `rank_math_description`, `rank_math_focus_keyword`, `rank_math_primary_category`
    - Set categories
 5. **Generate featured image via Gemini Nano Banana 2** (NOT Openverse stock photos — those break visual consistency):
-   - Use the standard DigiTrust Lab illustration prompt template from `content/image-prompts.md` (prompt skeleton, design system, variation guide, anatomy fix, worked examples)
-   - Style: flat illustration, brand colors, 16:9 aspect ratio
+   - Use the standard DigiTrust Lab illustration prompt template
+   - **See `content/image-prompts.md`** for the full prompt template, design system, variation guide, and worked examples
    - Download the generated image, then sideload via `respira_sideload_image`
    - Set alt text describing the illustration in Malay
 6. Set featured image via `respira_update_post` with `featured_media`
@@ -278,6 +279,7 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
    wp.data.dispatch('core/editor').editPost({ excerpt: ex });
    await wp.data.dispatch('core/editor').savePost();
    ```
+
    **Then ALWAYS verify by reloading the page** and re-reading — never trust the in-page value:
    ```js
    wp.data.select('core/editor').getEditedPostAttribute('excerpt').length  // must be > 0
@@ -286,9 +288,24 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
    Three excerpt-setting methods, ranked: `wp.data` store ✅ reliable · WP editor UI ⚠️ silently fails · Respira `excerpt` param ❌ documented as unreliable.
 9. Verify on live site: navigate to URL, check rendering, SEO title, internal links, featured image
 
-### Phase 6.5: Rank Math Sidebar Optimization (MANDATORY — Never Skip)
+### Phase 6.5: Rank Math + Malay Voice Gate (MANDATORY — Never Skip)
 
-This phase runs AFTER the post is published (Phase 6) but BEFORE documentation (Phase 7). The goal is to push the Rank Math SEO score as high as possible before moving on.
+This phase runs AFTER the post is published (Phase 6) but BEFORE documentation (Phase 7).
+
+#### 6.5a: Malay Voice Publish Gate
+
+```bash
+python scripts/verify-malay-voice.py <post-id>
+```
+
+**Must report 0 errors before proceeding.** If errors:
+- Fix them in the content via `respira_update_post`
+- Re-run the script
+- **Register the new post ID** in the script's `CONTENT` dict, or it is silently never checked
+
+> **Full Malay voice standard:** See `.devin/skills/malay-voice-guide/SKILL.md` for the complete guide, including the publish gate protocol, DBP-aligned spelling, Bahasa Indonesia detection, and what the script cannot check (heading typos, tatabahasa, sentence fragments, comma splices, read-aloud flow).
+
+#### 6.5b: Rank Math Sidebar Optimization
 
 1. **Open the post in WordPress editor** and check the Rank Math sidebar score
 2. **Fix Title Readability issues:**
@@ -298,7 +315,7 @@ This phase runs AFTER the post is published (Phase 6) but BEFORE documentation (
    - Focus keyword must appear at the **beginning** of the SEO title
    - **Malay words like "Terbaik", "Mudah", "Penting" are NOT recognized** by Rank Math — use English power/sentiment words that blend naturally
 3. **Fix Additional issues:**
-   - **Keyword density** — target 0.5%–2.5%. If below 0.5%, add the focus keyword naturally in intro, section transitions, and FAQ. Count includes exact match + word combinations.
+   - **Keyword density** — target 0.5%–2.5%. If below 0.5%, add the focus keyword naturally in intro, section transitions, and FAQ
    - **Outbound links** — at least one external link must be **dofollow** (not nofollow). If Rank Math says "all outbound links are nofollow":
      - Check Rank Math → Settings → Links → "Nofollow External Links" — if enabled, add the target domain to **"Nofollow Exclude Domains"** to make it dofollow
      - Alternatively, remove `target="_blank"` from the link (WordPress auto-adds nofollow to external links with target=_blank via Rank Math's setting)
@@ -308,6 +325,8 @@ This phase runs AFTER the post is published (Phase 6) but BEFORE documentation (
    - Ensure content length is sufficient (Rank Math flags short content)
 5. **Re-check score** — aim for 80+. The only unfixable error is "Use Content AI" (Rank Math PRO feature)
 6. **Record the final score** in the post's content-calendar.md entry
+
+> **Essential vs cosmetic checks:** Essential (MUST fix): keyword in title/URL/meta/intro/subheadings/alt, density 0.5-2.5%, content ≥600 words, has images, has internal links, schema. Cosmetic (skip): sentiment word, power word, "Use Content AI" (PRO upsell). The Respira Rank Math API (`respira_analyze_rankmath`) reports `computed_score` which only covers the 13 essential checks — the WP Admin sidebar score includes cosmetic checks too, so it will show a lower number.
 
 ### Phase 7: Post-Publish — Rank Tracking + Internal Linking + Documentation
 
@@ -323,12 +342,11 @@ This phase runs AFTER the post is published (Phase 6) but BEFORE documentation (
 3. **Screpy — Rank Tracker** (app.screpy.com → Rank Tracker → Add keywords):
    - Add the post's **primary focus keyword** only + URL (Malaysia, Malay, desktop + mobile)
    - Screpy tracks traditional Google SERP rankings, competitor comparison, and page health
-   - **Why both tools:** ClickRank = AI Overview/AEO tracking, Screpy = traditional SERP rank tracking + technical audits. They serve different purposes.
+   - **Why both tools:** ClickRank = AI Overview/AEO tracking, Screpy = traditional SERP rank tracking + technical audits. They serve different purposes and both are required.
 4. **Screpy — Re-run Crawler** (app.screpy.com → Pages → Analyze button):
    - Click "Analyze" to trigger a new crawl — this auto-discovers new post URLs for SEO health monitoring
    - Screpy does NOT have manual per-page URL addition — the crawler finds pages automatically
    - New posts published after the last crawl won't appear until the crawler runs again
-   - **Screpy Uptime** monitors the domain (digitrustlab.com) as a whole, not individual pages
 5. **Run internal link builder** — Use the `internal-link-builder` skill to scan existing posts and add links pointing TO the new post:
    - Trigger: "build internal links" or load skill from `.devin/skills/internal-link-builder/SKILL.md`
    - This finds mentions of the new post's topic in older posts and adds contextual links back
@@ -351,50 +369,41 @@ This phase runs AFTER the post is published (Phase 6) but BEFORE documentation (
 ## Key Rules
 
 - **Language:** Bahasa Melayu baku, formal–semi-formal, 'anda' not 'korang'
-- **Italic Policy (MANDATORY):** Italicize English terms code-switched into BM sentences using `<em>` tags (e.g. <em>prompt</em>, <em>brainstorming</em>, <em>chat</em>, <em>Sign Up</em>, <em>Enter</em>, <em>vs</em>, <em>chatbot</em>, <em>natural</em>). Do NOT italicize: brand names (ChatGPT, OpenAI), acronyms (AI, NLP, API), or fully absorbed loan words (online, email/emel, blog, download, upload, login, link, video, tutorial). Standardize spelling — use BM spelling "emel" not "email" throughout. See `malay-voice-guide/SKILL.md` §4c for full policy.
+- **Italic Policy:** See `.devin/skills/malay-voice-guide/SKILL.md` §4c for full policy
 - **AI Creativity Level:** Always set to 1
 - **Content Creator Project:** Always use existing "DigiTrust Lab" — never create new
-- **Keyword List:** Always use existing "DigiTrust Lab Blog Posts" (ID: 68708) — one permanent list for all posts
-- **Keyword Planner Project:** Create a **NEW** project per post topic (e.g. "Post 4 — Prompt AI Illustration"). WriterZen clustering is one-time and cannot append to an existing project. ⚠️ The older rule "always reuse project ID 178201 / never create new" was **WRONG** — 178201 is a legacy project, not a target. Do not reuse it.
+- **Keyword List:** Always use existing "DigiTrust Lab Blog Posts" (ID: 68708)
+- **Keyword Planner Project:** Create a **NEW** project per post topic. WriterZen clustering is one-time and cannot append to an existing project
 - **SERP View / AI Assistant toggles:** Leave OFF during Step 1 (Outline)
-- **Quota check (MANDATORY):** Never start a research session without Phase -1. Golden Filter costs 1 credit per keyword; AI Words cap is 8,000/month (~8 posts at 1,000 words)
-- **Golden Filter (MANDATORY):** Always apply in Phase 0b before clustering — Golden Score ≤10, All-in-Title ≤10, Volume ≥100 (relax volume to 50 if needed, never the other two)
-- **Weak Spot gate (MANDATORY):** Never write a post whose target cluster has Weak Spot < 2. Pick a different angle instead
+- **Quota check (MANDATORY):** Never start a research session without Phase -1
+- **Golden Filter (MANDATORY):** Always apply in Phase 0b — Golden Score ≤10, All-in-Title ≤10, Volume ≥100 (relax volume to 50 if needed, never the other two)
+- **Weak Spot gate (MANDATORY):** Never write a post whose target cluster has Weak Spot < 2
 - **30-day freshness:** Re-run Keyword Explorer if the last search for this topic is older than 30 days
-- **Titles are provisional:** Planned titles in `content-calendar.md` are placeholders until Topic Discovery (Phase 0a) confirms a winnable angle. Keyword decides the title, not the reverse
-- **Never skip the Content Creator pipeline** — outline must be generated through WriterZen's AI + competitor research
-- **Featured image:** Always use Gemini Nano Banana 2 (NOT Openverse stock photos). Cross-check visual style against Post #1 (`/apa-itu-ai/`)
-- **In-content images (SEO best practice):** Add images under H2 sections to break up text, increase time on page, and earn Google Image search traffic. Workflow: (1) Agent audits post and identifies H2s needing images, (2) Agent provides prompts + filenames, (3) User generates in Gemini Nano Banana 2 and uploads to WordPress Media, (4) Agent inserts each image into correct section with Malay alt text and caption.
-- **📍 Image prompts — authoritative source: `content/image-prompts.md`.** That file holds the prompt template, design system constants, variation guide, filename rule, anatomy fix, Gemini image-reference workflow, worked examples, and the per-post prompt library. **Do not copy any of it back into this workflow** — it was duplicated here until 2026-07-30 and the two copies had already drifted apart. Update `image-prompts.md` when a post is published (replace TBD with content-derived prompts) or newly planned (add a TBD section at its numbered position).
-- **Post Excerpt (MANDATORY):** Every post MUST have a manual excerpt (155–160 characters). The excerpt is a concise Malay summary that includes the focus keyword. It appears on blog archive pages, category pages, search results, and RSS feeds. Without it, WordPress auto-generates a truncated first paragraph which often cuts off awkwardly. **Must be set via WordPress editor** (Settings sidebar → Post tab → "Add an excerpt…") — NOT via Respira's `excerpt` parameter, which is unreliable and silently ignored on some posts. Always click Save/Update after setting the excerpt.
-
+- **Titles are provisional:** Planned titles in `content-calendar.md` are placeholders until Topic Discovery confirms a winnable angle
+- **Featured image:** Always use Gemini Nano Banana 2. See `content/image-prompts.md` for prompt template, design system, and variation guide
+- **Image filenames (MANDATORY):** `{post-slug}-{image-description}.png` (lowercase, hyphens only)
+- **In-content images:** Add images under H2 sections to break up text. See `content/image-prompts.md` for prompts
+- **Image prompts library:** All prompts stored in `content/image-prompts.md`. Update when a post is published
+- **Post Excerpt (MANDATORY):** Every post MUST have a manual excerpt (155–160 characters). Set via `wp.data` store method (see Phase 6 Step 8) — NOT via Respira's `excerpt` parameter
+- **Content formatting (MANDATORY):** See `.devin/skills/readability-pass/SKILL.md` for Rich Formatting Toolkit, blockquote/callout templates, and Formatting Checklist
+- **Malay voice gate (MANDATORY):** Run `python scripts/verify-malay-voice.py <post-id>` in Phase 6.5 — must be 0 errors before Phase 7
 - **Internal links (outbound):** Always link new post UP to pillar/parent content during Phase 6 (1-3 links)
 - **Internal links (inbound):** Always run `internal-link-builder` skill in Phase 7 to add links from older posts TO the new post
-- **Internal link planning:** Always plan links in Phase 3 (outline) before writing — note anchor text and target URLs
+- **Internal link planning:** Always plan links in Phase 3 (outline) before writing
 - **SEO meta:** Always set Rank Math title (≤60 chars), description (≤160 chars), focus keyword, primary category
-- **Rank Math optimization (MANDATORY):** Never skip Phase 6.5 — check Rank Math sidebar. Aim for 80+ score. Use English power/sentiment words (Rank Math doesn't recognize Malay words).
-  - **Essential checks (MUST fix):** keyword in title, URL, meta description, intro (first 10% of content), subheadings, image alt text · keyword density 0.5-2.5% · content ≥600 words · has images · has internal links · schema markup
-  - **External links (dofollow):** Add 1-2 natural dofollow external links to authoritative sources (Wikipedia, official product pages like openai.com). Link when mentioning a factual reference or named entity — don't force it. This passes small trust signals to Google and clears the Rank Math "all outbound links are nofollow" warning.
-  - **Cosmetic checks (skip — not worth the effort):** sentiment word in title · power word in title · "Use Content AI" (PRO upsell)
-  - **Note:** The Respira Rank Math API (`respira_analyze_rankmath`) reports `computed_score` which only covers the 13 essential checks. The WP Admin sidebar score includes cosmetic checks too, so it will show a lower number. Don't chase 100/100 in the sidebar — focus on the essential checks being green.
-- **Rank tracking (MANDATORY):** Never skip Phase 7 steps 1-2 — every published post's focus keyword + URL must be added to BOTH ClickRank AI Overview Tracker (Malaysia, Malay) AND Screpy Rank Tracker (Malaysia, desktop+mobile). ClickRank = AI Overview/AEO visibility, Screpy = traditional SERP rank tracking + technical audits. Both serve different purposes and both are required.
-- **ClickRank title/meta optimization (OPTIONAL):** ClickRank's AI suggestions tend to be over-dramatic. Only apply if natural and matches our calm Malay voice. Reject hype words (Ultimate, Proven, Secret, Game-Changing). Accept natural words (Panduan, Tips, Cara, Mudah, Praktikal, Lengkap). Manual titles always preferred. When in doubt, ask the user. See full policy in AGENTS.md → "ClickRank Usage Policy".
-- **Content standardization:** Always strip `<h1>` tags from WriterZen content (template handles title), remove redundant "Malaysia" mentions, and cross-check formatting against Post #1 as the reference standard
-- **📍 Content formatting (MANDATORY) — authoritative source: `.devin/skills/readability-pass/SKILL.md`.** WriterZen's "Write all for me" AI produces walls of text; every article must be reformatted before publishing. That skill holds the Rich Formatting Toolkit (11 types), blockquote and callout-box templates, the em-dash rule, the Formatting Checklist, and the reference standards. **Do not copy it back into this workflow.** Load the skill at Phase 5 step 6 and run its checklist before publishing.
-- **📍 Malay language quality (MANDATORY) — authoritative source: `.devin/skills/malay-voice-guide/SKILL.md`.** Formatting and language are separate failure modes; passing one does not pass the other. Load the skill whenever the draft came from an AI generator, whenever you touch a core page (Privasi / Disclaimer / Tentang Kami — these need a higher register), and always before publishing. Scan every H2/H3 character-by-character for typos: headings surface in Google SERPs, browser tabs, and the ToC, so a typo there is the most visible defect possible. See `docs/malay-voice-audit-2026-07-30.md` for the 23 findings that prompted this rule.
+- **Rank tracking (MANDATORY):** Every published post's focus keyword + URL must be added to BOTH ClickRank AI Overview Tracker AND Screpy Rank Tracker
+- **ClickRank title/meta optimization (OPTIONAL):** Reject hype words. Accept natural words. Manual titles always preferred
+- **Content standardization:** Always strip `<h1>` tags from WriterZen content, remove redundant "Malaysia" mentions, cross-check formatting against Post #1
 
----
+## Where Things Live
 
-## 📂 Where Things Live (read this before adding anything to this file)
+| Topic | File | Rule |
+|-------|------|------|
+| Keyword research detail (WriterZen tools, Golden Filter, Weak Spot) | `.devin/skills/writerzen-keyword-research/SKILL.md` | Don't duplicate WriterZen UI steps here |
+| Image prompt template, design system, variation guide, examples | `content/image-prompts.md` | Don't paste prompt templates here |
+| Rich Formatting Toolkit, blockquote/callout templates, Formatting Checklist | `.devin/skills/readability-pass/SKILL.md` | Don't paste HTML templates here |
+| Malay voice standard, publish gate, DBP rules, Bahasa Indonesia detection | `.devin/skills/malay-voice-guide/SKILL.md` | Don't paste voice rules here |
+| Sequential pipeline phases (−1 through 7) | **This file** | The pipeline lives here and only here |
+| Key Rules summary | **This file** | One-line reminders with pointers to full docs |
 
-This workflow holds **sequential steps only**. Reference material lives in one place each. On 2026-07-30 an audit found the image-prompt template and formatting toolkit duplicated between this file and their real homes — and the two copies had already drifted apart. Do not recreate that.
-
-| Topic | Authoritative file | Used at |
-|-------|-------------------|---------|
-| Image prompts, design system, filenames, worked examples | `content/image-prompts.md` | Phase 6 step 5 |
-| Formatting toolkit, blockquote/callout templates, formatting checklist | `.devin/skills/readability-pass/SKILL.md` | Phase 5 step 6 |
-| Malay voice, tatabahasa, contractions, brand capitalization, DBP rules | `.devin/skills/malay-voice-guide/SKILL.md` | Phase 5 step 5, and before every publish |
-| Keyword research pipeline detail | `.devin/skills/writerzen-keyword-research/SKILL.md` | Phases 0a–1.5 |
-| Per-post keyword metrics, status, titles | `content/content-calendar.md` | Phases 0a, 0b, 7 |
-
-**Rule:** if you find yourself pasting a table or template into this workflow, it belongs in one of the files above. Add a pointer here instead.
+> **If you are about to paste a table or template into this skill, it belongs in one of those files — add a pointer instead.**

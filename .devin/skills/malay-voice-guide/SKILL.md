@@ -1,6 +1,6 @@
 ---
 name: malay-voice-guide
-description: "Natural formal-to-semi-formal Bahasa Melayu writing standard for DigiTrust Lab. Use on ANY task involving writing, editing, or reviewing Malay content (blog posts, pages, copy, CTA text). Enforces DBP-aligned spelling/grammar, anti-salesy tone, and red-phrase avoidance. Reference style: PandaiTech.my, Ecentral.my."
+description: "Natural formal-to-semi-formal Bahasa Melayu writing standard for DigiTrust Lab, plus the publish gate that enforces it. Use on ANY task involving writing, editing, reviewing, or PUBLISHING Malay content (blog posts, pages, copy, CTA text, alt text, meta). Ships an automated checker at scripts/verify-malay-voice.py which must report 0 errors before a post goes live. Enforces DBP-aligned spelling/grammar, blocks Bahasa Indonesia forms, anti-salesy tone, and red-phrase avoidance. Reference style: PandaiTech.my, Ecentral.my."
 ---
 
 # Malay Voice Guide — Natural Formal–Semi-Formal Bahasa Melayu Standard
@@ -12,6 +12,58 @@ description: "Natural formal-to-semi-formal Bahasa Melayu writing standard for D
 **Reference style:** PandaiTech.my, Ecentral.my — professional but accessible, not textbook-dry.
 
 **Authoritative reference:** Dewan Bahasa dan Pustaka (DBP) — `dbp.gov.my/pedoman-dan-panduan-bahasa-melayu/` for spelling, grammar, and formal BM standards.
+
+---
+
+## 🚦 PUBLISH GATE — run this before any post goes live
+
+**`scripts/verify-malay-voice.py` is the machine half of this skill.** Run it on every piece before publishing. It fails the build on defects that are countable, so your attention is free for the ones that are not.
+
+```bash
+# after publishing to WordPress, before rank tracking:
+python scripts/verify-malay-voice.py <post-id>
+
+# whole site:
+python scripts/verify-malay-voice.py
+```
+
+**Pass condition: 0 errors.** Exit code is 1 on any error, 0 on clean, so it can gate a pipeline. It reads the **live public REST API**, so a pass proves the fix is live — not merely saved. If a fix does not show, purge LiteSpeed Cache and re-run before investigating anything else.
+
+### ⚠️ Register every new post, or it is silently never checked
+
+The script only checks IDs listed in its `CONTENT` dict. **When a post publishes, add it:**
+
+```python
+CONTENT = {
+    ...
+    599: ("Post #7  <short title>", "posts"),   # <- add this line
+}
+```
+
+A post that is not registered will never fail, which reads exactly like passing. This is the single easiest way for the gate to rot.
+
+### What the script checks (so you don't re-check by hand)
+
+em dashes (split by prose / `<li>` / alt-text) · banned contractions · non-baku loanwords · Bahasa Indonesia forms (§4f) · English where a BM word exists (§11c) · informal register, hard error on core pages (§11e) · brand capitalisation (§4d) · italic policy (§4c)
+
+### What it CANNOT check — these are yours, always
+
+A clean run is **not** a pass. Read for:
+
+- [ ] **Heading typos** (§11d) — character by character. `Berfungsa` survived three weeks live; no script catches a misspelling that is still a plausible word.
+- [ ] **Tatabahasa completeness** (⚠️ CRITICAL section below) — every sentence has a proper verb with correct imbuhan.
+- [ ] **Sentence fragments** — especially after removing punctuation. A `jika…` / `apabila…` clause ended with a full stop leaves a dangling subordinate clause. Found live on Tentang Kami, 2026-07-30: *"Jadi jika anda ingin… membayar designer mahal. Anda berada di tempat yang betul."* — grammatically broken, perfectly spelled, invisible to the script.
+- [ ] **Comma splices** — the most likely regression from bulk em-dash removal.
+- [ ] **Read-aloud flow** (§1) — if a rewritten sentence reads worse than what it replaced, use a full stop instead.
+- [ ] **Register on core pages** (§11e) — Privasi / Disclaimer / Tentang Kami.
+
+### Extending the checks
+
+New defect patterns go into **both** the script's dicts **and** the relevant table in this file. Never one without the other — a pattern in only one place drifts out of sync within weeks.
+
+> **Do not ban a word without verifying it at `prpm.dbp.gov.my` first.** `efektif` was wrongly banned on 2026-07-30 and had to be un-banned across four files. Being wrong in this direction costs real rework.
+
+---
 
 ## The Standard
 
@@ -26,7 +78,7 @@ DigiTrust Lab uses **natural formal–semi-formal Bahasa Melayu** — proper bak
 | ❌ Incomplete (missing verb / loose structure) | ✅ Complete (proper tatabahasa) | What was missing |
 |---|---|---|
 | `Kerja yang banyak proses ulang-ulang` | `Kerja yang banyak melibatkan proses berulang` | Missing verb `melibatkan` + standard BM `berulang` |
-| `Cuma anda tidak perasan` | `Cuma anda mungkin tidak menyadarinya` | `perasan` is colloquial; `menyadarinya` is proper verb form |
+| `Cuma anda tidak perasan` | `Cuma anda mungkin tidak menyedarinya` | `perasan` is colloquial; `menyedarinya` is proper verb form |
 | `Soalan ini yang ramai orang risau` | `Soalan inilah yang menjadi kebimbangan ramai orang` | Missing verb `menjadi`; sentence was incomplete |
 | `Ini yang ramai orang tidak perasan` | `Ini yang ramai orang tidak sedari` | `perasan` → `sedari` (proper verb form) |
 
@@ -108,9 +160,9 @@ These real edits show the pattern: elevate casual phrasing to natural formal whe
 
 | ❌ Casual (before) | ✅ Natural formal (after) | Pattern |
 |---|---|---|
-| `Cuma anda tidak perasan.` | `Cuma anda mungkin tidak menyadarinya.` | `tidak perasan` → `tidak menyadarinya` |
+| `Cuma anda tidak perasan.` | `Cuma anda mungkin tidak menyedarinya.` | `tidak perasan` → `tidak menyedarinya` |
 | `Lama-lama dia akan kenal mana gambar kucing` | `Lama-lama dia akan dapat mengenal pasti mana gambar kucing` | `kenal` → `mengenal pasti` |
-| `Kita tidak perasan kerana ia melakukan kerja` | `Kita tidak menyadarinya kerana ia melakukan kerja` | `tidak perasan` → `tidak menyadarinya` |
+| `Kita tidak perasan kerana ia melakukan kerja` | `Kita tidak menyedarinya kerana ia melakukan kerja` | `tidak perasan` → `tidak menyedarinya` |
 | `Filem sains fiksyen membuat kita berasa takut` | `Filem sains fiksyen sering menimbulkan rasa takut` | `membuat kita berasa` → `menimbulkan rasa` |
 | `AI sekarang tidak ada "kesedaran"` | `AI sekarang tidak mempunyai "kesedaran"` | `tidak ada` → `tidak mempunyai` |
 | `Ia tidak ada perasaan.` | `Ia tidak mempunyai perasaan.` | `tidak ada` → `tidak mempunyai` |
@@ -267,6 +319,69 @@ Use **Jika** (formal/semi-formal) instead of **Kalau** (informal/colloquial) for
 | Jika anda baru bermula... | Kalau anda baru bermula... |
 
 **Rule:** ALWAYS use "Jika" in all written content. "Kalau" is spoken/informal Malay and does not match the DigiTrust Lab semi-formal register. Scan for "Kalau" during proofreading and replace with "Jika".
+
+### 4f. Bahasa Indonesia vs Bahasa Melayu (MANDATORY — added 2026-07-30)
+
+**AI models routinely emit Indonesian forms when asked for Malay.** The two languages share most vocabulary, so an Indonesian word inside Malay prose does not look like an error — it looks like a slightly odd word choice. That is what makes this class of defect dangerous: it survives proofreading.
+
+This was found live on 2026-07-30: `mencoba` had been sitting in Post #1 since publication, and **this very skill file was teaching `menyadarinya` in three separate example tables** — an Indonesian form presented as the correct target.
+
+#### Systematic pattern 1 — the `-tas` / `-ti` suffix
+
+Indonesian takes `-tas`; Malay takes `-ti`. This is the single highest-yield check.
+
+| ❌ Indonesian | ✅ Malay |
+|---|---|
+| aktivitas | aktiviti |
+| kualitas | kualiti |
+| komunitas | komuniti |
+| identitas | identiti |
+| realitas | realiti |
+| universitas | universiti |
+| fasilitas | fasiliti / kemudahan |
+| prioritas | prioriti / keutamaan |
+| kreativitas | kreativiti |
+| produktivitas | produktiviti |
+
+#### Systematic pattern 2 — root-vowel families
+
+| ❌ Indonesian root | ✅ Malay root | Derived forms |
+|---|---|---|
+| sadar | **sedar** | menyedari, kesedaran, menyedarinya |
+| coba | **cuba** | mencuba, dicuba, percubaan |
+| pikir | **fikir** | fikiran, memikirkan, pemikiran |
+
+#### Common Indonesian-only words
+
+| ❌ Indonesian | ✅ Malay |
+|---|---|
+| bisa | boleh |
+| butuh / membutuhkan | perlu / memerlukan |
+| karena | kerana |
+| kayak | seperti |
+| gimana | bagaimana |
+| nggak / enggak / gak | tidak |
+| banget | sangat |
+| bikin / membikin | buat / membuat |
+| mobil | kereta |
+| kantor | pejabat |
+
+> ⚠️ **`bisa` is a real Malay word** — it means *venom* (`bisa ular`). Flagging it assumes the AI-writing sense of "can", which is Indonesian. Check the sentence before replacing; do not blind-swap.
+
+#### Spelling variants
+
+| ❌ Indonesian | ✅ Malay |
+|---|---|
+| resiko | risiko |
+| praktek | praktik |
+| silahkan | sila |
+| ijin | izin |
+| nasehat | nasihat |
+| merubah | mengubah |
+
+**Rule:** treat any Indonesian form as a hard error, not a stylistic preference. `scripts/verify-malay-voice.py` checks the list above automatically — but it can only catch words already in the list. When you meet a new one, add it to **both** the script's `INDONESIAN` dict and this table.
+
+> **Do not over-extend this list.** Many words are valid in both languages (`paham`/`faham`, `kamu`, `sekarang`, `jam`), and `efektif` was wrongly banned on 2026-07-30 before DBP confirmed it is valid Malay. Verify against `prpm.dbp.gov.my` before adding anything here.
 
 ## 5. Sentence Structure — Complete Every Thought
 

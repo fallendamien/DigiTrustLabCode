@@ -507,7 +507,7 @@ No dedicated Malay proofreading tool is used. DewanEja 11 was evaluated but not 
 - Manual editing after accepting is always allowed
 - When in doubt → ask the user before applying any ClickRank suggestion
 
-**Full workflow:** See `.devin/workflows/write-post.md` for the complete step-by-step process including Phase 5.5 (Rank Math) and Phase 6 (ClickRank).
+**Full workflow:** See `.devin/skills/write-post/SKILL.md` for the complete step-by-step process including Phase 6.5 (Rank Math + Malay voice gate) and Phase 7 (ClickRank/Screpy).
 
 Optional: Claude Desktop can provide a second opinion with a fresh perspective.
 
@@ -592,7 +592,7 @@ For broader marketing strategy (competitor teardown, E2E SEO, ICP research, cont
 
 ## 🔍 WriterZen Research Pipeline (Option C — Standard)
 
-**Before writing any blog post, run `/write-post` for the full end-to-end pipeline.** Load the `writerzen-keyword-research` skill for keyword research, then follow the Option C workflow for content creation.
+**Before writing any blog post, load the `write-post` skill (`.devin/skills/write-post/SKILL.md`) for the full end-to-end pipeline.** Load the `writerzen-keyword-research` skill for keyword research, then follow the Option C workflow for content creation.
 
 **Option C Pipeline:** Quota check → **Topic Discovery** → Keyword Explorer (**+ Golden Filter**) → Keyword List → Cluster into a NEW Planner project → **Verify Weak Spot ≥ 2** → Keyword Planner (Suggest Content Brief + manually adjust 6 fields) → Content Creator (outline → keywords → write) → publish via Respira MCP → Rank Math → rank tracking → internal linking → documentation
 
@@ -621,8 +621,8 @@ For broader marketing strategy (competitor teardown, E2E SEO, ICP research, cont
 - **Content Brief fields**: Fill ALL 6 fields (Content format, Writing Tone, Target Audience, Author perspective, Content Angle, Note for writer). Use Playwright `fill()` for text inputs — native JS setter doesn't trigger Vue reactivity on Audience/Perspective fields.
 - **Content Creator toggles (SERP View / AI Assistant):** Leave both OFF. They currently add no useful UI. Generate/update the AI outline via the explicit "Set up & Start building outline" / "Generate outline" buttons instead.
 - **Internal linking (required):** Plan links in outline phase → insert outbound links during publish → run `internal-link-builder` skill after publish to add inbound links from older posts
-- **Content formatting (MANDATORY — NON-NEGOTIABLE):** Every article must be richly formatted — NO sea of text. Use blockquotes (orange `#E8621A` border, `#F5F3EE` bg), bullet/numbered lists with bold labels, before/after example blocks, "Elakkan" vs "Gunakan" contrast pairs, warning/tip boxes, `<em>` for English terms, short paragraphs (max 3-4 sentences). At least 2-3 blockquotes per instructional article. Reference standards: Post #2 and Post #3. See `.devin/workflows/write-post.md` → Key Rules → "Content formatting" for full toolkit, templates, and checklist.
-- **Full workflow:** See `.devin/workflows/write-post.md` for the complete step-by-step process
+- **Content formatting (MANDATORY — NON-NEGOTIABLE):** Every article must be richly formatted — NO sea of text. Use blockquotes (orange `#E8621A` border, `#F5F3EE` bg), bullet/numbered lists with bold labels, before/after example blocks, "Elakkan" vs "Gunakan" contrast pairs, warning/tip boxes, `<em>` for English terms, short paragraphs (max 3-4 sentences). At least 2-3 blockquotes per instructional article. Reference standards: Post #2 and Post #3. See `.devin/skills/readability-pass/SKILL.md` for full toolkit, templates, and checklist.
+- **Full workflow:** See `.devin/skills/write-post/SKILL.md` for the complete step-by-step process
 
 ## Notes
 

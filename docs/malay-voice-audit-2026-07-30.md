@@ -78,7 +78,7 @@ All 6 fixes pushed live via Respira MCP.
 
 | # | Type | Finding | Suggested fix |
 |---|------|---------|---------------|
-| 1 | voice | Uses `"efektif"` and `"efisien"` — baku preference is `"berkesan"` and `"cekap"` | Replace with baku forms |
+| 1 | voice | ~~Uses `"efektif"` and `"efisien"`~~ — **`efektif` was later ruled VALID** (DBP-recognized, prpm.dbp.gov.my). Only `efisien` applied. | `efisien` → `cekap` |
 | 2 | voice | Em dash used 2× — should be max 1 | Replace 1 with comma or period |
 | 3 | italic | Some English terms not italicized: "brainstorm", "outline", "draft" in some places | Wrap in `<em>` tags |
 
@@ -166,7 +166,7 @@ No content was lost — every block was moved, not deleted. In-phase references 
 | Content | Grade | Key strength | Key weakness |
 |---------|-------|-------------|--------------|
 | Post #1 (Apa Itu AI?) | B | Good `anda` usage, internal links | Typo in H2, em dash overuse, missing italics |
-| Post #2 (Cara Guna ChatGPT) | B+ | Excellent formatting, tip boxes | Non-baku loanwords (`efektif`/`efisien`) |
+| Post #2 (Cara Guna ChatGPT) | B+ | Excellent formatting, tip boxes | Non-baku loanword `efisien` (`efektif` was ruled valid — DBP-recognized) |
 | Post #3 (Cara Buat Prompt) | B | Great blockquote patterns | Banned contraction in opening |
 | Post #6 (ChatGPT vs Gemini vs Claude) | A- | Best voice adherence, clean structure | Minor italic inconsistencies |
 | Privasi | B | Warm human tone | Informal verbs on legal page (fixed) |
