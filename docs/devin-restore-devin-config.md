@@ -1,5 +1,7 @@
 # Handoff for Devin — `.devin/` symlink migration broke project doctrine
 
+> ✅ **RESOLVED** — 2026-07-30 · Commit `e3588a2` · Rules restored, write-post rebuilt as skill, AGENTS.md references fixed, verify-imports passed. Do NOT re-execute.
+
 > **Raised:** 2026-07-30 by Claude Code · **Severity:** high, silent · **All findings verified, commands included**
 
 ---

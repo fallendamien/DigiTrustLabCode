@@ -1,7 +1,9 @@
 # Handoff for Claude — Fix & relocate `malay-skill-sync.md`
 
+> ✅ **RESOLVED** — 2026-07-30 · Commit `a0e6b68` · Rule created, both trees synced, drift detection added, red-green verified. Do NOT re-execute.
+
 **Raised:** 2026-07-30 by Windsurf (Devin)
-**Status:** Ready for Claude to pick up
+**Status:** ~~Ready for Claude to pick up~~ ✅ Done
 
 ## Problem
 
