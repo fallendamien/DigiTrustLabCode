@@ -45,6 +45,27 @@ SYMLINK_EXPECTATIONS = {
     ".windsurf/rules":   "verification-protocol.md",
 }
 
+# Rules that MUST exist in two places and MUST stay byte-identical.
+#
+# WHY: Devin loads project rules from `.devin/rules/` (a real, git-tracked
+# directory). Windsurf loads from `.windsurf/rules/`, which is a symlink into the
+# shared Google Drive TSOT. Both tools run against this project in parallel, so a
+# DigiTrust-specific rule has to live in both trees. Deleting the global copy
+# would blind Windsurf; keeping it unchecked lets the two drift.
+#
+# They HAD drifted, silently, by 2026-07-30: the global bricks rule still
+# described the Bricks MCP endpoint that was decommissioned on 2026-07-05, and
+# the global Malay rule still said "13 semi-formal sections" against an actual
+# 14. Windsurf was reading stale doctrine for weeks.
+#
+# The project copy under `.devin/rules/` is authoritative — it is in git.
+DUPLICATED_RULES = [
+    "bricks-mcp-absolute.md",
+    "malay-skill-sync.md",
+]
+GLOBAL_RULES_DIR = ".windsurf/rules"   # symlink -> shared TSOT
+LOCAL_RULES_DIR = ".devin/rules"       # real dir, git-tracked, authoritative
+
 # Load-bearing files referenced by AGENTS.md / the pipeline. Cheap to assert.
 CRITICAL = [
     "AGENTS.md",
@@ -130,6 +151,29 @@ def main():
                 say(f"  WRONG    {d} ({kind}) — no {expected}")
                 continue
         say(f"  ok       {d} ({kind})")
+
+    # -- 3b. duplicated rules have not drifted -----------------------------
+    say("\n== duplicated rules (.devin vs .windsurf) ==")
+    for name in DUPLICATED_RULES:
+        local = os.path.join(REPO, LOCAL_RULES_DIR, name)
+        glob_ = os.path.join(REPO, GLOBAL_RULES_DIR, name)
+        if not os.path.exists(local):
+            failures.append(f"{LOCAL_RULES_DIR}/{name} missing (authoritative copy)")
+            say(f"  MISSING  {LOCAL_RULES_DIR}/{name}")
+            continue
+        if not os.path.exists(glob_):
+            failures.append(f"{GLOBAL_RULES_DIR}/{name} missing - Windsurf will not see this rule")
+            say(f"  MISSING  {GLOBAL_RULES_DIR}/{name}")
+            continue
+        with open(local, "rb") as a, open(glob_, "rb") as b:
+            if a.read() != b.read():
+                failures.append(
+                    f"{name} has DRIFTED between {LOCAL_RULES_DIR} and {GLOBAL_RULES_DIR}. "
+                    f"Devin and Windsurf are reading different rules. "
+                    f"The .devin copy is authoritative (git-tracked); copy it over the other.")
+                say(f"  DRIFTED  {name}")
+            else:
+                say(f"  in sync  {name}")
 
     # -- 4. load-bearing files --------------------------------------------
     say("\n== critical files ==")
