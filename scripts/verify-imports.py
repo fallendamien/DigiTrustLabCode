@@ -45,20 +45,27 @@ SYMLINK_EXPECTATIONS = {
     ".windsurf/rules":   "verification-protocol.md",
 }
 
-# Rules that MUST exist in two places and MUST stay byte-identical.
+# Project rules whose GLOBAL copy, if one exists, must not drift.
 #
-# WHY: Devin loads project rules from `.devin/rules/` (a real, git-tracked
-# directory). Windsurf loads from `.windsurf/rules/`, which is a symlink into the
-# shared Google Drive TSOT. Both tools run against this project in parallel, so a
-# DigiTrust-specific rule has to live in both trees. Deleting the global copy
-# would blind Windsurf; keeping it unchecked lets the two drift.
+# WHY: `.devin/rules/` is a real git-tracked directory (authoritative).
+# `.windsurf/rules/` is a symlink into the shared Google Drive TSOT.
 #
-# They HAD drifted, silently, by 2026-07-30: the global bricks rule still
-# described the Bricks MCP endpoint that was decommissioned on 2026-07-05, and
-# the global Malay rule still said "13 semi-formal sections" against an actual
-# 14. Windsurf was reading stale doctrine for weeks.
+# These two rules used to be duplicated across both trees and had silently
+# DRIFTED by 2026-07-30: the global bricks copy still described the Bricks MCP
+# endpoint decommissioned on 2026-07-05, and the global Malay copy still claimed
+# "13 semi-formal sections" against an actual 14.
 #
-# The project copy under `.devin/rules/` is authoritative — it is in git.
+# The global copies were removed from the TSOT on 2026-07-30 by decision: the
+# authoritative versions live in `.devin/rules/`, in git, and the project no
+# longer needs them mirrored into the shared folder.
+#
+# The check is therefore CONDITIONAL, not mandatory:
+#   - global copy absent  -> fine, that is the current intended state
+#   - global copy present -> it must match `.devin/rules/` byte for byte
+#
+# That way a stale copy reappearing (a Drive restore, another machine syncing,
+# a future decision to re-mirror) is caught, without failing on the state we
+# deliberately chose.
 DUPLICATED_RULES = [
     "bricks-mcp-absolute.md",
     "malay-skill-sync.md",
@@ -152,8 +159,8 @@ def main():
                 continue
         say(f"  ok       {d} ({kind})")
 
-    # -- 3b. duplicated rules have not drifted -----------------------------
-    say("\n== duplicated rules (.devin vs .windsurf) ==")
+    # -- 3b. project rules: authoritative copy present, global copy not stale --
+    say("\n== project rules (.devin authoritative) ==")
     for name in DUPLICATED_RULES:
         local = os.path.join(REPO, LOCAL_RULES_DIR, name)
         glob_ = os.path.join(REPO, GLOBAL_RULES_DIR, name)
@@ -162,8 +169,8 @@ def main():
             say(f"  MISSING  {LOCAL_RULES_DIR}/{name}")
             continue
         if not os.path.exists(glob_):
-            failures.append(f"{GLOBAL_RULES_DIR}/{name} missing - Windsurf will not see this rule")
-            say(f"  MISSING  {GLOBAL_RULES_DIR}/{name}")
+            # Intended state since 2026-07-30. Not a failure.
+            say(f"  ok       {name} (project-only, no global copy)")
             continue
         with open(local, "rb") as a, open(glob_, "rb") as b:
             if a.read() != b.read():

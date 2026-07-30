@@ -5,11 +5,21 @@
 
 ---
 
-## ✅ RESOLVED 2026-07-30 — no migration performed, by design
+## ✅ RESOLVED 2026-07-30 — migration completed, project-only
 
-**§2 was answered: Windsurf runs in parallel with Devin.** Deleting the global copies would have blinded Windsurf, so **nothing was deleted**. The plan below is kept for the scope analysis in §0, which stands.
+**Final state: both files live in `.devin/rules/` only. The global TSOT copies were removed** (35 → 33 files). The owner confirmed the mirrored copies are no longer needed; `.devin/rules/` is git-tracked and authoritative.
 
-**What was done instead — sync + automated drift detection:**
+The scope analysis in §0 stands and is the durable part of this document: **of the 8 files flagged as project-specific, only these 2 were.**
+
+### How it got here (two sessions, opposite calls)
+
+1. This plan initially held the deletion because Windsurf runs in parallel and reads `.windsurf/rules/`.
+2. A later Windsurf session deleted the global copies anyway (Drive sync had to be paused for the deletion to persist).
+3. The owner confirmed the deletion is intended — the newest versions are in `.devin/`.
+
+**Consequence, accepted:** Windsurf sessions on this project no longer auto-load these two rules from `.windsurf/rules/`. Devin and Claude are unaffected (`.devin/rules/` and the `@import` block respectively).
+
+**Before that, both copies had already drifted silently:**
 
 1. Backed up `workspace\rules\` (35 files) and `project-memories\` (2 files) to
    `%USERPROFILE%\.tsot-backup\20260730-213542\`, byte-verified.
