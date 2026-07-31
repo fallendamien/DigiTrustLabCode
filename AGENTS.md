@@ -646,3 +646,87 @@ For broader marketing strategy (competitor teardown, E2E SEO, ICP research, cont
 - Old Bricks MCP bridge (`bricks-mcp-bridge.mjs`) is decommissioned — do not use
 - Template type filter: Use `type: "content"` (not `"single"`) for single post templates
 - Previous architecture (Local WP + Simply Static + Cloudflare Pages) was fully decommissioned on 2026-07-12 — see `deprecated/` folder for archived documentation
+
+---
+
+## 📌 Doctrine Files — Agents Without an Import Mechanism MUST Read These
+
+**Who this section is for:** any agent that reads `AGENTS.md` but has no
+`@import` equivalent — **Codex**, ChatGPT, and any future tool. Claude Code
+loads all of these automatically via `CLAUDE.local.md`; Devin auto-loads
+`.devin/rules/` on trigger. Everyone else gets them **only by reading this
+table**.
+
+**Why this exists:** on 2026-07-31 a Codex session was audited and found to have
+loaded `AGENTS.md` and nothing else — running without the verification protocol,
+the Pieces LTM rule, and both lessons files, while Claude had all twelve. Nothing
+errored. A missing rule is indistinguishable from a followed one unless something
+checks.
+
+### Tier 1 — read at session start, every session (~9 KB total)
+
+These change baseline behaviour and are cheap to load. Read all five before your
+first substantive action.
+
+| File | What it governs |
+|------|-----------------|
+| `.windsurf/rules/verification-protocol.md` | **The Iron Law** — no completion claims without fresh evidence |
+| `.devin/rules/bricks-mcp-absolute.md` | Enforcement detail for PRIORITY #1 above |
+| `.windsurf/rules/pieces-ltm-integration.md` | Query Pieces LTM before answering anything about project history |
+| `.windsurf/rules/context7-default.md` | Use Context7 for library/API docs by default |
+| `.windsurf/rules/change-summary-rule.md` | Required output format after multi-file changes |
+
+### Tier 2 — read when the trigger matches
+
+| Trigger | File |
+|---------|------|
+| Editing any Bricks element | `.devin/rules/bricks-standard-guide.md` |
+| Content planning, keywords, calendar | `.devin/rules/content-planning.md` |
+| Visual verification of frontend changes | `.devin/rules/browser-preview.md` |
+| Writing code (naming, structure, DRY) | `.windsurf/rules/coding-standards.md` |
+| Session start, or stuck >10 min on a bug | `.windsurf/rules/self-improvement-loader.md` |
+
+### Tier 3 — lessons (66 KB, read on trigger only, never wholesale)
+
+Hard-won corrections from past sessions. **Do not read these at session start** —
+they are large. Read the relevant one when: starting a debugging session, stuck
+more than 10 minutes, or about to recommend a tool/provider/approach.
+
+| File | Scope |
+|------|-------|
+| `~/.codeium/windsurf/agent-templates/tasks/lessons.md` | Global — 50 lessons across UI, deployment, debugging, git |
+| `~/.codeium/windsurf/agent-templates/tasks/lessons-digitrustlab.md` | This project — WordPress, Bricks, Respira, WriterZen, Malay voice |
+
+Both resolve through the `~/.codeium/windsurf/agent-templates` symlink to the
+Google Drive TSOT. **The drive letter varies per device** (`E:` on one laptop,
+`G:` on another) — never hardcode it; always go through the `~/.codeium/...`
+path, which is drive-letter-free.
+
+### Workflows — available to every agent, not just Claude
+
+Claude Code exposes 31 reusable workflows as `/slash-commands` via
+`~/.claude/commands/` (symlinked to the TSOT). **Agents without a slash-command
+mechanism are not excluded** — those commands are plain markdown files. Read and
+follow them directly:
+
+```
+~/.codeium/windsurf/agent-templates/global-workflows/<name>.md
+```
+
+Examples: `commit.md`, `validate-skills.md`, `sync-docs.md`, `status.md`,
+`plan.md`, `pr.md`, `deploy.md`, `check-sync.md`. The instructions are identical
+to what Claude receives — only the invocation shorthand differs. When the user
+says "run /commit", read `global-workflows/commit.md` and follow it.
+
+### Verify the chain
+
+```bash
+python scripts/verify-imports.py
+```
+
+Exit 0 = every import target and symlinked tree resolves. Run it at session
+start, and after any symlink or `.gitignore` change.
+
+> **Note on symlinks:** `.windsurf/rules` and `.windsurf/skills` are symlinks
+> into the TSOT. On Windows a symlink reports size 0 — judge liveness by
+> resolving the target and testing that path, never by file size.
