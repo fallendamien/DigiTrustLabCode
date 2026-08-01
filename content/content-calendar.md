@@ -295,7 +295,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 
 ## Workflow (Option C — Standard Pipeline)
 
-> **Full step-by-step:** `.devin/workflows/write-post.md` is the authoritative version. This is the summary.
+> **Full step-by-step:** `.devin/skills/write-post/SKILL.md` is the authoritative version. This is the summary.
 
 0. **Quota check** — WriterZen Settings → Limits. Note Keyword Credit + AI Words remaining before spending any
 1. **Topic Discovery** — Seed the broad topic (Malay, Malaysia) → find the winnable angle → confirm or revise the planned title. Titles here are provisional until this step

@@ -47,3 +47,7 @@ wp-content/backup-*/
 .codex/skills/
 CLAUDE.md
 CLAUDE.local.md
+
+# AI tool scratch output (auto-generated, regenerable, never commit)
+.playwright-mcp/
+nimbalyst-local/

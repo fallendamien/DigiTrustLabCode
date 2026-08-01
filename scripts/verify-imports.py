@@ -40,7 +40,13 @@ IMPORT_SOURCES = ["CLAUDE.local.md", "CLAUDE.md"]
 # or to a tree missing its expected file, is the 2026-07-30 failure exactly.
 SYMLINK_EXPECTATIONS = {
     ".devin/skills":     "malay-voice-guide/SKILL.md",
-    ".devin/workflows":  None,            # global set; no project file expected
+    # .devin/workflows removed 2026-08-01 — it duplicated .windsurf/workflows
+    # (both pointed at the same TSOT folder) and Devin is no longer in use.
+    # .windsurf/workflows is KEPT as the single browsable view of the global
+    # workflow set. Claude Code still loads commands from ~/.claude/commands,
+    # not from here; this symlink exists so the 31 workflows are visible and
+    # editable in the editor alongside the other TSOT trees.
+    ".windsurf/workflows": "commit.md",
     ".windsurf/skills":  None,
     ".windsurf/rules":   "verification-protocol.md",
 }
