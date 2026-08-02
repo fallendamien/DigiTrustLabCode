@@ -128,6 +128,37 @@ Then restart Claude Code and confirm **16** files load; start Codex and confirm
 
 ### Phase 4 — office laptop  ⬜ OUTSTANDING
 
+> **Paste this prompt on the office laptop. Do not just say "follow this plan".**
+> The doc describes five phases and nothing in it tells an agent which machine it
+> is on. Phase 1 would re-create the repo; **Phase 5 renames the Drive folder,
+> which is the only rollback.** Scope the request explicitly:
+>
+> ```
+> Read docs/plan-tsot-git-migration.md. I'm on the OFFICE laptop.
+>
+> Execute Phase 4 ONLY — including step 1b (core.hooksPath). Do not run
+> Phase 1, 2, 3 or 5. Do NOT run bootstrap-new-device.ps1: the doc warns it
+> still drive-scans and would wire links back to Google Drive.
+>
+> Before starting, confirm which machine this is by checking whether
+> C:\my_Projektz\agent-templates already exists. Enumerate the existing
+> symlinks first (the command is in the header of this doc) and show me the
+> list before changing anything.
+>
+> Finish by running, and showing me the output of:
+>   startup-integrity-check.ps1      (expect 20/20, exit 0)
+>   python scripts/verify-imports.py (expect exit 0)
+>   (Get-ChildItem ~\.claude\commands -Filter *.md).Count   (expect 31)
+>
+> Do not delete or rename anything on Google Drive.
+> ```
+>
+> **Expect one failure that is not the migration's fault:** `CLAUDE.md` and
+> `CLAUDE.local.md` are gitignored, so a fresh clone of *this* repo has neither.
+> `verify-imports.py` flags it immediately — that is the git-worktree case
+> described in `AGENTS.md`, not a broken symlink. Recreate them from the TSOT
+> template (`project-memories/DigiTrustLabCode/CLAUDE.local.template.md`).
+
 1. `git clone https://github.com/fallendamien/agent-templates.git C:\my_Projektz\agent-templates`
    — the path **must** match the home PC; the chokepoint symlink is absolute.
 1b. **Enable the auto-push hook — a fresh clone does NOT run it:**
