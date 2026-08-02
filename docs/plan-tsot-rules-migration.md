@@ -153,7 +153,7 @@ Change to:
 `bricks-mcp-absolute.md` is **not** in that table, so it needs no row change.
 
 ⚠️ `CLAUDE.md` is itself a symlink to
-`E:\My Drive\windsurf\.agent-templates\project-memories\DigiTrustLab-CLAUDE.md`.
+`E:\My Drive\windsurf\.agent-templates\project-memories\DigiTrustLabCode\CLAUDE.md`.
 That file is DigiTrust-specific by name, so editing it is in scope — but it is still on Google Drive and still not in git. It is covered by the Step 1 backup only if you also back up `project-memories\`. **Do that too.**
 
 ### Step 5 — delete the two global copies (only after §2 is answered "Devin only")

@@ -112,6 +112,44 @@ def collect_imports():
     return found, missing_sources
 
 
+def check_project_claude_memory(say, failures):
+    """Verify the project memory link and the local import file architecture."""
+    project_claude = os.path.join(REPO, "CLAUDE.md")
+    project_local = os.path.join(REPO, "CLAUDE.local.md")
+    expected_suffix = os.path.normcase(
+        os.path.join("project-memories", "DigiTrustLabCode", "CLAUDE.md")
+    ).replace("/", "\\")
+
+    say("\n== project Claude memory ==")
+    if not os.path.islink(project_claude):
+        failures.append("CLAUDE.md is not a symlink to the project TSOT memory")
+        say("  WRONG    CLAUDE.md (expected symlink)")
+    else:
+        resolved = os.path.normcase(os.path.realpath(project_claude)).replace("/", "\\")
+        if not resolved.endswith("\\" + expected_suffix):
+            failures.append(
+                "CLAUDE.md points outside the expected TSOT project folder: "
+                f"{resolved}"
+            )
+            say(f"  WRONG    CLAUDE.md -> {resolved}")
+        else:
+            template = os.path.join(os.path.dirname(resolved), "CLAUDE.local.template.md")
+            if not os.path.exists(template):
+                failures.append(f"project Claude template missing: {template}")
+                say("  MISSING  CLAUDE.local.template.md beside project CLAUDE.md")
+            else:
+                say("  ok       CLAUDE.md -> TSOT project memory")
+
+    if not os.path.exists(project_local):
+        failures.append("CLAUDE.local.md is missing - project imports will not load")
+        say("  MISSING  CLAUDE.local.md")
+    elif os.path.islink(project_local):
+        failures.append("CLAUDE.local.md must be a real per-device file, not a symlink")
+        say("  WRONG    CLAUDE.local.md (symlink; expected real file)")
+    else:
+        say("  ok       CLAUDE.local.md (real per-device file)")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -164,6 +202,9 @@ def main():
                 say(f"  WRONG    {d} ({kind}) — no {expected}")
                 continue
         say(f"  ok       {d} ({kind})")
+
+    # -- 3a. project-level Claude memory architecture ----------------------
+    check_project_claude_memory(say, failures)
 
     # -- 3b. project rules: authoritative copy present, global copy not stale --
     say("\n== project rules (.devin authoritative) ==")
