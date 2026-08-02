@@ -269,7 +269,7 @@ Playbooks are stored on the WordPress site itself and show up as tools the agent
 ## Communication Preferences
 
 - Prefer visually engaging responses with clear structure when helpful.
-- Use relevant emojis for headings, status, and scannability instead of plain wall-of-text responses.
+- Use emojis for headings, status, warnings, and milestones — not on ordinary bullets or comparison tables. Semantics per rule 6 of the `i-have-adhd` skill (✅ = verified, ⚠️ = warning, 🔍 = investigation, 🚀 = next step).
 - Keep technical explanations clear, but make the presentation feel lively and easy to scan.
 
 ## 🎙️ DigiTrust Lab Writing Voice (ALL content — posts, pages, copy)
