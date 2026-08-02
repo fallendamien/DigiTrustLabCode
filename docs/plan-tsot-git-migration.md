@@ -136,19 +136,23 @@ Then restart Claude Code and confirm **16** files load; start Codex and confirm
 > ```
 > Read docs/plan-tsot-git-migration.md. I'm on the OFFICE laptop.
 >
-> Execute Phase 4 ONLY — including step 1b (core.hooksPath). Do not run
-> Phase 1, 2, 3 or 5. Do NOT run bootstrap-new-device.ps1: the doc warns it
-> still drive-scans and would wire links back to Google Drive.
+> Execute Phase 4 ONLY — all of it, including step 1b (core.hooksPath).
+> Do not run Phase 1, 2, 3 or 5.
 >
-> Before starting, confirm which machine this is by checking whether
-> C:\my_Projektz\agent-templates already exists. Enumerate the existing
-> symlinks first (the command is in the header of this doc) and show me the
-> list before changing anything.
+> Before starting, enumerate the existing symlinks (command is in the header
+> of this doc) and show me the list. Also show me what is currently in
+> ~\.codex\skills — I expect a stale link to a project skills tree there.
+>
+> Phase 4 step 2 runs bootstrap-new-device.ps1. It must print
+> "📦 TSOT git clone detected". If it prints "☁️ Google Drive detected"
+> instead, STOP and tell me — the clone is missing and it would wire
+> everything to the retired Drive copy.
 >
 > Finish by running, and showing me the output of:
 >   startup-integrity-check.ps1      (expect 20/20, exit 0)
 >   python scripts/verify-imports.py (expect exit 0)
 >   (Get-ChildItem ~\.claude\commands -Filter *.md).Count   (expect 31)
+>   (Get-ChildItem ~\.codex\skills\TSOT_skills -Directory).Count  (expect 126)
 >
 > Do not delete or rename anything on Google Drive.
 > ```
@@ -170,20 +174,24 @@ Then restart Claude Code and confirm **16** files load; start Codex and confirm
     Without it, commits made on this laptop are never pushed and the home PC
     silently runs stale doctrine. `bootstrap-new-device.ps1 -IncludeClaude` sets
     this automatically; do it by hand if you skip the script.
-2. Repoint the links. Two ways:
-   - `bootstrap-new-device.ps1 -IncludeClaude -IncludeCodex -ProjectPath <repo>`
-     — ⚠️ **still auto-detects Google Drive** (see "Scripts that need updating");
-     it will wire links to Drive, not the clone, until that is fixed.
-   - Or repoint the chokepoint by hand and re-run the same enumerate-and-repoint
-     loop used on the home PC.
-3. Verify: `startup-integrity-check.ps1` (17/17, exit 0) · 31 commands ·
+2. Run the bootstrap — it now prefers the clone over Drive (fixed 2026-08-02):
+   ```powershell
+   & C:\my_Projektz\agent-templates\scripts\bootstrap-new-device.ps1 `
+       -IncludeClaude -IncludeCodex -ProjectPath '<repo path>'
+   ```
+   Expect `📦 TSOT git clone detected at: C:\my_Projektz\agent-templates`. If it
+   says `☁️ Google Drive detected` instead, **stop** — the clone is missing or has
+   no `.git`, and every link would be wired to the retired Drive copy.
+3. Verify: `startup-integrity-check.ps1` (**20/20**, exit 0) · 31 commands ·
    `python scripts/verify-imports.py` (exit 0).
 
-**Do not skip step 2's warning.** The bootstrap script was patched on 2026-08-02
-to create `~\.codex\skills\TSOT_skills` and `~\.claude\skills\i-have-adhd`, but
-its TSOT *detection* still scans drives for `My Drive\windsurf\.agent-templates`.
-On the office laptop that folder still exists, so it will silently wire the old
-Drive path.
+**Why the bootstrap is required and not optional:** the home PC's Phase 2 loop
+only *repointed links that already existed*. The office laptop has never had
+`~\.codex\skills\TSOT_skills` or `~\.claude\skills\i-have-adhd` — those were
+created on 2026-08-02. A repoint-only pass leaves Codex reading 53 skills from
+the deprecated `antigravity` tree with no `i-have-adhd`. The bootstrap creates
+them, and also **auto-removes every stray symlink under `~\.codex\skills`**
+(unlink only; real folders such as `pdf/` are kept and reported).
 
 ### Phase 5 — retire the Drive copy
 
@@ -204,7 +212,7 @@ All must learn the new location:
 | Script | Line | Status |
 |--------|------|--------|
 | `startup-integrity-check.ps1` | 85–102 | ✅ **done 2026-08-02** — prefers the clone, falls back to Drive |
-| `bootstrap-new-device.ps1` | 39 | ⬜ still drive-scans — **blocks Phase 4** |
+| `bootstrap-new-device.ps1` | 60–80 | ✅ **done 2026-08-02** — clone wins, Drive is fallback + warns |
 | `setup-global-rules-symlink.ps1` | 27 | ⬜ |
 | `sync-memories.ps1` | 16 | ⬜ |
 | `update_breadcrumbs.ps1` | 44 | ⬜ |
