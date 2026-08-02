@@ -149,10 +149,12 @@ Then restart Claude Code and confirm **16** files load; start Codex and confirm
 > everything to the retired Drive copy.
 >
 > Finish by running, and showing me the output of:
->   startup-integrity-check.ps1      (expect 20/20, exit 0)
+>   startup-integrity-check.ps1      (expect 21/21, exit 0)
 >   python scripts/verify-imports.py (expect exit 0)
->   (Get-ChildItem ~\.claude\commands -Filter *.md).Count   (expect 31)
->   (Get-ChildItem ~\.codex\skills\TSOT_skills -Directory).Count  (expect 126)
+>   (Get-ChildItem ~\.claude\commands -Filter *.md).Count         (expect 31)
+>   (Get-ChildItem ~\.codex\prompts  -Filter *.md).Count          (expect 31)
+>   (Get-ChildItem ~\.codex\skills\TSOT_skills -Directory).Count   (expect 126)
+>   ~\.codex\skills must contain ONLY: .system, TSOT_skills (+ any real folder)
 >
 > Do not delete or rename anything on Google Drive.
 > ```
@@ -182,8 +184,17 @@ Then restart Claude Code and confirm **16** files load; start Codex and confirm
    Expect `📦 TSOT git clone detected at: C:\my_Projektz\agent-templates`. If it
    says `☁️ Google Drive detected` instead, **stop** — the clone is missing or has
    no `.git`, and every link would be wired to the retired Drive copy.
-3. Verify: `startup-integrity-check.ps1` (**20/20**, exit 0) · 31 commands ·
-   `python scripts/verify-imports.py` (exit 0).
+3. Verify: `startup-integrity-check.ps1` (**21/21**, exit 0) · 31 Claude commands ·
+   31 Codex prompts · 126 Codex skills · `python scripts/verify-imports.py` (exit 0).
+
+**What `-IncludeCodex` wires** (all created, not merely repointed):
+
+| Target | Purpose |
+|--------|---------|
+| `~\.codex\AGENTS.md` | global doctrine loader |
+| `~\.codex\skills\TSOT_skills` | the 126 shared skills |
+| `~\.codex\prompts\*.md` (31) | workflow slash commands, mirroring `~\.claude\commands` |
+| strays under `~\.codex\skills` | **removed** (unlink only; real folders kept) |
 
 **Why the bootstrap is required and not optional:** the home PC's Phase 2 loop
 only *repointed links that already existed*. The office laptop has never had
