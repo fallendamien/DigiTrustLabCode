@@ -152,8 +152,14 @@ Then restart Claude Code and confirm **16** files load; start Codex and confirm
 >   startup-integrity-check.ps1      (expect 21/21, exit 0)
 >   python scripts/verify-imports.py (expect exit 0)
 >   (Get-ChildItem ~\.claude\commands -Filter *.md).Count         (expect 31)
+>   (Get-ChildItem ~\.codex\prompts  -Filter *.md).Count          (expect 31)
 >   (Get-ChildItem ~\.codex\skills\TSOT_skills -Directory).Count   (expect 126)
 >   ~\.codex\skills must contain ONLY: .system, TSOT_skills (+ any real folder)
+>
+> Then RESTART Codex and confirm typing "/check-sy" offers "prompts:check-sync".
+> The prompt registry is built at Codex startup and never rescans, so it will
+> show nothing until a restart after the bootstrap runs. That is expected, not
+> a failure — three tests on 2026-08-02 were misdiagnosed for exactly this.
 >
 > Do not delete or rename anything on Google Drive.
 > ```
@@ -192,6 +198,7 @@ Then restart Claude Code and confirm **16** files load; start Codex and confirm
 |--------|---------|
 | `~\.codex\AGENTS.md` | global doctrine loader |
 | `~\.codex\skills\TSOT_skills` | the 126 shared skills |
+| `~\.codex\prompts` | whole-folder link to `global-workflows` → 31 slash commands (`/check-sy` → `prompts:check-sync`). **Needs a Codex restart to appear.** |
 | strays under `~\.codex\skills` | **removed** (unlink only; real folders kept) |
 
 **Why the bootstrap is required and not optional:** the home PC's Phase 2 loop
