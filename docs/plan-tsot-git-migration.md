@@ -238,6 +238,26 @@ exists**. They break at Phase 5. Fix them before deleting anything.
 
 Simplification: with a fixed clone path, drive-scanning can be dropped entirely.
 
+### 🐛 Two project-link bugs found on the office laptop (2026-08-03)
+
+Phase 4 passed 19/21 on first run. Both failures were **script bugs, not migration
+damage** — and both will recur on every future device, because they are in the
+create path that only a fresh machine exercises. The home PC never hit them: its
+Phase 2 loop *repointed links that already existed*, while a new device *creates*
+them.
+
+| # | Bug | Evidence | Fix |
+|---|-----|----------|-----|
+| 1 | `bootstrap-new-device.ps1` points `<repo>\.windsurf\skills` at the **real clone path**, but `startup-integrity-check.ps1` expects the **chokepoint** | bootstrap `:378-380` targets `$DrivePath\workspace\skills`; integrity check `:301` expects `$TemplatesDir\workspace\skills` | make bootstrap target the chokepoint — the plan's own rule (line 114) is "the target lives in exactly one place" |
+| 2 | **Nothing creates `<repo>\.windsurf\workflows`** | `setup-windsurf-workspace.ps1` has `Sync-WindsurfRules` + `Sync-WindsurfSkills` and no workflows equivalent; integrity check `:302` and `verify-imports.py` both require it | add `Sync-WindsurfWorkflows` → `global-workflows` via the chokepoint |
+
+Both were hand-fixed on the office laptop to reach 21/21; **the scripts themselves
+are still wrong.** Fix them before bootstrapping any further device.
+
+> ⚠️ Also note: `bootstrap-new-device.ps1` printed `[OK] CLAUDE.local.md created`
+> at 19:18:19 for a file whose mtime was 19:00:47 — it did not create it. Do not
+> trust that line as evidence the file is fresh.
+
 Also update the prose in:
 - `CLAUDE.local.md` (Machine-Specific Paths, recreate-symlinks sections)
 - `Claude-CLAUDE.md` (`<drive>:` placeholders become the clone path)

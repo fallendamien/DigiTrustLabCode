@@ -51,3 +51,7 @@ CLAUDE.local.md
 # AI tool scratch output (auto-generated, regenerable, never commit)
 .playwright-mcp/
 nimbalyst-local/
+
+# Agentic AI folders (machine-specific symlinks, not portable across machines)
+# Keep: AGENTS.md, WINDSURF.md, CLAUDE.md, .codex/instructions.md (portable text files)
+.windsurf/
