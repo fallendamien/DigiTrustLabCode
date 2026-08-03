@@ -238,25 +238,72 @@ exists**. They break at Phase 5. Fix them before deleting anything.
 
 Simplification: with a fixed clone path, drive-scanning can be dropped entirely.
 
-### 🐛 Two project-link bugs found on the office laptop (2026-08-03)
+### ✅ Two project-link bugs found on the office laptop — FIXED 2026-08-03
 
 Phase 4 passed 19/21 on first run. Both failures were **script bugs, not migration
-damage** — and both will recur on every future device, because they are in the
-create path that only a fresh machine exercises. The home PC never hit them: its
-Phase 2 loop *repointed links that already existed*, while a new device *creates*
-them.
+damage**, and both sat in the create path that only a fresh machine exercises. The
+home PC never hit them: its Phase 2 loop *repointed links that already existed*,
+while a new device *creates* them.
 
-| # | Bug | Evidence | Fix |
-|---|-----|----------|-----|
-| 1 | `bootstrap-new-device.ps1` points `<repo>\.windsurf\skills` at the **real clone path**, but `startup-integrity-check.ps1` expects the **chokepoint** | bootstrap `:378-380` targets `$DrivePath\workspace\skills`; integrity check `:301` expects `$TemplatesDir\workspace\skills` | make bootstrap target the chokepoint — the plan's own rule (line 114) is "the target lives in exactly one place" |
-| 2 | **Nothing creates `<repo>\.windsurf\workflows`** | `setup-windsurf-workspace.ps1` has `Sync-WindsurfRules` + `Sync-WindsurfSkills` and no workflows equivalent; integrity check `:302` and `verify-imports.py` both require it | add `Sync-WindsurfWorkflows` → `global-workflows` via the chokepoint |
+**Both are now fixed in the TSOT** (commit `415b3d4`). A fresh device reaches 21/21
+without hand-editing.
 
-Both were hand-fixed on the office laptop to reach 21/21; **the scripts themselves
-are still wrong.** Fix them before bootstrapping any further device.
+| # | Bug | Evidence | Fix shipped |
+|---|-----|----------|-------------|
+| 1 | `bootstrap-new-device.ps1` pointed `<repo>\.windsurf\skills` at the **real clone path**, but `startup-integrity-check.ps1` expects the **chokepoint** | bootstrap `:378-380` targeted `$DrivePath\workspace\skills`; integrity check `:301` expects `$TemplatesDir\workspace\skills` | ✅ bootstrap now targets the chokepoint — the plan's own rule (line 114) is "the target lives in exactly one place" |
+| 2 | **Nothing created `<repo>\.windsurf\workflows`** | `setup-windsurf-workspace.ps1` had `Sync-WindsurfRules` + `Sync-WindsurfSkills` and no workflows equivalent; integrity check `:302` and `verify-imports.py` both require it | ✅ added `Sync-WindsurfWorkflows` (mirrors the rules function, preserves a real dir) + bootstrap creates it |
+
+**How the fix was verified — do this, not a code re-read.** Both links were
+*deleted* to simulate a fresh device, then the scripts were re-run and watched to
+rebuild them:
+
+```powershell
+# link-only delete; the target is never touched
+[System.IO.Directory]::Delete("$repo\.windsurf\skills", $false)
+[System.IO.Directory]::Delete("$repo\.windsurf\workflows", $false)
+& <TSOT>\scripts\bootstrap-new-device.ps1 -IncludeClaude -ProjectPath <repo>
+```
+
+Result: both recreated through the chokepoint · integrity check project section
+3/3 · `verify-imports.py` PASS exit 0 (it had been failing on
+`.windsurf/workflows`).
 
 > ⚠️ Also note: `bootstrap-new-device.ps1` printed `[OK] CLAUDE.local.md created`
 > at 19:18:19 for a file whose mtime was 19:00:47 — it did not create it. Do not
 > trust that line as evidence the file is fresh.
+
+### 🔌 Codex workflows in Zed — the `codex-skill-bridge` (added 2026-08-03)
+
+Separate from the migration, found while verifying Phase 4. The 31 workflows work
+in **native Codex** (`/check-sy` → `prompts:check-sync`) but were **invisible in
+Zed's Codex panel**.
+
+**Cause:** `codex-acp` — the ACP adapter Zed drives Codex through — does not
+enumerate `~/.codex/prompts`. It advertises built-ins (`/status`, `/mcp`,
+`/skills`, `/review`, `/compact`, `/logout`) **plus skills**, and nothing else.
+Confirmed on codex-acp **1.1.9**, the latest on npm; no upgrade fixes it.
+
+**Not** [zed#53161](https://github.com/zed-industries/zed/issues/53161) (Zed
+dropping a valid `available_commands_update`). That was ruled out because
+built-ins *and* an existing skill (`$ab-test-analyzer`) both rendered correctly —
+the wire was healthy. **Use that as the discriminator:** if built-ins show but
+custom entries do not, it is the adapter; if *nothing* shows, it is zed#53161.
+
+**Fix:** `<TSOT>/codex-skill-bridge/` — 31 skill wrappers, one per workflow,
+linked in as `~/.codex/skills/TSOT_workflows`. They surface in Zed as
+`$check-sync`. Each wrapper is a **pointer** to `global-workflows/<name>.md`,
+never a copy, so there is one source of truth (per `workspace/rules/tsot-parity.md`).
+`bootstrap-new-device.ps1 -IncludeCodex` creates the link and **excludes it from
+stray-link removal** — without that exclusion the next bootstrap run would delete
+the bridge, since that loop removes every symlink not on its allow-list.
+
+⚠️ **Restart Zed after pulling this** — the command registry is built at agent
+startup and never rescans. Same trap that caused three misdiagnoses on 2026-08-02.
+
+Accepted tradeoff: workflows now appear **twice in native Codex** —
+`/prompts:check-sync` and `$check-sync`. Same file, two doorways. Cost measured at
+~828 tokens of extra skill metadata (+9.8%). Watch for spurious auto-invocation:
+skills can be selected by the model on its own, prompts cannot.
 
 Also update the prose in:
 - `CLAUDE.local.md` (Machine-Specific Paths, recreate-symlinks sections)
