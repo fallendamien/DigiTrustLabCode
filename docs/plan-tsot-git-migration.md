@@ -1,7 +1,9 @@
 # Plan — Move the TSOT from Google Drive to a Private Git Repo
 
-**Status:** Phases 1–3 DONE on the home PC (2026-08-02). Phase 4 (office laptop)
-and Phase 5 (retire Drive copy) outstanding.
+**Status:** Phases 1–3 DONE on the home PC (2026-08-02). **Phase 4 DONE on the
+office laptop (2026-08-03)** — 21/21, exit 0. Phase 5 (retire Drive copy) is the
+only phase left, and it is now **unblocked** (no script work remains — see the
+correction under "Scripts that need updating").
 **Written:** 2026-08-01
 **Estimated effort:** one focused session (~45–60 min), both laptops
 
@@ -126,7 +128,7 @@ python scripts/verify-imports.py        # must exit 0, 11 imports / 4 trees
 Then restart Claude Code and confirm **16** files load; start Codex and confirm
 `AGENTS.md` + Tier 1 doctrine still resolve.
 
-### Phase 4 — office laptop  ⬜ OUTSTANDING
+### Phase 4 — office laptop  ✅ DONE 2026-08-03
 
 > **Paste this prompt on the office laptop. Do not just say "follow this plan".**
 > The doc describes five phases and nothing in it tells an agent which machine it
@@ -209,6 +211,41 @@ the deprecated `antigravity` tree with no `i-have-adhd`. The bootstrap creates
 them, and also **auto-removes every stray symlink under `~\.codex\skills`**
 (unlink only; real folders such as `pdf/` are kept and reported).
 
+### 🏠 Home PC — do this first, before Phase 5 (2026-08-03 handoff)
+
+The office laptop pushed changes that the home PC does not have yet. Run in order:
+
+```powershell
+# 1. Pull the TSOT — brings the codex bridge + the two bootstrap fixes
+git -C C:\my_Projektz\agent-templates pull
+
+# 2. Wire the new Codex link (the bridge did not exist when this PC was set up)
+& C:\my_Projektz\agent-templates\scripts\bootstrap-new-device.ps1 `
+    -IncludeClaude -IncludeCodex -ProjectPath '<repo path>'
+
+# 3. Verify
+& C:\my_Projektz\agent-templates\scripts\startup-integrity-check.ps1   # expect 21/21, exit 0
+python scripts/verify-imports.py                                       # expect exit 0
+```
+
+Then **restart Zed** — the ACP command registry is built at startup and never
+rescans, so `$check-sync` will not appear until you do.
+
+Two things to check on the home PC specifically:
+
+1. **Its `CLAUDE.local.md` Pre-Session Checklist still says "Google Drive
+   running? (TSOT must be reachable)".** That is false since the migration —
+   doctrine now loads with Drive offline. Fixed on the office laptop; the home
+   PC's copy is gitignored and per-device, so it must be edited separately.
+2. **Confirm its TSOT resolves to the clone, not Drive**, before Phase 5:
+   ```powershell
+   (Get-Item "$env:USERPROFILE\.codeium\windsurf\agent-templates" -Force).Target
+   # must print C:\my_Projektz\agent-templates
+   ```
+   The bootstrap prints `📦 TSOT git clone detected` when this is right, and
+   `☁️ Google Drive detected` when it is not. **Do not start Phase 5 until both
+   machines print the former** — the rename reaches both through Drive sync.
+
 ### Phase 5 — retire the Drive copy
 
 Only after both machines pass:
@@ -229,12 +266,43 @@ All must learn the new location:
 |--------|------|--------|
 | `startup-integrity-check.ps1` | 85–102 | ✅ **done 2026-08-02** — prefers the clone, falls back to Drive |
 | `bootstrap-new-device.ps1` | 60–80 | ✅ **done 2026-08-02** — clone wins, Drive is fallback + warns |
-| `setup-global-rules-symlink.ps1` | 27 | ⬜ |
-| `sync-memories.ps1` | 16 | ⬜ |
-| `update_breadcrumbs.ps1` | 44 | ⬜ |
+| `setup-global-rules-symlink.ps1` | 27 | ✅ **no change needed** — scans `windsurf\memories\`, not `.agent-templates\` |
+| `sync-memories.ps1` | 16 | ✅ **no change needed** — same reason |
+| `update_breadcrumbs.ps1` | 44 | ✅ **no change needed** — same reason |
 
-⚠️ All four outstanding scripts work **today only because the Drive folder still
-exists**. They break at Phase 5. Fix them before deleting anything.
+### ⚠️ Correction (2026-08-03) — the three "outstanding" scripts were never at risk
+
+This section previously read *"All four outstanding scripts work today only
+because the Drive folder still exists. They break at Phase 5."* **That was wrong**,
+and acting on it would have broken three working scripts.
+
+The claim assumed any drive-scan is migration debt, without checking **which**
+Drive path each script scans. Verified layout — these are **siblings**, not nested:
+
+```
+<drive>:\My Drive\windsurf\
+├── .agent-templates   ← Phase 5 renames THIS (migrated to git)
+├── memories           ← all three scripts use THIS (deliberately stayed)
+├── backups
+└── mcp_config.json
+```
+
+`memories/` and `mcp_config.json` are **not in the git repo** — Devin symlinks
+them, as already documented in `startup-integrity-check.ps1:89-92`. All three
+scripts target `memories\`, so renaming `.agent-templates` does not affect them.
+
+The two scripts fixed on 2026-08-02 *did* target `.agent-templates`. These three
+never did.
+
+> **The lesson:** before applying a fix pattern across a list of scripts, check
+> what each one actually resolves. "Uses a drive scan" is not the same as "depends
+> on the migrated folder." Blanket-applying the clone-preference here would have
+> pointed `sync-memories.ps1` at a clone with no `memories/` folder, breaking
+> Devin's memories link on every device.
+
+**Phase 5 is therefore unblocked** — no script work remains before renaming the
+Drive `.agent-templates`. Verify the home PC also resolves its TSOT to the clone
+first, since the rename reaches both machines through Drive sync.
 
 Simplification: with a fixed clone path, drive-scanning can be dropped entirely.
 
