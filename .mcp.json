@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "respira": {
+      "type": "stdio",
+      "command": "cmd.exe",
+      "args": [
+        "/d",
+        "/c",
+        "npx.cmd",
+        "-y",
+        "@respira/wordpress-mcp-server@8.2.0"
+      ],
+      "env": {
+        "WORDPRESS_URL": "${WORDPRESS_URL}",
+        "WORDPRESS_API_KEY": "${RESPIRA_API_KEY}",
+        "RESPIRA_CONNECTION_SOURCE": "project_mcp_json"
+      }
+    }
+  }
+}
