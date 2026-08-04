@@ -55,3 +55,7 @@ nimbalyst-local/
 # Agentic AI folders (machine-specific symlinks, not portable across machines)
 # Keep: AGENTS.md, WINDSURF.md, CLAUDE.md, .codex/instructions.md (portable text files)
 .windsurf/
+
+# Agentic AI folders (machine-specific symlinks, not portable across machines)
+# Keep: AGENTS.md, WINDSURF.md, CLAUDE.md, .codex/instructions.md (portable text files)
+.claude/

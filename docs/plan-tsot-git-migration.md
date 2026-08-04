@@ -151,7 +151,7 @@ Then restart Claude Code and confirm **16** files load; start Codex and confirm
 > everything to the retired Drive copy.
 >
 > Finish by running, and showing me the output of:
->   startup-integrity-check.ps1      (expect 21/21, exit 0)
+>   startup-integrity-check.ps1      (expect all checks passed, exit 0)
 >   python scripts/verify-imports.py (expect exit 0)
 >   (Get-ChildItem ~\.claude\commands -Filter *.md).Count         (expect 31)
 >   (Get-ChildItem ~\.codex\prompts  -Filter *.md).Count          (expect 31)
@@ -191,7 +191,7 @@ Then restart Claude Code and confirm **16** files load; start Codex and confirm
    Expect `📦 TSOT git clone detected at: C:\my_Projektz\agent-templates`. If it
    says `☁️ Google Drive detected` instead, **stop** — the clone is missing or has
    no `.git`, and every link would be wired to the retired Drive copy.
-3. Verify: `startup-integrity-check.ps1` (**21/21**, exit 0) · 31 Claude commands ·
+3. Verify: `startup-integrity-check.ps1` (**all checks passed**, exit 0) · 31 Claude commands ·
    126 Codex skills · `python scripts/verify-imports.py` (exit 0).
 
 **What `-IncludeCodex` wires** (all created, not merely repointed):
@@ -224,7 +224,7 @@ git -C C:\my_Projektz\agent-templates pull
     -IncludeClaude -IncludeCodex -ProjectPath '<repo path>'
 
 # 3. Verify
-& C:\my_Projektz\agent-templates\scripts\startup-integrity-check.ps1   # expect 21/21, exit 0
+& C:\my_Projektz\agent-templates\scripts\startup-integrity-check.ps1   # expect all checks passed, exit 0
 python scripts/verify-imports.py                                       # expect exit 0
 ```
 
@@ -386,9 +386,47 @@ Also update the prose in:
    Office laptop uses `C:\my_Projektz\` too, so the path can match on both.
 2. **Keep Drive as a backup?** Drive could still sync a *copy* for disaster
    recovery, as long as nothing symlinks to it. Decide in Phase 5.
-3. **`memories/` and `mcp_config.json`** live in `windsurf\` (the parent), not in
+3. ~~**`memories/` and `mcp_config.json`** live in `windsurf\` (the parent), not in
    `.agent-templates`. Devin symlinks to them. If Devin is fully retired they can
-   be folded into the repo; otherwise leave them on Drive.
+   be folded into the repo; otherwise leave them on Drive.~~
+   **DECIDED 2026-08-04 — they stay on Drive permanently. Do not fold them in.**
+   See "Why `memories/` will never move into the repo" below.
+
+## Why `memories/` will never move into the repo (decided 2026-08-04)
+
+**This is a deliberate, permanent exception. A future session that finds Drive
+still in use here should NOT "finish the migration" by moving it.**
+
+Moving `memories/` into the clone was evaluated and rejected. Two reasons:
+
+1. **It contains employer material.** `lessons-psp-emi.md` (8 KB),
+   `psp-staging-parking-tables.md`, and `psp-emi-breadcrumbs/` are HEITECH work
+   product. The clone's `post-commit` hook auto-pushes to a personal GitHub
+   remote, so folding them in would publish employer data to a personal account.
+   A push is not reversible — GitHub retains unreachable objects, and mirrors or
+   indexers keep copies even after a force-remove.
+2. **43 `.pb` files (~60 KB) are opaque.** They are Devin's protobuf memory
+   blobs, not human-readable, so their contents cannot be reviewed before
+   publishing. Anything Devin observed — credentials, source, screenshots —
+   could be inside. Unreviewable content must not enter a pushed repo.
+
+`global_rules.md` alone (23 KB, pure doctrine) *could* have moved, but that would
+split `memories/` across two locations while leaving Devin dependent on Drive
+anyway — all of the cost, none of the benefit.
+
+**Net effect:** the setup is intentionally hybrid, and that is the finished
+state, not an unfinished one.
+
+| Component | Source | Status |
+|---|---|---|
+| Templates, workflows, skills, lessons | local git clone | ✅ migrated |
+| Project symlinks / adapters | local git clone | ✅ migrated |
+| `memories/` + `global_rules.md` | Google Drive | 🔒 **stays — by design** |
+| `mcp_config.json` (Devin) | Google Drive | 🔒 **stays — by design** |
+
+Claude and Codex are fully Drive-independent; doctrine loads with Drive offline.
+**Only Devin's runtime state still needs Drive.** If Devin is ever retired, revisit
+— but the employer-data problem above must be solved first regardless.
 
 ## Rollback
 
