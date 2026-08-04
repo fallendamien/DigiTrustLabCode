@@ -1,5 +1,52 @@
 # NEXT — DigiTrust Lab
 
+## 🖥️ New device / cross-laptop setup — run the check, don't read a list
+
+_Updated 2026-08-04. MCP for Claude Code is modular by scope._
+
+```powershell
+git -C <path>\agent-templates pull
+git pull                     # from this repo — brings .mcp.json
+& <path>\agent-templates\scripts\startup-integrity-check.ps1
+```
+
+The **🔌 Claude Code MCP** section names anything missing and how to fix it.
+It reads the live config, so it cannot go stale the way a checklist does.
+Expect **all checks passed, exit 0** — judge by that, not by a fixed count.
+
+| Scope | File | Holds | Travels |
+|-------|------|-------|---------|
+| User | `~/.claude.json` | `fetch`, `pieces`, `chrome-devtools` | per-device |
+| Project | `<repo>/.mcp.json` | `respira` @8.2.0 | **git** |
+| Harness | `~/.claude/settings.json` | `MCP_TIMEOUT: 120000` | per-device |
+
+What the script cannot see, because it is UI state and not a file:
+
+> ⚠️ Claude Code prompts **once per project** to approve a committed
+> `.mcp.json`. Until you accept, `respira` will not appear — and it looks
+> exactly like a failed sync. Check this first.
+
+Two other things worth knowing when the script reports a failure:
+
+- `MCP_TIMEOUT` is not optional. `fetch` cold-starts at ~71s on a fresh npx
+  cache; the 30s default kills it and it looks like a broken install.
+- The Respira API key is **not** in git. It lives in the `RESPIRA_API_KEY`
+  User env var, which `.mcp.json` expands. Set it before starting Claude Code
+  — env vars are read at process start.
+
+Verify Respira with an actual tool call, never `claude mcp list` or `curl`
+(both report false failures — see `lessons.md`):
+
+```
+respira_diagnose_connection
+```
+Known-good 2026-08-04: `success: true` · 5/5 probes 200 + `application/json` ·
+`html_instead_of_json: false` · 258 REST routes · 3 DB tables · plugin 8.1.10 ·
+WP 7.0.2 · PHP 8.3.30 · MCP server 8.2.0.
+
+**Open:** Google Calendar connector needs OAuth (UI only). Context7 appears
+twice — account-managed, no config file on disk, nothing to delete.
+
 ## Current State
 
 - ✅ Blog is LIVE at https://digitrustlab.com
