@@ -12,6 +12,9 @@
 
 ## Current State
 
+- 🖥️ **Primary editor: Zed** (since 2026-08-05) — Codex reached via ACP, Claude
+  Code via terminal. Windsurf retained only for Devin; VS Code legacy. See
+  `AGENTS.md` § "Editors — Zed is primary".
 - ✅ Blog is LIVE at https://digitrustlab.com
 - ✅ Homepage live at digitrustlab.com (2026-07-10)
 - WordPress + Bricks Builder on Hostinger, served via Cloudflare proxy (no static export needed)

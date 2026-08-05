@@ -6,11 +6,36 @@ This file contains project-specific rules and operating standards for AI coding 
 
 | Layer | Purpose | Read By |
 |-------|---------|---------|
-| `AGENTS.md` | Voice, copy policy, project rules — single source of truth | All agents (Claude, Devin, Windsurf, ChatGPT) |
+| `AGENTS.md` | Voice, copy policy, project rules — single source of truth | All agents (Claude, Codex, Devin, ChatGPT) |
 | `.devin/rules/` | Operational behaviour — safety checks, tool constraints | Devin only (auto-loaded every session) |
 | `.devin/skills/` | On-demand task recipes — SEO audit, keyword research, image optimisation | Devin only (trigger-based, not auto-loaded) |
 
 **Rule:** Never duplicate content/voice standards into `.devin/rules/` — keep AGENTS.md as the single source. `.devin/rules/` should only contain operational behaviour constraints (e.g. "never edit template without snapshot").
+
+### 🖥️ Editors — Zed is primary (as of 2026-08-05)
+
+| Editor | Status | Agents reached from it |
+|--------|--------|------------------------|
+| **Zed** | ✅ **Primary** | Codex (via ACP / `codex-acp`), Claude Code (terminal or ACP) |
+| Claude Code | ✅ Active | itself — CLI, desktop app, or a Zed terminal pane |
+| Windsurf | ⚠️ Retained for Devin only | Devin. Not used for day-to-day editing. |
+| VS Code | ⚠️ Legacy | — |
+
+**Two naming traps — read before any find-and-replace:**
+
+1. **`.windsurf/` is a path, not an editor endorsement.** `.windsurf/rules`,
+   `.windsurf/skills`, and `.windsurf/workflows` are all **symlinks into the
+   TSOT**, shared by every project on this machine. They stay exactly as they
+   are regardless of which editor is in use. Renaming them breaks every project
+   and is never the right fix.
+2. **"Zed" is also the site's author/brand name** (`{author_name}` renders as
+   "Zed"; `AGENTS.md` § Tentang Kami uses "Kami" = Zed + AI partner). Never run
+   a blind `Windsurf → Zed` replace across this repo — it collides with the pen
+   name and with the symlink paths above.
+
+**Zed + Codex specifics** (adapter quirks, the `codex-skill-bridge`, and the
+mandatory restart-after-change trap) are documented in
+`docs/plan-tsot-git-migration.md` § "Codex workflows in Zed".
 
 ### ✅ Verify the doctrine actually loaded (run at session start)
 
@@ -128,7 +153,7 @@ All custom CSS added via WordPress Customizer → Additional CSS is backed up in
 
 ### 🧩 Respira MCP (PRIMARY TOOL — replaced old Bricks MCP 2026-07-05)
 
-**Respira MCP is active on digitrustlab.com (live Hostinger site).** Connected to Windsurf and Claude Desktop.
+**Respira MCP is active on digitrustlab.com (live Hostinger site).** Connected to Claude (Code + Desktop), Codex, and Devin.
 
 **Builder guide:** `BRICKS-BUILDER-GUIDE.md` — Bricks element concepts still apply (settings schema, `_cssCustom`, gotchas). Tool names in the guide refer to old Bricks MCP — use equivalent Respira tools instead.
 
@@ -190,7 +215,7 @@ All custom CSS added via WordPress Customizer → Additional CSS is backed up in
 
 ### 📝 Blog-Specific Recipes (Copy-Paste Prompts)
 
-Use these in any Respira-connected environment (Claude Desktop, ChatGPT, Windsurf):
+Use these in any Respira-connected environment (Claude Code, Claude Desktop, Codex in Zed, ChatGPT, Windsurf):
 
 **SEO refresh on a post:**
 > Run an SEO analysis on [post]. Then fix the mechanical findings: title tag, meta description, heading hierarchy, image alt text, and internal links to related posts. Show me anything that needs a judgment call.
@@ -222,7 +247,7 @@ Use these in any Respira-connected environment (Claude Desktop, ChatGPT, Windsur
 | `design-system-synthesizer` | Extracts your site's design system (colors, typography, components) | One-time setup |
 | `activity-report-composer` | Turns audit log into a polished report | Client or self reporting |
 
-**Windsurf Skills (Content & SEO planning):**
+**Shared TSOT Skills (Content & SEO planning)** — live in `.windsurf/skills/`, which is a symlinked path shared by all agents, not a Windsurf-only tree:
 
 | Skill | What It Does | When to Use |
 |-------|-------------|-------------|
