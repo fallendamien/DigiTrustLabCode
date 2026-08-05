@@ -364,7 +364,23 @@ python scripts/verify-malay-voice.py <post-id>
    - Mark Post as ✅ published
    - Add next post to task list
 9. Update `ROADMAP.md` if applicable
-10. Git commit + push all documentation updates
+10. **Content status gate (MANDATORY — run BEFORE committing):**
+    ```bash
+    python scripts/verify-content-status.py
+    ```
+    Compares steps 6–8 above against the live WordPress REST API. Must exit 0.
+    - Catches: post marked PUBLISHED with no/wrong Post ID, slug or date drift,
+      a live post missing from the calendar, a PLANNED entry that is already
+      live, and a stale `blogPosts` count.
+    - `--fix` repairs the safely derivable fields (currently `STATE.json`
+      `keyMetrics.blogPosts`). Everything else it reports, you fix by hand.
+    - **It does NOT verify steps 1–4** (ClickRank + Screpy). Those have no
+      reliable API. Confirm them yourself in the dashboards.
+
+    Why this is a gate and not a reminder: steps 6–8 were manual instructions
+    for months and silently rotted. On 2026-08-05 an agent read the stale record
+    and told the operator to redo finished work.
+11. Git commit + push all documentation updates
 
 ## Key Rules
 
@@ -387,6 +403,7 @@ python scripts/verify-malay-voice.py <post-id>
 - **Post Excerpt (MANDATORY):** Every post MUST have a manual excerpt (155–160 characters). Set via `wp.data` store method (see Phase 6 Step 8) — NOT via Respira's `excerpt` parameter
 - **Content formatting (MANDATORY):** See `.devin/skills/readability-pass/SKILL.md` for Rich Formatting Toolkit, blockquote/callout templates, and Formatting Checklist
 - **Malay voice gate (MANDATORY):** Run `python scripts/verify-malay-voice.py <post-id>` in Phase 6.5 — must be 0 errors before Phase 7
+- **Content status gate (MANDATORY):** Run `python scripts/verify-content-status.py` at the end of Phase 7 — must exit 0 before committing. Does not cover ClickRank/Screpy (no API)
 - **Internal links (outbound):** Always link new post UP to pillar/parent content during Phase 6 (1-3 links)
 - **Internal links (inbound):** Always run `internal-link-builder` skill in Phase 7 to add links from older posts TO the new post
 - **Internal link planning:** Always plan links in Phase 3 (outline) before writing

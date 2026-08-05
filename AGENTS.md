@@ -49,6 +49,26 @@ Asserts every `@import` target resolves, every symlinked tree points somewhere r
 
 Run it also after: editing any symlink, changing `.gitignore`, cloning to a new machine, or starting work in a **git worktree** (`CLAUDE.md` and `CLAUDE.local.md` are gitignored, so a worktree has neither — the script catches that immediately).
 
+### ✅ Verify the docs still describe the live site
+
+```bash
+python scripts/verify-content-status.py
+```
+
+Compares `content/content-calendar.md`, `STATE.json` and `NEXT.md` against the live WordPress REST API. Exit 0 = the docs match reality, 1 = drift.
+
+**Why this exists:** `verify-imports.py` checks that doctrine *loads*; `verify-malay-voice.py` checks content *quality*. Neither looks at post **status**. On 2026-08-05 the breadcrumbs still described finished Phase 7 work as outstanding, and an agent acting on that stale record told the operator to redo completed work. **Docs do not fail loudly when they go stale — they just quietly lie.**
+
+Run at session start (before trusting any status claim in the breadcrumbs) and at the end of write-post Phase 7, where it is a mandatory gate.
+
+| Flag | Effect |
+|------|--------|
+| `--fix` | Repairs the safely derivable fields (currently `STATE.json` `keyMetrics.blogPosts`) |
+| `--offline` | Skips the live fetch; runs only intra-file consistency checks |
+| `--quiet` | Failures only |
+
+⚠️ **Not covered:** ClickRank and Screpy tracking checkboxes. Neither has a reliable API, so both are still verified by hand in their dashboards. Do not add a fake check for them and do not read a passing run as proof that tracking was set up.
+
 ## 🚫 PRIORITY #1: Bricks-Only Policy (CRITICAL)
 
 **RULE: EVERYTHING inside Bricks must be done via Respira MCP (primary) or Bricks Builder GUI (fallback). NO post-processing scripts. NO PowerShell CSS injection. NO background code. NO internal hacks. NO exceptions. If it can't be done through Respira MCP or Bricks GUI, it doesn't get done.**

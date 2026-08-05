@@ -30,6 +30,7 @@
 | Category | AI Tools |
 | Status | Published (2026-07-09) |
 | URL | /apa-itu-ai/ |
+| Post ID | 256 |
 | Location | Malaysia |
 | Language | Malay |
 | Avg Volume | 2,400/mo |
