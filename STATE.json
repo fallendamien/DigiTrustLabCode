@@ -2,8 +2,8 @@
   "project": "DigiTrust Lab",
   "owner": "Zamri Rosli",
   "primaryEditor": "Zed (since 2026-08-05) — Codex via ACP, Claude Code via terminal. Windsurf retained for Devin only; VS Code legacy.",
-  "lastSession": "2026-07-29",
-  "currentObjective": "Post #4 published (ID 536, Rank Math 100/100). Remaining Phase 7: ClickRank + Screpy rank tracking, Screpy re-crawl, internal-link-builder pass. Then Post #5 or #7 research.",
+  "lastSession": "2026-08-01",
+  "currentObjective": "Post #4 fully complete (published, Rank Math 100/100, Phase 7 tracking + internal links done 2026-08-01). Next: Post #5 \"Cara Buat Poster Canva dengan AI\" - title provisional until Topic Discovery confirms a winnable keyword.",
   "currentPhase": "Phase 2 - Content & Growth",
   "phaseProgress": "30%",
   "blockers": [],
@@ -65,18 +65,15 @@
     "image-prompts.md reordered numerically with ordering rule pinned"
   ],
   "nextSteps": [
-    "Run ClickRank optimization for Post #3 (bulk title + add keyword to tracker)",
-    "Run internal link builder — add inbound links from Posts #1 and #2 to Post #3",
-    "Start Post #4 keyword research via WriterZen",
-    "Add more keywords to ClickRank tracker as posts are published",
+    "Post #5: run write-post skill from Phase -1 (quota) through Phase 0a (Topic Discovery) to confirm keyword + title",
+    "Investigate Post #1 ranking drop: apa itu AI 15 -> 55 in ClickRank. Verify against Search Console first - the two ClickRank tools disagree with each other",
     "Register Klikjer affiliate",
     "Register JV Warrior affiliate",
     "Create Etsy shop",
-    "Create first Etsy listing",
-    "Create lead magnet PDF — '50 Prompt AI Percuma' (replace simple opt-in with lead magnet)"
+    "Create lead magnet PDF - '50 Prompt AI Percuma'"
   ],
   "keyMetrics": {
-    "blogPosts": 3,
+    "blogPosts": 5,
     "etsyListings": 0,
     "emailSubscribers": 0,
     "monthlyRevenue": 0,

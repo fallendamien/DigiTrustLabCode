@@ -105,7 +105,26 @@
 | External Links | 1 (openai.com/chatgpt — dofollow) |
 | Affiliate | None |
 
-## Post #4 — RESEARCH DONE (keyword confirmed 2026-07-29)
+## Post #4 — PUBLISHED ✅
+
+| Published | Value |
+|-----------|-------|
+| URL | https://digitrustlab.com/cara-buat-gambar-ai/ |
+| Post ID | 536 |
+| Date | 2026-07-29 |
+| Rank Math | **100/100** (13/13 essential checks) |
+| Words / images | 854 / 3 in-content + featured |
+| Malay voice gate | 0 errors |
+| Internal links in | 3 (Posts #1, #3, #6) — added 2026-08-01 |
+| Internal links out | 2 (Posts #1, #3) |
+| ClickRank AI Overview | ✅ tracked · Malaysia/Malay · **organic #51** on first check |
+| ClickRank Keyword Tracker | ✅ tracked · Malaysia · All devices |
+| Screpy Rank Tracker | ✅ tracked · Malaysia/Malay · Mobile + Desktop |
+| Screpy re-crawl | ✅ queued 2026-08-01 (`e4i4rqes8hcwfbo9`) |
+
+> **Phase 7 complete 2026-08-01.** Reached organic #51 within ~3 days of publishing, despite the documented Weak Spot override (measured 1, gate is 2). That is well ahead of the 6–12 month expectation recorded below — revisit that assumption before overriding the gate again.
+
+### Research record (keyword confirmed 2026-07-29)
 
 > **Scope changed 2026-07-29.** Was *"10 Prompt AI untuk Buat Illustration Flat"* — a style-specific prompt gallery. Topic Discovery found **zero Malay search demand for "flat illustration"** across 76 topics, so the post was repositioned as a **beginner sub-pillar** on generating AI images. Style-specific posts (flat illustration, anime, 3D figura) become leaf posts linking up to this one.
 
