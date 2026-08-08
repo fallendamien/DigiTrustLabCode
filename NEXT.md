@@ -64,7 +64,7 @@ Live at https://digitrustlab.com/apa-itu-mcp-ai-dan-bagaimana-ia-berfungsi/ · P
 - [x] Screpy → crawler completed at 06:13 AM; new post discovered with HTTP 200 and page status `OK`
 - [x] Google Search Console → URL is on Google; page indexing status is `Page is indexed`
 - [x] Internal-link scan completed; no safe contextual inbound link was found in older posts, so no forced edit was made
-- [ ] **Critical SEO follow-up:** Rank Math sitemap index returns HTTP 200, but `post-sitemap.xml`, `page-sitemap.xml`, `category-sitemap.xml`, and `author-sitemap.xml` return HTTP 404. Re-save Permalinks, purge caches, verify all child sitemaps, then re-submit the sitemap in Search Console. Evidence: `docs/post-11-revalidation-2026-08-09.md`
+- [ ] **Critical SEO follow-up:** Rank Math rewrite rules, origin sitemap generation, and sitemap-cache exclusions are repaired; clean `post-sitemap.xml`, `page-sitemap.xml`, `category-sitemap.xml`, and `author-sitemap.xml` URLs still serve LiteSpeed’s cached HTTP 404. Clear the persistent public cache through authenticated WordPress/Hostinger/Cloudflare controls, verify clean XML 200 responses, then re-submit the sitemap in Search Console. Evidence: `docs/post-11-revalidation-2026-08-09.md`
 
 ## Post #3 — ✅ COMPLETE (2026-07-21)
 

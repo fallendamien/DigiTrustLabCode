@@ -344,7 +344,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | Google Search Console | ✅ URL is on Google; page indexing status is `Page is indexed` |
 | Malay Naturalness Gate | ✅ Passed live revalidation — Claude/Anthropic + OpenAI, 61 segments, high confidence, no findings; hash `dc96912efd4a884d009157e2221b2088e2ef144da1c5971836fc41e8306f45aa`; artifact `content/naturalness-reviews/apa-itu-mcp-ai-dan-bagaimana-ia-berfungsi.json` |
 | Link Quality Gate | ✅ Passed live revalidation — 2 contextual internal links, 3 external links, 1 dofollow, 2 allowed nofollow, 9 ToC fragments excluded, all destinations checked; inbound scan 0 with explicit `no_safe_context` decision |
-| 9 August revalidation | ✅ Article gates re-run: naturalness, voice, links, Rank Math, SEO, content status, imports and 22 tests passed. ⚠️ Site-level finding documented in `docs/post-11-revalidation-2026-08-09.md`: Rank Math sitemap index returns 200, but all four child sitemap URLs return 404 and require an authenticated permalink/cache repair. |
+| 9 August revalidation | ✅ Article gates re-run: naturalness, voice, links, Rank Math, SEO, content status, imports and 22 tests passed. ⚠️ Site-level finding documented in `docs/post-11-revalidation-2026-08-09.md`: Rank Math rewrite rules, origin sitemap generation, and sitemap-cache exclusions are repaired; clean child-sitemap URLs still return LiteSpeed’s cached 404 and need authenticated public-cache clearing before GSC resubmission. |
 | Affiliate | None |
 | Type | Beginner explainer based on first-hand MCP use |
 
