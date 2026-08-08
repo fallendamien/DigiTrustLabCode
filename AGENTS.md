@@ -69,6 +69,23 @@ Run at session start (before trusting any status claim in the breadcrumbs) and a
 
 ⚠️ **Not covered:** ClickRank and Screpy tracking checkboxes. Neither has a reliable API, so both are still verified by hand in their dashboards. Do not add a fake check for them and do not read a passing run as proof that tracking was set up.
 
+## 🚨 PRIORITY #0: Use the User’s Existing Authenticated Chrome Session
+
+This rule comes before every browser-based DigiTrust Lab workflow, including WriterZen, WordPress, ClickRank, Screpy, Google Search Console, and visual verification.
+
+**Use the user’s already-open Chrome extension session. Never substitute a separate Chrome DevTools/CDP browser, standalone Playwright browser, blank browser tab, or unauthenticated browser connection.** A login page exposed by another browser connection does not prove that the user’s actual Chrome session is signed out.
+
+Required sequence:
+
+1. Connect through the `chrome:control-chrome` browser skill and reuse its persistent Chrome binding.
+2. Name the browser session before opening or claiming a tab.
+3. Inspect the user’s open tabs and select the exact target by its current title and URL.
+4. Claim that exact tab, take a fresh DOM snapshot, and verify the authenticated dashboard before any action.
+5. Reuse the claimed tab across the workflow. Do not open a separate browser to work around a missing login.
+6. If the exact authenticated tab is unavailable, stop and ask the user to open or sign in to it. Do not navigate an arbitrary blank or login tab and call that the existing session.
+
+The in-skill `tab.playwright` API is permitted only after the user’s existing Chrome tab has been claimed. Standalone Playwright, raw CDP/DevTools connections, cookie inspection, and session-store inspection are not permitted for authenticated workflow work. The durable procedure and the 2026-08-09 incident record are in `docs/browser-session-hardening.md`.
+
 ## 🚫 PRIORITY #1: Bricks-Only Policy (CRITICAL)
 
 **RULE: EVERYTHING inside Bricks must be done via Respira MCP (primary) or Bricks Builder GUI (fallback). NO post-processing scripts. NO PowerShell CSS injection. NO background code. NO internal hacks. NO exceptions. If it can't be done through Respira MCP or Bricks GUI, it doesn't get done.**

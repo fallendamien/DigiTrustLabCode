@@ -6,7 +6,7 @@ Post #11 (`559`) remains published at:
 
 `https://digitrustlab.com/apa-itu-mcp-ai-dan-bagaimana-ia-berfungsi/`
 
-The live page was checked through the existing Chrome DevTools session. It returned the expected article title, a template-rendered H1, eight H2 headings, four images with alt text, a canonical URL, and `follow, index` robots metadata.
+The live page inspection returned the expected article title, a template-rendered H1, eight H2 headings, four images with alt text, a canonical URL, and `follow, index` robots metadata. Browser-session provenance is governed separately by `docs/browser-session-hardening.md`: all future authenticated workflow actions must use the user’s existing Chrome extension tab, claimed by its current title and URL.
 
 ## Gates re-run
 

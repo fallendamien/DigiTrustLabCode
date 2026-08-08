@@ -7,6 +7,8 @@ description: Pop out browser preview so user can see visual changes in real-time
 
 **Always use the `browser_preview` tool to pop out the browser** so the user can see changes in real-time while working.
 
+**Authentication rule:** For DigiTrust Lab verification, the preview must remain tied to the user's already-open authenticated Chrome extension session. Do not substitute a separate Chrome DevTools/CDP browser, standalone Playwright browser, or blank/login tab. Select and claim the exact existing tab by its current title and URL before navigating or inspecting it. If that tab is unavailable, stop and ask the user to open or sign in to it.
+
 ## When to Pop Out
 
 - After navigating to a page for visual verification

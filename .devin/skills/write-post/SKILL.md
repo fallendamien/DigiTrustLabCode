@@ -16,15 +16,17 @@ This is the standard workflow for every DigiTrust Lab blog post. Follow these st
 - Keyword Planner: a **new project per post topic** is created during Phase 1. Legacy project 178201 exists but is NOT a reuse target
 - WriterZen quota headroom — verify in Phase -1 before starting
 
-## Browser Automation Standard — Existing Chrome Session
+## Browser Automation Standard — Existing Authenticated Chrome Session (FIRST GATE)
 
-All WriterZen, WordPress-admin, ClickRank and Screpy browser interactions in this workflow use the user's already-open Chrome session through the Chrome browser-control skill. Do not start a separate Chrome DevTools/CDP browser, because it may be blank or unauthenticated.
+This gate must pass before Phase -1 or any other browser action. All WriterZen, WordPress-admin, ClickRank, Screpy, Google Search Console, and visual-verification interactions use the user's already-open Chrome extension session through `chrome:control-chrome`. Do **not** use a separate Chrome DevTools/CDP browser, raw `mcp__chrome_devtools__` connection, standalone Playwright browser, blank tab, or unauthenticated fallback. The incident and prevention sequence are documented in `docs/browser-session-hardening.md`.
 
-1. Connect to the existing Chrome session, inspect its open tabs, and claim the exact authenticated tab for the target dashboard.
-2. After every navigation or meaningful UI change, take a fresh DOM snapshot and use only locators from the current state. Never reuse stale locators.
-3. Use the existing tab's semantic controls for clicks, fills and waits. Use DOM/CUA interaction only for documented UI workarounds such as a label intercepting a checkbox click.
-4. After a workaround, take a fresh snapshot and verify the visible state before continuing.
-5. Use the existing tab's file chooser for uploads and screenshots only when visual evidence is needed. If the required Chrome tab is unavailable or unauthenticated, stop and ask the user to open/sign in to it; do not launch a separate browser.
+1. Connect to the Chrome extension browser and reuse its persistent browser binding. Name the session before opening or claiming a tab.
+2. Inspect the user's open tabs and claim the exact target tab by its current title and URL. Never assume a numeric tab ID or claim a guessed tab.
+3. Take a fresh DOM snapshot and verify the expected authenticated dashboard/site state before entering data or changing anything. A login page from another browser connection is not evidence that this Chrome session is unauthenticated.
+4. After every navigation or meaningful UI change, take a fresh DOM snapshot and use only locators from the current state. Never reuse stale locators.
+5. Use the claimed tab's semantic controls for clicks, fills and waits. The in-skill `tab.playwright` API is allowed only after the existing Chrome tab has been claimed; it is not permission to start a separate Playwright browser.
+6. Use DOM/CUA interaction only for documented UI workarounds such as a label intercepting a checkbox click. After a workaround, take a fresh snapshot and verify the visible state.
+7. If the exact authenticated Chrome tab is unavailable, stop and ask the user to open/sign in to it. Do not navigate an arbitrary blank/login tab or launch another browser to continue.
 
 ## WriterZen Tool Hierarchy (CRITICAL — know this before starting)
 
