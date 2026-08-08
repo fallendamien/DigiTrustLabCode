@@ -296,6 +296,17 @@ voice checker or received a high Rank Math score.
    - Link to pillar/parent content (e.g., "kecerdasan buatan (AI)" → `/apa-itu-ai/`)
    - Use natural anchor text, not keyword-stuffed
    - Aim for 1-3 internal links per post (don't over-link)
+   - **Run the deterministic link gate before publication:**
+     ```bash
+     python scripts/verify-links.py --file content/drafts/<post-slug>.html
+     ```
+     It must pass the structural policy in `content/link-policy.json`: useful
+     anchors, HTTPS editorial URLs, no self-links, 1-5 contextual internal
+     links, at least 1 relevant external link, and at least 1 external
+     dofollow link. Table-of-contents fragment links are excluded from these
+     counts. A `sponsored` or `ugc` rel token is blocked for editorial links;
+     individual `nofollow` links are allowed when another external link is
+     dofollow. A Rank Math pass does not replace this gate.
 4. Update the draft post via `respira_update_post`:
    - Set content, title, status=draft
    - Set Rank Math SEO meta: `rank_math_title`, `rank_math_description`, `rank_math_focus_keyword`, `rank_math_primary_category`
@@ -333,7 +344,7 @@ voice checker or received a high Rank Math score.
    ```
 
    Three excerpt-setting methods, ranked: `wp.data` store ✅ reliable · WP editor UI ⚠️ silently fails · Respira `excerpt` param ❌ documented as unreliable.
-9. Verify on live site: navigate to URL, check rendering, SEO title, internal links, featured image
+9. Verify on live site: navigate to URL, check rendering, SEO title, internal links, outbound destinations, featured image
 
 ### Phase 6.5: Live Verification + Rank Math (MANDATORY — Never Skip)
 
@@ -364,7 +375,26 @@ python scripts/verify-malay-voice.py <post-id>
 
 > **Full Malay voice standard:** See `.devin/skills/malay-voice-guide/SKILL.md` for the complete guide, including the publish gate protocol, DBP-aligned spelling, Bahasa Indonesia detection, and what the script cannot check (heading typos, tatabahasa, sentence fragments, comma splices, read-aloud flow).
 
-#### 6.5c: Rank Math Sidebar Optimization
+#### 6.5c: Live Link Quality Gate
+
+Run this against the live post before rank tracking:
+
+```bash
+python scripts/verify-links.py \
+  --post-id <post-id> \
+  --inbound-review content/link-reviews/<post-slug>.json \
+  --check-destinations
+```
+
+This is a hard gate. It verifies the live outbound links, checks destination
+responses, and compares the inbound scan with an auditable decision. If older
+posts contain a genuinely useful contextual mention, add the inbound link via
+`internal-link-builder` and rerun the scan. If no safe contextual link exists,
+record `no_safe_context` with a specific reason in the review artifact; never
+force an irrelevant link merely to avoid an orphan warning. Any changed link
+invalidates the artifact's `link_hash` and requires a new scan.
+
+#### 6.5d: Rank Math Sidebar Optimization
 
 1. **Open the post in WordPress editor** and check the Rank Math sidebar score
 2. **Fix Title Readability issues:**
@@ -413,6 +443,8 @@ python scripts/verify-malay-voice.py <post-id>
    - This finds mentions of the new post's topic in older posts and adds contextual links back
    - Review the plan before applying (skill always asks for confirmation)
    - This is critical: the new post links UP to pillar content (done in Phase 5), but old posts must also link DOWN to the new post
+   - Record the live inbound count and either the source post IDs or a specific `no_safe_context` reason in `content/link-reviews/<post-slug>.json`
+   - Rerun `python scripts/verify-links.py --post-id <post-id> --inbound-review content/link-reviews/<post-slug>.json --check-destinations` after any inbound or outbound link edit
 6. Update `content/content-calendar.md`:
    - Change status to PUBLISHED ✅
    - Add URL, publish date, Post ID, WriterZen Article ID
@@ -469,6 +501,7 @@ python scripts/verify-malay-voice.py <post-id>
 - **Internal links (outbound):** Always link new post UP to pillar/parent content during Phase 6 (1-3 links)
 - **Internal links (inbound):** Always run `internal-link-builder` skill in Phase 7 to add links from older posts TO the new post
 - **Internal link planning:** Always plan links in Phase 3 (outline) before writing
+- **Link hardening:** Run `scripts/verify-links.py` before publication and against the live post after publication. Do not use Rank Math's link checks as a substitute. Store the inbound decision in `content/link-reviews/<post-slug>.json`.
 - **SEO meta:** Always set Rank Math title (≤60 chars), description (≤160 chars), focus keyword, primary category
 - **Rank tracking (MANDATORY):** Every published post's focus keyword + URL must be added to BOTH ClickRank AI Overview Tracker AND Screpy Rank Tracker
 - **ClickRank title/meta optimization (OPTIONAL):** Reject hype words. Accept natural words. Manual titles always preferred

@@ -335,13 +335,15 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | Published URL | https://digitrustlab.com/apa-itu-mcp-ai-dan-bagaimana-ia-berfungsi/ |
 | Featured image | Media 561; three in-content images in Media 562–564 |
 | Internal Link | → Post #1 `/apa-itu-ai/` and Post #2 `/cara-guna-chatgpt/` |
-| Inbound Internal Link | No safe contextual link found in older published posts during the Phase 7 scan; no link was forced |
+| Outbound External Links | 3 official references: MCP Architecture, Pieces MCP, and Respira MCP. Live gate: 3 external, 1 dofollow, 2 allowed nofollow, destinations checked |
+| Inbound Internal Link | No safe contextual link found in older published posts during the Phase 7 scan; no link was forced. Evidence: `content/link-reviews/apa-itu-mcp-ai-dan-bagaimana-ia-berfungsi.json` |
 | ClickRank Keyword Tracker | ✅ Done — added `mcp ai` + article URL; Malaysia, device All |
 | ClickRank AI Overview Tracker | ✅ Done — added `mcp ai` + article URL; Malaysia/Malay |
 | Screpy Rank Tracker | ✅ Done — added `mcp ai`; Malaysia/Malay, **Device: Both**; verified under Desktop and Mobile |
 | Screpy re-crawl | ✅ Completed 2026-08-08 at 06:13 AM — article discovered, HTTP 200, page status `OK` |
 | Google Search Console | ✅ URL is on Google; page indexing status is `Page is indexed` |
-| Malay Naturalness Gate | ✅ Passed live revalidation — Claude/Anthropic + OpenAI, 61 segments, high confidence, no findings; hash `35deb6e9798a64f81cff914547fa0708eb44e9d6df5dfb0a8e60d3d16f0fdf9f`; artifact `content/naturalness-reviews/apa-itu-mcp-ai-dan-bagaimana-ia-berfungsi.json` |
+| Malay Naturalness Gate | ✅ Passed live revalidation — Claude/Anthropic + OpenAI, 61 segments, high confidence, no findings; hash `dc96912efd4a884d009157e2221b2088e2ef144da1c5971836fc41e8306f45aa`; artifact `content/naturalness-reviews/apa-itu-mcp-ai-dan-bagaimana-ia-berfungsi.json` |
+| Link Quality Gate | ✅ Passed live revalidation — 2 contextual internal links, 3 external links, 1 dofollow, 2 allowed nofollow, 9 ToC fragments excluded, all destinations checked; inbound scan 0 with explicit `no_safe_context` decision |
 | Affiliate | None |
 | Type | Beginner explainer based on first-hand MCP use |
 
@@ -366,7 +368,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 10. **Content Creator Step 3: Write** — Use "Write all for me" (AI Creativity Level = 1) → reformat walls of text → Run Show Analysis → Run Plagiarism Check → Save
 11. **Publish to WordPress** — Copy content from WriterZen → Update draft via `respira_update_post` → Set Rank Math SEO fields → Set featured image → Publish → set excerpt via WP editor
 12. **Rank Math optimization** — Sidebar check, aim 80+, fix essential checks
-13. **Verify on live site** — Navigate to URL, check rendering, SEO title, internal links
+13. **Verify on live site** — Navigate to URL, check rendering, SEO title, internal links, outbound destinations, and run `scripts/verify-links.py`
 14. **Rank tracking** — ClickRank (AI Overview + Keyword Tracker) + Screpy Rank Tracker, focus keyword only
 15. **Mark as published** — Update this calendar
 

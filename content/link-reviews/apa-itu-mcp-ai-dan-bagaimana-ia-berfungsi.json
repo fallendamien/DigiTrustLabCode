@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "post_id": 559,
+  "slug": "apa-itu-mcp-ai-dan-bagaimana-ia-berfungsi",
+  "reviewed_at": "2026-08-08T16:04:52+08:00",
+  "link_hash": "2b0999f63f36a484a6bf69d3fff1c45a81764caec24af675d437256d945eddb4",
+  "outbound": {
+    "internal_count": 2,
+    "external_count": 3,
+    "external_dofollow_count": 1,
+    "destinations_checked": true,
+    "official_sources": [
+      "https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture",
+      "https://pieces.app/features/mcp",
+      "https://www.respira.press/mcp"
+    ]
+  },
+  "inbound": {
+    "decision": "no_safe_context",
+    "count": 0,
+    "source_ids": [],
+    "reason": "The live scan found no safe contextual mention in older published posts. No irrelevant inbound link was forced.",
+    "scan_scope": "published posts and pages"
+  },
+  "status": "pass"
+}

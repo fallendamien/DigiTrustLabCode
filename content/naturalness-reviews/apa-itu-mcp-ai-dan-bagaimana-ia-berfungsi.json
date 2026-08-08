@@ -2,8 +2,8 @@
   "schema_version": 2,
   "post_id": 559,
   "slug": "apa-itu-mcp-ai-dan-bagaimana-ia-berfungsi",
-  "reviewed_at": "2026-08-08T07:42:51.347Z",
-  "content_hash": "35deb6e9798a64f81cff914547fa0708eb44e9d6df5dfb0a8e60d3d16f0fdf9f",
+  "reviewed_at": "2026-08-08T16:10:08+08:00",
+  "content_hash": "dc96912efd4a884d009157e2221b2088e2ef144da1c5971836fc41e8306f45aa",
   "status": "pass",
   "reviewers": [
     {
@@ -196,7 +196,7 @@
     },
     {
       "id": "seg-006",
-      "hash": "b8a9baf7b10cf5958a6350a174c4272d429b3cc1bb28ecf36b0aa5cdafea26d1",
+      "hash": "37310e6d8a65adea92fb1cf47c06dcf9fed668b0ff1c27d41d8859e6c9079bbd",
       "reviewers": {
         "claude": {
           "checks": {
@@ -256,7 +256,7 @@
     },
     {
       "id": "seg-008",
-      "hash": "96bf472afe2c7923369d7880f0e2c7b758410275919c4145e7da9c05add8330d",
+      "hash": "756c489dfe2c5d6c3c5128d580f45a1e8e883432fd14a8b3d78838dd7712178e",
       "reviewers": {
         "claude": {
           "checks": {
@@ -946,7 +946,7 @@
     },
     {
       "id": "seg-031",
-      "hash": "1487835e2d683777eb2705d10989f4beae6f42f2c8925c6b476d97e6f78773df",
+      "hash": "c5aa2426284304b0703dd2adccc7e65b59dfb764d2b9b8baccb054de71561a1b",
       "reviewers": {
         "claude": {
           "checks": {
@@ -1696,7 +1696,7 @@
     },
     {
       "id": "seg-056",
-      "hash": "0c929fb5b9d542bdfe6edc10aa78fe6dff247d062f1affd5a90185ea70146406",
+      "hash": "b143f7f5971d53cb0e5606aa1744cf347d5d216c8c145f4ed556358b8b55f292",
       "reviewers": {
         "claude": {
           "checks": {

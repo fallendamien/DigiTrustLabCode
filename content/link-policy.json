@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "site_host": "digitrustlab.com",
+  "editorial_min_internal_links": 1,
+  "editorial_max_internal_links": 5,
+  "editorial_min_external_links": 1,
+  "require_external_dofollow": true,
+  "require_https": true,
+  "blocked_editorial_rel_tokens": [
+    "ugc",
+    "sponsored"
+  ],
+  "allowed_nofollow_domains": [],
+  "generic_anchor_texts": [
+    "click here",
+    "klik di sini",
+    "di sini",
+    "here",
+    "read more",
+    "baca lagi",
+    "baca selanjutnya",
+    "link",
+    "pautan",
+    "website"
+  ],
+  "source": "DigiTrust Lab publishing workflow",
+  "updated": "2026-08-08",
+  "rationale": "Link quality is a publication concern, not only a Rank Math concern. The gate checks useful anchors, HTTPS, sponsored or UGC rel attributes, internal-link counts, at least one dofollow reference, and an auditable inbound-link decision. Nofollow is allowed for individual editorial links when the article still contains a dofollow external reference."
+}

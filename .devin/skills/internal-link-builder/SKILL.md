@@ -154,6 +154,7 @@ Wait for explicit confirmation before proceeding.
    - Total links added
    - The snapshot id for rollback, plus links to review the modified pages in WordPress admin
 5. Persist the updated linking strategy with `respira_update_option` (key `respira_internal_link_strategy`): record the clusters now built, the anchor-text conventions used, and any do-not-link pairs, so the next run starts from this state.
+6. Run `python scripts/verify-links.py --post-id <post-id> --inbound-review content/link-reviews/<post-slug>.json --check-destinations` after the pass. The deterministic gate is the final evidence for outbound structure and the inbound decision; Rank Math alone is not sufficient.
 
 ## Link Quality Rules
 
@@ -166,6 +167,7 @@ These rules prevent the skill from making harmful or spammy recommendations:
 - **Natural anchor text** — No exact-match keyword stuffing. Anchor text should read as part of the sentence.
 - **Builder-aware** — When inserting links, preserve the page builder's content format. Don't break Divi shortcodes, Elementor JSON, or Gutenberg block markup.
 - **Conservative by default** — When in doubt about a link's relevance, leave it out. It's better to recommend 10 great links than 30 mediocre ones.
+- **Auditable orphan handling** — A post with no safe contextual inbound opportunity must record `no_safe_context` and a specific reason in `content/link-reviews/<post-slug>.json`; never force an irrelevant link.
 
 ## Output Format
 
