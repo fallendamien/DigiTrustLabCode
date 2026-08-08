@@ -2,7 +2,7 @@
 
 > **Status:** 🚧 In Progress
 > **Current Phase:** Phase 1 — Foundation (Infrastructure DONE, Content Phase Started)
-> **Last Updated:** 2026-07-18 (Session 14)
+> **Last Updated:** 2026-08-08 (Malay naturalness gate)
 > **Monthly Revenue:** RM 69 (1 sale, pre-blog era)
 
 ---
@@ -212,6 +212,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 
 ### Tech Debt 🔧
 
+- [x] **Malay naturalness quality gate** — Claude + OpenAI review evidence, content-hash validation, confirmed-phrase regression bank, and unittest coverage (2026-08-08)
 - [x] Convert Single Post template (ID 10) from Code element to native Bricks elements
 - [x] Convert Blog Archive template (ID 52) from Code element to native Bricks elements
 - [x] Replace Bricks native form on Template 10 sidebar with MailerLite embed — form cUeVaM live ✅

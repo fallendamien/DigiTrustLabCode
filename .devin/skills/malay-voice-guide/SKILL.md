@@ -1,6 +1,6 @@
 ---
 name: malay-voice-guide
-description: "Natural formal-to-semi-formal Bahasa Melayu writing standard for DigiTrust Lab, plus the publish gate that enforces it. Use on ANY task involving writing, editing, reviewing, or PUBLISHING Malay content (blog posts, pages, copy, CTA text, alt text, meta). Ships an automated checker at scripts/verify-malay-voice.py which must report 0 errors before a post goes live. Enforces DBP-aligned spelling/grammar, blocks Bahasa Indonesia forms, anti-salesy tone, and red-phrase avoidance. Reference style: PandaiTech.my, Ecentral.my."
+description: "Natural formal-to-semi-formal Bahasa Melayu writing standard for DigiTrust Lab, plus the mechanical and naturalness gates that enforce it. Use on ANY task involving writing, editing, reviewing, or PUBLISHING Malay content (blog posts, pages, copy, CTA text, alt text, meta). Ships automated checkers at scripts/verify-malay-voice.py and scripts/verify-malay-naturalness.py. Enforces DBP-aligned spelling/grammar, blocks Bahasa Indonesia forms, anti-salesy tone, and red-phrase avoidance. Reference style: PandaiTech.my, Ecentral.my."
 ---
 
 # Malay Voice Guide — Natural Formal–Semi-Formal Bahasa Melayu Standard
@@ -15,9 +15,40 @@ description: "Natural formal-to-semi-formal Bahasa Melayu writing standard for D
 
 ---
 
-## 🚦 PUBLISH GATE — run this before any post goes live
+## 🚦 PUBLISH GATE — run both halves before any post goes live
 
-**`scripts/verify-malay-voice.py` is the machine half of this skill.** Run it on every piece before publishing. It fails the build on defects that are countable, so your attention is free for the ones that are not.
+### Naturalness evidence gate (hard block)
+
+`scripts/verify-malay-naturalness.py` is the hard publication gate for wording
+that may be grammatically valid but still sound translated, bureaucratic, or
+unnatural to a Malaysian reader. It uses the rules in
+`content/malay-naturalness-rules.json` and validates a review artifact in
+`content/naturalness-reviews/<post-slug>.json`.
+
+Two independent fresh reviews must cover the same final content: one
+Claude/Anthropic review and one OpenAI review. Both must mark every
+document-level and segment-level checklist item true with `confidence:
+"high"`. Any finding, uncertainty, disagreement, missing segment, missing
+required family, or content-hash mismatch blocks publication. Fix the copy,
+create a new hash, and rerun both reviews from scratch.
+
+```bash
+# before publishing the final local HTML
+python scripts/verify-malay-naturalness.py \
+  --file content/drafts/<post-slug>.html \
+  --review content/naturalness-reviews/<post-slug>.json
+```
+
+The review checklist covers natural usage, literal translations, bureaucratic
+stiffness, technical-term choice, read-aloud clarity, and consistency. The
+artifact protocol and JSON shape are documented in
+`content/naturalness-reviews/README.md`. The confirmed regression
+`alasan sopan` is an example of why a simple grammar or spelling pass is not
+enough.
+
+### Mechanical voice gate
+
+**`scripts/verify-malay-voice.py` is the mechanical half of this skill.** Run it on every piece before the live verification step. It fails the build on defects that are countable, so your attention is free for the ones that are not. The naturalness evidence gate above is a separate hard requirement.
 
 ```bash
 # after publishing to WordPress, before rank tracking:
@@ -46,9 +77,11 @@ A post that is not registered will never fail, which reads exactly like passing.
 
 em dashes (split by prose / `<li>` / alt-text) · banned contractions · non-baku loanwords · Bahasa Indonesia forms (§4f) · English where a BM word exists (§11c) · informal register, hard error on core pages (§11e) · brand capitalisation (§4d) · italic policy (§4c)
 
-### What it CANNOT check — these are yours, always
+### What the mechanical checker CANNOT check
 
-A clean run is **not** a pass. Read for:
+A clean mechanical run is **not** a naturalness pass. The two-model review
+artifact above is mandatory; use this checklist to prepare the content before
+creating that artifact and to investigate any reviewer disagreement. Read for:
 
 - [ ] **Heading typos** (§11d) — character by character. `Berfungsa` survived three weeks live; no script catches a misspelling that is still a plausible word.
 - [ ] **Tatabahasa completeness** (⚠️ CRITICAL section below) — every sentence has a proper verb with correct imbuhan.
@@ -59,7 +92,7 @@ A clean run is **not** a pass. Read for:
 
 ### Extending the checks
 
-New defect patterns go into **both** the script's dicts **and** the relevant table in this file. Never one without the other — a pattern in only one place drifts out of sync within weeks.
+Mechanical defect patterns go into **both** the script's dicts **and** the relevant table in this file. Naturalness regressions go into `content/malay-naturalness-rules.json` and a test in `tests/`. Never add a naturalness phrase to only a document or only a prompt — the regression must be executable.
 
 > **Do not ban a word without verifying it at `prpm.dbp.gov.my` first.** `efektif` was wrongly banned on 2026-07-30 and had to be un-banned across four files. Being wrong in this direction costs real rework.
 

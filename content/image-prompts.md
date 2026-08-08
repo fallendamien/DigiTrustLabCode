@@ -1,6 +1,6 @@
 # Image Prompts Library — DigiTrust Lab
 
-> Copy-paste ready prompts for Gemini Nano Banana 2. Each post has 4 images: 1 featured + 3 in-content. Paste the prompt into Gemini, download the result, upload to WordPress Media with the given filename.
+> Copy-paste ready prompts for ChatGPT or Gemini image generation. Each post has 4 images: 1 featured + 3 in-content. Paste the prompt into the selected provider, download the result, and upload it to WordPress Media with the given filename.
 >
 > **Published posts** have content-derived prompts based on actual article text.
 > **Planned posts** are marked TBD — prompts will be written after content is drafted.
@@ -57,13 +57,13 @@ If hands are still wrong, regenerate with:
 
 > `All hands fully rendered with five fingers each, arms complete from shoulder to fingertips, natural pose.`
 
-### 🔁 Gemini Image-Reference Workflow (fixing background or style drift)
+### 🔁 Cross-Provider Image-Reference Workflow (ChatGPT or Gemini)
 
-When a generator produces a great composition but the wrong background colour or style, don't re-prompt from scratch — use Gemini's image reference:
+When a generator produces a great composition but the wrong background colour or style, don't re-prompt from scratch — upload the image to the provider you are using and refine it there:
 
-1. Upload the image you like to Gemini
-2. Ask: *"Re-create this exact scene but with warm off-white (#FAFAF8) background, flat illustration style, charcoal (#1A1A1A) outlines, orange (#E8621A) accents, white highlights. All human hands must have five fingers. No text, labels, logos, or watermarks."*
-3. Gemini preserves the composition while fixing the brand colours
+1. Upload the image you like to ChatGPT or Gemini
+2. Ask the selected provider: *"Re-create this exact scene but with warm off-white (#FAFAF8) background, flat illustration style, charcoal (#1A1A1A) outlines, orange (#E8621A) accents, white highlights. All human hands must have five fingers. No text, labels, logos, or watermarks."*
+3. The selected provider preserves the composition while fixing the brand colours
 4. Save with the same SEO filename and re-upload to WordPress Media
 
 ### 🎬 Cinematic Editorial-Poster Variation (variation #8 — use selectively)
@@ -98,7 +98,7 @@ An accent style for high-concept articles, cautionary topics, myth-vs-reality ex
 
 1. Find the post you're working on below
 2. Copy the **Prompt** block for each image
-3. Paste into Gemini Nano Banana 2
+3. Paste into ChatGPT or Gemini
 4. Download the generated image
 5. Upload to WordPress Media Library with the exact **Filename**
 6. Set Malay alt text (provided with each image)
@@ -111,6 +111,11 @@ An accent style for high-concept articles, cautionary topics, myth-vs-reality ex
 > Fixed 2026-07-29: the order had drifted to `#1, #2, #3, #6, #4, #5, #7…` because published posts were appended as they shipped. Reordered numerically.
 
 **When a post is published:** Replace TBD prompts with content-derived ones based on the actual article text. Update the post's status marker from PLANNED to PUBLISHED.
+
+### Local Image Archive and Naming
+
+After generating the images for a post, copy every final asset from its exact `C:\Users\Zamri\.codex\generated_images\<session-folder>` source folder into `G:\Zamzam Biznez\DigiTrustLab\Blog images`. Rename each file to the exact `Filename` stated in this library. Verify the destination copy with a SHA-256 comparison before uploading to WordPress or cleaning the source. Cleanup is limited to the verified files in that one session folder; if deletion is blocked by a safety guard, keep the source files and record that they remain.
+When archiving a batch, copy the files in prompt order, from Image 1 to the final image. Do not rely on copy order for Explorer placement because NTFS can preserve or tie creation timestamps after deletion and recopy. Set distinct destination `CreationTime` values so Image 1 is newest, Image 2 is next, and the final image is oldest; then verify that sorting by `CreationTime` descending produces Image 1 → Image 2 → Image 3 → Image 4.
 
 **When a new post is planned:** Add a new section with TBD prompts **at its numbered position**, not at the end of the file.
 
@@ -413,3 +418,48 @@ Flat illustration style. A top-down flat lay of three cards arranged vertically 
 | Intro | TBD | TBD | TBD |
 | Comparison | TBD | TBD | TBD |
 | Conclusion | TBD | TBD | TBD |
+
+---
+
+## Post #11 — Apa Itu MCP dalam AI dan Bagaimana Ia Berfungsi? (PUBLISHED ✅)
+
+**Slug:** `apa-itu-mcp-ai-dan-bagaimana-ia-berfungsi`
+**URL:** https://digitrustlab.com/apa-itu-mcp-ai-dan-bagaimana-ia-berfungsi/
+**Focus keyword:** `mcp ai`
+**Content summary:** Explains MCP as an open standard connecting AI applications with external systems, using the host, client and server architecture. Distinguishes MCP from APIs and covers tools, resources, prompts and access safety.
+
+### Image 1 — Featured (Split Composition)
+
+**Filename:** `apa-itu-mcp-dalam-ai-dan-bagaimana-ia-berfungsi-featured.png`
+**Alt text:** Ilustrasi AI berhubung dengan fail, pangkalan data dan aplikasi melalui sambungan terkawal
+
+```
+Flat illustration style. An AI application connected through a clear bridge to three simple external sources: a folder for files, a database cylinder, and a small app window, with a human viewer on the side understanding the connection. The bridge represents controlled context exchange, not unrestricted access. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Split composition. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+```
+
+### Image 2 — Host, Client and Server (Isometric Scene)
+
+**Filename:** `apa-itu-mcp-host-client-server.png`
+**Alt text:** Ilustrasi host, klien dan pelayan MCP berhubung dalam susunan berlapis
+
+```
+Flat illustration style. An isometric scene with a central AI application panel connected to three distinct layers: a host at the top, a smaller client connection in the middle, and a server at the bottom providing file, database and app symbols. Use clear lines and spacing to show the connection hierarchy without labels. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Isometric scene with layered depth. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+```
+
+### Image 3 — MCP and API (Geometric Patterns)
+
+**Filename:** `apa-itu-mcp-dan-api.png`
+**Alt text:** Ilustrasi laluan MCP dan API yang berbeza tetapi saling berkaitan
+
+```
+Flat illustration style. Two clean communication paths crossing a geometric network: one path shows an AI application reaching a tool through a structured connector, while the other shows two system blocks connected by a direct API line. The paths meet at a small shared data point to suggest that an MCP server can use an API behind the scenes. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Geometric patterns and dotted lines connecting elements. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+```
+
+### Image 4 — Safety and Permissions (Top-Down Flat Lay)
+
+**Filename:** `apa-itu-mcp-keselamatan-kebenaran.png`
+**Alt text:** Ilustrasi kebenaran akses dan keselamatan apabila menggunakan MCP
+
+```
+Flat illustration style. A top-down flat lay showing a small key, a shield, a folder, a database cylinder and a checklist arranged around a central connection point. Some paths are open and some are blocked, representing minimum permissions and checking actions before approval. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Top-down flat lay perspective of objects arranged on a surface. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+```

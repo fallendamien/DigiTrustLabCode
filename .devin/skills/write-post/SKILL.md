@@ -16,6 +16,16 @@ This is the standard workflow for every DigiTrust Lab blog post. Follow these st
 - Keyword Planner: a **new project per post topic** is created during Phase 1. Legacy project 178201 exists but is NOT a reuse target
 - WriterZen quota headroom — verify in Phase -1 before starting
 
+## Browser Automation Standard — Existing Chrome Session
+
+All WriterZen, WordPress-admin, ClickRank and Screpy browser interactions in this workflow use the user's already-open Chrome session through the Chrome browser-control skill. Do not start a separate Chrome DevTools/CDP browser, because it may be blank or unauthenticated.
+
+1. Connect to the existing Chrome session, inspect its open tabs, and claim the exact authenticated tab for the target dashboard.
+2. After every navigation or meaningful UI change, take a fresh DOM snapshot and use only locators from the current state. Never reuse stale locators.
+3. Use the existing tab's semantic controls for clicks, fills and waits. Use DOM/CUA interaction only for documented UI workarounds such as a label intercepting a checkbox click.
+4. After a workaround, take a fresh snapshot and verify the visible state before continuing.
+5. Use the existing tab's file chooser for uploads and screenshots only when visual evidence is needed. If the required Chrome tab is unavailable or unauthenticated, stop and ask the user to open/sign in to it; do not launch a separate browser.
+
 ## WriterZen Tool Hierarchy (CRITICAL — know this before starting)
 
 | Tool | Purpose | Persistence | When to use |
@@ -192,10 +202,8 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
 
 1. **Enable the Highlight Keywords toggle FIRST** (before reviewing or editing any content):
    - Keywords sidebar panel → "Highlight keywords" checkbox (DOM id: `switch-enable-serp`)
-   - Playwright `click()` times out here — a `<label>` intercepts pointer events. Toggle via JS evaluate:
-     ```js
-     document.getElementById('switch-enable-serp').click()
-     ```
+   - In the existing Chrome tab, a normal click can be intercepted because a `<label>` captures the pointer event. Use the documented DOM/CUA workaround, then take a fresh snapshot and verify that the toggle and keyword count changed:
+   - Take a fresh DOM snapshot and verify that the toggle and keyword count changed before editing.
    - This highlights every target keyword already present in the draft and shows the `0/N` missing count, so you can see exactly where to weave keywords in naturally
 2. **Prioritize Opportunity keywords over Competitive keywords** — the two buckets are not equal:
 
@@ -239,6 +247,36 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
    - Common items: content length, images, internal/external links, title length
 10. Save (not Done — keep article in Content Creator)
 
+### Phase 5.5: Malay Naturalness Review Gate (MANDATORY — before WordPress publication)
+
+This is a hard gate. Do not publish a draft that has only passed the mechanical
+voice checker or received a high Rank Math score.
+
+1. Extract and clean the final HTML, including all reader-facing headings,
+   paragraphs, lists, blockquotes, captions, alt text, excerpt, and available
+   SEO metadata.
+2. Run the deterministic naturalness rules and create
+   `content/naturalness-reviews/<post-slug>.json`.
+3. Ask two independent fresh sessions to review the same final content using
+   the six-check protocol in `content/naturalness-reviews/README.md`: one
+   Claude/Anthropic reviewer and one OpenAI reviewer. Record both actual models
+   and families in the artifact.
+4. If either reviewer flags an issue, expresses uncertainty, or encounters an
+   unapproved term, apply only a clear correction and rerun both reviews from
+   scratch. If the wording requires a genuine editorial decision, stop for the
+   user's decision.
+5. Run the hard gate and require exit code 0:
+
+   ```bash
+   python scripts/verify-malay-naturalness.py \
+     --file content/drafts/<post-slug>.html \
+     --review content/naturalness-reviews/<post-slug>.json
+   ```
+
+6. Record the content hash, both model/family identities, artifact path, and
+   passing result in the workflow evidence. Any later edit invalidates the hash
+   and requires a complete fresh review by both families.
+
 ### Phase 6: Publish to WordPress via Respira MCP
 
 1. Extract HTML content from WriterZen editor (via browser evaluate)
@@ -262,13 +300,22 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
    - Set content, title, status=draft
    - Set Rank Math SEO meta: `rank_math_title`, `rank_math_description`, `rank_math_focus_keyword`, `rank_math_primary_category`
    - Set categories
-5. **Generate featured image via Gemini Nano Banana 2** (NOT Openverse stock photos — those break visual consistency):
+5. **Generate the post images via ChatGPT or Gemini** (NOT Openverse stock photos — those break visual consistency):
    - Use the standard DigiTrust Lab illustration prompt template
    - **See `content/image-prompts.md`** for the full prompt template, design system, variation guide, and worked examples
    - Download the generated image, then sideload via `respira_sideload_image`
    - Set alt text describing the illustration in Malay
+5b. **Archive every generated image before cleanup:**
+   - Treat the `Filename` value in `content/image-prompts.md` as authoritative. Rename each final image exactly to that filename, using lowercase hyphens only.
+   - Copy every final image from `C:\Users\Zamri\.codex\generated_images\<session-folder>` to `G:\Zamzam Biznez\DigiTrustLab\Blog images`.
+   - Copy the files in prompt order, from Image 1 to the final image.
+   - Do not rely on copy order for Explorer placement. NTFS can preserve or tie creation timestamps after deletion and recopy. Set distinct destination `CreationTime` values so Image 1 is newest, Image 2 is next, and the final image is oldest; then verify that sorting by `CreationTime` descending produces Image 1 → Image 2 → Image 3 → Image 4.
+   - Verify that every destination file exists and matches its source by SHA-256 before uploading or deleting anything.
+   - If cleanup is explicitly requested, remove only the verified source files inside that exact generated-image session folder. Never delete a broad generated-images directory. If the safety guard blocks cleanup, leave the originals and report that they remain.
 6. Set featured image via `respira_update_post` with `featured_media`
-7. Publish via `respira_update_post` with `status=publish`
+7. Publish via `respira_update_post` with `status=publish` only after Phase 5.5
+   passes. The mechanical checker is rerun against the live post immediately
+   after publication, before rank tracking.
 8. **Set post excerpt (NOT via Respira — `excerpt` param is unreliable):**
 
    ⚠️ **The WP editor UI is ALSO unreliable.** Typing into the "Add an excerpt…" panel and clicking Save draft can appear to work while saving nothing — verified on Post #4 (2026-07-29), where the excerpt read back as empty string after reload despite the panel showing the text.
@@ -288,11 +335,23 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
    Three excerpt-setting methods, ranked: `wp.data` store ✅ reliable · WP editor UI ⚠️ silently fails · Respira `excerpt` param ❌ documented as unreliable.
 9. Verify on live site: navigate to URL, check rendering, SEO title, internal links, featured image
 
-### Phase 6.5: Rank Math + Malay Voice Gate (MANDATORY — Never Skip)
+### Phase 6.5: Live Verification + Rank Math (MANDATORY — Never Skip)
 
 This phase runs AFTER the post is published (Phase 6) but BEFORE documentation (Phase 7).
 
-#### 6.5a: Malay Voice Publish Gate
+#### 6.5a: Live Malay Naturalness Revalidation
+
+```bash
+python scripts/verify-malay-naturalness.py \
+  --post-id <post-id> \
+  --review content/naturalness-reviews/<post-slug>.json
+```
+
+This must report exit code 0 against the live WordPress content. A live-content
+hash mismatch means the published copy differs from the reviewed copy; stop,
+fix the live post, save it, and rerun both gates before rank tracking.
+
+#### 6.5b: Malay Voice Publish Gate
 
 ```bash
 python scripts/verify-malay-voice.py <post-id>
@@ -305,7 +364,7 @@ python scripts/verify-malay-voice.py <post-id>
 
 > **Full Malay voice standard:** See `.devin/skills/malay-voice-guide/SKILL.md` for the complete guide, including the publish gate protocol, DBP-aligned spelling, Bahasa Indonesia detection, and what the script cannot check (heading typos, tatabahasa, sentence fragments, comma splices, read-aloud flow).
 
-#### 6.5b: Rank Math Sidebar Optimization
+#### 6.5c: Rank Math Sidebar Optimization
 
 1. **Open the post in WordPress editor** and check the Rank Math sidebar score
 2. **Fix Title Readability issues:**
@@ -340,7 +399,9 @@ python scripts/verify-malay-voice.py <post-id>
    - This is the PRIMARY reason we use ClickRank — monitors AI Overview visibility and organic ranking
    - **Title/Meta optimization** — OPTIONAL. ClickRank's AI suggestions tend to be over-dramatic (hype words like "Ultimate", "Proven", "Secret"). Only apply if the suggestion is natural and matches our calm, helpful Malay voice. Manual titles are always preferred. When in doubt, ask the user.
 3. **Screpy — Rank Tracker** (app.screpy.com → Rank Tracker → Add keywords):
-   - Add the post's **primary focus keyword** only + URL (Malaysia, Malay, desktop + mobile)
+   - Add the post's **primary focus keyword** only (Screpy associates the keyword with the tracked domain; it does not require a separate URL field)
+   - Set Country: Malaysia, Language: Malay, and **Device: Both** in the same Add keywords action
+   - **Do not add separate Mobile and Desktop entries** when the `Both` option is available; verify the keyword appears under both device tabs after submission
    - Screpy tracks traditional Google SERP rankings, competitor comparison, and page health
    - **Why both tools:** ClickRank = AI Overview/AEO tracking, Screpy = traditional SERP rank tracking + technical audits. They serve different purposes and both are required.
 4. **Screpy — Re-run Crawler** (app.screpy.com → Pages → Analyze button):
@@ -396,13 +457,14 @@ python scripts/verify-malay-voice.py <post-id>
 - **Weak Spot gate (MANDATORY):** Never write a post whose target cluster has Weak Spot < 2
 - **30-day freshness:** Re-run Keyword Explorer if the last search for this topic is older than 30 days
 - **Titles are provisional:** Planned titles in `content-calendar.md` are placeholders until Topic Discovery confirms a winnable angle
-- **Featured image:** Always use Gemini Nano Banana 2. See `content/image-prompts.md` for prompt template, design system, and variation guide
++ **Image generation:** Use ChatGPT or Gemini for featured and in-content images. See `content/image-prompts.md` for the prompt template, design system, and variation guide
 - **Image filenames (MANDATORY):** `{post-slug}-{image-description}.png` (lowercase, hyphens only)
 - **In-content images:** Add images under H2 sections to break up text. See `content/image-prompts.md` for prompts
 - **Image prompts library:** All prompts stored in `content/image-prompts.md`. Update when a post is published
 - **Post Excerpt (MANDATORY):** Every post MUST have a manual excerpt (155–160 characters). Set via `wp.data` store method (see Phase 6 Step 8) — NOT via Respira's `excerpt` parameter
 - **Content formatting (MANDATORY):** See `.devin/skills/readability-pass/SKILL.md` for Rich Formatting Toolkit, blockquote/callout templates, and Formatting Checklist
-- **Malay voice gate (MANDATORY):** Run `python scripts/verify-malay-voice.py <post-id>` in Phase 6.5 — must be 0 errors before Phase 7
+- **Malay naturalness gate (MANDATORY):** Run `python scripts/verify-malay-naturalness.py` against final HTML before Phase 6 and the live post after publication; both must exit 0
+- **Malay mechanical voice gate (MANDATORY):** Run `python scripts/verify-malay-voice.py <post-id>` in Phase 6.5 — must be 0 errors before Phase 7
 - **Content status gate (MANDATORY):** Run `python scripts/verify-content-status.py` at the end of Phase 7 — must exit 0 before committing. Does not cover ClickRank/Screpy (no API)
 - **Internal links (outbound):** Always link new post UP to pillar/parent content during Phase 6 (1-3 links)
 - **Internal links (inbound):** Always run `internal-link-builder` skill in Phase 7 to add links from older posts TO the new post

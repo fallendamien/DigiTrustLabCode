@@ -1,0 +1,117 @@
+<!--
+Working title: Apa Itu MCP dalam AI dan Bagaimana Ia Berfungsi?
+Focus keyword: mcp ai
+Published URL: https://digitrustlab.com/apa-itu-mcp-ai-dan-bagaimana-ia-berfungsi/
+Status: Published 8 August 2026
+WriterZen Content Creator: 243912
+-->
+
+<p>Pernahkah anda tertanya-tanya apa itu MCP AI apabila anda meminta aplikasi AI membaca fail, menyemak data terkini atau melakukan sesuatu dalam aplikasi lain, lalu menerima jawapan bahawa ia tidak mempunyai akses?</p>
+
+<p>Jawapan itu bukan sekadar alasan sopan. Kebanyakan aplikasi AI memang tidak boleh mencapai fail dan perkhidmatan anda secara automatik. Ia memerlukan sambungan yang dibenarkan dan satu cara yang seragam untuk berkomunikasi dengan sistem tersebut.</p>
+
+<p>Di sinilah <strong>Model Context Protocol</strong>, atau MCP, memainkan peranan. Namanya kedengaran seperti sesuatu yang memerlukan tiga monitor dan secawan kopi yang sudah sejuk. Konsep asasnya, bagaimanapun, lebih mudah daripada namanya.</p>
+
+<blockquote>MCP ialah standard terbuka yang membolehkan aplikasi AI berhubung dengan sistem luaran, termasuk fail, pangkalan data dan aplikasi lain.</blockquote>
+
+<h2>Apa Itu MCP dalam AI?</h2>
+
+<p>MCP bukan model AI baharu, aplikasi sembang atau pangkalan data. Ia ialah protokol, iaitu satu set peraturan yang menentukan cara aplikasi AI dan sistem luaran bertukar maklumat.</p>
+
+<p>Tanpa standard seperti MCP, pembangun biasanya perlu menghasilkan sambungan khusus bagi setiap gabungan aplikasi dan sumber data. Satu aplikasi mungkin mempunyai cara tersendiri untuk berhubung dengan Google Drive, manakala aplikasi lain memerlukan integrasi yang berbeza untuk mencapai sumber yang sama.</p>
+
+<p>MCP menyediakan kaedah komunikasi yang konsisten. Aplikasi AI boleh mengetahui fungsi yang tersedia, meminta maklumat yang dibenarkan dan menjalankan tindakan melalui struktur yang telah ditetapkan.</p>
+
+<p>Skopnya juga perlu difahami dengan tepat. MCP mengawal pertukaran konteks antara aplikasi, tetapi tidak menentukan cara model AI menggunakan maklumat tersebut. Ia menyediakan laluan komunikasi, bukan menggantikan pertimbangan model atau kawalan keselamatan aplikasi.</p>
+
+<h2>Mengapa AI Memerlukan MCP?</h2>
+
+<p>Model AI boleh menjawab berdasarkan maklumat dalam perbualan dan data yang tersedia kepada aplikasinya. Namun, ia tidak semestinya mengetahui kandungan fail terkini, status website anda atau rekod dalam sesuatu perkhidmatan.</p>
+
+<p>Bayangkan anda meminta AI menyemak masalah SEO pada website. Tanpa sambungan, anda perlu menyalin laporan ke dalam ruang sembang. Dengan MCP yang sesuai, aplikasi AI boleh meminta data daripada alat SEO yang telah anda benarkan, kemudian membantu anda mentafsir hasil tersebut.</p>
+
+<p>Perkara yang sama boleh berlaku dengan fail, sistem pengurusan kandungan dan pelbagai aplikasi kerja. Kelebihannya bukan kerana AI tiba-tiba mengetahui segala-galanya. Sebaliknya, AI mendapat akses terkawal kepada sumber yang berkaitan dengan tugasan anda.</p>
+
+<h2>Bagaimana MCP Berfungsi?</h2>
+
+<p>Dokumentasi rasmi MCP menerangkan tiga peserta utama dalam seni bina ini:</p>
+
+<ul>
+  <li><strong>Host MCP:</strong> aplikasi AI yang menyelaras sambungan, seperti Claude Desktop atau aplikasi lain yang menyokong MCP.</li>
+  <li><strong>Klien MCP:</strong> komponen dalam host yang mengekalkan satu sambungan khusus kepada sesuatu pelayan MCP.</li>
+  <li><strong>Pelayan MCP:</strong> program yang menyediakan konteks atau fungsi kepada klien MCP.</li>
+</ul>
+
+<p>Satu host boleh berhubung dengan beberapa pelayan. Bagi setiap pelayan, host mewujudkan klien yang berasingan. Susunan ini membantu memastikan setiap sambungan mempunyai sempadan yang jelas.</p>
+
+<p>Pelayan MCP pula boleh menawarkan tiga jenis keupayaan utama:</p>
+
+<ul>
+  <li><strong>Tools:</strong> fungsi yang boleh dipanggil untuk melakukan tindakan, seperti mendapatkan laporan atau mengemas kini rekod.</li>
+  <li><strong>Resources:</strong> sumber maklumat yang boleh dibaca, seperti kandungan fail atau rekod pangkalan data.</li>
+  <li><strong>Prompts:</strong> <em>template</em> arahan yang boleh digunakan semula untuk membantu menyusun interaksi.</li>
+</ul>
+
+<p>Apabila anda membuat permintaan, aplikasi AI menilai sama ada salah satu fungsi yang tersedia diperlukan. Aplikasi tersebut kemudian menghantar permintaan melalui klien kepada pelayan yang berkaitan. Hasilnya dikembalikan kepada aplikasi sebelum AI menyediakan jawapan kepada anda.</p>
+
+<figure class="wp-block-image size-large"><img src="https://digitrustlab.com/wp-content/uploads/2026/08/apa-itu-mcp-host-client-server.png" alt="Ilustrasi host, klien dan pelayan MCP berhubung dalam susunan berlapis" loading="lazy" decoding="async"></figure>
+
+<h2>Contoh MCP daripada Penggunaan Sebenar</h2>
+
+<p>Di DigiTrust Lab, kami telah menggunakan beberapa sambungan MCP semasa menguruskan kerja kandungan dan teknikal. Pengalaman ini membantu kami memahami MCP sebagai alat kerja sebenar, bukan sekadar istilah yang muncul dalam dokumentasi.</p>
+
+<p>Pieces, misalnya, boleh membantu mendapatkan semula konteks daripada kerja terdahulu. Respira menyediakan alat untuk membaca dan menguruskan bahagian tertentu pada laman WordPress. Alat lain pula boleh menyediakan maklumat audit website atau data projek.</p>
+
+<p>Setiap sambungan mempunyai fungsi dan tahap akses yang berbeza. Menghubungkan satu pelayan tidak bermaksud AI mendapat akses kepada semua perkara dalam komputer atau akaun anda. Keupayaan sebenar bergantung pada fungsi yang disediakan, konfigurasi sambungan dan kebenaran yang diberikan.</p>
+
+<blockquote>Nama “pelayan MCP” tidak semestinya bermaksud sebuah komputer jauh. Pelayan MCP boleh berjalan secara setempat pada komputer anda atau secara jarak jauh melalui internet.</blockquote>
+
+<h2>Adakah MCP Sama dengan API?</h2>
+
+<p>Tidak. API menyediakan kaedah untuk satu sistem berkomunikasi dengan sistem lain. MCP pula menyeragamkan cara aplikasi AI menemui dan menggunakan sumber atau fungsi yang disediakan kepadanya.</p>
+
+<p>Sebuah pelayan MCP boleh menggunakan API di belakang tabir. Sebagai contoh, pelayan tersebut mungkin memanggil API sesuatu perkhidmatan untuk mendapatkan data, kemudian menyampaikannya kepada aplikasi AI melalui MCP.</p>
+
+<p>Ringkasnya, API boleh menjadi sebahagian daripada pelaksanaan, tetapi API dan MCP bukan perkara yang sama.</p>
+
+<figure class="wp-block-image size-large"><img src="https://digitrustlab.com/wp-content/uploads/2026/08/apa-itu-mcp-dan-api.png" alt="Ilustrasi laluan MCP dan API yang berbeza tetapi saling berkaitan" loading="lazy" decoding="async"></figure>
+
+<h2>Risiko Keselamatan yang Perlu Difahami</h2>
+
+<p>MCP memudahkan sambungan, tetapi kemudahan itu tidak menjadikan setiap sambungan selamat secara automatik. Pelayan yang mempunyai fungsi membaca fail, mengubah kandungan atau menjalankan tindakan membawa risiko yang berbeza daripada pelayan yang hanya menyediakan maklumat umum.</p>
+
+<p>Sebelum menggunakan sesuatu pelayan MCP:</p>
+
+<ol>
+  <li><strong>Semak sumbernya.</strong> Gunakan pelayan daripada penyedia yang dipercayai dan fahami siapa yang menyelenggarakannya.</li>
+  <li><strong>Periksa kebenaran.</strong> Berikan akses minimum yang diperlukan untuk tugasan tersebut.</li>
+  <li><strong>Kenal pasti tindakan yang boleh dilakukan.</strong> Bezakan fungsi baca sahaja daripada fungsi yang boleh mengubah atau memadamkan data.</li>
+  <li><strong>Lindungi maklumat pengesahan.</strong> Jangan tampal API key, token atau kata laluan ke dalam <em>prompt</em>.</li>
+  <li><strong>Semak sebelum mengesahkan tindakan penting.</strong> AI masih boleh mentafsir arahan secara salah walaupun sambungannya berfungsi dengan baik.</li>
+</ol>
+
+<blockquote>MCP menyediakan standard komunikasi. Keselamatan tetap bergantung pada pelaksanaan pelayan, aplikasi host, konfigurasi akses dan keputusan pengguna.</blockquote>
+
+<figure class="wp-block-image size-large"><img src="https://digitrustlab.com/wp-content/uploads/2026/08/apa-itu-mcp-keselamatan-kebenaran.png" alt="Ilustrasi kebenaran akses dan keselamatan apabila menggunakan MCP" loading="lazy" decoding="async"></figure>
+
+<h2>Adakah Anda Perlu Menggunakan MCP Sekarang?</h2>
+
+<p>Jika anda hanya menggunakan AI untuk menulis, mencari idea atau membuat ringkasan teks yang diberikan, anda mungkin belum memerlukan MCP.</p>
+
+<p>MCP menjadi lebih berguna apabila anda mahu aplikasi AI bekerja dengan maklumat di luar ruang sembang. Contohnya termasuk membaca fail semasa, mendapatkan data daripada alat tertentu atau melakukan tindakan yang telah diberikan kebenaran.</p>
+
+<p>Anda juga tidak semestinya perlu membina pelayan sendiri. Semakin banyak aplikasi menyediakan sambungan yang boleh dikonfigurasikan tanpa menulis keseluruhan integrasi dari awal. Walau bagaimanapun, pemasangan dan tahap kemudahan masih berbeza mengikut aplikasi.</p>
+
+<p>Jika anda masih baharu menggunakan aplikasi AI, anda boleh bermula dengan <a href="https://digitrustlab.com/cara-guna-chatgpt/">panduan menggunakan ChatGPT</a> sebelum meneroka sambungan yang lebih lanjut.</p>
+
+<h2>Kesimpulan</h2>
+
+<p>MCP ialah standard terbuka yang membantu aplikasi AI berhubung dengan sistem luaran melalui struktur yang konsisten. Seni bina asasnya melibatkan host, klien dan pelayan, manakala pelayan boleh menawarkan <em>tools</em>, <em>resources</em> dan <em>prompts</em>.</p>
+
+<p>Nilai sebenar MCP bukan pada istilah teknikalnya. Nilainya terletak pada keupayaan untuk memberikan konteks dan fungsi yang berkaitan kepada AI, dengan sempadan akses yang boleh ditentukan.</p>
+
+<p>Jika anda baru mengenali AI, mulakan dengan memahami masalah yang ingin diselesaikan. Kemudian, semak fungsi dan kebenaran setiap sambungan sebelum menggunakannya. Sambungan yang berguna ialah sambungan yang anda fahami, bukan sekadar sambungan yang berjaya dihidupkan.</p>
+
+<p><strong>Bacaan berkaitan:</strong> <a href="https://digitrustlab.com/apa-itu-ai/">Apa Itu AI dan Bagaimana Ia Berfungsi?</a></p>
+
+<p><strong>Rujukan rasmi:</strong> <a href="https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture">MCP Architecture Overview</a></p>

@@ -2,8 +2,8 @@
   "project": "DigiTrust Lab",
   "owner": "Zamri Rosli",
   "primaryEditor": "Zed (since 2026-08-05) — Codex via ACP, Claude Code via terminal. Windsurf retained for Devin only; VS Code legacy.",
-  "lastSession": "2026-08-01",
-  "currentObjective": "Post #4 fully complete (published, Rank Math 100/100, Phase 7 tracking + internal links done 2026-08-01). Next: Post #5 \"Cara Buat Poster Canva dengan AI\" - title provisional until Topic Discovery confirms a winnable keyword.",
+  "lastSession": "2026-08-08",
+  "currentObjective": "Post #11 fully complete (published and indexed by Google, Rank Math 100/A by Respira essential-check analysis, WordPress sidebar 84/100 with only cosmetic/PRO warnings, ClickRank + Screpy tracking configured, Screpy crawl completed with the article discovered as HTTP 200/OK, and internal-link scan completed 2026-08-08). Next: Post #5 \"Cara Buat Poster Canva dengan AI\" - title provisional until Topic Discovery confirms a winnable keyword.",
   "currentPhase": "Phase 2 - Content & Growth",
   "phaseProgress": "30%",
   "blockers": [],
@@ -55,6 +55,7 @@
     "Post #2 published — Cara Guna ChatGPT untuk Membantu Kerja Harian Anda (Panduan Mudah 2026) via WriterZen Option C pipeline (2026-07-18)",
     "Post #3 published — Cara Buat Prompt ChatGPT (Post ID 437, Rank Math 100/100) via WriterZen Option C pipeline (2026-07-21)",
     "Post #4 published: cara-buat-gambar-ai (ID 536, Rank Math 100/100, 849 words, 4 images)",
+    "Post #11 published: apa-itu-mcp-ai-dan-bagaimana-ia-berfungsi (ID 559, Rank Math 100/A by Respira essential-check analysis, WordPress sidebar 84/100, 1,135 words, 4 images; Phase 7 tracking configured 2026-08-08)",
     "Prompt Engineering category activated (was 0 posts)",
     "write-post workflow fixed: added quota check, Topic Discovery, Golden Filter, Weak Spot gate as mandatory phases",
     "AGENTS.md Option C pipeline summary fixed - it started at Keyword Explorer, causing agents to skip the research front-half",
@@ -62,7 +63,8 @@
     "Em dash conflict resolved between formatting toolkit and punctuation policy",
     "Category descriptions rewritten - korang removed from live site",
     "Voice policy extended to cover site metadata, not just post bodies",
-    "image-prompts.md reordered numerically with ordering rule pinned"
+    "image-prompts.md reordered numerically with ordering rule pinned",
+    "Screpy workflow corrected to use Device: Both in one action, with Desktop and Mobile tab verification"
   ],
   "nextSteps": [
     "Post #5: run write-post skill from Phase -1 (quota) through Phase 0a (Topic Discovery) to confirm keyword + title",
@@ -73,7 +75,7 @@
     "Create lead magnet PDF - '50 Prompt AI Percuma'"
   ],
   "keyMetrics": {
-    "blogPosts": 5,
+    "blogPosts": 6,
     "etsyListings": 0,
     "emailSubscribers": 0,
     "monthlyRevenue": 0,
@@ -81,8 +83,8 @@
   },
   "tools": {
     "writerZen": "ready",
-    "clickRank": "active — AI Overview Tracker: 3 keywords (apa itu ai, cara guna chatgpt, cara buat prompt chatgpt), Malaysia/Malay. AI Model Index: 100% accessible. AI Compatibility: 80% ChatGPT/Claude/Cohere.",
-    "screpy": "active — project wgspvb7lc3, uptime monitoring green. Rank Tracker: 3 keywords tracked (apa itu ai, cara guna chatgpt, cara buat prompt chatgpt), Malaysia/Malay, Both devices",
+    "clickRank": "active — Keyword Tracker and AI Overview Tracker: 6 keywords including mcp ai, Malaysia/Malay where applicable, All devices for Keyword Tracker. AI Model Index: 100% accessible. AI Compatibility: 80% ChatGPT/Claude/Cohere.",
+    "screpy": "active — project wgspvb7lc3, uptime monitoring green. Rank Tracker: 12 device-specific rankings across 6 focus keywords, including mcp ai on Malaysia/Malay with Both devices; latest crawl completed 2026-08-08 06:13 AM and discovered Post #11 as HTTP 200/OK",
     "bricksBuilder": "installed-and-configured",
     "mailerLite": "active — account 2502865, embed form cUeVaM live on homepage + single post sidebar",
     "hostinger": "active — Business WordPress plan, IP 145.79.28.85",

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-verify-malay-voice.py — automated gate for the DigiTrust Lab Malay voice policy.
+verify-malay-voice.py — mechanical half of the DigiTrust Lab Malay voice policy.
 
 Checks published WordPress content against the mechanically-checkable rules in
 `.devin/skills/malay-voice-guide/SKILL.md`. Fetches live content from the public
@@ -12,6 +12,11 @@ WHY THIS EXISTS
     (actual: 15 em dashes), and listed findings for words that were not in the
     content at all. Counting is a machine's job. Judgement is a human's job.
     This script does the counting so the human can spend attention on judgement.
+
+IMPORTANT
+    This script is not the naturalness gate. Run verify-malay-naturalness.py
+    with a current two-model-family review artifact before publication and
+    against the live post after publication.
 
 WHAT IT CANNOT CHECK
     Register, tone, tatabahasa/verb completeness, read-aloud flow, humour, and
@@ -45,6 +50,7 @@ CONTENT = {
     437: ("Post #3  Cara Buat Prompt", "posts"),
     536: ("Post #4  Cara Buat Gambar AI", "posts"),
     490: ("Post #6  ChatGPT vs Gemini vs Claude", "posts"),
+    559: ("Post #11 Apa Itu MCP dalam AI", "posts"),
     72:  ("Page     Tentang Kami", "pages"),
     73:  ("Page     Privasi", "pages"),
     74:  ("Page     Disclaimer", "pages"),

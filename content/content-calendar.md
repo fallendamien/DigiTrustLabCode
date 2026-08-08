@@ -311,6 +311,42 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | Affiliate | Canva Pro affiliate |
 | Type | Comparison |
 
+## Post #11 — PUBLISHED
+
+| Field | Value |
+|-------|-------|
+| Working Title | Apa Itu MCP dalam AI dan Bagaimana Ia Berfungsi? |
+| Primary Keyword | mcp ai |
+| Search Volume | 210/mo |
+| KD (Google Ads) | 11 |
+| KD (Content / Traffic / Signal) | 0 / 0 / 0 |
+| CPC | US$0.97 |
+| Golden Score | 1.001 |
+| All-in-Title | 0 |
+| Weak Spot | 2 |
+| Secondary Keywords | apa itu mcp ai, model context protocol, mcp server, mcp client, mcp tools, claude desktop |
+| Category | AI Tools |
+| Status | Published 8 August 2026; Rank Math 100/A by Respira essential-check analysis, SEO 95/A, readability 90/A; WordPress sidebar now displays 84/100 with only Content AI and cosmetic Title Readability warnings remaining |
+| Post ID | 559 |
+| WriterZen Topic Discovery | Project 245305 |
+| WriterZen Keyword Planner | Project 178592 |
+| WriterZen Content Creator | Article 243912 |
+| Draft | `content/drafts/apa-itu-mcp-dalam-ai.html` |
+| Published URL | https://digitrustlab.com/apa-itu-mcp-ai-dan-bagaimana-ia-berfungsi/ |
+| Featured image | Media 561; three in-content images in Media 562–564 |
+| Internal Link | → Post #1 `/apa-itu-ai/` and Post #2 `/cara-guna-chatgpt/` |
+| Inbound Internal Link | No safe contextual link found in older published posts during the Phase 7 scan; no link was forced |
+| ClickRank Keyword Tracker | ✅ Done — added `mcp ai` + article URL; Malaysia, device All |
+| ClickRank AI Overview Tracker | ✅ Done — added `mcp ai` + article URL; Malaysia/Malay |
+| Screpy Rank Tracker | ✅ Done — added `mcp ai`; Malaysia/Malay, **Device: Both**; verified under Desktop and Mobile |
+| Screpy re-crawl | ✅ Completed 2026-08-08 at 06:13 AM — article discovered, HTTP 200, page status `OK` |
+| Google Search Console | ✅ URL is on Google; page indexing status is `Page is indexed` |
+| Malay Naturalness Gate | ✅ Passed live revalidation — Claude/Anthropic + OpenAI, 61 segments, high confidence, no findings; hash `35deb6e9798a64f81cff914547fa0708eb44e9d6df5dfb0a8e60d3d16f0fdf9f`; artifact `content/naturalness-reviews/apa-itu-mcp-ai-dan-bagaimana-ia-berfungsi.json` |
+| Affiliate | None |
+| Type | Beginner explainer based on first-hand MCP use |
+
+**SERP note:** the Malaysian results are mixed and weakly aligned with the informational intent. They include translated LinkedIn articles, press releases, a course page, an English tutorial and unrelated results. No strong Malay beginner explainer was identified. The angle must therefore define MCP clearly, distinguish it from an API, use the official host/client/server architecture and avoid presenting MCP as a tool that manages data by itself.
+
 ---
 
 ## Workflow (Option C — Standard Pipeline)

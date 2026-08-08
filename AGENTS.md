@@ -512,32 +512,34 @@ Quick summary of the 14 sections (natural formal–semi-formal BM standard):
 
 **Blog posts:** Natural formal–semi-formal BM, first-person, experience-led. Use polished formal constructions when they read naturally aloud; use semi-formal warmth for accessibility. Opener should hook emotionally or with a relatable scenario. Never start with a definition or statistics dump.
 
-### Malay Proofreading Workflow (updated 2026-07-17)
+### Malay Proofreading Workflow (updated 2026-08-08)
 
-No dedicated Malay proofreading tool is used. DewanEja 11 was evaluated but not purchased. LanguageTool browser extension is paywalled. ProWritingAid is English-only. The workflow is:
+No dedicated external Malay proofreading tool is used. DewanEja 11 was evaluated but not purchased. LanguageTool browser extension is paywalled. ProWritingAid is English-only. The workflow is:
 
 1. **Writer drafts** in WordPress editor (or anywhere)
 2. **Before publishing** — paste the full draft here and say "proofread this"
 3. **AI checks against** `malay-voice-guide/SKILL.md`: spelling, grammar, contextual formal–semi-formal register, read-aloud flow, word choice, English term retention, italic policy, blockquote style, DBP rules, **brand name capitalization**, **"Jika" not "Kalau"**
 4. **Apply fixes** — writer applies suggested corrections
-5. **Rank Math SEO checklist** (before clicking Publish):
+5. **Naturalness evidence gate** (before clicking Publish): run the deterministic rules and obtain two independent fresh reviews, one Claude/Anthropic and one OpenAI, using `content/naturalness-reviews/README.md`. Block publication on any finding, uncertainty, disagreement, missing coverage, missing required family, or stale content hash. The confirmed `alasan sopan` regression must remain covered by the phrase bank and tests.
+6. **Rank Math SEO checklist** (before clicking Publish):
    - [ ] Focus keyword set
    - [ ] SEO title and meta description written
    - [ ] **Pillar Content checkbox** — enable if this post is a foundational/broad topic that other posts will link back to (e.g. "Apa Itu AI?" = pillar; "Cara Guna ChatGPT untuk Saham" = spoke, not pillar)
    - [ ] Schema type set to `Article` (or `BlogPosting`)
    - [ ] Featured image set (required for schema)
    - [ ] **Click WordPress Save/Update button** after ANY block editor change (Rank Math, Schema Builder, meta boxes) — modal-level saves are NOT enough
-6. **Publish**
-7. **Rank Math sidebar optimization (MANDATORY — Phase 5.5 of write-post workflow):**
+7. **Publish** only after the naturalness artifact passes
+8. **Live revalidation (MANDATORY):** run `verify-malay-naturalness.py --post-id <id> --review <artifact>` and `verify-malay-voice.py <id>` after publication. A live hash mismatch or mechanical error blocks rank tracking and documentation.
+9. **Rank Math sidebar optimization (MANDATORY — Phase 6.5 of write-post workflow):**
    - [ ] Open Rank Math sidebar in WP editor, check score (aim 80+)
    - [ ] **Title Readability:** SEO title has power word (English: Ultimate, Proven, Essential) + sentiment word (English: Best, Amazing, Powerful) + number (year counts). Malay words NOT recognized by Rank Math.
    - [ ] **Additional — Keyword density:** 0.5%–2.5%. Add focus keyword naturally in intro, transitions, FAQ if too low.
    - [ ] **Additional — Dofollow link:** At least 1 external link must be dofollow. If Rank Math auto-nofollows, add domain to Settings → Links → Nofollow Exclude Domains.
    - [ ] **Content Readability:** ToC plugin active (Easy Table of Contents), proper heading hierarchy H2→H3→H4.
    - [ ] Record final score in `content-calendar.md`
-8. **Rank tracking (MANDATORY — Phase 7 of write-post workflow):**
+10. **Rank tracking (MANDATORY — Phase 7 of write-post workflow):**
    - [ ] ClickRank → AI Overview Tracker → Add focus keyword + URL (Malaysia, Malay)
-   - [ ] Screpy → Rank Tracker → Add focus keyword + URL (Malaysia, desktop+mobile)
+   - [ ] Screpy → Rank Tracker → Add focus keyword (Malaysia, Malay, **Device: Both** in one action; verify both device tabs)
    - [ ] Both tools are required — ClickRank = AI Overview/AEO tracking, Screpy = traditional SERP rank tracking
    - [ ] **ClickRank title/meta optimization is OPTIONAL** — see ClickRank Usage Policy below
 
@@ -672,10 +674,10 @@ For broader marketing strategy (competitor teardown, E2E SEO, ICP research, cont
 - Target: Golden Score < 10, KD < 20, All-in-Title < 10, Weak Spot ≥ 2
 - Save to: WriterZen Keyword List → "DigiTrust Lab Blog Posts"
 - Record metrics in: `content/content-calendar.md` (per-post entry)
-- Image prompts: `content/image-prompts.md` (copy-paste Gemini prompts + filenames per post; update when publishing)
+- Image prompts: `content/image-prompts.md` (copy-paste Gemini prompts + filenames per post; update when publishing). Archive every final generated image in `G:\Zamzam Biznez\DigiTrustLab\Blog images` using the exact prompt filename after verifying the copied file.
 - Deep reference: 29 course files in `content/writerzen-guide/`
 - **Content Creator project**: Always select existing "DigiTrust Lab" project (readonly dropdown — click to open, select from table). Never create new Content Creator projects.
-- **Content Brief fields**: Fill ALL 6 fields (Content format, Writing Tone, Target Audience, Author perspective, Content Angle, Note for writer). Use Playwright `fill()` for text inputs — native JS setter doesn't trigger Vue reactivity on Audience/Perspective fields.
+- **Content Brief fields**: Fill ALL 6 fields (Content format, Writing Tone, Target Audience, Author perspective, Content Angle, Note for writer). Use the existing Chrome tab's semantic fill action for text inputs — native JS setters do not trigger Vue reactivity on Audience/Perspective fields. Take a fresh DOM snapshot after filling and verify the values before continuing.
 - **Content Creator toggles (SERP View / AI Assistant):** Leave both OFF. They currently add no useful UI. Generate/update the AI outline via the explicit "Set up & Start building outline" / "Generate outline" buttons instead.
 - **Internal linking (required):** Plan links in outline phase → insert outbound links during publish → run `internal-link-builder` skill after publish to add inbound links from older posts
 - **Content formatting (MANDATORY — NON-NEGOTIABLE):** Every article must be richly formatted — NO sea of text. Use blockquotes (orange `#E8621A` border, `#F5F3EE` bg), bullet/numbered lists with bold labels, before/after example blocks, "Elakkan" vs "Gunakan" contrast pairs, warning/tip boxes, `<em>` for English terms, short paragraphs (max 3-4 sentences). At least 2-3 blockquotes per instructional article. Reference standards: Post #2 and Post #3. See `.devin/skills/readability-pass/SKILL.md` for full toolkit, templates, and checklist.

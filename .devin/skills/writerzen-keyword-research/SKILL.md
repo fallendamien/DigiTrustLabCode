@@ -479,10 +479,16 @@ Two types:
 
 **Where:** Keywords sidebar panel → "Highlight keywords" checkbox (DOM: `#switch-enable-serp`)
 
-**How to toggle:** Use JS evaluate — Playwright click times out because a `<label>` intercepts pointer events:
+**How to toggle:** Use the existing authenticated Chrome tab's documented DOM/CUA interaction — a normal click can be intercepted because a `<label>` captures pointer events:
 ```js
-document.getElementById('switch-enable-serp').click()
+() => {
+  const el = document.getElementById('switch-enable-serp')
+  if (!el) return false
+  el.click()
+  return true
+}
 ```
+Then take a fresh DOM snapshot and verify the toggle state and the `0/N` keyword count in the latest snapshot.
 
 **When:** ALWAYS enable this BEFORE reviewing or editing content. It shows you exactly where keywords appear and where they're missing, so you can naturally weave them in.
 

@@ -53,6 +53,18 @@ Live at https://digitrustlab.com/cara-buat-gambar-ai/ · Post ID 536 · Rank Mat
 
 **Pipeline fixes shipped this session** (all committed): quota check, Topic Discovery, Golden Filter and Weak Spot gate added as mandatory phases; AGENTS.md pipeline summary corrected (it started at Keyword Explorer, which is why agents skipped research); Golden Score bands corrected; em dash rule conflict resolved; excerpt method documented after the WP UI silently failed.
 
+## Post #11 — ✅ PUBLISHED (2026-08-08)
+
+Live at https://digitrustlab.com/apa-itu-mcp-ai-dan-bagaimana-ia-berfungsi/ · Post ID 559 · Rank Math **100/A by Respira essential-check analysis**. The WordPress sidebar now displays **84/100**; only Content AI and cosmetic Title Readability warnings remain.
+
+**Phase 7 complete (2026-08-08):**
+- [x] ClickRank → Keyword Tracker: `mcp ai` + URL, Malaysia, All devices
+- [x] ClickRank → AI Overview Tracker: `mcp ai` + URL, Malaysia/Malay
+- [x] Screpy → Rank Tracker: `mcp ai`, Malaysia/Malay, **Device: Both**; verified in Desktop and Mobile tabs
+- [x] Screpy → crawler completed at 06:13 AM; new post discovered with HTTP 200 and page status `OK`
+- [x] Google Search Console → URL is on Google; page indexing status is `Page is indexed`
+- [x] Internal-link scan completed; no safe contextual inbound link was found in older posts, so no forced edit was made
+
 ## Post #3 — ✅ COMPLETE (2026-07-21)
 
 All phases complete. Post published at /cara-buat-prompt-chatgpt/. Rank Math score: 100/100.

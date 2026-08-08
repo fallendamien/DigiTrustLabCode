@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "description": "Confirmed DigiTrust Lab Malay naturalness rules. Add only user-confirmed or DBP-verified entries.",
+  "rejected_phrases": [
+    {
+      "phrase": "alasan sopan",
+      "preferred": "Tulis semula ayat mengikut konteks; gunakan penjelasan yang lebih tepat seperti menjelaskan bahawa akses tidak tersedia.",
+      "context": "A grammatically possible phrase that does not sound natural in this technical explanation.",
+      "severity": "error",
+      "source": "user-correction",
+      "confirmed_on": "2026-08-08",
+      "rationale": "The phrase was grammatically valid but unnatural and unclear to the intended Malaysian reader."
+    },
+    {
+      "phrase": "Kerja yang banyak proses ulang-ulang",
+      "preferred": "Kerja yang banyak melibatkan proses berulang",
+      "context": "Missing verb and loose sentence structure.",
+      "severity": "error",
+      "source": "malay-voice-guide",
+      "confirmed_on": "2026-07-17",
+      "rationale": "The corrected form restores a complete and natural Malay sentence."
+    },
+    {
+      "phrase": "Cuma anda tidak perasan",
+      "preferred": "Cuma anda mungkin tidak menyedarinya",
+      "context": "Colloquial and incomplete-sounding phrasing in explanatory prose.",
+      "severity": "error",
+      "source": "malay-voice-guide",
+      "confirmed_on": "2026-07-17",
+      "rationale": "Use a complete verb form and a more natural explanatory register."
+    },
+    {
+      "phrase": "Soalan ini yang ramai orang risau",
+      "preferred": "Soalan inilah yang menjadi kebimbangan ramai orang",
+      "context": "Missing verb and unnatural clause structure.",
+      "severity": "error",
+      "source": "malay-voice-guide",
+      "confirmed_on": "2026-07-17",
+      "rationale": "The corrected form supplies the missing verb and reads naturally aloud."
+    },
+    {
+      "phrase": "Ini yang ramai orang tidak perasan",
+      "preferred": "Ini yang ramai orang tidak sedari",
+      "context": "Colloquial word choice in explanatory prose.",
+      "severity": "error",
+      "source": "malay-voice-guide",
+      "confirmed_on": "2026-07-17",
+      "rationale": "Use the more natural standard verb form."
+    }
+  ],
+  "approved_technical_terms": [
+    {
+      "term": "host",
+      "context": "MCP host"
+    },
+    {
+      "term": "client",
+      "context": "MCP client"
+    },
+    {
+      "term": "server",
+      "context": "MCP server"
+    },
+    {
+      "term": "permission",
+      "context": "Access permission in a technical explanation"
+    },
+    {
+      "term": "setup",
+      "context": "Technical setup instructions"
+    },
+    {
+      "term": "read-only",
+      "context": "Access mode"
+    },
+    {
+      "term": "login",
+      "context": "Authentication instructions"
+    },
+    {
+      "term": "tools",
+      "context": "MCP capability name"
+    },
+    {
+      "term": "resources",
+      "context": "MCP capability name"
+    },
+    {
+      "term": "prompts",
+      "context": "MCP capability name"
+    }
+  ],
+  "context_dependent_terms": [
+    {
+      "term": "pelayan",
+      "preferred": "server",
+      "context": "Prefer server in MCP terminology when the English term is clearer.",
+      "source": "user-correction"
+    },
+    {
+      "term": "klien",
+      "preferred": "client",
+      "context": "Prefer client in MCP terminology when the English term is clearer.",
+      "source": "user-correction"
+    },
+    {
+      "term": "seni bina",
+      "preferred": "architecture",
+      "context": "Use the English term when a technical audience would understand it more naturally.",
+      "source": "user-correction"
+    },
+    {
+      "term": "pelaksanaan",
+      "preferred": "implementation",
+      "context": "Use the English technical term when pelaksanaan sounds bureaucratic in context.",
+      "source": "user-correction"
+    },
+    {
+      "term": "maklumat pengesahan",
+      "preferred": "credentials",
+      "context": "Use credentials in a security context when the English term is clearer.",
+      "source": "user-correction"
+    }
+  ],
+  "approved_exceptions": []
+}
