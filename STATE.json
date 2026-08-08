@@ -2,11 +2,13 @@
   "project": "DigiTrust Lab",
   "owner": "Zamri Rosli",
   "primaryEditor": "Zed (since 2026-08-05) — Codex via ACP, Claude Code via terminal. Windsurf retained for Devin only; VS Code legacy.",
-  "lastSession": "2026-08-08",
-  "currentObjective": "Post #11 fully complete (published and indexed by Google, Rank Math 100/A by Respira essential-check analysis, WordPress sidebar 84/100 with only cosmetic/PRO warnings, ClickRank + Screpy tracking configured, Screpy crawl completed with the article discovered as HTTP 200/OK, and internal-link scan completed 2026-08-08). Next: Post #5 \"Cara Buat Poster Canva dengan AI\" - title provisional until Topic Discovery confirms a winnable keyword.",
+  "lastSession": "2026-08-09",
+  "currentObjective": "Post #11 is published, optimized, indexed by Google per the 2026-08-08 Search Console inspection, tracked, and fully revalidated. Open site-level follow-up: Rank Math sitemap index returns 200 but all four child sitemap URLs return 404; repair requires authenticated WordPress permalink/cache access before starting Post #5.",
   "currentPhase": "Phase 2 - Content & Growth",
   "phaseProgress": "30%",
-  "blockers": [],
+  "blockers": [
+    "Rank Math sitemap child routes return HTTP 404 while sitemap_index.xml returns HTTP 200; repair requires authenticated WordPress permalink/cache access. Evidence: docs/post-11-revalidation-2026-08-09.md"
+  ],
   "completed": [
     "Git repo initialized",
     "Windsurf workspace bootstrapped",
@@ -67,6 +69,7 @@
     "Screpy workflow corrected to use Device: Both in one action, with Desktop and Mobile tab verification"
   ],
   "nextSteps": [
+    "Repair and verify the broken Rank Math child sitemaps, purge caches, and re-submit sitemap_index.xml in Google Search Console",
     "Post #5: run write-post skill from Phase -1 (quota) through Phase 0a (Topic Discovery) to confirm keyword + title",
     "Investigate Post #1 ranking drop: apa itu AI 15 -> 55 in ClickRank. Verify against Search Console first - the two ClickRank tools disagree with each other",
     "Register Klikjer affiliate",
