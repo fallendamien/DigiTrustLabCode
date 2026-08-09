@@ -36,6 +36,8 @@ requires revision and a complete fresh review by both families. If either
 reviewer cannot decide between materially different wording, record the issue
 for the user's decision; unresolved decisions block publication. The artifact
 must contain exactly two reviewer records: one Claude/Anthropic and one OpenAI.
+Every reviewer record must include the actual nonblank model identity; family
+labels alone are insufficient.
 
 ## Artifact shape
 
@@ -76,11 +78,31 @@ Validate a local final draft with:
 python scripts/verify-malay-naturalness.py --file <final.html> --review <review.json>
 ```
 
+For a pre-publication file that must match the later WordPress hash, serialize
+the reader-facing package in the same order used by the live fetch: title,
+content, excerpt, then available SEO metadata. Mark the excerpt explicitly:
+
+```html
+<title>Final article title</title>
+<!-- exact final post content, including image alt text -->
+<p data-naturalness-kind="excerpt">Final manual excerpt.</p>
+<meta name="rank_math_title" content="Final SEO title">
+<meta name="rank_math_description" content="Final SEO description">
+```
+
+`data-naturalness-kind="excerpt"` affects only the verifier's segment type. Do
+not paste this wrapper into the WordPress post body. Build it as the local review
+package from the staged draft values.
+
 Validate the live WordPress result after publishing with:
 
 ```text
 python scripts/verify-malay-naturalness.py --post-id <post-id> --review <review.json>
 ```
+
+Live mode also binds the artifact to the exact WordPress post ID and slug and
+requires the post status to be `publish`. A matching content hash from another
+post cannot satisfy the gate.
 
 Do not store a duplicate article in the artifact. Store hashes, exact flagged
 excerpts when applicable, corrections, reviewer identities, and resolutions.

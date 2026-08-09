@@ -769,7 +769,7 @@ path, which is drive-letter-free.
 
 ### Workflows — available to every agent, not just Claude
 
-Claude Code exposes 31 reusable workflows as `/slash-commands` via
+Claude Code exposes 32 reusable workflows as `/slash-commands` via
 `~/.claude/commands/` (symlinked to the TSOT). **Agents without a slash-command
 mechanism are not excluded** — those commands are plain markdown files. Read and
 follow them directly:

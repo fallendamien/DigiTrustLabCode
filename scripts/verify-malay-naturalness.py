@@ -110,7 +110,12 @@ class SegmentParser(HTMLParser):
         if tag in BLOCK_TAGS:
             if self.stack:
                 self.stack[-1]["has_child_block"] = True
-            self.stack.append({"tag": tag, "text": [], "has_child_block": False})
+            segment_kind = tag
+            if attributes.get("data-naturalness-kind", "").lower() == "excerpt":
+                segment_kind = "excerpt"
+            self.stack.append(
+                {"tag": tag, "kind": segment_kind, "text": [], "has_child_block": False}
+            )
 
     def handle_endtag(self, tag: str) -> None:
         tag = tag.lower()
@@ -126,7 +131,7 @@ class SegmentParser(HTMLParser):
             return
         text = normalize_text("".join(context["text"]))
         if text and not context["has_child_block"]:
-            self.segments.append({"kind": tag, "text": text})
+            self.segments.append({"kind": context["kind"], "text": text})
 
     def handle_data(self, data: str) -> None:
         if self.skip_depth or not self.stack:
@@ -179,7 +184,7 @@ def build_document(
 
 
 def fetch_post(post_id: int) -> tuple[dict[str, Any], dict[str, Any]]:
-    url = f"{SITE}/wp-json/wp/v2/posts/{post_id}?_fields=id,slug,title,content,excerpt,meta"
+    url = f"{SITE}/wp-json/wp/v2/posts/{post_id}?_fields=id,slug,status,title,content,excerpt,meta"
     request = urllib.request.Request(url, headers={"User-Agent": "digitrustlab-naturalness-check"})
     with urllib.request.urlopen(request, timeout=30) as response:
         data = json.load(response)
@@ -264,7 +269,15 @@ def validate_evaluation(evaluation: Any, reviewer_id: str, location: str) -> lis
     return issues
 
 
-def validate_review(document: dict[str, Any], review: dict[str, Any] | None) -> list[dict[str, Any]]:
+def validate_review(
+    document: dict[str, Any],
+    review: dict[str, Any] | None,
+    *,
+    expected_post_id: int | None = None,
+    expected_slug: str | None = None,
+    source_status: str | None = None,
+    require_published: bool = False,
+) -> list[dict[str, Any]]:
     if review is None:
         return [review_issue("review-missing", "No naturalness review artifact was supplied.")]
     if not isinstance(review, dict):
@@ -277,6 +290,12 @@ def validate_review(document: dict[str, Any], review: dict[str, Any] | None) -> 
         issues.append(review_issue("review-status", "Review artifact status must be pass."))
     if review.get("content_hash") != document["content_hash"]:
         issues.append(review_issue("content-hash", "Review content_hash does not match the supplied content."))
+    if expected_post_id is not None and review.get("post_id") != expected_post_id:
+        issues.append(review_issue("post-id", "Review artifact post_id does not match the live post."))
+    if expected_slug is not None and review.get("slug") != expected_slug:
+        issues.append(review_issue("post-slug", "Review artifact slug does not match the live post."))
+    if require_published and source_status != "publish":
+        issues.append(review_issue("post-status", "Live verification requires a published post."))
 
     reviewers = review.get("reviewers")
     if not isinstance(reviewers, list) or len(reviewers) != 2:
@@ -291,8 +310,9 @@ def validate_review(document: dict[str, Any], review: dict[str, Any] | None) -> 
             continue
         reviewer_id = str(reviewer.get("id", ""))
         family = normalize_text(str(reviewer.get("model_family", ""))).casefold()
-        if not reviewer_id or not family:
-            issues.append(review_issue("reviewer-identity", "Each reviewer needs id and model_family."))
+        model = normalize_text(str(reviewer.get("model", "")))
+        if not reviewer_id or not family or not model:
+            issues.append(review_issue("reviewer-identity", "Each reviewer needs id, model_family, and model."))
         reviewer_ids.append(reviewer_id)
         families.append(family)
         if family not in REQUIRED_REVIEW_FAMILIES:
@@ -348,9 +368,25 @@ def validate_review(document: dict[str, Any], review: dict[str, Any] | None) -> 
     return issues
 
 
-def evaluate(document: dict[str, Any], review: dict[str, Any] | None, rules: dict[str, Any]) -> dict[str, Any]:
+def evaluate(
+    document: dict[str, Any],
+    review: dict[str, Any] | None,
+    rules: dict[str, Any],
+    *,
+    expected_post_id: int | None = None,
+    expected_slug: str | None = None,
+    source_status: str | None = None,
+    require_published: bool = False,
+) -> dict[str, Any]:
     deterministic = deterministic_findings(document, rules)
-    review_issues = validate_review(document, review)
+    review_issues = validate_review(
+        document,
+        review,
+        expected_post_id=expected_post_id,
+        expected_slug=expected_slug,
+        source_status=source_status,
+        require_published=require_published,
+    )
     issues = [
         *[
             review_issue(
@@ -422,7 +458,15 @@ def main(argv: list[str] | None = None) -> int:
         print(f"Could not load naturalness gate input: {exc}", file=sys.stderr)
         return 2
 
-    result = evaluate(document, review, rules)
+    evaluation_options: dict[str, Any] = {}
+    if args.post_id:
+        evaluation_options = {
+            "expected_post_id": data.get("id"),
+            "expected_slug": data.get("slug"),
+            "source_status": data.get("status"),
+            "require_published": True,
+        }
+    result = evaluate(document, review, rules, **evaluation_options)
     if args.json:
         print(json.dumps({"source": source_label, **result}, ensure_ascii=False, indent=2))
     else:

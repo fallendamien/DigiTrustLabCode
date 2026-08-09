@@ -1,8 +1,11 @@
 import hashlib
 import importlib.util
+import io
 import json
 import sys
+import tempfile
 import unittest
+from contextlib import redirect_stderr, redirect_stdout
 from pathlib import Path
 
 
@@ -86,6 +89,14 @@ class NaturalnessGateTests(unittest.TestCase):
         self.assertFalse(result["passed"])
         self.assertTrue(any(item["code"] == "reviewer-count" for item in result["issues"]))
 
+    def test_missing_reviewer_model_identity_is_blocked(self):
+        document = self.document("<p>Ayat ini jelas dan semula jadi.</p>")
+        review = make_review(document)
+        review["reviewers"][1]["model"] = ""
+        result = MODULE.evaluate(document, review, self.rules)
+        self.assertFalse(result["passed"])
+        self.assertTrue(any(item["code"] == "reviewer-identity" for item in result["issues"]))
+
     def test_missing_segment_coverage_is_blocked(self):
         document = self.document("<p>Ayat pertama jelas.</p><p>Ayat kedua juga jelas.</p>")
         review = make_review(document)
@@ -94,6 +105,28 @@ class NaturalnessGateTests(unittest.TestCase):
         self.assertFalse(result["passed"])
         self.assertTrue(any(item["code"] == "segment-missing" for item in result["issues"]))
 
+    def test_extra_segment_evidence_is_blocked(self):
+        document = self.document("<p>Ayat ini jelas dan semula jadi.</p>")
+        review = make_review(document)
+        review["segments"].append(
+            {
+                "id": "seg-999",
+                "hash": "unused",
+                "reviewers": {},
+            }
+        )
+        result = MODULE.evaluate(document, review, self.rules)
+        self.assertFalse(result["passed"])
+        self.assertTrue(any(item["code"] == "segment-extra" for item in result["issues"]))
+
+    def test_failed_binary_check_is_blocked(self):
+        document = self.document("<p>Ayat ini jelas dan semula jadi.</p>")
+        review = make_review(document)
+        review["document_review"]["openai"]["checks"]["natural_usage"] = False
+        result = MODULE.evaluate(document, review, self.rules)
+        self.assertFalse(result["passed"])
+        self.assertTrue(any(item["code"] == "check-failed" for item in result["issues"]))
+
     def test_content_edit_invalidates_hash(self):
         original = self.document("<p>Ayat ini jelas dan semula jadi.</p>")
         review = make_review(original)
@@ -101,6 +134,22 @@ class NaturalnessGateTests(unittest.TestCase):
         result = MODULE.evaluate(edited, review, self.rules)
         self.assertFalse(result["passed"])
         self.assertTrue(any(item["code"] == "content-hash" for item in result["issues"]))
+
+    def test_live_review_is_bound_to_exact_published_post(self):
+        document = self.document("<p>Ayat ini jelas dan semula jadi.</p>")
+        review = make_review(document)
+        result = MODULE.evaluate(
+            document,
+            review,
+            self.rules,
+            expected_post_id=560,
+            expected_slug="different-post",
+            source_status="draft",
+            require_published=True,
+        )
+        codes = {item["code"] for item in result["issues"]}
+        self.assertFalse(result["passed"])
+        self.assertTrue({"post-id", "post-slug", "post-status"}.issubset(codes))
 
     def test_unresolved_disagreement_is_blocked(self):
         document = self.document("<p>Ayat ini jelas dan semula jadi.</p>")
@@ -135,11 +184,46 @@ class NaturalnessGateTests(unittest.TestCase):
         self.assertIn("metadata", kinds)
         self.assertIn("alt", kinds)
 
+    def test_final_package_file_can_match_live_title_excerpt_and_metadata(self):
+        file_document = MODULE.build_document(
+            "<title>Tajuk bersih</title>"
+            "<p>Ayat yang jelas.</p>"
+            "<p data-naturalness-kind='excerpt'>Ringkasan yang jelas.</p>"
+            "<meta name='rank_math_title' content='Tajuk SEO yang jelas'>"
+        )
+        live_document = MODULE.build_document(
+            "<p>Ayat yang jelas.</p>",
+            title="Tajuk bersih",
+            excerpt="Ringkasan yang jelas.",
+            metadata={"rank_math_title": "Tajuk SEO yang jelas"},
+        )
+        self.assertEqual(file_document["content_hash"], live_document["content_hash"])
+        self.assertEqual(file_document["segments"], live_document["segments"])
+
     def test_missing_review_artifact_is_blocked(self):
         document = self.document("<p>Ayat ini jelas dan semula jadi.</p>")
         result = MODULE.evaluate(document, None, self.rules)
         self.assertFalse(result["passed"])
         self.assertTrue(any(item["code"] == "review-missing" for item in result["issues"]))
+
+    def test_cli_exit_codes_distinguish_failure_from_configuration_error(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            temp_path = Path(temp_dir)
+            article = temp_path / "article.html"
+            article.write_text("<p>Ayat ini jelas dan semula jadi.</p>", encoding="utf-8")
+            invalid_review = temp_path / "review.json"
+            invalid_review.write_text("{}", encoding="utf-8")
+
+            with redirect_stdout(io.StringIO()), redirect_stderr(io.StringIO()):
+                content_failure = MODULE.main(
+                    ["--file", str(article), "--review", str(invalid_review)]
+                )
+                configuration_failure = MODULE.main(
+                    ["--file", str(temp_path / "missing.html"), "--review", str(invalid_review)]
+                )
+
+            self.assertEqual(1, content_failure)
+            self.assertEqual(2, configuration_failure)
 
     def test_existing_mechanical_checker_remains_available(self):
         old_script = ROOT / "scripts" / "verify-malay-voice.py"

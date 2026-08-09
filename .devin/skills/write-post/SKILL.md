@@ -16,9 +16,56 @@ This is the standard workflow for every DigiTrust Lab blog post. Follow these st
 - Keyword Planner: a **new project per post topic** is created during Phase 1. Legacy project 178201 exists but is NOT a reuse target
 - WriterZen quota headroom — verify in Phase -1 before starting
 
+## Goal, Plan, and Token-Efficient Delegation
+
+For a full end-to-end request, use one Goal only when the user explicitly selects
+or requests Goal mode. Use this objective:
+
+> Research, write, publish, optimize, and track the next DigiTrust Lab article.
+
+Maintain a Plan inside that Goal for phases -2 through 7. A planning-only request
+does not need a Goal. The coordinator owns the objective, phase transitions,
+publication authorization, canonical documentation, synthesis, and final
+verification.
+
+Use the configured default worker without passing model or reasoning overrides.
+The intended setup is **Sol Light as coordinator** and **Luna Medium as the
+default worker**. Delegate to Luna whenever a bounded task can be completed to the
+same standard more efficiently; do not spend Sol tokens redoing completed worker
+work. Sol reviews the evidence and makes only the integrated decision.
+
+| Work | Default owner | Parallel? |
+|------|---------------|-----------|
+| Calendar/status inventory, content-gap scan, source pack, immutable-file review | Luna Medium | Yes, only with independent inputs and disjoint scopes |
+| WriterZen → Content Creator stateful chain | One owner; prefer Luna when it has the authenticated Chrome binding | No |
+| Image prompt/filename preparation and deterministic local checks | Luna Medium | Yes, when they do not mutate the same artifact |
+| WordPress writes, publishing, ClickRank, Screpy, GSC, canonical status files | One owner under Sol's phase control | No |
+| Final gate decisions, ambiguity, synthesis, and completion claim | Sol Light | No |
+
+Token and context rules:
+
+1. Spawn the minimum number of workers needed; task size alone is not a reason to parallelize.
+2. Give each worker exact inputs, one bounded output, and a non-overlapping write scope. Use a fresh context unless prior context is essential.
+3. Keep one worker for a tightly connected chain. Never let multiple agents operate the authenticated Chrome session, the same WriterZen project, the same WordPress post, or the same documentation file concurrently.
+4. Subagents may return evidence or make an explicitly assigned bounded edit, but they may not publish, approve their own gate, or mark the article complete.
+5. Collect each result, verify the relevant evidence once, and close the worker immediately. See `docs/knowledge-library/delegation-patterns.md` for the human-readable explanation.
+
+The required Claude/Anthropic and OpenAI naturalness reviewers are independent
+review roles, not ordinary workflow delegation. A fresh Luna Medium session may
+serve as the OpenAI-family reviewer when it receives only the frozen final
+content and none of the other review. The Claude/Anthropic review must still
+come from that separate family.
+
 ## Browser Automation Standard — Existing Authenticated Chrome Session (FIRST GATE)
 
-This gate must pass before Phase -1 or any other browser action. All WriterZen, WordPress-admin, ClickRank, Screpy, Google Search Console, and visual-verification interactions use the user's already-open Chrome extension session through `chrome:control-chrome`. Do **not** use a separate Chrome DevTools/CDP browser, raw `mcp__chrome_devtools__` connection, standalone Playwright browser, blank tab, or unauthenticated fallback. The incident and prevention sequence are documented in `docs/browser-session-hardening.md`.
+This gate must pass before any Phase -2 dashboard verification, Phase -1, or
+other browser action. All WriterZen, WordPress-admin, ClickRank, Screpy, Google
+Search Console, and visual-verification interactions use the user's already-open
+Chrome extension session through `chrome:control-chrome`. Do **not** use a
+separate Chrome DevTools/CDP browser, raw `mcp__chrome_devtools__` connection,
+standalone Playwright browser, blank tab, or unauthenticated fallback. The
+incident and prevention sequence are documented in
+`docs/browser-session-hardening.md`.
 
 1. Connect to the Chrome extension browser and reuse its persistent browser binding. Name the session before opening or claiming a tab.
 2. Inspect the user's open tabs and claim the exact target tab by its current title and URL. Never assume a numeric tab ID or claim a guessed tab.
@@ -52,6 +99,27 @@ This gate must pass before Phase -1 or any other browser action. All WriterZen, 
 > **Full keyword research detail:** See `.devin/skills/writerzen-keyword-research/SKILL.md` for WriterZen tool walkthrough, Golden Filter thresholds, and Weak Spot gate methodology.
 
 ## Steps
+
+### Phase -2: Start or Resume Gate (MANDATORY)
+
+1. Run `python scripts/verify-imports.py` before trusting the workflow loaders.
+2. Run `python scripts/verify-content-status.py` and compare
+   `content/content-calendar.md`, `STATE.json`, and `NEXT.md` with the live
+   WordPress result. Do not infer completion from documentation alone.
+3. Verify the previous article's required post-publish work before selecting the
+   next topic. ClickRank and Screpy have no reliable API, so use their recorded
+   evidence or verify their authenticated dashboards when completion is unclear.
+4. Resume an existing active Goal and Plan when they already cover this article.
+   Create a new Goal only when the user explicitly selected or requested one.
+5. Record the current scope: planning-only, draft-only, or complete publication.
+   Do not start drafting until Topic Discovery and the Weak Spot gate validate
+   the topic.
+6. For topic selection, Sol may delegate independent read-only analysis to Luna:
+   one worker for the calendar/status queue, one for content gaps, category
+   balance, cannibalization, and internal-link opportunities, and one for
+   audience/editorial fit. Sol merges the evidence into a short candidate list.
+   None of these workers may finalize the title; Phases 0a through 1.5 provide
+   the ranking evidence that selects the publishable topic.
 
 ### Phase -1: Quota Check (MANDATORY — before any research session)
 
@@ -225,12 +293,15 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
 
 **Writing Mode: "Write all for me" (AI Draft → Human Edit)**
 
-> **Strategy:** Always use "Write all for me" instead of "I'll write myself".
+> **Strategy:** Use "Write all for me" when the Phase -1 AI-word quota can cover
+> the article. If the quota rule selected the native-drafting fallback, use
+> "I'll write myself" instead; the Phase -1 budget decision overrides this default.
 > The detailed content brief (Malay angle, audience, tone, perspective) gives the AI enough
 > context to produce a usable Malay draft. We then refine for DigiTrust Lab voice consistency.
 > This is the most efficient path for a solo blogger — let AI draft, human edits.
 
-1. Click **Write all for me** (NOT "I'll write myself")
+1. Follow the Phase -1 mode decision: **Write all for me** when quota permits,
+   otherwise **I'll write myself**
 2. Set AI Creativity Level = 1 for best quality
 3. Let AI generate the full draft based on the content brief + outline
 4. Review generated content section by section
@@ -243,20 +314,78 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
    - Reference standards: Post #2 (`/cara-guna-chatgpt/`) and Post #3 (`/cara-buat-prompt-chatgpt/`)
 7. Run **Show Analysis** — fix any flagged SEO issues
 8. Run **Plagiarism Check** — ensure 0% plagiarism
-9. **Note all Analysis improvements** for cross-checking in Phase 6/6.5:
+9. **Note all Analysis improvements** for cross-checking in Phase 5.4/6.5:
    - Write down every "Problems" and "Improvements" item from the analysis panel
    - These get addressed during WordPress publishing and Rank Math optimization
    - Common items: content length, images, internal/external links, title length
 10. Save (not Done — keep article in Content Creator)
+
+### Phase 5.4: Assemble and Stage the Final Publication Package
+
+The naturalness hash is valid only when it covers the exact reader-facing
+package that will be published. Complete every content-changing operation below
+while the WordPress post remains a draft.
+
+1. Extract the HTML from WriterZen and clean it:
+   - Remove WriterZen annotations and `<hr>` separators.
+   - Strip all `<h1>` tags because the Bricks template supplies the post H1.
+   - Remove redundant uses of "Malaysia" unless context requires them.
+   - Start the body with `<p>`, make the first body heading `<h2>`, and verify
+     the H2 → H3 → H4 hierarchy.
+   - Cross-check every Phase 5 analysis improvement.
+   - Save the cleaned working copy to `content/drafts/<post-slug>.html` before
+     running the local link gate.
+2. Insert the planned contextual internal and external links, then run:
+
+   ```bash
+   python scripts/verify-links.py --file content/drafts/<post-slug>.html
+   ```
+
+   This must pass before the draft is staged. Rank Math does not replace it.
+3. Generate the featured and in-content images with ChatGPT or Gemini using
+   `content/image-prompts.md`. Finalize every Malay alt text before review.
+4. Archive the generated images before cleanup:
+   - Use each authoritative `Filename` from `content/image-prompts.md`.
+   - Copy from the exact
+     `C:\Users\Zamri\.codex\generated_images\<session-folder>` to
+     `G:\Zamzam Biznez\DigiTrustLab\Blog images` in prompt order.
+   - Set distinct destination `CreationTime` values so sorting descending shows
+     Image 1 through the final image in order.
+   - Verify every destination against its source by SHA-256 before upload or
+     any explicitly requested source cleanup.
+5. Upload the images, insert the final image elements and alt text into the
+   draft HTML, and set the featured image.
+6. Stage the post as `draft` with the final content, title, category, and Rank
+   Math title, description, focus keyword, primary category, and schema type.
+7. Set the final 155–160 character excerpt through the editor data store:
+
+   ```js
+   const ex = "…final Malay excerpt containing the focus keyword…";
+   wp.data.dispatch('core/editor').editPost({ excerpt: ex });
+   await wp.data.dispatch('core/editor').savePost();
+   ```
+
+   Reload and require
+   `wp.data.select('core/editor').getEditedPostAttribute('excerpt').length > 0`.
+   Do not use Respira's unreliable `excerpt` parameter.
+8. Register the draft post ID in `scripts/verify-malay-voice.py` before
+   publication. An unknown ID exits 2 and blocks the live gate.
+9. Export the exact final staged content to
+   `content/drafts/<post-slug>.html` using the final-package format in
+   `content/naturalness-reviews/README.md`: title, exact post content, an
+   excerpt element marked `data-naturalness-kind="excerpt"`, then available SEO
+   metadata. This package must include all headings, paragraphs, lists,
+   blockquotes, captions, and alt text. No reader-facing edit is allowed between
+   this export and the naturalness gate.
 
 ### Phase 5.5: Malay Naturalness Review Gate (MANDATORY — before WordPress publication)
 
 This is a hard gate. Do not publish a draft that has only passed the mechanical
 voice checker or received a high Rank Math score.
 
-1. Extract and clean the final HTML, including all reader-facing headings,
+1. Freeze the exact final HTML exported in Phase 5.4. Confirm that its headings,
    paragraphs, lists, blockquotes, captions, alt text, excerpt, and available
-   SEO metadata.
+   SEO metadata match the staged WordPress draft.
 2. Run the deterministic naturalness rules and create
    `content/naturalness-reviews/<post-slug>.json`.
 3. Ask two independent fresh sessions to review the same final content using
@@ -279,74 +408,26 @@ voice checker or received a high Rank Math score.
    passing result in the workflow evidence. Any later edit invalidates the hash
    and requires a complete fresh review by both families.
 
-### Phase 6: Publish to WordPress via Respira MCP
+### Phase 6: Publish the Frozen WordPress Draft
 
-1. Extract HTML content from WriterZen editor (via browser evaluate)
-2. **Clean and standardize content** (critical for consistent formatting across all blog posts):
-   - Remove WriterZen annotations ("Kata kunci:" lines, `<hr>` separators)
-   - **Strip all `<h1>` tags** — the Bricks template renders the post title as H1; any H1 in content creates a duplicate massive title
-   - **Remove redundant "Malaysia" mentions** — the audience is already Malaysian; WriterZen AI tends to over-localize when Target Audience mentions Malaysians. Keep only if contextually necessary (e.g., comparing Malaysian vs international context)
-   - **Cross-check formatting against Post #1** (`/apa-itu-ai/`) as the reference standard — content should start with `<p>` tags, first heading should be `<h2>`, no H1 in content body
-   - Verify heading hierarchy: H2 → H3 → H4 (no skipped levels)
-   - **Cross-check against Phase 5 Step 8 improvement notes** — ensure each item is addressed:
-     - Content length gap → add intro/conclusion paragraphs if needed
-     - Images → handled in Step 5 (featured image) + Step 5b (in-content images)
-     - Internal/external links → handled in Step 3
-     - Title length → handled in Rank Math meta (Phase 6.5)
-3. **Insert internal links** — Replace plain text mentions with `<a href>` links to related posts:
-   - Check the plan from Phase 3 Step 3
-   - Link to pillar/parent content (e.g., "kecerdasan buatan (AI)" → `/apa-itu-ai/`)
-   - Use natural anchor text, not keyword-stuffed
-   - Aim for 1-3 internal links per post (don't over-link)
-   - **Run the deterministic link gate before publication:**
-     ```bash
-     python scripts/verify-links.py --file content/drafts/<post-slug>.html
-     ```
-     It must pass the structural policy in `content/link-policy.json`: useful
-     anchors, HTTPS editorial URLs, no self-links, 1-5 contextual internal
-     links, at least 1 relevant external link, and at least 1 external
-     dofollow link. Table-of-contents fragment links are excluded from these
-     counts. A `sponsored` or `ugc` rel token is blocked for editorial links;
-     individual `nofollow` links are allowed when another external link is
-     dofollow. A Rank Math pass does not replace this gate.
-4. Update the draft post via `respira_update_post`:
-   - Set content, title, status=draft
-   - Set Rank Math SEO meta: `rank_math_title`, `rank_math_description`, `rank_math_focus_keyword`, `rank_math_primary_category`
-   - Set categories
-5. **Generate the post images via ChatGPT or Gemini** (NOT Openverse stock photos — those break visual consistency):
-   - Use the standard DigiTrust Lab illustration prompt template
-   - **See `content/image-prompts.md`** for the full prompt template, design system, variation guide, and worked examples
-   - Download the generated image, then sideload via `respira_sideload_image`
-   - Set alt text describing the illustration in Malay
-5b. **Archive every generated image before cleanup:**
-   - Treat the `Filename` value in `content/image-prompts.md` as authoritative. Rename each final image exactly to that filename, using lowercase hyphens only.
-   - Copy every final image from `C:\Users\Zamri\.codex\generated_images\<session-folder>` to `G:\Zamzam Biznez\DigiTrustLab\Blog images`.
-   - Copy the files in prompt order, from Image 1 to the final image.
-   - Do not rely on copy order for Explorer placement. NTFS can preserve or tie creation timestamps after deletion and recopy. Set distinct destination `CreationTime` values so Image 1 is newest, Image 2 is next, and the final image is oldest; then verify that sorting by `CreationTime` descending produces Image 1 → Image 2 → Image 3 → Image 4.
-   - Verify that every destination file exists and matches its source by SHA-256 before uploading or deleting anything.
-   - If cleanup is explicitly requested, remove only the verified source files inside that exact generated-image session folder. Never delete a broad generated-images directory. If the safety guard blocks cleanup, leave the originals and report that they remain.
-6. Set featured image via `respira_update_post` with `featured_media`
-7. Publish via `respira_update_post` with `status=publish` only after Phase 5.5
-   passes. The mechanical checker is rerun against the live post immediately
-   after publication, before rank tracking.
-8. **Set post excerpt (NOT via Respira — `excerpt` param is unreliable):**
+Sol owns the publish transition. A delegated worker may prepare the staged draft,
+but it may not publish or approve its own evidence.
 
-   ⚠️ **The WP editor UI is ALSO unreliable.** Typing into the "Add an excerpt…" panel and clicking Save draft can appear to work while saving nothing — verified on Post #4 (2026-07-29), where the excerpt read back as empty string after reload despite the panel showing the text.
-
-   **Use the editor's own data store instead — this is the reliable method:**
-   ```js
-   const ex = "…155–160 char Malay summary including the focus keyword…";
-   wp.data.dispatch('core/editor').editPost({ excerpt: ex });
-   await wp.data.dispatch('core/editor').savePost();
-   ```
-
-   **Then ALWAYS verify by reloading the page** and re-reading — never trust the in-page value:
-   ```js
-   wp.data.select('core/editor').getEditedPostAttribute('excerpt').length  // must be > 0
-   ```
-
-   Three excerpt-setting methods, ranked: `wp.data` store ✅ reliable · WP editor UI ⚠️ silently fails · Respira `excerpt` param ❌ documented as unreliable.
-9. Verify on live site: navigate to URL, check rendering, SEO title, internal links, outbound destinations, featured image
+1. Re-fetch the staged draft and compare it with the Phase 5.5 reviewed package.
+   Any reader-facing difference invalidates the approval and requires both fresh
+   naturalness reviews.
+2. Confirm the pre-publication evidence bundle:
+   - passing local naturalness artifact and matching content hash;
+   - passing local link gate;
+   - final excerpt, images, alt text, featured image, category, SEO metadata,
+     and schema already saved on the draft;
+   - image archive destination and SHA-256 checks verified.
+3. Publish with `respira_update_post(status=publish)`. Preserve the returned
+   snapshot/evidence identifier when available.
+4. Do not make a reader-facing edit after publication without invalidating and
+   rerunning the corresponding naturalness or link evidence.
+5. Open the live URL and verify that the intended article, title, images, and
+   formatting render before beginning Phase 6.5.
 
 ### Phase 6.5: Live Verification + Rank Math (MANDATORY — Never Skip)
 
@@ -373,38 +454,38 @@ python scripts/verify-malay-voice.py <post-id>
 **Must report 0 errors before proceeding.** If errors:
 - Fix them in the content via `respira_update_post`
 - Re-run the script
-- **Register the new post ID** in the script's `CONTENT` dict, or it is silently never checked
+- If the command exits 2 for an unknown ID, stop and complete the Phase 5.4
+  registration before rerunning. Do not treat configuration failure as a pass.
 
 > **Full Malay voice standard:** See `.devin/skills/malay-voice-guide/SKILL.md` for the complete guide, including the publish gate protocol, DBP-aligned spelling, Bahasa Indonesia detection, and what the script cannot check (heading typos, tatabahasa, sentence fragments, comma splices, read-aloud flow).
 
-#### 6.5c: Live Link Quality Gate
+#### 6.5c: Live Presentation and SEO Evidence
 
-Run this against the live post before rank tracking:
+Verify the live page rather than relying on the editor or Rank Math score:
 
-```bash
-python scripts/verify-links.py \
-  --post-id <post-id> \
-  --inbound-review content/link-reviews/<post-slug>.json \
-  --check-destinations
-```
+1. The expected featured image and in-content image count render, and every
+   content image has the finalized Malay alt text.
+2. The manual excerpt is non-empty after a reload.
+3. The canonical URL, index/follow directive, SEO title, and meta description
+   match the approved package.
+4. The rendered schema includes the intended `Article` or `BlogPosting` data
+   and featured image.
+5. The heading hierarchy, table of contents, internal links, and outbound
+   destinations render correctly.
 
-This is a hard gate. It verifies the live outbound links, checks destination
-responses, and compares the inbound scan with an auditable decision. If older
-posts contain a genuinely useful contextual mention, add the inbound link via
-`internal-link-builder` and rerun the scan. If no safe contextual link exists,
-record `no_safe_context` with a specific reason in the review artifact; never
-force an irrelevant link merely to avoid an orphan warning. Any changed link
-invalidates the artifact's `link_hash` and requires a new scan.
+Any reader-facing correction invalidates the naturalness hash. Any link edit
+also invalidates the later link artifact.
 
 #### 6.5d: Rank Math Sidebar Optimization
 
 1. **Open the post in WordPress editor** and check the Rank Math sidebar score
-2. **Fix Title Readability issues:**
-   - SEO title must contain a **power word** (Rank Math uses an English-based list — e.g., "Ultimate", "Proven", "Essential", "Complete", "Secret")
-   - SEO title must contain a **sentiment word** (positive/negative — e.g., "Best", "Amazing", "Proven", "Powerful", "Easy")
-   - SEO title must contain a **number** (year counts, e.g., "2026")
-   - Focus keyword must appear at the **beginning** of the SEO title
-   - **Malay words like "Terbaik", "Mudah", "Penting" are NOT recognized** by Rank Math — use English power/sentiment words that blend naturally
+2. **Prioritize essential SEO checks over cosmetic score points:**
+   - Place the focus keyword naturally near the beginning of the SEO title.
+   - Keep the title within the approved length and faithful to search intent.
+   - A number or year may be used when genuinely useful and accurate.
+   - Power words and sentiment words are cosmetic. Never force English hype
+     such as "Ultimate", "Proven", or "Secret" into a Malay title merely to
+     increase the score.
 3. **Fix Additional issues:**
    - **Keyword density** — target 0.5%–2.5%. If below 0.5%, add the focus keyword naturally in intro, section transitions, and FAQ
    - **Outbound links** — at least one external link must be **dofollow** (not nofollow). If Rank Math says "all outbound links are nofollow":
@@ -414,8 +495,14 @@ invalidates the artifact's `link_hash` and requires a new scan.
 4. **Fix Content Readability issues:**
    - Usually resolved by having a ToC plugin active + proper heading hierarchy (H2 → H3 → H4)
    - Ensure content length is sufficient (Rank Math flags short content)
-5. **Re-check score** — aim for 80+. The only unfixable error is "Use Content AI" (Rank Math PRO feature)
+5. **Re-check score** — aim for 80+, but never damage the approved Malay voice
+   or natural title to chase cosmetic points. "Use Content AI" is a PRO upsell.
 6. **Record the final score** in the post's content-calendar.md entry
+
+If Rank Math optimization changes any reader-facing body, title, excerpt, alt
+text, or SEO metadata, update the local final package and rerun both independent
+naturalness reviews plus the local and live gates. A higher score cannot reuse a
+stale approval hash.
 
 > **Essential vs cosmetic checks:** Essential (MUST fix): keyword in title/URL/meta/intro/subheadings/alt, density 0.5-2.5%, content ≥600 words, has images, has internal links, schema. Cosmetic (skip): sentiment word, power word, "Use Content AI" (PRO upsell). The Respira Rank Math API (`respira_analyze_rankmath`) reports `computed_score` which only covers the 13 essential checks — the WP Admin sidebar score includes cosmetic checks too, so it will show a lower number.
 
@@ -426,10 +513,13 @@ invalidates the artifact's `link_hash` and requires a new scan.
    - Set country to Malaysia, device to All
    - **Do NOT add secondary keyword variants** — ClickRank auto-discovers those from Search Console. Only the focus keyword goes here. Keep the list clean.
    - This tracks traditional Google SERP rankings + impressions
+   - After submission, take a fresh snapshot and verify the exact keyword, URL,
+     country, and device row is visible
 2. **ClickRank — AI Overview Tracker** (app.clickrank.ai/en/ai-toolkit/overview-tracker):
    - Add the same focus keyword + URL (Malaysia, Malay language)
    - This is the PRIMARY reason we use ClickRank — monitors AI Overview visibility and organic ranking
    - **Title/Meta optimization** — OPTIONAL. ClickRank's AI suggestions tend to be over-dramatic (hype words like "Ultimate", "Proven", "Secret"). Only apply if the suggestion is natural and matches our calm, helpful Malay voice. Manual titles are always preferred. When in doubt, ask the user.
+   - Verify the exact keyword, URL, Malaysia, and Malay row after submission
 3. **Screpy — Rank Tracker** (app.screpy.com → Rank Tracker → Add keywords):
    - Add the post's **primary focus keyword** only (Screpy associates the keyword with the tracked domain; it does not require a separate URL field)
    - Set Country: Malaysia, Language: Malay, and **Device: Both** in the same Add keywords action
@@ -440,45 +530,70 @@ invalidates the artifact's `link_hash` and requires a new scan.
    - Click "Analyze" to trigger a new crawl — this auto-discovers new post URLs for SEO health monitoring
    - Screpy does NOT have manual per-page URL addition — the crawler finds pages automatically
    - New posts published after the last crawl won't appear until the crawler runs again
-5. **Run internal link builder** — Use the `internal-link-builder` skill to scan existing posts and add links pointing TO the new post:
+5. **Google Search Console — URL Inspection and indexing request:**
+   - Inspect the exact live article URL in the authenticated Search Console tab.
+   - Request indexing when the URL is eligible and a request has not already
+     been accepted for the same unchanged content.
+   - Record the visible inspection status, request outcome, and timestamp.
+     "Indexing requested" does not mean "indexed"; never collapse those states.
+   - If authentication, quota, or a sitemap/cache issue blocks the request,
+     record a follow-up instead of claiming completion.
+6. **Run internal link builder** — Use the `internal-link-builder` skill to scan existing posts and add links pointing TO the new post:
    - Trigger: "build internal links" or load skill from `.devin/skills/internal-link-builder/SKILL.md`
    - This finds mentions of the new post's topic in older posts and adds contextual links back
    - Review the plan before applying (skill always asks for confirmation)
-   - This is critical: the new post links UP to pillar content (done in Phase 5), but old posts must also link DOWN to the new post
+   - This is critical: the new post links UP to pillar content (done in Phase 5.4), but old posts must also link DOWN to the new post
    - Record the live inbound count and either the source post IDs or a specific `no_safe_context` reason in `content/link-reviews/<post-slug>.json`
-   - Rerun `python scripts/verify-links.py --post-id <post-id> --inbound-review content/link-reviews/<post-slug>.json --check-destinations` after any inbound or outbound link edit
-6. Update `content/content-calendar.md`:
+   - After the scan creates or updates the artifact, run:
+     `python scripts/verify-links.py --post-id <post-id> --inbound-review content/link-reviews/<post-slug>.json --check-destinations`
+   - This is the live link hard gate. Any later inbound or outbound edit
+     invalidates `link_hash` and requires a new scan and rerun.
+7. Update `content/content-calendar.md`:
    - Change status to PUBLISHED ✅
    - Add URL, publish date, Post ID, WriterZen Article ID
    - Record final Rank Math score
-7. Update `STATE.json`:
+   - Record ClickRank Keyword Tracker, ClickRank AI Overview, Screpy Both-device,
+     Screpy crawl, and GSC evidence: timestamp, exact keyword/URL, settings, and
+     the verified visible result. These dashboards have no reliable API, so a
+     generic "done" note is insufficient.
+8. Update `STATE.json`:
    - Add to completed list
    - Increment blogPosts count
    - Update nextSteps (remove this post, add next post)
-8. Update `NEXT.md`:
+9. Update `NEXT.md`:
    - Mark Post as ✅ published
    - Add next post to task list
-9. Update `ROADMAP.md` if applicable
-10. **Content status gate (MANDATORY — run BEFORE committing):**
+10. Update `ROADMAP.md` if applicable
+11. **Content status gate (MANDATORY — run BEFORE committing):**
     ```bash
     python scripts/verify-content-status.py
     ```
-    Compares steps 6–8 above against the live WordPress REST API. Must exit 0.
+    Compares steps 7–9 above against the live WordPress REST API. Must exit 0.
     - Catches: post marked PUBLISHED with no/wrong Post ID, slug or date drift,
       a live post missing from the calendar, a PLANNED entry that is already
       live, and a stale `blogPosts` count.
     - `--fix` repairs the safely derivable fields (currently `STATE.json`
       `keyMetrics.blogPosts`). Everything else it reports, you fix by hand.
-    - **It does NOT verify steps 1–4** (ClickRank + Screpy). Those have no
-      reliable API. Confirm them yourself in the dashboards.
+    - **It does NOT verify steps 1–5** (ClickRank, Screpy, or GSC). Those have
+      no reliable API. Confirm them in the authenticated dashboards and record
+      the evidence in step 7.
 
-    Why this is a gate and not a reminder: steps 6–8 were manual instructions
+    Why this is a gate and not a reminder: steps 7–9 were manual instructions
     for months and silently rotted. On 2026-08-05 an agent read the stale record
     and told the operator to redo finished work.
-11. Git commit + push all documentation updates
+12. Git commit + push all documentation updates
 
 ## Key Rules
 
+- **Goal and Plan:** Use a Goal only when explicitly requested; keep a Plan for
+  phases -2 through 7 and resume it instead of restarting completed work
+- **Delegation:** Prefer the configured Luna Medium worker for bounded work;
+  Sol Light owns phase transitions, publishing authorization, synthesis, and
+  final verification
+- **Single stateful owner:** Never parallelize authenticated Chrome, WriterZen,
+  WordPress, tracking dashboards, or canonical documentation writes
+- **Previous-post gate:** Verify the prior article's live and tracking status
+  before selecting the next topic
 - **Language:** Bahasa Melayu baku, formal–semi-formal, 'anda' not 'korang'
 - **Italic Policy:** See `.devin/skills/malay-voice-guide/SKILL.md` §4c for full policy
 - **AI Creativity Level:** Always set to 1
@@ -491,21 +606,25 @@ invalidates the artifact's `link_hash` and requires a new scan.
 - **Weak Spot gate (MANDATORY):** Never write a post whose target cluster has Weak Spot < 2
 - **30-day freshness:** Re-run Keyword Explorer if the last search for this topic is older than 30 days
 - **Titles are provisional:** Planned titles in `content-calendar.md` are placeholders until Topic Discovery confirms a winnable angle
-+ **Image generation:** Use ChatGPT or Gemini for featured and in-content images. See `content/image-prompts.md` for the prompt template, design system, and variation guide
+- **Image generation:** Use ChatGPT or Gemini for featured and in-content images. See `content/image-prompts.md` for the prompt template, design system, and variation guide
 - **Image filenames (MANDATORY):** `{post-slug}-{image-description}.png` (lowercase, hyphens only)
 - **In-content images:** Add images under H2 sections to break up text. See `content/image-prompts.md` for prompts
 - **Image prompts library:** All prompts stored in `content/image-prompts.md`. Update when a post is published
-- **Post Excerpt (MANDATORY):** Every post MUST have a manual excerpt (155–160 characters). Set via `wp.data` store method (see Phase 6 Step 8) — NOT via Respira's `excerpt` parameter
+- **Post Excerpt (MANDATORY):** Every post MUST have a manual excerpt (155–160 characters). Set and reload-verify it via the `wp.data` store method in Phase 5.4 before naturalness review and publication — NOT via Respira's `excerpt` parameter
 - **Content formatting (MANDATORY):** See `.devin/skills/readability-pass/SKILL.md` for Rich Formatting Toolkit, blockquote/callout templates, and Formatting Checklist
 - **Malay naturalness gate (MANDATORY):** Run `python scripts/verify-malay-naturalness.py` against final HTML before Phase 6 and the live post after publication; both must exit 0
 - **Malay mechanical voice gate (MANDATORY):** Run `python scripts/verify-malay-voice.py <post-id>` in Phase 6.5 — must be 0 errors before Phase 7
-- **Content status gate (MANDATORY):** Run `python scripts/verify-content-status.py` at the end of Phase 7 — must exit 0 before committing. Does not cover ClickRank/Screpy (no API)
-- **Internal links (outbound):** Always link new post UP to pillar/parent content during Phase 6 (1-3 links)
+- **Content status gate (MANDATORY):** Run `python scripts/verify-content-status.py` at the end of Phase 7 — must exit 0 before committing. It does not cover ClickRank, Screpy, or GSC dashboard evidence
+- **Internal links (outbound):** Always link new post UP to pillar/parent content during Phase 5.4 (1-3 links)
 - **Internal links (inbound):** Always run `internal-link-builder` skill in Phase 7 to add links from older posts TO the new post
 - **Internal link planning:** Always plan links in Phase 3 (outline) before writing
 - **Link hardening:** Run `scripts/verify-links.py` before publication and against the live post after publication. Do not use Rank Math's link checks as a substitute. Store the inbound decision in `content/link-reviews/<post-slug>.json`.
 - **SEO meta:** Always set Rank Math title (≤60 chars), description (≤160 chars), focus keyword, primary category
 - **Rank tracking (MANDATORY):** Every published post's focus keyword + URL must be added to BOTH ClickRank AI Overview Tracker AND Screpy Rank Tracker
+- **Search Console (MANDATORY):** Inspect the final URL, request indexing when eligible, and record the visible state without equating a request with successful indexing
+- **Manual dashboard evidence:** Record exact keyword/URL, settings, timestamp,
+  and visible result for ClickRank, Screpy, and GSC; `verify-content-status.py`
+  cannot prove these steps
 - **ClickRank title/meta optimization (OPTIONAL):** Reject hype words. Accept natural words. Manual titles always preferred
 - **Content standardization:** Always strip `<h1>` tags from WriterZen content, remove redundant "Malaysia" mentions, cross-check formatting against Post #1
 
@@ -517,7 +636,8 @@ invalidates the artifact's `link_hash` and requires a new scan.
 | Image prompt template, design system, variation guide, examples | `content/image-prompts.md` | Don't paste prompt templates here |
 | Rich Formatting Toolkit, blockquote/callout templates, Formatting Checklist | `.devin/skills/readability-pass/SKILL.md` | Don't paste HTML templates here |
 | Malay voice standard, publish gate, DBP rules, Bahasa Indonesia detection | `.devin/skills/malay-voice-guide/SKILL.md` | Don't paste voice rules here |
-| Sequential pipeline phases (−1 through 7) | **This file** | The pipeline lives here and only here |
+| Delegation concepts and examples | `docs/knowledge-library/delegation-patterns.md` | Keep this skill to routing and phase ownership |
+| Sequential pipeline phases (−2 through 7) | **This file** | The pipeline lives here and only here |
 | Key Rules summary | **This file** | One-line reminders with pointers to full docs |
 
 > **If you are about to paste a table or template into this skill, it belongs in one of those files — add a pointer instead.**
