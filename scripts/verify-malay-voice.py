@@ -51,6 +51,7 @@ CONTENT = {
     536: ("Post #4  Cara Buat Gambar AI", "posts"),
     490: ("Post #6  ChatGPT vs Gemini vs Claude", "posts"),
     559: ("Post #11 Apa Itu MCP dalam AI", "posts"),
+    582: ("Post #9  Prompt Gemini AI untuk Edit Foto", "posts"),
     72:  ("Page     Tentang Kami", "pages"),
     73:  ("Page     Privasi", "pages"),
     74:  ("Page     Disclaimer", "pages"),

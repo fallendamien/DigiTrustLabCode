@@ -289,14 +289,44 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | Affiliate | None |
 | Type | Template guide |
 
-## Post #9 — PLANNED
+## Post #9 — PUBLISHED ✅
 
 | Field | Value |
 |-------|-------|
-| Title | Cara Buat AI Art dengan Gemini: 10 Prompt yang Berkesan |
-| Keyword | TBD |
+| Title | 10 Prompt Gemini AI untuk Edit Foto dengan Mudah |
+| Keyword | prompt gemini ai untuk edit foto |
+| Search Volume | 140/mo |
+| KD (Google Ads) | Not captured for the narrow focus keyword |
+| KD (Content / Traffic / Signal) | 0 / 13 / 0 |
+| CPC | US$1.17 |
+| Golden Score | 1.001 |
+| All-in-Title | 0 |
+| Weak Spot | 2 |
 | Category | Prompt Engineering |
-| Status | Not started |
+| Status | Published 10 August 2026; post-publication dashboard gates are recorded below; Screpy Pages crawl remains in progress |
+| WriterZen Topic Discovery | Report 244849 — seed `prompt AI gambar` |
+| WriterZen Keyword Explorer | Report 1563909 — `prompt gemini ai`; exact Golden project 1563910 |
+| WriterZen Keyword Planner | Project 178604 — `Post 9 — Prompt Gemini AI Research` |
+| WriterZen Content Creator | Article report 243931 — project `DigiTrust Lab` (134599) |
+| Draft | `content/drafts/10-prompt-gemini-ai-edit-foto.html` |
+| Images | Media 578–581 uploaded via Respira; three in-content images resolve in the live rendered viewport at 1672×941 |
+| WordPress Post | ID 582 — `https://digitrustlab.com/prompt-gemini-ai-untuk-edit-foto/` (published) |
+| Post ID | 582 |
+| SEO Title | `10 Prompt Gemini AI untuk Edit Foto dengan Mudah: Panduan Praktikal` (67 characters) |
+| Rank Math Essential Checks | ✅ Respira computed score 100/A; 13/13 checks passed; 1,732 words; keyword density 0.52%; 3 images with alt text; 3 internal links; 1 external link |
+| WordPress Rank Math Sidebar | ✅ 85/100 visible in the authenticated editor; Article schema and featured image verified |
+| Naturalness Gate | ✅ Claude/Anthropic + OpenAI artifact; deterministic findings 0; package hash `264ae912dcee181fca28747daa2295f8e25884ee8281b314ec47c220c1bf0afa` across 80 segments |
+| Malay Voice Gate | ✅ Live post revalidation: 0 errors, 0 warnings |
+| Link Quality Gate | ✅ 3 contextual internal links, 1 editorial external link, 1 dofollow; live destinations checked; inbound artifact records `no_safe_context` |
+| Rendered Evidence | ✅ Canonical, title/meta, BlogPosting JSON-LD, ToC, headings, lists, code blocks, three branded blockquotes, three in-content image sources, and Google support link (`rel="dofollow noopener"`, `target="_self"`) verified |
+| ClickRank Keyword Tracker | ✅ `prompt gemini ai untuk edit foto` + exact URL; Malaysia; Device All; visible row |
+| ClickRank Website Optimization / Pages | ✅ Exact URL added 10 August 2026; crawl completed; visible status **Not Optimized**; approved title/meta reviewed and no ClickRank copy changes applied |
+| ClickRank AI Overview Tracker | ✅ `prompt gemini ai untuk edit foto` + exact URL; Malaysia/Malay; visible row, current result **Not Found** (0% visibility) |
+| Screpy Rank Tracker | ✅ Primary keyword only; Malaysia/Malay; **Device: Both**; fresh Desktop and Mobile snapshots both show the row |
+| Screpy re-crawl | ⏳ **Analyze** clicked 10 August 2026 at 03:14 (+08:00); still visibly **Analyzing...** on crawler `18151`, old 8 August result remains, and Post #9 is not yet listed |
+| Google Search Console | ✅ Fresh inspection 10 August 2026 showed **URL is not on Google / URL is unknown to Google** with no referring sitemap; **Indexing requested** successfully at 2026-08-10 02:42 (+08:00). This is a priority-crawl request, not proof of indexing; re-inspect later. |
+| Inbound Link Review | ✅ Live scan of published posts/pages found no safe contextual inbound source; no link was forced. Evidence: `content/link-reviews/prompt-gemini-ai-untuk-edit-foto.json` |
+| Handoff | `content/post-9-luna-handoff.md` — exact WriterZen URL is `https://app.writerzen.net/` |
 | Affiliate | None (prompt gallery post) |
 | Type | Prompt gallery |
 
@@ -339,6 +369,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | Inbound Internal Link | No safe contextual link found in older published posts during the Phase 7 scan; no link was forced. Evidence: `content/link-reviews/apa-itu-mcp-ai-dan-bagaimana-ia-berfungsi.json` |
 | ClickRank Keyword Tracker | ✅ Done — added `mcp ai` + article URL; Malaysia, device All |
 | ClickRank AI Overview Tracker | ✅ Done — added `mcp ai` + article URL; Malaysia/Malay |
+| ClickRank Website Optimization / Pages | ✅ Exact URL backfill is visible in the authenticated Pages queue (verified 10 August 2026); status **Not Optimized**. No duplicate was added and no copy change was applied; any later optimization review remains a separate follow-up. |
 | Screpy Rank Tracker | ✅ Done — added `mcp ai`; Malaysia/Malay, **Device: Both**; verified under Desktop and Mobile |
 | Screpy re-crawl | ✅ Completed 2026-08-08 at 06:13 AM — article discovered, HTTP 200, page status `OK` |
 | Google Search Console | ✅ URL is on Google; page indexing status is `Page is indexed` |
@@ -370,7 +401,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 11. **Publish to WordPress** — Copy content from WriterZen → Update draft via `respira_update_post` → Set Rank Math SEO fields → Set featured image → Publish → set excerpt via WP editor
 12. **Rank Math optimization** — Sidebar check, aim 80+, fix essential checks
 13. **Verify on live site** — Navigate to URL, check rendering, SEO title, internal links, outbound destinations, and run `scripts/verify-links.py`
-14. **Rank tracking** — ClickRank (AI Overview + Keyword Tracker) + Screpy Rank Tracker, focus keyword only
+14. **Rank tracking and page optimization** — ClickRank Website Optimization / Pages (exact URL + visible status + recommendation/no-change decision), ClickRank AI Overview + Keyword Tracker (focus keyword only), and Screpy Rank Tracker
 15. **Mark as published** — Update this calendar
 
 > **Never skip the Content Creator pipeline.** The outline must be generated through WriterZen's AI + competitor research, not manually planned.

@@ -515,22 +515,38 @@ stale approval hash.
    - This tracks traditional Google SERP rankings + impressions
    - After submission, take a fresh snapshot and verify the exact keyword, URL,
      country, and device row is visible
-2. **ClickRank — AI Overview Tracker** (app.clickrank.ai/en/ai-toolkit/overview-tracker):
+2. **ClickRank — Website Optimization / Pages** (app.clickrank.ai/en/pages):
+   - Add the exact published article URL to the Website Optimization queue using
+     **Add URL**. If the URL is already present, do not add a duplicate; open its
+     existing row instead.
+   - Take a fresh snapshot and verify the exact URL appears in the queue with a
+     visible optimization status. A successful Keyword Tracker or AI Overview
+     entry does **not** prove that the URL is present here.
+   - Open the page row and review the available title, meta description,
+     headings, content, image-alt, and schema recommendations. Applying a
+     recommendation is optional and remains subject to the ClickRank Usage
+     Policy; reject hype wording and never overwrite the approved Malay copy
+     without rerunning the affected naturalness and link gates.
+   - Record the Pages queue result (URL, visible status, date, and any
+     recommendation action or explicit no-change decision) in
+     `content/content-calendar.md`. Missing Pages evidence blocks Phase 7
+     completion.
+3. **ClickRank — AI Overview Tracker** (app.clickrank.ai/en/ai-toolkit/overview-tracker):
    - Add the same focus keyword + URL (Malaysia, Malay language)
    - This is the PRIMARY reason we use ClickRank — monitors AI Overview visibility and organic ranking
    - **Title/Meta optimization** — OPTIONAL. ClickRank's AI suggestions tend to be over-dramatic (hype words like "Ultimate", "Proven", "Secret"). Only apply if the suggestion is natural and matches our calm, helpful Malay voice. Manual titles are always preferred. When in doubt, ask the user.
    - Verify the exact keyword, URL, Malaysia, and Malay row after submission
-3. **Screpy — Rank Tracker** (app.screpy.com → Rank Tracker → Add keywords):
+4. **Screpy — Rank Tracker** (app.screpy.com → Rank Tracker → Add keywords):
    - Add the post's **primary focus keyword** only (Screpy associates the keyword with the tracked domain; it does not require a separate URL field)
    - Set Country: Malaysia, Language: Malay, and **Device: Both** in the same Add keywords action
    - **Do not add separate Mobile and Desktop entries** when the `Both` option is available; verify the keyword appears under both device tabs after submission
    - Screpy tracks traditional Google SERP rankings, competitor comparison, and page health
    - **Why both tools:** ClickRank = AI Overview/AEO tracking, Screpy = traditional SERP rank tracking + technical audits. They serve different purposes and both are required.
-4. **Screpy — Re-run Crawler** (app.screpy.com → Pages → Analyze button):
+5. **Screpy — Re-run Crawler** (app.screpy.com → Pages → Analyze button):
    - Click "Analyze" to trigger a new crawl — this auto-discovers new post URLs for SEO health monitoring
    - Screpy does NOT have manual per-page URL addition — the crawler finds pages automatically
    - New posts published after the last crawl won't appear until the crawler runs again
-5. **Google Search Console — URL Inspection and indexing request:**
+6. **Google Search Console — URL Inspection and indexing request:**
    - Inspect the exact live article URL in the authenticated Search Console tab.
    - Request indexing when the URL is eligible and a request has not already
      been accepted for the same unchanged content.
@@ -538,7 +554,7 @@ stale approval hash.
      "Indexing requested" does not mean "indexed"; never collapse those states.
    - If authentication, quota, or a sitemap/cache issue blocks the request,
      record a follow-up instead of claiming completion.
-6. **Run internal link builder** — Use the `internal-link-builder` skill to scan existing posts and add links pointing TO the new post:
+7. **Run internal link builder** — Use the `internal-link-builder` skill to scan existing posts and add links pointing TO the new post:
    - Trigger: "build internal links" or load skill from `.devin/skills/internal-link-builder/SKILL.md`
    - This finds mentions of the new post's topic in older posts and adds contextual links back
    - Review the plan before applying (skill always asks for confirmation)
@@ -548,40 +564,40 @@ stale approval hash.
      `python scripts/verify-links.py --post-id <post-id> --inbound-review content/link-reviews/<post-slug>.json --check-destinations`
    - This is the live link hard gate. Any later inbound or outbound edit
      invalidates `link_hash` and requires a new scan and rerun.
-7. Update `content/content-calendar.md`:
+8. Update `content/content-calendar.md`:
    - Change status to PUBLISHED ✅
    - Add URL, publish date, Post ID, WriterZen Article ID
    - Record final Rank Math score
-   - Record ClickRank Keyword Tracker, ClickRank AI Overview, Screpy Both-device,
+   - Record ClickRank Pages, ClickRank Keyword Tracker, ClickRank AI Overview, Screpy Both-device,
      Screpy crawl, and GSC evidence: timestamp, exact keyword/URL, settings, and
      the verified visible result. These dashboards have no reliable API, so a
      generic "done" note is insufficient.
-8. Update `STATE.json`:
+9. Update `STATE.json`:
    - Add to completed list
    - Increment blogPosts count
    - Update nextSteps (remove this post, add next post)
-9. Update `NEXT.md`:
+10. Update `NEXT.md`:
    - Mark Post as ✅ published
    - Add next post to task list
-10. Update `ROADMAP.md` if applicable
-11. **Content status gate (MANDATORY — run BEFORE committing):**
+11. Update `ROADMAP.md` if applicable
+12. **Content status gate (MANDATORY — run BEFORE committing):**
     ```bash
     python scripts/verify-content-status.py
     ```
-    Compares steps 7–9 above against the live WordPress REST API. Must exit 0.
+    Compares steps 8–10 above against the live WordPress REST API. Must exit 0.
     - Catches: post marked PUBLISHED with no/wrong Post ID, slug or date drift,
       a live post missing from the calendar, a PLANNED entry that is already
       live, and a stale `blogPosts` count.
     - `--fix` repairs the safely derivable fields (currently `STATE.json`
       `keyMetrics.blogPosts`). Everything else it reports, you fix by hand.
-    - **It does NOT verify steps 1–5** (ClickRank, Screpy, or GSC). Those have
+    - **It does NOT verify steps 1–6** (ClickRank, Screpy, or GSC). Those have
       no reliable API. Confirm them in the authenticated dashboards and record
       the evidence in step 7.
 
-    Why this is a gate and not a reminder: steps 7–9 were manual instructions
+    Why this is a gate and not a reminder: steps 8–10 were manual instructions
     for months and silently rotted. On 2026-08-05 an agent read the stale record
     and told the operator to redo finished work.
-12. Git commit + push all documentation updates
+13. Git commit + push all documentation updates
 
 ## Key Rules
 
@@ -621,6 +637,7 @@ stale approval hash.
 - **Link hardening:** Run `scripts/verify-links.py` before publication and against the live post after publication. Do not use Rank Math's link checks as a substitute. Store the inbound decision in `content/link-reviews/<post-slug>.json`.
 - **SEO meta:** Always set Rank Math title (≤60 chars), description (≤160 chars), focus keyword, primary category
 - **Rank tracking (MANDATORY):** Every published post's focus keyword + URL must be added to BOTH ClickRank AI Overview Tracker AND Screpy Rank Tracker
+- **ClickRank Pages gate (MANDATORY):** Every published post's exact URL must be present in ClickRank Website Optimization / Pages with a fresh visible status and a recorded recommendation/no-change decision before Phase 7 can complete. Tracker rows alone are insufficient.
 - **Search Console (MANDATORY):** Inspect the final URL, request indexing when eligible, and record the visible state without equating a request with successful indexing
 - **Manual dashboard evidence:** Record exact keyword/URL, settings, timestamp,
   and visible result for ClickRank, Screpy, and GSC; `verify-content-status.py`

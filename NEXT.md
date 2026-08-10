@@ -66,6 +66,20 @@ Live at https://digitrustlab.com/apa-itu-mcp-ai-dan-bagaimana-ia-berfungsi/ · P
 - [x] Internal-link scan completed; no safe contextual inbound link was found in older posts, so no forced edit was made
 - [ ] **Critical SEO follow-up:** Rank Math rewrite rules, origin sitemap generation, and sitemap-cache exclusions are repaired; clean `post-sitemap.xml`, `page-sitemap.xml`, `category-sitemap.xml`, and `author-sitemap.xml` URLs still serve LiteSpeed’s cached HTTP 404. Clear the persistent public cache through authenticated WordPress/Hostinger/Cloudflare controls, verify clean XML 200 responses, then re-submit the sitemap in Search Console. Evidence: `docs/post-11-revalidation-2026-08-09.md`
 
+## Post #9 — 🚧 PUBLISHED; FINAL GATES HANDOFF (2026-08-10)
+
+Live at https://digitrustlab.com/prompt-gemini-ai-untuk-edit-foto/ · Post ID 582 · Prompt Engineering · 1,732 words.
+
+**Verified:** Rank Math 85/100 in the WordPress sidebar; Respira essential audit 100/A (13/13); Claude + OpenAI naturalness artifact and Malay voice gate pass; live rendered images Media 579–581 pass; outbound link gate pass (3 internal, 1 external dofollow); ClickRank Keyword Tracker, Website Optimization / Pages, and AI Overview Tracker are configured; Post #11's exact Pages URL is backfilled and visible without duplication.
+
+**Luna must finish:**
+
+- [x] Screpy Rank Tracker — added `prompt gemini ai untuk edit foto`, Malaysia/Malay, **Device: Both** in one action; fresh Desktop and Mobile snapshots both show the row.
+- [ ] Screpy Pages — **Analyze** clicked at 03:14 (+08:00); crawl is still visibly **Analyzing...** on crawler `18151`, so the new Post #9 discovery/result is not yet recorded.
+- [x] Google Search Console — inspection showed **URL is not on Google / URL is unknown to Google**; indexing request submitted successfully at 2026-08-10 02:42 (+08:00). Re-inspect later; a request is not proof of indexing.
+- [x] Internal-link-builder scan — no safe contextual inbound link found; no link forced. Artifact: `content/link-reviews/prompt-gemini-ai-untuk-edit-foto.json`.
+- [ ] Update the remaining docs and run all validators, then inspect the scoped diff and commit/push. Full step-by-step handoff: `content/post-9-luna-handoff.md`.
+
 ## Post #3 — ✅ COMPLETE (2026-07-21)
 
 All phases complete. Post published at /cara-buat-prompt-chatgpt/. Rank Math score: 100/100.

@@ -119,7 +119,7 @@ When archiving a batch, copy the files in prompt order, from Image 1 to the fina
 
 **When a new post is planned:** Add a new section with TBD prompts **at its numbered position**, not at the end of the file.
 
-**Status markers:** `(PLANNED — TBD)` → `(READY TO GENERATE)` once prompts are written → `(PUBLISHED ✅)` once live.
+**Status markers:** `(PLANNED — TBD)` → `(READY TO GENERATE)` once prompts are written → `(GENERATED — PENDING UPLOAD)` once assets are archived and verified → `(UPLOADED — PENDING PUBLICATION)` once Media upload and alt text are verified → `(PUBLISHED ✅)` once live.
 
 ---
 
@@ -391,18 +391,27 @@ Flat illustration style. A top-down flat lay of three cards arranged vertically 
 
 ---
 
-## Post #9 — Cara Buat AI Art dengan Gemini (PLANNED — TBD)
+## Post #9 — 10 Prompt Gemini AI untuk Edit Foto dengan Mudah (PUBLISHED ✅)
 
-**Slug:** TBD
+**Slug:** `prompt-gemini-ai-untuk-edit-foto`
 
-> Prompts will be written after content is drafted in WriterZen.
+The article is live at `https://digitrustlab.com/prompt-gemini-ai-untuk-edit-foto/` (Post ID 582). The controlled draft remains at `content/drafts/10-prompt-gemini-ai-edit-foto.html`. All four images were generated, visually checked, archived under `G:\\Zamzam Biznez\\DigiTrustLab\\Blog images`, and SHA-256 verified against their generated sources. Do not present any generated image as an actual Gemini edit result.
+
+WordPress Media upload complete via Respira: featured **Media 578**, intro **Media 579**, comparison **Media 580**, conclusion **Media 581**. Fresh rendered verification confirms Media 579–581 resolve at 1672×941 with the planned Malay alt text.
+
+| Archived asset | SHA-256 |
+|----------------|---------|
+| `prompt-gemini-ai-untuk-edit-foto-featured.png` | `21AA5A29916A4F9F4E4425A1D2881830211822F402ED0214F726679EC6876C8B` |
+| `prompt-gemini-ai-edit-foto-upload.png` | `D3528C1CD6FAF1E23080CAFCC7FAAAF25A56793E196A99969C1EEF648178AD7E` |
+| `prompt-gemini-ai-edit-foto-sebelum-selepas.png` | `DFE51787E5E16912D4BD9358465D2F4A0C6A07715CFB0275A3B7127B7BF13AF5` |
+| `prompt-gemini-ai-edit-foto-prompt-dan-hasil.png` | `D52558A1271F90D837062AD6B0D518E2146A7EC7EA92A0C6643B0F3023250303` |
 
 | Image | Filename | Prompt | Alt Text |
 |-------|----------|--------|----------|
-| Featured | TBD | TBD | TBD |
-| Intro | TBD | TBD | TBD |
-| Comparison | TBD | TBD | TBD |
-| Conclusion | TBD | TBD | TBD |
+| Featured | `prompt-gemini-ai-untuk-edit-foto-featured.png` | Flat illustration style. A creator holds a portrait photo while a friendly AI editing interface shows three visual possibilities: a changed background, improved lighting, and a realistic colour correction. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Split composition with the original portrait on the left and polished editing options on the right. Clean, modern, minimal. No text or words in the image. Wide format 16:9. | Ilustrasi proses menggunakan prompt Gemini AI untuk mengedit foto |
+| Intro | `prompt-gemini-ai-edit-foto-upload.png` | Flat illustration style. A smartphone portrait photo is being uploaded into a simple AI workspace, with a privacy shield and small image thumbnail beside it. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Minimalist negative space composition with the photo and privacy symbol as the focal point. Clean, modern, minimal. No text or words in the image. Wide format 16:9. | Persediaan foto dan privasi sebelum menggunakan Gemini AI |
+| Comparison | `prompt-gemini-ai-edit-foto-sebelum-selepas.png` | Flat illustration style. A side-by-side comparison of the same portrait before and after careful AI editing: the left side has flat lighting and a cluttered background, while the right side has balanced lighting and a clean background, with the person's identity preserved. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Split comparison composition with a subtle curved divider and no labels. Clean, modern, minimal. No text or words in the image. Wide format 16:9. | Perbandingan foto sebelum dan selepas suntingan Gemini AI |
+| Conclusion | `prompt-gemini-ai-edit-foto-prompt-dan-hasil.png` | Flat illustration style. A top-down flat lay of a notebook with abstract prompt lines, a phone displaying a polished portrait, a small colour palette, and a consent/privacy card represented only by an icon. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Top-down flat lay composition with balanced spacing and gentle geometric accents. Clean, modern, minimal. No text or words in the image. Wide format 16:9. | Ringkasan prompt dan hasil suntingan foto dengan Gemini AI |
 
 ---
 

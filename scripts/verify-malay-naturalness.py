@@ -147,6 +147,19 @@ def extract_html_segments(source_html: str) -> list[dict[str, str]]:
     return parser.segments
 
 
+def normalize_rendered_excerpt(excerpt_html: str) -> str:
+    """Normalize the REST API's rendered `<p>...</p>` excerpt to reader text.
+
+    Local review packages store the manual excerpt as plain text inside the
+    explicit naturalness wrapper. WordPress REST returns the same value as
+    rendered HTML, so compare the text rather than the transport wrapper.
+    """
+    segments = extract_html_segments(excerpt_html)
+    if segments:
+        return normalize_text(" ".join(segment["text"] for segment in segments))
+    return normalize_text(html_lib.unescape(re.sub(r"<[^>]+>", " ", excerpt_html)))
+
+
 def build_document(
     source_html: str,
     *,
@@ -190,7 +203,7 @@ def fetch_post(post_id: int) -> tuple[dict[str, Any], dict[str, Any]]:
         data = json.load(response)
 
     title = data.get("title", {}).get("rendered", "")
-    excerpt = data.get("excerpt", {}).get("rendered", "")
+    excerpt = normalize_rendered_excerpt(data.get("excerpt", {}).get("rendered", ""))
     document = build_document(
         data.get("content", {}).get("rendered", ""),
         title=title,

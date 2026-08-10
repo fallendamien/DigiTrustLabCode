@@ -200,6 +200,12 @@ class NaturalnessGateTests(unittest.TestCase):
         self.assertEqual(file_document["content_hash"], live_document["content_hash"])
         self.assertEqual(file_document["segments"], live_document["segments"])
 
+    def test_rendered_rest_excerpt_wrapper_matches_plain_manual_excerpt(self):
+        self.assertEqual(
+            MODULE.normalize_rendered_excerpt("<p>Ringkasan yang jelas.</p>\n"),
+            "Ringkasan yang jelas.",
+        )
+
     def test_missing_review_artifact_is_blocked(self):
         document = self.document("<p>Ayat ini jelas dan semula jadi.</p>")
         result = MODULE.evaluate(document, None, self.rules)

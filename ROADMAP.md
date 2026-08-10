@@ -125,7 +125,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [ ] List product #4: 50 AI Prompts for Creating Digital eBooks — RM 15–25
 - [ ] List product #5: Bundle — 30 AI Prompts + 5 Canva Templates — RM 29–39
 
-### Blog Posts (1 post/week — Malay-first 70%) — 2 of 10 published
+### Blog Posts (1 post/week — Malay-first 70%) — 7 of 10 published
 - [x] Post #1: "Apa Itu AI? (Dan Kenapa Ia Bukan Setakat Robot dalam Filem)" — published Jul 9 at digitrustlab.com/apa-itu-ai/
 - [x] Post #2: "Cara Guna ChatGPT untuk Membantu Kerja Harian Anda (Panduan Mudah 2026)" — published Jul 18 at digitrustlab.com/cara-guna-chatgpt/ via WriterZen Option C pipeline
 - [ ] Post #3: 10 AI Tools Percuma untuk Perniagaan 2026 → AI Mastery affiliate
@@ -134,7 +134,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [ ] Post #6: ChatGPT vs Gemini vs Claude: Mana Terbaik untuk Anda? → AI Tools
 - [ ] Post #7: Cara Buat Nota Rapi dengan AI: Tips untuk Pelajar & Pekerja → Digital Skills
 - [ ] Post #8: 5 Template Notion untuk Urus Kerja Harian Anda → Digital Skills
-- [ ] Post #9: Cara Buat AI Art dengan Gemini: 10 Prompt yang Berkesan → Prompt Engineering
+- [x] Post #9: 10 Prompt Gemini AI untuk Edit Foto dengan Mudah → Prompt Engineering — published 2026-08-10 at https://digitrustlab.com/prompt-gemini-ai-untuk-edit-foto/ (Post ID 582); final Screpy + GSC gates handed to Luna in `content/post-9-luna-handoff.md`
 - [ ] Post #10: AI vs Canva: Mana Lebih Baik untuk Design? → Canva Pro affiliate
 
 ### Off-Page SEO (Week 1 — ongoing)

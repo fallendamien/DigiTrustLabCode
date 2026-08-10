@@ -382,7 +382,11 @@ def check_destinations(links: list[dict[str, Any]]) -> list[dict[str, str]]:
             with urllib.request.urlopen(request, timeout=20) as response:
                 status = response.status
         except urllib.error.HTTPError as exc:
-            if exc.code == 405:
+            # Some otherwise-live documentation hosts return 404/405 to
+            # HEAD while serving the same URL successfully to GET. Confirm
+            # those responses with a normal request before calling a link
+            # broken.
+            if exc.code in {404, 405}:
                 request = urllib.request.Request(url, headers={"User-Agent": "digitrustlab-link-check"})
                 try:
                     with urllib.request.urlopen(request, timeout=20) as response:

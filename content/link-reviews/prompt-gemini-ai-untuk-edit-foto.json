@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "post_id": 582,
+  "slug": "prompt-gemini-ai-untuk-edit-foto",
+  "reviewed_at": "2026-08-10T02:33:34+08:00",
+  "link_hash": "1690d359d7797b75f531e428755f96c180b87d27b89c20449eacdefbd5fee4d7",
+  "outbound": {
+    "internal_count": 3,
+    "external_count": 1,
+    "external_dofollow_count": 1,
+    "destinations_checked": true,
+    "official_sources": [
+      "https://support.google.com/gemini/answer/14286560?co=GENIE.Platform%3DDesktop&hl=en"
+    ]
+  },
+  "inbound": {
+    "decision": "no_safe_context",
+    "count": 0,
+    "source_ids": [],
+    "reason": "The live scan found no older published post or page with a sufficiently specific, natural photo-editing context for this narrow Gemini prompt gallery. Post #536 discusses general AI image generation and already links to adjacent prompt guidance, so forcing another link would be redundant and awkward.",
+    "scan_scope": "published posts and pages"
+  },
+  "status": "pass"
+}
