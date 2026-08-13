@@ -6,11 +6,11 @@ This file contains project-specific rules and operating standards for AI coding 
 
 | Layer | Purpose | Read By |
 |-------|---------|---------|
-| `AGENTS.md` | Voice, copy policy, project rules — single source of truth | All agents (Claude, Codex, Devin, ChatGPT) |
-| `.devin/rules/` | Operational behaviour — safety checks, tool constraints | Devin only (auto-loaded every session) |
-| `.devin/skills/` | On-demand task recipes — SEO audit, keyword research, image optimisation | Devin only (trigger-based, not auto-loaded) |
+| `AGENTS.md` | Voice, copy policy, project rules — single source of truth | All agents (Claude, Codex) |
+| `.claude/rules/` | Operational rules — safety checks, tool constraints | Claude Code + Codex (always-on via CLAUDE.local.md) |
+| `.claude/skills/` | On-demand task recipes — SEO audit, keyword research, image optimisation | Claude Code + Codex (trigger-based, not auto-loaded) |
 
-**Rule:** Never duplicate content/voice standards into `.devin/rules/` — keep AGENTS.md as the single source. `.devin/rules/` should only contain operational behaviour constraints (e.g. "never edit template without snapshot").
+**Rule:** Never duplicate content/voice standards into `.claude/rules/` — keep AGENTS.md as the single source. `.claude/rules/` should only contain operational behaviour constraints (e.g. "never edit template without snapshot").
 
 ### 🖥️ Editors — Zed is primary (as of 2026-08-05)
 
@@ -638,25 +638,34 @@ Claude Desktop cannot read `.devin/` or `.windsurf/` rules. When a user request 
 
 | Trigger Phrases | Skill File | What It Does |
 |----------------|-----------|--------------|
-| "amplify my seo", "seo audit", "aeo audit", "optimize for search" | `.devin/skills/seo-aeo-amplifier/SKILL.md` | On-page SEO + AEO audit with schema markup via Respira MCP |
-| "extract my brand voice", "analyze my tone", "writing style" | `.devin/skills/brand-voice-synthesizer/SKILL.md` | Reads your posts, extracts DigiTrust Lab brand voice |
-| "build internal links", "link my content", "topic relationships" | `.devin/skills/internal-link-builder/SKILL.md` | Analyzes your content via Respira MCP, suggests internal links |
-| "stale content", "old posts", "content refresh" | `.devin/skills/stale-content-detector/SKILL.md` | Finds posts that haven't been updated via Respira MCP |
-| "compress images", "webp convert", "optimize images" | `.devin/skills/wordpress-ai-image-optimizer/SKILL.md` | Compress, WebP convert, resize images via Respira MCP |
-| "site dna", "wordpress audit", "site health check" | `.devin/skills/wordpress-site-dna/SKILL.md` | Full WordPress site audit via Respira MCP |
-| "activity report", "what did I do", "audit log report" | `.devin/skills/activity-report-composer/SKILL.md` | Turns Respira audit log into a polished report |
-| "prime the agent", "session start", "load site context" | `.devin/skills/prime-the-agent/SKILL.md` | Fast session starter — loads site, builder, schemas |
-| "bricks mcp", "mcp tool selection", "bricks via mcp" | `.devin/skills/bricks-mcp-absolute/SKILL.md` | MCP tool selection and execution protocol for Bricks |
+| "amplify my seo", "seo audit", "aeo audit", "optimize for search" | `.claude/skills/seo-aeo-amplifier/SKILL.md` | On-page SEO + AEO audit with schema markup via Respira MCP |
+| "extract my brand voice", "analyze my tone", "writing style" | `.claude/skills/brand-voice-synthesizer/SKILL.md` | Reads your posts, extracts DigiTrust Lab brand voice |
+| "build internal links", "link my content", "topic relationships" | `.claude/skills/internal-link-builder/SKILL.md` | Analyzes your content via Respira MCP, suggests internal links |
+| "stale content", "old posts", "content refresh" | `.claude/skills/stale-content-detector/SKILL.md` | Finds posts that haven't been updated via Respira MCP |
+| "compress images", "webp convert", "optimize images" | `.claude/skills/wordpress-ai-image-optimizer/SKILL.md` | Compress, WebP convert, resize images via Respira MCP |
+| "site dna", "wordpress audit", "site health check" | `.claude/skills/wordpress-site-dna/SKILL.md` | Full WordPress site audit via Respira MCP |
+| "activity report", "what did I do", "audit log report" | `.claude/skills/activity-report-composer/SKILL.md` | Turns Respira audit log into a polished report |
+| "prime the agent", "session start", "load site context" | `.claude/skills/prime-the-agent/SKILL.md` | Fast session starter — loads site, builder, schemas |
+
+### Content Strategy Skills
+
+| Trigger Phrases | Skill File | What It Does |
+|----------------|-----------|--------------|
+| "e2e seo", "full seo audit", "technical seo" | `.claude/skills/e2e-seo-assistant/SKILL.md` | End-to-end SEO checklist across technical, on-page, off-page |
+| "email sequence", "drip campaign", "email funnel" | `.claude/skills/email-sequence-writer/SKILL.md` | AIDA/PAS/BAB email sequences for MailerLite |
+| "geo optimization", "ai search citation", "ai overview" | `.claude/skills/geo-fundamentals/SKILL.md` | GEO/AI search citation optimization |
+| "landing page audit", "conversion audit", "cro" | `.claude/skills/landing-page-audit-alt/SKILL.md` | CRO analysis for landing pages |
+| "programmatic seo", "scalable pages", "template pages" | `.claude/skills/programmatic-seo-builder/SKILL.md` | Scalable SEO page templates |
 
 ### WriterZen Skill (requires specific tool workflow)
 
 | Trigger Phrases | Skill File | What It Does |
 |----------------|-----------|--------------|
-| "keyword research", "find keywords", "writerzen", "seed keyword", "kd analysis", "golden filter", "keyword clustering", "topic discovery", "content brief", "keyword planner", "domain filter", "domain authority", "outline building", "SERP analysis" | `.devin/skills/writerzen-keyword-research/SKILL.md` | Full WriterZen research pipeline: Topic Discovery → Keyword Explorer → Keyword Planner → Content Brief → Outline → Writing. Deep on research, light on AI writing. 29 source files in `content/writerzen-guide/` |
+| "keyword research", "find keywords", "writerzen", "seed keyword", "kd analysis", "golden filter", "keyword clustering", "topic discovery", "content brief", "keyword planner", "domain filter", "domain authority", "outline building", "SERP analysis" | `.claude/skills/writerzen-keyword-research/SKILL.md` | Full WriterZen research pipeline: Topic Discovery → Keyword Explorer → Keyword Planner → Content Brief → Outline → Writing. Deep on research, light on AI writing. 29 source files in `content/writerzen-guide/` |
 
 ### Marketing Skills (on-demand only)
 
-For broader marketing strategy (competitor teardown, E2E SEO, ICP research, content repurposing, email sequences, programmatic SEO, UTM tracking), read `.devin/skills/marketing-skills-index/SKILL.md` when explicitly asked. These are not auto-triggered — Claude handles generic marketing tasks natively.
+For broader marketing strategy (competitor teardown, E2E SEO, ICP research, content repurposing, email sequences, programmatic SEO, UTM tracking), read `.claude/skills/marketing-skills-index/SKILL.md` when explicitly asked. These are not auto-triggered — Claude handles generic marketing tasks natively.
 
 ### How to Use (For Claude Desktop)
 
@@ -718,26 +727,24 @@ For broader marketing strategy (competitor teardown, E2E SEO, ICP research, cont
 
 **Who this section is for:** any agent that reads `AGENTS.md` but has no
 `@import` equivalent — **Codex**, ChatGPT, and any future tool. Claude Code
-loads all of these automatically via `CLAUDE.local.md`; Devin auto-loads
-`.devin/rules/` on trigger. Everyone else gets them **only by reading this
-table**.
+loads all of these automatically via `CLAUDE.local.md`. Codex and other agents
+get them **only by reading this table**.
 
 **Why this exists:** on 2026-07-31 a Codex session was audited and found to have
-loaded `AGENTS.md` and nothing else — running without the verification protocol,
-the Pieces LTM rule, and both lessons files, while Claude had all twelve. Nothing
+loaded `AGENTS.md` and nothing else — running without the verification protocol
+and both lessons files, while Claude had all twelve. Nothing
 errored. A missing rule is indistinguishable from a followed one unless something
 checks.
 
-### Tier 1 — read at session start, every session (~9 KB total)
+### Tier 1 — read at session start, every session (~7 KB total)
 
-These change baseline behaviour and are cheap to load. Read all five before your
+These change baseline behaviour and are cheap to load. Read all four before your
 first substantive action.
 
 | File | What it governs |
 |------|-----------------|
 | `.windsurf/rules/verification-protocol.md` | **The Iron Law** — no completion claims without fresh evidence |
-| `.devin/rules/bricks-mcp-absolute.md` | Enforcement detail for PRIORITY #1 above |
-| `.windsurf/rules/pieces-ltm-integration.md` | Query Pieces LTM before answering anything about project history |
+| `.claude/rules/bricks-mcp-absolute.md` | Enforcement detail for PRIORITY #1 above |
 | `.windsurf/rules/context7-default.md` | Use Context7 for library/API docs by default |
 | `.windsurf/rules/change-summary-rule.md` | Required output format after multi-file changes |
 
@@ -745,10 +752,9 @@ first substantive action.
 
 | Trigger | File |
 |---------|------|
-| Editing any Bricks element | `.devin/rules/bricks-standard-guide.md` |
-| Content planning, keywords, calendar | `.devin/rules/content-planning.md` |
-| Visual verification of frontend changes | `.devin/rules/browser-preview.md` |
-| Writing code (naming, structure, DRY) | `.windsurf/rules/coding-standards.md` |
+| Editing any Bricks element | `.claude/rules/bricks-standard-guide.md` |
+| Content planning, keywords, calendar | `.claude/rules/content-planning.md` |
+| Visual verification of frontend changes | `.claude/rules/browser-preview.md` |
 | Session start, or stuck >10 min on a bug | `.windsurf/rules/self-improvement-loader.md` |
 
 ### Tier 3 — lessons (66 KB, read on trigger only, never wholesale)
