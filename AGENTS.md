@@ -200,8 +200,6 @@ All custom CSS added via WordPress Customizer → Additional CSS is backed up in
 
 > You're connected to my WordPress site through Respira. Before doing anything, detect my page builder and read my site's structure, then follow Respira's safe workflow: edit through the builder's native modules (never raw HTML), and duplicate or snapshot a page before changing it live. Confirm what builder I'm on and what you can do.
 
-**For Windsurf sessions:** Not needed — AGENTS.md and `.devin/rules/` already provide this context automatically.
-
 **Optional intent line** (add to the primer to focus the session):
 > Today we're [specific task] — read [page/template] structure first.
 
@@ -367,7 +365,7 @@ Do not reject a sentence merely because it is fully formal. Formal wording is pr
 
 **Rule:** Simplify bureaucratic or academic wording, not good formal Malay. The target is natural prose, not the lowest possible level of formality.
 
-**Concrete before → after examples:** See `.devin/skills/malay-voice-guide/SKILL.md` § "Concrete Before → After Examples" for 12 real editing patterns from Post #1, plus guidance on which casual sentences to leave as-is (humour, punchiness, parallel structure).
+**Concrete before → after examples:** See `.claude/skills/malay-voice-guide/SKILL.md` § "Concrete Before → After Examples" for 12 real editing patterns from Post #1, plus guidance on which casual sentences to leave as-is (humour, punchiness, parallel structure).
 
 ### Humour — Light Wit Without Slang
 
@@ -501,7 +499,7 @@ Natural formal–semi-formal BM examples that hit the right tone — polished, p
 
 AI-generated Malay has predictable awkwardness — half-casual/half-formal mixing, over-translated English terms, unfinished sentences, textbook intros. The full fix guide with before/after tables lives in:
 
-**📖 `.devin/skills/malay-voice-guide/SKILL.md`** — Load this skill before writing or reviewing any Malay content.
+**📖 `.claude/skills/malay-voice-guide/SKILL.md`** — Load this skill before writing or reviewing any Malay content.
 
 Quick summary of the 14 sections (natural formal–semi-formal BM standard):
 1. **Natural Formal–Semi-Formal BM Standard** — contextual register, read-aloud test, and reference sites (PandaiTech.my, Ecentral.my, DBP)
@@ -583,7 +581,7 @@ No dedicated external Malay proofreading tool is used. DewanEja 11 was evaluated
 - Manual editing after accepting is always allowed
 - When in doubt → ask the user before applying any ClickRank suggestion
 
-**Full workflow:** See `.devin/skills/write-post/SKILL.md` for the complete step-by-step process including Phase 6.5 (Rank Math + Malay voice gate) and Phase 7 (ClickRank/Screpy).
+**Full workflow:** See `.claude/skills/write-post/SKILL.md` for the complete step-by-step process including Phase 6.5 (Rank Math + Malay voice gate) and Phase 7 (ClickRank/Screpy).
 
 Optional: Claude Desktop can provide a second opinion with a fresh perspective.
 
@@ -632,7 +630,7 @@ All core pages are being re-rewritten in natural formal–semi-formal BM (previo
 
 ## 🧠 Skills Auto-Trigger Table (For Claude Desktop)
 
-Claude Desktop cannot read `.devin/` or `.windsurf/` rules. When a user request matches a trigger below, read the corresponding `SKILL.md` file before executing. Only skills that require Respira MCP, WriterZen, or DigiTrust Lab-specific context are listed — generic marketing tasks (email sequences, UTM tracking, competitor analysis, content repurposing) can be handled natively without a skill file.
+Claude Desktop cannot read `.windsurf/` rules. When a user request matches a trigger below, read the corresponding `SKILL.md` file before executing. Only skills that require Respira MCP, WriterZen, or DigiTrust Lab-specific context are listed — generic marketing tasks (email sequences, UTM tracking, competitor analysis, content repurposing) can be handled natively without a skill file.
 
 ### Respira MCP Skills (require WordPress + Respira connection)
 
@@ -677,7 +675,7 @@ For broader marketing strategy (competitor teardown, E2E SEO, ICP research, cont
 
 ## 🔍 WriterZen Research Pipeline (Option C — Standard)
 
-**Before writing any blog post, load the `write-post` skill (`.devin/skills/write-post/SKILL.md`) for the full end-to-end pipeline.** Load the `writerzen-keyword-research` skill for keyword research, then follow the Option C workflow for content creation.
+**Before writing any blog post, load the `write-post` skill (`.claude/skills/write-post/SKILL.md`) for the full end-to-end pipeline.** Load the `writerzen-keyword-research` skill for keyword research, then follow the Option C workflow for content creation.
 
 **Option C Pipeline:** Quota check → **Topic Discovery** → Keyword Explorer (**+ Golden Filter**) → Keyword List → Cluster into a NEW Planner project → **Verify Weak Spot ≥ 2** → Keyword Planner (Suggest Content Brief + manually adjust 6 fields) → Content Creator (outline → keywords → write) → publish via Respira MCP → Rank Math → rank tracking → internal linking → documentation
 
@@ -707,8 +705,8 @@ For broader marketing strategy (competitor teardown, E2E SEO, ICP research, cont
 - **Content Creator toggles (SERP View / AI Assistant):** Leave both OFF. They currently add no useful UI. Generate/update the AI outline via the explicit "Set up & Start building outline" / "Generate outline" buttons instead.
 - **Internal linking (required):** Plan links in outline phase → insert outbound links during publish → run `internal-link-builder` skill after publish to add inbound links from older posts
 - **Link hardening (mandatory):** Run `python scripts/verify-links.py --file <draft.html>` before publication and `python scripts/verify-links.py --post-id <id> --inbound-review content/link-reviews/<slug>.json --check-destinations` after publication. The gate checks descriptive anchors, HTTPS, self-links, contextual internal-link counts, editorial external dofollow links, live destinations, and an auditable inbound decision. Rank Math and a mechanical voice PASS do not override it.
-- **Content formatting (MANDATORY — NON-NEGOTIABLE):** Every article must be richly formatted — NO sea of text. Use blockquotes (orange `#E8621A` border, `#F5F3EE` bg), bullet/numbered lists with bold labels, before/after example blocks, "Elakkan" vs "Gunakan" contrast pairs, warning/tip boxes, `<em>` for English terms, short paragraphs (max 3-4 sentences). At least 2-3 blockquotes per instructional article. Reference standards: Post #2 and Post #3. See `.devin/skills/readability-pass/SKILL.md` for full toolkit, templates, and checklist.
-- **Full workflow:** See `.devin/skills/write-post/SKILL.md` for the complete step-by-step process
+- **Content formatting (MANDATORY — NON-NEGOTIABLE):** Every article must be richly formatted — NO sea of text. Use blockquotes (orange `#E8621A` border, `#F5F3EE` bg), bullet/numbered lists with bold labels, before/after example blocks, "Elakkan" vs "Gunakan" contrast pairs, warning/tip boxes, `<em>` for English terms, short paragraphs (max 3-4 sentences). At least 2-3 blockquotes per instructional article. Reference standards: Post #2 and Post #3. See `.claude/skills/readability-pass/SKILL.md` for full toolkit, templates, and checklist.
+- **Full workflow:** See `.claude/skills/write-post/SKILL.md` for the complete step-by-step process
 
 ## Notes
 
