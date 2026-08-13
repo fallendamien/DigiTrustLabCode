@@ -25,7 +25,7 @@ When this rule triggers, auto-load:
 
 | Skill | Path | Purpose |
 |-------|------|---------|
-| `bricks-mcp-absolute` | `.devin/skills/bricks-mcp-absolute/SKILL.md` | MCP tool selection and execution protocol |
+| `bricks-mcp-absolute` | `.claude/skills/bricks-mcp-absolute/SKILL.md` | MCP tool selection and execution protocol |
 
 ## ✅ Templates 185 & 52 — UNFROZEN (Respira MCP active)
 

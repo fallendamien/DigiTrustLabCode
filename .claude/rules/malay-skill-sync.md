@@ -5,7 +5,7 @@ description: Keep AGENTS.md, verify-malay-voice.py and malay-voice-guide/SKILL.m
 
 # Malay Skill Sync
 
-**Priority:** MEDIUM — activates when `.devin/skills/malay-voice-guide/SKILL.md` is modified.
+**Priority:** MEDIUM — activates when `.claude/skills/malay-voice-guide/SKILL.md` is modified.
 
 ## Rule
 
@@ -13,7 +13,7 @@ The Malay voice standard lives in three places that must agree:
 
 | File | Holds |
 |------|-------|
-| `.devin/skills/malay-voice-guide/SKILL.md` | the full standard (authoritative) |
+| `.claude/skills/malay-voice-guide/SKILL.md` | the full standard (authoritative) |
 | `AGENTS.md` | a one-line-per-section quick summary + section count |
 | `scripts/verify-malay-voice.py` | the machine-checkable subset (wordlists) |
 
@@ -26,7 +26,7 @@ Change one, sync the others in the same session. A pattern that exists in only o
 Only top-level `## N.` headings count. Lettered `###` subsections (4a–4f, 11c–11e) do **not** add to the total; `## 11b` does, because it is a top-level heading.
 
 ```bash
-grep -cE "^## [0-9]+[a-z]?\. " .devin/skills/malay-voice-guide/SKILL.md
+grep -cE "^## [0-9]+[a-z]?\. " .claude/skills/malay-voice-guide/SKILL.md
 ```
 
 **Current count: 14** (sections 1–13 plus 11b).
@@ -92,8 +92,8 @@ The numbered list in AGENTS.md must match the section count in SKILL.md, and the
 - Do **not** duplicate full pattern details into AGENTS.md — one-line summaries only
 - Do **not** touch the Voice Characteristics table or the Humour section in AGENTS.md
 - Do **not** add casual Malay sources; the skill uses natural formal–semi-formal references only
-- Do **not** paste the skill's tables into `write-post/SKILL.md` or any workflow. The voice guide is the single home. See the "Where Things Live" table in `.devin/skills/write-post/SKILL.md`.
+- Do **not** paste the skill's tables into `write-post/SKILL.md` or any workflow. The voice guide is the single home. See the "Where Things Live" table in `.claude/skills/write-post/SKILL.md`.
 
 ---
 
-*Corrected 2026-07-30: register phrase updated from "semi-formal" to "natural formal–semi-formal", section count 13 → 14, counting method made explicit, script-sync and DBP-verification steps added. Relocated from the global TSOT rules folder to `.devin/rules/` because this rule is DigiTrust Lab-specific and Devin loads project rules from here.*
+*Corrected 2026-07-30: register phrase updated from "semi-formal" to "natural formal–semi-formal", section count 13 → 14, counting method made explicit, script-sync and DBP-verification steps added. Relocated from the global TSOT rules folder to `.claude/rules/` because this rule is DigiTrust Lab-specific.*

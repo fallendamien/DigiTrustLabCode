@@ -29,7 +29,7 @@ description: Manage content planning files — update content-calendar.md with k
 | `AGENTS.md` | Reference path to `content/content-calendar.md` for post planning |
 | `ROADMAP.md` | Milestone updates when posts are published |
 | `NEXT.md` | Current task references to content calendar |
-| `.devin/skills/writerzen-keyword-research/SKILL.md` | Full WriterZen research pipeline (Topic Discovery → Keyword Explorer → Keyword Planner → Content Brief → Outline). 29 source files in `content/writerzen-guide/`. Point to `content/content-calendar.md` for recording metrics |
+| `.claude/skills/writerzen-keyword-research/SKILL.md` | Full WriterZen research pipeline (Topic Discovery → Keyword Explorer → Keyword Planner → Content Brief → Outline). 29 source files in `content/writerzen-guide/`. Point to `content/content-calendar.md` for recording metrics |
 
 ## When This Rule Activates
 

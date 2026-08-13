@@ -264,8 +264,8 @@ This file's `mcpServers` block is where `Desktop`-type local extensions
 (tagged `Local dev` in the Connectors UI) actually come from — it's not
 managed by the Connectors UI "Add" button for Web connectors.
 
-**Current state (as of 2026-07-29):** Only `pieces` and `fetch` remain here —
-both genuinely local-only with no Web equivalent. `Context7` was removed
+**Current state (as of 2026-07-29):** Only `fetch` remains here, a genuinely
+local-only extension with no Web equivalent. `Context7` was removed
 from this file (it also exists as a `Web` connector, so it was a true
 duplicate). Verified end-to-end after restart: Claude Code now shows exactly
 **one** Context7 tool namespace — `mcp__105f132a-5af6-41e0-aeca-3779cae338ff__*`
@@ -283,7 +283,7 @@ the right one was removed.
 
 **Before removing anything from this file:** check whether the entry has a
 `Web`-type duplicate in Settings → Connectors first. If it doesn't (like
-`fetch` and `pieces`), removing it disables that capability entirely in both
+`fetch`), removing it disables that capability entirely in both
 Claude Desktop and Claude Code — there's no fallback.
 
 ---
@@ -403,7 +403,7 @@ Config backups from this work: `%USERPROFILE%\.devin-config-backup\`.
 ### Why no per-project `mcpServers` in `~/.claude.json`
 
 We previously mirrored Devin's TSOT `mcp_config.json` into
-`~/.claude.json` per-project (`Pieces`, `respira-wordpress`,
+`~/.claude.json` per-project (`respira-wordpress`,
 `devin/mcp-playwright`, `devin/fetch`). All four were **redundant** with
 Connectors that were already installed at the user level. Duplicating them
 just created maintenance burden and breakage surface area (e.g. `devin/fetch`
