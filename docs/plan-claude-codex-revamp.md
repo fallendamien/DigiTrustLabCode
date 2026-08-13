@@ -67,6 +67,16 @@ Next phase
 **One writer per artifact.** Claude and Codex never edit the same file in the
 same phase. The handoff brief specifies who owns which files.
 
+### Handoff Brief Required Sections
+
+Every handoff brief MUST include all five:
+
+1. **Exact scope and files** — full paths, whether create/modify/move/delete
+2. **Invariants and forbidden changes** — what must NOT be touched
+3. **Commands Codex must run** — verification commands with expected output
+4. **Acceptance criteria** — measurable pass/fail gates
+5. **Rollback instructions** — how to undo if a gate fails
+
 ---
 
 ## What We're Working With (measured 2026-08-13)
@@ -262,9 +272,17 @@ Codex reports completion. Claude verifies:
 
 ## Phase 4 — Prove the Workflow
 
-**Owner:** Split — Claude tests MCP/doctrine, Codex runs validators
+**Owner:** Split — see ownership table below
 **Time estimate:** ~30 minutes
 **Depends on:** Phase 3 verified by Claude
+
+### Verification Ownership
+
+| Agent | Owns | Rationale |
+|---|---|---|
+| **Claude** | MCP connectivity, live WordPress/Bricks behavior, browser/editor evidence | Requires MCP tools and live site access |
+| **Codex** | File structure, validators, tests, git diff, reference/path scans | Requires repo access and command execution |
+| **Both** | Final acceptance review — each signs off independently | Neither alone can cover the full surface |
 
 ### Claude's Verification
 
@@ -273,6 +291,7 @@ Codex reports completion. Claude verifies:
 3. Invoke one content skill from `.claude/skills/`
 4. Call `respira_diagnose_connection` — must succeed
 5. Verify no Pieces MCP errors
+6. Spot-check one Bricks template read via `respira_extract_builder_content`
 
 ### Codex's Verification
 
@@ -281,6 +300,7 @@ Codex reports completion. Claude verifies:
 3. Run `python scripts/verify-malay-naturalness.py` on an existing post
 4. Run `python -m pytest tests/` — all tests must pass
 5. Verify no broken file references in migrated skills
+6. `grep -ri "pieces\|search_memory\|ask_pieces_ltm"` — must return zero
 
 ### Success Criteria (ALL must pass)
 
@@ -303,6 +323,12 @@ all gates pass.
 **Owner:** Codex implements from Claude's handoff brief
 **Time estimate:** ~10 minutes
 **Depends on:** Phase 4 all gates passed
+
+### Key Rule: Archive First, Delete Nothing
+
+Move files to `deprecated/` first. Do NOT delete any file until Claude
+completes the final reference scan AND Codex verifies the repository state.
+Only then may truly dead files be removed (with user approval).
 
 ### Handoff Brief Contents
 
