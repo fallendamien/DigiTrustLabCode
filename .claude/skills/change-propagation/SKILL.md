@@ -36,8 +36,8 @@ Before making the first edit, scan ALL documentation files that could reference 
 | Scan Target | How to Find | What to Look For |
 |-------------|-------------|------------------|
 | `AGENTS.md` | Always check | Voice rules, style policies, section summaries |
-| `.devin/skills/*/SKILL.md` | `find_by_name SKILL.md` | Any skill that references the policy domain |
-| `.devin/rules/*.md` | `find_by_name *.md` in `.devin/rules/` | Operational rules that enforce the policy |
+| `.claude/skills/*/SKILL.md` | `find_by_name SKILL.md` | Any skill that references the policy domain |
+| `.claude/rules/*.md` | `find_by_name *.md` in `.claude/rules/` | Operational rules that enforce the policy |
 | `.windsurf/rules/*.md` | `find_by_name *.md` in `.windsurf/rules/` | Behavioral rules that reference the policy |
 | `content/content-calendar.md` | Direct read | Writer notes, briefs that reference the policy |
 | `ROADMAP.md`, `NEXT.md`, `STATE.json` | Direct read | Any references to the old standard |

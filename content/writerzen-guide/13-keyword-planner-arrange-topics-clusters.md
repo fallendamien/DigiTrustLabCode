@@ -4,7 +4,7 @@
 
 This is a short practical lesson (2:08) covering how to organise your topics and clusters inside the Keyword Planner after clustering is complete.
 
-> **Note:** No YouTube auto-transcript was available for this video. Content was recovered via Pieces LTM vision capture (screen activity recorded during viewing on 2026-07-14).
+> **Note:** No YouTube auto-transcript was available for this video. Content was recovered via screen activity notes (viewing session on 2026-07-14).
 
 ---
 
@@ -29,4 +29,4 @@ Based on the lesson title and standard Keyword Planner workflow, the full 2:08 v
 
 ---
 
-*Content recovered from Pieces LTM vision capture — 2026-07-14 08:38–08:44 AM. Update with full transcript if available.*
+*Content recovered from screen activity notes — 2026-07-14 08:38–08:44 AM. Update with full transcript if available.*

@@ -96,7 +96,7 @@ incident and prevention sequence are documented in
 - **ONE Keyword Planner project PER blog post topic** — WriterZen clustering is one-time, cannot append to existing
 - **ONE Content Creator project**: "DigiTrust Lab" (existing) — all articles under this project
 
-> **Full keyword research detail:** See `.devin/skills/writerzen-keyword-research/SKILL.md` for WriterZen tool walkthrough, Golden Filter thresholds, and Weak Spot gate methodology.
+> **Full keyword research detail:** See `.claude/skills/writerzen-keyword-research/SKILL.md` for WriterZen tool walkthrough, Golden Filter thresholds, and Weak Spot gate methodology.
 
 ## Steps
 
@@ -305,11 +305,11 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
 2. Set AI Creativity Level = 1 for best quality
 3. Let AI generate the full draft based on the content brief + outline
 4. Review generated content section by section
-5. **Edit for DigiTrust Lab voice** — match the semi-formal Malay standard from `.devin/skills/malay-voice-guide/SKILL.md`
+5. **Edit for DigiTrust Lab voice** — match the semi-formal Malay standard from `.claude/skills/malay-voice-guide/SKILL.md`
 6. **Reformat walls of text into rich visual structure** (MANDATORY):
    - WriterZen AI produces flat walls of text — every section must be reformatted
    - Use the full formatting toolkit: blockquotes, bullet/numbered lists, bold labels, before/after blocks, contrast pairs, warning/tip boxes
-   - **See `.devin/skills/readability-pass/SKILL.md`** for the complete Rich Formatting Toolkit, blockquote/callout templates, and Formatting Checklist
+   - **See `.claude/skills/readability-pass/SKILL.md`** for the complete Rich Formatting Toolkit, blockquote/callout templates, and Formatting Checklist
    - Run the Formatting Checklist before publishing — no section should be a sea of text
    - Reference standards: Post #2 (`/cara-guna-chatgpt/`) and Post #3 (`/cara-buat-prompt-chatgpt/`)
 7. Run **Show Analysis** — fix any flagged SEO issues
@@ -457,7 +457,7 @@ python scripts/verify-malay-voice.py <post-id>
 - If the command exits 2 for an unknown ID, stop and complete the Phase 5.4
   registration before rerunning. Do not treat configuration failure as a pass.
 
-> **Full Malay voice standard:** See `.devin/skills/malay-voice-guide/SKILL.md` for the complete guide, including the publish gate protocol, DBP-aligned spelling, Bahasa Indonesia detection, and what the script cannot check (heading typos, tatabahasa, sentence fragments, comma splices, read-aloud flow).
+> **Full Malay voice standard:** See `.claude/skills/malay-voice-guide/SKILL.md` for the complete guide, including the publish gate protocol, DBP-aligned spelling, Bahasa Indonesia detection, and what the script cannot check (heading typos, tatabahasa, sentence fragments, comma splices, read-aloud flow).
 
 #### 6.5c: Live Presentation and SEO Evidence
 
@@ -555,7 +555,7 @@ stale approval hash.
    - If authentication, quota, or a sitemap/cache issue blocks the request,
      record a follow-up instead of claiming completion.
 7. **Run internal link builder** — Use the `internal-link-builder` skill to scan existing posts and add links pointing TO the new post:
-   - Trigger: "build internal links" or load skill from `.devin/skills/internal-link-builder/SKILL.md`
+   - Trigger: "build internal links" or load skill from `.claude/skills/internal-link-builder/SKILL.md`
    - This finds mentions of the new post's topic in older posts and adds contextual links back
    - Review the plan before applying (skill always asks for confirmation)
    - This is critical: the new post links UP to pillar content (done in Phase 5.4), but old posts must also link DOWN to the new post
@@ -611,7 +611,7 @@ stale approval hash.
 - **Previous-post gate:** Verify the prior article's live and tracking status
   before selecting the next topic
 - **Language:** Bahasa Melayu baku, formal–semi-formal, 'anda' not 'korang'
-- **Italic Policy:** See `.devin/skills/malay-voice-guide/SKILL.md` §4c for full policy
+- **Italic Policy:** See `.claude/skills/malay-voice-guide/SKILL.md` §4c for full policy
 - **AI Creativity Level:** Always set to 1
 - **Content Creator Project:** Always use existing "DigiTrust Lab" — never create new
 - **Keyword List:** Always use existing "DigiTrust Lab Blog Posts" (ID: 68708)
@@ -627,7 +627,7 @@ stale approval hash.
 - **In-content images:** Add images under H2 sections to break up text. See `content/image-prompts.md` for prompts
 - **Image prompts library:** All prompts stored in `content/image-prompts.md`. Update when a post is published
 - **Post Excerpt (MANDATORY):** Every post MUST have a manual excerpt (155–160 characters). Set and reload-verify it via the `wp.data` store method in Phase 5.4 before naturalness review and publication — NOT via Respira's `excerpt` parameter
-- **Content formatting (MANDATORY):** See `.devin/skills/readability-pass/SKILL.md` for Rich Formatting Toolkit, blockquote/callout templates, and Formatting Checklist
+- **Content formatting (MANDATORY):** See `.claude/skills/readability-pass/SKILL.md` for Rich Formatting Toolkit, blockquote/callout templates, and Formatting Checklist
 - **Malay naturalness gate (MANDATORY):** Run `python scripts/verify-malay-naturalness.py` against final HTML before Phase 6 and the live post after publication; both must exit 0
 - **Malay mechanical voice gate (MANDATORY):** Run `python scripts/verify-malay-voice.py <post-id>` in Phase 6.5 — must be 0 errors before Phase 7
 - **Content status gate (MANDATORY):** Run `python scripts/verify-content-status.py` at the end of Phase 7 — must exit 0 before committing. It does not cover ClickRank, Screpy, or GSC dashboard evidence
@@ -649,10 +649,10 @@ stale approval hash.
 
 | Topic | File | Rule |
 |-------|------|------|
-| Keyword research detail (WriterZen tools, Golden Filter, Weak Spot) | `.devin/skills/writerzen-keyword-research/SKILL.md` | Don't duplicate WriterZen UI steps here |
+| Keyword research detail (WriterZen tools, Golden Filter, Weak Spot) | `.claude/skills/writerzen-keyword-research/SKILL.md` | Don't duplicate WriterZen UI steps here |
 | Image prompt template, design system, variation guide, examples | `content/image-prompts.md` | Don't paste prompt templates here |
-| Rich Formatting Toolkit, blockquote/callout templates, Formatting Checklist | `.devin/skills/readability-pass/SKILL.md` | Don't paste HTML templates here |
-| Malay voice standard, publish gate, DBP rules, Bahasa Indonesia detection | `.devin/skills/malay-voice-guide/SKILL.md` | Don't paste voice rules here |
+| Rich Formatting Toolkit, blockquote/callout templates, Formatting Checklist | `.claude/skills/readability-pass/SKILL.md` | Don't paste HTML templates here |
+| Malay voice standard, publish gate, DBP rules, Bahasa Indonesia detection | `.claude/skills/malay-voice-guide/SKILL.md` | Don't paste voice rules here |
 | Delegation concepts and examples | `docs/knowledge-library/delegation-patterns.md` | Keep this skill to routing and phase ownership |
 | Sequential pipeline phases (−2 through 7) | **This file** | The pipeline lives here and only here |
 | Key Rules summary | **This file** | One-line reminders with pointers to full docs |

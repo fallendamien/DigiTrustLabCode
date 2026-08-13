@@ -140,7 +140,7 @@ WriterZen's "Write all for me" AI produces walls of text: flat paragraphs with n
 - [ ] Paragraphs are short (max 3-4 sentences)
 - [ ] Warning/tip boxes used for important callouts
 
-> **Formatting is structure only.** Language quality is a separate failure mode with its own authority: load `.devin/skills/malay-voice-guide/SKILL.md` and run its checks too. A perfectly formatted post can still be full of banned contractions and broken tatabahasa.
+> **Formatting is structure only.** Language quality is a separate failure mode with its own authority: load `.claude/skills/malay-voice-guide/SKILL.md` and run its checks too. A perfectly formatted post can still be full of banned contractions and broken tatabahasa.
 
 ### Reference Standards
 

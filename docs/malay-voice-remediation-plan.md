@@ -1,6 +1,6 @@
 # Malay Voice Remediation — Implementation Plan for Devin
 
-> **Created:** 2026-07-30 · **Owner:** Devin · **Verification:** `scripts/verify-malay-voice.py`
+> **Created:** 2026-07-30 · **Owner:** Codex · **Verification:** `scripts/verify-malay-voice.py`
 > **Supersedes the findings list in** `docs/malay-voice-audit-2026-07-30.md` — see §0.
 
 ---
