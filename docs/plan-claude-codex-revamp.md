@@ -1,10 +1,12 @@
 # Claude + Codex Revamp — Implementation Plan
 
+✅ **All phases completed 2026-08-14**
+
 > **Created:** 2026-08-13 (office laptop)
 > **Continue on:** home PC
 > **Decision source:** Claude Opus + Codex consensus session (see session transcript)
-> **Status:** Plan approved, Phase 0 not yet started
-> **Updated:** 2026-08-13 — revised to Claude+Codex handoff model (Codex implements, Claude researches/designs)
+> **Status:** All phases complete ✅
+> **Updated:** 2026-08-14 — all phases marked complete
 
 ---
 
@@ -134,9 +136,9 @@ TROUBLESHOOTING.md
 
 ### Tasks
 
-- [ ] `git tag pre-revamp-baseline` on current HEAD
-- [ ] Verify tag: `git show pre-revamp-baseline --quiet`
-- [ ] Note: the untracked `CLAUDE.md.bak_20260804_202141` is NOT captured by
+- [x] `git tag pre-revamp-baseline` on current HEAD
+- [x] Verify tag: `git show pre-revamp-baseline --quiet`
+- [x] Note: the untracked `CLAUDE.md.bak_20260804_202141` is NOT captured by
       a git tag — retain it manually until Phase 5
 
 ### Rollback
@@ -261,12 +263,12 @@ The brief will contain:
 ### After Phase 3
 
 Codex reports completion. Claude verifies:
-- [ ] `git diff --stat` matches expected changes
-- [ ] No skill content was lost
-- [ ] `grep -ri "pieces\|search_memory\|ask_pieces_ltm"` returns zero matches
-- [ ] `CLAUDE.md` and `AGENTS.md` both under 100 lines
-- [ ] `docs/ai/` files exist with correct content
-- [ ] Scripts and tests unchanged
+- [x] `git diff --stat` matches expected changes
+- [x] No skill content was lost
+- [x] `grep -ri "pieces\|search_memory\|ask_pieces_ltm"` returns zero matches
+- [x] `CLAUDE.md` and `AGENTS.md` both under 100 lines
+- [x] `docs/ai/` files exist with correct content
+- [x] Scripts and tests unchanged
 
 ---
 
@@ -304,12 +306,12 @@ Codex reports completion. Claude verifies:
 
 ### Success Criteria (ALL must pass)
 
-- [ ] Claude Code session loads doctrine without errors
-- [ ] At least one skill invocable from `.claude/skills/`
-- [ ] Respira MCP responds
-- [ ] All Python validators pass
-- [ ] No Pieces errors or missing-tool warnings
-- [ ] Codex can read and follow the new doctrine chain
+- [x] Claude Code session loads doctrine without errors
+- [x] At least one skill invocable from `.claude/skills/`
+- [x] Respira MCP responds
+- [x] All Python validators pass
+- [x] No Pieces errors or missing-tool warnings
+- [x] Codex can read and follow the new doctrine chain
 
 ### Failure Protocol
 
@@ -345,10 +347,10 @@ Only then may truly dead files be removed (with user approval).
 ### After Phase 5
 
 Claude does final verification:
-- [ ] No broken `@import` references
-- [ ] `.devin/` and `.windsurf/` in `deprecated/` only
-- [ ] Tag `post-revamp-v1` exists
-- [ ] Clean `git status`
+- [x] No broken `@import` references
+- [x] `.devin/` and `.windsurf/` in `deprecated/` only
+- [x] Tag `post-revamp-v1` exists
+- [x] Clean `git status`
 
 ---
 
