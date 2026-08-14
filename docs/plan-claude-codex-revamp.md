@@ -1,12 +1,12 @@
 # Claude + Codex Revamp — Implementation Plan
 
-✅ **All phases completed 2026-08-14**
+✅ **Phases 0–5 completed 2026-08-14** (Phase 6 is future work)
 
 > **Created:** 2026-08-13 (office laptop)
 > **Continue on:** home PC
 > **Decision source:** Claude Opus + Codex consensus session (see session transcript)
-> **Status:** All phases complete ✅
-> **Updated:** 2026-08-14 — all phases marked complete
+> **Status:** Phases 0–5 complete ✅ · Phase 6 future
+> **Updated:** 2026-08-14 — corrected: Phases 0–5 complete, Phase 6 is future work
 
 ---
 
