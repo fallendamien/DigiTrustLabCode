@@ -39,16 +39,15 @@ IMPORT_SOURCES = ["CLAUDE.local.md", "CLAUDE.md"]
 # Directories that are symlinks by design. A symlink that resolves to nothing,
 # or to a tree missing its expected file, is the 2026-07-30 failure exactly.
 SYMLINK_EXPECTATIONS = {
-    ".devin/skills":     "malay-voice-guide/SKILL.md",
-    # .devin/workflows removed 2026-08-01 — it duplicated .windsurf/workflows
-    # (both pointed at the same TSOT folder) and Devin is no longer in use.
-    # .windsurf/workflows is KEPT as the single browsable view of the global
-    # workflow set. Claude Code still loads commands from ~/.claude/commands,
-    # not from here; this symlink exists so the 31 workflows are visible and
-    # editable in the editor alongside the other TSOT trees.
     ".windsurf/workflows": "commit.md",
     ".windsurf/skills":  None,
     ".windsurf/rules":   "verification-protocol.md",
+}
+
+# Project-local dirs (real, git-tracked) that must contain key files.
+LOCAL_DIR_EXPECTATIONS = {
+    ".claude/skills":    "malay-voice-guide/SKILL.md",
+    ".claude/rules":     "bricks-mcp-absolute.md",
 }
 
 # Project rules whose GLOBAL copy, if one exists, must not drift.
@@ -77,15 +76,15 @@ DUPLICATED_RULES = [
     "malay-skill-sync.md",
 ]
 GLOBAL_RULES_DIR = ".windsurf/rules"   # symlink -> shared TSOT
-LOCAL_RULES_DIR = ".devin/rules"       # real dir, git-tracked, authoritative
+LOCAL_RULES_DIR = ".claude/rules"      # real dir, git-tracked, authoritative
 
 # Load-bearing files referenced by AGENTS.md / the pipeline. Cheap to assert.
 CRITICAL = [
     "AGENTS.md",
-    ".devin/skills/write-post/SKILL.md",
-    ".devin/skills/malay-voice-guide/SKILL.md",
-    ".devin/skills/readability-pass/SKILL.md",
-    ".devin/skills/writerzen-keyword-research/SKILL.md",
+    ".claude/skills/write-post/SKILL.md",
+    ".claude/skills/malay-voice-guide/SKILL.md",
+    ".claude/skills/readability-pass/SKILL.md",
+    ".claude/skills/writerzen-keyword-research/SKILL.md",
     "content/image-prompts.md",
     "content/content-calendar.md",
     "scripts/verify-malay-voice.py",
@@ -203,11 +202,27 @@ def main():
                 continue
         say(f"  ok       {d} ({kind})")
 
-    # -- 3a. project-level Claude memory architecture ----------------------
+    # -- 3a. local dirs (real, git-tracked) ---------------------------------
+    say("\n== local dirs (.claude/) ==")
+    for d, expected in LOCAL_DIR_EXPECTATIONS.items():
+        path = os.path.join(REPO, d)
+        if not os.path.exists(path):
+            failures.append(f"{d} does not exist")
+            say(f"  MISSING  {d}")
+            continue
+        if expected:
+            probe = os.path.join(path, expected)
+            if not os.path.exists(probe):
+                failures.append(f"{d} exists but is missing {expected}")
+                say(f"  WRONG    {d} — no {expected}")
+                continue
+        say(f"  ok       {d}")
+
+    # -- 3b. project-level Claude memory architecture ----------------------
     check_project_claude_memory(say, failures)
 
-    # -- 3b. project rules: authoritative copy present, global copy not stale --
-    say("\n== project rules (.devin authoritative) ==")
+    # -- 3c. project rules: authoritative copy present, global copy not stale --
+    say("\n== project rules (.claude authoritative) ==")
     for name in DUPLICATED_RULES:
         local = os.path.join(REPO, LOCAL_RULES_DIR, name)
         glob_ = os.path.join(REPO, GLOBAL_RULES_DIR, name)
