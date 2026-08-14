@@ -3,6 +3,10 @@
 This workspace defines a draft-only executive assistant for DigiTrust Lab.
 It is a bounded operating unit, not a second project doctrine source.
 
+The EA follows the [repo-local orchestration policy](../../docs/ai/orchestration-policy.md).
+It may coordinate department workers, but it must not perform substantive work
+as an orchestrator or bypass the worker and approval gates.
+
 ## Operating contract
 
 - Read the repository root `AGENTS.md` first. It remains the source of truth for

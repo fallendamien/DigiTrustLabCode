@@ -4,6 +4,10 @@ This directory is the repo-local routing layer for bounded specialist work. It
 organizes existing skills; it does not replace or duplicate the canonical
 skills in `.claude/skills/` or the shared TSOT exposed through `.windsurf/skills/`.
 
+All department work is subject to the [orchestration-only policy](../docs/ai/orchestration-policy.md):
+orchestrators dispatch bounded workers and integrate evidence; they do not do
+substantive work directly.
+
 ## Routing contract
 
 1. **Classify automatically.** Claude identifies the task's primary outcome and
