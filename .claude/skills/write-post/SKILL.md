@@ -29,16 +29,16 @@ publication authorization, canonical documentation, synthesis, and final
 verification.
 
 Use the configured default worker without passing model or reasoning overrides.
-The intended setup is **Sol Light as coordinator** and **Luna Medium as the
+The intended setup is **Sol Light as coordinator** and **Luna High as the
 default worker**. Delegate to Luna whenever a bounded task can be completed to the
 same standard more efficiently; do not spend Sol tokens redoing completed worker
 work. Sol reviews the evidence and makes only the integrated decision.
 
 | Work | Default owner | Parallel? |
 |------|---------------|-----------|
-| Calendar/status inventory, content-gap scan, source pack, immutable-file review | Luna Medium | Yes, only with independent inputs and disjoint scopes |
+| Calendar/status inventory, content-gap scan, source pack, immutable-file review | Luna High | Yes, only with independent inputs and disjoint scopes |
 | WriterZen → Content Creator stateful chain | One owner; prefer Luna when it has the authenticated Chrome binding | No |
-| Image prompt/filename preparation and deterministic local checks | Luna Medium | Yes, when they do not mutate the same artifact |
+| Image prompt/filename preparation and deterministic local checks | Luna High | Yes, when they do not mutate the same artifact |
 | WordPress writes, publishing, ClickRank, Screpy, GSC, canonical status files | One owner under Sol's phase control | No |
 | Final gate decisions, ambiguity, synthesis, and completion claim | Sol Light | No |
 
@@ -51,7 +51,7 @@ Token and context rules:
 5. Collect each result, verify the relevant evidence once, and close the worker immediately. See `docs/knowledge-library/delegation-patterns.md` for the human-readable explanation.
 
 The required Claude/Anthropic and OpenAI naturalness reviewers are independent
-review roles, not ordinary workflow delegation. A fresh Luna Medium session may
+review roles, not ordinary workflow delegation. A fresh Luna High session may
 serve as the OpenAI-family reviewer when it receives only the frozen final
 content and none of the other review. The Claude/Anthropic review must still
 come from that separate family.
@@ -603,7 +603,7 @@ stale approval hash.
 
 - **Goal and Plan:** Use a Goal only when explicitly requested; keep a Plan for
   phases -2 through 7 and resume it instead of restarting completed work
-- **Delegation:** Prefer the configured Luna Medium worker for bounded work;
+- **Delegation:** Prefer the configured Luna High worker for bounded work;
   Sol Light owns phase transitions, publishing authorization, synthesis, and
   final verification
 - **Single stateful owner:** Never parallelize authenticated Chrome, WriterZen,

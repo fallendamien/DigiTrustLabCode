@@ -15,10 +15,12 @@ POINTERS = {
 REQUIRED = (
     ("Codex Sol", "orchestrator"),
     ("Claude Opus", "orchestrator"),
-    ("Luna XHigh", "Luna Medium"),
+    ("Luna XHigh", "Luna High"),
     ("Haiku", "simple"),
     ("Sonnet", "complex"),
-    ("Luna Medium", "default"),
+    ("Luna High", "default"),
+    ("Luna High", "gpt-5.6-luna"),
+    ("Luna High", "high reasoning"),
 )
 
 
@@ -46,7 +48,7 @@ def main():
     if failures:
         print("FAIL orchestration policy: " + "; ".join(failures))
         return 1
-    print(f"PASS orchestration policy: policy present; 6 mappings; {pointers} pointers; caveat present")
+    print(f"PASS orchestration policy: policy present; {len(REQUIRED)} mappings; {pointers} pointers; caveat present")
     return 0
 
 

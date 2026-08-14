@@ -5,9 +5,9 @@ This file contains project-specific rules and operating standards for AI coding 
 ### Orchestration gate
 
 Codex Sol and Claude Opus are orchestration-only. Luna XHigh may orchestrate,
-but every child it dispatches must be Luna Medium. Substantive work goes to a
+but every child it dispatches must be Luna High. Substantive work goes to a
 bounded worker: Haiku for simple read-only scans, Sonnet for complex
-read-only/judgment work, or Luna Medium by default for implementation and
+read-only/judgment work, or Luna High by default for implementation and
 validation. Read [the repo-local orchestration policy](docs/ai/orchestration-policy.md)
 before dispatching work. This is a behavioral gate, not a runtime security
 boundary; unavailable workers or missing evidence require a fail-closed stop.

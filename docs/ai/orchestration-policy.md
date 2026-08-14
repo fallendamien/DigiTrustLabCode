@@ -8,13 +8,14 @@ This is the repo-local source of truth for model roles in DigiTrust Lab.
 |---|---|---|---|
 | Codex Sol | Orchestrator | Clarify, classify, route, dispatch, integrate, inspect evidence, report | All substantive research, judgment, implementation, and validation |
 | Claude Opus | Orchestrator | Same orchestration-only responsibilities | All substantive research, judgment, implementation, and validation |
-| Luna XHigh | Optional orchestrator | Same orchestration-only responsibilities | Every child must be Luna Medium |
-| Luna Medium | Default bounded worker | Assigned implementation and validation within scope | Self-delegation and self-approval |
+| Luna XHigh | Optional orchestrator | Same orchestration-only responsibilities | Every child must be Luna High |
+| Luna High | Default bounded worker | Assigned implementation and validation within scope | Self-delegation and self-approval |
 | Claude Sonnet | Complex read-only/judgment worker | Architecture review, synthesis, and bounded research | Work outside the brief |
 | Claude Haiku | Simple read-only worker | Narrow scans, lookups, and mechanical inspection | Writes, broad judgment, and self-delegation |
 
 Model names are behavioral routing labels. The active host must select the
 closest available worker and fail closed when the required worker is unavailable.
+Luna High means the `gpt-5.6-luna` model family at high reasoning effort.
 
 ## Orchestrator gate
 
@@ -29,7 +30,7 @@ validation as their own. If work is more than orchestration, dispatch it.
 
 - Haiku: simple, narrow, read-only scans.
 - Sonnet: complex read-only analysis, synthesis, or judgment.
-- Luna Medium: default implementation, file edits, bounded validation, and
+- Luna High: default implementation, file edits, bounded validation, and
   mixed tasks requiring careful execution.
 - Luna XHigh is never a child-worker target.
 - Workers do not spawn children, widen scope, or approve their own completion.

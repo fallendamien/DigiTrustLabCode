@@ -23,7 +23,7 @@ Example: fixing an authentication redirect bug.
   |
   | Investigate the complete authentication flow
   v
-  🌙 Luna Medium
+  🌙 Luna High
   |
   +-- inspect the login controller
   +-- trace the authentication service
@@ -88,7 +88,7 @@ The configured default is:
 
 ```text
 Parent:  🧠 Sol Light
-Worker:  🌙 Luna Medium
+Worker:  🌙 Luna High
 ```
 
 The number of workers that can run at once is controlled by the active Codex runtime's concurrency limit. It is not determined automatically from the task's size. More workers are useful only when the work is genuinely parallelisable.
@@ -96,7 +96,7 @@ The number of workers that can run at once is controlled by the active Codex run
 ## DigiTrust Lab article example
 
 For one article, 🧠 Sol keeps the Goal, Plan, publishing decision, and final
-verification. 🌙 Luna Medium should handle bounded work whenever it can do so to
+verification. 🌙 Luna High should handle bounded work whenever it can do so to
 the same standard with fewer coordinator tokens.
 
 ```text

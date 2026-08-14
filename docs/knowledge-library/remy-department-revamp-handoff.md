@@ -103,10 +103,10 @@ The roles are deliberately separated:
 | --- | --- |
 | Codex Sol | Orchestration only |
 | Claude Opus | Orchestration only |
-| Luna XHigh | May orchestrate, but every child must be Luna Medium |
+| Luna XHigh | May orchestrate, but every child must be Luna High |
 | Haiku | Simple, straightforward, read-only scans |
 | Sonnet | Complex read-only analysis or judgment work |
-| Luna Medium | Default for implementation and validation |
+| Luna High | Default for implementation and validation |
 
 Workers are bounded. They cannot self-delegate, widen scope, approve their own completion, or silently substitute a different worker. If the required worker or evidence is unavailable, the policy says to fail closed and stop rather than pretending the gate was satisfied.
 
@@ -148,7 +148,7 @@ worktree clean
 master ahead 1 before this new handoff document
 ```
 
-All six routing scenarios passed: Haiku simple read-only, Sonnet complex read-only/judgment, Luna Medium implementation/validation, direct Sol/Opus substantive work blocked, Luna XHigh restricted to Luna Medium children, and missing worker/evidence fail-closed behavior.
+All six routing scenarios passed: Haiku simple read-only, Sonnet complex read-only/judgment, Luna High implementation/validation, direct Sol/Opus substantive work blocked, Luna XHigh restricted to Luna High children, and missing worker/evidence fail-closed behavior.
 
 The remaining caveat is the behavioral-policy limitation described above: static and behavioral checks passed, but these checks are not a cryptographic runtime enforcement mechanism.
 
