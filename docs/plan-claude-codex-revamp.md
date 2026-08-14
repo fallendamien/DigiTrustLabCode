@@ -1,12 +1,12 @@
 # Claude + Codex Revamp — Implementation Plan
 
-✅ **Phases 0–5 completed 2026-08-14** (Phase 6 is future work)
+✅ **Phases 0–5 completed 2026-08-14** · **Phase 6 foundation implemented 2026-08-14**
 
 > **Created:** 2026-08-13 (office laptop)
 > **Continue on:** home PC
 > **Decision source:** Claude Opus + Codex consensus session (see session transcript)
-> **Status:** Phases 0–5 complete ✅ · Phase 6 future
-> **Updated:** 2026-08-14 — corrected: Phases 0–5 complete, Phase 6 is future work
+> **Status:** Phases 0–5 complete ✅ · Phase 6 foundation active; authenticated connector pilot pending
+> **Updated:** 2026-08-14 — added department foundation, EA workspace, and draft-only schedule
 
 ---
 
@@ -354,22 +354,40 @@ Claude does final verification:
 
 ---
 
-## Phase 6 — Executive Assistant Pilot (Future)
+## Phase 6 — Executive Assistant Pilot
 
-**Not part of this migration.** Separate initiative after the lean base is
-proven.
+The foundation is implemented after the lean base was proven. The remaining
+pilot work is connector authentication, live dry-runs, and measuring the
+time-saving target.
 
-Create a new workspace folder:
+Implemented department layer:
+```
+departments/{content,seo,operations,research}/
+├── AGENTS.md
+├── skills/README.md
+└── workflow.md
+```
+
+Implemented EA workspace:
 ```
 workspaces/executive-assistant/
-├── claude.md           # "You are my EA..."
-├── memory.md           # Self-updating preferences
+├── AGENTS.md           # Shared EA contract and approval boundary
+├── CLAUDE.md           # Thin workspace adapter
+├── memory.md           # Private EA preferences and working context
+├── integrations.md     # Gmail/Calendar pilot scopes
+├── schedules.md        # Weekday brief and Friday review
 └── skills/             # Daily brief, meeting prep, referrals
 ```
 
-Connect: Gmail, Google Calendar, Granola, Notion, Stripe.
-Success criteria: ~30 min saved per day, draft-quality output, no unauthorized
-external actions.
+Pilot integrations: Gmail and Google Calendar first. Granola, Notion, and
+Stripe remain deferred adapters.
+
+The Codex heartbeat runs the daily brief Monday–Thursday and switches to
+weekly-review mode on Friday at 08:00 Asia/Kuala_Lumpur. All outputs remain
+draft-only; no external action is authorized without user approval.
+
+Success criteria: ~30 min saved per day, draft-quality output, authenticated
+read-only dry-runs, and no unauthorized external actions.
 
 ---
 
