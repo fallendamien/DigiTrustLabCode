@@ -60,6 +60,7 @@ nimbalyst-local/
 # Keep: AGENTS.md, WINDSURF.md, CLAUDE.md, .codex/instructions.md (portable text files)
 .windsurf/
 
-# Agentic AI folders (machine-specific symlinks, not portable across machines)
-# Keep: AGENTS.md, WINDSURF.md, CLAUDE.md, .codex/instructions.md (portable text files)
-.claude/
+# Claude Code config (agents, settings) — NOT rules/skills
+.claude/agents/
+.claude/settings.json
+.claude/settings.local.json
