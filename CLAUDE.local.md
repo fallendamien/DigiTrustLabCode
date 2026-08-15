@@ -24,6 +24,7 @@ cloned, regardless of the absolute path.
 @.claude/rules/content-planning.md
 @.claude/rules/browser-preview.md
 @.claude/rules/malay-skill-sync.md
+@workspaces/executive-assistant/skills/inquiry-router/SKILL.md
 @.windsurf/rules/verification-protocol.md
 @.windsurf/rules/self-improvement-loader.md
 @.windsurf/rules/change-summary-rule.md
