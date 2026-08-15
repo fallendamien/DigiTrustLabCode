@@ -383,6 +383,33 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 
 ---
 
+## Post #12 — DRAFTING
+
+| Field | Value |
+|-------|-------|
+| Title | Contoh Minit Mesyuarat: Cara Susun Nota dengan AI |
+| Keyword | `contoh minit mesyuarat` |
+| Search intent | Informational / definition / awareness |
+| Search Volume | 4,400/mo |
+| KD (Content / Traffic / Signal) | 0 / 9 / 0 |
+| Golden Score | 1 |
+| All-in-Title | 0 |
+| Weak Spot | 2 (Avg DA 53.9; Low DA 17; High DA 89) |
+| Category | Digital Skills |
+| Status | DRAFTING — raw WriterZen draft saved; rewrite awaiting review |
+| WriterZen Topic Discovery | Report 245489 — original note-focused research; validated pivot emerged through meeting-minutes alternatives |
+| WriterZen Keyword Explorer | Report 1564642 — `contoh minit mesyuarat` |
+| WriterZen Keyword Planner | Project 178645 — `Post 7 - Contoh Minit Mesyuarat` |
+| WriterZen Content Creator | Article 243984 — 877 words; 12 headings; 19 paragraphs |
+| Supporting keywords | `contoh minit mesyuarat ringkas`; `contoh minit mesyuarat terkini`; `format penulisan`; `tidak hadir`; `alat ai`; `minit mesyuarat`; `susun nota mesyuarat`; `AI untuk minit mesyuarat` |
+| Content angle | Panduan langkah demi langkah untuk menyediakan minit mesyuarat yang kemas, ringkas dan mudah dirujuk, dengan contoh struktur serta AI sebagai pembantu menyusun nota dan menyemak butiran. AI tidak menggantikan semakan manusia. |
+| Internal-link plan | Link contextually to relevant existing AI or ChatGPT guidance during the rewrite; no exact URL or anchor has been confirmed yet. |
+| Validation date | 2026-08-12 via WriterZen Topic Discovery, Keyword Explorer, Golden Filter and activated Planner metrics |
+
+> Calendar mapping: this is a genuinely new opportunity adjacent to Post #7, not a replacement. Post #7 remains planned because its broader note-taking intent is distinct and its original keyword candidates did not pass live demand checks.
+
+---
+
 ## Workflow (Option C — Standard Pipeline)
 
 > **Full step-by-step:** `.devin/skills/write-post/SKILL.md` is the authoritative version. This is the summary.
