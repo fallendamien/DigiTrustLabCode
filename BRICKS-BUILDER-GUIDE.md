@@ -535,6 +535,21 @@ Embed dynamic data in element settings using `{tag_name}` syntax. Call `bricks:g
 {"name": "button", "settings": {"text": "Read More", "link": {"type": "dynamic", "dynamicData": "{post_url}"}}}
 ```
 
+**Making an image clickable (card images in a query loop)** — the image element takes the
+SAME `link` object as heading/button. It does **not** use the `link: "custom"` + `url`
+form that the builder's "Link To → Custom URL" control implies:
+```json
+{"name": "image", "settings": {
+  "image": {"useDynamicData": "{featured_image}"},
+  "link": {"type": "external", "url": "{post_url}"}
+}}
+```
+`link: "custom"` + `url: "{post_url}"` renders `<a class="brxe-… tag">` with **no `href`** —
+the anchor appears but the card is not clickable. Verified 2026-08-15 on template 52 and
+page 280. Note the new `<a>` wrapper is `display:inline` by default; if the image sat in a
+width-constrained flex/grid cell (e.g. the `_width:"48%"` hero), add `display:block` to the
+element's `_cssCustom` or the layout collapses.
+
 **Tag filters:**
 - `{post_excerpt:20}` — limit to 20 words
 - `{featured_image:medium}` — specific image size
@@ -1646,6 +1661,7 @@ Export is read-only (no license). Import requires a license (write operation).
 18. **`design` tool domain names are strict** — Only 6 values accepted: `theme_style`, `global_class`, `color_palette`, `global_variable`, `typography_scale`, `font`. Using `colors`, `variables`, `classes`, or `global_css` silently fails with a generic "Tool execution failed" error. Source: `Router.php:4885` `match()` dispatch.
 19. **`template:update` silently ignores `elements`** — The `elements` parameter is in the schema but `update_template_meta()` only handles `title`, `status`, `slug`, `type`, `tags`, `bundles`. Elements are never written. Returns success with unchanged data — a silent no-op. Use `content:update_content` with `post_id` to write elements. Source: `BricksService.php:851-937`.
 20. **`template:list` type filter uses Bricks-internal slugs** — `type: "content"` (not `"single"`), `type: "header"`, `type: "footer"`, `type: "archive"`, `type: "search"`, `type: "error"`, `type: "section"`, `type: "popup"`, `type: "password_protection"`. Using `"single"` fails with "invalid arguments" (MCP schema validation rejects before reaching PHP).
+21. **Image element clickable link needs the `{"type": "external", "url": "{tag}"}` object** — `link: "custom"` + `url` mirrors the builder's "Custom URL" control but renders an anchor with no `href` attribute. Use the same link object shape as heading/button elements; also add `display:block` in `_cssCustom` since the new `<a>` wrapper defaults to `display:inline`.
 
 ## Connection Troubleshooting
 
