@@ -756,10 +756,11 @@ and both lessons files, while Claude had all twelve. Nothing
 errored. A missing rule is indistinguishable from a followed one unless something
 checks.
 
-### Tier 1 — read at session start, every session (~7 KB total)
+### Tier 1 — read at session start, every session (~11 KB total)
 
-These change baseline behaviour and are cheap to load. Read all four before your
-first substantive action.
+These change baseline behaviour and are cheap to load. Read all five before your
+first substantive action. Agents without an import mechanism must also read the
+EA routing entrypoint below before handling a general inquiry.
 
 | File | What it governs |
 |------|-----------------|
@@ -767,6 +768,7 @@ first substantive action.
 | `.claude/rules/bricks-mcp-absolute.md` | Enforcement detail for PRIORITY #1 above |
 | `.windsurf/rules/context7-default.md` | Use Context7 for library/API docs by default |
 | `.windsurf/rules/change-summary-rule.md` | Required output format after multi-file changes |
+| `workspaces/executive-assistant/skills/inquiry-router/SKILL.md` | EA entrypoint for classifying general inquiries |
 
 ### Tier 2 — read when the trigger matches
 
