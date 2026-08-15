@@ -19,11 +19,13 @@ flowchart TD
     R --> S["SEO"]
     R --> P["Operations"]
     R --> Q["Research"]
+    R --> CR["Creative"]
 
     C --> CTX["Department AGENTS.md + workflow.md"]
     S --> CTX
     P --> CTX
     Q --> CTX
+    CR --> CTX
 
     CTX --> IDX["skills/README.md"]
     IDX --> LOCAL["Project skills<br/>.claude/skills/"]
@@ -57,7 +59,9 @@ flowchart LR
     X -. "implements and validates" .-> V
 ```
 
-The first diagram is preserved exactly as the original reference, including its undefined `X` node. It is intentionally not normalized or repaired here.
+The first diagram retains the original reference's undefined `X` node. It is
+intentionally not normalized or repaired here; the Creative route was added
+alongside the existing department routes.
 
 ## What changed from the old TSOT-only mental model
 
@@ -66,7 +70,7 @@ The old mental model treated TSOT as the main operating surface: find a shared r
 | Layer | Responsibility | Current implementation |
 | --- | --- | --- |
 | Shared foundation | Canonical rules, skills, workflows, and cross-project parity | TSOT, including shared `.windsurf/` compatibility paths |
-| Department routing | Classify work and select operating context | `departments/content`, `departments/seo`, `departments/operations`, `departments/research` |
+| Department routing | Classify work and select operating context | `departments/content`, `departments/seo`, `departments/operations`, `departments/research`, `departments/creative` |
 | Shared context | Explain the department’s scope, workflow, and handoff contract | Each department has `AGENTS.md`, `skills/README.md`, and `workflow.md` |
 | SOP layer | Provide repeatable task recipes | `.claude/skills/` plus shared TSOT skills |
 | Work boundary | Perform bounded repository or external-system work | MCP tools and project rules |
@@ -82,12 +86,13 @@ Departments are routing and operating contracts, not autonomous agents. The orch
 - `departments/seo/` — SEO department context, workflow, and skill pointers.
 - `departments/operations/` — operations department context, workflow, and skill pointers.
 - `departments/research/` — research department context, workflow, and skill pointers.
+- `departments/creative/` — creative department context, workflow, and skill pointers.
 - `workspaces/executive-assistant/AGENTS.md` — EA operating contract.
-- `workspaces/executive-assistant/CLAUDE.md` — EA-specific loader/context.
 - `workspaces/executive-assistant/memory.md` — persistent working memory surface.
 - `workspaces/executive-assistant/integrations.md` — integration boundary and adapter status.
 - `workspaces/executive-assistant/schedules.md` — scheduled-work definitions.
-- `workspaces/executive-assistant/skills/` — daily brief, meeting prep, and referral triage SOPs.
+- `workspaces/executive-assistant/skills/` — inquiry router, daily brief, meeting prep, and referral triage SOPs.
+- `AGENTS.md` — tracked shared EA activation pointer; the per-device, gitignored `CLAUDE.local.md` imports `@AGENTS.md`.
 - `docs/ai/orchestration-policy.md` — model roles, worker mappings, and fail-closed rules.
 - `.claude/rules/orchestration-gate.md` — always-on Claude/Codex orchestration gate.
 - `scripts/verify-orchestration-policy.py` — static policy and pointer verification.
@@ -104,11 +109,19 @@ The roles are deliberately separated:
 | Codex Sol | Orchestration only |
 | Claude Opus | Orchestration only |
 | Luna XHigh | May orchestrate, but every child must be Luna High |
-| Haiku | Simple, straightforward, read-only scans |
-| Sonnet | Complex read-only analysis or judgment work |
+| Haiku | Simple, straightforward, read-only scans; report the actual model ID |
+| Sonnet | Complex read-only analysis or judgment work only through an actual Claude Sonnet adapter |
 | Luna High | Default for implementation and validation |
 
-Workers are bounded. They cannot self-delegate, widen scope, approve their own completion, or silently substitute a different worker. If the required worker or evidence is unavailable, the policy says to fail closed and stop rather than pretending the gate was satisfied.
+Host routing is explicit: Codex Sol dispatches substantive work to the actual
+OpenAI worker `gpt-5.6-luna` at `high` effort by default. Claude Opus may use
+the actual Claude bounded-worker adapter `claude-sonnet-4-6` when available.
+An OpenAI model such as `gpt-5.5` must never be labelled Claude Sonnet.
+Delegation announcements and results must state the actual model ID, effort,
+scope, and evidence. Workers are bounded. They cannot self-delegate, widen
+scope, approve their own completion, or silently substitute a different worker.
+If the required worker or evidence is unavailable, the policy says to fail
+closed and stop; a substitute requires explicit user authorization.
 
 This is a behavioral and prompt-level policy, not a cryptographic runtime security boundary. It establishes the required operating behavior and verification checks, but a model or client that ignores instructions could technically violate it. The smoke test therefore verifies policy presence, mappings, pointers, caveats, and expected routing scenarios; it does not claim to sandbox the model at runtime.
 
@@ -116,13 +129,23 @@ This is a behavioral and prompt-level policy, not a cryptographic runtime securi
 
 The EA workspace is the first department-like workspace with memory and scheduled-work scaffolding:
 
-- Gmail and Google Calendar are the first planned integration surfaces.
+- The router-only EA is active as of 2026-08-15. Its agent-neutral entrypoint is
+  [`workspaces/executive-assistant/skills/inquiry-router/SKILL.md`](../../workspaces/executive-assistant/skills/inquiry-router/SKILL.md),
+  shared by Codex and Claude for classification, one-primary-department routing,
+  direct simple answers, and bounded substantive dispatch.
+- Router contract checks live in
+  [`scripts/verify-ea-inquiry-router.py`](../../scripts/verify-ea-inquiry-router.py).
+- The authenticated Gmail and Google Calendar connector pilot remains pending;
+  these are planned read-first integration surfaces, not activated connectors.
 - External actions are draft-only until the user explicitly approves them.
 - `memory.md`, `integrations.md`, and `schedules.md` define persistent context, adapter boundaries, and recurring-work intent.
-- `daily-brief`, `meeting-prep`, and `referral-triage` are the initial skills.
+- `inquiry-router`, `daily-brief`, `meeting-prep`, and `referral-triage` are the initial skills.
+- Schedules remain pending/deferred scaffolding. No external automation was activated.
 - Notion, Granola, and Stripe adapters remain deferred future work.
 
-The current daily-brief automation is a bounded reminder/briefing workflow. It does not silently send email, change calendar events, or perform other external writes.
+The planned daily-brief heartbeat is a bounded reminder/briefing workflow. It
+has not been activated and does not silently send email, change calendar events,
+or perform other external writes.
 
 ## Why `.windsurf/` references remain
 
@@ -132,12 +155,13 @@ Zed is the primary editor. Claude Code and Codex are the active agent surfaces. 
 
 ## Commits that established the revamp
 
-- `4a81a60 feat(agents): add departments and executive assistant pilot` — added the four departments, their routing/context files, and the executive-assistant pilot workspace.
+- `4a81a60 feat(agents): add departments and executive assistant pilot` — added the four original departments, their routing/context files, and the executive-assistant pilot workspace.
+- The Creative department was subsequently added for visual briefs, image-generation direction, variants, visual QA, and asset handoffs.
 - `853bf7f feat(orchestration): enforce model roles and worker delegation` — added the orchestration gate, shared policy, pointers, and verifier.
 
 ## Verification evidence
 
-The latest delegated smoke test passed:
+The historical delegated smoke test passed:
 
 ```text
 verify-orchestration-policy.py PASS (policy present; 6 mappings; 4 pointers; caveat present)
@@ -148,7 +172,9 @@ worktree clean
 master ahead 1 before this new handoff document
 ```
 
-All six routing scenarios passed: Haiku simple read-only, Sonnet complex read-only/judgment, Luna High implementation/validation, direct Sol/Opus substantive work blocked, Luna XHigh restricted to Luna High children, and missing worker/evidence fail-closed behavior.
+The static policy verifier now also checks host-specific model identity and can
+report machine-specific Codex config drift. Use `--strict-codex-config` to turn
+that warning into a failing gate; it never overwrites the user's config.
 
 The remaining caveat is the behavioral-policy limitation described above: static and behavioral checks passed, but these checks are not a cryptographic runtime enforcement mechanism.
 
@@ -169,6 +195,6 @@ After this commit is pushed from the office PC:
 
 4. Confirm that the local `CLAUDE.md` and `CLAUDE.local.md` import chain exists and that the imported targets resolve.
 5. Restart Claude Code or Codex after shared rules, symlinks, or loader files have changed so the new operating context is loaded.
-6. Start the next task from either Claude or Codex. State the desired outcome naturally; use an explicit `department: content|seo|operations|research` override only when you want to force routing.
+6. Start the next task from either Claude or Codex. State the desired outcome naturally; use an explicit `department: content|seo|operations|research|creative` override only when you want to force routing.
 
 The repository remains one project. The migration is a layered operating-model upgrade: TSOT supplies the canonical shared foundation, while the Remy-style department layer supplies routing, contracts, specialists, memory, schedules, MCP boundaries, and evidence gates.

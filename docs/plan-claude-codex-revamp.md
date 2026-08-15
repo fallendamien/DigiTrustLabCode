@@ -1,12 +1,12 @@
 # Claude + Codex Revamp — Implementation Plan
 
-✅ **Phases 0–5 completed 2026-08-14** · **Phase 6 foundation implemented 2026-08-14**
+✅ **Phases 0–5 completed 2026-08-14** · **Phase 6 router-only EA active 2026-08-15**
 
 > **Created:** 2026-08-13 (office laptop)
 > **Continue on:** home PC
 > **Decision source:** Claude Opus + Codex consensus session (see session transcript)
-> **Status:** Phases 0–5 complete ✅ · Phase 6 foundation active; authenticated connector pilot pending
-> **Updated:** 2026-08-14 — added department foundation, EA workspace, and draft-only schedule
+> **Status:** Phases 0–5 complete ✅ · Phase 6 router-only EA active; authenticated connector pilot and schedules pending
+> **Updated:** 2026-08-15 — activated the agent-neutral inquiry router; connector and schedule automation remain deferred
 
 ---
 
@@ -356,13 +356,16 @@ Claude does final verification:
 
 ## Phase 6 — Executive Assistant Pilot
 
-The foundation is implemented after the lean base was proven. The remaining
-pilot work is connector authentication, live dry-runs, and measuring the
-time-saving target.
+The router-only EA is active as of 2026-08-15. It is the agent-neutral entrypoint
+for both Codex and Claude: it classifies an inquiry, selects one primary
+department, answers simple questions directly, and dispatches bounded
+substantive work under the orchestration policy. The authenticated Gmail and
+Google Calendar connector pilot remains pending, and the schedule definitions
+remain draft-only scaffolding; no external automation was activated.
 
 Implemented department layer:
 ```
-departments/{content,seo,operations,research}/
+departments/{content,seo,operations,research,creative}/
 ├── AGENTS.md
 ├── skills/README.md
 └── workflow.md
@@ -372,18 +375,25 @@ Implemented EA workspace:
 ```
 workspaces/executive-assistant/
 ├── AGENTS.md           # Shared EA contract and approval boundary
-├── CLAUDE.md           # Thin workspace adapter
 ├── memory.md           # Private EA preferences and working context
 ├── integrations.md     # Gmail/Calendar pilot scopes
 ├── schedules.md        # Weekday brief and Friday review
-└── skills/             # Daily brief, meeting prep, referrals
+└── skills/             # Inquiry router, daily brief, meeting prep, referrals
 ```
 
-Pilot integrations: Gmail and Google Calendar first. Granola, Notion, and
-Stripe remain deferred adapters.
+The tracked repo-root `AGENTS.md` is the shared activation pointer for the EA
+router. The per-device, gitignored `CLAUDE.local.md` already imports
+`@AGENTS.md`; it is not part of the tracked workspace implementation.
 
-The Codex heartbeat runs the daily brief Monday–Thursday and switches to
-weekly-review mode on Friday at 08:00 Asia/Kuala_Lumpur. All outputs remain
+Router contract: `workspaces/executive-assistant/skills/inquiry-router/SKILL.md`.
+Router verification: `scripts/verify-ea-inquiry-router.py`.
+
+Pilot integrations: authenticated Gmail and Google Calendar first, but both
+remain pending. Granola, Notion, and Stripe remain deferred adapters.
+
+The planned Codex heartbeat would run the daily brief Monday–Thursday and switch
+to weekly-review mode on Friday at 08:00 Asia/Kuala_Lumpur. Schedules remain
+deferred and no external automation has been activated. All outputs remain
 draft-only; no external action is authorized without user approval.
 
 Success criteria: ~30 min saved per day, draft-quality output, authenticated

@@ -54,3 +54,43 @@ d1sect (Section, bg #FAFAF8, no padding)
 
 ### Key lesson
 Query loop settings written via Respira MCP to `_bricks_data` are stored in the DB but Bricks' frontend rendering engine does NOT activate them. The Bricks GUI editor must save the template to register query loops through Bricks' internal PHP hooks. This is a Bricks limitation, not a Respira bug.
+
+## ⚠️ UNTESTED: pagination vs manual `offset` — test at post #11 (noted 2026-08-15)
+
+**Status: not a known defect. A flagged risk that has never been exercised.**
+
+The site has **7 published posts** and page one holds **10** (hero 1 + grid 9),
+so a second page has never existed. `d7pagn` has therefore never rendered a real
+result — in the Bricks builder (`?bricks=run`) it always shows "No pagination
+results.", which is a builder placeholder and NOT a frontend fault.
+
+Verified live query config on 2026-08-15 via `respira_bricks_query_loops`:
+
+| Element | Query |
+|---|---|
+| `d4hero` | `postsPerPage: 1`, `offset: 0` |
+| `qefl9u` (grid) | `posts_per_page: 9`, `offset: 1` |
+
+**The risk.** WordPress normally derives the skip from the page number
+(`posts_per_page × (page − 1)`). A manual `offset` overrides that calculation,
+so page 2 may still skip only 1 post instead of 1 + 9 = 10. Separately,
+`max_num_pages` is computed from `found_posts ÷ posts_per_page` **without**
+subtracting the offset, so WordPress may advertise a page 2 that has no content.
+
+At 11 posts:
+
+| | Intended | Possible bug |
+|---|---|---|
+| Page 1 | hero (#1) + posts 2–10 | same |
+| Page 2 | post 11 | posts 2–10 repeated, or empty |
+
+Bricks' own query builder may already compensate. Unknown either way.
+
+**Test when post #11 publishes:** load `/blog/?nocache=1`, click to page 2, and
+confirm post 11 appears exactly once with no repeat from page 1.
+
+**If it breaks**, the usual remedies are (a) drop the manual offset and exclude
+the hero via `post__not_in`, or (b) adjust the offset per page in
+`pre_get_posts`. Do not pre-emptively apply either — per the Bricks-Only Policy,
+and because query-loop settings written via MCP do not register without a Bricks
+GUI save (see Key lesson above).

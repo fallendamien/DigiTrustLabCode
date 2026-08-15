@@ -6,11 +6,23 @@ This file contains project-specific rules and operating standards for AI coding 
 
 Codex Sol and Claude Opus are orchestration-only. Luna XHigh may orchestrate,
 but every child it dispatches must be Luna High. Substantive work goes to a
-bounded worker: Haiku for simple read-only scans, Sonnet for complex
-read-only/judgment work, or Luna High by default for implementation and
-validation. Read [the repo-local orchestration policy](docs/ai/orchestration-policy.md)
-before dispatching work. This is a behavioral gate, not a runtime security
-boundary; unavailable workers or missing evidence require a fail-closed stop.
+bounded worker. Codex Sol uses the actual OpenAI worker `gpt-5.6-luna` at high
+reasoning effort by default; it must never label `gpt-5.5` or another OpenAI
+model as Claude Sonnet. Claude Opus may use the actual `claude-sonnet-4-6`
+adapter for complex read-only/judgment work when available. Read [the repo-local
+orchestration policy](docs/ai/orchestration-policy.md) before dispatching work,
+and report actual model ID, effort, and evidence. This is a behavioral gate,
+not a runtime security boundary; unavailable workers or missing evidence require
+a fail-closed stop or explicit user authorization for a named substitute.
+
+### EA inquiry-routing entrypoint
+
+The agent-neutral EA entrypoint for general inquiries is
+[`workspaces/executive-assistant/skills/inquiry-router/SKILL.md`](workspaces/executive-assistant/skills/inquiry-router/SKILL.md).
+Both Codex and Claude must use this router to classify the requested outcome,
+select exactly one primary department, and either answer a simple question
+directly or dispatch one bounded worker for substantive work. It is draft-only:
+it does not activate connectors, schedules, publishing, or external writes.
 
 ## 📁 File Architecture — Who Reads What
 
