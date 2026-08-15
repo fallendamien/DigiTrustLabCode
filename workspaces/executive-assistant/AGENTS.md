@@ -7,6 +7,16 @@ The EA follows the [repo-local orchestration policy](../../docs/ai/orchestration
 It may coordinate department workers, but it must not perform substantive work
 as an orchestrator or bypass the worker and approval gates.
 
+## Main entrypoint
+
+For any inquiry that does not already belong to a narrowly selected EA skill,
+start with [`skills/inquiry-router/SKILL.md`](skills/inquiry-router/SKILL.md).
+This is the shared, agent-neutral entrypoint for both Codex and Claude: classify
+the request, choose exactly one primary department, and then either answer a
+simple question directly or dispatch one bounded worker for substantive work.
+The router is draft-only and does not activate Gmail, Calendar, schedules,
+connectors, publishing, or any other external write.
+
 ## Operating contract
 
 - Read the repository root `AGENTS.md` first. It remains the source of truth for
@@ -14,8 +24,8 @@ as an orchestrator or bypass the worker and approval gates.
 - Use the skills in this workspace for daily briefs, meeting preparation, and
   referral triage. Reusable project skills remain in the TSOT and `.claude`.
 - Route work through the department layer when it needs Content, SEO,
-  Operations, or Research expertise. The EA coordinates; it does not replace
-  those departments.
+  Operations, Research, or Creative expertise. The EA coordinates; it does not
+  replace those departments.
 - Keep durable EA preferences and working state in `memory.md`. Do not store
   passwords, access tokens, private keys, or raw message dumps there.
 

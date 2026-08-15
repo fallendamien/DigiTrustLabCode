@@ -10,10 +10,12 @@ substantive work directly.
 
 ## Routing contract
 
-1. **Classify automatically.** Claude identifies the task's primary outcome and
-   routes it to the matching department below.
+1. **Classify automatically.** The EA entrypoint, whether invoked from Codex or
+   Claude, identifies the task's primary outcome and routes it to the matching
+   department below.
 2. **Honor an explicit override.** If the user says `department: content`,
-   `department: seo`, `department: operations`, or `department: research`, use
+   `department: seo`, `department: operations`, `department: research`, or
+   `department: creative`, use
    that department unless the request is impossible or unsafe; explain any
    required cross-department handoff.
 3. **Use one primary department.** Add secondary departments only when a
@@ -30,6 +32,7 @@ substantive work directly.
 | `seo` | Search visibility, on-page SEO, AEO, links, or audits | [seo/AGENTS.md](seo/AGENTS.md) |
 | `operations` | Site operations, safety, deployment, change propagation, or reporting | [operations/AGENTS.md](operations/AGENTS.md) |
 | `research` | Discovery, competitors, audience, evidence gathering, or strategy inputs | [research/AGENTS.md](research/AGENTS.md) |
+| `creative` | Visual briefs, image generation/editing direction, variants, visual QA, and asset handoffs | [creative/AGENTS.md](creative/AGENTS.md) |
 
 ## Cross-department handoff
 

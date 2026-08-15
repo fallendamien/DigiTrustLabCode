@@ -16,8 +16,8 @@ other messages that need classification before a reply.
 2. Classify it as `respond`, `review`, `archive`, or `insufficient context`.
 3. Extract the request, proposed value, deadline, risk signals, and missing
    information without making a commitment.
-4. Recommend the next department when Content, SEO, Operations, or Research
-   expertise is needed.
+4. Recommend the next department when Content, SEO, Operations, Research, or
+   Creative expertise is needed.
 5. Draft a reply only when useful, clearly marking it as unsent.
 
 ## Output

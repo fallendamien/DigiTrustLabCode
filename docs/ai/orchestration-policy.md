@@ -10,12 +10,24 @@ This is the repo-local source of truth for model roles in DigiTrust Lab.
 | Claude Opus | Orchestrator | Same orchestration-only responsibilities | All substantive research, judgment, implementation, and validation |
 | Luna XHigh | Optional orchestrator | Same orchestration-only responsibilities | Every child must be Luna High |
 | Luna High | Default bounded worker | Assigned implementation and validation within scope | Self-delegation and self-approval |
-| Claude Sonnet | Complex read-only/judgment worker | Architecture review, synthesis, and bounded research | Work outside the brief |
+| Claude Sonnet | Complex read-only/judgment worker when the actual adapter is Claude | Architecture review, synthesis, and bounded research | Work outside the brief |
 | Claude Haiku | Simple read-only worker | Narrow scans, lookups, and mechanical inspection | Writes, broad judgment, and self-delegation |
 
-Model names are behavioral routing labels. The active host must select the
-closest available worker and fail closed when the required worker is unavailable.
-Luna High means the `gpt-5.6-luna` model family at high reasoning effort.
+Model names are behavioral routing labels, not provider identities. Every
+dispatch and result must state the actual model ID and reasoning effort. Luna
+High means the `gpt-5.6-luna` model family at high reasoning effort.
+
+## Host-specific worker adapters
+
+| Orchestrator host | Default bounded-worker adapter | Routing rule |
+|---|---|---|
+| Codex Sol | `gpt-5.6-luna` at `high` effort | Use this OpenAI worker for substantive work. Never label it Claude Sonnet; `gpt-5.5` or any other OpenAI model is not a Claude worker. |
+| Claude Opus | `claude-sonnet-4-6` at the adapter's configured effort | Use only when the actual Claude bounded-worker adapter is installed and available. Otherwise fail closed or obtain explicit authorization for a named substitute. |
+
+If a required host adapter is unavailable, stop that workstream. A substitute
+requires explicit user authorization and the result must record the actual
+model ID, effort, and authorization. A friendly label such as "Sonnet" is not
+evidence that Claude Sonnet actually ran.
 
 ## Orchestrator gate
 
@@ -44,6 +56,10 @@ escalation conditions.
 Every worker result states work completed, files changed, checks and evidence,
 open risks or assumptions, blockers, and a recommendation to the orchestrator.
 The recommendation is not a self-issued approval.
+
+Delegation announcements and worker results must include the actual model ID,
+reasoning effort, bounded scope, and evidence. Friendly labels alone are
+invalid.
 
 ## Scope, write, and approval gates
 
