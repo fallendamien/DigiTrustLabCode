@@ -406,7 +406,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | Featured image | Media 600; body images Media 601, 604 and 603; final visual QA passed with clean pseudo-writing/lines and no rounded orange arm artifact |
 | Rank Math | ✅ Respira computed score 94/A; 12/13 checks passed; only keyword-density warning (0.42%) |
 | Naturalness Gate | ✅ Claude/Anthropic `claude-sonnet-5` subscription OAuth + OpenAI `gpt-5.6-luna` high; local artifact 57 segments and live artifact 55 segments, both pass with zero findings |
-| Malay Voice Gate | ⚠️ Live naturalness revalidation passed; `verify-malay-voice.py 605` currently reports `unknown id` because the script registry has not yet been extended for this new post |
+| Malay Voice Gate | ✅ Post 605 registered in `scripts/verify-malay-voice.py`; run is 0 errors with 1 italic-policy warning (`prompt` not wrapped in `<em>` on the live post) |
 | Link Quality Gate | ✅ Live destinations checked; 1 contextual internal link, 1 editorial external dofollow link; inbound review records `no_safe_context` |
 | ClickRank Keyword Tracker | ✅ `contoh minit mesyuarat` + exact URL; Malaysia; Device All; visible row (currently Not in Top 3 Results) |
 | Screpy Rank Tracker | ✅ `contoh minit mesyuarat` added; Malaysia/Malay; Device Both; visible row; ranking positions pending first analysis |
