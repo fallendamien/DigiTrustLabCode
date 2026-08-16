@@ -40,6 +40,35 @@ SUBSTANTIVE_TERMS = (
     "publish", "analyze", "analyse", "compare", "deploy", "verify", "troubleshoot",
     "replace", "upload", "create", "write", "keyword", "writerzen", "wordpress",
     "image", "seo", "ranking", "indexing", "content", "router", "workflow",
+    "advice", "recommend", "recommendation", "opinion", "thought", "should",
+    "strategy", "suitable", "fit", "belongs", "adopt", "install", "integrate",
+    "integration", "repository", "repo", "github", "skill", "provider", "model",
+    "plugin", "package", "external", "architecture", "policy",
+)
+# These patterns close the gap between a keyword-only audit and the policy's
+# judgment gate.  In particular, an external URL or a recommendation about an
+# artifact is substantive even when the user says "just advice" or "plan this
+# first".  Keep this conservative: ordinary greetings and one-step how-to
+# questions should remain direct-answer eligible.
+EXTERNAL_ARTIFACT_RE = re.compile(
+    r"(?ix)"
+    r"(?:https?://|www\.|github\.com/|gitlab\.com/|bitbucket\.org/)"
+)
+JUDGMENT_RE = re.compile(
+    r"(?ix)"
+    r"(?:"
+    r"\b(?:is|are|was|were)\s+(?:this|that|it|they)\s+(?:a\s+)?"
+    r"(?:good|better|best|suitable|appropriate|worth|safe|reliable|useful)\b"
+    r"|\bshould\s+(?:we|i|you)\b"
+    r"|\b(?:would|could)\b[^\n.!?]{0,100}\b(?:integrat\w*|adopt\w*|install\w*|use|add)\b"
+    r"|\b(?:what(?:'s| is)\s+your|give\s+me\s+your|need\s+your)\s+"
+    r"(?:advice|opinion|thoughts?|recommendation)\b"
+    r"|\b(?:recommend|advise|evaluate|assess|compare|review)\b[^\n.!?]{0,100}"
+    r"\b(?:repo(?:sitory)?|tool|provider|model|skill|plugin|package|library|integration)\b"
+    r")"
+)
+WORKER_ACTION_RE = re.compile(
+    r"(?i)(?:spawn_agent|create_thread|handoff_thread|delegate(?:_task)?|subagent)"
 )
 BOOTSTRAP_MARKERS = (
     "<recommended_plugins>", "<app-context>", "<skills_instructions>",
@@ -102,7 +131,29 @@ def is_substantive_user(text: str) -> bool:
     if not text.strip() or is_bootstrap_instruction(text):
         return False
     lowered = text.lower()
-    return any(re.search(rf"\b{re.escape(term)}\b", lowered) for term in SUBSTANTIVE_TERMS)
+    return (
+        any(re.search(rf"\b{re.escape(term)}\b", lowered) for term in SUBSTANTIVE_TERMS)
+        or bool(EXTERNAL_ARTIFACT_RE.search(text))
+        or bool(JUDGMENT_RE.search(text))
+    )
+
+
+def action_text(event: Event) -> str:
+    """Serialize observable action metadata for worker-dispatch auditing."""
+    if not event.payload:
+        return ""
+    return json.dumps(event.payload, ensure_ascii=False).lower()
+
+
+def is_worker_action(event: Event) -> bool:
+    if event.kind != "action":
+        return False
+    payload = event.payload or {}
+    action_fields = " ".join(
+        str(payload.get(key, ""))
+        for key in ("name", "tool_name", "function", "function_name", "action", "command")
+    )
+    return bool(WORKER_ACTION_RE.search(action_fields))
 
 
 def parse_receipt(index: int, text: str) -> tuple[Receipt | None, list[str]]:
@@ -219,6 +270,10 @@ def audit_events(events: list[Event], expected_version: str, *, freshness: bool)
             continue
         if first_action is not None and first_action.index < first_assistant.index:
             failures.append(f"{label}: tool/delegation occurred before the route receipt")
+        if not any(is_worker_action(event) for event in window):
+            failures.append(
+                f"{label}: substantive turn has no observable bounded-worker dispatch"
+            )
         if expected_version and receipt.version != expected_version:
             failures.append(f"{label}: stale Router version {receipt.version!r}; expected {expected_version!r}")
         if freshness and receipt.version != expected_version:
@@ -240,18 +295,42 @@ def synthetic_events(version: str, *, malformed: bool = False) -> list[Event]:
     return [
         Event(1, "user", "Please audit the router gate."),
         Event(2, "assistant", receipt),
-        Event(3, "action", payload={"type": "custom_tool_call", "name": "read_only_check"}),
+        Event(3, "action", payload={"type": "custom_tool_call", "name": "spawn_agent", "model": "gpt-5.6-luna"}),
     ]
+
+
+def synthetic_external_evaluation_events(version: str) -> list[Event]:
+    """Regression fixture for the original missed-delegation phrasing."""
+    receipt = (
+        "Route: primary=research; secondary=none\n"
+        "Route ID: external-evaluation-1\n"
+        f"Router version: {version}\n"
+        "Scope: evaluate the referenced skill for department integration; stop at advice\n"
+        "Allowed systems: repository policy files and the referenced public repository\n"
+        "External writes: no\n"
+    )
+    return [
+        Event(1, "user", "I want your advice: https://github.com/example/tool.git is it good to integrate? Plan this first."),
+        Event(2, "assistant", receipt),
+        Event(3, "action", payload={"type": "custom_tool_call", "name": "create_thread", "worker_model": "gpt-5.6-luna", "effort": "high"}),
+    ]
+
+
+def synthetic_no_worker_events(version: str) -> list[Event]:
+    events = synthetic_external_evaluation_events(version)
+    return events[:2] + [Event(3, "assistant", "Direct advice without a worker.")]
 
 
 def run_self_test() -> int:
     version = router_version() or "2026-08-16"
     good = audit_events(synthetic_events(version), version, freshness=False)
     bad = audit_events(synthetic_events(version, malformed=True), version, freshness=False)
-    if good or not bad:
-        print(f"FAIL EA router runtime self-test: good={good!r}, malformed={bad!r}")
+    external = audit_events(synthetic_external_evaluation_events(version), version, freshness=False)
+    no_worker = audit_events(synthetic_no_worker_events(version), version, freshness=False)
+    if good or not bad or external or not any("no observable bounded-worker dispatch" in failure for failure in no_worker):
+        print(f"FAIL EA router runtime self-test: good={good!r}, malformed={bad!r}, external={external!r}, no_worker={no_worker!r}")
         return 1
-    print("PASS EA router runtime self-test: receipt ordering, fields, and malformed-receipt failure")
+    print("PASS EA router runtime self-test: receipt ordering, worker dispatch, external-evaluation regression, no-worker failure, and malformed-receipt failure")
     return 0
 
 

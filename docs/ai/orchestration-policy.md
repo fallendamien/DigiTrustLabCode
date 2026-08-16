@@ -38,6 +38,22 @@ They must not independently perform substantive research, make domain
 judgments, edit project files, make external writes, or claim a worker's
 validation as their own. If work is more than orchestration, dispatch it.
 
+### Mandatory delegation triggers
+
+Treat the request as substantive, even when it is phrased as "just advice",
+"what do you think?", or "plan this first", when answering requires inspecting
+or judging an external artifact or current evidence. This includes evaluating
+or comparing a repository, tool, provider, model, plugin, package, skill, or
+integration; deciding whether something is suitable for a department; and
+reviewing architecture, policy conflicts, feasibility, or adoption risk. A URL
+or repository reference is an artifact signal, not permission to answer from
+memory. Dispatch the bounded worker before substantive inspection or judgment.
+
+Only a genuinely simple, one-step factual or explanatory question with no
+external artifact, recommendation, comparison, or judgment may be answered
+directly. "Plan first" limits the stop boundary; it does not waive the worker
+gate.
+
 ## Worker routing
 
 - Haiku: simple, narrow, read-only scans.

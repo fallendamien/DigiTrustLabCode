@@ -10,6 +10,7 @@ its contents into this department.
 | Editing existing copy | [copy-editing](../../../.windsurf/skills/copy-editing/SKILL.md) |
 | Readability pass | [readability-pass](../../../.claude/skills/readability-pass/SKILL.md) |
 | Malay voice | [malay-voice-guide](../../../.claude/skills/malay-voice-guide/SKILL.md) |
+| Explicit DBP/PRPM term checks or external-document translation | [dbp-terminology-review](../../../.claude/skills/dbp-terminology-review/SKILL.md) |
 | Content planning rules | [content-planning](../../../.claude/rules/content-planning.md) |
 | Per-post keyword metrics, publishing status, pillar-content decisions | [content-calendar](../../../content/content-calendar.md) |
 | Malay naturalness regression phrase bank (enforced by verify-malay-naturalness.py) | [malay-naturalness-rules](../../../content/malay-naturalness-rules.json) |

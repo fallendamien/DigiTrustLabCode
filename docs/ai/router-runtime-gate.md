@@ -22,6 +22,13 @@ external writes. A non-`none` secondary requires a concrete `Handoff / approval:
 line. Workers inherit the `route_id`, department, scope, allowed systems,
 required evidence, and stop conditions, and must attest to them in their result.
 
+An external repository, URL, tool, provider, model, plugin, package, or skill
+evaluation is substantive when it asks for advice, comparison, suitability,
+recommendation, or integration judgment. Phrases such as "just wondering" and
+"plan this first" do not make it a simple question. The runtime audit therefore
+expects an observable bounded-worker dispatch for every substantive turn; a
+receipt without a worker action fails closed.
+
 ## Freshness and compaction
 
 If the router, root policy, or selected department policy is newer than the

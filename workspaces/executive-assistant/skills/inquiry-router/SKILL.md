@@ -1,6 +1,6 @@
 ---
 name: inquiry-router
-description: 'Use FIRST, before answering, on any general inquiry where the user has not already named a narrower EA skill — planning questions ("where do I begin", "how should I approach", "what should I do about"), status requests, troubleshooting, content/SEO/research/creative requests, newsletter/email/marketing planning, and any explicit `department: content|seo|operations|research|creative` override. Classifies the requested outcome, selects exactly one primary department, and coordinates bounded draft-only work. Do NOT answer a general inquiry directly without routing it through this skill first.'
+description: 'Use FIRST, before answering, on any general inquiry where the user has not already named a narrower EA skill — planning questions ("where do I begin", "how should I approach", "what should I do about"), status requests, troubleshooting, content/SEO/research/creative requests, newsletter/email/marketing planning, external repository/tool/skill/provider evaluation, integration advice, recommendations, and any explicit `department: content|seo|operations|research|creative` override. Classifies the requested outcome, selects exactly one primary department, and coordinates bounded draft-only work. Do NOT answer a general inquiry directly without routing it through this skill first.'
 ---
 
 # EA Inquiry Router
@@ -78,8 +78,14 @@ the smallest clarifying question needed.
    user objective, treat the next turn as unrouted and repeat this gate.
 4. Classify simple, casual, one-step questions before dispatching. Answer them
    directly after recording the route; do not spawn a worker merely to classify
-   or answer a simple question.
-5. For substantive work, dispatch exactly one bounded worker by default. On
+   or answer a simple question. A request is **not** simple when it asks for
+   advice, comparison, recommendation, suitability, or integration judgment,
+   or when it supplies/references an external repository, URL, tool, provider,
+   model, plugin, package, or skill. This remains substantive when phrased as
+   "just wondering", "what do you think?", or "plan this first".
+5. For substantive work, dispatch exactly one bounded worker by default. This
+   includes external artifact/tool/provider/skill integration evaluation and
+   policy-conflict or adoption-risk judgment. On
    Codex use the actual `gpt-5.6-luna` worker at `high` reasoning effort. On
    Claude use the actual host-specific adapter named by the orchestration
    policy. State the actual model ID, effort, scope, and evidence; never infer

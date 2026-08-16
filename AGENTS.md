@@ -15,6 +15,14 @@ and report actual model ID, effort, and evidence. This is a behavioral gate,
 not a runtime security boundary; unavailable workers or missing evidence require
 a fail-closed stop or explicit user authorization for a named substitute.
 
+**Fail-closed substantive-work gate:** read-only or planning-only does not mean
+simple. Any evaluation, recommendation, comparison, or integration decision
+about an external repository, tool, skill, provider, model, workflow, or
+architecture is substantive and must go to one bounded `gpt-5.6-luna` worker at
+high effort. The only direct-answer exception is a one-step factual lookup or
+casual clarification that needs no inspection, synthesis, or judgment. When
+uncertain, dispatch; if the worker or evidence is unavailable, stop.
+
 ### EA inquiry-routing entrypoint
 
 The agent-neutral EA entrypoint for general inquiries is

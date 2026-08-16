@@ -29,6 +29,8 @@ REQUIRED = (
     ("Claude Opus", "claude-sonnet-4-6"),
     ("actual model ID", "reasoning effort"),
     ("gpt-5.5", "not a Claude worker"),
+    ("Mandatory delegation triggers", "external artifact"),
+    ("Plan first", "does not"),
 )
 
 CONFIG_MODEL = "gpt-5.6-luna"

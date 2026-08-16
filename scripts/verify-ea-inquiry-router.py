@@ -20,6 +20,16 @@ EA_ROUTER_POINTER = "workspaces/executive-assistant/skills/inquiry-router/SKILL.
 
 DEPARTMENTS = ("content", "seo", "operations", "research", "creative")
 OVERRIDE = re.compile(r"\bdepartment\s*:\s*(content|seo|operations|research|creative)\b", re.I)
+EXTERNAL_ARTIFACT = re.compile(r"(?:https?://|www\.|github\.com/|gitlab\.com/|bitbucket\.org/)", re.I)
+JUDGMENT_REQUEST = re.compile(
+    r"(?:\b(?:is|are|was|were)\s+(?:this|that|it|they)\s+(?:a\s+)?"
+    r"(?:good|better|best|suitable|appropriate|worth|safe|reliable|useful)\b"
+    r"|\bshould\s+(?:we|i|you)\b"
+    r"|\b(?:recommend|advise|evaluate|assess|compare|review)\b"
+    r"|\b(?:what(?:'s| is)\s+your|give\s+me\s+your|need\s+your)\s+"
+    r"(?:advice|opinion|thoughts?|recommendation)\b)",
+    re.I,
+)
 
 
 def route_for_test(inquiry: str) -> str:
@@ -41,8 +51,21 @@ def route_for_test(inquiry: str) -> str:
 
 def is_simple_question(inquiry: str) -> bool:
     text = inquiry.strip().lower()
-    substantive = ("draft", "audit", "research", "generate", "fix", "publish", "implement", "analyze", "compare", "deploy", "create")
-    return len(text) <= 90 and text.endswith("?") and not any(word in text for word in substantive)
+    substantive = (
+        "draft", "audit", "research", "generate", "fix", "publish", "implement",
+        "analyze", "compare", "deploy", "create", "advice", "recommend",
+        "opinion", "thought", "should", "strategy", "suitable", "fit", "belongs",
+        "adopt", "install", "integrate", "integration", "repository", "repo",
+        "github", "skill", "provider", "model", "plugin", "package", "external",
+        "architecture", "policy",
+    )
+    return (
+        len(text) <= 90
+        and text.endswith("?")
+        and not any(word in text for word in substantive)
+        and not EXTERNAL_ARTIFACT.search(text)
+        and not JUDGMENT_REQUEST.search(text)
+    )
 
 
 def frontmatter_value(text: str, key: str) -> str | None:
@@ -124,6 +147,9 @@ def main() -> int:
         "carry the route receipt into every worker brief",
         "actual model id and effort",
         "verify-ea-router-runtime.py",
+        "asks for advice, comparison",
+        "external repository, url, tool, provider",
+        "plan this first",
     )
     for phrase in required_phrases:
         if phrase.lower() not in normalized:
@@ -180,12 +206,18 @@ def main() -> int:
 
     simple = "What does SEO mean?"
     substantive = "Draft an article about indexing problems."
-    if not is_simple_question(simple) or is_simple_question(substantive):
+    external_evaluation = (
+        "I want your advice: https://github.com/keemanxp/dbp-translator-claude.git "
+        "is it a good one to integrate into Content? Plan this first?"
+    )
+    if not is_simple_question(simple) or is_simple_question(substantive) or is_simple_question(external_evaluation):
         failures.append("simple/substantive worker gate is not deterministic")
     if is_simple_question(simple):
         print("PASS no worker for simple one-step question")
     if not is_simple_question(substantive):
         print("PASS bounded worker required for substantive request")
+    if not is_simple_question(external_evaluation):
+        print("PASS external artifact/judgment request requires bounded worker")
 
     primary_values = {route_for_test(inquiry) for _, inquiry, _ in cases}
     if not all(value in DEPARTMENTS for value in primary_values):
