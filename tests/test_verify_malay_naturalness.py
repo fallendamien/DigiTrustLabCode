@@ -231,6 +231,39 @@ class NaturalnessGateTests(unittest.TestCase):
             self.assertEqual(1, content_failure)
             self.assertEqual(2, configuration_failure)
 
+    def test_struktur_jelas_rejected_phrase_is_blocked(self):
+        """Regression: post 605 excerpt phrase caught by Zamri 2026-08-16, missed by both AI reviewers."""
+        document = self.document("<p>Contoh minit mesyuarat yang kemas bermula dengan struktur jelas.</p>")
+        result = MODULE.evaluate(document, make_review(document), self.rules)
+        self.assertFalse(result["passed"])
+        self.assertTrue(any(item["code"] == "rejected-phrase" for item in result["issues"]))
+
+    def test_grammatical_completeness_required_for_schema_v3(self):
+        """schema_version 3 reviews must include grammatical_completeness; omitting it blocks publication."""
+        document = self.document("<p>Ayat ini jelas dan semula jadi.</p>")
+        review = make_review(document)
+        review["schema_version"] = 3
+        # Simulate a reviewer that forgot the new check
+        for reviewer_id in ("claude", "openai"):
+            review["document_review"][reviewer_id]["checks"].pop("grammatical_completeness", None)
+            for seg in review["segments"]:
+                seg["reviewers"][reviewer_id]["checks"].pop("grammatical_completeness", None)
+        result = MODULE.evaluate(document, review, self.rules)
+        self.assertFalse(result["passed"])
+        self.assertTrue(any(item["code"] == "checks-incomplete" for item in result["issues"]))
+
+    def test_v2_artifact_does_not_require_grammatical_completeness(self):
+        """Existing schema_version 2 artifacts remain valid without grammatical_completeness."""
+        document = self.document("<p>Ayat ini jelas dan semula jadi.</p>")
+        review = make_review(document)  # schema_version 2
+        # Strip grammatical_completeness to simulate a real pre-v3 artifact
+        for reviewer_id in ("claude", "openai"):
+            review["document_review"][reviewer_id]["checks"].pop("grammatical_completeness", None)
+            for seg in review["segments"]:
+                seg["reviewers"][reviewer_id]["checks"].pop("grammatical_completeness", None)
+        result = MODULE.evaluate(document, review, self.rules)
+        self.assertTrue(result["passed"], result["issues"])
+
     def test_existing_mechanical_checker_remains_available(self):
         old_script = ROOT / "scripts" / "verify-malay-voice.py"
         spec = importlib.util.spec_from_file_location("verify_malay_voice", old_script)

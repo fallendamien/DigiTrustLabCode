@@ -46,6 +46,15 @@
       "source": "malay-voice-guide",
       "confirmed_on": "2026-07-17",
       "rationale": "Use the more natural standard verb form."
+    },
+    {
+      "phrase": "struktur jelas",
+      "preferred": "struktur yang jelas",
+      "context": "Missing relative marker yang; noun followed by adjective without yang reads as broken Malay. Found in post 605 excerpt: bermula dengan struktur jelas.",
+      "severity": "error",
+      "source": "user-correction",
+      "confirmed_on": "2026-08-16",
+      "rationale": "In Malay, a noun followed by an adjective requires the relative marker yang (e.g. struktur yang jelas). Omitting yang produces a grammatically broken phrase. Both AI reviewers missed this in post 605, which is why grammatical_completeness was added as a required review check."
     }
   ],
   "approved_technical_terms": [

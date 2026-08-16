@@ -22,8 +22,10 @@ Claude Sonnet/Anthropic session and one OpenAI session. The Anthropic reviewer
 must be Claude Sonnet; do not substitute Claude Opus unless the user
 explicitly changes this preference. Do not provide either reviewer with the
 other review, an older review, or a suggested correction as context.
-Both reviewers use the same six binary checks for the complete document and
-every extracted segment:
+Both reviewers use the same seven binary checks for the complete document and
+every extracted segment. Use `schema_version: 3` (current) for new reviews;
+existing `schema_version: 2` artifacts require only the first six checks and
+remain valid without re-review:
 
 1. Would a Malaysian technology writer naturally use this wording?
 2. Is there a literal translation or unusual word combination?
@@ -31,6 +33,12 @@ every extracted segment:
 4. Would an English technical term be clearer in this context?
 5. Does the text sound natural on the first read and when read aloud?
 6. Is terminology and register consistent throughout the article?
+7. Is every sentence grammatically complete — proper verb where required,
+   `yang` present in relative clauses, no fragment or fused sentences, no
+   missing particles or affixes that a fluent Malaysian reader would notice?
+   (Added 2026-08-16 after `struktur jelas` was missed by both AI reviewers
+   in the post 605 excerpt. Root cause: `noun + adjective` without `yang`
+   passes all language-model fluency checks but is broken Malay grammar.)
 
 Both reviewers must return `true` for every check, `confidence: "high"`, and
 an empty `findings` list before the artifact can pass. A finding or uncertainty
@@ -45,7 +53,7 @@ labels alone are insufficient.
 
 ```json
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "post_id": 559,
   "slug": "example-post",
   "reviewed_at": "2026-08-08T00:00:00Z",

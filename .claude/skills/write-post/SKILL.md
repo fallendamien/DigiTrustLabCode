@@ -416,7 +416,7 @@ voice checker or received a high Rank Math score.
 2. Run the deterministic naturalness rules and create
    `content/naturalness-reviews/<post-slug>.json`.
 3. Ask two independent fresh sessions to review the same final content using
-   the six-check protocol in `content/naturalness-reviews/README.md`: one
+   the seven-check protocol in `content/naturalness-reviews/README.md`: one
    Claude Sonnet/Anthropic reviewer and one OpenAI reviewer. Do not use Claude
    Opus unless the user explicitly changes the preference. Record both actual
    models and families in the artifact.

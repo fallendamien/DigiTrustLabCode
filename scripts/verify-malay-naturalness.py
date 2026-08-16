@@ -40,7 +40,7 @@ from typing import Any
 
 SITE = "https://digitrustlab.com"
 RULES_PATH = Path(__file__).resolve().parents[1] / "content" / "malay-naturalness-rules.json"
-REQUIRED_CHECKS = (
+REQUIRED_CHECKS_V2 = (
     "natural_usage",
     "literal_translation",
     "bureaucratic_stiffness",
@@ -48,6 +48,10 @@ REQUIRED_CHECKS = (
     "read_aloud_clarity",
     "terminology_consistency",
 )
+REQUIRED_CHECKS_V3 = REQUIRED_CHECKS_V2 + ("grammatical_completeness",)
+
+# Canonical check set for new reviews and for module consumers (e.g. tests).
+REQUIRED_CHECKS = REQUIRED_CHECKS_V3
 CLAUDE_FAMILIES = {"anthropic", "claude"}
 REQUIRED_REVIEW_FAMILIES = {"openai", *CLAUDE_FAMILIES}
 BLOCK_TAGS = {"blockquote", "caption", "figcaption", "h1", "h2", "h3", "h4", "h5", "h6", "li", "p", "title"}
@@ -257,7 +261,12 @@ def review_issue(code: str, detail: str, **extra: Any) -> dict[str, Any]:
     return {"code": code, "detail": detail, **extra}
 
 
-def validate_evaluation(evaluation: Any, reviewer_id: str, location: str) -> list[dict[str, Any]]:
+def validate_evaluation(
+    evaluation: Any,
+    reviewer_id: str,
+    location: str,
+    required_checks: tuple[str, ...] = REQUIRED_CHECKS,
+) -> list[dict[str, Any]]:
     issues: list[dict[str, Any]] = []
     if not isinstance(evaluation, dict):
         return [review_issue("reviewer-entry-missing", f"{location}: missing evaluation for {reviewer_id}")]
@@ -266,8 +275,8 @@ def validate_evaluation(evaluation: Any, reviewer_id: str, location: str) -> lis
     if not isinstance(checks, dict):
         issues.append(review_issue("checks-missing", f"{location}: checks must be an object"))
     else:
-        missing = [name for name in REQUIRED_CHECKS if name not in checks]
-        failed = [name for name in REQUIRED_CHECKS if checks.get(name) is not True]
+        missing = [name for name in required_checks if name not in checks]
+        failed = [name for name in required_checks if checks.get(name) is not True]
         if missing:
             issues.append(review_issue("checks-incomplete", f"{location}: missing {', '.join(missing)}"))
         if failed:
@@ -297,8 +306,14 @@ def validate_review(
         return [review_issue("review-invalid", "Review artifact must be a JSON object.")]
 
     issues: list[dict[str, Any]] = []
-    if review.get("schema_version") != 2:
-        issues.append(review_issue("schema-version", "Review artifact must use schema_version 2."))
+    schema_version = review.get("schema_version")
+    if schema_version == 2:
+        required_checks: tuple[str, ...] = REQUIRED_CHECKS_V2
+    elif schema_version == 3:
+        required_checks = REQUIRED_CHECKS_V3
+    else:
+        issues.append(review_issue("schema-version", "Review artifact must use schema_version 2 or 3."))
+        required_checks = REQUIRED_CHECKS_V2
     if review.get("status") != "pass":
         issues.append(review_issue("review-status", "Review artifact status must be pass."))
     if review.get("content_hash") != document["content_hash"]:
@@ -341,7 +356,7 @@ def validate_review(
         issues.append(review_issue("document-review-missing", "Document-level review evidence is required."))
         document_review = {}
     for reviewer_id in reviewer_ids:
-        issues.extend(validate_evaluation(document_review.get(reviewer_id), reviewer_id, "document_review"))
+        issues.extend(validate_evaluation(document_review.get(reviewer_id), reviewer_id, "document_review", required_checks))
 
     artifact_segments = review.get("segments")
     if not isinstance(artifact_segments, list):
@@ -370,7 +385,7 @@ def validate_review(
             issues.append(review_issue("segment-reviewers-missing", f"{segment_id}: reviewer evidence is missing."))
             continue
         for reviewer_id in reviewer_ids:
-            issues.extend(validate_evaluation(evaluations.get(reviewer_id), reviewer_id, segment_id))
+            issues.extend(validate_evaluation(evaluations.get(reviewer_id), reviewer_id, segment_id, required_checks))
 
     disagreements = review.get("disagreements", [])
     if disagreements:
