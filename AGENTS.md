@@ -362,6 +362,7 @@ Playbooks are stored on the WordPress site itself and show up as tools the agent
 - Prefer visually engaging responses with clear structure when helpful.
 - Use emojis for headings, status, warnings, and milestones — not on ordinary bullets or comparison tables. Semantics per rule 6 of the `i-have-adhd` skill (✅ = verified, ⚠️ = warning, 🔍 = investigation, 🚀 = next step).
 - Keep technical explanations clear, but make the presentation feel lively and easy to scan.
+- Default to plain English per rule 7 of the `i-have-adhd` skill: name things by what they do, consequence before mechanism, technical detail in a labelled block.
 
 ## 🎙️ DigiTrust Lab Writing Voice (ALL content — posts, pages, copy)
 
