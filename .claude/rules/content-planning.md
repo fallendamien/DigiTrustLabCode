@@ -13,7 +13,7 @@ description: Manage content planning files — update content-calendar.md with k
 
 ## Key Rules
 
-1. **Per-post metrics go in `content-calendar.md`** — NOT in `SEO-CHEATSHEET.md` (which is general reference only)
+1. **Per-post metrics go in `content/content-calendar.md`** — NOT in `content/SEO-CHEATSHEET.md` (which is general reference only)
 2. **Update calendar during discussions** — When discussing post ideas, keywords, or publishing plans, update the relevant post entry immediately
 3. **Cross-reference everywhere** — Any file that mentions a specific post's keyword or status should point to `content/content-calendar.md` as the source
 4. **Use the metrics table format** — Keep the established table structure (Keyword, Volume, KD scores, CPC, competitor, status)
