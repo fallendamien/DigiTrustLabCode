@@ -10,3 +10,4 @@ its contents into this department.
 | Competitor analysis | [competitor-teardown](../../../.windsurf/skills/competitor-teardown/SKILL.md) |
 | Keyword research pipeline | [writerzen-keyword-research](../../../.claude/skills/writerzen-keyword-research/SKILL.md) |
 | Relentless plan review | [grill-with-docs](../../../.windsurf/skills/grill-with-docs/SKILL.md) |
+| WriterZen quota reference and keyword difficulty benchmarks | [SEO-CHEATSHEET](../../../content/SEO-CHEATSHEET.md) |

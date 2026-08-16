@@ -12,6 +12,7 @@ its contents into this department.
 | WordPress image optimization | [wordpress-ai-image-optimizer](../../../.claude/skills/wordpress-ai-image-optimizer/SKILL.md) |
 | Visual content readability | [readability-pass](../../../.claude/skills/readability-pass/SKILL.md) |
 | DigiTrust Lab visual source of truth | [DESIGN.md](../../../DESIGN.md) |
+| Image design brief, style spec, and per-post generation prompts | [image-prompts](../../../content/image-prompts.md) |
 
 Reusable trigger phrases such as `fix this image` and `audit this image` use
 the bounded procedure in [workflow.md](../workflow.md). Live replacement and
