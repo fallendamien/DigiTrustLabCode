@@ -405,7 +405,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | Post ID | 605 |
 | Featured image | Media 600; body images Media 601, 604 and 603; final visual QA passed with clean pseudo-writing/lines and no rounded orange arm artifact |
 | Rank Math | ✅ Respira computed score 94/A; 12/13 checks passed; only keyword-density warning (0.42%) |
-| Naturalness Gate | ✅ Claude/Anthropic `claude-sonnet-5` subscription OAuth + OpenAI `gpt-5.6-luna` high; local artifact 57 segments and live artifact 55 segments, both pass with zero findings |
+| Naturalness Gate | ⚠️ Local artifact passes. Live artifact STALE: excerpt (seg-055) changed at 2026-08-16 15:47, after the review — gate BLOCKED. Needs a fresh two-reviewer pass |
 | Malay Voice Gate | ✅ Post 605 registered in `scripts/verify-malay-voice.py`; run is 0 errors with 1 italic-policy warning (`prompt` not wrapped in `<em>` on the live post) |
 | Link Quality Gate | ✅ Live destinations checked; 1 contextual internal link, 1 editorial external dofollow link; inbound review records `no_safe_context` |
 | ClickRank Keyword Tracker | ✅ `contoh minit mesyuarat` + exact URL; Malaysia; Device All; visible row (currently Not in Top 3 Results) |
