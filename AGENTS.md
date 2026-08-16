@@ -533,7 +533,7 @@ AI-generated Malay has predictable awkwardness — half-casual/half-formal mixin
 
 **📖 `.claude/skills/malay-voice-guide/SKILL.md`** — Load this skill before writing or reviewing any Malay content.
 
-Quick summary of the 14 sections (natural formal–semi-formal BM standard):
+Quick summary of the 15 sections (natural formal–semi-formal BM standard):
 1. **Natural Formal–Semi-Formal BM Standard** — contextual register, read-aloud test, and reference sites (PandaiTech.my, Ecentral.my, DBP)
 2. **Pronoun & Address** — `anda` not `korang`, `kami` for company voice, `beliau` for professionals
 3. **Full Forms vs Contractions** — `tidak` not `tak`, `sudah` not `dah`, `apabila` not `bila`
@@ -548,6 +548,7 @@ Quick summary of the 14 sections (natural formal–semi-formal BM standard):
 12. **Red Flag Phrases** — Salesy/corporate + casual slang red flags with replacements
 13. **Green Light Patterns** — Natural formal–semi-formal examples in the PandaiTech.my and Ecentral.my style
 14. **DBP Reference** — `ialah` vs `adalah`, `ia` not `ianya`, `dalam kalangan`, `daripada` vs `dari`
+15. **Tatabahasa Asas** — Golongan Kata reference table (Kata Nama, Kata Kerja, Kata Adjektif, Kata Tugas); kata hubung relatif `yang` is required between a noun and its describing adjective/clause — dropping it produces broken Malay even when meaning is guessable; `tidak` negates verbs/adjectives, `bukan` negates nouns; reference gate for the `grammatical_completeness` review check
 
 ### Page-Specific Voice Notes
 

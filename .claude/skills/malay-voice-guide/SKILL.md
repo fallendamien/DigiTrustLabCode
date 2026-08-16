@@ -653,6 +653,51 @@ When uncertain about spelling, grammar, or word choice, consult **Dewan Bahasa d
 
 **Rule:** When in doubt about a word, check DBP first. Consistent use of DBP-standard spelling and grammar builds authority and trust with readers and search engines.
 
+## 14. Tatabahasa Asas — Golongan Kata & Kata Hubung Relatif `yang`
+
+This section is the reference material for the `grammatical_completeness` check required by `scripts/verify-malay-naturalness.py` (schema_version 3). When reviewing that checklist item, verify: verbs present where required, `yang` present in relative clauses, correct `tidak` vs `bukan`, and no sentence fragments. **Authoritative source: Tatabahasa Dewan (DBP).** Do not use aggregator blogs, tutoring sites, or social media posts to settle tatabahasa disagreements — consult `kndbp.dbp.gov.my` for specific grammar queries.
+
+### A. Kata Hubung Relatif `yang` — Highest Priority
+
+`yang` is a *kata hubung pancangan relatif* (relative conjunction). Per Tatabahasa Dewan, it introduces a subordinate clause that describes or qualifies a preceding noun. Dropping it when a noun is followed by a describing adjective or clause produces grammatically incomplete Malay — even if the meaning is still guessable.
+
+**Why `yang` is easy to miss:** a sentence without `yang` can still sound passable when read aloud in casual speech. This is precisely why it survives AI review. The confirmed post 605 regression illustrates this: both independent AI reviewers passed the excerpt as natural, yet the grammar was broken.
+
+| ❌ Missing `yang` | ✅ Correct | What `yang` does |
+|---|---|---|
+| `bermula dengan struktur jelas` | `bermula dengan struktur **yang** jelas` | Links adjective `jelas` to noun `struktur` — the post 605 live failure |
+| `Saya membeli baju berwarna hijau.` | `Saya membeli baju **yang** berwarna hijau.` | Links the describing clause to `baju` |
+| `Budak sedang membaca itu adik saya.` | `Budak **yang** sedang membaca itu adik saya.` | Marks the relative clause |
+
+**Practical writing rule:** whenever an adjective or clause DESCRIBES a preceding noun, Malay requires `yang`. Ask: *"Is this adjective or clause describing or qualifying the noun before it?"* If yes, `yang` must appear between them.
+
+### B. Empat Golongan Kata — Per Tatabahasa Dewan
+
+Compact reference for tatabahasa review. Use when checking sentence completeness and verb forms.
+
+| Golongan Kata | Sub-jenis | Contoh |
+|---|---|---|
+| **Kata Nama** (nouns) | Kata Nama Khas | Kuala Lumpur, Ahmad, Proton |
+| | Kata Nama Am | kereta, sekolah, kucing |
+| | Kata Ganti Nama | saya, mereka, ini, itu |
+| **Kata Kerja** (verbs) | Kata Kerja Transitif (requires object) | membaca buku, memakan nasi |
+| | Kata Kerja Tak Transitif (no object) | berjalan, tidur |
+| **Kata Adjektif** (adjectives) | Sifat / keadaan | baik, pandai, cantik |
+| | Warna | merah, biru, hijau |
+| | Ukuran | besar, tinggi, panjang |
+| **Kata Tugas** (function words) | Kata Hubung (including `yang`) | dan, atau, tetapi, yang, kerana |
+| | Kata Sendi Nama | di, ke, dari, daripada |
+| | Kata Tanya | apa, siapa, mengapa, bagaimana |
+| | Kata Seru | wah, aduh, oh |
+| | Kata Perintah | jangan, sila, tolong |
+| | **Kata Nafi** | `tidak` (negates verbs/adjectives); `bukan` (negates nouns) |
+| | Kata Penguat | sangat, amat, paling |
+| | Kata Bilangan | dua, semua, beberapa |
+
+**`tidak` vs `bukan` reminder:** `tidak` negates verbs and adjectives (`tidak boleh`, `tidak baik`); `bukan` negates nouns and noun phrases (`bukan buku`, `bukan saya`). Mixing these is a common AI drafting error.
+
+---
+
 ## Content Authenticity Rules (added 2026-07-25)
 
 **Core principle:** The blog is a practitioner sharing knowledge — not a business guru teaching success. Content must be authentic and educational first.
