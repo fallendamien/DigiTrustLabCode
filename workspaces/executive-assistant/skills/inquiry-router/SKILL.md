@@ -63,27 +63,35 @@ the smallest clarifying question needed.
    user request and project policy.
 1. Read the repository root `AGENTS.md`, this workspace `AGENTS.md`, and the
    selected department's `AGENTS.md`, `skills/README.md`, and `workflow.md`.
-2. Record the loaded policy context in the receipt or the immediately following
+2. Before answering or dispatching, verify that the selected department adapter
+   is installed: `<project-root>/departments/<primary>/AGENTS.md`,
+   `<project-root>/departments/<primary>/skills/README.md`, and
+   `<project-root>/departments/<primary>/workflow.md` must all exist. If any
+   required adapter file is absent, fail closed: report the exact missing path
+   and request that the department be bootstrapped/installed. Do not improvise
+   department policy, silently route to another department, or treat the EA
+   router as a substitute for the missing adapter.
+3. Record the loaded policy context in the receipt or the immediately following
    action/evidence line. If the router, root policy, or selected department
    files are newer than the current session, re-read them and emit a fresh
    receipt before continuing. After compaction, context reset, or a changed
    user objective, treat the next turn as unrouted and repeat this gate.
-3. Classify simple, casual, one-step questions before dispatching. Answer them
+4. Classify simple, casual, one-step questions before dispatching. Answer them
    directly after recording the route; do not spawn a worker merely to classify
    or answer a simple question.
-4. For substantive work, dispatch exactly one bounded worker by default. On
+5. For substantive work, dispatch exactly one bounded worker by default. On
    Codex use the actual `gpt-5.6-luna` worker at `high` reasoning effort. On
    Claude use the actual host-specific adapter named by the orchestration
    policy. State the actual model ID, effort, scope, and evidence; never infer
    provider identity from a friendly label.
-5. Carry the route receipt into every worker brief: `route_id`, primary
+6. Carry the route receipt into every worker brief: `route_id`, primary
    department, bounded scope, allowed systems, evidence required, and stop
    conditions. The worker result must repeat those fields plus its actual model
    ID and effort. Reject a result that omits the attestation or widens scope.
-6. Coordinate the worker brief, inspect its evidence, and integrate the result.
+7. Coordinate the worker brief, inspect its evidence, and integrate the result.
    The EA does not self-approve completion. If the required adapter or evidence
    is unavailable, fail closed and report the blocker.
-7. Add a secondary department only for a concrete handoff, such as SEO
+8. Add a secondary department only for a concrete handoff, such as SEO
    validation requested by Content or Operations performing an authorized live
    change after another department supplies a brief. Do not fan out by default.
 

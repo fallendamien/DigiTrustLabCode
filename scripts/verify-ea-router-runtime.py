@@ -5,6 +5,11 @@ This is deliberately a fail-closed audit, not a tool-permission mechanism.
 It checks the observable transcript contract: a substantive user turn must
 receive a complete route receipt before its first tool/delegation call, and the
 receipt must use the current router contract version.
+
+``--project-root`` lets an invocation from a project directory resolve the
+router SKILL.md and policy files from that project root instead of from the
+two-levels-up default.  Omit it when invoking from within the canonical skill
+location (the default keeps behaviour identical to before this flag existed).
 """
 
 from __future__ import annotations
@@ -81,10 +86,10 @@ def content_text(content: Any) -> str:
     return "\n".join(parts)
 
 
-def router_version() -> str:
-    if not ROUTER.is_file():
+def router_version(router: Path = ROUTER) -> str:
+    if not router.is_file():
         return ""
-    match = VERSION_RE.search(ROUTER.read_text(encoding="utf-8"))
+    match = VERSION_RE.search(router.read_text(encoding="utf-8"))
     return match.group("version").strip() if match else ""
 
 
@@ -174,12 +179,18 @@ def iter_events(path: Path) -> tuple[list[Event], datetime | None]:
     return events, session_start
 
 
-def freshness_required(session_start: datetime | None, *, disabled: bool) -> bool:
+def freshness_required(
+    session_start: datetime | None,
+    *,
+    disabled: bool,
+    router: Path = ROUTER,
+    root: Path = ROOT,
+) -> bool:
     if disabled or session_start is None:
         return False
     try:
-        router_mtime = datetime.fromtimestamp(ROUTER.stat().st_mtime, tz=timezone.utc)
-        root_mtime = datetime.fromtimestamp((ROOT / "AGENTS.md").stat().st_mtime, tz=timezone.utc)
+        router_mtime = datetime.fromtimestamp(router.stat().st_mtime, tz=timezone.utc)
+        root_mtime = datetime.fromtimestamp((root / "AGENTS.md").stat().st_mtime, tz=timezone.utc)
     except OSError:
         return True
     start = session_start.astimezone(timezone.utc)
@@ -244,11 +255,39 @@ def run_self_test() -> int:
     return 0
 
 
+def resolve_router(project_root: Path | None) -> tuple[Path, Path]:
+    """Return (effective_router, effective_root) for the given project root.
+
+    When *project_root* is None the canonical TSOT paths are used (default
+    behaviour — resolves relative to this script's own location).  When
+    supplied, the router is resolved from that project directory first at
+    ``workspaces/executive-assistant/skills/inquiry-router/SKILL.md``, then
+    falling back to ``.windsurf/skills/inquiry-router/SKILL.md`` for projects
+    that still expose the skill through the shared symlink tree.
+    """
+    if project_root is None:
+        return ROUTER, ROOT
+    pr = project_root.resolve()
+    candidate = pr / "workspaces" / "executive-assistant" / "skills" / "inquiry-router" / "SKILL.md"
+    if not candidate.is_file():
+        candidate = pr / ".windsurf" / "skills" / "inquiry-router" / "SKILL.md"
+    return candidate, pr
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--session-log", type=Path, help="Codex/Claude JSONL session log to audit")
     parser.add_argument("--self-test", action="store_true", help="run deterministic in-memory checks")
     parser.add_argument("--no-freshness", action="store_true", help="skip file-mtime freshness check")
+    parser.add_argument(
+        "--project-root",
+        type=Path,
+        default=None,
+        help=(
+            "project root whose router SKILL.md and policy files define the expected version; "
+            "defaults to the repo root two levels up from this script"
+        ),
+    )
     args = parser.parse_args()
     if args.self_test:
         return run_self_test()
@@ -257,22 +296,32 @@ def main() -> int:
     if not args.session_log.is_file():
         print(f"FAIL EA router runtime: missing session log {args.session_log}")
         return 1
+    effective_router, effective_root = resolve_router(args.project_root)
+    if not effective_router.is_file():
+        print(f"FAIL EA router runtime: router SKILL.md not found (tried {effective_router})")
+        return 1
     events, session_start = iter_events(args.session_log)
-    expected_version = router_version()
+    expected_version = router_version(effective_router)
     if not expected_version:
         print("FAIL EA router runtime: router contract version is missing")
         return 1
     failures = audit_events(
         events,
         expected_version,
-        freshness=freshness_required(session_start, disabled=args.no_freshness),
+        freshness=freshness_required(
+            session_start,
+            disabled=args.no_freshness,
+            router=effective_router,
+            root=effective_root,
+        ),
     )
     if failures:
         print("FAIL EA router runtime:")
         for failure in failures:
             print(f"  - {failure}")
         return 1
-    print(f"PASS EA router runtime: {sum(event.kind == 'user' and is_substantive_user(event.text) for event in events)} substantive turn(s) have current receipts before actions")
+    substantive = sum(event.kind == "user" and is_substantive_user(event.text) for event in events)
+    print(f"PASS EA router runtime: {substantive} substantive turn(s) have current receipts before actions")
     return 0
 
 
