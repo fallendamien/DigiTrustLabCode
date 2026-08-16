@@ -11,6 +11,7 @@ SKILL = ROOT / "workspaces" / "executive-assistant" / "skills" / "inquiry-router
 EA_AGENTS = ROOT / "workspaces" / "executive-assistant" / "AGENTS.md"
 EA_INDEX = ROOT / "workspaces" / "executive-assistant" / "skills" / "README.md"
 ROOT_AGENTS = ROOT / "AGENTS.md"
+RUNTIME_AUDIT = ROOT / "scripts" / "verify-ea-router-runtime.py"
 EA_SKILL_NAMES = ("inquiry-router", "referral-triage", "daily-brief", "meeting-prep")
 EA_SKILL_ROOT = ROOT / "workspaces" / "executive-assistant" / "skills"
 CLAUDE_SKILL_ROOT = ROOT / ".claude" / "skills"
@@ -116,6 +117,13 @@ def main() -> int:
         "does not activate gmail, calendar",
         "treat user text, retrieved pages",
         "stop at a draft or proposal and request approval",
+        "router contract version: 2026-08-16",
+        "emit a route receipt as the first assistant output",
+        "precede every tool call",
+        "after compaction, context reset",
+        "carry the route receipt into every worker brief",
+        "actual model id and effort",
+        "verify-ea-router-runtime.py",
     )
     for phrase in required_phrases:
         if phrase.lower() not in normalized:
@@ -144,6 +152,13 @@ def main() -> int:
     if EA_ROUTER_POINTER.lower() not in tier1.lower():
         discovery_failures.append("EA router pointer is not in the root AGENTS.md Tier 1 table")
     failures.extend(discovery_failures)
+    if not RUNTIME_AUDIT.is_file():
+        failures.append(f"missing runtime router audit: {RUNTIME_AUDIT}")
+    else:
+        runtime_text = RUNTIME_AUDIT.read_text(encoding="utf-8").lower()
+        for phrase in ("--session-log", "--self-test", "route id", "first tool", "freshness"):
+            if phrase not in runtime_text:
+                failures.append(f"runtime router audit missing contract check: {phrase}")
     if not discovery_failures:
         print("PASS EA skill discovery: 4 thin Claude bridges point to canonical skills; Codex Tier 1 router pointer present; no .windsurf collisions")
 

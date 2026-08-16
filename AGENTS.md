@@ -24,6 +24,15 @@ select exactly one primary department, and either answer a simple question
 directly or dispatch one bounded worker for substantive work. It is draft-only:
 it does not activate connectors, schedules, publishing, or external writes.
 
+**Turn gate (mandatory):** before any tool, browser action, connector,
+delegation, or external write, emit the router receipt required by the canonical
+skill (`Route`, `Route ID`, `Router version`, `Scope`, `Allowed systems`, and
+`External writes`). Re-route after compaction, a changed objective, or a newer
+router/department policy file. Carry the same `route_id` into worker briefs and
+require an attested result. Verify a transcript with
+`python scripts/verify-ea-router-runtime.py --session-log <session.jsonl>`;
+missing or stale receipts are a fail-closed result.
+
 ## 📁 File Architecture — Who Reads What
 
 | Layer | Purpose | Read By |
