@@ -110,11 +110,27 @@ the same standard with fewer coordinator tokens.
 
 Independent, disjoint read-only workstreams may run in parallel, including
 calendar analysis, content-gap analysis, source checks, and immutable-file
-reviews. The Claude and OpenAI naturalness reviewers are isolated fresh sessions
-that receive only the same frozen content and never see each other's review.
+reviews. The Claude Sonnet/Anthropic and OpenAI naturalness reviewers are
+isolated fresh sessions that receive only the same frozen content and never
+see each other's review. Use Claude Sonnet for the Anthropic lane; do not use
+Opus unless the user explicitly changes that preference.
 WriterZen, WordPress, ClickRank, Screpy, Google Search Console, and canonical
 documentation must each have one sequential owner because they share
 authenticated or mutable state. Close every worker after collecting its result.
+
+### Remy-style parallel article pattern
+
+For one article, the coordinator may route departments/workstreams for content,
+creative, and SEO/operations, then set a barrier before staging. Parallelize only
+independent bounded tasks with disjoint inputs and write scopes, such as image
+generation per asset or batch, read-only SEO/source checks, and visual QA on
+completed assets. Every worker returns the actual `gpt-5.6-luna` model, `high`
+effort, scope, and evidence. One worker owns each asset or file; no concurrent
+edits to the same image, prompt library, WordPress post, browser tab, or
+canonical documentation. After the barrier, the coordinator reconciles and
+chooses assets, then one sequential owner performs upload, staging, publication,
+tracking, and documentation. If the work is tightly coupled or concurrency adds
+no value, use one worker.
 
 ## Example prompts
 

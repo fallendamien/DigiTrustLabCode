@@ -17,7 +17,7 @@
 | Dark elements | Dark charcoal `#1A1A1A` |
 | Highlights | White |
 | Aspect ratio | 16:9 (wide, min 1024×576) |
-| Text in image | NEVER |
+| Text in image | No readable text by default; clean intentional pseudo-writing, abstract lines, bullets, and checkboxes are allowed and should be preserved |
 
 ## 📐 Variation Guide (rotate — avoid repeating the same composition)
 
@@ -56,6 +56,19 @@ AI generators routinely produce missing, deformed, or unnaturally positioned han
 If hands are still wrong, regenerate with:
 
 > `All hands fully rendered with five fingers each, arms complete from shoulder to fingertips, natural pose.`
+
+### 🔍 Image audit gate (MANDATORY before archive or upload)
+
+Inspect every generated image at native resolution twice: the full frame, then
+each marked region (faces, hands/arms, figures, cropped edges, props, and any
+pseudo-writing). Preserve clean intentional pseudo-writing, abstract lines,
+bullets, and checkboxes. Reject distorted-looking letters, malformed glyphs,
+wobbly/uneven/merged strokes, inconsistent spacing, accidental readable text or
+numbers, logos, watermarks, orange blobs or halos behind or intersecting
+people/arms, and anatomy artifacts. If any artifact appears, edit or regenerate
+non-destructively from the best composition and repeat both inspections. Do not
+“fix” the image by deleting all pseudo-writing. Record the pass before archive
+or upload.
 
 ### 🔁 Cross-Provider Image-Reference Workflow (ChatGPT or Gemini)
 
@@ -471,4 +484,77 @@ Flat illustration style. Two clean communication paths crossing a geometric netw
 
 ```
 Flat illustration style. A top-down flat lay showing a small key, a shield, a folder, a database cylinder and a checklist arranged around a central connection point. Some paths are open and some are blocked, representing minimum permissions and checking actions before approval. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Top-down flat lay perspective of objects arranged on a surface. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+```
+
+---
+
+## Post #12 — Contoh Minit Mesyuarat: Cara Susun Nota dengan AI (GENERATED + STAGED — WP DRAFT 605)
+
+**Slug:** `contoh-minit-mesyuarat-cara-susun-nota-dengan-ai`
+**Focus keyword:** `contoh minit mesyuarat`
+**Content summary:** Panduan menyediakan minit mesyuarat yang kemas, memisahkan perbincangan daripada keputusan dan menggunakan AI sebagai pembantu menyusun nota tanpa menggantikan semakan manusia.
+
+> Semua imej menggunakan palet oren DigiTrust Lab. Tiada imej mengandungi bentuk oren bulat, halo atau blob di belakang atau bersilang dengan lengan/badan manusia. Setiap imej telah diperiksa secara visual untuk artefak anatomi, teks, logo dan watermark.
+
+| Archived asset | SHA-256 |
+|----------------|---------|
+| `contoh-minit-mesyuarat-cara-susun-nota-dengan-ai-featured.png` | `9B774AB0477E9BA85EE864853A584323B26CB2B13C7CAD944FE322ABB53EB179` |
+| `contoh-minit-mesyuarat-struktur-nota.png` | `D00F68821B09EB3D4D49A3CB726AFF8FBF3747FD07C65F0CE9DCFFA55CAED601` |
+| `contoh-minit-mesyuarat-susun-nota-dengan-ai.png` | `DB23397B91C7B31411AFFC024D178BE465370CF8A994CA5F3D490214EDC4A2A9` |
+| `contoh-minit-mesyuarat-semak-sebelum-kongsi-clean.png` | `C4A607C9741F89FF91AD32D97EFAACF3B9B162A09905388FF2FC76C2FC99D12B` |
+
+> Image 4 was regenerated after the first archive pass. The corrected
+> `-clean.png` is the only archived and referenced asset; the superseded
+> pre-correction file (`contoh-minit-mesyuarat-semak-sebelum-kongsi.png`,
+> `091BD6342046B55E30C2F39A42E55EDE9734951968B2E476960798F20DBEF7DF`) is no
+> longer present in the archive and must not be reused. Verified 2026-08-16:
+> the repo copy at `content/assets/` and the archived source in
+> `DigiTrustLab\Blog images` are byte-identical (1,120,488 bytes).
+
+### Native-resolution visual audit
+
+| Asset | Inspection coverage | Result |
+|-------|---------------------|--------|
+| Featured | Full frame + marked regions at native resolution | PASS — clean orange palette; no anatomy artifacts, blobs, halos, text, logos or watermark |
+| Struktur nota | Full frame + marked regions at native resolution | PASS — clean geometric layout; no malformed pseudo-writing, blobs, halos, text, logos or watermark |
+| Menyusun nota dengan AI | Full frame + marked regions at native resolution | PASS — intentional clean pseudo-writing only: straight parallel strokes, aligned bullets/checkboxes, consistent spacing; no malformed glyphs, readable text, blobs or halos |
+| Semakan akhir | Full frame + marked regions at native resolution | PASS — clean geometric before-and-after; no malformed pseudo-writing, blobs, halos, text, logos or watermark |
+
+**Audit rule:** Preserve intentional pseudo-writing, abstract lines, bullets and checkboxes when they are clean and designed. Reject malformed glyphs, wobbly or merged strokes, accidental readable text or numbers, logos, watermarks, orange blobs or halos behind/intersecting people or arms.
+
+### Image 1 — Featured (Split Composition)
+
+**Filename:** `contoh-minit-mesyuarat-cara-susun-nota-dengan-ai-featured.png`
+**Alt text:** Ilustrasi menyusun nota mesyuarat dengan bantuan AI dan kalendar tindakan
+
+```
+Flat illustration style. A polished wide illustration showing a person reviewing clear meeting notes on a laptop while a second panel shows organized bullet points and a calendar, representing AI helping structure meeting notes. One person at a desk, laptop, meeting notes, calendar and subtle AI sparkle icon. Split composition, person and laptop on the left, organized notes and calendar on the right, generous breathing room. Simple geometric shapes, bold charcoal outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Clean, modern, minimal. No text, logos or watermark. Wide format 16:9. Both person and robot have complete visible arms and hands with natural positioning. No rounded orange blob, halo, disc or abstract orange shape behind or intersecting any person’s arm or body.
+```
+
+### Image 2 — Struktur Nota (Top-Down Flat Lay)
+
+**Filename:** `contoh-minit-mesyuarat-struktur-nota.png`
+**Alt text:** Struktur asas untuk menyediakan minit mesyuarat yang kemas
+
+```
+Flat illustration style. Top-down flat lay of a meeting table with a notebook, agenda sheet, clock, checklist, folder and simple speech bubbles arranged around a central clean page, showing the parts of organized meeting minutes. Balanced spacing, no people. Simple geometric shapes, bold charcoal outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Clean, modern, minimal. No text, logos or watermark. Wide format 16:9. No rounded orange blob, halo, disc or abstract orange shape.
+```
+
+### Image 3 — Menyusun Nota dengan AI (Isometric Scene)
+
+**Filename:** `contoh-minit-mesyuarat-susun-nota-dengan-ai.png`
+**WP media:** ID 604, `https://digitrustlab.com/wp-content/uploads/2026/08/contoh-minit-mesyuarat-susun-nota-dengan-ai-1.png` (clean corrected upload; the prior defective media ID 602 is not referenced).
+**Alt text:** AI membantu menyusun kad nota mesyuarat kepada keputusan dan tindakan
+
+```
+Flat illustration style. Isometric scene showing a laptop receiving abstract meeting-note cards and sorting them into three clean stacks represented by icons for agenda, decisions and action items. Small AI sparkle symbol and arrows show the flow from loose notes to organized stacks. Layered depth, no people. Simple geometric shapes, bold charcoal outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Clean, modern, minimal. No text, logos or watermark. Wide format 16:9. No rounded orange blob, halo, disc or abstract orange shape.
+```
+
+### Image 4 — Semakan Akhir (Geometric Before-and-After)
+
+**Filename:** `contoh-minit-mesyuarat-semak-sebelum-kongsi-clean.png` (corrected regeneration)
+**Alt text:** Senarai semak untuk menyemak minit mesyuarat sebelum dikongsi
+
+```
+Flat illustration style. Geometric before-and-after composition showing a messy page of scattered note cards transforming into a clean concise meeting-minutes page with checklist and verification marks. Clear left-to-right transformation, no people. Simple geometric shapes, bold charcoal outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Clean, modern, minimal. No text, logos or watermark. Wide format 16:9. No rounded orange blob, halo, disc or abstract orange shape.
 ```

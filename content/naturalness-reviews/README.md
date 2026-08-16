@@ -18,8 +18,10 @@ duplicate the article text.
 ## Reviewer protocol
 
 Ask two independent fresh sessions to review the final content: one
-Claude/Anthropic session and one OpenAI session. Do not provide either reviewer
-with the other review, an older review, or a suggested correction as context.
+Claude Sonnet/Anthropic session and one OpenAI session. The Anthropic reviewer
+must be Claude Sonnet; do not substitute Claude Opus unless the user
+explicitly changes this preference. Do not provide either reviewer with the
+other review, an older review, or a suggested correction as context.
 Both reviewers use the same six binary checks for the complete document and
 every extracted segment:
 

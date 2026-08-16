@@ -1,0 +1,1762 @@
+{
+  "schema_version": 2,
+  "post_id": 605,
+  "slug": "contoh-minit-mesyuarat-cara-susun-nota-dengan-ai",
+  "reviewed_at": "2026-08-15T20:02:03.310Z",
+  "content_hash": "99647682adda006fa99d537ed5930e7feace2a5cd5d1e53371ebff217d2e4f02",
+  "status": "pass",
+  "reviewers": [
+    {
+      "id": "claude",
+      "model_family": "anthropic",
+      "model": "claude-sonnet-5",
+      "effort": "medium"
+    },
+    {
+      "id": "openai",
+      "model_family": "openai",
+      "model": "gpt-5.6-luna",
+      "effort": "high"
+    }
+  ],
+  "document_review": {
+    "claude": {
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    "openai": {
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true
+      },
+      "confidence": "high",
+      "findings": []
+    }
+  },
+  "segments": [
+    {
+      "id": "seg-001",
+      "hash": "6b089b2b0bda8eb092ecf25784265ba8e87d9b1c9a36c254d0581d3c5cc140bc",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-002",
+      "hash": "68a88d2df9dc9ddd246e4222d627d5ef1b3f63ee86496a596cf05dfd23fa27d5",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-003",
+      "hash": "0074aa572150ae81bb3898634686e700dc7771f7ecc421a56033d4ece9217b19",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-004",
+      "hash": "dcf6432ef5c24a3509a74693ed632596081a433ddb70d83b6cc888bc90797d9f",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-005",
+      "hash": "ac8e173e39417321c092a64571c7976d35bd6659657319732ab619ccdfde08a1",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-006",
+      "hash": "2ed9f9ed4b008dca25f8d2e7a2ec2d52c90c056447ed0b01c1b7b4d2ee568f24",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-007",
+      "hash": "6d54ffa13ba1db00c591a7740357ef7a13cd3e6bd647ed02df757dac6bb6a471",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-008",
+      "hash": "443d76c46271e2714e854e0927da31a2db6daee6b41b035c5e405679f3a78336",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-009",
+      "hash": "c37d59a280204488e236ceeb6683a17a52d26b8e8d4115c3c608ae372672ba69",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-010",
+      "hash": "24698e90a5549af6587a08b26cb6d70f7876efc254ae4659702d2bdb8df26366",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-011",
+      "hash": "babb2f0f46e59755a21822055de98dd7a5b89a476ac4581b5927910fd9f19845",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-012",
+      "hash": "f1fcb46ee2048bc5b3081e9b608a526713441d3fea39b4faaa906bb0e9c2b729",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-013",
+      "hash": "0cd8363b10eefdc9005810c6bab368c575c57410957d388e38429889476383ce",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-014",
+      "hash": "53d3fe82adf3d844970e3df133222de3276f6cd5bf33841243cd15b0bcdb42b8",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-015",
+      "hash": "c1bcda00a67c3b23e10741c7261a0e00af9d65398881dea63e13d229a8909182",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-016",
+      "hash": "f3233d25894564f71e9f9a9f32c53eae6526f589c6257c99108ecf2f6a63398d",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-017",
+      "hash": "bdd0c9f6cea0dadebfb9a8fbc1485d55ddc8ff984fbca9be3a7750be1099cde5",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-018",
+      "hash": "1e41dc29a5384d1341c35b095f1c0dda0a1063f83d92081656a83a106e60032b",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-019",
+      "hash": "0530666b2d084796b683a0843f06cce28ebf1d5e18dea33051ee81c9eccf56a4",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-020",
+      "hash": "6c3d3911d0ae01ad06a0e6c6709fa0df5ebd5b3d1afb79298894bb11d931d356",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-021",
+      "hash": "7604074e90f158718bfca5ad1d1abc0c5e1fd51067416577bf23bf7d4252ec4d",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-022",
+      "hash": "c5c223bd9d44b6c87cc83062ccdf97e92feae852962472602e0ef86c9a523798",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-023",
+      "hash": "9c7fcdce8badedfeb2e9b2c4d567ff4e9ecb0eae74b42861f9e590eba3427da2",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-024",
+      "hash": "cd808c1fec410bd3847ce9e7f45d4c412e14ab97a91d89623fc760ba38a3cd37",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-025",
+      "hash": "471d3b02bf0694d63ccf53595fb14ae8bfcc784f597fd40391f293693a8aaf15",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-026",
+      "hash": "50e633fbf762cfb5248a16784d711a8fac6a17114010a499dfce6d0bd1930724",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-027",
+      "hash": "da9cc7f6a06d9f5a3a98d18af00cc457ec267b8b85d6124942d0943ddbc7a1b3",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-028",
+      "hash": "d2b1eca9eaa9948bd63dd5a03fb2bfb31ac3e35b84b972e8c015071043b3c247",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-029",
+      "hash": "37371a51ca804b7f947b50785eea65257603e46b7494b02b6bb409b6aa30ca45",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-030",
+      "hash": "faba2eebf8e1d303135349b90f2825f0904b937ebf3469ee853ecf0d2a03b494",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-031",
+      "hash": "f309cec8e0cb3fe983cf069fa4eca15857b9302b5559c94653f9d0751b4505e4",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-032",
+      "hash": "48f3d5ca9c9d79ac482aa4712a960ff26d1420be5a2946f8fa1433eaad169085",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-033",
+      "hash": "f9b84f6e22690631d021276736b6b1e6aec4b817d2b96d38bfba3cfac084453d",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-034",
+      "hash": "06f32911a0a0a721bbfd78adee3aee1df72dd0bda0e8fbd5fbd798643a797dd5",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-035",
+      "hash": "d3126e3265a0612fc7bfba4d527c5bb252101cd913b88e4d0f91e879ce88f4e6",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-036",
+      "hash": "9e0d8c04f0623083a190d849ac12e74b0149fa7a2a477c7cc07dd0f26a58cb6e",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-037",
+      "hash": "cb8b4e6f34394845ab943539a52368409f01919c99b34bebec055937ed8d263d",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-038",
+      "hash": "8938b4d1915d368f5d514659295712e591c49f86413e99158cfb00b3b49b1708",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-039",
+      "hash": "118901c90229ac6a43b74b9029618d1551a89facfadde950a210e7bd1270d25a",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-040",
+      "hash": "96520703f663b8d4eec2e2daaba140bc272611432a75750c47a5766d63b98789",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-041",
+      "hash": "1e11359ab3952b4d6710cf68068d6a6286faddf5f2b6880d9cbf25841f888484",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-042",
+      "hash": "5ee3bae5bc806be6f9258b7638a8afd43c4a025a0867febb00291aa1da6603ad",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-043",
+      "hash": "b26b3a329577228e369431db1ab39bdfe710dfd90a9458abb29568fc895bc07b",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-044",
+      "hash": "f59e58b40a1836218495b499b5b2c8acbd296fb67a68031051d36e110cea9352",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-045",
+      "hash": "d8ff0348d5abc4867831cc8375a0be877cb89295d0a9275716be1cfd3864128d",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-046",
+      "hash": "e41d22aae77075918ed0ff97c5285249a9c54fe236b4bc23df78ebc23aeab9a7",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-047",
+      "hash": "214f6d57395b9e6ef17568f8dd23cdc8e91d4eefe3a61b7a4310ff4dd3dbe517",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-048",
+      "hash": "3ef91337b3404b17bde112c77bbd8908d7f052de260ce49c4c2e0e0af49b1351",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-049",
+      "hash": "b161b25bfc7bc0517e0f5b11fb69f930620607b41cfde91c6e119e17a7134b1d",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-050",
+      "hash": "5106762f25877e1ca4d79dadd2371c7d2ed875a0d8e2c376d186c3ae3668a9c4",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-051",
+      "hash": "05129f05265cb1833d40488332297c2f52787fc3a9625b12447eb23c1e50f69c",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-052",
+      "hash": "75cbd844c40af4b4682226c019603f3f3b9b99e88a8864dee410fcedc5db9a9a",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-053",
+      "hash": "3f687f8db50e56d57c0511bcc0f739682c9dd51aed0bb28bb1929b807f4e88ea",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-054",
+      "hash": "13d30ce2cdaa924ab759ba0fd9ffd08fb799206145563fceb0f77657904f762e",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-055",
+      "hash": "3bb4c8acf739251fa3eadce38c0ab8ae63ad8a675ccbb350a16ea565dc469e69",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-056",
+      "hash": "735aa91ec90babe81dc5bff1ddc0315bbc5435b99327d4903f11299e2e106a10",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-057",
+      "hash": "9d219d6762ff2d313e0169b67f8b69d366b3b4455b9c0abb90c0c0f3955a33a5",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        },
+        "openai": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_stiffness": true,
+            "technical_term_choice": true,
+            "read_aloud_clarity": true,
+            "terminology_consistency": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    }
+  ],
+  "disagreements": [],
+  "human_resolutions": []
+}

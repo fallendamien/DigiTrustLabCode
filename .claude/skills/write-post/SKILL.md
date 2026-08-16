@@ -51,10 +51,26 @@ Token and context rules:
 5. Collect each result, verify the relevant evidence once, and close the worker immediately. See `docs/knowledge-library/delegation-patterns.md` for the human-readable explanation.
 
 The required Claude/Anthropic and OpenAI naturalness reviewers are independent
-review roles, not ordinary workflow delegation. A fresh Luna High session may
-serve as the OpenAI-family reviewer when it receives only the frozen final
-content and none of the other review. The Claude/Anthropic review must still
-come from that separate family.
+review roles, not ordinary workflow delegation. The Anthropic lane must use
+Claude Sonnet (actual model ID recorded in the artifact); do not use Claude
+Opus for this review unless the user explicitly changes the preference. A
+fresh Luna High session may serve as the OpenAI-family reviewer when it
+receives only the frozen final content and none of the other review. The
+Claude/Anthropic review must still come from that separate family.
+
+### Remy-style parallel article pattern
+
+The coordinator may route one article into content, creative, and SEO/operations
+workstreams, then set a barrier before staging. Parallelize only independent,
+bounded tasks with disjoint inputs and write scopes, such as per-asset image
+generation or batches, read-only SEO/source checks, and visual QA on completed
+assets. Each worker result must identify the actual `gpt-5.6-luna` model,
+`high` effort, scope, and evidence. One worker owns each asset or file; never
+concurrently edit the same image, prompt library, WordPress post, browser tab,
+or canonical documentation. After the barrier, the coordinator reconciles and
+chooses assets; one sequential owner performs upload, staging, publication,
+tracking, and documentation. If the work is tightly coupled or concurrency is
+not useful, use one worker.
 
 ## Browser Automation Standard — Existing Authenticated Chrome Session (FIRST GATE)
 
@@ -344,6 +360,17 @@ while the WordPress post remains a draft.
    This must pass before the draft is staged. Rank Math does not replace it.
 3. Generate the featured and in-content images with ChatGPT or Gemini using
    `content/image-prompts.md`. Finalize every Malay alt text before review.
+3a. Apply the mandatory image audit gate before archiving or uploading:
+   - Inspect each image at native resolution in the full frame and every marked
+     region (faces, hands/arms, figures, edges, props, and any pseudo-writing).
+   - PASS only when clean intentional pseudo-writing, abstract lines, bullets,
+     and checkboxes remain acceptable, while distorted-looking letters,
+     malformed glyphs, wobbly/uneven/merged strokes, inconsistent spacing,
+     accidental readable text or numbers, logos, watermarks, orange blobs or
+     halos behind or intersecting people/arms, and anatomy artifacts are absent.
+   - On any failure, edit or regenerate non-destructively from the best
+     composition, then repeat both inspections. Never “fix” by deleting all
+     pseudo-writing. Record the pass before archive/upload.
 4. Archive the generated images before cleanup:
    - Use each authoritative `Filename` from `content/image-prompts.md`.
    - Copy from the exact
@@ -390,8 +417,9 @@ voice checker or received a high Rank Math score.
    `content/naturalness-reviews/<post-slug>.json`.
 3. Ask two independent fresh sessions to review the same final content using
    the six-check protocol in `content/naturalness-reviews/README.md`: one
-   Claude/Anthropic reviewer and one OpenAI reviewer. Record both actual models
-   and families in the artifact.
+   Claude Sonnet/Anthropic reviewer and one OpenAI reviewer. Do not use Claude
+   Opus unless the user explicitly changes the preference. Record both actual
+   models and families in the artifact.
 4. If either reviewer flags an issue, expresses uncertainty, or encounters an
    unapproved term, apply only a clear correction and rerun both reviews from
    scratch. If the wording requires a genuine editorial decision, stop for the
@@ -626,6 +654,7 @@ stale approval hash.
 - **Image filenames (MANDATORY):** `{post-slug}-{image-description}.png` (lowercase, hyphens only)
 - **In-content images:** Add images under H2 sections to break up text. See `content/image-prompts.md` for prompts
 - **Image prompts library:** All prompts stored in `content/image-prompts.md`. Update when a post is published
+- **Image audit gate (MANDATORY):** Before archive/upload, inspect the full frame and marked regions at native resolution; preserve clean pseudo-writing, abstract lines, bullets, and checkboxes, but reject malformed glyphs or strokes, inconsistent spacing, accidental readable text/numbers, logos/watermarks, orange blobs/halos intersecting people/arms, and anatomy artifacts. Non-destructively edit or regenerate from the best composition and re-inspect on failure.
 - **Post Excerpt (MANDATORY):** Every post MUST have a manual excerpt (155–160 characters). Set and reload-verify it via the `wp.data` store method in Phase 5.4 before naturalness review and publication — NOT via Respira's `excerpt` parameter
 - **Content formatting (MANDATORY):** See `.claude/skills/readability-pass/SKILL.md` for Rich Formatting Toolkit, blockquote/callout templates, and Formatting Checklist
 - **Malay naturalness gate (MANDATORY):** Run `python scripts/verify-malay-naturalness.py` against final HTML before Phase 6 and the live post after publication; both must exit 0

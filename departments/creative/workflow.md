@@ -32,6 +32,31 @@ the requested variant count. Confirm provenance and archive handoff. A prompt
 or local plan is not evidence that an image was generated, copied, uploaded,
 or live on WordPress.
 
+## Reusable image audit trigger
+
+Treat `fix this image`, `audit this image`, `clean up this image`, and
+`repair the linework` as a request to run this bounded loop:
+
+1. Inspect the supplied image or live asset first. Preserve the composition,
+   dimensions, aspect ratio, palette, spacing, and intended pseudo-writing.
+2. Use the approved image-editing capability to correct every visible defect:
+   lines and pseudo-writing may remain, but every stroke must be crisp,
+   straight or intentionally shaped, evenly weighted, cleanly joined, and
+   free of warped glyphs, doubled strokes, smears, fuzzy edges, or AI-slop
+   marks. Remove unintended rounded colour artifacts, especially shapes that
+   intersect a person or arm. Do not add logos, watermarks, or new text.
+3. Visually QA the whole frame, not only the marked region. Reject the asset
+   if any line, border, arrow, checkbox, or pseudo-writing still looks
+   distorted at 100% view.
+4. Save the corrected source in the project asset archive with the exact
+   filename, format, dimensions, prompt provenance, and alt-text recommendation.
+5. Hand the verified asset to Operations for live replacement. Never create a
+   numbered duplicate when the request says to keep the URL.
+
+The Creative handoff must state whether live upload and cache verification are
+complete or still pending. A clean local render is not proof that WordPress
+has been replaced.
+
 ## Codex handoff
 
 Provide: objective, source files, brief or asset produced, prompt/tool

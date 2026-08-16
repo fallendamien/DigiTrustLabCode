@@ -383,7 +383,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 
 ---
 
-## Post #12 — DRAFTING
+## Post #12 — PUBLISHED ✅
 
 | Field | Value |
 |-------|-------|
@@ -396,14 +396,25 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | All-in-Title | 0 |
 | Weak Spot | 2 (Avg DA 53.9; Low DA 17; High DA 89) |
 | Category | Digital Skills |
-| Status | DRAFTING — raw WriterZen draft saved; rewrite awaiting review |
+| Status | Published 16 August 2026; live verification and tracking rows confirmed |
 | WriterZen Topic Discovery | Report 245489 — original note-focused research; validated pivot emerged through meeting-minutes alternatives |
 | WriterZen Keyword Explorer | Report 1564642 — `contoh minit mesyuarat` |
 | WriterZen Keyword Planner | Project 178645 — `Post 7 - Contoh Minit Mesyuarat` |
 | WriterZen Content Creator | Article 243984 — 877 words; 12 headings; 19 paragraphs |
+| WordPress Post | ID 605 — `https://digitrustlab.com/contoh-minit-mesyuarat-cara-susun-nota-dengan-ai/` (published) |
+| Post ID | 605 |
+| Featured image | Media 600; body images Media 601, 604 and 603; final visual QA passed with clean pseudo-writing/lines and no rounded orange arm artifact |
+| Rank Math | ✅ Respira computed score 94/A; 12/13 checks passed; only keyword-density warning (0.42%) |
+| Naturalness Gate | ✅ Claude/Anthropic `claude-sonnet-5` subscription OAuth + OpenAI `gpt-5.6-luna` high; local artifact 57 segments and live artifact 55 segments, both pass with zero findings |
+| Malay Voice Gate | ⚠️ Live naturalness revalidation passed; `verify-malay-voice.py 605` currently reports `unknown id` because the script registry has not yet been extended for this new post |
+| Link Quality Gate | ✅ Live destinations checked; 1 contextual internal link, 1 editorial external dofollow link; inbound review records `no_safe_context` |
+| ClickRank Keyword Tracker | ✅ `contoh minit mesyuarat` + exact URL; Malaysia; Device All; visible row (currently Not in Top 3 Results) |
+| Screpy Rank Tracker | ✅ `contoh minit mesyuarat` added; Malaysia/Malay; Device Both; visible row; ranking positions pending first analysis |
+| Google Search Console | ⚠️ Fresh URL Inspection 16 August 2026: URL is not on Google; URL is unknown; no referring sitemap detected. No indexing request was submitted in this pass. |
+| Rendered Evidence | ✅ Live Chrome rendering shows title, Digital Skills category, featured image, three in-content images with alt text/captions, ToC, headings, lists, internal link and OpenAI reference |
 | Supporting keywords | `contoh minit mesyuarat ringkas`; `contoh minit mesyuarat terkini`; `format penulisan`; `tidak hadir`; `alat ai`; `minit mesyuarat`; `susun nota mesyuarat`; `AI untuk minit mesyuarat` |
 | Content angle | Panduan langkah demi langkah untuk menyediakan minit mesyuarat yang kemas, ringkas dan mudah dirujuk, dengan contoh struktur serta AI sebagai pembantu menyusun nota dan menyemak butiran. AI tidak menggantikan semakan manusia. |
-| Internal-link plan | Link contextually to relevant existing AI or ChatGPT guidance during the rewrite; no exact URL or anchor has been confirmed yet. |
+| Internal-link plan | ✅ One contextual internal link to the existing ChatGPT guidance was published; no safe older-post inbound link was forced. |
 | Validation date | 2026-08-12 via WriterZen Topic Discovery, Keyword Explorer, Golden Filter and activated Planner metrics |
 
 > Calendar mapping: this is a genuinely new opportunity adjacent to Post #7, not a replacement. Post #7 remains planned because its broader note-taking intent is distinct and its original keyword candidates did not pass live demand checks.
@@ -412,7 +423,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 
 ## Workflow (Option C — Standard Pipeline)
 
-> **Full step-by-step:** `.devin/skills/write-post/SKILL.md` is the authoritative version. This is the summary.
+> **Full step-by-step:** `.claude/skills/write-post/SKILL.md` is the authoritative version. This is the summary.
 
 0. **Quota check** — WriterZen Settings → Limits. Note Keyword Credit + AI Words remaining before spending any
 1. **Topic Discovery** — Seed the broad topic (Malay, Malaysia) → find the winnable angle → confirm or revise the planned title. Titles here are provisional until this step
