@@ -147,9 +147,13 @@ def main() -> int:
         "carry the route receipt into every worker brief",
         "actual model id and effort",
         "verify-ea-router-runtime.py",
-        "asks for advice, comparison",
-        "external repository, url, tool, provider",
+        "external repository/tool/skill/provider evaluation",
         "plan this first",
+        "classify the work by risk",
+        "safe local",
+        "bounded-worker",
+        "nested delegation",
+        "orchestrator turns",
     )
     for phrase in required_phrases:
         if phrase.lower() not in normalized:
@@ -206,6 +210,7 @@ def main() -> int:
 
     simple = "What does SEO mean?"
     substantive = "Draft an article about indexing problems."
+    safe_local = "Inspect the changed local file."
     external_evaluation = (
         "I want your advice: https://github.com/keemanxp/dbp-translator-claude.git "
         "is it a good one to integrate into Content? Plan this first?"
@@ -218,6 +223,10 @@ def main() -> int:
         print("PASS bounded worker required for substantive request")
     if not is_simple_question(external_evaluation):
         print("PASS external artifact/judgment request requires bounded worker")
+    if is_simple_question(safe_local):
+        failures.append("safe local implementation must not be classified as a question")
+    if "safe local" not in normalized or "ordinary implementation may be handled directly" not in normalized:
+        failures.append("risk-based direct-work allowance is not deterministic")
 
     primary_values = {route_for_test(inquiry) for _, inquiry, _ in cases}
     if not all(value in DEPARTMENTS for value in primary_values):

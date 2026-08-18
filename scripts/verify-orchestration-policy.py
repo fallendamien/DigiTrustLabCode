@@ -9,6 +9,12 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 POLICY = ROOT / "docs" / "ai" / "orchestration-policy.md"
+CANONICAL = Path(
+    os.environ.get(
+        "TSOT_ORCHESTRATION_POLICY",
+        ROOT.parent / "agent-templates" / "workspace" / "rules" / "orchestration-policy.md",
+    )
+)
 POINTERS = {
     ".claude/rules/orchestration-gate.md": "../../docs/ai/orchestration-policy.md",
     "AGENTS.md": "docs/ai/orchestration-policy.md",
@@ -29,8 +35,11 @@ REQUIRED = (
     ("Claude Opus", "claude-sonnet-4-6"),
     ("actual model ID", "reasoning effort"),
     ("gpt-5.5", "not a Claude worker"),
-    ("Mandatory delegation triggers", "external artifact"),
-    ("Plan first", "does not"),
+    ("Worker-context precedence", "bounded-worker"),
+    ("Risk-based delegation", "approval-gated"),
+    ("safe local", "reversible"),
+    ("dispatch fails", "fallback"),
+    ("runtime audits", "orchestrator turns"),
 )
 
 CONFIG_MODEL = "gpt-5.6-luna"
@@ -66,13 +75,20 @@ def main():
     args = parser.parse_args()
     failures = []
     if not POLICY.is_file():
-        failures.append("missing policy")
+        failures.append("missing repo-local policy adapter")
+    if not CANONICAL.is_file():
+        failures.append(f"missing canonical TSOT policy: {CANONICAL}")
+    if failures:
         print("FAIL orchestration policy: " + "; ".join(failures))
         return 1
-    policy = POLICY.read_text(encoding="utf-8").lower()
+    adapter = POLICY.read_text(encoding="utf-8").lower()
+    policy = CANONICAL.read_text(encoding="utf-8").lower()
+    normalized_policy = " ".join(policy.split())
     for model, mapping in REQUIRED:
-        if model.lower() not in policy or mapping.lower() not in policy:
+        if model.lower() not in normalized_policy or mapping.lower() not in normalized_policy:
             failures.append(f"missing mapping: {model} -> {mapping}")
+    if "canonical policy" not in adapter or "thin" not in adapter:
+        failures.append("repo-local policy is not a thin canonical adapter")
     pointers = 0
     for relative, target in POINTERS.items():
         path = ROOT / relative
@@ -82,7 +98,7 @@ def main():
             failures.append(f"missing policy pointer: {relative}")
         else:
             pointers += 1
-    if "behavioral" not in policy or "not a cryptographic" not in policy:
+    if "behavioral" not in policy or "not cryptographic" not in policy:
         failures.append("missing behavioral/non-cryptographic caveat")
     config_path = Path(os.environ.get("CODEX_CONFIG_PATH", Path.home() / ".codex" / "config.toml"))
     config_drift = codex_config_drift(config_path)

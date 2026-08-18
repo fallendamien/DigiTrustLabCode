@@ -12,8 +12,9 @@ Router contract version: 2026-08-16
 Use this skill as the shared entrypoint for Codex and Claude when the user has
 not already selected a narrower EA skill. It classifies the requested outcome,
 selects exactly one primary department, and coordinates the next safe step. The
-EA remains an orchestrator: it does not perform substantive department work,
-approve its own result, or activate external systems.
+EA owns routing, integration, and independent verification; a brief explicitly
+marked `bounded-worker` executes directly within scope, without nested
+delegation or self-approval.
 
 ## Trigger
 
@@ -76,27 +77,30 @@ the smallest clarifying question needed.
    files are newer than the current session, re-read them and emit a fresh
    receipt before continuing. After compaction, context reset, or a changed
    user objective, treat the next turn as unrouted and repeat this gate.
-4. Classify simple, casual, one-step questions before dispatching. Answer them
-   directly after recording the route; do not spawn a worker merely to classify
-   or answer a simple question. A request is **not** simple when it asks for
-   advice, comparison, recommendation, suitability, or integration judgment,
-   or when it supplies/references an external repository, URL, tool, provider,
-   model, plugin, package, or skill. This remains substantive when phrased as
-   "just wondering", "what do you think?", or "plan this first".
-5. For substantive work, dispatch exactly one bounded worker by default. This
-   includes external artifact/tool/provider/skill integration evaluation and
-   policy-conflict or adoption-risk judgment. On
-   Codex use the actual `gpt-5.6-luna` worker at `high` reasoning effort. On
-   Claude use the actual host-specific adapter named by the orchestration
-   policy. State the actual model ID, effort, scope, and evidence; never infer
-   provider identity from a friendly label.
+4. Classify the work by risk before dispatching. External, destructive,
+   irreversible, high-risk, approval-gated, and broad or independently
+   review-worthy implementation requires exactly one bounded worker by default.
+   Narrow local inspection, reversible edits, focused tests, and ordinary
+   implementation may be handled directly when the orchestrator can safely own
+   them. Delegate when it materially improves independence or parallelism.
+   Simple, casual, one-step questions may be answered directly after recording
+   the route. External artifact/tool/provider/skill advice or judgment is not a
+   simple question merely because it says "just wondering" or "plan this first".
+5. For work requiring delegation, use the actual `gpt-5.6-luna` worker at `high`
+   reasoning effort on Codex, or the actual host-specific adapter named by the
+   orchestration policy on Claude. State the actual model ID, effort, scope, and
+   evidence; never infer provider identity from a friendly label. A
+   `bounded-worker` brief executes directly and does not trigger another
+   delegation.
 6. Carry the route receipt into every worker brief: `route_id`, primary
    department, bounded scope, allowed systems, evidence required, and stop
    conditions. The worker result must repeat those fields plus its actual model
    ID and effort. Reject a result that omits the attestation or widens scope.
 7. Coordinate the worker brief, inspect its evidence, and integrate the result.
-   The EA does not self-approve completion. If the required adapter or evidence
-   is unavailable, fail closed and report the blocker.
+   The EA does not self-approve completion. If dispatch fails, external,
+   destructive, irreversible, high-risk, or approval-gated work stops. Safe
+   local read-only or reversible work may continue only with disclosed fallback,
+   preserved scope, and no claim of worker validation.
 8. Add a secondary department only for a concrete handoff, such as SEO
    validation requested by Content or Operations performing an authorized live
    change after another department supplies a brief. Do not fan out by default.
@@ -130,7 +134,9 @@ published, sent, or otherwise unverified action as completed.
 The receipt is intentionally machine-auditable. Run
 `python scripts/verify-ea-router-runtime.py --session-log <session.jsonl>` at
 the end of a routed task or when investigating a suspected skip. The audit
-fails closed when a substantive user turn has no receipt before its first tool
-call, when the receipt is malformed, or when the router contract was refreshed
-after the session began without a current-version receipt. This is a
-verification layer, not a claim that prompt-level routing can revoke tools.
+applies delegation requirements to orchestrator turns, not terminal
+bounded-worker turns. It fails closed when an orchestrator turn requiring
+delegation has no observable bounded-worker action, when a receipt is malformed,
+or when the router contract was refreshed after the session began without a
+current-version receipt. This is a verification layer, not a claim that
+prompt-level routing can revoke tools.

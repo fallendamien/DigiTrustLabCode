@@ -7,6 +7,16 @@
 3. Execute only the requested bounded change or produce a runbook/checklist.
 4. Verify immediately, document evidence, and stop when the next action belongs to another department.
 
+## Delegation decision
+
+An explicitly marked `bounded-worker` brief executes directly within its scope;
+nested delegation is prohibited. For orchestrator turns, delegate external,
+destructive, irreversible, high-risk, approval-gated, or broad/
+independently review-worthy work. Safe narrow local inspection, reversible
+edits, focused tests, and ordinary implementation may be owned directly. If
+dispatch fails, high-risk and approval-gated work stops; safe local fallback
+must disclose the fallback and cannot claim worker validation.
+
 ## MCP boundary
 
 Use only the MCP server appropriate to the requested system. For WordPress and

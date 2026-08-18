@@ -4,24 +4,23 @@ This file contains project-specific rules and operating standards for AI coding 
 
 ### Orchestration gate
 
-Codex Sol and Claude Opus are orchestration-only. Luna XHigh may orchestrate,
-but every child it dispatches must be Luna High. Substantive work goes to a
-bounded worker. Codex Sol uses the actual OpenAI worker `gpt-5.6-luna` at high
-reasoning effort by default; it must never label `gpt-5.5` or another OpenAI
-model as Claude Sonnet. Claude Opus may use the actual `claude-sonnet-4-6`
-adapter for complex read-only/judgment work when available. Read [the repo-local
-orchestration policy](docs/ai/orchestration-policy.md) before dispatching work,
-and report actual model ID, effort, and evidence. This is a behavioral gate,
-not a runtime security boundary; unavailable workers or missing evidence require
-a fail-closed stop or explicit user authorization for a named substitute.
+Read [the repo-local orchestration adapter](docs/ai/orchestration-policy.md),
+which points to the canonical TSOT policy. A brief marked `bounded-worker`
+executes directly within scope; orchestrator delegation triggers do not apply,
+and nested delegation remains prohibited.
 
-**Fail-closed substantive-work gate:** read-only or planning-only does not mean
-simple. Any evaluation, recommendation, comparison, or integration decision
-about an external repository, tool, skill, provider, model, workflow, or
-architecture is substantive and must go to one bounded `gpt-5.6-luna` worker at
-high effort. The only direct-answer exception is a one-step factual lookup or
-casual clarification that needs no inspection, synthesis, or judgment. When
-uncertain, dispatch; if the worker or evidence is unavailable, stop.
+Delegation is mandatory for external, destructive, irreversible, high-risk,
+approval-gated, or broad/independently review-worthy work. Narrow local
+inspection, reversible edits, focused tests, and ordinary implementation may be
+owned directly when safe. Delegation remains available when it materially
+improves independence or parallelism. When delegation occurs, report the actual
+model ID, effort, scope, and evidence; no completion claim is valid without
+evidence.
+
+If dispatch fails, the high-risk and approval-gated classes still stop. Safe
+local read-only or reversible work may continue only with disclosed fallback,
+preserved scope, and no claim of worker validation. This is a behavioral gate,
+not a runtime security boundary.
 
 ### EA inquiry-routing entrypoint
 

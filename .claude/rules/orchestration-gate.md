@@ -1,12 +1,16 @@
 # Orchestration gate
 
-Read [the repo-local orchestration policy](../../docs/ai/orchestration-policy.md)
-before substantive work. Codex Sol and Claude Opus orchestrate only; Luna XHigh
-may orchestrate but all children must be Luna High. Dispatch substantive work
-to bounded workers using host-specific adapters: Codex Sol uses the actual
-OpenAI `gpt-5.6-luna` worker at `high` effort by default; Claude Opus may use
-the actual Claude `claude-sonnet-4-6` adapter when available. Never label an
-OpenAI model as Claude Sonnet. Workers do not self-delegate or approve their
-own completion. Announce and report the actual model ID, effort, and evidence.
-If the required worker or evidence is unavailable, fail closed or obtain
-explicit authorization for a named substitute.
+Read [the repo-local orchestration adapter](../../docs/ai/orchestration-policy.md)
+and the canonical TSOT policy before work. A brief marked `bounded-worker`
+executes directly; orchestrator delegation triggers do not apply and nested
+delegation remains prohibited.
+
+Delegate external, destructive, irreversible, high-risk, approval-gated, or
+broad/independently review-worthy work. Safe narrow local inspection,
+reversible edits, focused tests, and ordinary implementation may be owned
+directly. When delegation occurs, report the actual model ID, effort, scope,
+and evidence; workers must not self-delegate, widen scope, or self-approve.
+
+If dispatch fails, high-risk or approval-gated work stops. Safe local fallback
+may continue only when disclosed, in preserved scope, and without claiming
+worker validation.

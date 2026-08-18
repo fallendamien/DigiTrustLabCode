@@ -1,101 +1,17 @@
-# Orchestration-Only Policy
+# Repo-local orchestration adapter
 
-This is the repo-local source of truth for model roles in DigiTrust Lab.
+The canonical policy is the TSOT rule at
+`C:\my_Projektz\agent-templates\workspace\rules\orchestration-policy.md`.
+This file is intentionally a thin project pointer; it does not duplicate the
+role matrix or delegation policy.
 
-## Role matrix
+## Project adapter
 
-| Model/role | Responsibility | Directly allowed | Must delegate |
-|---|---|---|---|
-| Codex Sol | Orchestrator | Clarify, classify, route, dispatch, integrate, inspect evidence, report | All substantive research, judgment, implementation, and validation |
-| Claude Opus | Orchestrator | Same orchestration-only responsibilities | All substantive research, judgment, implementation, and validation |
-| Luna XHigh | Optional orchestrator | Same orchestration-only responsibilities | Every child must be Luna High |
-| Luna High | Default bounded worker | Assigned implementation and validation within scope | Self-delegation and self-approval |
-| Claude Sonnet | Complex read-only/judgment worker when the actual adapter is Claude | Architecture review, synthesis, and bounded research | Work outside the brief |
-| Claude Haiku | Simple read-only worker | Narrow scans, lookups, and mechanical inspection | Writes, broad judgment, and self-delegation |
-
-Model names are behavioral routing labels, not provider identities. Every
-dispatch and result must state the actual model ID and reasoning effort. Luna
-High means the `gpt-5.6-luna` model family at high reasoning effort.
-
-## Host-specific worker adapters
-
-| Orchestrator host | Default bounded-worker adapter | Routing rule |
-|---|---|---|
-| Codex Sol | `gpt-5.6-luna` at `high` effort | Use this OpenAI worker for substantive work. Never label it Claude Sonnet; `gpt-5.5` or any other OpenAI model is not a Claude worker. |
-| Claude Opus | `claude-sonnet-4-6` at the adapter's configured effort | Use only when the actual Claude bounded-worker adapter is installed and available. Otherwise fail closed or obtain explicit authorization for a named substitute. |
-
-If a required host adapter is unavailable, stop that workstream. A substitute
-requires explicit user authorization and the result must record the actual
-model ID, effort, and authorization. A friendly label such as "Sonnet" is not
-evidence that Claude Sonnet actually ran.
-
-## Orchestrator gate
-
-Orchestrators may clarify requests, classify and route work, split independent
-bounded dispatches, write briefs, maintain the task ledger, inspect worker
-evidence, reconcile results, integrate outputs, and present approval requests.
-They must not independently perform substantive research, make domain
-judgments, edit project files, make external writes, or claim a worker's
-validation as their own. If work is more than orchestration, dispatch it.
-
-### Mandatory delegation triggers
-
-Treat the request as substantive, even when it is phrased as "just advice",
-"what do you think?", or "plan this first", when answering requires inspecting
-or judging an external artifact or current evidence. This includes evaluating
-or comparing a repository, tool, provider, model, plugin, package, skill, or
-integration; deciding whether something is suitable for a department; and
-reviewing architecture, policy conflicts, feasibility, or adoption risk. A URL
-or repository reference is an artifact signal, not permission to answer from
-memory. Dispatch the bounded worker before substantive inspection or judgment.
-
-Only a genuinely simple, one-step factual or explanatory question with no
-external artifact, recommendation, comparison, or judgment may be answered
-directly. "Plan first" limits the stop boundary; it does not waive the worker
-gate.
-
-## Worker routing
-
-- Haiku: simple, narrow, read-only scans.
-- Sonnet: complex read-only analysis, synthesis, or judgment.
-- Luna High: default implementation, file edits, bounded validation, and
-  mixed tasks requiring careful execution.
-- Luna XHigh is never a child-worker target.
-- Workers do not spawn children, widen scope, or approve their own completion.
-
-## Dispatch and result contracts
-
-Every dispatch states the objective, non-goals, exact scope, allowed operations,
-write permission, required evidence, completion criteria, prohibitions, and
-escalation conditions.
-
-Every worker result states work completed, files changed, checks and evidence,
-open risks or assumptions, blockers, and a recommendation to the orchestrator.
-The recommendation is not a self-issued approval.
-
-Delegation announcements and worker results must include the actual model ID,
-reasoning effort, bounded scope, and evidence. Friendly labels alone are
-invalid.
-
-## Scope, write, and approval gates
-
-Workers may touch only the exact scope in their brief and must stop when a
-request needs new authority or crosses a safety boundary. External writes,
-publication, messages, purchases, account changes, and other irreversible
-actions require explicit user approval in the same task. The orchestrator
-integrates only evidence that satisfies the brief.
-
-## Fail closed
-
-If the required worker is unavailable, cannot be dispatched, or returns without
-the required evidence, stop that workstream and report the blocker. Do not
-silently substitute an orchestrator, broaden another worker's scope, or claim
-completion. A substitution requires explicit user authorization and must be
-recorded in the result.
-
-## Enforcement boundary
-
-This is a behavioral and prompt-level gate reinforced by repository pointers
-and a static verifier. It is not a cryptographic runtime restriction: a model
-could technically ignore it. Agents must treat violations as a failed task,
-stop, and surface the issue.
+- A brief marked `bounded-worker` executes directly within its bounded scope;
+  orchestrator delegation triggers do not apply, and nested delegation remains
+  prohibited.
+- DigiTrust Lab approval gates, external-write restrictions, department
+  boundaries, and evidence requirements remain in `AGENTS.md` and the selected
+  department adapter.
+- Run `scripts/verify-orchestration-policy.py` after policy changes. It checks
+  this pointer and the canonical policy together.
