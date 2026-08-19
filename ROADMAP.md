@@ -1,9 +1,11 @@
 # DigiTrust Lab — Roadmap
 
-> **Status:** 🚧 In Progress
-> **Current Phase:** Phase 1 — Foundation (Infrastructure DONE, Content Phase Started)
-> **Last Updated:** 2026-08-08 (Malay naturalness gate)
+> **Status:** ⏸️ HIATUS (as of 2026-08-16)
+> **Current Phase:** Content roadmap — execution paused pending explicit resume
+> **Last Updated:** 2026-08-19 (Post #1 ANI/AGI/ASI review-fix milestone; roadmap remains HIATUS)
 > **Monthly Revenue:** RM 69 (1 sale, pre-blog era)
+
+> **Hiatus note:** Historical milestones and planned titles remain retained for continuity. New content execution, research and publishing are paused until Zamri explicitly resumes the roadmap. The authoritative current content inventory and research status is [`content/content-calendar.md`](content/content-calendar.md).
 
 ---
 
@@ -11,7 +13,7 @@
 
 ```
 Phase 1: Foundation         ██████████ 100% ✅ (Infrastructure)
-Phase 1: Content             ███░░░░░░░ 25% (2 posts live, WriterZen Option C pipeline established, GA4 + Search Console connected)
+Phase 1: Content             ███░░░░░░░ 30% (8 posts recorded in content/content-calendar.md; execution paused — see calendar for authoritative inventory)
 Phase 2: Compounding        ░░░░░░░░░░  0%
 Phase 3: Traffic Growth     ░░░░░░░░░░  0%
 Phase 4: Scale              ░░░░░░░░░░  0%
@@ -125,8 +127,11 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [ ] List product #4: 50 AI Prompts for Creating Digital eBooks — RM 15–25
 - [ ] List product #5: Bundle — 30 AI Prompts + 5 Canva Templates — RM 29–39
 
-### Blog Posts (1 post/week — Malay-first 70%) — 7 of 10 published
+### Blog Posts (historical plan retained — execution paused)
+
+> The former “7 of 10 published” label is a historical planning snapshot and is not authoritative. Use [`content/content-calendar.md`](content/content-calendar.md) for the current post inventory, live status and research leads. Do not start a new post while the roadmap is `HIATUS` without explicit resume approval.
 - [x] Post #1: "Apa Itu AI? (Dan Kenapa Ia Bukan Setakat Robot dalam Filem)" — published Jul 9 at digitrustlab.com/apa-itu-ai/
+- [x] ANI/AGI/ASI explanatory section added and Claude-reviewed copy fixes applied live on 2026-08-19 (ID 256); security, Malay voice, and calendar consistency checks passed
 - [x] Post #2: "Cara Guna ChatGPT untuk Membantu Kerja Harian Anda (Panduan Mudah 2026)" — published Jul 18 at digitrustlab.com/cara-guna-chatgpt/ via WriterZen Option C pipeline
 - [ ] Post #3: 10 AI Tools Percuma untuk Perniagaan 2026 → AI Mastery affiliate
 - [ ] Post #4: 10 Prompt AI untuk Buat Illustration Flat (dengan Contoh) → Prompt Engineering

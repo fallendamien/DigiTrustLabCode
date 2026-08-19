@@ -21,6 +21,25 @@
 
 **Rule of thumb:** If 3+ future posts would naturally link to this post for context, it's pillar content.
 
+## Research lead — AGI vs ANI vs ASI (LIVE SECTION ADDED TO POST #1)
+
+| Field | Value |
+|-------|-------|
+| Topic | AGI vs ANI vs ASI |
+| Status | **LIVE SECTION ADDED — 2026-08-19** |
+| Related content | Post #1 — *Apa Itu AI?* (live explanatory subsection added; no standalone post number) |
+| Source | [Google AI Mode shared answer](https://share.google/aimode/7KfWfF3bzyPIms49C) |
+| Retrieved | 2026-08-16 |
+| Evidence caveat | Shared page is AI-generated and has no stable publication date; treat it as an idea signal, not a verified source or keyword result. |
+| Content opportunity | Distinguish **what AI does** (application categories such as conversation, images and analysis) from **how broadly it can generalise** (ANI, AGI and ASI). A broad or multi-purpose interface does not by itself establish AGI. |
+| WriterZen Topic Discovery | Run 2026-08-19, result `245998`, Malaysia/Malay; 76 topics discovered. Exact `AGI vs ANI vs ASI` volume 10; `ANI AGI ASI` and `AI AGI ASI` volume 20. |
+| WriterZen Keyword Explorer | Run 2026-08-19, result `1567455`, seed `kecerdasan buatan`; volume 1,600 (last month and 12-month average 1,600), CPC $1.01, KD by Content 0, KD by Traffic 3, KD by Signal 0, KD by Google Ads 3. |
+| Keyword expansion | 713 ideas surfaced in the expanded view; starred variants `kecerdasan buatan ai` and `kecerdasan buatan artificial intelligence` were 390 each. The relevant `agi kecerdasan buatan` variation was `<10`; no meaningful-volume ANI/ASI variation surfaced. |
+| SERP reality check | The `kecerdasan buatan` top 10 is institution-heavy (JDN, UKM, UTM, KPT and Astro Awani), so WriterZen's low KD is not proof of an easy ranking path. |
+| Decision | Keep the ANI/AGI/ASI explanation inside the existing Post #1 pillar article. Do not create a standalone priority article or assign a new post number yet. |
+| Live update | Post #1 (ID 256) updated directly on 2026-08-19; section inserted before “Kenapa AI Bukan Macam Robot Dalam Filem?”. Respira read-back confirmed the live content and publish status. |
+| Next gate | Keep the roadmap paused for new article execution. Any further Post #1 changes require the normal voice, SEO and approval gates. |
+
 ## Post #1 — PUBLISHED ✅
 
 | Field | Value |
@@ -48,6 +67,7 @@
 | Validated | 2026-07-16 via WriterZen Keyword Explorer + Golden Filter |
 | Content brief | **Title:** Apa Itu AI? Penerangan Ringkas dan Jelas tentang Teknologi yang Anda Guna Setiap Hari · **Format:** Blog post · **Tone:** Informative/Explanatory · **Audience:** Pemula Malaysia yang ingin faham AI dan mula guna dalam kehidupan harian · **Perspective:** Pakar AI tempatan yang menerangkan konsep teknologi dengan bahasa mudah · **Angle:** Penerangan ringkas dan jelas tentang apa itu AI untuk rakyat Malaysia — bukan robot filem, tetapi teknologi yang anda sudah guna setiap hari tanpa sedar · **Word count target:** 810 · **Note for writer:** Gunakan Bahasa Melayu baku dengan laras formal–semi-formal yang semula jadi. Gunakan struktur formal yang lengkap apabila bunyinya tepat dan lancar ketika dibaca dengan kuat; gunakan gaya semi-formal untuk mengekalkan kemesraan dan kebolehfahaman. Jangan ringkaskan ayat secara mekanikal hanya untuk menjadikannya kurang formal. Utamakan ketepatan makna, tatabahasa DBP, kelancaran apabila dibaca dengan kuat, kejelasan pada bacaan pertama, dan keserasian dengan perenggan. Guna 'anda', bukan 'korang'. Gunakan ejaan penuh, bukan singkatan, serta elakkan slang dan code-switching berlebihan. Untuk istilah English yang terjemahan BM-nya janggal (copy & paste, drag & drop, brainstorm, feedback, deadline, install, request), kekalkan istilah English dan gunakan cetak miring dalam ayat BM. Jangan gunakan cetak miring untuk nama jenama (ChatGPT, Google Maps), akronim (AI, API), atau kata pinjaman yang sudah biasa (online, download, email, blog). |
 | Audit date | 2026-07-17 |
+| ANI/AGI/ASI update | Live explanatory section added 2026-08-19; mechanical Malay voice check passed with 0 errors. |
 | Audit findings | Strengths: natural formal–semi-formal Malay voice, "3 jenis AI", "AI vs robot filem", "adakah AI ganti kerja" address real fears. Gaps filled: (1) expanded daily-life examples with Google Maps/Waze, Lazada/Shopee, Netflix, Spotify, Meta AI/WhatsApp, (2) added "Siapakah yang cipta AI" history note, (3) added "Bagaimana AI berfungsi" simple ML explanation, (4) added privacy/security section. |
 | Optimized version | Duplicate draft created (Post ID 320), SEO score 85/100. Awaiting approval to replace original. |
 | Pillar Content | ✅ Yes — foundational AI topic that future posts will link back to. **Rank Math "This post is Pillar Content" checkbox should be enabled.** |

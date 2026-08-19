@@ -12,6 +12,23 @@
 
 ## Current State
 
+> **CURRENT STATUS — HIATUS (2026-08-16):** The content roadmap and new article execution are paused. Historical milestones, technical evidence and existing pending work remain recorded below; no new article work should start until Zamri explicitly approves a resume.
+
+## Next action while paused
+
+Resume only after explicit user approval. A one-off live update to Post #1 adding the ANI vs AGI vs ASI explanatory section was explicitly authorized and completed on 2026-08-19, followed by Claude-reviewed copy fixes and a final live verification pass. The roadmap remains paused for new article execution; do not assign a standalone post number or start another live content change before the normal voice, SEO and approval gates.
+
+### Post #1 — ✅ ANI/AGI/ASI update and review fixes (2026-08-19)
+
+- [x] WriterZen research completed: Topic Discovery `245998`, Keyword Explorer `1567455`
+- [x] ANI/AGI/ASI explanatory section added to live Post #1 (ID 256); no standalone post number assigned
+- [x] Claude Sonnet 5 review fixes applied: clearer transition, simplified AGI explanation, and grammar correction
+- [x] Final AGI wording clarity refinement applied after targeted Claude re-review
+- [x] Respira security validation passed; live read-back confirmed the final text and publish status
+- [x] `verify-malay-voice.py 256` — 0 errors, 0 warnings
+- [x] `verify-content-status.py` — calendar and live WordPress remain consistent
+- [ ] No further Post #1 changes while the roadmap remains HIATUS unless Zamri explicitly resumes content execution
+
 - 🖥️ **Primary editor: Zed** (since 2026-08-05) — Codex reached via ACP, Claude
   Code via terminal. Windsurf retained only for Devin; VS Code legacy. See
   `AGENTS.md` § "Editors — Zed is primary".
