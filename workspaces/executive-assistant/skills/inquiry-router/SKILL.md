@@ -5,7 +5,7 @@ description: 'Use FIRST, before answering, on any general inquiry where the user
 
 # EA Inquiry Router
 
-Router contract version: 2026-08-16
+Router contract version: 2026-08-22
 
 ## Purpose
 
@@ -52,7 +52,7 @@ the smallest clarifying question needed.
    ```text
    Route: primary=operations; secondary=none
    Route ID: <stable turn/thread identifier>
-   Router version: 2026-08-16
+   Router version: 2026-08-22
    Scope: <bounded outcome and stop boundary>
    Allowed systems: <systems or files this turn may touch>
    External writes: <yes|no>
@@ -91,11 +91,15 @@ the smallest clarifying question needed.
    orchestration policy on Claude. State the actual model ID, effort, scope, and
    evidence; never infer provider identity from a friendly label. A
    `bounded-worker` brief executes directly and does not trigger another
-   delegation.
+   delegation. Record identity from the host dispatch metadata; do not ask the
+   worker to introspect or reject its assignment from a generic family label.
 6. Carry the route receipt into every worker brief: `route_id`, primary
    department, bounded scope, allowed systems, evidence required, and stop
-   conditions. The worker result must repeat those fields plus its actual model
-   ID and effort. Reject a result that omits the attestation or widens scope.
+   conditions. The worker result must repeat those fields plus the model ID and
+   effort supplied as its dispatch assignment. Verify that echo against the host
+   dispatch record. Reject a result that contradicts the record, omits the
+   attestation, or widens scope; a worker's generic self-description is not
+   identity evidence.
 7. Coordinate the worker brief, inspect its evidence, and integrate the result.
    The EA does not self-approve completion. If dispatch fails, external,
    destructive, irreversible, high-risk, or approval-gated work stops. Safe

@@ -9,12 +9,14 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 POLICY = ROOT / "docs" / "ai" / "orchestration-policy.md"
-CANONICAL = Path(
-    os.environ.get(
-        "TSOT_ORCHESTRATION_POLICY",
+if configured_policy := os.environ.get("TSOT_ORCHESTRATION_POLICY"):
+    CANONICAL = Path(configured_policy)
+else:
+    canonical_candidates = (
+        Path.home() / ".codeium" / "windsurf" / "agent-templates" / "workspace" / "rules" / "orchestration-policy.md",
         ROOT.parent / "agent-templates" / "workspace" / "rules" / "orchestration-policy.md",
     )
-)
+    CANONICAL = next((path for path in canonical_candidates if path.is_file()), canonical_candidates[0])
 POINTERS = {
     ".claude/rules/orchestration-gate.md": "../../docs/ai/orchestration-policy.md",
     "AGENTS.md": "docs/ai/orchestration-policy.md",
@@ -34,6 +36,7 @@ REQUIRED = (
     ("Codex Sol", "high` effort"),
     ("Claude Opus", "claude-sonnet-4-6"),
     ("actual model ID", "reasoning effort"),
+    ("host dispatch record", "worker self-description is not identity evidence"),
     ("gpt-5.5", "not a Claude worker"),
     ("Worker-context precedence", "bounded-worker"),
     ("Risk-based delegation", "approval-gated"),
@@ -112,7 +115,7 @@ def main():
         print("WARN shared guidance expects the documented Luna High value; update the user config explicitly and do not overwrite it silently")
     elif config_path.is_file():
         print(f"PASS Codex config: {config_path} matches {CONFIG_MODEL} at {CONFIG_EFFORT} effort")
-    print(f"PASS orchestration policy: policy present; {len(REQUIRED)} mappings; {pointers} pointers; caveat present")
+    print(f"PASS orchestration policy: policy present; {len(REQUIRED)} mappings; {pointers} pointers; dispatch identity contract and caveat present")
     return 0
 
 

@@ -781,7 +781,7 @@ def run_real_transcript_self_test(
 
 
 def run_self_test() -> int:
-    version = router_version() or "2026-08-16"
+    version = router_version() or "2026-08-22"
     good = audit_events(synthetic_events(version), version, freshness=False)
     bad = audit_events(synthetic_events(version, malformed=True), version, freshness=False)
     external = audit_events(synthetic_external_evaluation_events(version), version, freshness=False)
