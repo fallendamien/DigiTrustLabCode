@@ -287,7 +287,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | Rank Math | 100/100 (Grade A); 13/13 checks passed; 1,447 words; keyword density 0.62%; 3 images; 2 internal links; 2 external links |
 | Malay Voice Gate | ✅ Live mechanical check passed; 0 errors, 0 warnings |
 | Link Quality Gate | ✅ Live revalidation passed; 2 contextual internal links, 2 external links, 1 dofollow; all destinations checked; inbound scan 0 with explicit `no_safe_context` decision; link hash `6be745209fc7a633c575714821beeccf4ae45302e29a5d4c965f7781b87b4a99` |
-| ClickRank AI Overview | ⚠️ Not verified — two submissions rejected with generic “An error occurred”; console recorded `Error searching URLs: Unexpected token '<'` from ClickRank’s URL lookup; no Post #5 row created |
+| ClickRank AI Overview | ⚠️ Not verified — two initial submissions returned generic “An error occurred”; after sign-in, a third submission processed for ~15 seconds but still produced no row (tracker remains 7/7); console recorded ClickRank’s URL lookup error `Unexpected token '<'` |
 | Screpy Rank Tracker | ✅ Added and verified — `cara buat poster guna canva`, Malaysia / Malay, Device Both; row visible in Desktop and Mobile tabs |
 | Images | Four archived assets in `G:\\Zamzam Biznez\\DigiTrustLab\\Blog images`; generated and native-resolution QA PASS |
 
