@@ -1,6 +1,6 @@
 ---
 name: write-post
-description: "Write and publish a blog post using the WriterZen Option C pipeline. Quota check → Topic Discovery → Golden Filter → Keyword List → cluster → Weak Spot gate → Content Brief → Content Creator → publish via Respira MCP → Rank Math → Malay voice gate → ClickRank/Screpy rank tracking. Includes the hard-won wp.data excerpt method."
+description: "Write and publish a blog post using the WriterZen Option C pipeline. Quota check → Topic Discovery → Golden Filter → Keyword List → cluster → Weak Spot gate → Content Brief → Content Creator → publish via Respira MCP → Rank Math → Malay voice gate → ClickRank/Screpy tracking → Google Search Console indexing request. Includes the hard-won wp.data excerpt method."
 ---
 
 # Write & Publish a Blog Post (Option C Pipeline)
@@ -534,7 +534,7 @@ stale approval hash.
 
 > **Essential vs cosmetic checks:** Essential (MUST fix): keyword in title/URL/meta/intro/subheadings/alt, density 0.5-2.5%, content ≥600 words, has images, has internal links, schema. Cosmetic (skip): sentiment word, power word, "Use Content AI" (PRO upsell). The Respira Rank Math API (`respira_analyze_rankmath`) reports `computed_score` which only covers the 13 essential checks — the WP Admin sidebar score includes cosmetic checks too, so it will show a lower number.
 
-### Phase 7: Post-Publish — Rank Tracking + Internal Linking + Documentation
+### Phase 7: Post-Publish — Rank Tracking + Search Console + Internal Linking + Documentation
 
 1. **ClickRank — Keyword Tracker** (app.clickrank.ai/en/tracker):
    - Add the post's **primary focus keyword** only (the one set in Rank Math) + URL

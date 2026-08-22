@@ -595,7 +595,9 @@ No dedicated external Malay proofreading tool is used. DewanEja 11 was evaluated
 10. **Rank tracking (MANDATORY — Phase 7 of write-post workflow):**
    - [ ] ClickRank → AI Overview Tracker → Add focus keyword + URL (Malaysia, Malay)
    - [ ] Screpy → Rank Tracker → Add focus keyword (Malaysia, Malay, **Device: Both** in one action; verify both device tabs)
-   - [ ] Both tools are required — ClickRank = AI Overview/AEO tracking, Screpy = traditional SERP rank tracking
+   - [ ] Google Search Console → URL Inspection → inspect the exact live URL; request indexing when eligible and record the visible result plus timestamp
+   - [ ] All three checks are separate — ClickRank = AI Overview/AEO tracking, Screpy = traditional SERP tracking, Google Search Console = discovery/indexing request
+   - [ ] An “indexing requested” confirmation is not proof of indexing; record the actual inspection state separately
    - [ ] **ClickRank title/meta optimization is OPTIONAL** — see ClickRank Usage Policy below
    - [ ] **ClickRank submission is asynchronous:** after clicking Start Tracking, wait for processing, reload the existing authenticated tab, and verify the tracked-keyword count plus the exact keyword/URL row before retrying. A generic error toast, an HTML response parsed as JSON, or a temporarily stuck `Processing...` state does not prove that no row was created; do not submit a duplicate until the row/count check is complete. `Not Found`, `N/A`, and `0%` are valid tracked results, not submission failures.
 
