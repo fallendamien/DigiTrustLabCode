@@ -53,6 +53,7 @@ CONTENT = {
     559: ("Post #11 Apa Itu MCP dalam AI", "posts"),
     582: ("Post #9  Prompt Gemini AI untuk Edit Foto", "posts"),
     605: ("Post #12 Contoh Minit Mesyuarat", "posts"),
+    629: ("Post #5  Cara Buat Poster Guna Canva", "posts"),
     72:  ("Page     Tentang Kami", "pages"),
     73:  ("Page     Privasi", "pages"),
     74:  ("Page     Disclaimer", "pages"),

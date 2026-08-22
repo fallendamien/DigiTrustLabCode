@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "post_id": 629,
+  "slug": "cara-buat-poster-guna-canva",
+  "reviewed_at": "2026-08-22T02:58:00+08:00",
+  "link_hash": "6be745209fc7a633c575714821beeccf4ae45302e29a5d4c965f7781b87b4a99",
+  "outbound": {
+    "internal_count": 2,
+    "external_count": 2,
+    "external_dofollow_count": 1,
+    "destinations_checked": true,
+    "official_sources": [
+      "https://www.canva.com/help/use-magic-design/",
+      "https://www.canva.com/newsroom/news/canva-create-2026-ai/"
+    ]
+  },
+  "inbound": {
+    "decision": "no_safe_context",
+    "count": 0,
+    "source_ids": [],
+    "reason": "The live scan found no safe contextual mention in older published posts. No irrelevant inbound link was forced.",
+    "scan_scope": "published posts and pages"
+  },
+  "status": "pass"
+}

@@ -311,18 +311,58 @@ Flat illustration style. Minimalist composition with generous negative space: a 
 
 ---
 
-## Post #5 — Canva Poster dengan AI (PLANNED — TBD)
+## Post #5 — Cara Buat Poster Guna Canva (PUBLISHED ✅)
 
-**Slug:** TBD
+**Slug:** `cara-buat-poster-guna-canva`
+**Focus keyword:** `cara buat poster guna canva`
+**Content summary:** Panduan praktikal memilih saiz poster, menggunakan *template* atau Magic Design, membina hierarki visual, menyemak cadangan AI, memastikan aksesibiliti dan mengeksport fail dengan betul.
 
-> Prompts will be written after content is drafted in WriterZen.
+> Semua imej dijana melalui built-in OpenAI image generation, diperiksa pada resolusi asal, dan diarkibkan. Pemeriksaan mendapati tiada teks boleh dibaca, logo Canva, watermark, UI palsu, artifak anatomi, atau halo/blob oren yang tidak diminta.
 
-| Image | Filename | Prompt | Alt Text |
-|-------|----------|--------|----------|
-| Featured | TBD | TBD | TBD |
-| Intro | TBD | TBD | TBD |
-| Comparison | TBD | TBD | TBD |
-| Conclusion | TBD | TBD | TBD |
+WordPress Media upload complete via Respira: featured **Media 625**, size **Media 626**, hierarchy **Media 627**, and export **Media 628**. Alt text was set in Malay and the three in-content URLs are live on published post **629**: https://digitrustlab.com/cara-buat-poster-guna-canva/.
+
+| Archived asset | SHA-256 |
+|---|---|
+| `cara-buat-poster-guna-canva-featured.png` | `EB37D8CBCA192E9DA245E2D4B59B2C56EDC2F802DC711BB6EA477C46A37B91A4` |
+| `cara-buat-poster-guna-canva-pilih-saiz.png` | `FA6834C22AAA20898AD55F647A2283A27892879875A5025721A065640A891827` |
+| `cara-buat-poster-guna-canva-hierarki-visual.png` | `89A428113FD1C4BB7080D68194ABC80153F6617C90357382FD737DA8079CBA13` |
+| `cara-buat-poster-guna-canva-semak-sebelum-eksport.png` | `18D32D354F3A53E0564197C99A369F9BAFF0832153B522A90E55FC8CA16AFF35` |
+
+### 1. Featured — split composition
+
+**Filename:** `cara-buat-poster-guna-canva-featured.png`
+**Alt text:** `Ilustrasi pereka menyusun poster dengan bantuan idea AI`
+
+```text
+Flat illustration style. Split composition: on the left, a person at a tidy desk reviewing an abstract poster layout on a laptop; on the right, a freestanding blank poster board with balanced geometric colour blocks, image frames and a small neutral sparkle symbol suggesting AI-assisted ideas. Keep the laptop display abstract and non-interface-like, with no buttons or screen text. Generous breathing room between the person and poster board. Simple geometric shapes, bold charcoal outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Clean, modern, minimal. No text, words, logos, Canva branding, fake UI, or watermark. Wide format 16:9. Both person and robot have complete visible arms and hands with natural positioning. No rounded orange blob, halo, disc or abstract orange shape behind or intersecting the person’s arm or body.
+```
+
+### 2. Choosing the size — top-down flat lay
+
+**Filename:** `cara-buat-poster-guna-canva-pilih-saiz.png`
+**Alt text:** `Lakaran tiga susunan poster dengan nisbah yang berbeza sebelum memilih saiz`
+
+```text
+Flat illustration style. Top-down flat lay showing three blank poster boards with clearly different proportions: portrait, square and landscape, arranged with a ruler, pencil, colour swatches and simple geometric paper shapes. The boards should communicate choosing a design size without any interface or labels. Balanced spacing, strong visual hierarchy and generous warm background space. Simple geometric shapes, bold charcoal outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Clean, modern, minimal. No text, words, numbers, dimensions, logos, fake UI, or watermark. Wide format 16:9. No rounded orange blob, halo, disc or abstract orange shape.
+```
+
+### 3. Visual hierarchy — geometric poster
+
+**Filename:** `cara-buat-poster-guna-canva-hierarki-visual.png`
+**Alt text:** `Contoh susunan poster dengan tajuk, penerangan dan arahan yang mempunyai saiz berbeza`
+
+```text
+Flat illustration style. Front-facing geometric poster composition on a warm off-white surface: one large charcoal headline bar at the top, a medium orange supporting bar beneath it, several smaller aligned detail bars, and one simple image frame placed with clear spacing. The visual must show hierarchy through scale, contrast and alignment, while every text area remains abstract and completely unreadable. Use a calm editorial layout with generous negative space, not a social-media app screen. Simple geometric shapes, bold charcoal outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Clean, modern, minimal. No text, pseudo-writing, words, logos, fake UI, or watermark. Wide format 16:9. No rounded orange blob, halo, disc or abstract orange shape.
+```
+
+### 4. Final export check — isometric scene
+
+**Filename:** `cara-buat-poster-guna-canva-semak-sebelum-eksport.png`
+**Alt text:** `Pemeriksaan poster pada komputer riba dan telefon sebelum dieksport`
+
+```text
+Flat illustration style. Isometric scene with a laptop and smartphone side by side, each showing the same abstract poster made from clean geometric blocks, with a magnifying glass, a simple checklist card and two crisp verification checkmarks nearby. The screens must look like blank design previews rather than software interfaces; no buttons, menus or labels. Show a clear final-review workflow through the arrangement of the objects and a subtle connecting arrow. Simple geometric shapes, bold charcoal outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Clean, modern, minimal. No text, words, numbers, logos, fake UI, or watermark. Wide format 16:9. No rounded orange blob, halo, disc or abstract orange shape.
+```
 
 ---
 

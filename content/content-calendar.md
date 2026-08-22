@@ -254,16 +254,42 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 - `gratis`, `di hp`, `berbicara` → Indonesian-language variants, not Malay
 - ⚠️ **Passport photos — do NOT cover.** Demand exists, but the SERP carries an Astro Awani report of authorities warning applicants *against* AI passport photos. Publishing a how-to would advise something officially discouraged.
 
-## Post #5 — PLANNED
+## Post #5 — PUBLISHED ✅
 
 | Field | Value |
 |-------|-------|
-| Title | Cara Buat Poster Canva dengan AI: Panduan Step-by-Step |
-| Keyword | TBD |
+| Working Title | Cara Buat Poster Guna Canva dengan AI: Panduan Praktikal |
+| Primary Keyword | `cara buat poster guna canva` |
+| Search Volume | 210/mo; target cluster 370/mo |
+| KD (Content / Traffic / Signal) | 0 / 0 / 0 |
+| CPC | US$0.42 |
+| Golden Score | 1.001 |
+| All-in-Title | 0 |
+| Weak Spot | 3 (Avg DA 59; Low DA 10; High DA 90) |
+| Supporting Keywords | `buat poster guna canva`; `cara nak buat poster guna canva`; `cara buat poster di canva`; `cara buat poster digital guna canva`; `cara guna canva buat poster` |
 | Category | Canva & Design |
-| Status | Not started |
+| Status | Published ✅ 22 August 2026; content, naturalness, voice, link and Screpy gates passed; ClickRank AI Overview pending service retry |
+| URL | https://digitrustlab.com/cara-buat-poster-guna-canva/ |
+| Post ID | 629 |
+| Published Date | 2026-08-22 |
+| WriterZen Topic Discovery | Report 246066 — seed `poster canva ai`, Malaysia/Malay, 36 closely relevant topics |
+| WriterZen Keyword Explorer | Reports 1568213 and 1568214; six keywords saved to permanent list `DigiTrust Lab Blog Posts` (68708) |
+| WriterZen Keyword Planner | Project 178889 — `Post 5 — Cara Buat Poster Canva dengan AI`; moderately relevant; one cluster |
+| SERP Evidence | Weak Spot gate passed. Low-DA Malaysian results include snap.my (DA 10), anysnadhilah.com (DA 17), and rentassempadan.com (DA 19). Canva owns several top positions, so the article must satisfy the basic poster tutorial intent while differentiating through a practical AI-assisted workflow. |
+| Research Credit Use | 125 keyword credits: Golden Filter 68, clustering/filter 12, DA metrics 45 |
 | Affiliate | Canva Pro affiliate |
 | Type | Tutorial |
+| Final Title | Cara Buat Poster Guna Canva dengan AI: Panduan Praktikal |
+| SEO Title | Cara Buat Poster Guna Canva dengan AI: Panduan Praktikal |
+| Meta Description | Pelajari cara buat poster guna Canva dengan AI, daripada memilih saiz dan susun atur hingga menyemak warna, teks dan fail akhir sebelum dikongsi. |
+| Excerpt | Pelajari cara buat poster guna Canva dengan langkah praktikal, bantuan AI serta semakan teliti supaya hasilnya jelas, kemas dan mudah dibaca. |
+| Naturalness Gate | ✅ Live revalidation passed; schema 3; hash `0664662e2e68a984fc92f4bb85895243dadcc3bd3e394d42a752a9bf86a0c162`; Claude Sonnet 5 + OpenAI gpt-5.6-luna high; 71/71 PASS |
+| Rank Math | 100/100 (Grade A); 13/13 checks passed; 1,447 words; keyword density 0.62%; 3 images; 2 internal links; 2 external links |
+| Malay Voice Gate | ✅ Live mechanical check passed; 0 errors, 0 warnings |
+| Link Quality Gate | ✅ Live revalidation passed; 2 contextual internal links, 2 external links, 1 dofollow; all destinations checked; inbound scan 0 with explicit `no_safe_context` decision; link hash `6be745209fc7a633c575714821beeccf4ae45302e29a5d4c965f7781b87b4a99` |
+| ClickRank AI Overview | ⚠️ Not verified — two submissions rejected with generic “An error occurred”; console recorded `Error searching URLs: Unexpected token '<'` from ClickRank’s URL lookup; no Post #5 row created |
+| Screpy Rank Tracker | ✅ Added and verified — `cara buat poster guna canva`, Malaysia / Malay, Device Both; row visible in Desktop and Mobile tabs |
+| Images | Four archived assets in `G:\\Zamzam Biznez\\DigiTrustLab\\Blog images`; generated and native-resolution QA PASS |
 
 ## Post #6 — PUBLISHED ✅
 
