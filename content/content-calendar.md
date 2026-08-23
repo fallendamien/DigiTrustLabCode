@@ -268,14 +268,14 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | Weak Spot | 3 (Avg DA 59; Low DA 10; High DA 90) |
 | Supporting Keywords | `buat poster guna canva`; `cara nak buat poster guna canva`; `cara buat poster di canva`; `cara buat poster digital guna canva`; `cara guna canva buat poster` |
 | Category | Canva & Design |
-| Status | Published ✅ 22 August 2026; content, naturalness, voice, link, Screpy Rank Tracker, Screpy Pages and Google Search Console gates passed; ClickRank tracker rows verified; ClickRank Pages deferred during service outage; WriterZen quota/brief evidence remains pending |
+| Status | Published ✅ 22 August 2026; content, naturalness, voice, link, Screpy Rank Tracker, Screpy Pages and Google Search Console gates passed; ClickRank tracker rows verified; ClickRank Pages deferred during service outage; WriterZen limits and six brief fields read back, with a Seed keyword accept-or-correct decision still pending |
 | URL | https://digitrustlab.com/cara-buat-poster-guna-canva/ |
 | Post ID | 629 |
 | Published Date | 2026-08-22 |
 | WriterZen Topic Discovery | Report 246066 — seed `poster canva ai`, Malaysia/Malay, 36 closely relevant topics |
 | WriterZen Keyword Explorer | Reports 1568213 and 1568214; six keywords saved to permanent list `DigiTrust Lab Blog Posts` (68708) |
 | WriterZen Keyword Planner | Project 178889 — `Post 5 — Cara Buat Poster Canva dengan AI`; moderately relevant; one cluster |
-| WriterZen Content Creator | Article report `244225` — fresh authenticated read-back is now visible: saved draft is in `Writing` state, last edit was 2 days ago, and the report flags the missing three-image requirement. Quota and six Content Brief fields remain unverified |
+| WriterZen Content Creator | Article report `244225` — fresh read-back 23 August 2026 at 21:04 (+08:00): saved draft is in `Writing` state, last edit was 2 days ago, and the report flags the missing three-image requirement. Limits: Article 66/70, Keyword Credit 38,506/40,000, AI words 2,637/8,000. All six brief fields are visible; Seed keyword reads `Highest-volume keyword` rather than the exact focus phrase |
 | SERP Evidence | Weak Spot gate passed. Low-DA Malaysian results include snap.my (DA 10), anysnadhilah.com (DA 17), and rentassempadan.com (DA 19). Canva owns several top positions, so the article must satisfy the basic poster tutorial intent while differentiating through a practical AI-assisted workflow. |
 | Research Credit Use | 125 keyword credits: Golden Filter 68, clustering/filter 12, DA metrics 45 |
 | Affiliate | Canva Pro affiliate |

@@ -12,11 +12,11 @@
 
 ## Current State
 
-> **CURRENT STATUS — WRITERZEN EVIDENCE BLOCKED (2026-08-23):** The latest Canva article is live and its content, screenshot, naturalness, Malay voice, link, ClickRank tracker, Screpy Rank Tracker and Google Search Console gates are verified. Screpy Pages found the exact URL with HTTP 200 / OK, and GSC showed URL is on Google / Page is indexed at 21:00 (+08:00). ClickRank Website Optimization / Pages is intentionally deferred during a confirmed service outage. The WriterZen report is readable; its quota and six-field brief remain unverified. The repository handoff is already committed and pushed.
+> **CURRENT STATUS — WRITERZEN SEED-FIELD DECISION PENDING (2026-08-23):** The latest Canva article is live and its content, screenshot, naturalness, Malay voice, link, ClickRank tracker, Screpy Rank Tracker and Google Search Console gates are verified. Screpy Pages found the exact URL with HTTP 200 / OK, and GSC showed URL is on Google / Page is indexed at 21:00 (+08:00). WriterZen limits and all six brief fields were read at 21:04 (+08:00); the Seed keyword field visibly says `Highest-volume keyword` rather than the exact focus phrase. ClickRank Website Optimization / Pages is intentionally deferred during a confirmed service outage. The repository handoff is already committed and pushed.
 
 ## Next action
 
-Recover WriterZen's quota and six-field brief read-back, then rerun the final validators. Google Search Console is complete: the exact URL is on Google and Page is indexed. ClickRank Pages is explicitly deferred until service recovery; do not submit duplicate rows. The repository handoff is complete at commit `8d3c12b`. A one-off live update to Post #1 adding the ANI vs AGI vs ASI explanatory section was completed on 2026-08-19 and remains historical context; it does not supersede the active Post #5 handoff.
+Decide whether to accept the historical WriterZen Seed keyword value `Highest-volume keyword` or explicitly authorize correcting it to the exact focus phrase; then rerun the final validators. Google Search Console is complete: the exact URL is on Google and Page is indexed. ClickRank Pages is explicitly deferred until service recovery; do not submit duplicate rows. The repository handoff is complete at commit `8d3c12b`. A one-off live update to Post #1 adding the ANI vs AGI vs ASI explanatory section was completed on 2026-08-19 and remains historical context; it does not supersede the active Post #5 handoff.
 
 ### WordPress 7.1 update — ✅ completed via Hostinger (2026-08-23)
 
@@ -87,7 +87,8 @@ Live at https://digitrustlab.com/cara-buat-poster-guna-canva/ · Post ID 629 · 
 - Deferred — ClickRank Website Optimization / Pages returned `ERR_CONNECTION_CLOSED`; the official status page reports dead core and Google Data Synchronisation replicas. Recheck only after service recovery; do not retry or submit duplicate rows meanwhile.
 - [x] Screpy Pages — Analyze completed 2026-08-23 at 05:01 PM on crawler `41684`; Post #5 was discovered at the exact URL with HTTP `200` and page status `OK`.
 - [x] Google Search Console — exact URL inspected 2026-08-23 at 21:00 (+08:00): **URL is on Google** and **Page is indexed**; no indexing request was needed.
-- [ ] WriterZen — report `244225` is now readable and shows the saved Content Creator draft/status; recover a fresh quota snapshot and the six-field Content Brief read-back before closure.
+- [x] WriterZen — fresh limits and all six Content Brief fields read 2026-08-23 at 21:04 (+08:00): Active lifetime plan; Article 66/70, Keyword Credit 38,506/40,000, AI words 2,637/8,000; report `244225` is readable and in `Writing` state.
+- [ ] WriterZen Seed keyword decision — field visibly reads `Highest-volume keyword`, not the exact focus phrase; do not edit without explicit authorization.
 - [x] Update canonical docs, run validators, inspect the scoped diff, and commit/push — handoff commit `8d3c12b`.
 
 ## Post #11 — ✅ PUBLISHED (2026-08-08)

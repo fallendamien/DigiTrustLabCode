@@ -1,7 +1,7 @@
 # DigiTrust Lab — Roadmap
 
 > **Status:** ⚠️ POST #5 PHASE 7 EXTERNAL EVIDENCE BLOCKED (as of 2026-08-23)
-> **Current Phase:** Canva article published; WriterZen quota/brief remain; GSC complete; ClickRank deferred
+> **Current Phase:** Canva article published; WriterZen seed-keyword decision remains; GSC complete; ClickRank deferred
 > **Last Updated:** 2026-08-23 (Post #5 screenshot refresh, Screpy crawl, WordPress 7.1 update and closure audit)
 > **Monthly Revenue:** RM 69 (1 sale, pre-blog era)
 
@@ -135,7 +135,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [x] Post #2: "Cara Guna ChatGPT untuk Membantu Kerja Harian Anda (Panduan Mudah 2026)" — published Jul 18 at digitrustlab.com/cara-guna-chatgpt/ via WriterZen Option C pipeline
 - [ ] Post #3: 10 AI Tools Percuma untuk Perniagaan 2026 → AI Mastery affiliate
 - [ ] Post #4: 10 Prompt AI untuk Buat Illustration Flat (dengan Contoh) → Prompt Engineering
-- [x] Post #5: Cara Buat Poster Canva dengan AI: Panduan Praktikal — published 2026-08-22 at https://digitrustlab.com/cara-buat-poster-guna-canva/ (ID 629); nine authentic screenshots, lightboxes and core content gates passed. Screpy Pages and GSC are complete; GSC showed URL is on Google / Page is indexed at 21:00 (+08:00). WriterZen quota/brief remain. ClickRank Pages is explicitly deferred during its outage. Repository handoff is committed/pushed at `8d3c12b`.
+- [x] Post #5: Cara Buat Poster Canva dengan AI: Panduan Praktikal — published 2026-08-22 at https://digitrustlab.com/cara-buat-poster-guna-canva/ (ID 629); nine authentic screenshots, lightboxes and core content gates passed. Screpy Pages and GSC are complete; GSC showed URL is on Google / Page is indexed at 21:00 (+08:00). WriterZen limits and six brief fields are visible, but the Seed keyword field says `Highest-volume keyword` and needs an accept-or-correct decision. ClickRank Pages is explicitly deferred during its outage. Repository handoff is committed/pushed at `8d3c12b`.
 - [ ] Post #6: ChatGPT vs Gemini vs Claude: Mana Terbaik untuk Anda? → AI Tools
 - [ ] Post #7: Cara Buat Nota Rapi dengan AI: Tips untuk Pelajar & Pekerja → Digital Skills
 - [ ] Post #8: 5 Template Notion untuk Urus Kerja Harian Anda → Digital Skills
