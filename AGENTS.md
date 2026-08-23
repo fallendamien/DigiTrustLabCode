@@ -111,7 +111,7 @@ Run at session start (before trusting any status claim in the breadcrumbs) and a
 
 This rule comes before every browser-based DigiTrust Lab workflow, including WriterZen, WordPress, ClickRank, Screpy, Google Search Console, and visual verification.
 
-**Use the user’s already-open Chrome extension session. Never substitute a separate Chrome DevTools/CDP browser, standalone Playwright browser, blank browser tab, or unauthenticated browser connection.** A login page exposed by another browser connection does not prove that the user’s actual Chrome session is signed out.
+**Explicitly use the user’s already-open, authenticated Chrome extension session — the real signed-in browser, not a blank or private one.** A login page exposed by another browser connection does not prove that the user’s actual Chrome session is signed out.
 
 Required sequence:
 
@@ -119,10 +119,10 @@ Required sequence:
 2. Name the browser session before opening or claiming a tab.
 3. Inspect the user’s open tabs and select the exact target by its current title and URL.
 4. Claim that exact tab, take a fresh DOM snapshot, and verify the authenticated dashboard before any action.
-5. Reuse the claimed tab across the workflow. Do not open a separate browser to work around a missing login.
-6. If the exact authenticated tab is unavailable, stop and ask the user to open or sign in to it. Do not navigate an arbitrary blank or login tab and call that the existing session.
+5. Reuse that same claimed tab across the whole workflow.
+6. If the exact authenticated tab is unavailable, stop and ask the user to open or sign in to it, so the work continues in their real session.
 
-The in-skill `tab.playwright` API is permitted only after the user’s existing Chrome tab has been claimed. Standalone Playwright, raw CDP/DevTools connections, cookie inspection, and session-store inspection are not permitted for authenticated workflow work. The durable procedure and the 2026-08-09 incident record are in `docs/browser-session-hardening.md`.
+The in-skill `tab.playwright` API is available once the user’s existing Chrome tab has been claimed. Keep authenticated workflow work inside that claimed tab, and leave cookies, local storage, passwords, and session stores untouched. The durable procedure and the 2026-08-09 incident record are in `docs/browser-session-hardening.md`.
 
 ## 🚫 PRIORITY #1: Bricks-Only Policy (CRITICAL)
 

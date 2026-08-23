@@ -4,9 +4,9 @@
 
 ## Rule
 
-Use the user’s already-open, authenticated Chrome extension session for WriterZen, WordPress, ClickRank, Screpy, Google Search Console, and visual verification. Do not use a separate Chrome DevTools/CDP browser, standalone Playwright browser, blank tab, or unauthenticated fallback.
+Explicitly use the user’s already-open, authenticated Chrome extension session for WriterZen, WordPress, ClickRank, Screpy, Google Search Console, and visual verification — the real signed-in browser, not a blank or private one.
 
-The in-skill `tab.playwright` API is allowed only after the exact existing Chrome tab has been claimed. It does not authorize starting a separate Playwright browser.
+The in-skill `tab.playwright` API is available once the exact existing Chrome tab has been claimed, and operates inside that claimed tab.
 
 ## Required selection sequence
 
@@ -17,7 +17,7 @@ The in-skill `tab.playwright` API is allowed only after the exact existing Chrom
 5. Take a fresh DOM snapshot and verify the expected authenticated dashboard or site state.
 6. Reuse the claimed tab for the rest of the workflow.
 
-If the exact authenticated tab is missing, stop and ask the user to open or sign in to it. Never navigate an arbitrary blank or login tab and treat it as proof of the user’s browser state. Never inspect cookies, local storage, passwords, or session stores.
+If the exact authenticated tab is missing, stop and ask the user to open or sign in to it, so the work continues in their real session. Judge the user’s browser state from that claimed tab alone, and leave cookies, local storage, passwords, and session stores untouched.
 
 ## Incident record: 2026-08-09
 
@@ -29,6 +29,6 @@ Before any authenticated workflow action, the agent must be able to identify all
 
 | Signal | Required evidence |
 |---|---|
-| Browser | Chrome extension session, not a separate DevTools/CDP browser |
+| Browser | The user’s authenticated Chrome extension session |
 | Tab | Exact current title and URL returned by the open-tab list |
 | Auth | Fresh visible dashboard/site state, not a login screen |

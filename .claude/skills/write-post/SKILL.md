@@ -77,19 +77,17 @@ not useful, use one worker.
 This gate must pass before any Phase -2 dashboard verification, Phase -1, or
 other browser action. All WriterZen, WordPress-admin, ClickRank, Screpy, Google
 Search Console, and visual-verification interactions use the user's already-open
-Chrome extension session through `chrome:control-chrome`. Do **not** use a
-separate Chrome DevTools/CDP browser, raw `mcp__chrome_devtools__` connection,
-standalone Playwright browser, blank tab, or unauthenticated fallback. The
-incident and prevention sequence are documented in
-`docs/browser-session-hardening.md`.
+Chrome extension session through `chrome:control-chrome` — **explicitly the real
+signed-in browser, not a blank or private one**. The incident and prevention
+sequence are documented in `docs/browser-session-hardening.md`.
 
 1. Connect to the Chrome extension browser and reuse its persistent browser binding. Name the session before opening or claiming a tab.
 2. Inspect the user's open tabs and claim the exact target tab by its current title and URL. Never assume a numeric tab ID or claim a guessed tab.
 3. Take a fresh DOM snapshot and verify the expected authenticated dashboard/site state before entering data or changing anything. A login page from another browser connection is not evidence that this Chrome session is unauthenticated.
 4. After every navigation or meaningful UI change, take a fresh DOM snapshot and use only locators from the current state. Never reuse stale locators.
-5. Use the claimed tab's semantic controls for clicks, fills and waits. The in-skill `tab.playwright` API is allowed only after the existing Chrome tab has been claimed; it is not permission to start a separate Playwright browser.
+5. Use the claimed tab's semantic controls for clicks, fills and waits. The in-skill `tab.playwright` API is available once the existing Chrome tab has been claimed, and operates inside that claimed tab.
 6. Use DOM/CUA interaction only for documented UI workarounds such as a label intercepting a checkbox click. After a workaround, take a fresh snapshot and verify the visible state.
-7. If the exact authenticated Chrome tab is unavailable, stop and ask the user to open/sign in to it. Do not navigate an arbitrary blank/login tab or launch another browser to continue.
+7. If the exact authenticated Chrome tab is unavailable, stop and ask the user to open/sign in to it, so the work continues in their real session.
 
 ## WriterZen Tool Hierarchy (CRITICAL — know this before starting)
 
