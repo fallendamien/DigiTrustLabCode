@@ -12,11 +12,11 @@
 
 ## Current State
 
-> **CURRENT STATUS — WRITERZEN SEED-FIELD DECISION PENDING (2026-08-23):** The latest Canva article is live and its content, screenshot, naturalness, Malay voice, link, ClickRank tracker, Screpy Rank Tracker and Google Search Console gates are verified. Screpy Pages found the exact URL with HTTP 200 / OK, and GSC showed URL is on Google / Page is indexed at 21:00 (+08:00). WriterZen limits and all six brief fields were read at 21:04 (+08:00); the Seed keyword field visibly says `Highest-volume keyword` rather than the exact focus phrase. ClickRank Website Optimization / Pages is intentionally deferred during a confirmed service outage. The repository handoff is already committed and pushed.
+> **CURRENT STATUS — PHASE 7 CLOSED (2026-08-23):** The latest Canva article is live and its content, screenshot, naturalness, Malay voice, link, ClickRank tracker, Screpy Rank Tracker and Google Search Console gates are verified. Screpy Pages found the exact URL with HTTP 200 / OK, and GSC showed URL is on Google / Page is indexed at 21:00 (+08:00). WriterZen limits and all six brief fields were read at 21:04 (+08:00); Zamri accepted the historical Seed keyword value `Highest-volume keyword`. ClickRank Website Optimization / Pages remains explicitly deferred during a confirmed service outage. The repository handoff is already committed and pushed.
 
 ## Next action
 
-Decide whether to accept the historical WriterZen Seed keyword value `Highest-volume keyword` or explicitly authorize correcting it to the exact focus phrase; then rerun the final validators. Google Search Console is complete: the exact URL is on Google and Page is indexed. ClickRank Pages is explicitly deferred until service recovery; do not submit duplicate rows. The repository handoff is complete at commit `8d3c12b`. A one-off live update to Post #1 adding the ANI vs AGI vs ASI explanatory section was completed on 2026-08-19 and remains historical context; it does not supersede the active Post #5 handoff.
+The current article's Phase 7 is closed under the approved WriterZen historical-value acceptance and ClickRank deferral. Select the next article topic and resume the normal Option C pipeline when ready; do not retry ClickRank Pages until service recovery. The earlier ANI/AGI/ASI update remains historical context.
 
 ### WordPress 7.1 update — ✅ completed via Hostinger (2026-08-23)
 
@@ -76,19 +76,19 @@ Live at https://digitrustlab.com/cara-buat-gambar-ai/ · Post ID 536 · Rank Mat
 
 **Pipeline fixes shipped this session** (all committed): quota check, Topic Discovery, Golden Filter and Weak Spot gate added as mandatory phases; AGENTS.md pipeline summary corrected (it started at Keyword Explorer, which is why agents skipped research); Golden Score bands corrected; em dash rule conflict resolved; excerpt method documented after the WP UI silently failed.
 
-## Post #5 — 🚧 PUBLISHED; PHASE 7 CLOSURE IN PROGRESS (2026-08-22)
+## Post #5 — ✅ PUBLISHED; PHASE 7 CLOSED WITH CLICKRANK DEFERRED (2026-08-22)
 
 Live at https://digitrustlab.com/cara-buat-poster-guna-canva/ · Post ID 629 · 1,447 words.
 
 **Verified:** WriterZen Topic Discovery/Keyword Explorer/Planner metrics; live publication; nine authentic Canva UI tutorial figures with native lightboxes; naturalness artifact (83/83, Claude Sonnet 5 + OpenAI `gpt-5.6-luna` high); Malay voice; link destinations; ClickRank Keyword Tracker and AI Overview rows; Screpy Rank Tracker in Desktop and Mobile tabs.
 
-**Still required before closure:**
+**Closure record:**
 
-- Deferred — ClickRank Website Optimization / Pages returned `ERR_CONNECTION_CLOSED`; the official status page reports dead core and Google Data Synchronisation replicas. Recheck only after service recovery; do not retry or submit duplicate rows meanwhile.
+- Deferred and accepted — ClickRank Website Optimization / Pages returned `ERR_CONNECTION_CLOSED`; the official status page reports dead core and Google Data Synchronisation replicas. Recheck only after service recovery; no duplicate rows were submitted.
 - [x] Screpy Pages — Analyze completed 2026-08-23 at 05:01 PM on crawler `41684`; Post #5 was discovered at the exact URL with HTTP `200` and page status `OK`.
 - [x] Google Search Console — exact URL inspected 2026-08-23 at 21:00 (+08:00): **URL is on Google** and **Page is indexed**; no indexing request was needed.
 - [x] WriterZen — fresh limits and all six Content Brief fields read 2026-08-23 at 21:04 (+08:00): Active lifetime plan; Article 66/70, Keyword Credit 38,506/40,000, AI words 2,637/8,000; report `244225` is readable and in `Writing` state.
-- [ ] WriterZen Seed keyword decision — field visibly reads `Highest-volume keyword`, not the exact focus phrase; do not edit without explicit authorization.
+- [x] WriterZen Seed keyword decision — Zamri accepted `Highest-volume keyword` as historical evidence; no WriterZen edit was made.
 - [x] Update canonical docs, run validators, inspect the scoped diff, and commit/push — handoff commit `8d3c12b`.
 
 ## Post #11 — ✅ PUBLISHED (2026-08-08)
