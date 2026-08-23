@@ -3,14 +3,14 @@
   "owner": "Zamri Rosli",
   "primaryEditor": "Zed (since 2026-08-05) — Codex via ACP, Claude Code via terminal. Windsurf retained for Devin only; VS Code legacy.",
   "lastSession": "2026-08-23",
-  "currentObjective": "Close Post #5 Canva article Phase 7 after the remaining Google Search Console and WriterZen evidence is available. The article is live, core editorial gates pass, and the repository handoff is committed; ClickRank Pages is intentionally deferred until its service recovers.",
-  "currentPhase": "Post #5 — published; GSC/WriterZen evidence blocked, ClickRank deferred",
-  "phaseProgress": "BLOCKED — GSC/WRITERZEN EVIDENCE",
+  "currentObjective": "Close Post #5 Canva article Phase 7 after the remaining WriterZen quota and brief evidence is available. The article is live, core editorial gates pass, Google Search Console confirms indexing, and the repository handoff is committed; ClickRank Pages is intentionally deferred until its service recovers.",
+  "currentPhase": "Post #5 — published; WriterZen evidence blocked, ClickRank deferred",
+  "phaseProgress": "BLOCKED — WRITERZEN EVIDENCE",
   "blockers": [
     "LiteSpeed serves cached HTTP 404s for clean Rank Math child sitemap URLs even though the regenerated origin XML returns 200 and sitemap-cache exclusions are configured; authenticated public-cache clearing and Search Console re-inspection remain. Evidence: docs/post-11-revalidation-2026-08-09.md",
     "Post #9 Screpy Pages Analyze was requested at 2026-08-10 03:14 (+08:00) and remains visibly Analyzing on crawler 18151; the fresh Post #9 discovery/result is not yet available.",
     "Post #9 Google Search Console request was submitted successfully at 2026-08-10 02:42 (+08:00), but the URL remains unproven as indexed; re-inspect later and do not equate a request with indexing.",
-    "Post #5 closure evidence remains incomplete: no authenticated GSC inspection was captured, and WriterZen quota plus the six-field brief read-back remain unverified. ClickRank Pages is intentionally deferred during a confirmed service outage (official status page reports dead core and Google Data Synchronisation replicas); do not retry or submit duplicate rows. Screpy Pages crawl completed 2026-08-23 and discovered Post #5 with HTTP 200 / OK."
+    "Post #5 closure evidence remains incomplete: WriterZen quota plus the six-field brief read-back remain unverified. Google Search Console inspected the exact URL at 2026-08-23 21:00 (+08:00) and showed URL is on Google / Page is indexed; no indexing request was needed. ClickRank Pages is intentionally deferred during a confirmed service outage (official status page reports dead core and Google Data Synchronisation replicas); do not retry or submit duplicate rows. Screpy Pages crawl completed 2026-08-23 and discovered Post #5 with HTTP 200 / OK."
   ],
   "completed": [
     "Git repo initialized",
@@ -64,6 +64,7 @@
     "Post #9 published: prompt-gemini-ai-untuk-edit-foto (ID 582, Rank Math 85/100 in WordPress and 100/A Respira essential audit, 1,732 words, four media assets; published 2026-08-10)",
     "Post #5 published: cara-buat-poster-guna-canva (ID 629, published 2026-08-22); expanded to nine authentic Canva UI figures with native lightboxes, naturalness/voice/link gates passed, ClickRank tracker rows verified, and Screpy Rank Tracker plus completed Pages crawl recorded",
     "WordPress core updated via Hostinger to 7.1 on 2026-08-23; Hostinger success toast and version card verified. PHP 8.3 compatibility suggestion was left unchanged pending a separate review.",
+    "Post #5 Google Search Console inspection completed 2026-08-23 21:00 (+08:00): exact URL is on Google and Page is indexed; no indexing request was needed.",
     "Prompt Engineering category activated (was 0 posts)",
     "write-post workflow fixed: added quota check, Topic Discovery, Golden Filter, Weak Spot gate as mandatory phases",
     "AGENTS.md Option C pipeline summary fixed - it started at Keyword Explorer, causing agents to skip the research front-half",
@@ -81,7 +82,7 @@
     "ANI vs AGI vs ASI research gate, the explicitly authorized Post #1 live section, and the Claude-reviewed copy fixes completed on 2026-08-19 (WriterZen Topic Discovery 245998; Keyword Explorer 1567455; Post ID 256). Final live read-back and validators passed. Keep the roadmap paused for new article execution and do not assign a standalone post number before the normal gates.",
     "Confirm the running Post #9 Screpy Pages Analyze crawl finishes and record its fresh discovery/result; then run final validators and commit/push the scoped handoff",
     "Clear the persistent LiteSpeed/Hostinger/Cloudflare cache for the repaired Rank Math child sitemaps, verify clean XML 200 responses, and re-submit sitemap_index.xml in Google Search Console",
-    "Post #5: inspect/request the exact URL in the authenticated GSC tab, recover the WriterZen quota and six-field brief read-back, then rerun the final validators. The WriterZen Content Creator report is now readable. ClickRank Pages remains intentionally deferred until service recovery; repository handoff is already committed and pushed at 8d3c12b.",
+    "Post #5: recover the WriterZen quota and six-field brief read-back, then rerun the final validators. Google Search Console is complete: exact URL is on Google / Page is indexed. The WriterZen Content Creator report is now readable. ClickRank Pages remains intentionally deferred until service recovery; repository handoff is already committed and pushed at 8d3c12b.",
     "Investigate Post #1 ranking drop: apa itu AI 15 -> 55 in ClickRank. Verify against Search Console first - the two ClickRank tools disagree with each other",
     "Register Klikjer affiliate",
     "Register JV Warrior affiliate",

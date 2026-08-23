@@ -268,7 +268,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | Weak Spot | 3 (Avg DA 59; Low DA 10; High DA 90) |
 | Supporting Keywords | `buat poster guna canva`; `cara nak buat poster guna canva`; `cara buat poster di canva`; `cara buat poster digital guna canva`; `cara guna canva buat poster` |
 | Category | Canva & Design |
-| Status | Published ✅ 22 August 2026; content, naturalness, voice, link, Screpy Rank Tracker and Screpy Pages crawl gates passed; ClickRank tracker rows verified; ClickRank Pages and Google Search Console evidence remain pending |
+| Status | Published ✅ 22 August 2026; content, naturalness, voice, link, Screpy Rank Tracker, Screpy Pages and Google Search Console gates passed; ClickRank tracker rows verified; ClickRank Pages deferred during service outage; WriterZen quota/brief evidence remains pending |
 | URL | https://digitrustlab.com/cara-buat-poster-guna-canva/ |
 | Post ID | 629 |
 | Published Date | 2026-08-22 |
@@ -293,7 +293,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | ClickRank Website Optimization / Pages | ⏸️ Deferred — the existing authenticated tab and one retry after the Screpy crawl completed returned `ERR_CONNECTION_CLOSED` (last checked 23 August 2026 at 05:14 PM); official status page reports a service outage. Do not retry or submit duplicate rows until recovery |
 | Screpy Rank Tracker | ✅ Added and verified — `cara buat poster guna canva`, Malaysia / Malay, Device Both; row visible in Desktop and Mobile tabs |
 | Screpy re-crawl | ✅ Completed 23 August 2026 at 05:01 PM on crawler `41684`; Post #5 discovered at the exact URL with HTTP `200`, page status `OK`, 1,705 words, 23 internal links, 3 external links and 11 images (one marked no-alt by the crawler) |
-| Google Search Console | ⚠️ Pending — exact URL inspection state, indexing-request outcome and timestamp were not captured in the authenticated Search Console tab during this closure audit |
+| Google Search Console | ✅ Fresh URL Inspection 23 August 2026 at 21:00 (+08:00): exact URL is **on Google** and **Page is indexed**; no indexing request was needed |
 | Images | Four generated assets remain archived in `G:\\Zamzam Biznez\\DigiTrustLab\\Blog images`; live post now also contains authentic Canva UI screenshots archived under `content/assets/canva-post-5/` and inserted as Media 639–644 |
 
 ## Post #6 — PUBLISHED ✅
