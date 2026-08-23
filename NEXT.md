@@ -12,11 +12,11 @@
 
 ## Current State
 
-> **CURRENT STATUS — EXTERNAL DASHBOARD EVIDENCE BLOCKED (2026-08-23):** The latest Canva article is live and its content, screenshot, naturalness, Malay voice, link, ClickRank tracker and Screpy Rank Tracker gates are verified. Screpy Pages also found the exact URL with HTTP 200 / OK. ClickRank Website Optimization / Pages is unavailable during a confirmed service outage; Google Search Console and WriterZen read-back remain unverified. The repository handoff is already committed and pushed.
+> **CURRENT STATUS — GSC/WRITERZEN EVIDENCE BLOCKED (2026-08-23):** The latest Canva article is live and its content, screenshot, naturalness, Malay voice, link, ClickRank tracker and Screpy Rank Tracker gates are verified. Screpy Pages also found the exact URL with HTTP 200 / OK. ClickRank Website Optimization / Pages is intentionally deferred during a confirmed service outage. The WriterZen report is now readable; its quota and six-field brief remain unverified. Google Search Console still needs an authenticated tab. The repository handoff is already committed and pushed.
 
 ## Next action
 
-Wait for ClickRank's service recovery, then verify Website Optimization / Pages once; inspect the exact live URL in the authenticated GSC tab; recover WriterZen's quota, six-field brief and Content Creator read-back; and rerun the final validators. Do not submit duplicate ClickRank rows. The repository handoff is complete at commit `8d3c12b`. A one-off live update to Post #1 adding the ANI vs AGI vs ASI explanatory section was completed on 2026-08-19 and remains historical context; it does not supersede the active Post #5 handoff.
+Open an authenticated Google Search Console tab and inspect the exact live URL; then recover WriterZen's quota and six-field brief read-back before rerunning the final validators. ClickRank Pages is explicitly deferred until service recovery; do not submit duplicate rows. The repository handoff is complete at commit `8d3c12b`. A one-off live update to Post #1 adding the ANI vs AGI vs ASI explanatory section was completed on 2026-08-19 and remains historical context; it does not supersede the active Post #5 handoff.
 
 ### WordPress 7.1 update — ✅ completed via Hostinger (2026-08-23)
 
@@ -84,10 +84,10 @@ Live at https://digitrustlab.com/cara-buat-poster-guna-canva/ · Post ID 629 · 
 
 **Still required before closure:**
 
-- [ ] ClickRank Website Optimization / Pages — the authenticated tab and retry at 05:14 PM returned `ERR_CONNECTION_CLOSED`; ClickRank's official status page currently reports dead core and Google Data Synchronisation replicas. Recheck only after service recovery, then capture the exact URL, visible status and recommendation/no-change decision.
+- Deferred — ClickRank Website Optimization / Pages returned `ERR_CONNECTION_CLOSED`; the official status page reports dead core and Google Data Synchronisation replicas. Recheck only after service recovery; do not retry or submit duplicate rows meanwhile.
 - [x] Screpy Pages — Analyze completed 2026-08-23 at 05:01 PM on crawler `41684`; Post #5 was discovered at the exact URL with HTTP `200` and page status `OK`.
 - [ ] Google Search Console — inspect the exact live URL in the user’s authenticated tab; record the visible indexing state and any request timestamp separately.
-- [ ] WriterZen — recover a fresh quota snapshot and the Content Brief six-field read-back plus Content Creator evidence for report `244225`; do not infer them from the URL alone.
+- [ ] WriterZen — report `244225` is now readable and shows the saved Content Creator draft/status; recover a fresh quota snapshot and the six-field Content Brief read-back before closure.
 - [x] Update canonical docs, run validators, inspect the scoped diff, and commit/push — handoff commit `8d3c12b`.
 
 ## Post #11 — ✅ PUBLISHED (2026-08-08)

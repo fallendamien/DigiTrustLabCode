@@ -275,7 +275,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | WriterZen Topic Discovery | Report 246066 — seed `poster canva ai`, Malaysia/Malay, 36 closely relevant topics |
 | WriterZen Keyword Explorer | Reports 1568213 and 1568214; six keywords saved to permanent list `DigiTrust Lab Blog Posts` (68708) |
 | WriterZen Keyword Planner | Project 178889 — `Post 5 — Cara Buat Poster Canva dengan AI`; moderately relevant; one cluster |
-| WriterZen Content Creator | Article report `244225` — authenticated WriterZen tab URL observed, but both DOM and visual reads timed out during the closure audit; quota, six Content Brief fields and full Content Creator evidence remain unverified |
+| WriterZen Content Creator | Article report `244225` — fresh authenticated read-back is now visible: saved draft is in `Writing` state, last edit was 2 days ago, and the report flags the missing three-image requirement. Quota and six Content Brief fields remain unverified |
 | SERP Evidence | Weak Spot gate passed. Low-DA Malaysian results include snap.my (DA 10), anysnadhilah.com (DA 17), and rentassempadan.com (DA 19). Canva owns several top positions, so the article must satisfy the basic poster tutorial intent while differentiating through a practical AI-assisted workflow. |
 | Research Credit Use | 125 keyword credits: Golden Filter 68, clustering/filter 12, DA metrics 45 |
 | Affiliate | Canva Pro affiliate |
@@ -290,7 +290,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | Link Quality Gate | ✅ Live revalidation passed; 2 contextual internal links, 2 external links, 1 dofollow; all destinations checked; inbound scan 0 with explicit `no_safe_context` decision; link hash `6be745209fc7a633c575714821beeccf4ae45302e29a5d4c965f7781b87b4a99` |
 | ClickRank AI Overview | ✅ Tracked — `cara buat poster guna canva` + exact URL; Malaysia/Malay; visible row after asynchronous processing, current status **Not Found**, AI/organic positions `N/A`, visibility `0%` |
 | ClickRank Keyword Tracker | ✅ Tracked — `cara buat poster guna Canva` + exact URL; Malaysia; Device **All**; visible row after asynchronous processing, current status **Not In Top 3 Results** |
-| ClickRank Website Optimization / Pages | ⚠️ Pending — the existing authenticated tab and one retry after the Screpy crawl completed still returned `ERR_CONNECTION_CLOSED` (last checked 23 August 2026 at 05:14 PM); exact URL, visible status and recommendation/no-change decision remain unverified |
+| ClickRank Website Optimization / Pages | ⏸️ Deferred — the existing authenticated tab and one retry after the Screpy crawl completed returned `ERR_CONNECTION_CLOSED` (last checked 23 August 2026 at 05:14 PM); official status page reports a service outage. Do not retry or submit duplicate rows until recovery |
 | Screpy Rank Tracker | ✅ Added and verified — `cara buat poster guna canva`, Malaysia / Malay, Device Both; row visible in Desktop and Mobile tabs |
 | Screpy re-crawl | ✅ Completed 23 August 2026 at 05:01 PM on crawler `41684`; Post #5 discovered at the exact URL with HTTP `200`, page status `OK`, 1,705 words, 23 internal links, 3 external links and 11 images (one marked no-alt by the crawler) |
 | Google Search Console | ⚠️ Pending — exact URL inspection state, indexing-request outcome and timestamp were not captured in the authenticated Search Console tab during this closure audit |
