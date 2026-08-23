@@ -12,11 +12,11 @@
 
 ## Current State
 
-> **CURRENT STATUS — HIATUS (2026-08-16):** The content roadmap and new article execution are paused. Historical milestones, technical evidence and existing pending work remain recorded below; no new article work should start until Zamri explicitly approves a resume.
+> **CURRENT STATUS — ARTICLE CLOSURE IN PROGRESS (2026-08-23):** The latest Canva article is live and its content, screenshot, naturalness, Malay voice, link, ClickRank tracker and Screpy Rank Tracker gates are verified. The remaining dashboard evidence is tracked below; do not treat the article as fully closed until those items and the repository handoff are complete.
 
-## Next action while paused
+## Next action
 
-Resume only after explicit user approval. A one-off live update to Post #1 adding the ANI vs AGI vs ASI explanatory section was explicitly authorized and completed on 2026-08-19, followed by Claude-reviewed copy fixes and a final live verification pass. The roadmap remains paused for new article execution; do not assign a standalone post number or start another live content change before the normal voice, SEO and approval gates.
+Finish the Post #5 Phase 7 closure evidence below. A one-off live update to Post #1 adding the ANI vs AGI vs ASI explanatory section was completed on 2026-08-19 and remains historical context; it does not supersede the active Post #5 handoff.
 
 ### Post #1 — ✅ ANI/AGI/ASI update and review fixes (2026-08-19)
 
@@ -69,6 +69,20 @@ Live at https://digitrustlab.com/cara-buat-gambar-ai/ · Post ID 536 · Rank Mat
 - [x] `internal-link-builder`: 5 links added. Post #4 went 0 → 3 inbound; **Post #6 was also orphaned** and went 0 → 2
 
 **Pipeline fixes shipped this session** (all committed): quota check, Topic Discovery, Golden Filter and Weak Spot gate added as mandatory phases; AGENTS.md pipeline summary corrected (it started at Keyword Explorer, which is why agents skipped research); Golden Score bands corrected; em dash rule conflict resolved; excerpt method documented after the WP UI silently failed.
+
+## Post #5 — 🚧 PUBLISHED; PHASE 7 CLOSURE IN PROGRESS (2026-08-22)
+
+Live at https://digitrustlab.com/cara-buat-poster-guna-canva/ · Post ID 629 · 1,447 words.
+
+**Verified:** WriterZen Topic Discovery/Keyword Explorer/Planner metrics; live publication; nine authentic Canva UI tutorial figures with native lightboxes; naturalness artifact (83/83, Claude Sonnet 5 + OpenAI `gpt-5.6-luna` high); Malay voice; link destinations; ClickRank Keyword Tracker and AI Overview rows; Screpy Rank Tracker in Desktop and Mobile tabs.
+
+**Still required before closure:**
+
+- [ ] ClickRank Website Optimization / Pages — the existing authenticated tab and one retry at 05:14 PM still returned `ERR_CONNECTION_CLOSED`; capture the exact URL, visible status and recommendation/no-change decision only after the service becomes reachable.
+- [x] Screpy Pages — Analyze completed 2026-08-23 at 05:01 PM on crawler `41684`; Post #5 was discovered at the exact URL with HTTP `200` and page status `OK`.
+- [ ] Google Search Console — inspect the exact live URL in the user’s authenticated tab; record the visible indexing state and any request timestamp separately.
+- [ ] WriterZen — recover a fresh quota snapshot and the Content Brief six-field read-back plus Content Creator evidence for report `244225`; do not infer them from the URL alone.
+- [ ] Update canonical docs, run validators, inspect the scoped diff, and commit/push.
 
 ## Post #11 — ✅ PUBLISHED (2026-08-08)
 

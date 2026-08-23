@@ -319,7 +319,21 @@ Flat illustration style. Minimalist composition with generous negative space: a 
 
 > Semua imej dijana melalui built-in OpenAI image generation, diperiksa pada resolusi asal, dan diarkibkan. Pemeriksaan mendapati tiada teks boleh dibaca, logo Canva, watermark, UI palsu, artifak anatomi, atau halo/blob oren yang tidak diminta.
 
-WordPress Media upload complete via Respira: featured **Media 625**, size **Media 626**, hierarchy **Media 627**, and export **Media 628**. Alt text was set in Malay and the three in-content URLs are live on published post **629**: https://digitrustlab.com/cara-buat-poster-guna-canva/.
+WordPress Media upload complete via Respira: featured **Media 625**, size **Media 626**, hierarchy **Media 627**, and export **Media 628**. Alt text was set in Malay and the three in-content URLs were used on the first published version of post **629**: https://digitrustlab.com/cara-buat-poster-guna-canva/.
+
+**Screenshot refresh (23 August 2026):** The three generated in-content illustrations are retained below for provenance, but they are **superseded and must not be reinserted** into the live tutorial. The live article now uses authentic Canva UI captures from `content/assets/canva-post-5/`, with native lightboxes and Malay captions/alt text. The featured illustration (Media 625) remains the featured image; it is not presented as evidence of a Canva interface.
+
+| Live tutorial coverage | Source capture | WordPress media | Use |
+|---|---|---:|---|
+| Choose poster size | `02-canva-print-poster-options.jpg` | 639 | Authentic Canva UI figure |
+| Find a template | `09-canva-template-search-results.jpg` | 640 | Authentic Canva UI figure |
+| Magic Design prompt | `11-canva-magic-design-prompt.jpg` | 641 | Authentic Canva UI figure |
+| Magic Design result | `13-canva-magic-design-results-ready.jpg` | 642 | Authentic Canva UI figure |
+| Visual hierarchy | `07-canva-heading-toolbar.jpg` | 643 | Authentic Canva UI figure |
+| Elements/uploads workflow | `15-canva-elements-search.jpg` + `16-canva-uploads-panel.jpg` | 644 | Combined authentic Canva UI figure |
+| Final export check | `06-canva-download-settings.jpg` / `08-canva-download-ready.jpg` | 628 (existing attachment) | Authentic Canva UI replacement |
+
+The expanded live article contains nine in-content tutorial figures in total. Media 639–644 and the retained capture archive are the source of truth for future edits; do not publish from the older three-figure HTML draft without first refreshing it from the live article.
 
 | Archived asset | SHA-256 |
 |---|---|
