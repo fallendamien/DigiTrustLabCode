@@ -1,8 +1,8 @@
 # DigiTrust Lab — Roadmap
 
-> **Status:** 🚧 POST #5 PHASE 7 CLOSURE IN PROGRESS (as of 2026-08-23)
-> **Current Phase:** Canva article published; dashboard evidence and repository handoff pending
-> **Last Updated:** 2026-08-23 (Post #5 screenshot refresh, Screpy crawl completion and closure audit)
+> **Status:** ⚠️ POST #5 PHASE 7 EXTERNAL EVIDENCE BLOCKED (as of 2026-08-23)
+> **Current Phase:** Canva article published; ClickRank outage, GSC inspection and WriterZen read-back remain
+> **Last Updated:** 2026-08-23 (Post #5 screenshot refresh, Screpy crawl, WordPress 7.1 update and closure audit)
 > **Monthly Revenue:** RM 69 (1 sale, pre-blog era)
 
 > **Scope note:** Historical milestones and planned titles remain retained for continuity. No new article should start while the Post #5 closure gates are open. The authoritative current content inventory and research status is [`content/content-calendar.md`](content/content-calendar.md).
@@ -28,7 +28,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 **Status:** Infrastructure complete — homepage built, all templates done, content is the only remaining bottleneck
 
 ### Blog Build
-- [x] WordPress + Bricks Builder installed on Hostinger (WordPress 7.0, PHP 8.2, LiteSpeed)
+- [x] WordPress + Bricks Builder installed on Hostinger (WordPress 7.1, PHP 8.3, LiteSpeed; core updated via Hostinger 2026-08-23)
 - [x] Activate Bricks Builder Ultimate 2.3.8 (license active ✅)
 - [x] Install Rank Math SEO 1.0.272 (active, usage tracking OFF)
 - [x] WordPress core settings configured (tagline, timezone Kuala Lumpur, permalink = Post name)
@@ -135,7 +135,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [x] Post #2: "Cara Guna ChatGPT untuk Membantu Kerja Harian Anda (Panduan Mudah 2026)" — published Jul 18 at digitrustlab.com/cara-guna-chatgpt/ via WriterZen Option C pipeline
 - [ ] Post #3: 10 AI Tools Percuma untuk Perniagaan 2026 → AI Mastery affiliate
 - [ ] Post #4: 10 Prompt AI untuk Buat Illustration Flat (dengan Contoh) → Prompt Engineering
-- [x] Post #5: Cara Buat Poster Canva dengan AI: Panduan Praktikal — published 2026-08-22 at https://digitrustlab.com/cara-buat-poster-guna-canva/ (ID 629); screenshot refresh and core content gates passed. Phase 7 closure still needs ClickRank Pages, GSC evidence, WriterZen read-back, and commit/push.
+- [x] Post #5: Cara Buat Poster Canva dengan AI: Panduan Praktikal — published 2026-08-22 at https://digitrustlab.com/cara-buat-poster-guna-canva/ (ID 629); nine authentic screenshots, lightboxes and core content gates passed. Screpy Pages is complete; Phase 7 remains blocked on ClickRank Pages outage, GSC evidence and WriterZen read-back. Repository handoff is committed/pushed at `8d3c12b`.
 - [ ] Post #6: ChatGPT vs Gemini vs Claude: Mana Terbaik untuk Anda? → AI Tools
 - [ ] Post #7: Cara Buat Nota Rapi dengan AI: Tips untuk Pelajar & Pekerja → Digital Skills
 - [ ] Post #8: 5 Template Notion untuk Urus Kerja Harian Anda → Digital Skills
@@ -301,8 +301,8 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 
 | Component | Version | Status |
 |---|---|---|
-| WordPress | 7.0 | ✅ Running at digitrustlab.com |
-| PHP | 8.2 | ✅ Hostinger |
+| WordPress | 7.1 | ✅ Running at digitrustlab.com; updated via Hostinger 2026-08-23 |
+| PHP | 8.3 | ✅ Hostinger; no PHP change made in this session |
 | Web Server | LiteSpeed | ✅ |
 | Database | MySQL | ✅ Hostinger |
 | Bricks Builder | 2.3.8 Ultimate | ✅ Licensed |
