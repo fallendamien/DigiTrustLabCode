@@ -1,0 +1,1198 @@
+{
+  "status": "fail",
+  "document_review": {
+    "checks": {
+      "check1_native_wording": false,
+      "check2_no_literal_translation": false,
+      "check3_no_bureaucratic_academic_tone": false,
+      "check4_english_term_not_clearer": true,
+      "check5_natural_on_read_aloud": false,
+      "check6_consistent_terminology_register": false,
+      "check7_grammatically_complete": true
+    },
+    "confidence": "high",
+    "status": "fail",
+    "findings": [
+      "Intro paragraph: 'Oleh itu, artikel ini wujud untuk menjawab soalan ini sebenarnya' is an awkward, literal-sounding construction ('this article exists to answer this question actually'). A Malaysian writer would more naturally say something like 'Itulah sebabnya artikel ini kami tulis untuk jawab soalan tu.'",
+      "'internet dan data melonjak naik' is an unusual collocation — 'melonjak naik' normally describes prices/figures surging, not 'internet and data' as a whole. A more natural phrase would be 'sejak penggunaan internet dan data meningkat mendadak.'",
+      "'apabila anda bertanya kepada ChatGPT soalan' has unnatural word order; the natural order is 'bertanya soalan kepada ChatGPT.'",
+      "'designer tidak lena tidur kerana ini' inverts the fixed collocation 'tidur lena' (sleep soundly); natural phrasing would be 'designer tak boleh tidur lena sebab ini.'",
+      "'AI masih jauh untuk menggantikan perkara-perkara itu' uses an odd preposition pairing ('jauh untuk' instead of the natural 'jauh daripada'); e.g. 'AI masih jauh daripada dapat menggantikan perkara-perkara itu.'",
+      "The ANI and AGI subheadings ('Kecerdasan Terhad Buatan', 'Kecerdasan Umum Buatan') split the fixed compound 'Kecerdasan Buatan' (Artificial Intelligence) in an unnatural order. The correct/natural order is 'Kecerdasan Buatan Terhad' and 'Kecerdasan Buatan Umum' — note this is also inconsistent with the correctly ordered ASI heading 'Superkecerdasan Buatan' later in the same list, so the three headings use inconsistent construction patterns.",
+      "The entire ANI/AGI/ASI section (heading, all three definition paragraphs, and the closing blockquote) shifts into a noticeably academic/research-report register ('merujuk kepada AI hipotetikal yang boleh belajar, menaakul...', 'Kerangka Google DeepMind tentang AGI turut menilai dua perkara, iaitu keluasan keupayaan merentas pelbagai bidang dan tahap prestasi yang dicapai', 'Belum ada kesepakatan atau bukti kukuh bahawa ASI telah wujud, jadi perbincangan tentangnya masih berkait dengan kemungkinan dan risiko masa depan'). This is inconsistent with the casual, second-person, joke-laced tone used everywhere else in the article (e.g. 'jangan pula beritahu boss anda', 'designer tidak lena tidur', the intern joke), so the register is not consistent throughout the piece."
+    ]
+  },
+  "segments": [
+    {
+      "id": "title",
+      "text": "Apa Itu AI? (Dan Kenapa Ia Bukan Setakat Robot dalam Filem)",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "intro-p1",
+      "text": "Soalan apa itu AI sering terlintas apabila kita mendengar perkataan \"AI\"... Oleh itu, artikel ini wujud untuk menjawab soalan ini sebenarnya.",
+      "status": "fail",
+      "confidence": "high",
+      "checks": {
+        "check1": false,
+        "check2": false,
+        "check3": true,
+        "check4": true,
+        "check5": false,
+        "check6": true,
+        "check7": true
+      },
+      "findings": [
+        "'artikel ini wujud untuk menjawab soalan ini sebenarnya' reads as an awkward/literal translation; not how a Malaysian writer would phrase it."
+      ]
+    },
+    {
+      "id": "h2-definisi",
+      "text": "Apa Itu AI? Definisi Yang Tidak Membuat Kepala Pening",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-jangan-expect",
+      "text": "Jangan expect definisi textbook di sini.",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-ai-bermaksud",
+      "text": "AI, atau Artificial Intelligence, hanya bermaksud komputer yang boleh membuat keputusan...",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "img1-alt",
+      "text": "Konsep kecerdasan buatan (AI) dengan rangkaian neural",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "img1-caption",
+      "text": "AI atau kecerdasan buatan berfungsi dengan memproses data menggunakan rangkaian neural.",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-anda-tidak-perlu-code",
+      "text": "Anda tidak perlu memahami semua code dan algorithm di belakangnya...",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "h3-siapa-mencipta",
+      "text": "Siapakah Yang Mencipta AI?",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-idea-ai-1950an",
+      "text": "Idea AI sebenarnya telah wujud sejak tahun 1950-an... baru betul-betul menjadi relevan sejak internet dan data melonjak naik.",
+      "status": "fail",
+      "confidence": "medium",
+      "checks": {
+        "check1": true,
+        "check2": false,
+        "check3": true,
+        "check4": true,
+        "check5": false,
+        "check6": true,
+        "check7": true
+      },
+      "findings": [
+        "'internet dan data melonjak naik' is an unusual collocation; 'melonjak naik' is normally used for prices/figures, not 'internet and data' collectively."
+      ]
+    },
+    {
+      "id": "p-jangan-risau-hafal",
+      "text": "Jangan risau, anda tidak perlu menghafal namanya...",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "h2-bagaimana-berfungsi",
+      "text": "Bagaimana AI Berfungsi Dalam Bahasa Manusia",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-tanpa-perlu-matematik",
+      "text": "Tanpa perlu memahami konsep matematik yang rumit, AI berfungsi dengan membaca ribuan atau jutaan contoh data...",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "img2-alt",
+      "text": "Cara AI belajar mengenal pasti corak daripada data, seperti kanak-kanak belajar mengenal haiwan melalui flashcard",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "img2-caption",
+      "text": "AI belajar corak daripada data, sama seperti kanak-kanak belajar mengenal haiwan satu persatu.",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-bayangkan-kucing",
+      "text": "Bayangkan anda menunjukkan beribu gambar kucing kepada kanak-kanak...",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-itu-sebabnya-chatgpt",
+      "text": "Itu sebabnya apabila anda bertanya kepada ChatGPT soalan, ia boleh menjawab dengan ayat yang nampak natural...",
+      "status": "fail",
+      "confidence": "medium",
+      "checks": {
+        "check1": false,
+        "check2": false,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": [
+        "'bertanya kepada ChatGPT soalan' has unnatural word order; natural phrasing is 'bertanya soalan kepada ChatGPT.'"
+      ]
+    },
+    {
+      "id": "h2-kehidupan-harian",
+      "text": "AI Dalam Kehidupan Harian Anda (Yang Anda Mungkin Tidak Sedari)",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-ramai-orang-tidak-sedar",
+      "text": "Ramai orang tidak menyedari perkara ini. Anda sebenarnya menggunakan AI setiap hari. Pasti.",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "img3-alt",
+      "text": "AI dalam kehidupan harian: telefon, peta, muzik dan beli-belah",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "img3-caption",
+      "text": "Anda telah guna AI setiap hari tanpa sedar: YouTube, Google Maps, Netflix, Spotify.",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-apabila-youtube",
+      "text": "Apabila anda membuka YouTube dan ada video yang sesuai dengan citarasa anda, itu AI yang mencadangkan...",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-tidak-cukup-dengan-itu",
+      "text": "Tidak cukup dengan itu? Apabila anda guna Google Maps atau Waze untuk mengelakkan jem...",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-dan-sekarang-whatsapp",
+      "text": "Dan sekarang, WhatsApp anda pun ada Meta AI yang boleh menjawab soalan terus dalam chat...",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-ai-sudah-lama",
+      "text": "AI sudah lama menjadi perkara biasa dalam hidup kita... (Seperti intern yang cekap sangat tetapi tidak pernah meminta naik gaji.)",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "h2-3-jenis",
+      "text": "3 Jenis AI Yang Perlu Anda Tahu",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-setelah-faham",
+      "text": "Setelah faham apa itu AI secara umum, mari kita lihat tiga jenis AI yang paling relevan untuk anda.",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "img4-alt",
+      "text": "Tiga jenis AI: chatbot, AI gambar dan AI analisis",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "img4-caption",
+      "text": "Tiga jenis AI yang paling relevan: perbualan, gambar dan analisis data.",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "h3-ai-perbualan",
+      "text": "1. AI Perbualan (Chatbot)",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-ini-paling-popular",
+      "text": "Ini yang paling popular sekarang. ChatGPT, Claude, Gemini... jangan pula beritahu boss anda.",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-jika-anda-ingin-belajar",
+      "text": "Jika anda ingin belajar cara guna ChatGPT secara praktikal, baca panduan kami...",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "h3-ai-gambar",
+      "text": "2. AI Gambar",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-ai-yang-boleh-menghasilkan",
+      "text": "AI yang boleh menghasilkan gambar daripada teks... Pendek kata, designer tidak lena tidur kerana ini.",
+      "status": "fail",
+      "confidence": "medium",
+      "checks": {
+        "check1": false,
+        "check2": false,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": [
+        "'designer tidak lena tidur kerana ini' inverts the fixed collocation 'tidur lena'; natural phrasing is 'tak boleh tidur lena.'"
+      ]
+    },
+    {
+      "id": "h3-ai-analisis",
+      "text": "3. AI Analisis",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-ai-yang-syarikat-besar",
+      "text": "AI yang syarikat besar guna untuk analisis data, membuat ramalan jualan...",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "h2-ani-agi-asi",
+      "text": "ANI, AGI dan ASI: Tiga Konsep Keupayaan AI",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-selain-membahagikan",
+      "text": "Selain membahagikan AI mengikut kegunaan seperti perbualan, gambar dan analisis data...",
+      "status": "fail",
+      "confidence": "medium",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": false,
+        "check4": true,
+        "check5": true,
+        "check6": false,
+        "check7": true
+      },
+      "findings": [
+        "Tone shifts to a more formal, textbook-like register compared to the rest of the article's conversational style, starting the transition into the ANI/AGI/ASI section."
+      ]
+    },
+    {
+      "id": "h3-ani",
+      "text": "1. ANI: Kecerdasan Terhad Buatan",
+      "status": "fail",
+      "confidence": "high",
+      "checks": {
+        "check1": false,
+        "check2": false,
+        "check3": true,
+        "check4": true,
+        "check5": false,
+        "check6": false,
+        "check7": true
+      },
+      "findings": [
+        "'Kecerdasan Terhad Buatan' splits the fixed compound 'Kecerdasan Buatan'; natural order is 'Kecerdasan Buatan Terhad'. Also inconsistent with the correctly ordered 'Superkecerdasan Buatan' heading used for ASI."
+      ]
+    },
+    {
+      "id": "p-ani-definisi",
+      "text": "Artificial Narrow Intelligence (ANI) ialah AI yang direka untuk melaksanakan tugas atau kumpulan tugas tertentu...",
+      "status": "fail",
+      "confidence": "medium",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": false,
+        "check4": true,
+        "check5": true,
+        "check6": false,
+        "check7": true
+      },
+      "findings": [
+        "Register is more formal/textbook than the surrounding casual article, e.g. 'biasanya berada dalam kategori ini.'"
+      ]
+    },
+    {
+      "id": "h3-agi",
+      "text": "2. AGI: Kecerdasan Umum Buatan",
+      "status": "fail",
+      "confidence": "high",
+      "checks": {
+        "check1": false,
+        "check2": false,
+        "check3": true,
+        "check4": true,
+        "check5": false,
+        "check6": false,
+        "check7": true
+      },
+      "findings": [
+        "'Kecerdasan Umum Buatan' splits the fixed compound 'Kecerdasan Buatan'; natural order is 'Kecerdasan Buatan Umum'. Inconsistent with the ASI heading's correct word order."
+      ]
+    },
+    {
+      "id": "p-agi-definisi",
+      "text": "Artificial General Intelligence (AGI) merujuk kepada AI hipotetikal yang boleh belajar, menaakul... Kerangka Google DeepMind tentang AGI turut menilai dua perkara...",
+      "status": "fail",
+      "confidence": "high",
+      "checks": {
+        "check1": false,
+        "check2": true,
+        "check3": false,
+        "check4": true,
+        "check5": false,
+        "check6": false,
+        "check7": true
+      },
+      "findings": [
+        "Paragraph reads like an academic/research summary ('merentas pelbagai bidang', 'keluasan keupayaan merentas pelbagai bidang dan tahap prestasi yang dicapai'), sharply inconsistent with the casual, joke-laced register used elsewhere in the article."
+      ]
+    },
+    {
+      "id": "h3-asi",
+      "text": "3. ASI: Superkecerdasan Buatan",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-asi-definisi",
+      "text": "Artificial Superintelligence (ASI) ialah konsep tentang AI yang mengatasi keupayaan manusia... Belum ada kesepakatan atau bukti kukuh bahawa ASI telah wujud...",
+      "status": "fail",
+      "confidence": "medium",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": false,
+        "check4": true,
+        "check5": true,
+        "check6": false,
+        "check7": true
+      },
+      "findings": [
+        "'Belum ada kesepakatan atau bukti kukuh bahawa ASI telah wujud, jadi perbincangan tentangnya masih berkait dengan kemungkinan dan risiko masa depan' has an academic-report register inconsistent with the rest of the article."
+      ]
+    },
+    {
+      "id": "blockquote-ringkasnya",
+      "text": "Ringkasnya, sebahagian besar AI yang anda gunakan sekarang biasanya dikategorikan sebagai ANI...",
+      "status": "fail",
+      "confidence": "medium",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": false,
+        "check4": true,
+        "check5": true,
+        "check6": false,
+        "check7": true
+      },
+      "findings": [
+        "Continues the more formal register of the ANI/AGI/ASI section, inconsistent with the casual tone elsewhere in the article."
+      ]
+    },
+    {
+      "id": "h2-kenapa-bukan-robot",
+      "text": "Kenapa AI Bukan Macam Robot Dalam Filem?",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-filem-sains-fiksyen",
+      "text": "Filem sains fiksyen sering menimbulkan rasa takut terhadap AI...",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "img5-alt",
+      "text": "Perbezaan antara AI dalam filem dan AI dalam realiti: projektor wayang vs kalkulator",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "img5-caption",
+      "text": "AI dalam filem ada kesedaran dan perasaan. AI sebenar? Hanya kalkulator yang sangat pantas.",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-hakikatnya",
+      "text": "Hakikatnya? AI sekarang tidak mempunyai \"kesedaran\". Ia tidak sedar bahawa ia wujud...",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-bayangkan-kalkulator",
+      "text": "Bayangkan kalkulator yang sangat canggih. Ia tidak faham matematik...",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "h2-adakah-menggantikan",
+      "text": "Adakah AI Akan Menggantikan Kerja Anda?",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-soalan-inilah",
+      "text": "Soalan inilah yang menjadi kebimbangan ramai orang.",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "img6-alt",
+      "text": "Manusia dan AI bekerjasama, bukan bersaing",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "img6-caption",
+      "text": "AI tidak menggantikan anda. Orang yang tahu guna AI akan lebih bernilai.",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-jawapan-jujur",
+      "text": "Jawapan jujur: AI akan mengubah cara kerja dilakukan... AI masih jauh untuk menggantikan perkara-perkara itu.",
+      "status": "fail",
+      "confidence": "medium",
+      "checks": {
+        "check1": true,
+        "check2": false,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": [
+        "'AI masih jauh untuk menggantikan perkara-perkara itu' uses an unusual preposition pairing; natural phrasing is 'jauh daripada' rather than 'jauh untuk.'"
+      ]
+    },
+    {
+      "id": "p-yang-lebih-penting",
+      "text": "Yang lebih penting: orang yang tahu cara guna AI dengan baik akan lebih bernilai...",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-jadi-persoalannya",
+      "text": "Jadi persoalannya, bukan \"adakah AI akan menggantikan saya?\" tetapi \"bagaimana saya boleh guna AI...\"",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "h2-guna-ai-bijak",
+      "text": "Guna AI Dengan Bijak: Jangan Lupa Privasi",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-ai-memang-menarik",
+      "text": "AI memang menarik, tetapi anda perlu ingat satu perkara penting: AI tidak perlu tahu semua perkara tentang anda.",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "img7-alt",
+      "text": "Kunci privasi melindungi maklumat peribadi daripada chatbot AI",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "img7-caption",
+      "text": "Jangan masukkan nombor IC, akaun bank atau rahsia syarikat ke dalam chatbot percuma.",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-jangan-copy-paste",
+      "text": "Jangan copy & paste maklumat peribadi sensitif seperti nombor IC, akaun bank, atau rahsia syarikat...",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-guna-ai-brainstorm",
+      "text": "Guna AI untuk brainstorm, tulis draft, atau susun idea. Untuk perkara rahsia? Gunakan otak dan kertas dulu.",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "h2-mula-dari-mana",
+      "text": "Mula Dari Mana?",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-jika-anda-baru",
+      "text": "Jika anda baru ingin mengenali AI secara praktikal, mulakan dengan tools percuma yang mudah.",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-cuba-chatgpt-claude",
+      "text": "Cuba ChatGPT atau Claude, bertanya apa-apa soalan yang ada dalam kepala anda sekarang...",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-tidak-perlu-kursus",
+      "text": "Tidak perlu kursus mahal. Tidak perlu background IT. Cuma perlu curiosity dan keinginan untuk mencuba.",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "p-boleh-mula-dengan",
+      "text": "Boleh mula dengan soalan simple seperti \"tolong tulis emel untuk saya request cuti\"...",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "blockquote-digitrust-lab",
+      "text": "Di DigiTrust Lab, kami berkongsi cara praktikal guna AI untuk kerja harian dan kreativiti...",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    },
+    {
+      "id": "excerpt",
+      "text": "Ramai yang bimbang AI akan menggantikan kerja mereka. Tetapi orang yang telah menggunakan AI mendapati kerja menjadi lebih cepat...",
+      "status": "pass",
+      "confidence": "high",
+      "checks": {
+        "check1": true,
+        "check2": true,
+        "check3": true,
+        "check4": true,
+        "check5": true,
+        "check6": true,
+        "check7": true
+      },
+      "findings": []
+    }
+  ],
+  "model_family": "anthropic",
+  "provider": "firstParty",
+  "model": "claude-sonnet-5",
+  "runtime_provider": "firstParty",
+  "runtime_model": "claude-sonnet-5",
+  "auth_provider": "firstParty",
+  "structured_provider": "anthropic",
+  "structured_model": "claude-sonnet-5",
+  "transport": "claude-code-cli",
+  "session_persistence": false,
+  "tools": []
+}

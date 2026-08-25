@@ -11,13 +11,107 @@
 
 | Element | Value |
 |---------|-------|
-| Style | Flat illustration, simple geometric shapes, bold outlines |
+| Style | DigiTrust Lab illustration family: flat editorial baseline with controlled treatments below |
 | Background | Warm off-white `#FAFAF8` |
 | Primary accent | Orange `#E8621A` |
 | Dark elements | Dark charcoal `#1A1A1A` |
 | Highlights | White |
 | Aspect ratio | 16:9 (wide, min 1024×576) |
 | Text in image | No readable text by default; clean intentional pseudo-writing, abstract lines, bullets, and checkboxes are allowed and should be preserved |
+
+## 🚦 Featured-image variety gate (MANDATORY)
+
+The archive grid is a visual product, not a row of interchangeable article
+thumbnails. Before generating every new featured image, inspect the previous six
+featured thumbnails together at archive-card size and record the comparison below.
+This gate is blocking: if the thumbnail comparison or any rule fails, do not
+archive, upload, or publish the image. Regenerate the concept first.
+
+### Required pre-generation record
+
+```text
+Previous six thumbnails inspected: [six filenames or post numbers]
+Visual mode: [object-led | abstract-symbolic | diagrammatic | environmental |
+              editorial-collage | top-down | split-transformation | human-led]
+Subject class: [specific subject, not “AI”]
+Composition: [specific layout and perspective]
+Treatment: [approved treatment name below]
+Human presence: [yes | no]
+Repeated motif check: [PASS | FAIL]
+Immediate-prior difference count: [0–5 dimensions; must be ≥3]
+Thumbnail comparison: [PASS | FAIL]
+```
+
+Run the deterministic record gate after the visual inspection and before
+archiving. Replace the placeholders with the recorded values:
+
+```powershell
+python scripts/verify-featured-image-variety.py `
+  --register content/image-prompts.md `
+  --previous-six-inspected `
+  --visual-mode <mode> `
+  --subject-class "<specific subject>" `
+  --composition "<layout and perspective>" `
+  --treatment <approved-treatment> `
+  --human-presence <yes|no> `
+  --motif "<motif signals>" `
+  --difference-count <3-5> `
+  --thumbnail-comparison pass
+```
+
+The command checks the recorded history and blocks a failed or incomplete
+decision. It cannot see the pixels itself, so `thumbnail-comparison pass` is
+valid only after the worker has actually viewed the six thumbnails together.
+
+Hard rules:
+
+1. Human-led featured images are exceptional. They must not appear
+   consecutively, and there may be no more than one human-led image in any
+   four consecutive posts.
+2. The combined motif **person + desk + laptop + robot** is forbidden when it
+   appears in any of the previous six featured images. Do not recreate it with
+   minor prop or pose changes.
+3. The new image must differ from the immediately previous featured image in at
+   least three dimensions: subject, composition, perspective, treatment, and
+   human presence.
+4. Keep the DigiTrust Lab palette and 16:9 archive-safe framing, while rotating
+   the approved treatments. Brand recognition comes from the palette, outlines,
+   spacing, and editorial clarity, not from repeating one character scene.
+5. View the candidate beside the previous six thumbnails. If it still reads as
+   the same orange-shirt desk scene, mark `Thumbnail comparison: FAIL` and
+   regenerate. A metadata PASS never overrides a visual FAIL.
+
+### Approved bounded treatment rotation
+
+| Treatment | Visual boundary |
+|-----------|-----------------|
+| Flat editorial vector | Default geometric shapes and bold outlines; use only when the recent set is not already vector-heavy |
+| Geometric infographic | Structured nodes, pathways, cards, or symbols; no human required |
+| Isometric systems scene | Layered depth for processes and relationships; avoid a person at a laptop as the focal point |
+| Cut-paper editorial collage | Overlapping paper-like planes and silhouettes using the fixed palette; no named-artist imitation |
+| Abstract symbolic composition | One strong metaphor with generous negative space; no literal desk scene |
+| Cinematic editorial poster | Selective framed vignette and silhouette treatment for cautionary or myth-busting topics |
+
+The treatment is a bounded variation of the brand family, not permission to
+change the palette, add readable text, imitate a named artist, or introduce
+uncontrolled photorealism.
+
+### Featured-image register (historical comparison set)
+
+These recent entries document the repetition that this gate is designed to stop.
+They are comparison evidence, not templates for the next image.
+
+| Post | Featured asset | Visual mode | Subject class | Composition | Treatment | Human presence | Motif signals |
+|------|----------------|-------------|---------------|-------------|-----------|------------------|----------------|
+| #5 | `cara-buat-poster-guna-canva-featured.png` | human-led | person, Canva board, laptop | split | flat editorial vector | yes | person laptop Canva board |
+| #6 | `chatgpt-vs-gemini-vs-claude-panduan-pilihan-ai-2026-featured.png` | human-led | student, three AI robots | split | flat editorial vector | yes | student three robots chooser |
+| #7 | `cara-buat-nota-cantik-dengan-ai-featured.png` | human-led | person, organised notes, laptop, AI sparkle | split | flat editorial vector | yes | person desk laptop robot |
+| #9 | `prompt-gemini-ai-untuk-edit-foto-featured.png` | human-led | creator, portrait, editing interface | split | flat editorial vector | yes | creator portrait smartphone editing interface |
+| #11 | `apa-itu-mcp-dalam-ai-dan-bagaimana-ia-berfungsi-featured.png` | diagrammatic | AI connection, files, database, app, human observer | split | flat editorial vector | yes | AI bridge files database app human observer |
+| #12 | `contoh-minit-mesyuarat-cara-susun-nota-dengan-ai-featured.png` | human-led | person, meeting notes, calendar | split | flat editorial vector | yes | person desk laptop calendar |
+
+After each publication, append the new featured asset to this register, remove
+the oldest entry, and preserve the six-entry comparison window.
 
 ## 📐 Variation Guide (rotate — avoid repeating the same composition)
 
@@ -45,7 +139,7 @@ Filename: {post-slug}-{image-description}.png
 
 **Filename rule (MANDATORY):** lowercase, hyphens only, no underscores. Example: `apa-itu-ai-neural-network.png`. Applies to featured *and* in-content images.
 
-**Composition rule:** Vary the visual element across images within the same post so they read as a curated collection, not a template repeat. The palette and flat style stay fixed; the composition and decorative elements change. Think "art lover's blog", not "corporate stock art". Never reuse the same scene layout (e.g. person at desk with screen) across posts.
+**Composition rule:** Vary the visual element across images within the same post so they read as a curated collection, not a template repeat. The palette and brand illustration family stay fixed; the approved treatment, composition, perspective, and decorative elements change. Think "art lover's blog", not "corporate stock art". Never reuse the same scene layout (e.g. person at desk with screen) across posts.
 
 ### ⚠️ Anatomy Fix (MANDATORY for any human or robot)
 
@@ -109,13 +203,15 @@ An accent style for high-concept articles, cautionary topics, myth-vs-reality ex
 
 ## 📝 How to Use This File
 
-1. Find the post you're working on below
-2. Copy the **Prompt** block for each image
-3. Paste into ChatGPT or Gemini
-4. Download the generated image
-5. Upload to WordPress Media Library with the exact **Filename**
-6. Set Malay alt text (provided with each image)
-7. Assign featured image or insert into post content
+1. Inspect the previous six featured thumbnails and complete the variety record
+2. Find the post you're working on below
+3. Copy the **Prompt** block for each image
+4. Paste into ChatGPT or Gemini
+5. Download the generated image
+6. Upload to WordPress Media Library with the exact **Filename**
+7. Set Malay alt text (provided with each image)
+8. Assign featured image or insert into post content only after the thumbnail
+   comparison and native-resolution audit both pass
 
 ## 🔄 Maintenance Rule
 
@@ -428,18 +524,21 @@ Flat illustration style. A top-down flat lay of three cards arranged vertically 
 
 ---
 
-## Post #7 — Cara Buat Nota Rapi dengan AI (PLANNED — TBD)
+## Post #7 — Cara Buat Nota Rapi dengan AI (DRAFTED — IMAGES GENERATED)
 
-**Slug:** TBD
-
-> Prompts will be written after content is drafted in WriterZen.
+**Slug:** `cara-buat-nota-cantik-dengan-ai`
+**Focus keyword:** `cara buat nota cantik`
 
 | Image | Filename | Prompt | Alt Text |
 |-------|----------|--------|----------|
-| Featured | TBD | TBD | TBD |
-| Intro | TBD | TBD | TBD |
-| Comparison | TBD | TBD | TBD |
-| Conclusion | TBD | TBD | TBD |
+| Featured | `cara-buat-nota-cantik-dengan-ai-featured.png` | Flat illustration style. A polished wide featured illustration for an article about making neat, useful notes with AI for students and workers. Split composition: a person reviews organized notes beside a laptop while loose note cards transform into clean sections and a small abstract AI sparkle symbol communicates structure, review and human judgment. Simple geometric shapes, bold dark charcoal outlines, clean modern minimal editorial artwork. Warm off-white `#FAFAF8` background, orange `#E8621A` accents, dark charcoal `#1A1A1A` outlines and elements, white highlights. Wide 16:9. No readable text, logos or watermark. Both person and robot have complete visible arms and hands with natural positioning. No malformed anatomy, accidental pseudo-letters, rounded orange blobs, halos or discs. | Ilustrasi AI membantu menyusun nota yang kemas untuk pelajar dan pekerja |
+| Intro | `cara-buat-nota-cantik-dengan-ai-alat.png` | Flat illustration style. Top-down flat lay showing the preparation stage for turning raw study or work material into useful notes with AI: notebook, laptop, phone, paper note cards, privacy shield and three abstract tool symbols represented by simple shapes. Balanced spacing, warm off-white `#FAFAF8` background, orange `#E8621A` accents, dark charcoal `#1A1A1A` outlines and elements, white highlights. Clean modern minimal editorial artwork, wide 16:9. No readable text, letters, numbers, logos or watermark. Clean abstract lines, bullets and checkboxes only. No clutter, rounded orange blobs, halos or discs. | Persediaan bahan dan pilihan alat AI untuk membuat nota |
+| Fact-check | `cara-buat-nota-cantik-dengan-ai-semak-fakta.png` | Flat illustration style. Isometric left-to-right flow showing loose note cards moving through a magnifying glass and a shield/checkmark checkpoint, then becoming a short organized stack with bullet shapes, calendar and lock icons to suggest checking names, dates, figures and sensitive information. Warm off-white `#FAFAF8` background, orange `#E8621A` accents, dark charcoal `#1A1A1A` outlines and elements, white highlights. Clean modern minimal editorial artwork, wide 16:9. No readable text, letters, numbers, logos or watermark. Use only clean abstract lines, bullets and checkmarks. No clutter, rounded orange blobs, halos or discs. | Semakan fakta dan privasi sebelum nota AI dikongsi |
+| Conclusion | TBD | Fourth in-content image remains deferred until the publication package is assembled. | TBD |
+
+> **Generated and visually audited 24 August 2026.** All three assets use the DigiTrust Lab palette and were checked at native resolution for malformed anatomy, accidental readable text, logos, watermarks, orange blobs and halos. SHA-256 hashes are recorded in `content/content-calendar.md`.
+
+> **WordPress staging (24 August 2026):** Media 653 is assigned as the featured image for draft Post 656; Media 654 and Media 655 are inserted in the draft body. The article remains unpublished. WriterZen's 0/3 image warning is retained as historical workflow evidence.
 
 ---
 

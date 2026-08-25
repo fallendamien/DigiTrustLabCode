@@ -9,18 +9,27 @@ which points to the canonical TSOT policy. A brief marked `bounded-worker`
 executes directly within scope; orchestrator delegation triggers do not apply,
 and nested delegation remains prohibited.
 
-Delegation is mandatory for external, destructive, irreversible, high-risk,
-approval-gated, or broad/independently review-worthy work. Narrow local
-inspection, reversible edits, focused tests, and ordinary implementation may be
-owned directly when safe. Delegation remains available when it materially
-improves independence or parallelism. When delegation occurs, report the actual
-model ID, effort, scope, and evidence; no completion claim is valid without
-evidence.
+Codex Sol is orchestration-only for substantive work: requirements, routing,
+worker briefs, supervision, integration, final decisions, and evaluation of
+worker evidence remain in the main thread. Tools, browser actions, edits,
+external writes, tests, and verification commands must be executed by bounded
+workers. When delegation occurs, report the actual model ID, effort, scope, and
+evidence; no completion claim is valid without evidence. The canonical TSOT
+policy is the source of the full gate; this project file does not duplicate it.
 
-If dispatch fails, the high-risk and approval-gated classes still stop. Safe
-local read-only or reversible work may continue only with disclosed fallback,
-preserved scope, and no claim of worker validation. This is a behavioral gate,
-not a runtime security boundary.
+Claude Opus follows the same orchestration-only execution gate: it owns
+requirements, routing, worker briefs, supervision, integration, final
+decisions, and evidence evaluation, while bounded workers execute all
+substantive tools, browser actions, edits, external writes, tests, and
+verification commands. If dispatch fails, all substantive execution stops for
+either strict orchestrator; high-risk and approval-gated actions remain
+fail-closed for every agent. Queue and steering behavior is defined only by the
+canonical TSOT policy. This is a behavioral gate, not a runtime security
+boundary.
+
+If Sol is unavailable, the canonical TSOT policy defines the only substitute
+orchestrator: actual `gpt-5.6-luna` at `xhigh` or `max`, under the same strict
+gate and separate bounded-worker execution.
 
 ### EA inquiry-routing entrypoint
 
@@ -749,6 +758,7 @@ For broader marketing strategy (competitor teardown, E2E SEO, ICP research, cont
 - **Internal linking (required):** Plan links in outline phase → insert outbound links during publish → run `internal-link-builder` skill after publish to add inbound links from older posts
 - **Link hardening (mandatory):** Run `python scripts/verify-links.py --file <draft.html>` before publication and `python scripts/verify-links.py --post-id <id> --inbound-review content/link-reviews/<slug>.json --check-destinations` after publication. The gate checks descriptive anchors, HTTPS, self-links, contextual internal-link counts, editorial external dofollow links, live destinations, and an auditable inbound decision. Rank Math and a mechanical voice PASS do not override it.
 - **Content formatting (MANDATORY — NON-NEGOTIABLE):** Every article must be richly formatted — NO sea of text. Use blockquotes (orange `#E8621A` border, `#F5F3EE` bg), bullet/numbered lists with bold labels, before/after example blocks, "Elakkan" vs "Gunakan" contrast pairs, warning/tip boxes, `<em>` for English terms, short paragraphs (max 3-4 sentences). At least 2-3 blockquotes per instructional article. Reference standards: Post #2 and Post #3. See `.claude/skills/readability-pass/SKILL.md` for full toolkit, templates, and checklist.
+- **Template-title duplication gate (MANDATORY):** The Bricks single-post template supplies the visible post H1. Run `python scripts/verify-post-structure.py --file <draft.html>` before staging and `python scripts/verify-post-structure.py --post-id <id>` after publication. Any body H1, especially one matching the post title, blocks publication completion and tracking until removed.
 - **Full workflow:** See `.claude/skills/write-post/SKILL.md` for the complete step-by-step process
 
 ## Notes

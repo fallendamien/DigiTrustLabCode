@@ -2,15 +2,17 @@
   "project": "DigiTrust Lab",
   "owner": "Zamri Rosli",
   "primaryEditor": "Zed (since 2026-08-05) — Codex via ACP, Claude Code via terminal. Windsurf retained for Devin only; VS Code legacy.",
-  "lastSession": "2026-08-23",
-  "currentObjective": "Post #5 Canva article Phase 7 is closed under the approved WriterZen historical-value acceptance and ClickRank deferral. The article is live, core editorial gates pass, Google Search Console confirms indexing, and the repository handoff is committed. Next work can resume with the normal Option C pipeline.",
-  "currentPhase": "Post #5 — published; Phase 7 closed, ClickRank deferred",
-  "phaseProgress": "COMPLETE — CLICKRANK DEFERRED",
+  "lastSession": "2026-08-25",
+  "currentObjective": "Post #7 closeout is complete at https://digitrustlab.com/cara-buat-nota-cantik-dengan-ai/ (ID 656): Claude Sonnet OAuth and OpenAI naturalness, Rank Math, live link, template-title structure, Screpy Rank Tracker, ClickRank tracking and exact Google Search Console inspection gates passed after removing the redundant body H1. The next step is to select a new article topic and begin Option C at the WriterZen quota check followed by Topic Discovery. Screpy Pages discovery remains a documented non-blocking pending item because the latest existing crawl predates publication. Post #5 remains closed.",
+  "currentPhase": "Post #7 closeout complete; next topic selection and Option C start gate pending",
+  "phaseProgress": "COMPLETE — POST #7 CLOSEOUT; NEXT OPTION C QUOTA + TOPIC DISCOVERY PENDING",
   "blockers": [
     "LiteSpeed serves cached HTTP 404s for clean Rank Math child sitemap URLs even though the regenerated origin XML returns 200 and sitemap-cache exclusions are configured; authenticated public-cache clearing and Search Console re-inspection remain. Evidence: docs/post-11-revalidation-2026-08-09.md",
     "Post #9 Screpy Pages Analyze was requested at 2026-08-10 03:14 (+08:00) and remains visibly Analyzing on crawler 18151; the fresh Post #9 discovery/result is not yet available.",
     "Post #9 Google Search Console request was submitted successfully at 2026-08-10 02:42 (+08:00), but the URL remains unproven as indexed; re-inspect later and do not equate a request with indexing.",
-    "Non-blocking deferral: ClickRank Pages remains unavailable during a confirmed service outage (official status page reports dead core and Google Data Synchronisation replicas). Post #5 closure is complete under Zamri's explicit acceptance of the historical WriterZen Seed keyword value `Highest-volume keyword`; do not retry ClickRank or submit duplicate rows."
+    "Post #5 closure is complete under Zamri's explicit acceptance of the historical WriterZen Seed keyword value `Highest-volume keyword`; do not reopen Post #5.",
+    "Non-blocking Post #7 Screpy Pages pending: the latest existing crawl `ojsmg8wv9al9ctqg` predates publication and does not contain the exact URL or slug. No crawl was started.",
+    "Next article topic has not been selected. After selection, begin the standard Option C pipeline at WriterZen quota check, then Topic Discovery; do not start drafting before those gates."
   ],
   "completed": [
     "Git repo initialized",
@@ -78,13 +80,16 @@
     "Screpy workflow corrected to use Device: Both in one action, with Desktop and Mobile tab verification",
     "ClickRank Pages gate added to write-post workflow: exact URL, visible status, recommendation/no-change decision, and calendar evidence are mandatory before Phase 7 completion",
     "Post #9 ClickRank Keyword Tracker, Website Optimization / Pages, and AI Overview Tracker configured; live image, link, naturalness, voice, and inbound-link gates verified (2026-08-10)",
-    "Post #1 ANI/AGI/ASI section and Claude-reviewed Malay copy refinements completed live (Post ID 256, 2026-08-19); Claude Sonnet 5 targeted review passed, Respira security validation passed, verify-malay-voice passed with 0 errors, and verify-content-status passed"
+    "Post #1 ANI/AGI/ASI section and Claude-reviewed Malay copy refinements completed live (Post ID 256, 2026-08-19); Claude Sonnet 5 targeted review passed, Respira security validation passed, verify-malay-voice passed with 0 errors, and verify-content-status passed",
+    "Post #7 published 2026-08-24 at https://digitrustlab.com/cara-buat-nota-cantik-dengan-ai/ (Post ID 656); Rank Math 100/A, Claude Sonnet OAuth + OpenAI naturalness pass, live link gate pass, contextual inbound link from Post #12, Screpy Device: Both row verified, ClickRank Keyword Tracker, AI Overview Tracker and Website Optimization / Pages evidence recorded 2026-08-25 15:19 (+08:00), and exact GSC inspection passed 2026-08-25 15:52:44 (+08:00): URL is on Google / Page is indexed; no request needed.",
+    "WordPress site title (blogname) and Rank Math Website Name + Knowledge Graph Name set to `DigiTrustLab`; Rank Math Alternate Name set to `DigiTrust Lab` (2026-08-25). Verified live: og:site_name and JSON-LD WebSite.name both emit `DigiTrustLab`, alternateName emits `DigiTrust Lab`. Setting path: Rank Math SEO → Titles & Meta → Local SEO (/wp-admin/admin.php?page=rank-math-options-titles&view=local — not under Global as commonly documented). GSC indexing requested for homepage 2026-08-25; SERP still showed bare domain at that time (re-crawl lag, not a misconfiguration).",
+    "Homepage pagination configured on page 280 (Bricks, 2026-08-25). Root cause: query loop was on grid container #brxe-778413, which has no hasLoop property, so it was inert and Bricks fell back to the WordPress default of 10 posts. Fix: query loop moved to card element #brxe-4c6189 with postsPerPage: 6. Pagination element #brxe-cctbuz added as sibling below the grid with its Query bound to the 4c6189 loop (defaults to Main query when first added, renders 'No pagination results' until rebound — trap to remember). Verified logged-out 2026-08-25: homepage renders 6 cards; /page/2/ returns HTTP 200 with posts 7-10, no duplicates; one grid (no PRIORITY #3 regression); /blog/ unchanged. Decision: /page/2/ canonical points at homepage rather than self-referencing — deliberately left as-is because posts are indexed at their own URLs and via the sitemap, /blog/ is the real archive, and a paginated homepage view is thin duplicate content that does not need indexing. Altering it would mean changing a site-wide Rank Math canonical setting for a non-problem."
   ],
   "nextSteps": [
     "ANI vs AGI vs ASI research gate, the explicitly authorized Post #1 live section, and the Claude-reviewed copy fixes completed on 2026-08-19 (WriterZen Topic Discovery 245998; Keyword Explorer 1567455; Post ID 256). Final live read-back and validators passed. Keep the roadmap paused for new article execution and do not assign a standalone post number before the normal gates.",
     "Confirm the running Post #9 Screpy Pages Analyze crawl finishes and record its fresh discovery/result; then run final validators and commit/push the scoped handoff",
     "Clear the persistent LiteSpeed/Hostinger/Cloudflare cache for the repaired Rank Math child sitemaps, verify clean XML 200 responses, and re-submit sitemap_index.xml in Google Search Console",
-    "Post #5 is closed under the approved WriterZen historical-value acceptance and ClickRank deferral. Select the next article topic and resume the normal Option C pipeline; do not retry ClickRank Pages until service recovery.",
+    "Select a new article topic, then begin the standard Option C pipeline at WriterZen quota check followed by Topic Discovery; do not start drafting before those gates. Carry Post #7 Screpy Pages discovery as a non-blocking pending item because crawl `ojsmg8wv9al9ctqg` predates publication and does not contain the exact URL or slug; do not start a crawl without explicit authorization.",
     "Investigate Post #1 ranking drop: apa itu AI 15 -> 55 in ClickRank. Verify against Search Console first - the two ClickRank tools disagree with each other",
     "Register Klikjer affiliate",
     "Register JV Warrior affiliate",
@@ -92,7 +97,7 @@
     "Create lead magnet PDF - '50 Prompt AI Percuma'"
   ],
   "keyMetrics": {
-    "blogPosts": 9,
+    "blogPosts": 10,
     "etsyListings": 0,
     "emailSubscribers": 0,
     "monthlyRevenue": 0,
@@ -100,8 +105,8 @@
   },
   "tools": {
     "writerZen": "ready",
-    "clickRank": "active — Keyword Tracker, Website Optimization / Pages, and AI Overview Tracker configured for 7 published focus keywords including mcp ai and prompt gemini ai untuk edit foto; Malaysia/Malay where applicable, All devices for Keyword Tracker. AI Model Index: 100% accessible. AI Compatibility: 80% ChatGPT/Claude/Cohere.",
-    "screpy": "active — project wgspvb7lc3, uptime monitoring green. Post #9 Rank Tracker row added for prompt gemini ai untuk edit foto (Malaysia/Malay, Device: Both) and verified in Desktop/Mobile; Pages Analyze requested 2026-08-10 03:14 (+08:00) but still shows Analyzing on crawler 18151, so the fresh crawl result is pending",
+    "clickRank": "active — Post #7 `cara buat nota cantik` verified in Keyword Tracker (Malaysia, Device All), AI Overview Tracker (Malaysia/Malay) and Website Optimization / Pages at 2026-08-25 15:19 (+08:00); no recommendations applied. AI Model Index: 100% accessible. AI Compatibility: 80% ChatGPT/Claude/Cohere.",
+    "screpy": "active — project wgspvb7lc3, uptime monitoring green. Post #7 Rank Tracker row added for cara buat nota cantik (Malaysia/Malay, Device: Both) and verified in Desktop/Mobile; latest existing crawl ojsmg8wv9al9ctqg succeeded 2026-08-23T09:01:06Z–09:01:38Z (last synced 09:02:44Z), and its Pages list does not contain the exact Post #7 URL or slug, so discovery remains pending without starting a new crawl",
     "bricksBuilder": "installed-and-configured",
     "mailerLite": "active — account 2502865, embed form cUeVaM live on homepage + single post sidebar",
     "hostinger": "active — Business WordPress plan, IP 145.79.28.85",

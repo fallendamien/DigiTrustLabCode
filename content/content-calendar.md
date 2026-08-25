@@ -284,7 +284,8 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | SEO Title | Cara Buat Poster Guna Canva dengan AI: Panduan Praktikal |
 | Meta Description | Pelajari cara buat poster guna Canva dengan AI, daripada memilih saiz dan susun atur hingga menyemak warna, teks dan fail akhir sebelum dikongsi. |
 | Excerpt | Pelajari cara buat poster guna Canva dengan langkah praktikal, bantuan AI serta semakan teliti supaya hasilnya jelas, kemas dan mudah dibaca. |
-| Naturalness Gate | ✅ Live revalidation passed; schema 3; hash `551aedcca1d3bebd8bab42018cb2f6bc6e2913dfba373134cb484d47f417c87d`; Claude Sonnet 5 + OpenAI gpt-5.6-luna high; 83/83 PASS |
+| Naturalness Gate | ✅ Live revalidation passed after duplicate-title cleanup; schema 3; hash `feaf6d01115596e22747dbf85ecb813b37207d6b1f05ba8331545b6d96407911`; Claude Sonnet 5 + OpenAI gpt-5.6-luna high; 82/82 PASS |
+| Template-title structure gate | ✅ `python scripts/verify-post-structure.py --post-id 629` — no body H1; template title is not duplicated. Post #5 remains closed; this was a scoped duplicate-title correction only. |
 | Rank Math | 100/100 (Grade A) last recorded before the screenshot expansion; 13/13 checks passed; 1,447 words; keyword density 0.62%; live post now renders 9 tutorial figures plus featured image; 2 internal links; 2 external links |
 | Malay Voice Gate | ✅ Live mechanical check passed; 0 errors, 0 warnings |
 | Link Quality Gate | ✅ Live revalidation passed; 2 contextual internal links, 2 external links, 1 dofollow; all destinations checked; inbound scan 0 with explicit `no_safe_context` decision; link hash `6be745209fc7a633c575714821beeccf4ae45302e29a5d4c965f7781b87b4a99` |
@@ -318,16 +319,47 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | ClickRank | ✅ Done — added "chatgpt vs gemini vs claude" (Malaysia, URL tracked) |
 | Screpy | ✅ Done — added "chatgpt vs gemini vs claude" (Both Desktop & Mobile, MY/MS) |
 
-## Post #7 — PLANNED
+## Post #7 — PUBLISHED ✅
 
 | Field | Value |
 |-------|-------|
-| Title | Cara Buat Nota Rapi dengan AI: Tips untuk Pelajar & Pekerja |
-| Keyword | TBD |
+| Title | Cara Buat Nota Cantik dengan AI: Tips untuk Pelajar dan Pekerja |
+| Keyword | Provisional: `cara buat nota cantik` |
 | Category | Digital Skills |
-| Status | Not started |
+| Status | Published 24 August 2026; GSC indexed; Screpy Pages discovery pending |
 | Affiliate | None |
 | Type | Tutorial |
+| WriterZen Topic Discovery | Report `246117` — seed `nota dengan AI`, 24 August 2026, Malaysia/Malay; 76 topics discovered, 36 under Closely relevance, sorted by Search Volume |
+| Topic Discovery angles | Google Suggest Insights: `membuat nota dengan AI`; `edit nota dengan AI`; `cara buat nota dengan AI`. Relevant headlines include `nota lebih stailo dengan AI`, `nota serabut? pakai AI rumuskan`, and a Google Keep voice-to-note tutorial. |
+| WriterZen Keyword Explorer | Report `1568537` — seed `cara buat nota`, Malaysia/Malay; 267 ideas, average volume 110, last month 140, total idea volume 1,650, KD by Content/Traffic/Signal 0/0/0. Direct AI variants `cara buat nota dengan AI` (`1568534`), `membuat nota dengan AI` (`1568535`) and `edit nota dengan AI` (`1568536`) each returned `<10` volume and zero summary. |
+| Golden Filter | 267-credit run completed; relevant survivors: `cara buat nota cantik` (volume 210, Allintitle 0, Golden Score 1.001), `cara buat nota kreatif` (170, 0, 1.001), and `cara buat nota` (110, 0, 1.002). SERP top 10 includes small Malaysian publishers, including akaunvisual.com, Sinar Bestari and JomSkor. |
+| Keyword List | Three relevant variants added to the permanent `DigiTrust Lab Blog Posts` list; live list count verified at 47. |
+| WriterZen Keyword Planner | Project `178917` — `Post 7 - Cara Buat Nota Rapi dengan AI`; moderately relevant, one cluster; generated topic `panduan nota menarik dan mudah` (volume 320). DA metrics returned Weak Spot 1 for `cara buat nota cantik` (Avg DA 68.7; Low DA 20; High DA 90) and `cara buat nota` (Avg DA 66.3; Low DA 20; High DA 90). `cara buat nota kreatif` was not in the displayed cluster table and was not used to bypass the gate. |
+| Adjacent Topic Discovery | Report `246119` — seed `aplikasi nota`, Malaysia/Malay; 76 topics discovered, 36 under Closely relevance. The note-related signals were `aplikasi pengambilan nota` (no volume), `5 aplikasi pengambilan nota menarik untuk Android dan iOS`, and `3 aplikasi iPad terbaik untuk membuat nota`; the seed itself showed volume 10 and was too noisy to advance. |
+| Research credit use | 350 Keyword Credits: Golden Filter 267, clustering 3, DA metrics 80. Final live balance: 38,156/40,000; Topic Lookup 73/75; Keyword Lookup 71/75; AI words 2,637/8,000. |
+| Post-draft quota check | After Content Creator generation: Article 65/70; AI words 1,500/8,000; Keyword Credit 38,156/40,000; Topic Lookup 73/75; Keyword Lookup 71/75. |
+| Research gate | Weak Spot gate failed (1, below required ≥2). The adjacent Topic Discovery angle also lacks a qualifying demand signal. No content brief, Content Creator article, WordPress post, or publication work had started at the point of failure. |
+| Weak Spot override | Approved by Zamri in chat on 24 August 2026 (“proceed”). Measured Weak Spot is 1 for both displayed planner keywords (`cara buat nota cantik`: Avg DA 68.7, Low DA 20, High DA 90; `cara buat nota`: Avg DA 66.3, Low DA 20, High DA 90). Alternatives rejected: direct AI phrases each `<10` volume; `aplikasi nota` volume 10 and noisy; `aplikasi pengambilan nota` had no volume; `cara buat nota kreatif` had strong Golden metrics but was not in the displayed cluster table, so it was not used to bypass the gate. Viability evidence: `cara buat nota cantik` volume 210, Allintitle 0, Golden Score 1.001, KD by Content/Traffic/Signal 0/0/0, and small Malaysian publishers appeared in the SERP. Expected ranking timeline: 6–12 months, with no guarantee. Revisit after 90 days using impressions, clicks and SERP position; stop/refresh if there is no meaningful movement. |
+| Research status | Override documented; Content Brief, WriterZen draft and publication completed. Weak Spot remains recorded as a deliberate, evidence-based override. |
+| WriterZen Content Brief | Six visible fields manually set and re-read: How-to guide; Informative/Explanatory; Malay student/worker audience; practitioner perspective; AI-assisted note-making angle with fact-checking and privacy; read-only Seed keyword `Highest-volume keyword` (cluster highest-volume term is `cara buat nota cantik`). |
+| WriterZen Content Creator | Report `244245` in existing `DigiTrust Lab` project (134599), revised and reloaded in the authenticated Chrome session. Working H1: `Cara Buat Nota Cantik dengan AI: Tips untuk Pelajar dan Pekerja`. Fresh read-back: 833/833 words, 11 headings, 16 paragraphs, 0/3 images, 2/2 target keywords included, 6 links, 3 blockquotes and 2 italic elements. WriterZen now passes content length, title count, paragraph count and keyword inclusion; the three-image requirement remains open. |
+| Authoritative draft | `content/drafts/cara-buat-nota-cantik-dengan-ai.html` — editorially revised Malay draft with rich formatting, contextual links and privacy/fact-check callouts. |
+| Images | Three assets generated and visually audited 24 August 2026; local copies in `content/assets/post-7/` and archived under `G:\\Zamzam Biznez\\DigiTrustLab\\Blog images`. Featured `cara-buat-nota-cantik-dengan-ai-featured.png` (`220E0DD7501B56B6A91CF56A5098E6C4650FFBC4701FA13798D3649287B6A2B7`); tools `cara-buat-nota-cantik-dengan-ai-alat.png` (`4518818C8EA14F5AF194B688C6E20065981DCB93D448DCB447FAAC4F9EB78807`); fact-check/privacy `cara-buat-nota-cantik-dengan-ai-semak-fakta.png` (`076C75D361D1FF607D0EDAC030BC4246BA16A2DC65651DBC067F5427F7559D2A`). WordPress Media Library uploads verified as IDs 653–655; Post 656 uses 653 as featured media and 654/655 in the body. WriterZen remains 0/3 because its image warning was bypassed by Zamri's WordPress staging instruction; the live post has the required three visual assets. |
+| Pre-publication link gate | ✅ Local draft passed `python scripts/verify-links.py --file` on 24 August 2026: 3 contextual internal links, 3 editorial external links, all 3 external links dofollow; link hash `d2b47e86244461f68cfe4f62215a04663f456961a54b6a758f7bd1c818630337`. |
+| WordPress publication | ✅ Post `656` published at `https://digitrustlab.com/cara-buat-nota-cantik-dengan-ai/` with slug `cara-buat-nota-cantik-dengan-ai`, category `Digital Skills`, featured media `653`, and in-content images `654` and `655`; publish timestamp `2026-08-24 03:09:41` (+08:00). |
+| Post ID | 656 |
+| Rank Math | ✅ Respira audit on `656`: `100/A`; focus keyword `cara buat nota cantik`; SEO title 50 characters; meta description 139 characters; keyword density 0.54%; 2 images with alt text; 3 internal links; schema present. |
+| Naturalness review | ✅ Fresh authenticated-Chrome Claude Sonnet review and independent OpenAI `gpt-5.6-luna` high review both passed all seven checks with high confidence and no blocking findings. Live revalidation passes 44 segments after duplicate-title cleanup; hash `3c09e64e64dcc8754c5aca24873046b896507e6df968555be374fc4a4d4c1b96`; artifact `content/naturalness-reviews/cara-buat-nota-cantik-dengan-ai.json`. |
+| Template-title structure gate | ✅ `python scripts/verify-post-structure.py --post-id 656` — no body H1; template title is not duplicated. This gate is now mandatory in `AGENTS.md` and `write-post/SKILL.md`. |
+| Malay Voice Gate | ✅ `python scripts/verify-malay-voice.py 656` — 0 errors, 0 warnings; the live content is registered in the mechanical voice verifier. |
+| Link Quality Gate | ✅ Live gate passed: 3 internal links, 2 external links, 1 dofollow, all destinations checked; link hash `d581938d21f496b55a67c4ac57a901afcefb75bbd7add017efcb59aab6894d16`. One contextual inbound link from Post #12 (ID 605) was added and recorded in `content/link-reviews/cara-buat-nota-cantik-dengan-ai.json`. |
+| Screpy Rank Tracker | ✅ `cara buat nota cantik` added in the authenticated Screpy dashboard; Malaysia/Malay, Device: Both; exact row verified in Desktop and Mobile tabs. |
+| Screpy Pages | ⏳ Latest existing crawl `ojsmg8wv9al9ctqg` succeeded: started `2026-08-23T09:01:06Z`, finished `09:01:38Z`, last synced `09:02:44Z`; its Pages list does not contain the exact Post #7 URL or slug. No new crawl was started because the workflow does not authorize starting crawls. |
+| Google Search Console | ✅ Fresh authenticated-Chrome URL inspection 2026-08-25 15:52:44 (+08:00): exact URL is **URL is on Google** and **Page indexing — Page is indexed**; no indexing request was needed. |
+| ClickRank Keyword Tracker | ✅ Verified 25 August 2026 at 15:19 (+08:00): exact keyword `cara buat nota cantik`, exact URL, Malaysia, Device All, visible row, 10/10 rows, initial position 0 |
+| ClickRank AI Overview Tracker | ✅ Verified after reload 25 August 2026 at 15:19 (+08:00): exact keyword and URL, Malaysia/Malay, count 9, visible row status `Pending / N/A / N/A / 0% / 0 / No / Never` |
+| ClickRank Website Optimization / Pages | ✅ Exact URL added and verified after expanding `All`; exact slug appears in the full queue; no recommendations applied |
+| Draft status | Editorial revision, publication and live validation complete. The repository draft and review package remain as the auditable source files. |
 
 ## Post #8 — PLANNED
 

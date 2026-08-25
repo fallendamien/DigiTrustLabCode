@@ -47,7 +47,58 @@ reviewer cannot decide between materially different wording, record the issue
 for the user's decision; unresolved decisions block publication. The artifact
 must contain exactly two reviewer records: one Claude/Anthropic and one OpenAI.
 Every reviewer record must include the actual nonblank model identity; family
-labels alone are insufficient.
+labels alone are insufficient. The Claude record must additionally preserve the
+actual CLI runtime provider (currently `provider: "firstParty"`), keep
+`model_family: "anthropic"`, and prove `transport: "claude-code-cli"`,
+`session_persistence: false`, and `tools: []`.
+
+### Anthropic lane: terminal-only Claude Code CLI (MANDATORY)
+
+The Claude/Anthropic reviewer must run through the local authenticated Claude
+Code CLI in a terminal. Do not use `claude.ai`, Claude in Chrome, a browser tab,
+or a GUI session. The CLI lane must be non-persistent and toolless so the review
+does not add to web history or accidentally inspect or change the repository.
+
+Before the first review, run `claude --help` and require every flag below to be
+supported. The exact command contract is:
+
+```powershell
+$schema = '{"type":"object","required":["provider","model","status","document_review","segments"],"properties":{"provider":{"enum":["anthropic","firstParty"]},"model":{"type":"string","minLength":1,"pattern":"sonnet"},"status":{"enum":["pass","fail"]},"document_review":{"type":"object"},"segments":{"type":"array"}},"additionalProperties":true}'
+$prompt = Get-Content -Raw 'content/naturalness-reviews/<post-slug>-claude-prompt.txt'
+$prompt | claude --print --safe-mode --model sonnet --effort high --no-chrome --no-session-persistence --tools "" --output-format json --json-schema $schema
+```
+
+The required flags are `--safe-mode`, `--model sonnet`, `--effort high`,
+`--no-chrome`, `--no-session-persistence`, `--tools ""`, `--output-format
+json`, and `--json-schema`. If the installed CLI does not expose any one of
+them, stop and fail closed. Do not silently replace a missing flag with a
+different permission mode, a browser workflow, or an OpenAI model.
+
+The repository helper performs this preflight, invokes the exact command, and
+rejects missing authentication/provider/model evidence before writing output:
+
+```powershell
+pwsh -File scripts/run-claude-naturalness-review.ps1 `
+  -PromptPath content/naturalness-reviews/<post-slug>-claude-prompt.txt `
+  -OutputPath content/naturalness-reviews/<post-slug>-claude.json
+```
+
+The helper first requires `claude auth status` to report `loggedIn: true`, then
+validates the CLI envelope's `modelUsage` entry. The current Claude Code runtime
+reports `canonicalModel: "claude-sonnet-5"` and `provider: "firstParty"`;
+record those exact runtime values. The artifact's `model_family` remains
+`"anthropic"` because that is the model family, not the transport label. The
+structured payload provider must still be `anthropic` or `firstParty`, and its
+model must identify Sonnet, but runtime `modelUsage` is authoritative.
+Missing, blank, contradictory, OpenAI, browser, or unverified provider/model
+evidence blocks the artifact. A CLI exit code of zero alone is never sufficient
+evidence.
+
+The OpenAI reviewer remains a separate fresh worker session and must receive
+only the frozen final package. Never pass the Claude output, findings, or
+corrections to it. If the Claude CLI lane is unavailable or fails closed, do
+not fall back to Claude web/GUI; the publication gate remains blocked until the
+terminal lane is available.
 
 ## Artifact shape
 
@@ -60,7 +111,7 @@ labels alone are insufficient.
   "content_hash": "sha256-from-validator",
   "status": "pass",
   "reviewers": [
-    {"id": "claude", "model_family": "anthropic", "model": "sonnet"},
+    {"id": "claude", "model_family": "anthropic", "provider": "firstParty", "model": "claude-sonnet-5", "transport": "claude-code-cli", "session_persistence": false, "tools": []},
     {"id": "openai", "model_family": "openai", "model": "gpt-5"}
   ],
   "document_review": {

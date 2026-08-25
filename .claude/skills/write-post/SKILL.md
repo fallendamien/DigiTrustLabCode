@@ -25,8 +25,10 @@ or requests Goal mode. Use this objective:
 
 Maintain a Plan inside that Goal for phases -2 through 7. A planning-only request
 does not need a Goal. The coordinator owns the objective, phase transitions,
-publication authorization, canonical documentation, synthesis, and final
-verification.
+publication authorization, synthesis, final decisions, and evaluation of worker
+evidence. Substantive tools, browser actions, edits, external writes, and
+verification commands are executed by bounded workers dispatched by the
+coordinator.
 
 Use the configured default worker without passing model or reasoning overrides.
 The intended setup is **Sol Light as coordinator** and **Luna High as the
@@ -39,16 +41,21 @@ work. Sol reviews the evidence and makes only the integrated decision.
 | Calendar/status inventory, content-gap scan, source pack, immutable-file review | Luna High | Yes, only with independent inputs and disjoint scopes |
 | WriterZen → Content Creator stateful chain | One owner; prefer Luna when it has the authenticated Chrome binding | No |
 | Image prompt/filename preparation and deterministic local checks | Luna High | Yes, when they do not mutate the same artifact |
-| WordPress writes, publishing, ClickRank, Screpy, GSC, canonical status files | One owner under Sol's phase control | No |
-| Final gate decisions, ambiguity, synthesis, and completion claim | Sol Light | No |
+| WordPress writes, publishing, ClickRank, Screpy, GSC, canonical status files | One bounded worker under Sol's phase control | No |
+| Final gate decisions, ambiguity, synthesis, evidence evaluation, and completion claim | Sol Light | No |
 
 Token and context rules:
 
 1. Spawn the minimum number of workers needed; task size alone is not a reason to parallelize.
 2. Give each worker exact inputs, one bounded output, and a non-overlapping write scope. Use a fresh context unless prior context is essential.
 3. Keep one worker for a tightly connected chain. Never let multiple agents operate the authenticated Chrome session, the same WriterZen project, the same WordPress post, or the same documentation file concurrently.
-4. Subagents may return evidence or make an explicitly assigned bounded edit, but they may not publish, approve their own gate, or mark the article complete.
-5. Collect each result, verify the relevant evidence once, and close the worker immediately. See `docs/knowledge-library/delegation-patterns.md` for the human-readable explanation.
+4. Subagents may execute explicitly assigned bounded edits, external writes, tests,
+   and verification commands, but they may not approve their own gate or mark the
+   article complete. Sol authorizes the phase; the worker performs the action.
+5. Collect each result, evaluate the returned evidence once, and close the worker
+   immediately. Sol must not rerun the worker's command or repeat its browser
+   action inline. See `docs/knowledge-library/delegation-patterns.md` for the
+   human-readable explanation.
 
 The required Claude/Anthropic and OpenAI naturalness reviewers are independent
 review roles, not ordinary workflow delegation. The Anthropic lane must use
@@ -68,9 +75,9 @@ assets. Each worker result must identify the actual `gpt-5.6-luna` model,
 `high` effort, scope, and evidence. One worker owns each asset or file; never
 concurrently edit the same image, prompt library, WordPress post, browser tab,
 or canonical documentation. After the barrier, the coordinator reconciles and
-chooses assets; one sequential owner performs upload, staging, publication,
-tracking, and documentation. If the work is tightly coupled or concurrency is
-not useful, use one worker.
+chooses assets; one sequential bounded worker performs upload, staging,
+publication, tracking, and documentation under Sol's authorization. If the work
+is tightly coupled or concurrency is not useful, use one worker.
 
 ## Browser Automation Standard — Existing Authenticated Chrome Session (FIRST GATE)
 
@@ -349,6 +356,15 @@ while the WordPress post remains a draft.
    - Cross-check every Phase 5 analysis improvement.
    - Save the cleaned working copy to `content/drafts/<post-slug>.html` before
      running the local link gate.
+   - Run the structural title gate and require a pass before staging:
+
+     ```bash
+     python scripts/verify-post-structure.py --file content/drafts/<post-slug>.html
+     ```
+
+     This must report zero body H1 elements. The Bricks single-post template
+     supplies the page H1; a body H1 is a publication blocker because it
+     duplicates the visible title for readers.
 2. Insert the planned contextual internal and external links, then run:
 
    ```bash
@@ -357,7 +373,17 @@ while the WordPress post remains a draft.
 
    This must pass before the draft is staged. Rank Math does not replace it.
 3. Generate the featured and in-content images with ChatGPT or Gemini using
-   `content/image-prompts.md`. Finalize every Malay alt text before review.
+   `content/image-prompts.md`. Before generating the featured image, inspect
+   the previous six featured thumbnails together and complete the mandatory
+   variety record: visual mode, subject class, composition, treatment, human
+   presence, repeated-motif result, immediate-prior difference count, and
+   thumbnail-comparison result. The gate requires no consecutive human-led
+   images, no more than one human-led image in four consecutive posts, no
+   person+desk+laptop+robot motif within the previous six, and at least three
+   changed dimensions versus the immediate prior image. Run
+   `python scripts/verify-featured-image-variety.py` with the completed record
+   before archive. A failed thumbnail comparison blocks archive, upload, and
+   publication. Finalize every Malay alt text before review.
 3a. Apply the mandatory image audit gate before archiving or uploading:
    - Inspect each image at native resolution in the full frame and every marked
      region (faces, hands/arms, figures, edges, props, and any pseudo-writing).
@@ -415,9 +441,17 @@ voice checker or received a high Rank Math score.
    `content/naturalness-reviews/<post-slug>.json`.
 3. Ask two independent fresh sessions to review the same final content using
    the seven-check protocol in `content/naturalness-reviews/README.md`: one
-   Claude Sonnet/Anthropic reviewer and one OpenAI reviewer. Do not use Claude
-   Opus unless the user explicitly changes the preference. Record both actual
-   models and families in the artifact.
+   Claude Sonnet/Anthropic reviewer and one OpenAI reviewer. The Anthropic lane
+   must use the repository's terminal-only Claude Code CLI helper with
+   `--safe-mode --model sonnet --effort high --no-chrome
+   --no-session-persistence --tools "" --output-format json --json-schema`.
+   Do not use claude.ai, Claude in Chrome, or any GUI/web fallback. Fail closed
+   when the CLI flags, logged-in authentication, runtime `modelUsage` provider,
+   canonical model identity, or structured schema evidence is missing. Claude
+   Code may report the genuine first-party runtime provider as `firstParty`;
+   record that exact provider while keeping the artifact `model_family` as
+   `anthropic`. Do not use Claude Opus unless the user explicitly changes the
+   preference. Record both actual models and families in the artifact.
 4. If either reviewer flags an issue, expresses uncertainty, or encounters an
    unapproved term, apply only a clear correction and rerun both reviews from
    scratch. If the wording requires a genuine editorial decision, stop for the
@@ -436,8 +470,9 @@ voice checker or received a high Rank Math score.
 
 ### Phase 6: Publish the Frozen WordPress Draft
 
-Sol owns the publish transition. A delegated worker may prepare the staged draft,
-but it may not publish or approve its own evidence.
+Sol owns publication authorization and the final decision. A bounded worker
+performs the publish transition and returns fresh live evidence; it may not
+approve its own evidence or mark the article complete.
 
 1. Re-fetch the staged draft and compare it with the Phase 5.5 reviewed package.
    Any reader-facing difference invalidates the approval and requires both fresh
@@ -453,7 +488,17 @@ but it may not publish or approve its own evidence.
 4. Do not make a reader-facing edit after publication without invalidating and
    rerunning the corresponding naturalness or link evidence.
 5. Open the live URL and verify that the intended article, title, images, and
-   formatting render before beginning Phase 6.5.
+   formatting render before beginning Phase 6.5. Confirm that the title
+   appears once: the template title is the only H1 and the body begins with a
+   paragraph.
+6. Run the live structural title gate:
+
+   ```bash
+   python scripts/verify-post-structure.py --post-id <post-id>
+   ```
+
+   A body H1 or a body H1 matching the post title blocks the remaining Phase
+   7 documentation and tracking gates until the content is corrected.
 
 ### Phase 6.5: Live Verification + Rank Math (MANDATORY — Never Skip)
 
@@ -629,9 +674,9 @@ stale approval hash.
 
 - **Goal and Plan:** Use a Goal only when explicitly requested; keep a Plan for
   phases -2 through 7 and resume it instead of restarting completed work
-- **Delegation:** Prefer the configured Luna High worker for bounded work;
-  Sol Light owns phase transitions, publishing authorization, synthesis, and
-  final verification
+- **Delegation:** All substantive execution goes to a configured bounded
+  worker; Sol Light owns phase transitions, publishing authorization, synthesis,
+  final decisions, and evaluation of worker-produced verification evidence
 - **Single stateful owner:** Never parallelize authenticated Chrome, WriterZen,
   WordPress, tracking dashboards, or canonical documentation writes
 - **Previous-post gate:** Verify the prior article's live and tracking status
@@ -652,10 +697,12 @@ stale approval hash.
 - **Image filenames (MANDATORY):** `{post-slug}-{image-description}.png` (lowercase, hyphens only)
 - **In-content images:** Add images under H2 sections to break up text. See `content/image-prompts.md` for prompts
 - **Image prompts library:** All prompts stored in `content/image-prompts.md`. Update when a post is published
+- **Featured-image variety gate (MANDATORY):** Inspect and record the previous six thumbnails, rotate approved bounded treatments, enforce the human/motif/difference rules, and block archive/upload on a failed thumbnail comparison. See `content/image-prompts.md`.
 - **Image audit gate (MANDATORY):** Before archive/upload, inspect the full frame and marked regions at native resolution; preserve clean pseudo-writing, abstract lines, bullets, and checkboxes, but reject malformed glyphs or strokes, inconsistent spacing, accidental readable text/numbers, logos/watermarks, orange blobs/halos intersecting people/arms, and anatomy artifacts. Non-destructively edit or regenerate from the best composition and re-inspect on failure.
 - **Post Excerpt (MANDATORY):** Every post MUST have a manual excerpt (155–160 characters). Set and reload-verify it via the `wp.data` store method in Phase 5.4 before naturalness review and publication — NOT via Respira's `excerpt` parameter
 - **Content formatting (MANDATORY):** See `.claude/skills/readability-pass/SKILL.md` for Rich Formatting Toolkit, blockquote/callout templates, and Formatting Checklist
 - **Malay naturalness gate (MANDATORY):** Run `python scripts/verify-malay-naturalness.py` against final HTML before Phase 6 and the live post after publication; both must exit 0
+- **Claude reviewer lane (MANDATORY):** Use `scripts/run-claude-naturalness-review.ps1` through terminal-only Claude Code CLI with the exact no-history, no-browser, toolless flags and structured provider/model evidence. Never use claude.ai web/GUI or silently substitute another provider.
 - **Malay mechanical voice gate (MANDATORY):** Run `python scripts/verify-malay-voice.py <post-id>` in Phase 6.5 — must be 0 errors before Phase 7
 - **Content status gate (MANDATORY):** Run `python scripts/verify-content-status.py` at the end of Phase 7 — must exit 0 before committing. It does not cover ClickRank, Screpy, or GSC dashboard evidence
 - **Internal links (outbound):** Always link new post UP to pillar/parent content during Phase 5.4 (1-3 links)
@@ -671,6 +718,7 @@ stale approval hash.
   cannot prove these steps
 - **ClickRank title/meta optimization (OPTIONAL):** Reject hype words. Accept natural words. Manual titles always preferred
 - **Content standardization:** Always strip `<h1>` tags from WriterZen content, remove redundant "Malaysia" mentions, cross-check formatting against Post #1
+- **Template-title duplication gate:** Run `verify-post-structure.py` on the final draft and the live post. Zero body H1 elements are required because the Bricks single-post template owns the visible post H1.
 
 ## Where Things Live
 

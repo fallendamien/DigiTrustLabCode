@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "post_id": 656,
+  "slug": "cara-buat-nota-cantik-dengan-ai",
+  "reviewed_at": "2026-08-24T11:15:00+08:00",
+  "link_hash": "d581938d21f496b55a67c4ac57a901afcefb75bbd7add017efcb59aab6894d16",
+  "outbound": {
+    "internal_count": 3,
+    "external_count": 2,
+    "external_dofollow_count": 1,
+    "destinations_checked": true
+  },
+  "inbound": {
+    "decision": "links_found",
+    "count": 1,
+    "source_ids": [605],
+    "reason": "Post 605 has a direct, natural discussion of using AI to organise meeting notes and now links to this broader note-making guide for study and work contexts.",
+    "scan_scope": "published posts and pages"
+  },
+  "status": "pass"
+}

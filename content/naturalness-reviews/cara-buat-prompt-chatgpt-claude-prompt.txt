@@ -1,0 +1,173 @@
+You are the Anthropic reviewer in a fresh, independent Malay naturalness review.
+
+Review only the frozen package below. Do not inspect the repository, the live website, prior reviews, or any other source. Do not use tools. Do not assume the article is good because it is published. Review the complete document and every extracted segment.
+
+Return exactly one JSON object with provider, model, status, document_review, and segments. Use the seven binary checks below for the document and every segment. All seven checks must be true, confidence must be high, and findings must be an empty array for a pass. Record concrete findings for any failed or uncertain check. The model field must identify Claude Sonnet.
+
+Checks:
+1. Would a Malaysian technology writer naturally use this wording?
+2. Is there a literal translation or unusual word combination?
+3. Does any phrase sound bureaucratic, academic, or overly governmental?
+4. Would an English technical term be clearer in this context?
+5. Does the text sound natural on the first read and when read aloud?
+6. Is terminology and register consistent throughout the article?
+7. Is every sentence grammatically complete, with proper verbs where required, yang in relative clauses, and no fragments or fused sentences a fluent Malaysian reader would notice?
+
+Preserve the package exactly as supplied. Do not rewrite it in your response. The package contains the title, reader-facing body including image alt text and captions, the explicit excerpt marker, and available Rank Math metadata.
+
+FROZEN PACKAGE START
+<title>Cara Buat Prompt ChatGPT: Panduan Mudah untuk Pemula</title>
+
+<p>Ingin mula menggunakan ChatGPT tetapi tidak tahu cara menulis <em>prompt</em> yang berkesan? Panduan ini akan mengajar anda menyusun <em>prompt</em> dengan langkah mudah dan praktikal untuk pemula, lengkap dengan contoh <em>prompt</em> harian yang boleh terus dicuba. Pelajari cara membuat <em>prompt</em> yang berkesan dan tingkatkan pengalaman anda dengan teknologi AI ini hari ini!</p>
+<h2>Pengenalan kepada ChatGPT dan Kepentingannya untuk Pengguna</h2>
+<h3>Apa itu ChatGPT dan bagaimana ia berfungsi</h3>
+<p>ChatGPT adalah model bahasa berasaskan <a href="https://digitrustlab.com/apa-itu-ai/">kecerdasan buatan</a> yang dibangunkan oleh <a href="https://openai.com/chatgpt" target="_blank" rel="noopener">OpenAI</a>. Ia mampu memahami soalan atau arahan dalam bahasa manusia dengan cara yang <em>natural</em> dan mesra pengguna. Ia berfungsi dengan menganalisis teks yang diberikan dan menghasilkan jawapan yang relevan berdasarkan data latihan yang luas.</p>
+<h3>Manfaat menggunakan ChatGPT dalam kehidupan harian dan kerja</h3>
+<p>Penggunaan ChatGPT dapat membantu dalam pelbagai aspek kehidupan harian dan pekerjaan, seperti membantu menyusun jadual, menjawab soalan pelajaran, menulis surat rasmi, mendapatkan idea kreatif, dan banyak lagi. Jika anda baru mula, panduan <a href="https://digitrustlab.com/cara-guna-chatgpt/">cara guna ChatGPT untuk kerja harian</a> boleh menjadi titik permulaan yang baik. Ia menjimatkan masa dan meningkatkan produktiviti serta membolehkan pengguna mendapatkan maklumat dengan lebih cepat dan mudah.</p>
+<h3>Kenapa penting untuk tahu cara buat <em>prompt</em> ChatGPT yang berkesan</h3>
+<p>Memahami cara buat <em>prompt</em> ChatGPT yang berkesan adalah kunci utama untuk mendapatkan jawapan yang tepat dan berguna. <em>Prompt</em> yang baik akan membantu ChatGPT memahami keperluan anda dengan lebih jelas, sekali gus meningkatkan keberkesanan dan keberhasilan interaksi anda dengan AI ini.</p>
+<h2>Cara Buat <em>Prompt</em> ChatGPT yang Berkesan</h2>
+<p><img decoding="async" src="https://digitrustlab.com/wp-content/uploads/2026/07/cara-buat-prompt-chatgpt-prompt-efektif-scaled.png" alt="cara buat prompt chatgpt - kanta pembesar memeriksa dokumen dengan tanda semak, mewakili kejelasan dalam menulis prompt" /></p>
+<h3>Memahami elemen utama <em>prompt</em> yang berkesan</h3>
+<p><em>Prompt</em> yang berkesan biasanya mengandungi tiga elemen utama:</p>
+<ul>
+<li><strong>Kejelasan:</strong> arahan yang mudah difahami dan tidak kabur</li>
+<li><strong>Spesifikasi:</strong> butiran yang cukup untuk AI tahu apa yang anda mahu</li>
+<li><strong>Konteks:</strong> maklumat latar belakang yang membantu AI memberi jawapan lebih tepat</li>
+</ul>
+<h3>Cara menulis <em>prompt</em> yang spesifik dan jelas</h3>
+<p>Pastikan arahan anda jelas dan spesifik. Elakkan daripada menggunakan ayat yang kabur atau umum.</p>
+<blockquote style="border-left:3px solid #E8621A;padding:8px 16px;margin:12px 0;background:#F5F3EE;border-radius:0 6px 6px 0;">
+<p><strong>Contoh <em>prompt</em> kurang spesifik:</strong></p>
+<p><em>&#8220;Buatkan saya laporan.&#8221;</em></p>
+<p>Terlalu umum: AI tidak tahu jenis laporan apa yang dikehendaki.</p>
+</blockquote>
+<blockquote style="border-left:3px solid #E8621A;padding:8px 16px;margin:12px 0;background:#F5F3EE;border-radius:0 6px 6px 0;">
+<p><strong>Contoh <em>prompt</em> yang lebih baik:</strong></p>
+<p><em>&#8220;Buatkan saya laporan ringkas tentang perkembangan teknologi AI untuk bulan ini.&#8221;</em></p>
+<p>Jelas, spesifik, dan AI tahu <em>format</em> serta skop yang diperlukan.</p>
+</blockquote>
+<h3>Menggunakan bahasa yang mudah difahami</h3>
+<p>Gunakan bahasa yang ringkas dan mudah difahami. Jangan terlalu kompleks atau berbelit-belit agar ChatGPT dapat memahami dengan lebih baik.</p>
+<ul>
+<li><strong>Elakkan:</strong> Ayat panjang dengan banyak klausa bersarang</li>
+<li><strong>Gunakan:</strong> Ayat pendek, langsung ke titik utama</li>
+</ul>
+<h3>Memberikan konteks yang mencukupi</h3>
+<p>Sertakan maklumat latar belakang yang diperlukan supaya jawapan yang diberikan lebih tepat.</p>
+<blockquote style="border-left:3px solid #E8621A;padding:8px 16px;margin:12px 0;background:#F5F3EE;border-radius:0 6px 6px 0;">
+<p><strong>Contoh tanpa konteks:</strong></p>
+<p><em>&#8220;Berikan cadangan resepi.&#8221;</em></p>
+<p>AI tidak tahu jenis masakan, bahan yang ada, atau had masa.</p>
+</blockquote>
+<blockquote style="border-left:3px solid #E8621A;padding:8px 16px;margin:12px 0;background:#F5F3EE;border-radius:0 6px 6px 0;">
+<p><strong>Contoh dengan konteks:</strong></p>
+<p><em>&#8220;Berikan cadangan resepi masakan Melayu untuk makan malam keluarga 4 orang, gunakan ayam dan sayur-sayuran yang mudah didapati.&#8221;</em></p>
+<p>AI boleh memberikan jawapan yang sangat spesifik.</p>
+</blockquote>
+<h3>Menggunakan soalan terbuka <em>vs</em> tertutup</h3>
+<p>Pemilihan jenis soalan mempengaruhi jenis jawapan yang anda akan terima:</p>
+<ul>
+<li><strong>Soalan terbuka:</strong> memberi jawapan lebih luas dan analisis, sesuai untuk eksplorasi idea</li>
+<li><strong>Soalan tertutup:</strong> sesuai untuk maklumat spesifik dan fakta tepat</li>
+</ul>
+<blockquote style="border-left:3px solid #E8621A;padding:8px 16px;margin:12px 0;background:#F5F3EE;border-radius:0 6px 6px 0;">
+<p><strong>Contoh soalan terbuka:</strong></p>
+<p><em>&#8220;Apakah cara terbaik untuk belajar bahasa baru?&#8221;</em></p>
+<p>AI akan memberikan jawapan panjang dan terperinci dengan beberapa cadangan strategi, <em>tips</em>, dan sumber pembelajaran.</p>
+</blockquote>
+<blockquote style="border-left:3px solid #E8621A;padding:8px 16px;margin:12px 0;background:#F5F3EE;border-radius:0 6px 6px 0;">
+<p><strong>Contoh soalan tertutup:</strong></p>
+<p><em>&#8220;Berapakah jumlah penduduk Malaysia pada tahun 2024?&#8221;</em></p>
+<p>AI akan memberikan jawapan ringkas dan fakta spesifik tanpa huraian yang panjang.</p>
+</blockquote>
+<p>Gunakan soalan terbuka apabila anda mahu meneroka idea atau mendapat pandangan menyeluruh. Gunakan soalan tertutup apabila anda cuma perlukan fakta atau jawapan ringkas.</p>
+<h3>Memberikan contoh atau arahan tambahan</h3>
+<p>Jika perlu, berikan contoh atau arahan tambahan untuk memperjelas apa yang anda inginkan.</p>
+<ul>
+<li><em>&#8220;Berikan 3 contoh aktiviti yang sesuai untuk kanak-kanak di Kuala Lumpur.&#8221;</em> Nombor spesifik membantu AI memberikan jawapan yang tepat dan tersusun.</li>
+<li><em>&#8220;Tulis emel rasmi kepada ketua jabatan untuk memohon cuti. Gaya: formal, panjang: 2 perenggan.&#8221;</em> Arahan <em>format</em> membantu AI menghasilkan <em>output</em> yang sedia digunakan.</li>
+</ul>
+<h3>Mengelakkan kekeliruan dan maklumat berlebihan</h3>
+<p>Elakkan maklumat yang tidak relevan atau berlebihan yang boleh mengaburkan arahan utama. Fokus kepada apa yang penting sahaja.</p>
+<ul>
+<li><strong>Elakkan:</strong> Memasukkan terlalu banyak soalan dalam satu <em>prompt</em>, kerana AI akan keliru mana yang utama</li>
+<li><strong>Gunakan:</strong> Satu arahan utama per <em>prompt</em>, kemudian tambahkan soalan susulan</li>
+</ul>
+<h3><em>Tips</em> untuk meningkatkan keberkesanan <em>prompt</em></h3>
+<ul>
+<li>Gunakan kata kunci utama yang berkaitan dengan topik anda</li>
+<li>Uji dan sesuaikan <em>prompt</em> berdasarkan jawapan yang diterima, jika jawapan tidak tepat, ubah suai <em>prompt</em> dan cuba lagi</li>
+<li>Gunakan bahasa yang sopan dan profesional untuk hasil yang lebih baik</li>
+<li>Pecahkan tugas kompleks kepada beberapa <em>prompt</em> berturut-turut</li>
+</ul>
+<h2>Contoh <em>Prompt</em> Harian yang Praktikal untuk Kehidupan Seharian</h2>
+<p><img decoding="async" src="https://digitrustlab.com/wp-content/uploads/2026/07/cara-buat-prompt-chatgpt-contoh-harian-scaled.png" alt="cara buat prompt chatgpt - empat bab kehidupan harian: belajar, bekerja, memasak, dan masa keluarga dengan ikon chat" /></p>
+<h3>Contoh <em>prompt</em> untuk belajar dan pendidikan</h3>
+<ul>
+<li>
+<p><strong>Membantu dalam belajar bahasa Inggeris/Melayu:</strong><br /><em>&#8220;Boleh berikan saya 5 perkataan baru dalam bahasa Inggeris dan maksudnya dalam bahasa Melayu?&#8221;</em></p>
+</li>
+<li>
+<p><strong>Menyediakan ringkasan buku atau artikel:</strong><br /><em>&#8220;Ringkaskan artikel ini tentang ekonomi Malaysia dalam 3 ayat.&#8221;</em></p>
+</li>
+</ul>
+<h3>Contoh <em>prompt</em> untuk kerja dan produktiviti</h3>
+<ul>
+<li>
+<p><strong>Menyusun jadual harian atau tugasan:</strong><br /><em>&#8220;Bantu saya buat jadual harian untuk hari Sabtu yang termasuk masa belajar, rehat, dan aktiviti keluarga.&#8221;</em></p>
+</li>
+<li>
+<p><strong>Membuat surat rasmi atau emel profesional:</strong><br /><em>&#8220;Tulis surat rasmi kepada pihak sekolah memohon cuti kerana urusan keluarga.&#8221;</em></p>
+</li>
+</ul>
+<h3>Contoh <em>prompt</em> untuk kehidupan harian dan keluarga</h3>
+<ul>
+<li>
+<p><strong>Resepi masakan tradisional:</strong><br /><em>&#8220;Boleh berikan resepi nasi lemak lengkap dengan bahan dan langkah-langkahnya?&#8221;</em></p>
+</li>
+<li>
+<p><strong>Cadangan aktiviti keluarga di hujung minggu:</strong><br /><em>&#8220;Apa aktiviti yang sesuai untuk keluarga di Kuala Lumpur hujung minggu ini?&#8221;</em></p>
+</li>
+</ul>
+<h3>Contoh <em>prompt</em> untuk hiburan dan kreativiti</h3>
+<ul>
+<li>
+<p><strong>Idea cerita pendek atau puisi:</strong><br /><em>&#8220;Buatkan saya sebuah puisi tentang keindahan alam di Malaysia.&#8221;</em></p>
+</li>
+<li>
+<p><strong>Cadangan filem atau muzik tempatan:</strong><br /><em>&#8220;Cadangkan filem tempatan yang sesuai untuk tontonan keluarga.&#8221;</em></p>
+</li>
+</ul>
+<h2><em>Tips</em> Tambahan dan Kesalahan Umum yang Perlu Dielakkan</h2>
+<p><img decoding="async" src="https://digitrustlab.com/wp-content/uploads/2026/07/cara-buat-prompt-chatgpt-tips-kesalahan-scaled.png" alt="cara buat prompt chatgpt - laluan berliku dari tanda amaran ke tanda semak, mewakili mengelak kesilapan prompt" /></p>
+<h3><em>Tips</em> untuk mendapatkan jawapan terbaik dari ChatGPT</h3>
+<ul>
+<li>Sentiasa berikan arahan yang jelas dan lengkap</li>
+<li>Uji beberapa variasi <em>prompt</em> untuk mendapatkan jawapan terbaik</li>
+<li>Gunakan kata kunci utama yang relevan dan spesifik</li>
+</ul>
+<h3>Kesalahan biasa dalam menulis <em>prompt</em> dan cara mengatasinya</h3>
+<ul>
+<li><strong><em>Prompt</em> tidak spesifik:</strong> Elakkan soalan umum seperti &#8220;Boleh tolong?&#8221; Sebaliknya, nyatakan apa yang anda perlukan secara spesifik.</li>
+<li><strong>Maklumat berlebihan:</strong> Fokus kepada keperluan utama dan elakkan maklumat yang tidak relevan.</li>
+<li><strong>Bahasa tidak sopan atau tidak profesional:</strong> Sentiasa gunakan bahasa yang sopan untuk hasil yang lebih baik.</li>
+</ul>
+<h3>Cara menyusun <em>prompt</em> untuk pelbagai keperluan dan situasi</h3>
+<ul>
+<li>Kenalpasti keperluan utama</li>
+<li>Sertakan konteks dan maklumat latar belakang</li>
+<li>Gunakan ayat yang ringkas dan jelas</li>
+<li>Uji dan sesuaikan <em>prompt</em> berdasarkan jawapan yang diterima</li>
+</ul>
+<h2>Kesimpulan dan Langkah Seterusnya</h2>
+<h3>Ringkasan panduan cara buat <em>prompt</em> ChatGPT yang berkesan</h3>
+<p>Memahami elemen utama seperti kejelasan, spesifikasi, dan konteks adalah kunci untuk membuat <em>prompt</em> yang berkesan. Sentiasa gunakan bahasa yang mudah dan sopan, serta uji beberapa variasi untuk mendapatkan jawapan terbaik.</p>
+<h3>Menggalakkan pengguna untuk mula mencuba dan bereksperimen</h3>
+<p>Jangan takut untuk mencuba pelbagai jenis <em>prompt</em>. Dengan latihan dan pengalaman, anda akan menjadi lebih mahir dalam cara buat <em>prompt</em> ChatGPT yang berkesan dan memanfaatkan teknologi AI ini sepenuhnya. Kemahiran yang sama juga terpakai apabila anda <a href="https://digitrustlab.com/cara-buat-gambar-ai/">menulis prompt untuk menjana gambar</a>, cuma tumpuannya beralih kepada elemen visual.</p>
+<h3>Sumber tambahan dan komuniti untuk belajar lebih lanjut</h3>
+<p>Anda boleh melayari forum, grup Facebook, atau laman web yang berkaitan dengan AI dan ChatGPT untuk berkongsi pengalaman dan belajar daripada pengguna lain.</p>
+<p>Selamat mencuba dan semoga berjaya dalam menguasai cara menggunakan ChatGPT dengan berkesan!</p>
+
+<p data-naturalness-kind="excerpt">Belajar cara buat prompt ChatGPT yang berkesan — kejelasan, spesifikasi dan konteks. Contoh praktikal dan tips untuk hasil yang lebih tepat.</p>
+FROZEN PACKAGE END

@@ -12,11 +12,29 @@
 
 ## Current State
 
-> **CURRENT STATUS — PHASE 7 CLOSED (2026-08-23):** The latest Canva article is live and its content, screenshot, naturalness, Malay voice, link, ClickRank tracker, Screpy Rank Tracker and Google Search Console gates are verified. Screpy Pages found the exact URL with HTTP 200 / OK, and GSC showed URL is on Google / Page is indexed at 21:00 (+08:00). WriterZen limits and all six brief fields were read at 21:04 (+08:00); Zamri accepted the historical Seed keyword value `Highest-volume keyword`. ClickRank Website Optimization / Pages remains explicitly deferred during a confirmed service outage. The repository handoff is already committed and pushed.
+> **CURRENT STATUS — POST #7 CLOSEOUT COMPLETE (2026-08-25):** The earlier published article remains closed. Post #7 is live at `https://digitrustlab.com/cara-buat-nota-cantik-dengan-ai/` (ID 656). Claude Sonnet OAuth review, OpenAI naturalness, Rank Math, live link, Screpy Rank Tracker, ClickRank and exact GSC inspection gates passed. GSC showed `URL is on Google` and `Page is indexed` at 2026-08-25 15:52:44 (+08:00); no request was needed. Screpy Pages discovery remains a non-blocking pending item because the latest existing crawl predates publication.
+>
+> **Also completed 2026-08-25:** (1) WordPress site title + Rank Math Website Name changed to `DigiTrustLab` (Alternate Name `DigiTrust Lab`); `og:site_name` and JSON-LD `WebSite.name` verified live. Setting is at Rank Math → Titles & Meta → **Local SEO** — not under Global. (2) Homepage pagination activated (page 280): query loop moved from inert grid container `#brxe-778413` to card element `#brxe-4c6189` (`postsPerPage: 6`); pagination element `#brxe-cctbuz` added and rebound; `/page/2/` returns HTTP 200 with posts 7–10, no duplicates. `/page/2/` canonical left pointing at homepage — deliberate decision, not a bug.
 
 ## Next action
 
-The current article's Phase 7 is closed under the approved WriterZen historical-value acceptance and ClickRank deferral. Select the next article topic and resume the normal Option C pipeline when ready; do not retry ClickRank Pages until service recovery. The earlier ANI/AGI/ASI update remains historical context.
+1. Select a new article topic.
+2. Begin the standard Option C pipeline at WriterZen quota check, then Topic Discovery; do not start drafting before these gates.
+3. Carry Post #7 Screpy Pages discovery as a non-blocking pending item: existing crawl `ojsmg8wv9al9ctqg` (started 2026-08-23T09:01:06Z, finished 09:01:38Z, last synced 09:02:44Z) does not contain the exact URL or slug. Do not start a crawl without explicit authorization. Keep the earlier closed article untouched.
+
+### Post #7 — ✅ PUBLISHED (2026-08-24)
+
+- WriterZen research and Content Creator report `244245` are complete; the WriterZen 0/3 image warning is documented and bypassed by the approved WordPress staging path.
+- WordPress post `656` is published in category `Digital Skills`, with featured media `653` and in-content media `654` and `655`.
+- Rank Math audit is `100/A` with focus keyword, SEO title, meta description, keyword density, image alt text, links and schema passing.
+- Fresh authenticated-Chrome Claude Sonnet review and OpenAI review (`gpt-5.6-luna`, high) both pass all seven naturalness checks with high confidence and no blocking findings. Live revalidation passes 44 segments after duplicate-title cleanup with hash `3c09e64e64dcc8754c5aca24873046b896507e6df968555be374fc4a4d4c1b96`.
+- Template-title structure gate passes live: Post `656` has no body H1, so the template title is rendered once. The deterministic gate is now mandatory for future drafts and live posts.
+- Outbound link gate passes: 3 internal, 3 external, 1 dofollow, all destinations checked. Inbound review added one contextual link from Post #12 (ID 605); artifact: `content/link-reviews/cara-buat-nota-cantik-dengan-ai.json`.
+- Screpy Rank Tracker row `cara buat nota cantik` is visible in both Desktop and Mobile tabs, Malaysia/Malay, Device: Both.
+- ClickRank Keyword Tracker — verified 2026-08-25 15:19 (+08:00): exact keyword `cara buat nota cantik`, exact URL, Malaysia, Device All, visible row, 10/10 rows, initial position 0.
+- ClickRank AI Overview Tracker — verified after reload 2026-08-25 15:19 (+08:00): exact keyword and URL, Malaysia/Malay, count 9; visible row status `Pending / N/A / N/A / 0% / 0 / No / Never`.
+- ClickRank Website Optimization / Pages — exact URL added and verified after expanding `All`; exact slug appears in the full queue, with no recommendations applied.
+- Google Search Console exact URL inspection passed 2026-08-25 15:52:44 (+08:00): `URL is on Google` and `Page indexing — Page is indexed`; no request was needed. Screpy Pages discovery remains pending because the latest existing crawl `ojsmg8wv9al9ctqg` predates publication and does not contain the exact URL or slug; no crawl was started.
 
 ### WordPress 7.1 update — ✅ completed via Hostinger (2026-08-23)
 
@@ -80,7 +98,7 @@ Live at https://digitrustlab.com/cara-buat-gambar-ai/ · Post ID 536 · Rank Mat
 
 Live at https://digitrustlab.com/cara-buat-poster-guna-canva/ · Post ID 629 · 1,447 words.
 
-**Verified:** WriterZen Topic Discovery/Keyword Explorer/Planner metrics; live publication; nine authentic Canva UI tutorial figures with native lightboxes; naturalness artifact (83/83, Claude Sonnet 5 + OpenAI `gpt-5.6-luna` high); Malay voice; link destinations; ClickRank Keyword Tracker and AI Overview rows; Screpy Rank Tracker in Desktop and Mobile tabs.
+**Verified:** WriterZen Topic Discovery/Keyword Explorer/Planner metrics; live publication; nine authentic Canva UI tutorial figures with native lightboxes; refreshed naturalness artifact (82/82, Claude Sonnet 5 + OpenAI `gpt-5.6-luna` high) after the scoped duplicate-title cleanup; Malay voice; link destinations; ClickRank Keyword Tracker and AI Overview rows; Screpy Rank Tracker in Desktop and Mobile tabs. Post #5 remains closed.
 
 **Closure record:**
 
@@ -89,6 +107,7 @@ Live at https://digitrustlab.com/cara-buat-poster-guna-canva/ · Post ID 629 · 
 - [x] Google Search Console — exact URL inspected 2026-08-23 at 21:00 (+08:00): **URL is on Google** and **Page is indexed**; no indexing request was needed.
 - [x] WriterZen — fresh limits and all six Content Brief fields read 2026-08-23 at 21:04 (+08:00): Active lifetime plan; Article 66/70, Keyword Credit 38,506/40,000, AI words 2,637/8,000; report `244225` is readable and in `Writing` state.
 - [x] WriterZen Seed keyword decision — Zamri accepted `Highest-volume keyword` as historical evidence; no WriterZen edit was made.
+- [x] Template-title structure gate — live Post `629` has no body H1; the Bricks template supplies the single visible title. The duplicate-title correction was scoped to removing the redundant body H1; Post #5 was not reopened.
 - [x] Update canonical docs, run validators, inspect the scoped diff, and commit/push — handoff commit `8d3c12b`.
 
 ## Post #11 — ✅ PUBLISHED (2026-08-08)

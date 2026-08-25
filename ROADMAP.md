@@ -1,11 +1,11 @@
 # DigiTrust Lab — Roadmap
 
-> **Status:** ✅ POST #5 PHASE 7 CLOSED WITH CLICKRANK DEFERRED (as of 2026-08-23)
-> **Current Phase:** Canva article published; all required evidence accepted; next article may resume through Option C
-> **Last Updated:** 2026-08-23 (Post #5 screenshot refresh, Screpy crawl, WordPress 7.1 update, GSC/WriterZen evidence and closure acceptance)
+> **Status:** ✅ POST #7 PUBLISHED; CLICKRANK COMPLETE; GSC INDEXED; SCREPY PAGES DISCOVERY PENDING (as of 2026-08-25)
+> **Current Phase:** Post #7 closeout complete; select a new topic and begin Option C at quota check + Topic Discovery; Screpy Pages remains non-blocking pending; Post #5 remains closed
+> **Last Updated:** 2026-08-25 (Post #7 GSC inspection and ClickRank tracking evidence)
 > **Monthly Revenue:** RM 69 (1 sale, pre-blog era)
 
-> **Scope note:** Historical milestones and planned titles remain retained for continuity. Post #5 closure is complete under the approved ClickRank deferral; the next article may resume through the normal Option C pipeline. The authoritative current content inventory and research status is [`content/content-calendar.md`](content/content-calendar.md).
+> **Scope note:** Historical milestones and planned titles remain retained for continuity. Post #7 closeout is complete. Select a new topic before starting the next article, then begin the normal Option C pipeline at WriterZen quota check + Topic Discovery. Post #7 Screpy Pages remains a non-blocking pending item because the latest crawl predates publication; do not start a crawl without explicit authorization. Post #5 remains closed. The authoritative current content inventory and research status is [`content/content-calendar.md`](content/content-calendar.md).
 
 ---
 
@@ -13,7 +13,7 @@
 
 ```
 Phase 1: Foundation         ██████████ 100% ✅ (Infrastructure)
-Phase 1: Content             ███░░░░░░░ 30% (8 posts recorded in content/content-calendar.md; execution paused — see calendar for authoritative inventory)
+Phase 1: Content             ██████████ 100% (10 posts published; next topic selection pending — see calendar for authoritative inventory)
 Phase 2: Compounding        ░░░░░░░░░░  0%
 Phase 3: Traffic Growth     ░░░░░░░░░░  0%
 Phase 4: Scale              ░░░░░░░░░░  0%
@@ -127,17 +127,17 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [ ] List product #4: 50 AI Prompts for Creating Digital eBooks — RM 15–25
 - [ ] List product #5: Bundle — 30 AI Prompts + 5 Canva Templates — RM 29–39
 
-### Blog Posts (historical plan retained — execution paused)
+### Blog Posts (historical plan retained — next topic selection pending)
 
-> The former “7 of 10 published” label is a historical planning snapshot and is not authoritative. Use [`content/content-calendar.md`](content/content-calendar.md) for the current post inventory, live status and research leads. Do not start a new post while the roadmap is `HIATUS` without explicit resume approval.
+> The former “7 of 10 published” label is a historical planning snapshot and is not authoritative. Use [`content/content-calendar.md`](content/content-calendar.md) for the current post inventory, live status and research leads. Select the next topic first, then begin Option C at quota check + Topic Discovery; do not start drafting before those gates.
 - [x] Post #1: "Apa Itu AI? (Dan Kenapa Ia Bukan Setakat Robot dalam Filem)" — published Jul 9 at digitrustlab.com/apa-itu-ai/
 - [x] ANI/AGI/ASI explanatory section added and Claude-reviewed copy fixes applied live on 2026-08-19 (ID 256); security, Malay voice, and calendar consistency checks passed
 - [x] Post #2: "Cara Guna ChatGPT untuk Membantu Kerja Harian Anda (Panduan Mudah 2026)" — published Jul 18 at digitrustlab.com/cara-guna-chatgpt/ via WriterZen Option C pipeline
 - [ ] Post #3: 10 AI Tools Percuma untuk Perniagaan 2026 → AI Mastery affiliate
 - [ ] Post #4: 10 Prompt AI untuk Buat Illustration Flat (dengan Contoh) → Prompt Engineering
-- [x] Post #5: Cara Buat Poster Canva dengan AI: Panduan Praktikal — published 2026-08-22 at https://digitrustlab.com/cara-buat-poster-guna-canva/ (ID 629); nine authentic screenshots, lightboxes and core content gates passed. Screpy Pages and GSC are complete; GSC showed URL is on Google / Page is indexed at 21:00 (+08:00). WriterZen limits and all six brief fields were read back, and Zamri accepted the historical Seed keyword value `Highest-volume keyword`. ClickRank Pages is explicitly deferred during its outage. Phase 7 is closed and the next article may resume through Option C.
+- [x] Post #5: Cara Buat Poster Canva dengan AI: Panduan Praktikal — published 2026-08-22 at https://digitrustlab.com/cara-buat-poster-guna-canva/ (ID 629); nine authentic screenshots, lightboxes and core content gates passed. The scoped duplicate-title correction removed the redundant body H1; live structure and refreshed 82/82 naturalness gates pass. Screpy Pages and GSC are complete; GSC showed URL is on Google / Page is indexed at 21:00 (+08:00). WriterZen limits and all six brief fields were read back, and Zamri accepted the historical Seed keyword value `Highest-volume keyword`. ClickRank Pages is explicitly deferred during its outage. Phase 7 remains closed.
 - [ ] Post #6: ChatGPT vs Gemini vs Claude: Mana Terbaik untuk Anda? → AI Tools
-- [ ] Post #7: Cara Buat Nota Rapi dengan AI: Tips untuk Pelajar & Pekerja → Digital Skills
+- [x] Post #7: Cara Buat Nota Cantik dengan AI: Tips untuk Pelajar dan Pekerja → Digital Skills — published 2026-08-24 at https://digitrustlab.com/cara-buat-nota-cantik-dengan-ai/ (ID 656); Rank Math 100/A, refreshed 44/44 dual-family naturalness pass, live link and template-title structure gates pass, Screpy Device: Both row verified, ClickRank Keyword Tracker, AI Overview Tracker and Website Optimization / Pages verified 2026-08-25 15:19 (+08:00), and GSC exact URL inspection passed 2026-08-25 15:52:44 (+08:00): URL is on Google / Page is indexed; no request needed. Screpy Pages discovery remains pending because the latest crawl predates publication and does not contain the exact URL or slug.
 - [ ] Post #8: 5 Template Notion untuk Urus Kerja Harian Anda → Digital Skills
 - [x] Post #9: 10 Prompt Gemini AI untuk Edit Foto dengan Mudah → Prompt Engineering — published 2026-08-10 at https://digitrustlab.com/prompt-gemini-ai-untuk-edit-foto/ (Post ID 582); final Screpy + GSC gates handed to Luna in `content/post-9-luna-handoff.md`
 - [ ] Post #10: AI vs Canva: Mana Lebih Baik untuk Design? → Canva Pro affiliate

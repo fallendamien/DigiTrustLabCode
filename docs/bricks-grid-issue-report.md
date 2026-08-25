@@ -180,3 +180,40 @@ titles: ["Test Post 3 — Dummy", "Cara Guna ChatGPT untuk Memban", "Apa Itu AI?
 This workaround is verified only for homepage element `#brxe-778413`. Reproduce and verify before applying it to any other grid.
 
 This report documents an incident on a specific element. It does not override AGENTS.md's existing Bricks layout policy.
+
+---
+
+## Phase 2: Homepage pagination — root cause and fix (2026-08-25)
+
+**Status:** ✅ RESOLVED
+
+### Problem
+
+Homepage (page 280) was displaying all published posts in one grid instead of paginating. The query loop was on the grid container `#brxe-778413`. That element has **no `hasLoop` property**, so Bricks treated it as inert and fell back to the WordPress default of 10 posts. With 10 posts and no active loop, the pagination element had nothing to page over.
+
+### Root cause
+
+Bricks only activates pagination for a query loop element that carries a `hasLoop: true` flag. `#brxe-778413` (the grid container) never had this flag set — the loop settings were sitting in `_bricks_data` but Bricks' rendering engine ignored them. This is the same class of issue documented in `template-52-layout.md` § "Key lesson" (query loop settings written via MCP are stored in DB but not activated until Bricks GUI saves the template through its PHP hooks).
+
+### Fix applied
+
+1. Query loop moved to the card element `#brxe-4c6189` with `postsPerPage: 6`. That element already carried `hasLoop`, so Bricks activated the loop immediately.
+2. Pagination element `#brxe-cctbuz` added as a sibling below the grid container. On first add it defaults to **Main query** and renders "No pagination results." It must be rebound to the `4c6189` loop before it works — this is the trap to remember.
+
+### Verification (logged-out, 2026-08-25)
+
+- Homepage: 6 cards rendered, no excess posts.
+- `/page/2/`: HTTP 200, posts 7–10 visible, no duplicates, one grid (no PRIORITY #3 query-loop-on-section regression).
+- `/blog/`: unchanged — hero + 9-grid layout intact.
+- No PHP errors.
+
+### Canonical decision — `/page/2/` points at homepage, not self-referencing
+
+Rank Math sets the paginated homepage canonical to the homepage root. This was reviewed and **deliberately left as-is**:
+
+- Individual posts are indexed at their own URLs and via `post-sitemap.xml`.
+- `/blog/` (template 52) is the canonical post archive and carries proper archive canonicals.
+- The paginated homepage view (`/page/2/`) is thin duplicate content that does not need indexing.
+- Changing the canonical would require altering a site-wide Rank Math setting to fix a non-problem.
+
+Do not "fix" this in a future session — the decision is intentional.
