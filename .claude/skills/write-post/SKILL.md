@@ -372,8 +372,13 @@ while the WordPress post remains a draft.
    ```
 
    This must pass before the draft is staged. Rank Math does not replace it.
-3. Generate the featured and in-content images with ChatGPT or Gemini using
-   `content/image-prompts.md`. Before generating the featured image, inspect
+3. Before generating any featured, in-content, or CTA/card image, pause and ask
+   the owner to choose exactly one image mode from `content/image-prompts.md`:
+   `More Depth` or `Strict flat design`. Stop if the owner has not explicitly
+   chosen; record the choice in each prompt and, for featured images, in the
+   variety record. Then generate the images with ChatGPT or Gemini using the
+   authoritative definitions and template in `content/image-prompts.md`.
+   Before generating the featured image, inspect
    the previous six featured thumbnails together and complete the mandatory
    variety record: visual mode, subject class, composition, treatment, human
    presence, repeated-motif result, immediate-prior difference count, and

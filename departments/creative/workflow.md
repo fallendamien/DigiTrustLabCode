@@ -1,5 +1,15 @@
 # Creative workflow
 
+## Mandatory image-mode gate
+
+Before any image generation request, pause and ask the owner to choose exactly
+one mode from `content/image-prompts.md`: `More Depth` or `Strict flat design`.
+Stop until the owner chooses; record that choice in the prompt and, for
+featured images, in the variety record. The source file contains the binding
+definitions and remains authoritative. Controlled 2.5D is allowed for variety,
+but it does not redefine the brand family; preserve the documented palette,
+16:9 framing, treatment rotation, previous-six check, and human/motif rules.
+
 ## Bounded specialist loop
 
 1. Confirm the content goal, reader, placement, visual format, dimensions,

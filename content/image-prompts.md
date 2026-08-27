@@ -19,6 +19,43 @@
 | Aspect ratio | 16:9 (wide, min 1024×576) |
 | Text in image | No readable text by default; clean intentional pseudo-writing, abstract lines, bullets, and checkboxes are allowed and should be preserved |
 
+## 🛑 Mandatory image-mode choice (before every generation)
+
+Before generating any featured, in-content, CTA/card, or replacement image,
+pause and ask the owner to choose exactly one mode. Do not generate, refine, or
+regenerate an image until the owner has made an explicit choice; never infer a
+default from the treatment or the previous image.
+
+| Mode | Binding visual direction |
+|------|--------------------------|
+| **More Depth** | Controlled 2.5D/isometric treatment: subtle perspective, layered forms, and gentle drop shadows. Keep the fixed DigiTrust Lab palette, 16:9 editorial framing, and no photorealism. |
+| **Strict flat design** | Strict 2D vector treatment: solid fills and clean outlines only. No shadows, gradients, perspective, or depth cues. Keep the fixed DigiTrust Lab palette and 16:9 editorial framing. |
+
+Record the selected mode in every image prompt. For a featured image, repeat the
+same value in the variety record below. The mode controls rendering; the
+approved treatment and variation guide still control subject and composition.
+If a treatment conflicts with the chosen mode, change the brief or treatment
+before generation rather than silently blending modes.
+
+Controlled 2.5D is allowed as a bounded variety option, but it does not redefine
+the DigiTrust Lab brand family. The fixed palette, 16:9 framing, editorial
+restraint, previous-six check, treatment rotation, human/motif constraints, and
+immediate-prior difference rule all remain in force.
+
+## Template 10 CTA card — AI skills and digital product creation
+
+**Status:** GENERATED — ARCHIVED PENDING UPLOAD
+
+**Filename:** `ai-skills-digital-product-creation-card.png`
+
+**Archive path:** `G:\\Zamzam Biznez\\DigiTrustLab\\Blog images\\ai-skills-digital-product-creation-card.png`
+
+**Alt text:** Ilustrasi komputer riba dengan aliran kerja AI dan penciptaan produk digital
+
+```text
+Use case: illustration-story. Asset type: WordPress CTA card image. Primary request: a generic flat editorial illustration of a clean desk with a laptop displaying abstract AI workflow cards, a notebook with simple geometric sketches, and modular digital product blocks. Scene/backdrop: warm uncluttered workspace. Style/medium: flat editorial illustration, warm trustworthy minimal. Composition/framing: wide 16:9, generous negative space, card-friendly crop. Lighting/mood: soft natural light, calm helpful peer. Color palette: documented DigiTrust Lab warm palette #FAFAF8, #FFF3EE, #FFEADD, #E8621A, #1A1A1A, white. Constraints: 800x450px intent, no readable text, no logos, no money symbols, no article-specific objects, no urgency or scarcity cues. Avoid: photorealistic sales imagery, currency, countdowns, badges, watermarks.
+```
+
 ## 🚦 Featured-image variety gate (MANDATORY)
 
 The archive grid is a visual product, not a row of interchangeable article
@@ -711,3 +748,11 @@ Flat illustration style. Isometric scene showing a laptop receiving abstract mee
 ```
 Flat illustration style. Geometric before-and-after composition showing a messy page of scattered note cards transforming into a clean concise meeting-minutes page with checklist and verification marks. Clear left-to-right transformation, no people. Simple geometric shapes, bold charcoal outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Clean, modern, minimal. No text, logos or watermark. Wide format 16:9. No rounded orange blob, halo, disc or abstract orange shape.
 ```
+
+---
+
+## Generic CTA Card — AI Skills and Digital Product Creation
+
+| Image | Filename | Prompt | Alt Text |
+|-------|----------|--------|----------|
+| CTA card | `ai-skills-digital-product-creation-card.png` | Flat editorial illustration of a clean desk with a laptop displaying abstract AI workflow cards, a notebook with simple geometric sketches, and modular digital product blocks; warm editorial, trustworthy, minimal, soft natural lighting; use the documented DigiTrust Lab warm palette (#FAFAF8, #FFF3EE, #FFEADD, #E8621A, #1A1A1A, white); wide 16:9 composition at card-friendly 800x450px, generous negative space, no readable text, no logos, no money symbols, no article-specific objects, no urgency or scarcity cues. | Ilustrasi komputer riba dengan aliran kerja AI dan penciptaan produk digital |
