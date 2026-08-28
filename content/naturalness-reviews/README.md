@@ -167,3 +167,13 @@ post cannot satisfy the gate.
 
 Do not store a duplicate article in the artifact. Store hashes, exact flagged
 excerpts when applicable, corrections, reviewer identities, and resolutions.
+
+## Artifact retention
+
+Keep one final hash-bound package and provider-evidence set per post. After
+review, move or locally exclude superseded retries and quarantine media from
+the active evidence set; retain them only when recovery requires it, and do
+not delete them as part of this policy. Before handoff, run
+`git status --porcelain=v1 -uall` and explicitly classify every changed or
+untracked artifact as `final evidence`, `superseded retry`, `quarantine media`,
+or `pending/unproven`. Unclassified files are not closeout evidence.

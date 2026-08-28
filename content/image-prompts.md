@@ -68,6 +68,7 @@ archive, upload, or publish the image. Regenerate the concept first.
 
 ```text
 Previous six thumbnails inspected: [six filenames or post numbers]
+Image mode: [More Depth | Strict flat design — owner-selected; required]
 Visual mode: [object-led | abstract-symbolic | diagrammatic | environmental |
               editorial-collage | top-down | split-transformation | human-led]
 Subject class: [specific subject, not “AI”]
@@ -169,7 +170,7 @@ the oldest entry, and preserve the six-entry comparison window.
 
 ```
 Prompt:
-Flat illustration style. [SUBJECT DESCRIPTION]. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. [VISUAL ELEMENT — see Variation Guide above]. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+Owner-selected image mode: [More Depth | Strict flat design]. Apply the selected mode's binding direction above. [SUBJECT DESCRIPTION]. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. [VISUAL ELEMENT — see Variation Guide above]. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
 
 Filename: {post-slug}-{image-description}.png
 ```
@@ -206,7 +207,7 @@ or upload.
 When a generator produces a great composition but the wrong background colour or style, don't re-prompt from scratch — upload the image to the provider you are using and refine it there:
 
 1. Upload the image you like to ChatGPT or Gemini
-2. Ask the selected provider: *"Re-create this exact scene but with warm off-white (#FAFAF8) background, flat illustration style, charcoal (#1A1A1A) outlines, orange (#E8621A) accents, white highlights. All human hands must have five fingers. No text, labels, logos, or watermarks."*
+2. Ask the selected provider: *"Re-create this exact scene while preserving the owner-selected image mode recorded in the prompt. Use warm off-white (#FAFAF8) background, the documented DigiTrust Lab palette, and charcoal (#1A1A1A) outlines with orange (#E8621A) accents. All human hands must have five fingers. No text, labels, logos, or watermarks."*
 3. The selected provider preserves the composition while fixing the brand colours
 4. Save with the same SEO filename and re-upload to WordPress Media
 
@@ -240,15 +241,22 @@ An accent style for high-concept articles, cautionary topics, myth-vs-reality ex
 
 ## 📝 How to Use This File
 
-1. Inspect the previous six featured thumbnails and complete the variety record
-2. Find the post you're working on below
-3. Copy the **Prompt** block for each image
-4. Paste into ChatGPT or Gemini
-5. Download the generated image
-6. Upload to WordPress Media Library with the exact **Filename**
-7. Set Malay alt text (provided with each image)
-8. Assign featured image or insert into post content only after the thumbnail
-   comparison and native-resolution audit both pass
+1. Before any generation, ask the owner to choose exactly one mode above; stop
+   without a choice, and record it in every prompt and the featured variety record.
+2. For a featured image, inspect the previous six thumbnails and complete the
+   variety record.
+3. Find the post you're working on below
+4. Copy the **Prompt** block for each image
+5. Paste into ChatGPT or Gemini
+6. Download the generated image
+7. Upload to WordPress Media Library with the exact **Filename**
+8. Set Malay alt text (provided with each image)
+9. Leave the WordPress Media Library **Image Caption** field empty by default
+   for featured and inline images. Never copy the alt text or description into
+   this field; add a reader-visible caption only when the user explicitly
+   requests one. Keep alt text separate.
+10. Assign featured image or insert into post content only after the thumbnail
+    comparison and native-resolution audit both pass
 
 ## 🔄 Maintenance Rule
 
@@ -618,18 +626,31 @@ WordPress Media upload complete via Respira: featured **Media 578**, intro **Med
 
 ---
 
-## Post #10 — AI vs Canva Design (PLANNED — TBD)
+## Post #10 — Cara Menggunakan Canva AI Photo Editor untuk Menyunting Foto dengan Mudah (PUBLISHED ⚠️)
 
-**Slug:** TBD
+**Slug:** `cara-guna-canva-ai-photo-editor`
 
-> Prompts will be written after content is drafted in WriterZen.
+**URL:** https://digitrustlab.com/cara-guna-canva-ai-photo-editor/
 
-| Image | Filename | Prompt | Alt Text |
-|-------|----------|--------|----------|
-| Featured | TBD | TBD | TBD |
-| Intro | TBD | TBD | TBD |
-| Comparison | TBD | TBD | TBD |
-| Conclusion | TBD | TBD | TBD |
+**Focus keyword:** `canva ai photo editor`
+
+**Status evidence:** Post 686 was published on 2026-08-26 08:38:24 (+08:00). Naturalness, voice, structure and link gates passed; Google Search Console later showed the exact URL indexed; both ClickRank tracker rows were verified; Screpy rank tracking remains pending/unverified.
+
+**Prompt provenance:** The available repository evidence records the final assets, placements and instructional uses, but does not contain the original generation prompts or owner-selected image mode for this post. No prompt text or mode is inferred here.
+
+### Evidence-backed asset record
+
+The final evidence contains one separate DigiTrust Lab brand-color featured asset and four inline instructional assets. The published asset extensions and the local manifest names differ for the three safe screenshots, so both are recorded where evidence provides them.
+
+| Placement | Evidence filename | Published asset / attachment | Alt text or evidence |
+|-----------|------------------------|-----------------------------|---------------------|
+| Featured | `canva-ai-photo-editor-featured.png` | Featured attachment 693 | Separate DigiTrust Lab brand-color hero asset; exact alt text is not captured in the cited local evidence. |
+| Intro | `canva-ai-photo-editor-home-screen.png` | `canva-ai-photo-editor-home-screen.png` / attachment 692 | `Paparan halaman utama Canva dengan cadangan tugasan untuk memulakan suntingan foto` |
+| Step 1 | `02-canva-ai-photo-editor-prompt-safe.jpg` | `02-canva-ai-photo-editor-prompt-safe.jpg` / attachment 683 | `Paparan Canva AI dengan pilihan “Help me edit a photo” untuk memulakan suntingan foto` |
+| Step 2 | `03-canva-ai-photo-editor-upload-options-safe.jpg` | `03-canva-ai-photo-editor-upload-options-safe.jpg` / attachment 684 | `Pilihan “Upload” dan “Add from Canva” dalam Canva AI untuk memilih sumber foto` |
+| Step 3 | `04-canva-ai-photo-editor-canva-sources-safe.jpg` | `04-canva-ai-photo-editor-canva-sources-safe.jpg` / attachment 685 | `Panel sumber Canva selepas memilih “Add from Canva” tanpa membuka sumber peribadi` |
+
+The manifest confirms the three safe screenshots contain no account header, email, avatar or other personal identifier. Its quarantined intermediate captures remain excluded from article use.
 
 ---
 
