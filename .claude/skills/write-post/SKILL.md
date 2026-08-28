@@ -761,7 +761,37 @@ stale approval hash.
     - Keep the artifact high-level: do not copy the article, browser
       transcripts, raw logs, or detailed UI steps. Link to existing evidence
       artifacts or the calendar when a detailed record is needed.
-14. Git commit + push all documentation updates
+14. **Repository hygiene closeout (MANDATORY — every article posting):**
+    - Run `git status --porcelain=v1 -uall` immediately after the article,
+      evidence, media, and documentation work. Read every visible path and
+      classify it before any completion claim. The closeout is blocked while
+      any path is unreviewed.
+    - Selectively stage only durable source, final hash-bound evidence, and
+      approved durable media. Never use `git add .`, `git add -A`, or a broad
+      wildcard. Keep the final naturalness package and its provider evidence;
+      do not stage superseded retries or quarantine media as canonical
+      evidence.
+    - Keep exactly one final hash-bound naturalness evidence set per post.
+      Explicitly locally exclude each superseded retry or quarantine path when
+      it is not being retained for recovery, using exact paths only. Never use
+      an exclusion that hides canonical evidence, `STATE.json`, or `NEXT.md`.
+    - Remove only exact generated cache/temp files, and only after running the
+      pre-action guard for each removal. Do not delete naturalness evidence,
+      source, media, `STATE.json`, `NEXT.md`, or other durable artifacts as
+      cleanup.
+    - Commit and push logical groups, recording every commit SHA and the
+      upstream/push result in the article completion summary. If a push is not
+      authorized or fails, record that state and keep the closeout pending.
+    - After cleanup and the final commit/push decision, rerun the fresh
+      validators required by the article: `git diff --check`,
+      `python scripts/verify-imports.py`,
+      `python scripts/verify-content-status.py`, and the applicable SEO/link
+      and structure validators (including `verify-links.py` and
+      `verify-post-structure.py`). Record failures as blocking evidence.
+    - Run `git status --porcelain=v1 -uall` again after the closeout actions,
+      record its output and the residual-path decision for every remaining
+      path, and do not declare the article complete while any path lacks an
+      explicit classification and decision.
 
 ## Key Rules
 

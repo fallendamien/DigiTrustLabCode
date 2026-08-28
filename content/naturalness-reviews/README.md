@@ -170,10 +170,26 @@ excerpts when applicable, corrections, reviewer identities, and resolutions.
 
 ## Artifact retention
 
-Keep one final hash-bound package and provider-evidence set per post. After
-review, move or locally exclude superseded retries and quarantine media from
-the active evidence set; retain them only when recovery requires it, and do
-not delete them as part of this policy. Before handoff, run
-`git status --porcelain=v1 -uall` and explicitly classify every changed or
-untracked artifact as `final evidence`, `superseded retry`, `quarantine media`,
-or `pending/unproven`. Unclassified files are not closeout evidence.
+Keep one final hash-bound package and provider-evidence set per post as the
+canonical naturalness evidence. Do not store a duplicate article in that
+package. The active repository set follows this policy:
+
+| Class | Treatment |
+|---|---|
+| Canonical final evidence | Keep the final hash-bound review JSON and the provider evidence needed to establish its identity and result. Selectively stage and commit it with the article's durable source/evidence. |
+| Superseded retry | A prior prompt/output or review invalidated by a later final package. Do not treat it as evidence; retain only when recovery requires it, otherwise locally exclude its exact path. |
+| Quarantine media | Generated or rejected media held outside the canonical article evidence. Retain only when recovery requires it; otherwise locally exclude its exact path. It is never a substitute for the final review package. |
+| Pending/unproven | Missing, stale, contradictory, or not-yet-reviewed material. Keep it visible and mark the closeout pending; never hide it or present it as canonical. |
+
+Local exclusions must use exact paths for superseded retries or quarantine
+media. Never use a broad pattern that could hide canonical evidence,
+`STATE.json`, or `NEXT.md`. Do not delete review evidence under this policy;
+generated cache/temp cleanup belongs to the guarded repository hygiene gate.
+
+After every article posting, run `git status --porcelain=v1 -uall` after all
+cleanup and commit/push decisions. Explicitly classify every changed or
+untracked path as canonical final evidence, durable source/evidence/media,
+superseded retry, quarantine media, generated cache/temp, or pending/unproven,
+and record the keep, stage, exact-exclude, guarded-remove, or pending decision.
+Any unclassified path means the repository closeout is incomplete, even when
+the naturalness validator passes.

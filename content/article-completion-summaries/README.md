@@ -95,6 +95,33 @@ Media boundary: WriterZen is text research/drafting only. Never record or retry
 WriterZen image uploads; if an asset is unavailable there, record it as
 `Pending` and use the WordPress/Respira media-stage result.
 
+## Repository hygiene closeout (mandatory)
+
+Complete this section after every article posting, including blocked or aborted
+closeouts when repository work occurred. Run
+`git status --porcelain=v1 -uall` before and after the closeout and classify
+every visible path; an unreviewed path blocks completion. Stage durable source,
+final hash-bound evidence, and approved durable media selectively, never with
+`git add .` or another broad wildcard. Keep only the final naturalness evidence
+set as canonical; locally exclude superseded retries and quarantine media by
+exact path when they are not retained for recovery. Never hide canonical
+evidence, `STATE.json`, or `NEXT.md`. Remove only exact generated cache/temp
+files after the pre-action guard, and do not delete evidence or durable source.
+
+| Field | Value |
+|---|---|
+| Commit SHA(s) | [SHA per logical commit group, or `None — no commit`] |
+| Push/upstream status | [pushed/upstream branch, or exact not-pushed/failed reason] |
+| Post-closeout status output | [verbatim `git status --porcelain=v1 -uall` output, or `clean`] |
+| Excluded paths | [exact local exclusions for superseded retries/quarantine, or `None`] |
+| Removed generated files | [exact cache/temp paths removed after guard, or `None`] |
+| Residual-path decisions | [each remaining path with classification and keep/exclude/pending decision, or `None`] |
+
+The post-closeout status must have an explicit classification and decision for
+every path. Record validator results with the evidence pointers below; do not
+claim completion when `git diff --check`, import/content checks, or applicable
+SEO/link/structure checks fail or remain unrun.
+
 ## Open follow-ups
 
 - [Pending item, or `None`]
