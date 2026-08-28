@@ -2,17 +2,18 @@
   "project": "DigiTrust Lab",
   "owner": "Zamri Rosli",
   "primaryEditor": "Zed (since 2026-08-05) — Codex via ACP, Claude Code via terminal. Windsurf retained for Devin only; VS Code legacy.",
-  "lastSession": "2026-08-25",
-  "currentObjective": "Post #7 closeout is complete at https://digitrustlab.com/cara-buat-nota-cantik-dengan-ai/ (ID 656): Claude Sonnet OAuth and OpenAI naturalness, Rank Math, live link, template-title structure, Screpy Rank Tracker, ClickRank tracking and exact Google Search Console inspection gates passed after removing the redundant body H1. The next step is to select a new article topic and begin Option C at the WriterZen quota check followed by Topic Discovery. Screpy Pages discovery remains a documented non-blocking pending item because the latest existing crawl predates publication. Post #5 remains closed.",
-  "currentPhase": "Post #7 closeout complete; next topic selection and Option C start gate pending",
-  "phaseProgress": "COMPLETE — POST #7 CLOSEOUT; NEXT OPTION C QUOTA + TOPIC DISCOVERY PENDING",
+  "lastSession": "2026-08-26",
+  "currentObjective": "Post #10 is published at https://digitrustlab.com/cara-guna-canva-ai-photo-editor/ (ID 686, 2026-08-26 08:38:24 +08:00). Structure, live link and exact-live v14 naturalness gates passed; the v14 artifact records hash 23dd717f6edcf358b2c8e2359ed68c2bed92e2bc8578aa1b774f6b5e56077f7d across 117 segments, with Claude firstParty/claude-sonnet-5 and OpenAI gpt-5.6-luna high, no findings. An earlier Google Search Console inspection at 08:43:08 +08:00 reported URL unknown/not indexed and accepted one indexing request; later screenshot evidence dated 2026-08-26 shows the exact URL is on Google and Page is indexed, superseding that pending state (screenshot time unavailable). The local Malay voice validator passes with no findings. ClickRank AI Overview row for canva ai photo editor was added once and verified on 2026-08-26 at 21:18:19 MYT with Not Found, organic N/A, visibility 0%, citations 0, mentioned No. The standard ClickRank Keyword Tracker row was added once and verified at 21:34:32 MYT; after reload, 11 total records showed the exact keyword+URL row with the Malaysia flag, Not In Top 3 Results, and all positions 0; the standard UI has no language selector. Screpy Rank Tracker is pending/unverified after the dashboard tab claim timed out.",
+  "currentPhase": "Post #10 published; naturalness passed; GSC indexing verified; both ClickRank trackers verified; Screpy rank tracking pending",
+  "phaseProgress": "PUBLISHED — POST #10; NATURALNESS PASS; GSC INDEXED; CLICKRANK AI OVERVIEW + KEYWORD TRACKER VERIFIED; SCREPY UNVERIFIED",
   "blockers": [
     "LiteSpeed serves cached HTTP 404s for clean Rank Math child sitemap URLs even though the regenerated origin XML returns 200 and sitemap-cache exclusions are configured; authenticated public-cache clearing and Search Console re-inspection remain. Evidence: docs/post-11-revalidation-2026-08-09.md",
     "Post #9 Screpy Pages Analyze was requested at 2026-08-10 03:14 (+08:00) and remains visibly Analyzing on crawler 18151; the fresh Post #9 discovery/result is not yet available.",
     "Post #9 Google Search Console request was submitted successfully at 2026-08-10 02:42 (+08:00), but the URL remains unproven as indexed; re-inspect later and do not equate a request with indexing.",
     "Post #5 closure is complete under Zamri's explicit acceptance of the historical WriterZen Seed keyword value `Highest-volume keyword`; do not reopen Post #5.",
     "Non-blocking Post #7 Screpy Pages pending: the latest existing crawl `ojsmg8wv9al9ctqg` predates publication and does not contain the exact URL or slug. No crawl was started.",
-    "Next article topic has not been selected. After selection, begin the standard Option C pipeline at WriterZen quota check, then Topic Discovery; do not start drafting before those gates."
+    "Post #10 Screpy Rank Tracker remains pending/unverified: project wgspvb7lc3 was confirmed through list_projects, but the exact authenticated dashboard tab claim timed out; no Screpy row or crawl was created.",
+    "Next article topic has not been selected. After Post #10 Screpy tracking is resolved or explicitly deferred, begin the standard Option C pipeline at WriterZen quota check, then Topic Discovery; do not start drafting before those gates."
   ],
   "completed": [
     "Git repo initialized",
@@ -82,6 +83,7 @@
     "Post #9 ClickRank Keyword Tracker, Website Optimization / Pages, and AI Overview Tracker configured; live image, link, naturalness, voice, and inbound-link gates verified (2026-08-10)",
     "Post #1 ANI/AGI/ASI section and Claude-reviewed Malay copy refinements completed live (Post ID 256, 2026-08-19); Claude Sonnet 5 targeted review passed, Respira security validation passed, verify-malay-voice passed with 0 errors, and verify-content-status passed",
     "Post #7 published 2026-08-24 at https://digitrustlab.com/cara-buat-nota-cantik-dengan-ai/ (Post ID 656); Rank Math 100/A, Claude Sonnet OAuth + OpenAI naturalness pass, live link gate pass, contextual inbound link from Post #12, Screpy Device: Both row verified, ClickRank Keyword Tracker, AI Overview Tracker and Website Optimization / Pages evidence recorded 2026-08-25 15:19 (+08:00), and exact GSC inspection passed 2026-08-25 15:52:44 (+08:00): URL is on Google / Page is indexed; no request needed.",
+    "Post #10 published 2026-08-26 at https://digitrustlab.com/cara-guna-canva-ai-photo-editor/ (Post ID 686); Rank Math 86, Article schema, featured hero 693, inline media 692/683/684/685, structure, live link and exact-live naturalness gates passed. V14 naturalness artifact records final hash 23dd717f6edcf358b2c8e2359ed68c2bed92e2bc8578aa1b774f6b5e56077f7d across 117 segments, Claude firstParty/claude-sonnet-5 plus OpenAI gpt-5.6-luna high, and no findings. GSC initially reported URL unknown/not indexed and accepted an indexing request at 08:43:08 (+08:00); later screenshot evidence dated 2026-08-26 shows the exact URL is on Google / Page is indexed, superseding the earlier pending result (screenshot time unavailable). ClickRank AI Overview row for canva ai photo editor was added once and verified on 2026-08-26 at 21:18:19 MYT with Not Found, organic N/A, visibility 0%, citations 0, mentioned No. Standard ClickRank Keyword Tracker row was added once and verified at 21:34:32 MYT; after reload, 11 total records showed the exact keyword+URL row with the Malaysia flag, Not In Top 3 Results, and all positions 0; the standard UI has no language selector. Screpy pending/unverified.",
     "WordPress site title (blogname) and Rank Math Website Name + Knowledge Graph Name set to `DigiTrustLab`; Rank Math Alternate Name set to `DigiTrust Lab` (2026-08-25). Verified live: og:site_name and JSON-LD WebSite.name both emit `DigiTrustLab`, alternateName emits `DigiTrust Lab`. Setting path: Rank Math SEO → Titles & Meta → Local SEO (/wp-admin/admin.php?page=rank-math-options-titles&view=local — not under Global as commonly documented). GSC indexing requested for homepage 2026-08-25; SERP still showed bare domain at that time (re-crawl lag, not a misconfiguration).",
     "Homepage pagination configured on page 280 (Bricks, 2026-08-25). Root cause: query loop was on grid container #brxe-778413, which has no hasLoop property, so it was inert and Bricks fell back to the WordPress default of 10 posts. Fix: query loop moved to card element #brxe-4c6189 with postsPerPage: 6. Pagination element #brxe-cctbuz added as sibling below the grid with its Query bound to the 4c6189 loop (defaults to Main query when first added, renders 'No pagination results' until rebound — trap to remember). Verified logged-out 2026-08-25: homepage renders 6 cards; /page/2/ returns HTTP 200 with posts 7-10, no duplicates; one grid (no PRIORITY #3 regression); /blog/ unchanged. Decision: /page/2/ canonical points at homepage rather than self-referencing — deliberately left as-is because posts are indexed at their own URLs and via the sitemap, /blog/ is the real archive, and a paginated homepage view is thin duplicate content that does not need indexing. Altering it would mean changing a site-wide Rank Math canonical setting for a non-problem."
   ],
@@ -97,7 +99,7 @@
     "Create lead magnet PDF - '50 Prompt AI Percuma'"
   ],
   "keyMetrics": {
-    "blogPosts": 10,
+    "blogPosts": 11,
     "etsyListings": 0,
     "emailSubscribers": 0,
     "monthlyRevenue": 0,
@@ -105,8 +107,8 @@
   },
   "tools": {
     "writerZen": "ready",
-    "clickRank": "active — Post #7 `cara buat nota cantik` verified in Keyword Tracker (Malaysia, Device All), AI Overview Tracker (Malaysia/Malay) and Website Optimization / Pages at 2026-08-25 15:19 (+08:00); no recommendations applied. AI Model Index: 100% accessible. AI Compatibility: 80% ChatGPT/Claude/Cohere.",
-    "screpy": "active — project wgspvb7lc3, uptime monitoring green. Post #7 Rank Tracker row added for cara buat nota cantik (Malaysia/Malay, Device: Both) and verified in Desktop/Mobile; latest existing crawl ojsmg8wv9al9ctqg succeeded 2026-08-23T09:01:06Z–09:01:38Z (last synced 09:02:44Z), and its Pages list does not contain the exact Post #7 URL or slug, so discovery remains pending without starting a new crawl",
+    "clickRank": "active for prior posts; Post #10 AI Overview row for canva ai photo editor added once and verified 2026-08-26 21:18:19 MYT with Not Found, organic N/A, visibility 0%, citations 0, mentioned No; standard Keyword Tracker row added once and verified 2026-08-26 21:34:32 MYT with 11 total records, exact keyword+URL row, Malaysia flag, Not In Top 3 Results, all positions 0, and no language selector in the standard UI",
+    "screpy": "active — project wgspvb7lc3 confirmed via list_projects. Post #10 Rank Tracker is pending/unverified because the exact authenticated dashboard tab claim timed out; no row or crawl was created",
     "bricksBuilder": "installed-and-configured",
     "mailerLite": "active — account 2502865, embed form cUeVaM live on homepage + single post sidebar",
     "hostinger": "active — Business WordPress plan, IP 145.79.28.85",

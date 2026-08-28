@@ -602,23 +602,36 @@ No dedicated external Malay proofreading tool is used. DewanEja 11 was evaluated
    - [ ] **Content Readability:** ToC plugin active (Easy Table of Contents), proper heading hierarchy H2→H3→H4.
    - [ ] Record final score in `content-calendar.md`
 10. **Rank tracking (MANDATORY — Phase 7 of write-post workflow):**
-   - [ ] ClickRank → AI Overview Tracker → Add focus keyword + URL (Malaysia, Malay)
+   - [ ] ClickRank → **standard Keyword Tracker** → add the primary focus keyword + exact live URL (Malaysia, Device: All)
+   - [ ] ClickRank → **AI Overview Tracker** → add the same primary focus keyword + exact live URL (Malaysia, Malay where available)
    - [ ] Screpy → Rank Tracker → Add focus keyword (Malaysia, Malay, **Device: Both** in one action; verify both device tabs)
    - [ ] Google Search Console → URL Inspection → inspect the exact live URL; request indexing when eligible and record the visible result plus timestamp
-   - [ ] All three checks are separate — ClickRank = AI Overview/AEO tracking, Screpy = traditional SERP tracking, Google Search Console = discovery/indexing request
+   - [ ] These are separate required checks — ClickRank AI Overview = AEO visibility, ClickRank Keyword Tracker = traditional SERP tracking, Screpy = an independent traditional SERP tracker, and Google Search Console = discovery/indexing request
    - [ ] An “indexing requested” confirmation is not proof of indexing; record the actual inspection state separately
    - [ ] **ClickRank title/meta optimization is OPTIONAL** — see ClickRank Usage Policy below
-   - [ ] **ClickRank submission is asynchronous:** after clicking Start Tracking, wait for processing, reload the existing authenticated tab, and verify the tracked-keyword count plus the exact keyword/URL row before retrying. A generic error toast, an HTML response parsed as JSON, or a temporarily stuck `Processing...` state does not prove that no row was created; do not submit a duplicate until the row/count check is complete. `Not Found`, `N/A`, and `0%` are valid tracked results, not submission failures.
+   - [ ] **ClickRank submission is asynchronous in both trackers:** before submitting either surface, record the visible tracker count and check for an existing exact keyword + URL row; if one exists, open and verify it instead of submitting. After clicking Start Tracking, wait for processing, reload/reopen the existing authenticated tab, and verify the count plus exact keyword/URL/settings row. A generic error toast, an HTML response parsed as JSON, or a temporarily stuck `Processing...` state does not prove that no row was created; do not retry or create a duplicate until the count/row check is complete. `Not Found`, `N/A`, and `0%` are valid tracked results, not submission failures.
 
-### ClickRank Usage Policy (updated 2026-07-24)
+### ClickRank Usage Policy (updated 2026-08-26)
 
-**Primary purpose for DigiTrust Lab:** AI Overview Rank Tracker — tracks whether our content appears in Google's AI-generated answers. This is the main reason we use ClickRank.
+**Dual-tracker rule (MANDATORY):** Every published post must be added to and
+independently verified in **both** ClickRank tracker surfaces: (1) the AI
+Overview Tracker for AEO visibility and (2) the standard Keyword Tracker for
+traditional SERP rankings. Use the same primary focus keyword and exact live
+URL in both. Set Malaysia and Malay wherever the surface provides those
+settings; for the standard Keyword Tracker, use Device: All. Neither ClickRank
+surface substitutes for the other, and neither substitutes for the separate
+Screpy Rank Tracker check.
+
+**Primary purpose for DigiTrust Lab:** ClickRank provides two complementary
+views — AI Overview visibility and standard keyword/SERP tracking. Both are
+required for every published post.
 
 **Secondary features (use with caution):**
 
 | Feature | Use? | Policy |
 |---|---|---|
-| **AI Overview Tracker** | ✅ Always | Add every published post's focus keyword + URL (Malaysia, Malay) |
+| **AI Overview Tracker** | ✅ Always | Add and verify every published post's focus keyword + exact live URL (Malaysia, Malay where available) |
+| **Standard Keyword Tracker** | ✅ Always | Add and verify the same focus keyword + exact live URL (Malaysia, Device: All) |
 | **Title optimization** | ⚠️ Optional | AI suggestions tend to be over-dramatic. Review carefully — reject hype words like "Ultimate", "Game-Changing", "Secret". Only accept if natural and matches our calm, helpful Malay voice. Manual titles are always preferred. |
 | **Meta description optimization** | ⚠️ Optional | Same policy as titles — review for hype, edit to match voice, reject overly dramatic wording |
 | **Smart Internal Links** | ⚠️ Review | Suggestions are usually safe (based on existing content text). Review anchor text naturalness before approving. |

@@ -413,16 +413,43 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | Affiliate | None (prompt gallery post) |
 | Type | Prompt gallery |
 
-## Post #10 — PLANNED
+## Post #10 — PUBLISHED ⚠️
 
 | Field | Value |
 |-------|-------|
-| Title | AI vs Canva: Mana Lebih Baik untuk Design? |
-| Keyword | TBD |
+| Working Title | Cara Menggunakan Canva AI Photo Editor untuk Menyunting Foto dengan Mudah |
+| Keyword | `canva ai photo editor` |
+| Search Volume | 1,000/mo |
+| CPC | US$0.45 |
+| Golden Score | 1.00 |
+| All-in-Title | 0 |
+| Weak Spot | 3 (Avg DA 66.9; Low DA 5; High DA 90) |
 | Category | Canva & Design |
-| Status | Not started |
+| Status | PUBLISHED ⚠️ — Post 686 published 2026-08-26 08:38:24 (+08:00); naturalness, voice, structure and link gates passed; GSC now shows the page indexed, both ClickRank tracker rows are verified, while Screpy rank tracking remains pending/unverified |
+| Post ID | 686 |
+| WordPress Post | Published ID 686 — `https://digitrustlab.com/cara-guna-canva-ai-photo-editor/`; slug `cara-guna-canva-ai-photo-editor` |
+| WriterZen Keyword Explorer | Report 1569112 — Malaysia/Malay |
+| WriterZen Keyword Planner | Project 178969 — `Canva AI Photo Editor`; moderately relevant |
+| WriterZen Content Creator | Article report 244294 — existing project `DigiTrust Lab` (134599); outline generated |
+| Content angle | Panduan praktikal langkah demi langkah menggunakan Canva AI Photo Editor untuk mengedit foto, dengan contoh penggunaan ciri AI dan batasan yang perlu diketahui. |
+| Planning decision | Provisional AI-vs-Canva comparison pivoted to this practical photo-editing angle after WriterZen validation. |
+| Final Title | Cara Menggunakan Canva AI Photo Editor untuk Menyunting Foto dengan Mudah |
+| SEO Title | Cara Menggunakan Canva AI Photo Editor untuk Menyunting Foto (60 characters) |
+| Meta Description | Pelajari cara menggunakan Canva AI Photo Editor untuk menyunting foto, menghapuskan latar belakang dan memilih sumber imej dengan langkah yang mudah diikuti. (157 characters) |
+| Excerpt | Panduan praktikal menggunakan Canva AI Photo Editor untuk menyunting foto, menghapuskan latar belakang dan memilih sumber imej dengan lebih mudah. (146 characters) |
+| Rank Math | ✅ 86/100 visible in the authenticated editor; focus keyword `canva ai photo editor`; meta description saved; Basic SEO All Good; Content Readability All Good; Pillar Content off |
+| Schema | ✅ Article |
+| Images | ✅ Featured attachment 693 (brand hero); inline attachments 692, 683, 684 and 685; current alt text/captions verified |
+| Link Quality Gate | ✅ Live pass — 2 contextual internal links, 1 editorial external dofollow link; all destinations checked; link hash `4dd7aba4700ec0c51e7cbe3e9a4b9338f75c701d897dfdd171ff7114c556d2da`; inbound scan found no safe contextual source (`content/link-reviews/cara-guna-canva-ai-photo-editor.json`) |
+| Naturalness Gate | ✅ Exact-live v14 PASS — artifact `content/naturalness-reviews/canva-ai-photo-editor-review-v14.json`; final live hash `23dd717f6edcf358b2c8e2359ed68c2bed92e2bc8578aa1b774f6b5e56077f7d` across 117 segments; Claude `firstParty/claude-sonnet-5` + OpenAI `gpt-5.6-luna` high; all seven checks pass with high confidence, no findings or disagreements. |
+| Live voice validator | ✅ `verify-malay-voice.py 686 --json` exit 0 — no mechanical findings after adding the Post #10 CONTENT mapping locally |
+| Template-title structure | ✅ `verify-post-structure.py --post-id 686` exit 0 — no body H1; template title is not duplicated |
+| Google Search Console | ✅ Later screenshot evidence dated 2026-08-26 shows the exact URL is on Google and `Page indexing — Page is indexed`; screenshot time unavailable. This supersedes the earlier 08:43:08 (+08:00) inspection that showed `URL is not on Google` / `Page is not indexed: URL is unknown to Google` and accepted one indexing request; that request receipt was not proof of indexing. |
+| ClickRank AI Overview Tracker | ✅ Added once and verified 2026-08-26 at 21:18:19 MYT — `canva ai photo editor` + exact Post 686 live URL; visible result `Not Found`, organic `N/A`, visibility `0%`, citations `0`, mentioned `No` (valid initial result) |
+| ClickRank Keyword Tracker | ✅ Added once and verified 2026-08-26 at 21:34:32 MYT — `canva ai photo editor` + exact Post 686 live URL; after reload, 11 total records; exact row with Malaysia flag, status `Not In Top 3 Results`, all positions `0`; standard UI has no language selector |
+| Screpy Rank Tracker | ⚠️ Pending/unverified — `list_projects` confirmed project `wgspvb7lc3`; exact authenticated dashboard claim timed out, so no keyword row was added or verified |
 | Affiliate | Canva Pro affiliate |
-| Type | Comparison |
+| Type | Tutorial |
 
 ## Post #11 — PUBLISHED
 

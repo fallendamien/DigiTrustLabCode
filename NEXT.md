@@ -12,15 +12,25 @@
 
 ## Current State
 
-> **CURRENT STATUS — POST #7 CLOSEOUT COMPLETE (2026-08-25):** The earlier published article remains closed. Post #7 is live at `https://digitrustlab.com/cara-buat-nota-cantik-dengan-ai/` (ID 656). Claude Sonnet OAuth review, OpenAI naturalness, Rank Math, live link, Screpy Rank Tracker, ClickRank and exact GSC inspection gates passed. GSC showed `URL is on Google` and `Page is indexed` at 2026-08-25 15:52:44 (+08:00); no request was needed. Screpy Pages discovery remains a non-blocking pending item because the latest existing crawl predates publication.
+> **CURRENT STATUS — LIVE ARTICLE PUBLISHED; NATURALNESS PASSED (2026-08-26):** The new article is live at `https://digitrustlab.com/cara-guna-canva-ai-photo-editor/` (ID 686; published 08:38:24 +08:00). Structure, live link and exact-live v14 naturalness gates passed. The v14 artifact records final hash `23dd717f6edcf358b2c8e2359ed68c2bed92e2bc8578aa1b774f6b5e56077f7d` across 117 segments, with Claude `firstParty/claude-sonnet-5` and OpenAI `gpt-5.6-luna` at high effort; all checks pass with no findings. An earlier Google Search Console inspection at 08:43:08 (+08:00) reported `URL is not on Google` / `Page is not indexed: URL is unknown to Google` and accepted one indexing request. Later screenshot evidence dated 2026-08-26 shows the exact URL is on Google and `Page indexing — Page is indexed`, superseding the earlier pending result; screenshot time unavailable. ClickRank AI Overview row for `canva ai photo editor` was added once and verified at 21:18:19 MYT with `Not Found` / organic `N/A` / visibility `0%` / citations `0` / mentioned `No`, a valid initial result. The standard ClickRank Keyword Tracker row was added once and verified at 21:34:32 MYT; after reload, 11 total records showed the exact keyword+URL row with the Malaysia flag, `Not In Top 3 Results`, and all positions `0`; the standard UI has no language selector. Screpy project `wgspvb7lc3` was confirmed via `list_projects`, but the authenticated dashboard tab claim timed out, so Screpy rank tracking remains pending/unverified.
 >
 > **Also completed 2026-08-25:** (1) WordPress site title + Rank Math Website Name changed to `DigiTrustLab` (Alternate Name `DigiTrust Lab`); `og:site_name` and JSON-LD `WebSite.name` verified live. Setting is at Rank Math → Titles & Meta → **Local SEO** — not under Global. (2) Homepage pagination activated (page 280): query loop moved from inert grid container `#brxe-778413` to card element `#brxe-4c6189` (`postsPerPage: 6`); pagination element `#brxe-cctbuz` added and rebound; `/page/2/` returns HTTP 200 with posts 7–10, no duplicates. `/page/2/` canonical left pointing at homepage — deliberate decision, not a bug.
 
 ## Next action
 
-1. Select a new article topic.
-2. Begin the standard Option C pipeline at WriterZen quota check, then Topic Discovery; do not start drafting before these gates.
-3. Carry Post #7 Screpy Pages discovery as a non-blocking pending item: existing crawl `ojsmg8wv9al9ctqg` (started 2026-08-23T09:01:06Z, finished 09:01:38Z, last synced 09:02:44Z) does not contain the exact URL or slug. Do not start a crawl without explicit authorization. Keep the earlier closed article untouched.
+1. Revisit the exact authenticated Screpy Rank Tracker tab and add/verify Post #10; do not start a crawl.
+2. After the Post #10 Screpy tracking closeout is resolved or explicitly deferred, select the next article topic and begin the standard Option C pipeline at WriterZen quota check, then Topic Discovery; do not start drafting before those gates.
+3. Carry the earlier Post #7 Screpy Pages discovery as a non-blocking pending item: existing crawl `ojsmg8wv9al9ctqg` predates publication and does not contain the exact URL or slug. Do not start a crawl without explicit authorization.
+
+### Post #10 — ⚠️ PUBLISHED; SCREPY TRACKING PENDING (2026-08-26)
+
+- WordPress Post `686` is live at `https://digitrustlab.com/cara-guna-canva-ai-photo-editor/` with featured hero `693` and inline media `692`, `683`, `684`, and `685`.
+- Structure gate passed (`verify-post-structure.py --post-id 686`, exit 0); live link gate passed with 2 internal links, 1 external dofollow link, destinations checked, and no safe contextual inbound source recorded in `content/link-reviews/cara-guna-canva-ai-photo-editor.json`.
+- Exact-live v14 naturalness PASS is recorded in `content/naturalness-reviews/canva-ai-photo-editor-review-v14.json`: final live hash `23dd717f6edcf358b2c8e2359ed68c2bed92e2bc8578aa1b774f6b5e56077f7d`, 117 segments, Claude `firstParty/claude-sonnet-5` plus OpenAI `gpt-5.6-luna` high, all checks passing with no findings. The local voice validator passes with no findings after its Post #10 CONTENT mapping was repaired.
+- Google Search Console: the earlier exact inspection at 08:43:08 (+08:00) reported URL unknown/not indexed and accepted one indexing request; later screenshot evidence dated 2026-08-26 shows the exact URL is on Google and `Page indexing — Page is indexed`, superseding the earlier pending result. Screenshot time unavailable.
+- ClickRank AI Overview Tracker: the row for `canva ai photo editor` and the exact Post 686 live URL was added once and verified on 2026-08-26 at 21:18:19 MYT. Visible result: `Not Found`; organic `N/A`; visibility `0%`; citations `0`; mentioned `No` (valid initial result).
+- ClickRank Keyword Tracker: the row for `canva ai photo editor` and the exact Post 686 live URL was added once and verified on 2026-08-26 at 21:34:32 MYT. After reload, the tracker showed 11 total records; the exact row showed the Malaysia flag, status `Not In Top 3 Results`, and all positions `0`. The standard UI has no language selector.
+- Screpy project discovery passed, but the exact authenticated dashboard claim timed out; rank tracking is pending/unverified.
 
 ### Post #7 — ✅ PUBLISHED (2026-08-24)
 

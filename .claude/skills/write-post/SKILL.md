@@ -286,7 +286,9 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
    - **Headings:** 4+ (matches H2 count from outline)
    - **Paragraphs:** 4+ (matches content sections)
    - **Images:** 4 (standard for all posts — 1 featured + 3 in-content illustrations)
-   - These targets appear in the Content Creator score panel (e.g., "WORDS 0/976", "IMAGES 0/4")
+   - These are planning targets shown in the Content Creator score panel (e.g.,
+     "WORDS 0/976", "IMAGES 0/4"); do **not** upload or insert images in
+     WriterZen. Media work belongs to the WordPress/Respira publication stage.
 5. Save the outline
 
 ### Phase 4: Content Creator Step 2 — Keywords to Include
@@ -372,6 +374,28 @@ while the WordPress post remains a draft.
    ```
 
    This must pass before the draft is staged. Rank Math does not replace it.
+
+> **NON-NEGOTIABLE MEDIA BOUNDARY:** WriterZen is text research and early
+> article drafting only. Never upload, insert, attach, or troubleshoot
+> images/media in WriterZen, including local-file chooser workarounds. All
+> image/media upload, alt text, attachment verification, and insertion happen
+> directly in WordPress via Respira during the publication-stage handoff. If an
+> image is unavailable in WriterZen, record it as `Pending` and follow the
+> WordPress media gate; do not retry a WriterZen upload.
+
+> **WORDPRESS CAPTION DEFAULT:** Leave the WordPress Media Library `Image
+> Caption` field empty by default for both featured images and inline article
+> images. Never auto-generate or paste the image's alt text or description into
+> `Image Caption`. Populate that field only when the user explicitly requests a
+> reader-visible caption. Alt text remains a separate accessibility field and
+> must still be finalized and set wherever the image requires it.
+
+> **FEATURED/INLINE PLACEMENT RULE:** Real tool or UI screenshots (for example,
+> Canva interface captures) are instructional inline media only and must never
+> be used as the featured image. The featured image must be a separate DigiTrust
+> Lab brand-color hero asset produced under the established design and
+> `content/image-prompts.md` standard.
+
 3. Before generating any featured, in-content, or CTA/card image, pause and ask
    the owner to choose exactly one image mode from `content/image-prompts.md`:
    `More Depth` or `Strict flat design`. Stop if the owner has not explicitly
@@ -409,8 +433,17 @@ while the WordPress post remains a draft.
      Image 1 through the final image in order.
    - Verify every destination against its source by SHA-256 before upload or
      any explicitly requested source cleanup.
-5. Upload the images, insert the final image elements and alt text into the
-   draft HTML, and set the featured image.
+5. Through the Respira WordPress publication workflow, upload the images to
+   WordPress Media, insert the final image elements and alt text into the
+   WordPress draft, and set the featured image. Leave the Media Library `Image
+   Caption` empty for featured and inline images unless the user explicitly
+   requests a reader-visible caption; never copy alt text or description into
+   that field. Do not attempt this in WriterZen. During this same handoff,
+   verify and record separately that:
+   - the featured placement uses the separate DigiTrust Lab brand-color hero
+     asset; and
+   - real tool/UI screenshots are placed only as instructional inline media,
+     never as the featured image.
 6. Stage the post as `draft` with the final content, title, category, and Rank
    Math title, description, focus keyword, primary category, and schema type.
 7. Set the final 155–160 character excerpt through the editor data store:
@@ -584,13 +617,32 @@ stale approval hash.
 
 ### Phase 7: Post-Publish — Rank Tracking + Search Console + Internal Linking + Documentation
 
-1. **ClickRank — Keyword Tracker** (app.clickrank.ai/en/tracker):
+> **CLICKRANK DUAL-TRACKER HARD GATE:** Every published post requires two
+> independent ClickRank tracker rows: the standard **Keyword Tracker** and the
+> **AI Overview Tracker**. Add the same primary focus keyword (the one set in
+> Rank Math) and the exact live URL to both surfaces. The standard tracker uses
+> Malaysia + Device: All; the AI Overview tracker uses Malaysia + Malay where
+> those controls are available. One ClickRank row never proves the other, and
+> ClickRank Pages and Screpy are separate checks.
+>
+> **Shared pre-submit and async protocol for each ClickRank tracker:** take a
+> fresh snapshot before submitting and record the visible tracker count. Search
+> or filter for the exact focus keyword + live URL (including the current
+> settings). If that exact row already exists, open it and verify it; do not
+> submit another row. If no exact row exists, submit once, wait for async
+> processing, then reload/reopen the same authenticated tab and verify the
+> tracker count plus the exact keyword, URL, country, language/device, and
+> visible result. A generic error toast, HTML parsed as JSON, or a stuck
+> `Processing...` state is inconclusive. Do not retry until the count/row check
+> proves that no row was created. `Not Found`, `N/A`, and `0%` are valid results.
+
+1. **ClickRank — standard Keyword Tracker** (app.clickrank.ai/en/tracker):
    - Add the post's **primary focus keyword** only (the one set in Rank Math) + URL
    - Set country to Malaysia, device to All
    - **Do NOT add secondary keyword variants** — ClickRank auto-discovers those from Search Console. Only the focus keyword goes here. Keep the list clean.
    - This tracks traditional Google SERP rankings + impressions
-   - After submission, take a fresh snapshot and verify the exact keyword, URL,
-     country, and device row is visible
+   - Apply the shared pre-submit and async protocol above; the closeout must
+     record both the pre-submit count and the post-submit/existing-row count.
 2. **ClickRank — Website Optimization / Pages** (app.clickrank.ai/en/pages):
    - Add the exact published article URL to the Website Optimization queue using
      **Add URL**. If the URL is already present, do not add a duplicate; open its
@@ -609,15 +661,21 @@ stale approval hash.
      completion.
 3. **ClickRank — AI Overview Tracker** (app.clickrank.ai/en/ai-toolkit/overview-tracker):
    - Add the same focus keyword + URL (Malaysia, Malay language)
-   - This is the PRIMARY reason we use ClickRank — monitors AI Overview visibility and organic ranking
+   - This monitors AI Overview visibility and AEO/organic presence; it is a
+     separate required tracker from the standard Keyword Tracker
    - **Title/Meta optimization** — OPTIONAL. ClickRank's AI suggestions tend to be over-dramatic (hype words like "Ultimate", "Proven", "Secret"). Only apply if the suggestion is natural and matches our calm, helpful Malay voice. Manual titles are always preferred. When in doubt, ask the user.
-   - Verify the exact keyword, URL, Malaysia, and Malay row after submission
+   - Apply the shared pre-submit and async protocol above; verify the exact
+     keyword, URL, Malaysia, and Malay row after submission or when an existing
+     row is reused. Record the pre-submit and post-submit/existing-row counts.
 4. **Screpy — Rank Tracker** (app.screpy.com → Rank Tracker → Add keywords):
    - Add the post's **primary focus keyword** only (Screpy associates the keyword with the tracked domain; it does not require a separate URL field)
    - Set Country: Malaysia, Language: Malay, and **Device: Both** in the same Add keywords action
    - **Do not add separate Mobile and Desktop entries** when the `Both` option is available; verify the keyword appears under both device tabs after submission
    - Screpy tracks traditional Google SERP rankings, competitor comparison, and page health
-   - **Why both tools:** ClickRank = AI Overview/AEO tracking, Screpy = traditional SERP rank tracking + technical audits. They serve different purposes and both are required.
+   - **Why this remains separate:** ClickRank AI Overview, ClickRank Keyword
+     Tracker, and Screpy provide distinct evidence. Screpy is an independent
+     traditional SERP rank check and cannot substitute for either ClickRank
+     surface.
 5. **Screpy — Re-run Crawler** (app.screpy.com → Pages → Analyze button):
    - Click "Analyze" to trigger a new crawl — this auto-discovers new post URLs for SEO health monitoring
    - Screpy does NOT have manual per-page URL addition — the crawler finds pages automatically
@@ -644,8 +702,10 @@ stale approval hash.
    - Change status to PUBLISHED ✅
    - Add URL, publish date, Post ID, WriterZen Article ID
    - Record final Rank Math score
-   - Record ClickRank Pages, ClickRank Keyword Tracker, ClickRank AI Overview, Screpy Both-device,
-     Screpy crawl, and GSC evidence: timestamp, exact keyword/URL, settings, and
+   - Record **separate** ClickRank Keyword Tracker and ClickRank AI Overview
+     evidence, plus ClickRank Pages, Screpy Both-device, Screpy crawl, and GSC:
+     timestamp, exact keyword/URL, pre-submit and post-submit/existing-row
+     counts, settings, and
      the verified visible result. These dashboards have no reliable API, so a
      generic "done" note is insufficient.
 9. Update `STATE.json`:
@@ -673,7 +733,35 @@ stale approval hash.
     Why this is a gate and not a reminder: steps 8–10 were manual instructions
     for months and silently rotted. On 2026-08-05 an agent read the stale record
     and told the operator to redo finished work.
-13. Git commit + push all documentation updates
+13. **Generate the article completion summary (MANDATORY AUTOMATIC CLOSEOUT):**
+    - After the post-publish verification gate above, create or update exactly
+      one concise Markdown artifact at
+      `content/article-completion-summaries/<post-slug>.md` using the template
+      in `content/article-completion-summaries/README.md`.
+    - This is an execution step, not a suggestion or a chat-only report. It
+      must run automatically for every article closeout and be completed before
+      the workflow is considered complete.
+    - For a published article, record the high-level journey from Topic
+      Discovery through publication: why the angle was chosen, the selected
+      keyword and key metrics, Golden Filter and Weak Spot results, the main
+      writing/voice/SEO work, publication outcome, verification/tracking state,
+      and open follow-ups.
+    - Include a concise `Delegated work` section for every worker/agent
+      involved: stage/role, actual model ID and reasoning effort when available,
+      scope, high-level result/evidence, and any blocker or handoff. The
+      orchestrator must reconcile returned worker outputs before writing this
+      section and must not claim completion without evidence; mark missing or
+      contradictory evidence as pending/blocking.
+    - If publication is blocked or explicitly aborted, still create the same
+      artifact with `Status: BLOCKED` or `Status: ABORTED`. Leave URL, Post ID,
+      and publication date as `Not published`, state the blocking/abort reason,
+      and never imply that publication or live verification occurred. If the
+      block/abort happens before Phase 7, generate the artifact immediately at
+      that terminal stop; do not wait for a post-publish gate that did not run.
+    - Keep the artifact high-level: do not copy the article, browser
+      transcripts, raw logs, or detailed UI steps. Link to existing evidence
+      artifacts or the calendar when a detailed record is needed.
+14. Git commit + push all documentation updates
 
 ## Key Rules
 
@@ -699,6 +787,7 @@ stale approval hash.
 - **30-day freshness:** Re-run Keyword Explorer if the last search for this topic is older than 30 days
 - **Titles are provisional:** Planned titles in `content-calendar.md` are placeholders until Topic Discovery confirms a winnable angle
 - **Image generation:** Use ChatGPT or Gemini for featured and in-content images. See `content/image-prompts.md` for the prompt template, design system, and variation guide
+- **WordPress Image Caption default:** Leave `Image Caption` empty for featured and inline images by default; never paste alt text or description there. Only add a reader-visible caption when the user explicitly requests one. Keep alt text separate and required where appropriate.
 - **Image filenames (MANDATORY):** `{post-slug}-{image-description}.png` (lowercase, hyphens only)
 - **In-content images:** Add images under H2 sections to break up text. See `content/image-prompts.md` for prompts
 - **Image prompts library:** All prompts stored in `content/image-prompts.md`. Update when a post is published
@@ -710,17 +799,18 @@ stale approval hash.
 - **Claude reviewer lane (MANDATORY):** Use `scripts/run-claude-naturalness-review.ps1` through terminal-only Claude Code CLI with the exact no-history, no-browser, toolless flags and structured provider/model evidence. Never use claude.ai web/GUI or silently substitute another provider.
 - **Malay mechanical voice gate (MANDATORY):** Run `python scripts/verify-malay-voice.py <post-id>` in Phase 6.5 — must be 0 errors before Phase 7
 - **Content status gate (MANDATORY):** Run `python scripts/verify-content-status.py` at the end of Phase 7 — must exit 0 before committing. It does not cover ClickRank, Screpy, or GSC dashboard evidence
+- **Article completion summary (MANDATORY):** After the Phase 7 verification gate, automatically create or update `content/article-completion-summaries/<post-slug>.md`; use `BLOCKED`/`ABORTED` without publication claims when the article does not publish
 - **Internal links (outbound):** Always link new post UP to pillar/parent content during Phase 5.4 (1-3 links)
 - **Internal links (inbound):** Always run `internal-link-builder` skill in Phase 7 to add links from older posts TO the new post
 - **Internal link planning:** Always plan links in Phase 3 (outline) before writing
 - **Link hardening:** Run `scripts/verify-links.py` before publication and against the live post after publication. Do not use Rank Math's link checks as a substitute. Store the inbound decision in `content/link-reviews/<post-slug>.json`.
 - **SEO meta:** Always set Rank Math title (≤60 chars), description (≤160 chars), focus keyword, primary category
-- **Rank tracking (MANDATORY):** Every published post's focus keyword + URL must be added to BOTH ClickRank AI Overview Tracker AND Screpy Rank Tracker
+- **Rank tracking (MANDATORY):** Every published post's same focus keyword + exact live URL must be added and verified in BOTH ClickRank AI Overview Tracker AND ClickRank standard Keyword Tracker; Screpy Rank Tracker remains a separate required traditional-SERP check
 - **ClickRank Pages gate (MANDATORY):** Every published post's exact URL must be present in ClickRank Website Optimization / Pages with a fresh visible status and a recorded recommendation/no-change decision before Phase 7 can complete. Tracker rows alone are insufficient.
 - **Search Console (MANDATORY):** Inspect the final URL, request indexing when eligible, and record the visible state without equating a request with successful indexing
 - **Manual dashboard evidence:** Record exact keyword/URL, settings, timestamp,
-  and visible result for ClickRank, Screpy, and GSC; `verify-content-status.py`
-  cannot prove these steps
+  and visible result separately for both ClickRank trackers, ClickRank Pages,
+  Screpy, and GSC; `verify-content-status.py` cannot prove these steps
 - **ClickRank title/meta optimization (OPTIONAL):** Reject hype words. Accept natural words. Manual titles always preferred
 - **Content standardization:** Always strip `<h1>` tags from WriterZen content, remove redundant "Malaysia" mentions, cross-check formatting against Post #1
 - **Template-title duplication gate:** Run `verify-post-structure.py` on the final draft and the live post. Zero body H1 elements are required because the Bricks single-post template owns the visible post H1.
