@@ -142,6 +142,43 @@ sequence are documented in `docs/browser-session-hardening.md`.
    None of these workers may finalize the title; Phases 0a through 1.5 provide
    the ranking evidence that selects the publishable topic.
 
+### Phase -0: Editorial Relevance Gate (MANDATORY — before any research or credit)
+
+Before Phase -1 quota checks or any Topic Discovery, Keyword Explorer, Golden
+Filter, Keyword Planner, permanent keyword-list, or drafting action, apply the
+single contract in `.claude/rules/editorial-relevance-gate.md`. The candidate
+record must name the proposed subject and semantically faithful seed, one
+approved DigiTrust Lab pillar/category, the actual reader problem, an
+authenticity basis (demonstrated tool/workflow use or an explicitly planned
+first-hand test), and a distinct/non-cannibalizing comparison against
+`content/content-calendar.md` and published inventory. It must also name the
+existing approved cluster/pillar being extended, a published parent/peer URL,
+a plausible inbound source from an existing post, incremental reader value, and
+the planned anchor/context. An orphan or brand-new cluster is blocked unless
+the user explicitly approves it.
+
+Freeze the structured classifications `topic_family_id`, `approved_pillar_id`,
+`approved_cluster_id`, `topic_intent_id`, `subject_entity_ids`, and
+`declared_seed_intent` with the handoff. Research,
+SEO, and Operations must each supply `decision`, `status`, `evidence_ref`,
+`checked_at`, and `owner`; Operations must additionally supply independently
+current structured calendar/published-URL/link-feasibility arrays with exact
+canonical identity. Content rejects
+missing, stale, contradictory, or non-PASS records rather than inferring them.
+
+Research must attest `RESEARCH_RELEVANCE: PASS`; SEO must independently attest
+`SEO_RELEVANCE: PASS` before metric work; Operations must independently attest
+`OPERATIONS_RELEVANCE: PASS` before any credit/project/list action and again
+before the drafting handoff. Content rejects any missing or contradictory
+attestation. Broad/noisy cards and adjacent SEO terms remain evidence only.
+Metrics can reject a relevant candidate but never promote an irrelevant one.
+Any pivot outside the approved topic family stops for explicit user approval.
+
+Incident example: `ranking google` passed WriterZen metrics in a prior run, but
+was editorially irrelevant to a planned Notion template article and had no
+defensible adjacency/internal-link path to current clusters. Its volume,
+Golden Score, All-in-Title, or Weak Spot must not bypass this gate.
+
 ### Phase -1: Quota Check (MANDATORY — before any research session)
 
 Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keyword ideas = 39 credits). Never start research blind.
@@ -159,6 +196,11 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
 ### Phase 0a: Topic Discovery (find the winnable angle BEFORE committing to a title)
 
 > **Why this exists:** DigiTrust Lab is a low-DA site. Picking a title first and hunting for a keyword afterwards is backwards — it commits you to an angle before checking whether it's rankable. Topic Discovery reverses that. Planned titles in `content-calendar.md` are **provisional** until this phase confirms them.
+
+> **Relevance boundary:** Topic Discovery may refine an approved subject, but
+> it may not redefine the category, reader problem, or subject family. Treat a
+> noisy card or adjacent SEO term as evidence only; stop for explicit user
+> approval before pivoting.
 
 1. Navigate to WriterZen → Topic Discovery
 2. Set **Language: Malay**, **Location: Malaysia**
@@ -816,6 +858,7 @@ stale approval hash.
 - **Weak Spot gate (MANDATORY):** Never write a post whose target cluster has Weak Spot < 2
 - **30-day freshness:** Re-run Keyword Explorer if the last search for this topic is older than 30 days
 - **Titles are provisional:** Planned titles in `content-calendar.md` are placeholders until Topic Discovery confirms a winnable angle
+- **Editorial relevance gate (MANDATORY):** Apply `.claude/rules/editorial-relevance-gate.md` before Phase -1 and require Research, SEO, and Operations relevance attestations before credit, project, list, or drafting actions
 - **Image generation:** Use ChatGPT or Gemini for featured and in-content images. See `content/image-prompts.md` for the prompt template, design system, and variation guide
 - **WordPress Image Caption default:** Leave `Image Caption` empty for featured and inline images by default; never paste alt text or description there. Only add a reader-visible caption when the user explicitly requests one. Keep alt text separate and required where appropriate.
 - **Image filenames (MANDATORY):** `{post-slug}-{image-description}.png` (lowercase, hyphens only)

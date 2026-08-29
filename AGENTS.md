@@ -742,7 +742,7 @@ For broader marketing strategy (competitor teardown, E2E SEO, ICP research, cont
 
 **Before writing any blog post, load the `write-post` skill (`.claude/skills/write-post/SKILL.md`) for the full end-to-end pipeline.** Load the `writerzen-keyword-research` skill for keyword research, then follow the Option C workflow for content creation.
 
-**Option C Pipeline:** Quota check → **Topic Discovery** → Keyword Explorer (**+ Golden Filter**) → Keyword List → Cluster into a NEW Planner project → **Verify Weak Spot ≥ 2** → Keyword Planner (Suggest Content Brief + manually adjust 6 fields) → Content Creator (outline → keywords → write) → publish via Respira MCP → Rank Math → rank tracking → internal linking → documentation
+**Option C Pipeline:** Editorial relevance gate → Quota check → **Topic Discovery** → Keyword Explorer (**+ Golden Filter**) → Keyword List → Cluster into a NEW Planner project → **Verify Weak Spot ≥ 2** → Keyword Planner (Suggest Content Brief + manually adjust 6 fields) → Content Creator (outline → keywords → write) → publish via Respira MCP → Rank Math → rank tracking → internal linking → documentation. Apply the full project-local contract in `.claude/rules/editorial-relevance-gate.md` before any research or credit spend.
 
 > **Never skip the Content Creator pipeline.** The outline must be generated through WriterZen's AI + competitor research, not manually planned.
 

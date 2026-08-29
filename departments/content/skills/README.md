@@ -3,6 +3,9 @@
 These are pointers to canonical procedures. Read the target file; do not copy
 its contents into this department.
 
+Content accepts a research artifact only with valid Research, SEO, and
+Operations attestations from `.claude/rules/editorial-relevance-gate.md`.
+
 | Use for | Canonical skill |
 |---|---|
 | Full write-and-publish workflow | [write-post](../../../.claude/skills/write-post/SKILL.md) |

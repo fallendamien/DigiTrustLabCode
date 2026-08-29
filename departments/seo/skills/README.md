@@ -3,6 +3,10 @@
 These are pointers to canonical procedures. Read the target file; do not copy
 its contents into this department.
 
+Before metric work, independently re-check the project-local
+`.claude/rules/editorial-relevance-gate.md`; missing or contradictory Research
+fields are a fail-closed SEO handoff.
+
 | Use for | Canonical skill |
 |---|---|
 | End-to-end SEO strategy and audit | [e2e-seo-assistant](../../../.claude/skills/e2e-seo-assistant/SKILL.md) |

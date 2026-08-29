@@ -3,6 +3,10 @@
 These are pointers to canonical procedures. Read the target file; do not copy
 its contents into this department.
 
+Before selecting or running any research skill, apply the project-local
+`.claude/rules/editorial-relevance-gate.md` and attach its complete record to
+the handoff.
+
 | Use for | Canonical skill |
 |---|---|
 | Content strategy and topic clusters | [content-strategy](../../../.windsurf/skills/content-strategy/SKILL.md) |

@@ -3,6 +3,10 @@
 These are pointers to canonical procedures. Read the target file; do not copy
 its contents into this department.
 
+For WriterZen/content handoffs, use the project-local
+`.claude/rules/editorial-relevance-gate.md` as the independent Operations
+checkpoint before credit, project, list, or drafting actions.
+
 | Use for | Canonical skill |
 |---|---|
 | Propagating changes safely | [change-propagation](../../../.claude/skills/change-propagation/SKILL.md) |

@@ -24,6 +24,41 @@ description: WriterZen full research pipeline for DigiTrust Lab. Triggers on key
 - **Keyword List:** "DigiTrust Lab Blog Posts" (master tracker, in publishing order)
 - **30-day rule:** Search results expire after 30 days — start fresh if there's a gap
 
+## Phase 0: Editorial relevance gate (BEFORE any quota check or research credit)
+
+Before opening Topic Discovery, Keyword Explorer, Golden Filter, Keyword
+Planner, or any quota-consuming WriterZen control, apply the single contract in
+`.claude/rules/editorial-relevance-gate.md`. Research must record the proposed
+article subject and seed, exactly one approved DigiTrust Lab pillar/category,
+the actual reader problem, an authenticity basis (demonstrated tool/workflow
+use or an explicitly planned first-hand test), the calendar/published
+inventory and cannibalization check, and the seed-to-topic semantic match. It
+must also map an existing approved cluster/pillar, a published parent/peer, a
+plausible inbound source from an existing post, incremental reader value, and
+the planned anchor/context.
+
+Use the structured gate schema: `topic_family_id`, `approved_pillar_id`,
+`approved_cluster_id`, `topic_intent_id`, and `subject_entity_ids`, plus
+`declared_seed_intent`, must match the approved family registry. Research, SEO, and Operations each provide separate
+`decision`, `status`, `evidence_ref`, `checked_at`, and `owner` fields;
+Operations also provides structured current calendar/published-URL/link-
+feasibility arrays with exact canonical URL identity. Do not replace these
+records with a boolean, free-text URL match, or inferred NLP match.
+
+SEO must independently recheck and attest these fields before metric work.
+Operations must independently recheck them before any credit, project, or
+permanent keyword-list action and before the drafting handoff. Content rejects
+any downstream artifact missing all three attestations. A broad/noisy card,
+adjacent SEO term, volume, KD, Golden Score, or Weak Spot can be evidence, but
+cannot change the approved topic family or promote an irrelevant candidate.
+Outside-family pivots stop for explicit user approval before further action.
+
+Incident example: `ranking google` can be metric-positive (volume 50,
+All-in-Title 0, Golden Score about 1.003) while still being editorially
+irrelevant to a planned Notion template article, with no defensible adjacency
+or internal-link path to the current AI/Canva/Prompt Engineering/Digital Skills
+clusters. It must fail this gate rather than be promoted by metrics.
+
 ---
 
 ## ⚠️ Quota Check Protocol (MANDATORY)
@@ -92,6 +127,10 @@ Deep reference files for each phase are in `content/writerzen-guide/` (29 files 
 **When to use:** Ideation, finding content gaps, building a topical map, finding angles competitors miss.
 
 ### How It Works
+
+The editorial relevance gate in Phase 0 must already be `PASS`. Topic
+Discovery finds evidence within the approved subject; it does not authorize a
+new subject or silently widen the reader problem.
 
 Enter a seed keyword → WriterZen scans the top 100 Google results → extracts all headlines and sub-headlines → groups them into topic cards showing what competitors are covering.
 
@@ -664,6 +703,7 @@ All 29 detailed WriterZen course files are in `content/writerzen-guide/`:
 
 ## Rules
 
+- **Editorial relevance first:** Apply `.claude/rules/editorial-relevance-gate.md` before quota checks, Topic Discovery, Keyword Explorer, Golden Filter, Planner, list additions, or drafting. Require Research, SEO, and Operations attestations downstream.
 - **Research before writing:** Never write a blog post without completing the research pipeline
 - **One keyword per post:** Each blog post targets exactly one primary keyword
 - **Malay language:** All keyword research targets Malay search terms
