@@ -361,16 +361,32 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | ClickRank Website Optimization / Pages | ✅ Exact URL added and verified after expanding `All`; exact slug appears in the full queue; no recommendations applied |
 | Draft status | Editorial revision, publication and live validation complete. The repository draft and review package remain as the auditable source files. |
 
-## Post #8 — PLANNED
+## Post #8 — PLANNED — CHATGPT POSTER
 
 | Field | Value |
 |-------|-------|
-| Title | 5 Template Notion untuk Urus Kerja Harian Anda |
-| Keyword | TBD |
-| Category | Digital Skills |
-| Status | Not started |
+| Title | Cara Buat Poster dengan ChatGPT: Panduan Praktikal untuk Pemula |
+| Primary keyword | `poster chatgpt` |
+| Secondary keyword | `cara buat poster guna chatgpt` |
+| Search intent | Informational / practical how-to for beginners |
+| Category | AI Tools |
+| Cluster | `ai-tools.chatgpt` → `ai-tools.chatgpt.poster` (leaf under Post #2) |
+| Topic family / intent | `ai-tools.chatgpt.poster` / `intent.chatgpt.poster.creation` |
+| Subject entities | `entity.chatgpt`, `entity.poster` |
+| Status | Planning — duplicate check passed; brief and outline pending authenticated WriterZen session |
+| Authenticity framing | Planned first-use test and beginner workflow. Do not claim established prior use or results before the workflow is tested. |
+| Parent / internal-link plan | Link upward to Post #2, [Cara Guna ChatGPT untuk Membantu Kerja Harian Anda](https://digitrustlab.com/cara-guna-chatgpt/), with descriptive anchor `cara buat poster guna ChatGPT` in a practical workflow context. |
+| WriterZen Topic Discovery | Report `246351` — seed `cara buat poster guna chatgpt`, Malaysia/Malay; exact topic volume 90. Relevant signals included `Cara Buat Poster Guna Chatgpt`; unrelated `template poster` and `poster canva` were not adopted as the subject. |
+| WriterZen Keyword Explorer | Report `1570874` — `cara buat poster guna chatgpt`, Malaysia/Malay; volume 90, CPC US$1.04, KD Ads 41, Content/Traffic/Signal 0/0/0. A directly relevant Malaysian blog appeared in the SERP. Support term `poster chatgpt` returned volume 70 with KD Ads 27 and Content/Traffic/Signal 0/0/0. |
+| Golden Filter | Primary/support reports `1570875` / `1570878`; `poster chatgpt` passed with volume 70, Golden Score 1.003, All-in-Title 0. The supporting phrase `cara buat poster guna chatgpt` passed with volume 90, Golden Score 1.002, All-in-Title 0. |
+| Weak Spot / Planner | New Keyword Planner project `179032` — `ChatGPT Poster - Practical Beginner Workflow`; one cluster containing both exact terms. Primary `poster chatgpt`: Weak Spot 2, Avg DA 45.9, LDA 12, HDA 82. Support `cara buat poster guna chatgpt`: Weak Spot 1, Avg DA 65.5, LDA 19, HDA 90. The passing support term is not used to bypass the gate; the primary focus is the same-family phrase that passed. |
+| Relevance gate | ✅ Approved under `.claude/rules/editorial-relevance-gate.md`: pillar `ai-tools`, cluster `ai-tools.chatgpt`, reader problem = beginner needs a practical ChatGPT poster workflow, non-cannibalizing leaf under Post #2, incremental value = poster-specific execution. `ranking google` and other SEO/Canva-only pivots remain rejected. |
+| Research relevance attestation | `RESEARCH_RELEVANCE: PASS` — evidence: Topic Discovery `246351`, Keyword Explorer `1570874`, Golden `1570875`/`1570878`, Planner `179032`; checked 2026-08-29; owner Research. |
+| SEO relevance attestation | `SEO_RELEVANCE: PASS` — evidence: exact in-family keyword mapping, passing Golden/Weak Spot primary, and parent URL `https://digitrustlab.com/cara-guna-chatgpt/`; checked 2026-08-29; owner SEO. |
+| Operations relevance attestation | `OPERATIONS_RELEVANCE: PASS` — evidence: live WordPress duplicate verification via Respira `list_posts` searches for `chatgpt` and `poster`; exact published URL inventory confirms no standalone ChatGPT-poster post; checked 2026-08-29; owner Operations. |
+| Historical Notion note | The earlier placeholder `5 Template Notion untuk Urus Kerja Harian Anda` was parked because its research did not produce a qualifying cluster or demand signal. This Post #8 entry repurposes that unstarted slot; no Notion page or article was authored. |
 | Affiliate | None |
-| Type | Template guide |
+| Type | Tutorial |
 
 ## Post #9 — PUBLISHED ✅
 
@@ -542,11 +558,11 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 4. **Keyword Planner** — Add keywords to Keyword List "DigiTrust Lab Blog Posts" (ID: 68708) → Cluster into a **NEW** Planner project named for this post (clustering is one-time; it cannot append to an existing project)
 5. **Verify beatable** — Activate Metrics → **Weak Spot ≥ 2** required. If 0–1, go back to step 1 and pick another angle
 6. **Suggest Content Brief** — From Keyword Planner cluster → Click "Suggest Content Brief" → Manually adjust all 6 brief fields using values from this calendar
-7. **Create Article** — Select existing "DigiTrust Lab" project FIRST (Create button stays disabled otherwise) → Check "Write article title, description & outline" → Click Create
+7. **Create Article** — Apply `.claude/rules/writerzen-ai-credit-gate.md` and obtain Operations' fresh attestation → Select existing "DigiTrust Lab" project FIRST (Create button stays disabled otherwise) → Check **only** "Write article title, description & outline" → verify **"Write the whole article" is OFF** → keep "Use WriterZen to suggest more keywords" OFF when the validated cluster is adequate → Click Create
 8. **Content Creator Step 1: Outline** — Review AI-generated outline, adjust headings, plan internal links
 9. **Content Creator Step 2: Keywords** — Enable **Highlight Keywords** toggle first → prioritize Opportunity keywords over Competitive → select ~8-10
-10. **Content Creator Step 3: Write** — Use "Write all for me" (AI Creativity Level = 1) → reformat walls of text → Run Show Analysis → Run Plagiarism Check → Save
-11. **Publish to WordPress** — Copy content from WriterZen → Update draft via `respira_update_post` → Set Rank Math SEO fields → Set featured image → Publish → set excerpt via WP editor
+10. **Content Creator Step 3: Native Drafting** — Draft the body yourself from the approved brief and outline → reformat walls of text → Run Show Analysis → Run Plagiarism Check → obtain fresh, independent Anthropic/Claude Sonnet + OpenAI reviews matched to the final content hash → Save
+11. **Publish to WordPress** — Copy the native draft → Update draft via `respira_update_post` → Set Rank Math SEO fields → Set featured image → Publish → set excerpt via WP editor
 12. **Rank Math optimization** — Sidebar check, aim 80+, fix essential checks
 13. **Verify on live site** — Navigate to URL, check rendering, SEO title, internal links, outbound destinations, and run `scripts/verify-links.py`
 14. **Rank tracking and page optimization** — ClickRank Website Optimization / Pages (exact URL + visible status + recommendation/no-change decision), ClickRank AI Overview + Keyword Tracker (focus keyword only), and Screpy Rank Tracker

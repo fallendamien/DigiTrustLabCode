@@ -1,17 +1,28 @@
-# 4.6 Content Creator: AI Assistant for Full Article Writing (Step 3)
+# 4.6 [SUPERSEDED — DO NOT USE] Content Creator: AI Assistant for Full Article Writing (Step 3)
+
+> **Historical WriterZen course notes only.** This file documents legacy
+> full-article and paragraph-generation features for reference; it is not an
+> active DigiTrust Lab procedure. Do not enable WriterZen full-article writing,
+> Auto Write, Bullet Points to Paragraph, or any equivalent generation control.
+> The current workflow is native drafting after an outline-only Create Article,
+> followed by independent Anthropic/Claude Sonnet and OpenAI review. See
+> `.claude/rules/writerzen-ai-credit-gate.md`.
 
 ## Overview
 
-This lesson covers how to use WriterZen's AI Assistant specifically in Step 3 — Content Writing. While Step 1's AI focused on building outlines, Step 3's AI focuses on expanding those outlines into full written paragraphs and complete article content.
+This superseded lesson records how WriterZen's AI Assistant worked in Step 3 — Content Writing. It is retained to explain the old interface, not to authorize its use for DigiTrust Lab.
 
 ## The Philosophy Behind AI in Step 3
 
-WriterZen does not believe AI can produce high-quality long-form content from a vague idea alone. Instead, the approach is:
+The historical WriterZen course described the following approach; it is not an
+approved DigiTrust Lab workflow:
 
 1. **Build a structured outline first** (Step 1)
-2. **Use AI to expand outline → paragraphs** (Step 3)
+2. **Use AI to expand outline → paragraphs** (Step 3) — **superseded and prohibited for DigiTrust Lab**
 
-This method produces significantly better output quality than asking AI to write a full article from scratch. More research input = better AI result.
+This historical method was presented as producing better output than asking AI
+to write a full article from scratch. It must not be used to generate DigiTrust
+Lab article copy; draft natively after the approved outline instead.
 
 > **Golden rule: Better input = better output.** The higher the quality of your outline and bullet points, the better the AI-generated paragraph will be.
 
@@ -102,7 +113,11 @@ All AI outputs in Step 3 are saved in the **History** tab — organised by date.
 
 ---
 
-## Recommended Workflow for AI-Assisted Article Writing
+## Historical Workflow — Superseded and Prohibited for DigiTrust Lab
+
+The steps below document the old course interface only. Do not perform them on
+DigiTrust Lab content or enable any WriterZen full-article/paragraph-generation
+control.
 
 1. **Copy outline to editor** (from the Outline panel in Step 3)
 2. Work section by section — click **Bullet Points → Paragraph** for each heading
@@ -117,4 +132,7 @@ All AI outputs in Step 3 are saved in the **History** tab — organised by date.
 
 ## Key Takeaway
 
-AI in Step 3 works best as a writing assistant, not a writing replacement. Build a great outline in Step 1 → let AI expand it section by section in Step 3 → edit and humanise the output → publish. This produces content that is both AI-efficient and human-quality.
+The historical course presented Step 3 as a writing assistant. For DigiTrust
+Lab, this is superseded: build the outline in WriterZen, draft the body natively,
+then require the independent Anthropic/Claude Sonnet and OpenAI reviews before
+publication.

@@ -12,6 +12,14 @@
    inbound source from an existing post, incremental reader value, and planned
    anchor/context; do not trust an upstream attestation without checking its
    evidence. An orphan, mismatch, or unapproved pivot is blocked.
+   For WriterZen Create Article, also apply
+   `.claude/rules/writerzen-ai-credit-gate.md`: immediately before submission,
+   Operations must attest from a fresh snapshot that title/description/outline
+   is ON, whole article is OFF, and optional keyword suggestions are OFF unless
+   documented insufficiency, explicit user credit authorization, current cost
+   evidence, and the same fresh snapshot justify `AUTHORIZED_ON`. Unknown or
+   conflicting toggle state is a hard stop. Do not claim a credit amount for
+   keyword suggestions unless the current product UI displays it.
 3. Select one canonical operations skill and read it in full.
 4. Execute only the requested bounded change or produce a runbook/checklist.
 5. Verify immediately, document evidence, and stop when the next action belongs to another department.

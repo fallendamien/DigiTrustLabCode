@@ -11,6 +11,12 @@
    source, incremental value, and anchor/context into the outline. Reject
    missing, stale, contradictory, or orphan fields; Content must not infer
    relevance from metrics or repair an unapproved pivot while drafting.
+   For WriterZen handoffs, also require the credit-gate record from
+   `.claude/rules/writerzen-ai-credit-gate.md`: outline-only ON, whole-article
+   OFF, and Operations' exact fresh pre-Create evidence. Content must reject
+   any whole-article mode or missing/unknown toggle state. The body remains a
+   native draft and cannot be marked complete without the independent
+   Anthropic/Claude Sonnet and OpenAI reviews matched to the final content hash.
 3. Select one canonical skill from `skills/README.md` and read it in full.
 4. Produce the bounded artifact: brief, outline, draft, edit report, or publishing checklist.
 5. Stop at the department boundary when the task requires SEO validation, live-site operations, or new research; create a handoff instead of improvising.

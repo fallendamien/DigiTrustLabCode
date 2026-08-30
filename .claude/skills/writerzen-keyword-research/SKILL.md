@@ -441,6 +441,14 @@ Generate briefs for multiple clusters at once — useful when planning a content
 
 ### ⚠️ Create Article Modal — Project Selection Gotcha
 
+**AI-credit gate (mandatory):** Apply `.claude/rules/writerzen-ai-credit-gate.md`
+before submitting this modal. Fresh UI evidence must prove **Write article
+title, description & outline = ON** and **Write the whole article = OFF**.
+Operations must re-check that exact state immediately before Create. The
+whole-article control is prohibited for DigiTrust Lab missions, even when
+credits are available. If outline-only generation is blocked by insufficient
+AI credits, stop; do not upgrade, change plans, or bypass the gate.
+
 **Issue:** The "Create" button in the "Create a new article" modal stays disabled even when all fields (checkboxes, content brief) are filled.
 
 **Root cause:** The Project field is empty — the modal does NOT auto-select the last used project.
@@ -450,9 +458,15 @@ Generate briefs for multiple clusters at once — useful when planning a content
 **Order of operations in the modal:**
 1. General tab → Select Project from dropdown (e.g. "DigiTrust Lab")
 2. General tab → Check "Write article title, description & outline"
-3. General tab → Check "Write the whole article"
+3. General tab → Verify "Write the whole article" is **OFF** (never enable it)
 4. Content Brief tab → Verify fields are populated
 5. Click Create (now enabled)
+
+The generated artifact is limited to the title, description, and outline. The
+body is drafted natively afterward and requires independent Anthropic/Claude
+Sonnet plus OpenAI reviews matched to the final content hash before
+publication. Run `python scripts/verify-writerzen-ai-credit-gate.py` for the
+deterministic gate fixtures.
 
 > **Deep reference:** `content/writerzen-guide/12-keyword-planner-content-brief-article-creation.md`
 
@@ -501,6 +515,16 @@ Template categories: Outlines, Rewrite. Use for generating outline structures, r
 
 ## Phase 6: Keywords to Include + Writing (LIGHT)
 
+### WriterZen keyword-suggestion control
+
+Keep **Use WriterZen to suggest more keywords** OFF when the validated Keyword
+List/Planner cluster already supplies adequate keywords. This control is not
+Google NLP. If the set is demonstrably insufficient, enable it only after
+documenting the missing coverage, obtaining explicit user authorization for
+additional credit spend, recording the current displayed cost/confirmation,
+and receiving Operations' fresh pre-Create attestation. If the current cost is
+not displayed, treat it as unknown and keep the control OFF.
+
 ### Step 2: Keywords to Include
 
 Two types:
@@ -544,7 +568,7 @@ Then take a fresh DOM snapshot and verify the toggle state and the `0/N` keyword
 
 Adds entity analysis and sentiment from Google's NLP API. **3 credits per article.** Currently supports English, Spanish, Japanese only — **not available for Malay content.**
 
-> **Deep reference:** `content/writerzen-guide/19-content-creator-keywords-to-include.md` through `23-content-creator-ai-assistant-full-article.md`
+> **Deep reference:** `content/writerzen-guide/19-content-creator-keywords-to-include.md` through `23-content-creator-ai-assistant-full-article.md` (the latter is historical and superseded; never use its full-article mode for DigiTrust Lab)
 
 ---
 
@@ -695,7 +719,7 @@ All 29 detailed WriterZen course files are in `content/writerzen-guide/`:
 | 20 | Content Creator | Content Writing Function |
 | 21 | Content Creator | Google NLP |
 | 22 | Content Creator | AI Assistant Outline Builder |
-| 23 | Content Creator | AI Assistant Full Article |
+| 23 | Content Creator | AI Assistant Full Article (superseded; reference only) |
 | 24 | Plagiarism | Introduction |
 | 25 | Plagiarism | Report Analysis |
 | 26 | Team | Workspace Management |

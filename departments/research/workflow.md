@@ -17,6 +17,14 @@
 4. Gather only the evidence needed for the question and produce a traceable brief.
 5. Stop when the output becomes content drafting, SEO implementation, or an operational change; hand off with evidence attached.
 
+WriterZen research may hand off only the title, description, and
+competitor-backed outline. It must never request or imply full-article
+generation; native drafting and its dual independent review belong to Content.
+For the Create Article credit and toggle handoff, use the canonical
+`.claude/rules/writerzen-ai-credit-gate.md`; Research records the validated
+keyword/brief evidence but does not authorize generation or optional credit
+spend.
+
 ## MCP boundary
 
 Use connected research/search MCP tools only for their documented read scope.

@@ -85,6 +85,7 @@ CRITICAL = [
     ".claude/skills/malay-voice-guide/SKILL.md",
     ".claude/skills/readability-pass/SKILL.md",
     ".claude/skills/writerzen-keyword-research/SKILL.md",
+    ".claude/rules/writerzen-ai-credit-gate.md",
     "content/image-prompts.md",
     "content/content-calendar.md",
     "scripts/verify-malay-voice.py",

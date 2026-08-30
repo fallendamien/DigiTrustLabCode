@@ -2140,7 +2140,7 @@ The **Project field** in the General tab is empty. The modal does NOT auto-selec
 1. Open the "Create a new article" modal by clicking "Create article"
 2. On the **General** tab, click the Project dropdown (labeled "Choose a project or create new")
 3. Select your existing project (e.g. "DigiTrust Lab") from the list
-4. Check both AI assistant checkboxes ("Write article title, description & outline" + "Write the whole article")
+4. Apply `.claude/rules/writerzen-ai-credit-gate.md`: enable **only** "Write article title, description & outline" and verify **"Write the whole article" is OFF**. Keep "Use WriterZen to suggest more keywords" OFF unless its documented exception is approved.
 5. Go to **Content Brief** tab — verify all fields are populated
 6. The **Create** button is now enabled — click it
 

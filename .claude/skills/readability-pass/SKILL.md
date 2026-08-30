@@ -109,7 +109,10 @@ Intro paragraph (1-2)
 
 ## Rich Formatting Toolkit (authoritative — moved here from `write-post.md` 2026-07-30)
 
-WriterZen's "Write all for me" AI produces walls of text: flat paragraphs with no visual breaks. **Every article must be richly formatted.** No section should be a sea of text. This toolkit is the full set of tools — use every type that applies.
+AI-assisted drafting can produce walls of text: flat paragraphs with no visual
+breaks. **Every article must be richly formatted.** No section should be a sea
+of text. For DigiTrust Lab, the WriterZen full-article mode is prohibited; this
+toolkit applies to the native draft produced after the outline-only workflow.
 
 | Formatting Type | When to Use | HTML Pattern |
 |----------------|-------------|--------------|

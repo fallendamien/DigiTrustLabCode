@@ -1,8 +1,16 @@
 # 3.3 Content Brief and Article Creation in Keyword Planner
 
+> **DigiTrust Lab current policy — supersedes the legacy course behavior below.**
+> Apply `.claude/rules/writerzen-ai-credit-gate.md` before Create Article. Use
+> WriterZen only for the title, description, and outline; keep **Write the whole
+> article** OFF. Full-article generation is prohibited. Draft the body natively
+> and obtain the required independent Anthropic/Claude Sonnet + OpenAI reviews
+> before publication. The historical notes below must not be used to authorize
+> a different mode.
+
 ## Overview
 
-This lesson covers how to turn keyword cluster insights into actionable content — from generating a content brief to creating full articles using WriterZen's AI assistant.
+This lesson covers how to turn keyword cluster insights into actionable content — from generating a content brief to creating an outline using WriterZen's AI assistant. The full-article behavior described in the original course is retained only as historical context and is superseded for DigiTrust Lab.
 
 Each keyword cluster represents a potential article. The Keyword Planner streamlines the entire process from cluster to published content.
 
@@ -38,7 +46,7 @@ Once your content brief is ready, click **Create Article**. A pop-up appears wit
 - Activate AI assistant and/or Google NLP
 - Choose AI generation mode:
   - **Write article title, description, and outline** — generates the structural skeleton
-  - **Write the whole article** — generates a complete content piece
+  - **Write the whole article** — **prohibited for DigiTrust Lab; leave OFF**
 - Click **Advanced Settings** to set priority and deadline
 
 ### Content Brief Tab
@@ -62,8 +70,8 @@ You can scale up content production by multi-selecting clusters and generating b
 2. Deselect any specific clusters you want to skip
 3. Click **Suggest Content Brief** — WriterZen generates briefs for all selected clusters simultaneously
 4. Review each brief by toggling between clusters and make any necessary adjustments
-5. Click **Create Article** → create a new project, set AI mode, configure priority and shared access
-6. Click **Create** — AI generates all articles for selected clusters at once
+5. Click **Create Article** → create a new project, apply the canonical AI-credit gate, set outline-only mode, and configure priority and shared access
+6. Click **Create** — WriterZen generates only the title, description, and outline for selected clusters. Native drafting and dual review happen afterward.
 
 The result: a full project with multiple articles generated in seconds.
 
@@ -75,4 +83,4 @@ The result: a full project with multiple articles generated in seconds.
 
 ## Key Takeaway
 
-The Keyword Planner → Content Brief → Create Article workflow automates the most time-consuming parts of content planning. What used to take hours of manual research per article can now be done in seconds — at scale — without sacrificing content quality when used correctly.
+The Keyword Planner → Content Brief → Create Article workflow automates the most time-consuming parts of content planning. For DigiTrust Lab, it stops at the title, description, and outline; the body is drafted natively and cannot proceed to publication without the dual independent review gate.

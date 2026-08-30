@@ -16,6 +16,12 @@
 4. Produce an audit, prioritized opportunity list, content brief, or change proposal.
 5. Stop before implementation when a live-site write, design change, or new research stream is needed; hand it off explicitly.
 
+For WriterZen-related SEO handoffs, reference the canonical
+`.claude/rules/writerzen-ai-credit-gate.md`. SEO may validate search intent and
+the outline brief, but it must not authorize full-article generation. The
+handoff must preserve outline-only ON, whole-article OFF, and the Operations
+pre-Create attestation; native drafting and dual review remain Content's gate.
+
 ## MCP boundary
 
 Use Respira MCP for WordPress/site evidence and authorized builder-native SEO

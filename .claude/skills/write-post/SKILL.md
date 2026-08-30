@@ -188,7 +188,10 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
 3. Apply the budget rules:
    - Keyword Credit < 10,000 → selective Golden Filter only (top 3-5 keywords, not full result sets)
    - Keyword Credit < 5,000 → skip Golden Filter, fall back to manual KD + All-in-Title checks via SERP overview
-   - **AI Words/Month = 8,000 total.** At ~1,000 words/post, "Write all for me" (Phase 5) supports roughly **8 posts/month**. If the remaining balance won't cover this post, switch to "I'll write myself" and draft natively instead.
+   - **AI Words/Month = 8,000 total.** This workflow never spends those words
+     on a full WriterZen article. The Create Article gate permits only title,
+     description, and outline; the body is always drafted natively. If the
+     remaining credits do not cover the outline-only request, stop as `BLOCKED`.
 4. Note consumption at end of session; update `content/SEO-CHEATSHEET.md` limits table if running low
 
 > **30-day freshness rule:** WriterZen search results expire after 30 days. If the last Keyword Explorer run for this topic is older than 30 days, start a fresh search — do NOT reuse stale metrics.
@@ -296,6 +299,13 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
 
 ### Phase 2: Keyword Planner → Content Brief
 
+> **WriterZen AI-credit gate:** Before Create Article, apply
+> `.claude/rules/writerzen-ai-credit-gate.md`. The current authenticated UI
+> must freshly prove **Write article title, description & outline = ON** and
+> **Write the whole article = OFF**. Operations re-checks the exact state
+> immediately before Create; unknown, missing, stale, or conflicting state
+> blocks the submission.
+
 1. Navigate to WriterZen → Keyword Planner → the project created in Phase 1
 2. Find the topic/cluster containing the target keyword
 3. Click **Suggest Content Brief** on the cluster
@@ -309,8 +319,9 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
 5. Click **Create Article**:
    - ⚠️ **CRITICAL: Select project FIRST** — the modal does NOT auto-select the last used project. The "Create" button stays disabled until you manually click the Project dropdown and select "DigiTrust Lab". This is the #1 reason the button appears stuck.
    - Project: Select existing "DigiTrust Lab" (NEVER create new)
-   - AI Assistant: Check "Write article title, description & outline"
-   - Also check "Write the whole article" (per Write all for me strategy)
+   - AI Assistant: Check **only** "Write article title, description & outline"
+   - **Never check "Write the whole article"**. This is prohibited for every
+     DigiTrust Lab article mission, regardless of remaining credits.
    - Language: Malay, Location: Malaysia
 6. Go to **Content Brief** tab in the modal — verify all 6 fields are populated from step 4
 7. Click **Create** (button enables only after project is selected)
@@ -348,42 +359,44 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
    | **Competitive keywords** | Keywords competitors already rank for | Add naturally where they fit |
 
 3. Review **Competitor's Keywords** — add relevant ones (target ~8-10)
-4. Review **Suggested by WriterZen** — add any that fit naturally
+4. Review **Suggested by WriterZen** only when the credit-gate handoff records
+   documented keyword insufficiency, explicit user authorization, current
+   displayed-cost evidence, and Operations' fresh pre-Create attestation;
+   otherwise keep optional suggestions disabled
 5. Optionally import from a saved WriterZen keyword list
 6. Save keyword list
 
 > **Never keyword-stuff.** Keywords must read naturally in Malay. If a keyword can't be placed without bending the sentence, leave it out — the Rank Math density target (0.5–2.5%) is a floor and ceiling, not a quota to force.
 
-### Phase 5: Content Creator Step 3 — Write
+### Phase 5: Content Creator Step 3 — Native Drafting
 
-**Writing Mode: "Write all for me" (AI Draft → Human Edit)**
+**Writing Mode: "I'll write myself" (mandatory)**
 
-> **Strategy:** Use "Write all for me" when the Phase -1 AI-word quota can cover
-> the article. If the quota rule selected the native-drafting fallback, use
-> "I'll write myself" instead; the Phase -1 budget decision overrides this default.
-> The detailed content brief (Malay angle, audience, tone, perspective) gives the AI enough
-> context to produce a usable Malay draft. We then refine for DigiTrust Lab voice consistency.
-> This is the most efficient path for a solo blogger — let AI draft, human edits.
+> WriterZen supplies only the title, description, and competitor-backed
+> outline. Never enable its full-article writer. Draft the body natively using
+> the DigiTrust Lab voice and the frozen outline. If WriterZen reports
+> insufficient AI credits for the outline-only request, stop as `BLOCKED`; do
+> not upgrade, change plans, or switch to full-article generation without
+> explicit user authorization.
 
-1. Follow the Phase -1 mode decision: **Write all for me** when quota permits,
-   otherwise **I'll write myself**
-2. Set AI Creativity Level = 1 for best quality
-3. Let AI generate the full draft based on the content brief + outline
-4. Review generated content section by section
-5. **Edit for DigiTrust Lab voice** — match the semi-formal Malay standard from `.claude/skills/malay-voice-guide/SKILL.md`
-6. **Reformat walls of text into rich visual structure** (MANDATORY):
+1. Draft the article body natively from the approved content brief + outline
+2. Review the draft section by section
+3. **Edit for DigiTrust Lab voice** — match the semi-formal Malay standard from `.claude/skills/malay-voice-guide/SKILL.md`
+4. **Reformat walls of text into rich visual structure** (MANDATORY):
    - WriterZen AI produces flat walls of text — every section must be reformatted
    - Use the full formatting toolkit: blockquotes, bullet/numbered lists, bold labels, before/after blocks, contrast pairs, warning/tip boxes
    - **See `.claude/skills/readability-pass/SKILL.md`** for the complete Rich Formatting Toolkit, blockquote/callout templates, and Formatting Checklist
    - Run the Formatting Checklist before publishing — no section should be a sea of text
    - Reference standards: Post #2 (`/cara-guna-chatgpt/`) and Post #3 (`/cara-buat-prompt-chatgpt/`)
-7. Run **Show Analysis** — fix any flagged SEO issues
-8. Run **Plagiarism Check** — ensure 0% plagiarism
-9. **Note all Analysis improvements** for cross-checking in Phase 5.4/6.5:
+5. Run **Show Analysis** — fix any flagged SEO issues
+6. Run **Plagiarism Check** — ensure 0% plagiarism
+7. **Note all Analysis improvements** for cross-checking in Phase 5.4/6.5:
    - Write down every "Problems" and "Improvements" item from the analysis panel
    - These get addressed during WordPress publishing and Rank Math optimization
    - Common items: content length, images, internal/external links, title length
-10. Save (not Done — keep article in Content Creator)
+8. Save the native draft and obtain the two independent fresh reviews required
+   by the credit gate before publication: actual Anthropic/Claude Sonnet and
+   independent OpenAI, both PASS and matched to the final content hash.
 
 ### Phase 5.4: Assemble and Stage the Final Publication Package
 
@@ -853,6 +866,8 @@ stale approval hash.
 - **Keyword List:** Always use existing "DigiTrust Lab Blog Posts" (ID: 68708)
 - **Keyword Planner Project:** Create a **NEW** project per post topic. WriterZen clustering is one-time and cannot append to an existing project
 - **SERP View / AI Assistant toggles:** Leave OFF during Step 1 (Outline)
+- **Create Article AI-credit gate:** Use only "Write article title, description & outline"; "Write the whole article" is prohibited. The article body is always drafted natively and must pass the dual independent review gate. See `.claude/rules/writerzen-ai-credit-gate.md` and run `python scripts/verify-writerzen-ai-credit-gate.py`.
+- **WriterZen keyword suggestions:** Keep "Use WriterZen to suggest more keywords" OFF when the validated Keyword List/Planner cluster is adequate. Enable only with documented insufficiency, explicit user credit-spend authorization, current displayed cost evidence, and Operations' fresh pre-Create attestation. This is separate from Google NLP.
 - **Quota check (MANDATORY):** Never start a research session without Phase -1
 - **Golden Filter (MANDATORY):** Always apply in Phase 0b — Golden Score ≤10, All-in-Title ≤10, Volume ≥100 (relax volume to 50 if needed, never the other two)
 - **Weak Spot gate (MANDATORY):** Never write a post whose target cluster has Weak Spot < 2

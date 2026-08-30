@@ -29,7 +29,7 @@
 20-content-creator-content-writing-function.md (4.3)
 21-content-creator-google-nlp.md (4.4)
 22-content-creator-ai-assistant-outline-builder.md (4.5)
-23-content-creator-ai-assistant-full-article.md (4.6)
+23-content-creator-ai-assistant-full-article.md (4.6, superseded for DigiTrust Lab; reference only)
 
 ── SECTION 5: Plagiarism Checker ──
 24-plagiarism-checker-introduction.md (5.1)
