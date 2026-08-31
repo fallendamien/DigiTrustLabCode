@@ -23,7 +23,9 @@ generation; native drafting and its dual independent review belong to Content.
 For the Create Article credit and toggle handoff, use the canonical
 `.claude/rules/writerzen-ai-credit-gate.md`; Research records the validated
 keyword/brief evidence but does not authorize generation or optional credit
-spend.
+spend. Carry source/provenance references under
+`.claude/rules/native-originality-source-gate.md`; Research does not trigger
+or require WriterZen's plagiarism checker.
 
 ## MCP boundary
 

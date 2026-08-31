@@ -5,6 +5,9 @@ its contents into this department.
 
 Content accepts a research artifact only with valid Research, SEO, and
 Operations attestations from `.claude/rules/editorial-relevance-gate.md`.
+Native-draft originality and source evidence follows
+`.claude/rules/native-originality-source-gate.md`; WriterZen's plagiarism
+checker is not used.
 
 | Use for | Canonical skill |
 |---|---|

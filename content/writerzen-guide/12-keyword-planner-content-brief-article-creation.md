@@ -58,7 +58,7 @@ Once your content brief is ready, click **Create Article**. A pop-up appears wit
 - Set guest permissions:
   - View competitor panel
   - View related questions
-  - Check plagiarism
+  - Apply the native originality/source-attribution gate; do **not** run the WriterZen Plagiarism Checker for DigiTrust Lab articles
 
 Once setup is complete, go directly to the article or continue planning other clusters.
 

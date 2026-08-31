@@ -22,6 +22,7 @@ cloned, regardless of the absolute path.
 @.claude/rules/bricks-standard-guide.md
 @.claude/rules/bricks-mcp-absolute.md
 @.claude/rules/content-planning.md
+@.claude/rules/native-originality-source-gate.md
 @.claude/rules/browser-preview.md
 @.claude/rules/malay-skill-sync.md
 @workspaces/executive-assistant/skills/inquiry-router/SKILL.md

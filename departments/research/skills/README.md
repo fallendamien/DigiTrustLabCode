@@ -6,6 +6,9 @@ its contents into this department.
 Before selecting or running any research skill, apply the project-local
 `.claude/rules/editorial-relevance-gate.md` and attach its complete record to
 the handoff.
+For source/provenance handoffs, use
+`.claude/rules/native-originality-source-gate.md`; do not trigger WriterZen's
+plagiarism checker.
 
 | Use for | Canonical skill |
 |---|---|

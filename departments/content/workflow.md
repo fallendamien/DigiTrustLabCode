@@ -17,6 +17,10 @@
    any whole-article mode or missing/unknown toggle state. The body remains a
    native draft and cannot be marked complete without the independent
    Anthropic/Claude Sonnet and OpenAI reviews matched to the final content hash.
+   For originality and sourcing, require
+   `.claude/rules/native-originality-source-gate.md`: reject missing
+   provenance, attribution, overlap, matching-hash, or Operations evidence;
+   never require or run WriterZen's plagiarism checker.
 3. Select one canonical skill from `skills/README.md` and read it in full.
 4. Produce the bounded artifact: brief, outline, draft, edit report, or publishing checklist.
 5. Stop at the department boundary when the task requires SEO validation, live-site operations, or new research; create a handoff instead of improvising.

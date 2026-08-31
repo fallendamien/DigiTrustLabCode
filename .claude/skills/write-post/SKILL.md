@@ -389,7 +389,11 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
    - Run the Formatting Checklist before publishing — no section should be a sea of text
    - Reference standards: Post #2 (`/cara-guna-chatgpt/`) and Post #3 (`/cara-buat-prompt-chatgpt/`)
 5. Run **Show Analysis** — fix any flagged SEO issues
-6. Run **Plagiarism Check** — ensure 0% plagiarism
+6. Apply the no-credit **Native Originality and Source-Attribution Gate**
+   (`.claude/rules/native-originality-source-gate.md`). Record draft
+   provenance, source/quotation attribution, clear distinctive-overlap review,
+   and matching content/evidence hashes. Do not run WriterZen's Plagiarism
+   Checker or claim that the dual naturalness reviews are a plagiarism scan.
 7. **Note all Analysis improvements** for cross-checking in Phase 5.4/6.5:
    - Write down every "Problems" and "Improvements" item from the analysis panel
    - These get addressed during WordPress publishing and Rank Math optimization

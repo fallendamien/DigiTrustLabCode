@@ -36,6 +36,15 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # which is exactly why they go missing (fresh clone, new machine, git worktree).
 IMPORT_SOURCES = ["CLAUDE.local.md", "CLAUDE.md"]
 
+# Some project-local controls must be loaded by the Claude project loader, not
+# merely exist on disk. Keep this list narrow: it is an import-presence check,
+# not a second doctrine registry.
+REQUIRED_IMPORTS = {
+    "CLAUDE.local.md": {
+        ".claude/rules/native-originality-source-gate.md",
+    },
+}
+
 # Directories that are symlinks by design. A symlink that resolves to nothing,
 # or to a tree missing its expected file, is the 2026-07-30 failure exactly.
 SYMLINK_EXPECTATIONS = {
@@ -86,6 +95,7 @@ CRITICAL = [
     ".claude/skills/readability-pass/SKILL.md",
     ".claude/skills/writerzen-keyword-research/SKILL.md",
     ".claude/rules/writerzen-ai-credit-gate.md",
+    ".claude/rules/native-originality-source-gate.md",
     "content/image-prompts.md",
     "content/content-calendar.md",
     "scripts/verify-malay-voice.py",
@@ -184,6 +194,12 @@ def main():
         else:
             failures.append(f"@import target missing: {target}  (imported by {src})")
             say(f"  MISSING  {target}   <- imported by {src}")
+
+    for src, required in REQUIRED_IMPORTS.items():
+        actual = {target for imported_src, target in imports if imported_src == src}
+        for target in sorted(required - actual):
+            failures.append(f"required @import missing: {target}  (expected in {src})")
+            say(f"  MISSING  required import {target}   <- expected in {src}")
 
     # -- 3. symlinked trees resolve ---------------------------------------
     say("\n== symlinked trees ==")

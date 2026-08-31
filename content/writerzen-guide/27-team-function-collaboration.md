@@ -43,7 +43,7 @@ Both members and guests are notified via email and in-app notification when an a
 
 By default, guests can only edit the article content. You can extend their access in the Shared Access pop-up under **Guest Permissions**:
 
-- ✅ Plagiarism Checker
+- ✅ Plagiarism Checker (historical WriterZen permission; prohibited for DigiTrust Lab workflow)
 - ✅ Competitors panel
 - ✅ Related Questions
 

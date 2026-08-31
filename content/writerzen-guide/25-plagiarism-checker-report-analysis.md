@@ -1,5 +1,12 @@
 # 5.2 Plagiarism Checker: Report Analysis
 
+> **DigiTrust Lab status: HISTORICAL PRODUCT REFERENCE — SUPERSEDED.** This
+> lesson documents a WriterZen capability for reference only. The DigiTrust
+> Lab workflow prohibits running or requiring the paid WriterZen checker. Use
+> `.claude/rules/native-originality-source-gate.md` for the current no-credit
+> originality and source-attribution contract. Do not treat this lesson as a
+> workflow instruction.
+
 ## Overview
 
 This lesson covers the report analysis interface of the Plagiarism Checker tool, using the "nutrition plan" article as an example.
@@ -49,14 +56,11 @@ The **Exclude Domain** button lets you exclude one or more URLs from being check
 
 > **Use case:** If you are rewriting an old article that is already published on your own site, exclude your own URL so the tool doesn't flag your original content as plagiarised.
 
-## Recommended Workflow
+## Archived Product Behaviour (Do Not Execute)
 
-Use the Plagiarism Checker as the final step after completing and optimising your content in Content Creator:
-
-1. Finish writing and optimising your article in Content Creator (Steps 1–3)
-2. Copy the final article into the Plagiarism Checker
-3. Review highlighted sections and rewrite any flagged content
-4. Re-run the check until your unique score meets your standard
-5. Export the PDF report for your records if needed
-
-Running your content through the Plagiarism Checker adds credibility to your work and validates the time and effort invested in creating quality content.
+The original WriterZen course described copying a completed article into the
+checker, reviewing highlights, and exporting a report. Those steps are
+retained only to explain the historical screenshots and terminology in this
+folder. They are explicitly superseded for DigiTrust Lab: do not run the
+WriterZen checker or spend its plagiarism words. Apply
+`.claude/rules/native-originality-source-gate.md` instead.

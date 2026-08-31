@@ -20,6 +20,11 @@
    evidence, and the same fresh snapshot justify `AUTHORIZED_ON`. Unknown or
    conflicting toggle state is a hard stop. Do not claim a credit amount for
    keyword suggestions unless the current product UI displays it.
+   For native-draft handoffs, also apply
+   `.claude/rules/native-originality-source-gate.md` and attest that no
+   WriterZen plagiarism action, requirement, or credit spend occurred. Any
+   external checker requires explicit user authorization recorded before cost
+   or submission.
 3. Select one canonical operations skill and read it in full.
 4. Execute only the requested bounded change or produce a runbook/checklist.
 5. Verify immediately, document evidence, and stop when the next action belongs to another department.

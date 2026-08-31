@@ -6,6 +6,9 @@ its contents into this department.
 For WriterZen/content handoffs, use the project-local
 `.claude/rules/editorial-relevance-gate.md` as the independent Operations
 checkpoint before credit, project, list, or drafting actions.
+For native-draft closeout, use
+`.claude/rules/native-originality-source-gate.md` to attest that WriterZen's
+plagiarism checker was not run, required, or charged.
 
 | Use for | Canonical skill |
 |---|---|

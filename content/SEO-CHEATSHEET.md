@@ -45,7 +45,7 @@ Plan: **AppSumo Tier 2 (Lifetime)** — Next reset: Aug 04, 2026
 | Keyword Lookup / Day | 74 / 75 | Keyword Explorer searches (resets daily) |
 | Keyword Credit / Month | 39,926 / 40,000 | Golden Filter consumes 1 credit per keyword in result set |
 | Article / Month | 68 / 70 | Content Creator / AI writing |
-| Plagiarism Word Check / Day | 40,000 / 40,000 | Plagiarism checks (resets daily) |
+| Plagiarism Word Check / Day | Product limit (historical) | **Not used** for DigiTrust Lab articles; apply `.claude/rules/native-originality-source-gate.md` |
 | AI Words / Month | 7,708 / 8,000 | AI-generated content words |
 | Keyword List / Plan | 47 / 50 | Saved keyword lists |
 

@@ -6,6 +6,8 @@ its contents into this department.
 Before metric work, independently re-check the project-local
 `.claude/rules/editorial-relevance-gate.md`; missing or contradictory Research
 fields are a fail-closed SEO handoff.
+Use `.claude/rules/native-originality-source-gate.md` for draft source and
+hash evidence; the WriterZen plagiarism checker is not an SEO prerequisite.
 
 | Use for | Canonical skill |
 |---|---|

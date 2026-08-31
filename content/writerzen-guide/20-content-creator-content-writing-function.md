@@ -75,7 +75,7 @@ A compiled list of People Also Ask questions, Google Suggest queries, and Reddit
 | **Deadline** | Displays the deadline set when the article was created |
 | **Import Content** | Import existing content from a URL or file directly into the editor |
 | **Note** | View notes left for writers when the article was created — useful for briefing freelancers |
-| **Share** | Generate a shareable link for writers. Set permissions for what they can access: competitor panel, related questions, plagiarism checker |
+| **Share** | Generate a shareable link for writers. Set permissions for what they can access: competitor panel, related questions, plagiarism checker (historical WriterZen capability; not used in the DigiTrust Lab workflow) |
 
 > **Note on AI access:** Writers with shared access **cannot** use the AI assistant. Only the account owner can use AI in content creation. This is a planned Team Function feature for future development.
 
@@ -92,14 +92,14 @@ The editor toolbar includes standard formatting controls (bold, italic, table, i
 
 ---
 
-## Plagiarism Checker (End of Writing)
+## Plagiarism Checker (Historical Product Reference — Superseded)
 
-Once your article is complete, run a plagiarism check from the right panel:
-
-- Click **Quick View Report** for a summary inline
-- Click **Detail Report** to go to the full Plagiarism Checker tool
-
-WriterZen's plagiarism checker uses Google's web index database — it checks only against **indexed sources**, since these are the ones that can affect your ranking ability. Non-indexed PDFs or documents may still appear in results.
+WriterZen exposes a plagiarism checker in this interface, but DigiTrust Lab
+does not run or require it. The paid/credit-consuming action is outside the
+normal workflow. Apply the no-credit contract in
+`.claude/rules/native-originality-source-gate.md` instead; it records
+provenance, source attribution, overlap review, and an exact content hash
+without claiming to be a plagiarism database.
 
 ---
 

@@ -66,6 +66,10 @@ WriterZen full draft.
 WriterZen's permitted output for this workflow is the title, description, and
 competitor-backed outline. The article body is drafted natively afterward,
 using DigiTrust Lab's Malay voice, formatting, link, and structure rules.
+After native drafting, apply the separate canonical no-credit originality and
+source-attribution contract in
+`.claude/rules/native-originality-source-gate.md`; never substitute WriterZen's
+Plagiarism Checker for that gate.
 
 Native drafting is not complete until the exact final content package has two
 fresh, independent, content-hash-matched reviews:

@@ -21,6 +21,9 @@ For WriterZen-related SEO handoffs, reference the canonical
 the outline brief, but it must not authorize full-article generation. The
 handoff must preserve outline-only ON, whole-article OFF, and the Operations
 pre-Create attestation; native drafting and dual review remain Content's gate.
+Source/provenance and exact draft-hash evidence follow
+`.claude/rules/native-originality-source-gate.md`; SEO does not trigger or
+require WriterZen's plagiarism checker.
 
 ## MCP boundary
 

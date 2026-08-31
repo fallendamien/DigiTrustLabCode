@@ -1,5 +1,12 @@
 # 5.1 Introduction to Plagiarism Checker
 
+> **DigiTrust Lab status: HISTORICAL PRODUCT REFERENCE — SUPERSEDED.** This
+> lesson documents a WriterZen capability for reference only. The DigiTrust
+> Lab workflow prohibits running or requiring the paid WriterZen checker. Use
+> `.claude/rules/native-originality-source-gate.md` for the current no-credit
+> originality and source-attribution contract. Do not treat this lesson as a
+> workflow instruction.
+
 ## Overview
 
 The Plagiarism Checker verifies the uniqueness of your content by checking for duplicate content on the web. It is a supporting tool designed to help you fine-tune your content before publishing.
@@ -18,18 +25,11 @@ The Plagiarism Checker compares your content against a large database of informa
 
 > **Why indexed content only?** Duplicating content that already appears in the SERPs is what directly impacts your rankings. Non-indexed content (e.g. PDFs not indexed as URLs) does not affect your SEO, so it is intentionally excluded from the check.
 
-## Creating a New Project
+## Archived Product Behaviour (Do Not Execute)
 
-1. Access the Plagiarism Checker from the navigation bar or the card on the dashboard
-2. Click **New Project** and give it a name
-3. Import your content in one of two ways:
-   - Paste content directly into the text window
-   - Import a text file
-4. Click **Add** to run the check
-5. Results are displayed on screen once the check is complete
-
-> **Daily limit:** The maximum amount of content you can check per day depends on your subscription plan.
-
-## Next Steps
-
-The next lesson covers a deep dive into the Plagiarism Checker report analysis. In the meantime, run a few checks to see how original your existing content is.
+The original WriterZen course described creating a checker project, importing
+text, and spending the plan's daily plagiarism words. Those product steps are
+retained only to explain the historical screenshots and terminology in this
+folder. Do not open the checker, import a DigiTrust Lab draft, click **Add**, or
+spend plagiarism words. The current workflow is defined exclusively by
+`.claude/rules/native-originality-source-gate.md`.

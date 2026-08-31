@@ -87,7 +87,7 @@ clusters. It must fail this gate rather than be promoted by metrics.
 | Keyword Lookup / Day | 75 | 1 per Keyword Explorer search |
 | Keyword Credit / Month | 40,000 | 1 per keyword when Golden Filter is activated |
 | Article / Month | 70 | Content Creator articles |
-| Plagiarism Word Check / Day | 40,000 | Plagiarism scans |
+| Plagiarism Word Check / Day | Product limit (historical) | **Not used in the DigiTrust Lab workflow**; native originality gate applies |
 | AI Words / Month | 8,000 | AI-generated content |
 | Keyword List / Plan | 50 | Saved keyword lists |
 
@@ -112,7 +112,7 @@ clusters. It must fail this gate rather than be promoted by metrics.
 ## The Pipeline (Overview)
 
 ```
-Topic Discovery → Keyword Explorer → Keyword Planner → Content Brief → Outline → Write → Plagiarism Check
+Topic Discovery → Keyword Explorer → Keyword Planner → Content Brief → Outline → Native Draft → Originality/Source Attribution → Dual Review
      (Phase 1)        (Phase 2)         (Phase 3)       (Phase 4)     (Phase 5)  (Phase 6)   (Post)
 ```
 
@@ -561,7 +561,7 @@ Then take a fresh DOM snapshot and verify the toggle state and the `0/N` keyword
 - AI shortcuts on hover: Expand, Rewrite, Topic paragraph, Copy
 - Bullet-to-paragraph feature for quick expansion
 - Content Score and Show Analysis for optimization feedback
-- Plagiarism checker integrated
+- Plagiarism checker integrated (WriterZen product capability; **not used** for DigiTrust Lab articles)
 - **Highlight Keywords toggle** — enable before editing to see included vs missing keywords
 
 ### Google NLP (Optional — English Only)
@@ -572,11 +572,21 @@ Adds entity analysis and sentiment from Google's NLP API. **3 credits per articl
 
 ---
 
-## Post-Writing: Plagiarism Check (BRIEF)
+## Post-Writing: Native Originality and Source Attribution (MANDATORY)
 
-Run plagiarism check after writing. Review orange (some similarity) and red (high similarity) highlights. Export report if needed. Exclude your own domain when rewriting existing content.
+Do not run or require WriterZen's paid Plagiarism Checker. Apply the single
+canonical no-credit contract in
+`.claude/rules/native-originality-source-gate.md`: record draft provenance,
+attribute source-grounded claims and close paraphrases, confirm no competitor
+text was copied, record a clear distinctive-overlap review, and bind the
+evidence to the exact draft content hash. The separate Anthropic/Claude Sonnet
+and OpenAI naturalness reviews remain mandatory, but they are not plagiarism
+database reports.
 
-> **Deep reference:** `content/writerzen-guide/24-plagiarism-checker-introduction.md` and `25-plagiarism-checker-report-analysis.md`
+The WriterZen plagiarism lessons are historical product references only and
+are explicitly superseded for this workflow:
+`content/writerzen-guide/24-plagiarism-checker-introduction.md` and
+`25-plagiarism-checker-report-analysis.md`.
 
 ---
 

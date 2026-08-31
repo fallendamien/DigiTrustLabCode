@@ -31,7 +31,7 @@
 22-content-creator-ai-assistant-outline-builder.md (4.5)
 23-content-creator-ai-assistant-full-article.md (4.6, superseded for DigiTrust Lab; reference only)
 
-── SECTION 5: Plagiarism Checker ──
+── SECTION 5: Plagiarism Checker (historical product reference only; superseded for DigiTrust Lab) ──
 24-plagiarism-checker-introduction.md (5.1)
 25-plagiarism-checker-report-analysis.md (5.2)
 
