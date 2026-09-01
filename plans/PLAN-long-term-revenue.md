@@ -12,13 +12,17 @@ A multi-layer monetization strategy combining blog SEO, Etsy digital products, a
 |-------|--------|------|
 | Modul AI Mastery (MRR) | Product live on BCL.my, RM39-RM299 packages | Paid (one-time license) |
 | WriterZen (lifetime) | Active, keyword research | Paid (2021) |
-| ClickRank (lifetime) | Dashboard set up, pending blog verification | Paid (AppSumo) |
-| Screpy (lifetime) | Account active, pending domain project | Paid (AppSumo) |
-| Bricks Builder | License available, unused | Paid |
-| digitrustlab.com | Domain live, blog not built | Active |
+| ClickRank (lifetime) | Active, keyword + AI Overview tracking for all posts | Paid (AppSumo) |
+| Screpy (lifetime) | Active project for digitrustlab.com, 3 crawls | Paid (AppSumo) |
+| Bricks Builder | License active, powering digitrustlab.com | Paid |
+| digitrustlab.com | Domain live, 11 blog posts published | Active |
 | FB Page (DigiTrust Lab) | Existing followers, ads paused | Free |
 | Etsy Shop | Not created yet | $0.20/listing |
 | Klikjer Affiliate | Not registered yet | Free to join |
+
+> **Snapshot date: 1 September 2026.** The active editorial queue and per-post
+> status live in `content/content-calendar.md`. Revenue projections below are
+> original assumptions from project planning, not verified actuals.
 
 ---
 

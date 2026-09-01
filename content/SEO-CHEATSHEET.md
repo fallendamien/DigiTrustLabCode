@@ -51,6 +51,10 @@ Plan: **AppSumo Tier 2 (Lifetime)** — Next reset: Aug 04, 2026
 
 > Last checked: 2026-07-17 after `apa itu ai` content brief + audit session. Update after each research session.
 
+> **Note (1 September 2026):** The quota figures above are a historical snapshot.
+> WriterZen resets monthly. The next reset is expected 4 September 2026
+> (user-reported, not verified). Always check Settings → Limits for current figures.
+
 Check this page before large batches of Topic Discovery or Golden Filter runs to avoid hitting the daily/monthly caps.
 
 ---

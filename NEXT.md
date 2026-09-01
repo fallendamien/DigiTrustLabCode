@@ -12,15 +12,26 @@
 
 ## Current State
 
-> **CURRENT STATUS — LIVE ARTICLE PUBLISHED; NATURALNESS PASSED (2026-08-26):** The new article is live at `https://digitrustlab.com/cara-guna-canva-ai-photo-editor/` (ID 686; published 08:38:24 +08:00). Structure, live link and exact-live v14 naturalness gates passed. The v14 artifact records final hash `23dd717f6edcf358b2c8e2359ed68c2bed92e2bc8578aa1b774f6b5e56077f7d` across 117 segments, with Claude `firstParty/claude-sonnet-5` and OpenAI `gpt-5.6-luna` at high effort; all checks pass with no findings. An earlier Google Search Console inspection at 08:43:08 (+08:00) reported `URL is not on Google` / `Page is not indexed: URL is unknown to Google` and accepted one indexing request. Later screenshot evidence dated 2026-08-26 shows the exact URL is on Google and `Page indexing — Page is indexed`, superseding the earlier pending result; screenshot time unavailable. ClickRank AI Overview row for `canva ai photo editor` was added once and verified at 21:18:19 MYT with `Not Found` / organic `N/A` / visibility `0%` / citations `0` / mentioned `No`, a valid initial result. The standard ClickRank Keyword Tracker row was added once and verified at 21:34:32 MYT; after reload, 11 total records showed the exact keyword+URL row with the Malaysia flag, `Not In Top 3 Results`, and all positions `0`; the standard UI has no language selector. Screpy project `wgspvb7lc3` was confirmed via `list_projects`, but the authenticated dashboard tab claim timed out, so Screpy rank tracking remains pending/unverified.
+> **CURRENT STATUS — POST #8 ACTIVE; WRITERZEN QUOTA BLOCKER (2026-09-01):**
+> Active article mission: Post #8 "Cara Buat Poster dengan ChatGPT". Blocked at WriterZen outline
+> creation — AI credit quota exhausted. Reset expected 4 September 2026 (user-reported, not verified).
+>
+> **breadcrumbModel: git-tracked — do not run `$sync-breadcrumbs`**
+>
+> Post #10 was published 2026-08-26 at `https://digitrustlab.com/cara-guna-canva-ai-photo-editor/`
+> (ID 686). Structure, live link and exact-live v14 naturalness gates passed. GSC indexed. Both
+> ClickRank trackers verified. Screpy Rank Tracker remains pending/unverified after the dashboard
+> tab claim timed out.
 >
 > **Also completed 2026-08-25:** (1) WordPress site title + Rank Math Website Name changed to `DigiTrustLab` (Alternate Name `DigiTrust Lab`); `og:site_name` and JSON-LD `WebSite.name` verified live. Setting is at Rank Math → Titles & Meta → **Local SEO** — not under Global. (2) Homepage pagination activated (page 280): query loop moved from inert grid container `#brxe-778413` to card element `#brxe-4c6189` (`postsPerPage: 6`); pagination element `#brxe-cctbuz` added and rebound; `/page/2/` returns HTTP 200 with posts 7–10, no duplicates. `/page/2/` canonical left pointing at homepage — deliberate decision, not a bug.
 
 ## Next action
 
-1. Revisit the exact authenticated Screpy Rank Tracker tab and add/verify Post #10; do not start a crawl.
-2. After the Post #10 Screpy tracking closeout is resolved or explicitly deferred, select the next article topic and begin the standard Option C pipeline at WriterZen quota check, then Topic Discovery; do not start drafting before those gates.
-3. Carry the earlier Post #7 Screpy Pages discovery as a non-blocking pending item: existing crawl `ojsmg8wv9al9ctqg` predates publication and does not contain the exact URL or slug. Do not start a crawl without explicit authorization.
+1. **After 4 September 2026 reset:** verify WriterZen quota on Settings → Limits; confirm AI Words available before proceeding.
+2. Run outline-only Create Article for Post #8 "Cara Buat Poster dengan ChatGPT" per Option C pipeline.
+3. Resolve Post #10 Screpy Rank Tracker (pending/unverified): revisit the exact authenticated dashboard tab; do not start a crawl.
+4. Carry Post #7 Screpy Pages discovery as a non-blocking pending item: existing crawl `ojsmg8wv9al9ctqg` predates publication. Do not start a crawl without explicit authorization.
+5. **⚠️ Post #12 (ID 605) naturalness gate BLOCKED:** the excerpt was changed after the dual-review completed, invalidating the content hash. The existing naturalness artifact is stale and cannot be used as publication evidence. Requires a fresh two-reviewer pass — one Anthropic/Claude Sonnet reviewer and one independent OpenAI reviewer — covering the exact final content (including the current excerpt) before completion can be claimed. Do not mark Post #12 published or close Phase 7 until the new artifact passes with matching hashes.
 
 ### Post #10 — ⚠️ PUBLISHED; SCREPY TRACKING PENDING (2026-08-26)
 

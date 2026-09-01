@@ -4,18 +4,22 @@
 
 ## Status
 
-🚧 **Phase 1: Foundation** — Blog build + Etsy shop setup + affiliate registration
+📝 **Phase 1: Content** — 11 blog posts published on [digitrustlab.com](https://digitrustlab.com)
+
+Live WordPress blog using Bricks Builder on Hostinger. Writing authentic AI tool
+tutorials, Canva/design tips, prompt engineering showcases, and digital
+productivity skills in Bahasa Melayu.
 
 ## Core Stack
 
 | Component | Tool | Status |
 |-----------|------|--------|
-| Blog | WordPress + Bricks Builder | Not started |
-| SEO Research | WriterZen (lifetime) | Ready |
-| SEO Optimization | ClickRank (lifetime) | Dashboard configured |
-| Rank Tracking | Screpy (lifetime) | Account active |
-| Email | MailerLite (free tier) | Not set up |
-| Analytics | GA4 + Google Search Console | Not set up |
+| Blog | WordPress + Bricks Builder | ✅ Live — 11 posts published |
+| SEO Research | WriterZen (lifetime) | ✅ Active |
+| SEO Optimization | ClickRank (lifetime) | ✅ Active — all posts tracked |
+| Rank Tracking | Screpy (lifetime) | ✅ Active — project wgspvb7lc3 |
+| Email | MailerLite (free tier) | ✅ Active — form cUeVaM live |
+| Analytics | GA4 + Google Search Console | ✅ Connected and active |
 | Etsy Shop | Etsy | Not created |
 | Affiliate | Klikjer, JV Warrior, AI Labs, Canva Pro | Not registered |
 

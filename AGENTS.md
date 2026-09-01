@@ -203,10 +203,11 @@ Templates 185 (Header) and 52 (Blog Archive) are now editable via Respira MCP wi
 - Use Raw HTML Code elements in Bricks templates
 - Use non-Bricks frameworks (React, Vue, etc.) injected into templates
 
-## ✅ Current Priority: Write and Publish Post #1
+## ✅ Current Priority: Post #8 — Cara Buat Poster dengan ChatGPT
 
-This is the only task that matters right now. Do NOT work on any template, design,
-or infrastructure task unless Zamri explicitly instructs it.
+Blocked at WriterZen outline creation. Quota reset expected 4 September 2026
+(user-reported, not verified). Next action: verify quota, then run outline-only
+Create Article per Option C pipeline.
 
 ## ✅ RESOLVED: Blog Archive Template 52 — Option C Layout (2026-07-20)
 

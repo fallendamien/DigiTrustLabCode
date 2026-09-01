@@ -1,3 +1,8 @@
+> **HISTORICAL (as of 1 September 2026):** This file is the original Week 1–2
+> launch checklist from project setup. Most items are complete. It is preserved
+> as a record, not an active task list. The active editorial queue lives in
+> `content/content-calendar.md`.
+
 # DigiTrust Lab — Task Checklist
 
 ## Phase 1: Foundation

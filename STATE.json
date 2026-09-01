@@ -2,10 +2,11 @@
   "project": "DigiTrust Lab",
   "owner": "Zamri Rosli",
   "primaryEditor": "Zed (since 2026-08-05) — Codex via ACP, Claude Code via terminal. Windsurf retained for Devin only; VS Code legacy.",
-  "lastSession": "2026-08-26",
-  "currentObjective": "Post #10 is published at https://digitrustlab.com/cara-guna-canva-ai-photo-editor/ (ID 686, 2026-08-26 08:38:24 +08:00). Structure, live link and exact-live v14 naturalness gates passed; the v14 artifact records hash 23dd717f6edcf358b2c8e2359ed68c2bed92e2bc8578aa1b774f6b5e56077f7d across 117 segments, with Claude firstParty/claude-sonnet-5 and OpenAI gpt-5.6-luna high, no findings. An earlier Google Search Console inspection at 08:43:08 +08:00 reported URL unknown/not indexed and accepted one indexing request; later screenshot evidence dated 2026-08-26 shows the exact URL is on Google and Page is indexed, superseding that pending state (screenshot time unavailable). The local Malay voice validator passes with no findings. ClickRank AI Overview row for canva ai photo editor was added once and verified on 2026-08-26 at 21:18:19 MYT with Not Found, organic N/A, visibility 0%, citations 0, mentioned No. The standard ClickRank Keyword Tracker row was added once and verified at 21:34:32 MYT; after reload, 11 total records showed the exact keyword+URL row with the Malaysia flag, Not In Top 3 Results, and all positions 0; the standard UI has no language selector. Screpy Rank Tracker is pending/unverified after the dashboard tab claim timed out.",
-  "currentPhase": "Post #10 published; naturalness passed; GSC indexing verified; both ClickRank trackers verified; Screpy rank tracking pending",
-  "phaseProgress": "PUBLISHED — POST #10; NATURALNESS PASS; GSC INDEXED; CLICKRANK AI OVERVIEW + KEYWORD TRACKER VERIFIED; SCREPY UNVERIFIED",
+  "breadcrumbModel": "git-tracked",
+  "lastSession": "2026-09-01",
+  "currentObjective": "Post #8 'Cara Buat Poster dengan ChatGPT' is the active article mission. Blocked at WriterZen outline creation pending quota reset. Post #10 was published on 2026-08-26 at https://digitrustlab.com/cara-guna-canva-ai-photo-editor/ (ID 686); structure, live link and exact-live v14 naturalness gates passed; GSC indexed; both ClickRank trackers verified; Screpy rank tracking remains pending/unverified after the dashboard tab claim timed out.",
+  "currentPhase": "Post #8 planned; WriterZen outline creation blocked pending quota reset (user-reported 4 September 2026)",
+  "phaseProgress": "PUBLISHED — POST #10; NATURALNESS PASS; GSC INDEXED; CLICKRANK AI OVERVIEW + KEYWORD TRACKER VERIFIED; SCREPY UNVERIFIED; POST #8 BLOCKED",
   "blockers": [
     "LiteSpeed serves cached HTTP 404s for clean Rank Math child sitemap URLs even though the regenerated origin XML returns 200 and sitemap-cache exclusions are configured; authenticated public-cache clearing and Search Console re-inspection remain. Evidence: docs/post-11-revalidation-2026-08-09.md",
     "Post #9 Screpy Pages Analyze was requested at 2026-08-10 03:14 (+08:00) and remains visibly Analyzing on crawler 18151; the fresh Post #9 discovery/result is not yet available.",
@@ -13,7 +14,8 @@
     "Post #5 closure is complete under Zamri's explicit acceptance of the historical WriterZen Seed keyword value `Highest-volume keyword`; do not reopen Post #5.",
     "Non-blocking Post #7 Screpy Pages pending: the latest existing crawl `ojsmg8wv9al9ctqg` predates publication and does not contain the exact URL or slug. No crawl was started.",
     "Post #10 Screpy Rank Tracker remains pending/unverified: project wgspvb7lc3 was confirmed through list_projects, but the exact authenticated dashboard tab claim timed out; no Screpy row or crawl was created.",
-    "Next article topic has not been selected. After Post #10 Screpy tracking is resolved or explicitly deferred, begin the standard Option C pipeline at WriterZen quota check, then Topic Discovery; do not start drafting before those gates."
+    "WriterZen AI credit quota exhausted; reset expected 4 September 2026 (user-reported, not verified)",
+    "Post #12 (ID 605) naturalness gate BLOCKED — excerpt was changed after the dual review completed, invalidating the content hash. Needs a fresh Anthropic/Claude Sonnet + OpenAI two-reviewer pass before publication completion can be claimed."
   ],
   "completed": [
     "Git repo initialized",
@@ -88,10 +90,11 @@
     "Homepage pagination configured on page 280 (Bricks, 2026-08-25). Root cause: query loop was on grid container #brxe-778413, which has no hasLoop property, so it was inert and Bricks fell back to the WordPress default of 10 posts. Fix: query loop moved to card element #brxe-4c6189 with postsPerPage: 6. Pagination element #brxe-cctbuz added as sibling below the grid with its Query bound to the 4c6189 loop (defaults to Main query when first added, renders 'No pagination results' until rebound — trap to remember). Verified logged-out 2026-08-25: homepage renders 6 cards; /page/2/ returns HTTP 200 with posts 7-10, no duplicates; one grid (no PRIORITY #3 regression); /blog/ unchanged. Decision: /page/2/ canonical points at homepage rather than self-referencing — deliberately left as-is because posts are indexed at their own URLs and via the sitemap, /blog/ is the real archive, and a paginated homepage view is thin duplicate content that does not need indexing. Altering it would mean changing a site-wide Rank Math canonical setting for a non-problem."
   ],
   "nextSteps": [
-    "ANI vs AGI vs ASI research gate, the explicitly authorized Post #1 live section, and the Claude-reviewed copy fixes completed on 2026-08-19 (WriterZen Topic Discovery 245998; Keyword Explorer 1567455; Post ID 256). Final live read-back and validators passed. Keep the roadmap paused for new article execution and do not assign a standalone post number before the normal gates.",
-    "Confirm the running Post #9 Screpy Pages Analyze crawl finishes and record its fresh discovery/result; then run final validators and commit/push the scoped handoff",
+    "Verify WriterZen quota on Settings → Limits page after 4 September 2026 reset (user-reported, not verified); do not start outline creation before confirming adequate credits",
+    "Run outline-only Create Article for Post #8 'Cara Buat Poster dengan ChatGPT' via Option C pipeline after quota is confirmed adequate",
+    "Resolve Post #10 Screpy Rank Tracker: revisit the exact authenticated Screpy dashboard tab and add/verify the row; do not start a crawl",
     "Clear the persistent LiteSpeed/Hostinger/Cloudflare cache for the repaired Rank Math child sitemaps, verify clean XML 200 responses, and re-submit sitemap_index.xml in Google Search Console",
-    "Select a new article topic, then begin the standard Option C pipeline at WriterZen quota check followed by Topic Discovery; do not start drafting before those gates. Carry Post #7 Screpy Pages discovery as a non-blocking pending item because crawl `ojsmg8wv9al9ctqg` predates publication and does not contain the exact URL or slug; do not start a crawl without explicit authorization.",
+    "Carry Post #7 Screpy Pages discovery as a non-blocking pending item because crawl ojsmg8wv9al9ctqg predates publication; do not start a crawl without explicit authorization",
     "Investigate Post #1 ranking drop: apa itu AI 15 -> 55 in ClickRank. Verify against Search Console first - the two ClickRank tools disagree with each other",
     "Register Klikjer affiliate",
     "Register JV Warrior affiliate",

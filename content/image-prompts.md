@@ -587,7 +587,7 @@ Flat illustration style. A top-down flat lay of three cards arranged vertically 
 
 ---
 
-## Post #8 — 5 Template Notion (PLANNED — TBD)
+## Post #8 — Cara Buat Poster dengan ChatGPT (PLANNED — TBD)
 
 **Slug:** TBD
 
