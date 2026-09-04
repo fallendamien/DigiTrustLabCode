@@ -10,7 +10,11 @@ definitions and remains authoritative. Controlled 2.5D is allowed for variety,
 but it does not redefine the brand family; preserve the documented palette,
 16:9 framing, treatment rotation, previous-six check, and human/motif rules.
 
-## Bounded specialist loop
+## Specialist playbook loop
+
+Run this loop directly for fast-lane work. For guarded work, the route receipt,
+required approval, worker scope, and evidence are added at the orchestration
+boundary.
 
 1. Confirm the content goal, reader, placement, visual format, dimensions,
    aspect ratio, brand/design source of truth, and any existing asset.

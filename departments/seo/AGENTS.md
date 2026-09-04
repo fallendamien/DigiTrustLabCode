@@ -10,6 +10,12 @@ AEO, internal linking, and content-gap analysis.
 - SEO/AEO audits, keyword and intent mapping, internal-link opportunities, and measurable recommendations.
 - On-page changes through approved Respira MCP workflows when explicitly authorized.
 
+## Execution mode
+
+Use this department directly as a fast-lane specialist playbook. Guarded work
+adds the current route receipt, required approval, and bounded-worker evidence
+without changing the department's SEO boundaries.
+
 ## Boundaries
 
 - Separate strategic findings from live-site changes.

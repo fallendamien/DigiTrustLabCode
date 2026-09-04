@@ -5,49 +5,38 @@ This file contains project-specific rules and operating standards for AI coding 
 ### Orchestration gate
 
 Read [the repo-local orchestration adapter](docs/ai/orchestration-policy.md),
-which points to the canonical TSOT policy. A brief marked `bounded-worker`
-executes directly within scope; orchestrator delegation triggers do not apply,
-and nested delegation remains prohibited.
+which points to the canonical TSOT policy. The default is the two-lane model:
+plan when work is complex, classify risk, execute ordinary local work directly,
+and verify it. A brief marked `bounded-worker` executes directly within scope;
+nested delegation remains prohibited.
 
-Codex Sol is orchestration-only for substantive work: requirements, routing,
-worker briefs, supervision, integration, final decisions, and evaluation of
-worker evidence remain in the main thread. Tools, browser actions, edits,
-external writes, tests, and verification commands must be executed by bounded
-workers. When delegation occurs, report the actual model ID, effort, scope, and
-evidence; no completion claim is valid without evidence. The canonical TSOT
-policy is the source of the full gate; this project file does not duplicate it.
+Use the fast lane for local reads, reversible edits, focused implementation,
+tests, Git inspection, explicitly requested scoped commits, and read-only
+network access. Use the guarded lane for external writes, pushes, history
+rewrites, destructive or irreversible actions, credentials, live systems,
+broad work, or independent review. Guarded work requires the relevant
+department, a current route receipt, required approval, and a bounded worker.
+Workers remain available when they materially improve independence or
+parallelism. This is a behavioral gate, not a runtime security boundary.
 
-Claude Opus follows the same orchestration-only execution gate: it owns
-requirements, routing, worker briefs, supervision, integration, final
-decisions, and evidence evaluation, while bounded workers execute all
-substantive tools, browser actions, edits, external writes, tests, and
-verification commands. If dispatch fails, all substantive execution stops for
-either strict orchestrator; high-risk and approval-gated actions remain
-fail-closed for every agent. Queue and steering behavior is defined only by the
-canonical TSOT policy. This is a behavioral gate, not a runtime security
-boundary.
-
-If Sol is unavailable, the canonical TSOT policy defines the only substitute
-orchestrator: actual `gpt-5.6-luna` at `xhigh` or `max`, under the same strict
-gate and separate bounded-worker execution.
+The exact project marker `orchestration_mode: strict` restores the former
+orchestration-only behavior for a project. Without that marker, departments are
+specialist playbooks that may be used directly on the fast lane. Preserve the
+actual worker model ID, effort, scope, and evidence whenever delegation occurs.
 
 ### EA inquiry-routing entrypoint
 
 The agent-neutral EA entrypoint for general inquiries is
 [`workspaces/executive-assistant/skills/inquiry-router/SKILL.md`](workspaces/executive-assistant/skills/inquiry-router/SKILL.md).
-Both Codex and Claude must use this router to classify the requested outcome,
-select exactly one primary department, and either answer a simple question
-directly or dispatch one bounded worker for substantive work. It is draft-only:
-it does not activate connectors, schedules, publishing, or external writes.
-
-**Turn gate (mandatory):** before any tool, browser action, connector,
-delegation, or external write, emit the router receipt required by the canonical
-skill (`Route`, `Route ID`, `Router version`, `Scope`, `Allowed systems`, and
-`External writes`). Re-route after compaction, a changed objective, or a newer
-router/department policy file. Carry the same `route_id` into worker briefs and
-require an attested result. Verify a transcript with
-`python scripts/verify-ea-router-runtime.py --session-log <session.jsonl>`;
-missing or stale receipts are a fail-closed result.
+Use this router for ambiguous, cross-department, or guarded inquiries. Obvious
+fast-lane work may proceed directly and may load a department as a specialist
+playbook without a receipt or worker. Guarded work must emit the router receipt
+(`Route`, `Route ID`, `Router version`, `Scope`, `Allowed systems`, and
+`External writes`) before action, carry the same `route_id` into the worker
+brief, and provide an attested result. Re-route after compaction, a changed
+objective, or a newer router/department policy file. Verify guarded transcripts
+with `python scripts/verify-ea-router-runtime.py --session-log <session.jsonl>`;
+missing or stale receipts remain fail-closed.
 
 ## 📁 File Architecture — Who Reads What
 

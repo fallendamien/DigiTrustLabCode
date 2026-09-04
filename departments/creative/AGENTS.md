@@ -17,6 +17,12 @@ diagrams, thumbnails, social graphics, and asset metadata.
 - Visual treatments that support DigiTrust Lab’s natural, useful, non-salesy
   content without inventing claims or decorative noise.
 
+## Execution mode
+
+Use this department directly as a fast-lane specialist playbook. Guarded work
+adds the current route receipt, required approval, and bounded-worker evidence
+without changing the department's visual boundaries.
+
 ## Boundaries
 
 - Content owns Malay copy and article integration.

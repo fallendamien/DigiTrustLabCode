@@ -1,26 +1,27 @@
 ---
 name: inquiry-router
-description: 'Use FIRST, before answering, on any general inquiry where the user has not already named a narrower EA skill — planning questions ("where do I begin", "how should I approach", "what should I do about"), status requests, troubleshooting, content/SEO/research/creative requests, newsletter/email/marketing planning, external repository/tool/skill/provider evaluation, integration advice, recommendations, and any explicit `department: content|seo|operations|research|creative` override. Classifies the requested outcome, selects exactly one primary department, and coordinates bounded draft-only work. Do NOT answer a general inquiry directly without routing it through this skill first.'
+description: 'Use for ambiguous, cross-department, or guarded general inquiries where the user has not already named a narrower EA skill. Classifies the requested outcome, selects one primary department when needed, and coordinates guarded draft-only work. Obvious fast-lane work may proceed directly.'
 ---
 
 # EA Inquiry Router
 
-Router contract version: 2026-08-22
+Router contract version: 2026-09-04
 
 ## Purpose
 
-Use this skill as the shared entrypoint for Codex and Claude when the user has
-not already selected a narrower EA skill. It classifies the requested outcome,
-selects exactly one primary department, and coordinates the next safe step. The
-EA owns routing, integration, and independent verification; a brief explicitly
-marked `bounded-worker` executes directly within scope, without nested
-delegation or self-approval.
+Use this skill as the shared entrypoint for Codex and Claude when a request is
+ambiguous, cross-department, or guarded and the user has not already selected a
+narrower EA skill. It classifies the requested outcome and selects one primary
+department when routing is needed. Obvious fast-lane work may proceed directly;
+a brief explicitly marked `bounded-worker` executes directly within scope,
+without nested delegation or self-approval.
 
 ## Trigger
 
-Use for general inquiries, status requests, troubleshooting, content, SEO,
-research, or creative requests, and whenever the user includes an explicit
-`department: content|seo|operations|research|creative` override.
+Use for ambiguous general inquiries, cross-department work, guarded actions,
+and whenever the user includes an explicit
+`department: content|seo|operations|research|creative` override. Do not invoke
+it as a mandatory gate for obvious fast-lane local work.
 
 ## Route contract
 
@@ -44,15 +45,24 @@ the smallest clarifying question needed.
 
 ## Execution gate
 
-0. Emit a route receipt as the first assistant output for every turn that is
-   not an ordinary continuation of an already-routed one. The receipt must
-   precede every tool call, browser action, connector, delegation, or external
-   write. Use this exact shape (replace the values):
+0. Classify the lane before action. Use the fast lane for local reads,
+   reversible edits, focused implementation, tests, Git inspection, explicitly
+   requested scoped commits, and read-only network access. Use the guarded lane
+   for external writes, pushes, history rewrites, destructive or irreversible
+   actions, credentials, live systems, broad work, or independent review. The
+   exact project marker `orchestration_mode: strict` restores the former
+   orchestration-only behavior for all substantive work.
+1. For fast-lane work, execute directly or load a department as a specialist
+   playbook; no route receipt or worker is required. Plan first when the work is
+   vague, complex, or multi-system, then verify with deterministic checks.
+2. For guarded work, emit a route receipt as the first assistant output before
+   any tool call, browser action, connector, delegation, or external write. Use
+   this exact shape (replace the values):
 
    ```text
    Route: primary=operations; secondary=none
    Route ID: <stable turn/thread identifier>
-   Router version: 2026-08-22
+   Router version: 2026-09-04
    Scope: <bounded outcome and stop boundary>
    Allowed systems: <systems or files this turn may touch>
    External writes: <yes|no>
@@ -62,9 +72,9 @@ the smallest clarifying question needed.
    only when the receipt also states the concrete handoff. A receipt is not a
    permission to widen scope; it records the permission already present in the
    user request and project policy.
-1. Read the repository root `AGENTS.md`, this workspace `AGENTS.md`, and the
+3. Read the repository root `AGENTS.md`, this workspace `AGENTS.md`, and the
    selected department's `AGENTS.md`, `skills/README.md`, and `workflow.md`.
-2. Before answering or dispatching, verify that the selected department adapter
+4. Before answering or dispatching, verify that the selected department adapter
    is installed: `<project-root>/departments/<primary>/AGENTS.md`,
    `<project-root>/departments/<primary>/skills/README.md`, and
    `<project-root>/departments/<primary>/workflow.md` must all exist. If any
@@ -72,40 +82,29 @@ the smallest clarifying question needed.
    and request that the department be bootstrapped/installed. Do not improvise
    department policy, silently route to another department, or treat the EA
    router as a substitute for the missing adapter.
-3. Record the loaded policy context in the receipt or the immediately following
+5. Record the loaded policy context in the receipt or the immediately following
    action/evidence line. If the router, root policy, or selected department
    files are newer than the current session, re-read them and emit a fresh
    receipt before continuing. After compaction, context reset, or a changed
    user objective, treat the next turn as unrouted and repeat this gate.
-4. Classify the work by risk before dispatching. External, destructive,
-   irreversible, high-risk, approval-gated, and broad or independently
-   review-worthy implementation requires exactly one bounded worker by default.
-   Narrow local inspection, reversible edits, focused tests, and ordinary
-   implementation may be handled directly when the orchestrator can safely own
-   them. Delegate when it materially improves independence or parallelism.
-   Simple, casual, one-step questions may be answered directly after recording
-   the route. External artifact/tool/provider/skill advice or judgment is not a
-   simple question merely because it says "just wondering" or "plan this first".
-5. For work requiring delegation, use the actual `gpt-5.6-luna` worker at `high`
-   reasoning effort on Codex, or the actual host-specific adapter named by the
-   orchestration policy on Claude. State the actual model ID, effort, scope, and
-   evidence; never infer provider identity from a friendly label. A
-   `bounded-worker` brief executes directly and does not trigger another
-   delegation. Record identity from the host dispatch metadata; do not ask the
-   worker to introspect or reject its assignment from a generic family label.
-6. Carry the route receipt into every worker brief: `route_id`, primary
+6. For guarded work requiring delegation, use the actual `gpt-5.6-luna` worker
+   at `high` reasoning effort on Codex, or the actual host-specific adapter
+   named by the orchestration policy on Claude. State the actual model ID,
+   effort, scope, and evidence; never infer provider identity from a friendly
+   label. A `bounded-worker` brief executes directly and does not trigger
+   another delegation. Record identity from host dispatch metadata.
+7. Carry the route receipt into every worker brief: `route_id`, primary
    department, bounded scope, allowed systems, evidence required, and stop
    conditions. The worker result must repeat those fields plus the model ID and
    effort supplied as its dispatch assignment. Verify that echo against the host
    dispatch record. Reject a result that contradicts the record, omits the
    attestation, or widens scope; a worker's generic self-description is not
    identity evidence.
-7. Coordinate the worker brief, inspect its evidence, and integrate the result.
-   The EA does not self-approve completion. If dispatch fails, external,
-   destructive, irreversible, high-risk, or approval-gated work stops. Safe
-   local read-only or reversible work may continue only with disclosed fallback,
-   preserved scope, and no claim of worker validation.
-8. Add a secondary department only for a concrete handoff, such as SEO
+8. Coordinate the worker brief, inspect its evidence, and integrate the result.
+   The EA does not self-approve completion. If guarded dispatch fails, the work
+   stops. Fast-lane fallback must preserve scope and cannot claim worker
+   validation.
+9. Add a secondary department only for a concrete handoff, such as SEO
    validation requested by Content or Operations performing an authorized live
    change after another department supplies a brief. Do not fan out by default.
 
@@ -137,10 +136,9 @@ published, sent, or otherwise unverified action as completed.
 
 The receipt is intentionally machine-auditable. Run
 `python scripts/verify-ea-router-runtime.py --session-log <session.jsonl>` at
-the end of a routed task or when investigating a suspected skip. The audit
-applies delegation requirements to orchestrator turns, not terminal
-bounded-worker turns. It fails closed when an orchestrator turn requiring
-delegation has no observable bounded-worker action, when a receipt is malformed,
-or when the router contract was refreshed after the session began without a
-current-version receipt. This is a verification layer, not a claim that
-prompt-level routing can revoke tools.
+the end of a guarded task or when investigating a suspected skip. The audit
+allows fast-lane turns without receipts or workers, but fails closed when a
+guarded turn lacks a current receipt, required approval, or observable
+bounded-worker action. In strict mode it restores the former receipt and worker
+requirements for all substantive turns. This is a verification layer, not a
+claim that prompt-level routing can revoke tools.

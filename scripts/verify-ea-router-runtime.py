@@ -2,14 +2,15 @@
 """Audit a Codex/Claude JSONL transcript for the EA router turn gate.
 
 This is deliberately a fail-closed audit, not a tool-permission mechanism.
-It checks the observable transcript contract: a substantive user turn must
-receive a complete route receipt before its first tool/delegation call, and the
-receipt must use the current router contract version.
+It checks the observable transcript contract for the active two-lane model:
+fast-lane turns may execute directly, while guarded turns require a complete
+current route receipt, required approval, and bounded-worker action. A project
+root marker restores the legacy strict behavior for all substantive turns.
 
 ``--project-root`` lets an invocation from a project directory resolve the
 router SKILL.md and policy files from that project root instead of from the
-two-levels-up default.  Omit it when invoking from within the canonical skill
-location (the default keeps behaviour identical to before this flag existed).
+two-levels-up default. Omit it when invoking from within the canonical skill
+location.
 """
 
 from __future__ import annotations
@@ -36,6 +37,20 @@ FIELD_RE = {
     for name in ("Route ID", "Router version", "Scope", "Allowed systems", "External writes")
 }
 VERSION_RE = re.compile(r"(?im)^Router contract version:\s*(?P<version>\S+)\s*$")
+STRICT_MODE_RE = re.compile(r"(?m)^orchestration_mode: strict$")
+GUARDED_RE = re.compile(
+    r"(?ix)\b(?:push|publish|deploy|upload|send|delete|remove|reset|credential|"
+    r"permission|live\s+(?:site|system)|external\s+write|history\s+rewrite|"
+    r"destructive|irreversible|broad|independent(?:ly)?\s+review|production)\b"
+)
+APPROVAL_REQUIRED_RE = re.compile(
+    r"(?ix)\b(?:push|publish|deploy|upload|send|delete|remove|reset|credential|"
+    r"permission|live\s+(?:site|system)|external\s+write|history\s+rewrite|"
+    r"purchase|payment|transfer)\b"
+)
+APPROVAL_FIELD_RE = re.compile(
+    r"(?im)^(?:Handoff\s*/\s*approval|Approval):\s*(?P<value>.+?)\s*$"
+)
 # ROUTE_RE/FIELD_RE are deliberately line-anchored (^...$) so a receipt with a
 # truncated or missing field is caught rather than silently glossed over. Some
 # assistant messages render an otherwise-complete receipt as a SINGLE physical
@@ -326,6 +341,8 @@ def parse_receipt(index: int, text: str) -> tuple[Receipt | None, list[str]]:
     if values.get("External writes", "").lower() not in {"yes", "no"}:
         failures.append("External writes must be yes or no")
 
+    handoff_match = APPROVAL_FIELD_RE.search(text)
+    handoff = handoff_match.group("value").strip() if handoff_match else ""
     receipt = Receipt(
         index=index,
         primary=primary,
@@ -335,12 +352,47 @@ def parse_receipt(index: int, text: str) -> tuple[Receipt | None, list[str]]:
         scope=values.get("Scope", ""),
         allowed_systems=values.get("Allowed systems", ""),
         external_writes=values.get("External writes", ""),
+        handoff=handoff,
     )
     for label, value in (("Route ID", receipt.route_id), ("Router version", receipt.version),
                          ("Scope", receipt.scope), ("Allowed systems", receipt.allowed_systems)):
         if not value or value.startswith("<"):
             failures.append(f"{label} is empty or still a placeholder")
     return receipt, failures
+
+
+def is_guarded_user(text: str) -> bool:
+    """Return whether the user request contains a guarded-lane trigger."""
+    return bool(GUARDED_RE.search(text))
+
+
+def requires_approval(text: str) -> bool:
+    """Return whether the request crosses an explicit approval boundary."""
+    return bool(APPROVAL_REQUIRED_RE.search(text))
+
+
+def project_is_strict(project_root: Path = ROOT) -> bool:
+    """Return whether the project opts into legacy strict orchestration."""
+    agents = project_root / "AGENTS.md"
+    if not agents.is_file():
+        return False
+    return bool(STRICT_MODE_RE.search(agents.read_text(encoding="utf-8")))
+
+
+def run_project_mode_self_tests() -> list[str]:
+    """Prove that the exact root marker selects strict mode and absence does not."""
+    failures: list[str] = []
+    with tempfile.TemporaryDirectory() as directory:
+        root = Path(directory)
+        (root / "AGENTS.md").write_text("# default project\n", encoding="utf-8")
+        if project_is_strict(root):
+            failures.append("default project incorrectly selected strict mode")
+        (root / "AGENTS.md").write_text(
+            "# strict project\n\norchestration_mode: strict\n", encoding="utf-8"
+        )
+        if not project_is_strict(root):
+            failures.append("exact strict marker did not select strict mode")
+    return failures
 
 
 def iter_events(path: Path) -> tuple[list[Event], datetime | None]:
@@ -418,7 +470,9 @@ def freshness_required(
     return router_mtime > start or root_mtime > start
 
 
-def audit_events(events: list[Event], expected_version: str, *, freshness: bool) -> list[str]:
+def audit_events(
+    events: list[Event], expected_version: str, *, freshness: bool, strict: bool = False
+) -> list[str]:
     failures: list[str] = []
     users = [event for event in events if event.kind == "user" and is_substantive_user(event.text)]
     if not users:
@@ -427,9 +481,12 @@ def audit_events(events: list[Event], expected_version: str, *, freshness: bool)
     for turn_no, user in enumerate(users, 1):
         next_user_index = next((candidate.index for candidate in users if candidate.index > user.index), None)
         window = [event for event in events if event.index > user.index and (next_user_index is None or event.index < next_user_index)]
-        first_assistant = next((event for event in window if event.kind == "assistant"), None)
         first_action = next((event for event in window if event.kind == "action"), None)
         label = f"turn {turn_no} (log line {user.display_line})"
+        guarded = strict or is_guarded_user(user.text)
+        if not guarded:
+            continue
+        first_assistant = next((event for event in window if event.kind == "assistant"), None)
         if first_assistant is None:
             failures.append(f"{label}: no observable assistant route receipt")
             continue
@@ -444,6 +501,8 @@ def audit_events(events: list[Event], expected_version: str, *, freshness: bool)
             failures.append(
                 f"{label}: substantive turn has no observable bounded-worker dispatch"
             )
+        if requires_approval(user.text) and not receipt.handoff:
+            failures.append(f"{label}: guarded action lacks required approval evidence")
         if expected_version and receipt.version != expected_version:
             failures.append(f"{label}: stale Router version {receipt.version!r}; expected {expected_version!r}")
         if freshness and receipt.version != expected_version:
@@ -463,9 +522,18 @@ def synthetic_events(version: str, *, malformed: bool = False) -> list[Event]:
     if malformed:
         receipt = "Route: primary=operations; secondary=none\n"
     return [
-        Event(1, "user", "Please audit the router gate."),
+        Event(1, "user", "Please independently review the router gate."),
         Event(2, "assistant", receipt),
         Event(3, "action", payload={"type": "custom_tool_call", "name": "spawn_agent", "model": "gpt-5.6-luna"}),
+    ]
+
+
+def synthetic_fast_lane_events() -> list[Event]:
+    """A normal local turn may execute without a receipt or worker."""
+    return [
+        Event(1, "user", "Please inspect the local router file and summarize the current flow."),
+        Event(2, "assistant", "I inspected the local router file."),
+        Event(3, "action", payload={"type": "custom_tool_call", "name": "read_file"}),
     ]
 
 
@@ -480,7 +548,7 @@ def synthetic_external_evaluation_events(version: str) -> list[Event]:
         "External writes: no\n"
     )
     return [
-        Event(1, "user", "I want your advice: https://github.com/example/tool.git is it good to integrate? Plan this first."),
+        Event(1, "user", "Please independently review whether https://github.com/example/tool.git is suitable to integrate."),
         Event(2, "assistant", receipt),
         Event(3, "action", payload={"type": "custom_tool_call", "name": "create_thread", "worker_model": "gpt-5.6-luna", "effort": "high"}),
     ]
@@ -489,6 +557,31 @@ def synthetic_external_evaluation_events(version: str) -> list[Event]:
 def synthetic_no_worker_events(version: str) -> list[Event]:
     events = synthetic_external_evaluation_events(version)
     return events[:2] + [Event(3, "assistant", "Direct advice without a worker.")]
+
+
+def synthetic_guarded_no_receipt_events() -> list[Event]:
+    """A guarded action without a receipt must fail closed."""
+    return [
+        Event(1, "user", "Please push the repository to origin."),
+        Event(2, "assistant", "I will push it now."),
+    ]
+
+
+def synthetic_approval_missing_events(version: str) -> list[Event]:
+    """A guarded external action without approval evidence must fail closed."""
+    receipt = (
+        "Route: primary=operations; secondary=none\n"
+        "Route ID: approval-missing-1\n"
+        f"Router version: {version}\n"
+        "Scope: push the repository to origin; stop after the push\n"
+        "Allowed systems: local Git repository and configured origin only\n"
+        "External writes: yes\n"
+    )
+    return [
+        Event(1, "user", "Please push the repository to origin."),
+        Event(2, "assistant", receipt),
+        Event(3, "action", payload={"type": "custom_tool_call", "name": "spawn_agent"}),
+    ]
 
 
 def _write_jsonl(records: list[dict[str, Any]]) -> Path:
@@ -511,15 +604,24 @@ def _claude_assistant_record(content: Any, timestamp: str = "2026-08-18T00:00:01
     return {"type": "assistant", "message": {"role": "assistant", "content": content}, "timestamp": timestamp}
 
 
-def _claude_receipt_text(version: str, route_id: str) -> str:
-    return (
+def _claude_receipt_text(
+    version: str,
+    route_id: str,
+    *,
+    external_writes: str = "no",
+    approval: str = "",
+) -> str:
+    text = (
         "Route: primary=operations; secondary=none\n"
         f"Route ID: {route_id}\n"
         f"Router version: {version}\n"
         "Scope: verify the transcript gate only; stop after the audit\n"
         "Allowed systems: repository scripts and synthetic records only\n"
-        "External writes: no\n"
+        f"External writes: {external_writes}\n"
     )
+    if approval:
+        text += f"Handoff / approval: {approval}\n"
+    return text
 
 
 def run_claude_format_unit_tests() -> list[str]:
@@ -562,12 +664,17 @@ def run_claude_format_unit_tests() -> list[str]:
 def run_claude_session_self_tests(expected_version: str) -> list[str]:
     """Full JSONL round trips through iter_events + audit_events (cases e-f)."""
     failures: list[str] = []
-    receipt_text = _claude_receipt_text(expected_version, "claude-self-test-1")
+    receipt_text = _claude_receipt_text(
+        expected_version,
+        "claude-self-test-1",
+        external_writes="yes",
+        approval="user approved the bounded push test",
+    )
 
     # (e) valid receipt before the first tool call -> PASS
     good_path = _write_jsonl(
         [
-            _claude_user_record("Please audit and fix the router parser."),
+            _claude_user_record("Please push the router policy after the audit."),
             _claude_assistant_record(
                 [
                     {"type": "text", "text": receipt_text},
@@ -589,7 +696,7 @@ def run_claude_session_self_tests(expected_version: str) -> list[str]:
     # (f) NO receipt before the first tool call -> FAIL (proves real violations are still caught)
     bad_path = _write_jsonl(
         [
-            _claude_user_record("Please audit and fix the router parser."),
+            _claude_user_record("Please push the router policy after the audit."),
             _claude_assistant_record(
                 [
                     {"type": "tool_use", "id": "t1", "name": "spawn_agent", "input": {}},
@@ -610,7 +717,7 @@ def run_claude_session_self_tests(expected_version: str) -> list[str]:
     # must not be counted as a phantom substantive user turn.
     trap_path = _write_jsonl(
         [
-            _claude_user_record("Please audit and fix the router parser."),
+            _claude_user_record("Please push the router policy after the audit."),
             _claude_assistant_record(
                 [
                     {"type": "text", "text": receipt_text},
@@ -643,13 +750,18 @@ def run_claude_session_self_tests(expected_version: str) -> list[str]:
 def run_codex_iter_events_regression(expected_version: str) -> list[str]:
     """Prove the Codex (response_item) path through iter_events is unchanged (case g)."""
     failures: list[str] = []
-    receipt_text = _claude_receipt_text(expected_version, "codex-self-test-1")
+    receipt_text = _claude_receipt_text(
+        expected_version,
+        "codex-self-test-1",
+        external_writes="yes",
+        approval="user approved the bounded push test",
+    )
     path = _write_jsonl(
         [
             {"type": "session_meta", "payload": {"timestamp": "2026-08-18T00:00:00Z"}},
             {
                 "type": "response_item",
-                "payload": {"type": "message", "role": "user", "content": "Please audit and fix the router parser."},
+                "payload": {"type": "message", "role": "user", "content": "Please push the router policy after the audit."},
             },
             {
                 "type": "response_item",
@@ -781,11 +893,17 @@ def run_real_transcript_self_test(
 
 
 def run_self_test() -> int:
-    version = router_version() or "2026-08-22"
+    version = router_version() or "2026-09-04"
+    fast = audit_events(synthetic_fast_lane_events(), version, freshness=False)
     good = audit_events(synthetic_events(version), version, freshness=False)
     bad = audit_events(synthetic_events(version, malformed=True), version, freshness=False)
     external = audit_events(synthetic_external_evaluation_events(version), version, freshness=False)
     no_worker = audit_events(synthetic_no_worker_events(version), version, freshness=False)
+    guarded_no_receipt = audit_events(synthetic_guarded_no_receipt_events(), version, freshness=False)
+    approval_missing = audit_events(synthetic_approval_missing_events(version), version, freshness=False)
+    strict_no_receipt = audit_events(synthetic_fast_lane_events(), version, freshness=False, strict=True)
+    strict_good = audit_events(synthetic_events(version), version, freshness=False, strict=True)
+    project_mode = run_project_mode_self_tests()
     claude_unit_failures = run_claude_format_unit_tests()
     claude_session_failures = run_claude_session_self_tests(version)
     codex_regression_failures = run_codex_iter_events_regression(version)
@@ -794,7 +912,13 @@ def run_self_test() -> int:
         not good
         and bad
         and not external
+        and not fast
         and any("no observable bounded-worker dispatch" in failure for failure in no_worker)
+        and guarded_no_receipt
+        and any("required approval evidence" in failure for failure in approval_missing)
+        and strict_no_receipt
+        and not strict_good
+        and not project_mode
         and not claude_unit_failures
         and not claude_session_failures
         and not codex_regression_failures
@@ -803,15 +927,18 @@ def run_self_test() -> int:
     if not ok:
         print(
             "FAIL EA router runtime self-test: "
-            f"good={good!r}, malformed={bad!r}, external={external!r}, no_worker={no_worker!r}, "
+            f"fast={fast!r}, good={good!r}, malformed={bad!r}, external={external!r}, "
+            f"no_worker={no_worker!r}, guarded_no_receipt={guarded_no_receipt!r}, "
+            f"approval_missing={approval_missing!r}, strict_no_receipt={strict_no_receipt!r}, "
+            f"strict_good={strict_good!r}, project_mode={project_mode!r}, "
             f"claude_unit={claude_unit_failures!r}, claude_session={claude_session_failures!r}, "
             f"codex_regression={codex_regression_failures!r}, "
             f"real_transcript={real_transcript_failures!r}"
         )
         return 1
     print(
-        "PASS EA router runtime self-test: receipt ordering, worker dispatch, "
-        "external-evaluation regression, no-worker failure, malformed-receipt failure, "
+        "PASS EA router runtime self-test: fast-lane direct execution, guarded receipt/worker/approval gates, "
+        "strict-mode enforcement, external-evaluation regression, no-worker failure, malformed-receipt failure, "
         "Claude-format parsing (user/assistant/tool_result-trap/ordering), Codex iter_events regression, "
         "and real-transcript ground truth"
     )
@@ -868,6 +995,7 @@ def main() -> int:
     if not expected_version:
         print("FAIL EA router runtime: router contract version is missing")
         return 1
+    strict = project_is_strict(effective_root)
     failures = audit_events(
         events,
         expected_version,
@@ -877,6 +1005,7 @@ def main() -> int:
             router=effective_router,
             root=effective_root,
         ),
+        strict=strict,
     )
     if failures:
         print("FAIL EA router runtime:")
@@ -884,7 +1013,8 @@ def main() -> int:
             print(f"  - {failure}")
         return 1
     substantive = sum(event.kind == "user" and is_substantive_user(event.text) for event in events)
-    print(f"PASS EA router runtime: {substantive} substantive turn(s) have current receipts before actions")
+    mode = "strict" if strict else "two-lane"
+    print(f"PASS EA router runtime: {substantive} substantive turn(s) satisfy {mode} lane requirements")
     return 0
 
 

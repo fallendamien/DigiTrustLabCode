@@ -1,6 +1,10 @@
 # Operations workflow
 
-## Bounded specialist loop
+## Specialist playbook loop
+
+Run this loop directly for safe, narrow fast-lane operations. For guarded work,
+add the route receipt, required approval, bounded-worker scope, and independent
+evidence at the orchestration boundary.
 
 1. Establish the change boundary, rollback path, affected systems, and approval state.
 2. Independently apply `.claude/rules/editorial-relevance-gate.md` before any
@@ -32,12 +36,12 @@
 ## Delegation decision
 
 An explicitly marked `bounded-worker` brief executes directly within its scope;
-nested delegation is prohibited. For orchestrator turns, delegate external,
+nested delegation is prohibited. In the guarded lane, delegate external,
 destructive, irreversible, high-risk, approval-gated, or broad/
 independently review-worthy work. Safe narrow local inspection, reversible
-edits, focused tests, and ordinary implementation may be owned directly. If
-dispatch fails, high-risk and approval-gated work stops; safe local fallback
-must disclose the fallback and cannot claim worker validation.
+edits, focused tests, and ordinary implementation belong in the fast lane. If
+guarded dispatch fails, the work stops; fast-lane execution cannot claim worker
+validation.
 
 ## MCP boundary
 

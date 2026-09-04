@@ -1,6 +1,10 @@
 # Content workflow
 
-## Bounded specialist loop
+## Specialist playbook loop
+
+Run this loop directly for fast-lane work. For guarded work, the route receipt,
+required approval, worker scope, and evidence are added at the orchestration
+boundary.
 
 1. Confirm the content outcome, audience, format, and current source of truth.
 2. Before accepting a brief, outline, draft, or drafting handoff, require a

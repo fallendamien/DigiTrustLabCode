@@ -10,6 +10,12 @@ documented while coordinating changes across agents.
 - Change propagation, deployment procedures, site readiness, incident follow-up, technical debt, and activity reporting.
 - Verification of imports, content-status consistency, and scope before handoff.
 
+## Execution mode
+
+Use this department directly for safe, narrow fast-lane operations and their
+deterministic verification. Guarded work owns the route receipt, required
+approval, bounded worker, and independent evidence requirements.
+
 ## Boundaries
 
 - Treat live WordPress/Bricks changes as high-risk operations: use Respira and the project safety rules.

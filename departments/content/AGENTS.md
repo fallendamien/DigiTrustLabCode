@@ -12,6 +12,12 @@ the canonical skills remain the source of procedure.
 - Content status and planning records governed by `.claude/rules/content-planning.md`.
 - WordPress writes only through the approved Respira workflow and only when the user authorizes them.
 
+## Execution mode
+
+Use this department directly as a fast-lane specialist playbook. Guarded work
+adds the current route receipt, required approval, and bounded-worker evidence
+without changing the department's content boundaries.
+
 ## Boundaries
 
 - Do not duplicate or rewrite canonical skill instructions here.

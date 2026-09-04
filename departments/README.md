@@ -1,12 +1,12 @@
 # Departments
 
-This directory is the repo-local routing layer for bounded specialist work. It
-organizes existing skills; it does not replace or duplicate the canonical
-skills in `.claude/skills/` or the shared TSOT exposed through `.windsurf/skills/`.
+This directory is the repo-local specialist-playbook layer. It organizes
+existing skills; it does not replace or duplicate the canonical skills in
+`.claude/skills/` or the shared TSOT exposed through `.windsurf/skills/`.
 
-All department work is subject to the [orchestration-only policy](../docs/ai/orchestration-policy.md):
-orchestrators dispatch bounded workers and integrate evidence; they do not do
-substantive work directly.
+Departments may be loaded directly for fast-lane work. Guarded work follows the
+[orchestration policy](../docs/ai/orchestration-policy.md), including its route
+receipt, approval, bounded-worker, and evidence requirements.
 
 ## Routing contract
 
@@ -24,7 +24,8 @@ substantive work directly.
 4. **Load pointers, not copies.** Read the selected department's `skills/README.md`,
    then read the referenced canonical skill before executing it.
 5. **Run the department gate.** Follow `workflow.md`; do not claim completion
-   without the listed verification evidence.
+   without the listed verification evidence. A handoff or worker is required
+   only when the risk classification or department boundary calls for it.
 
 | Department | Route when the primary outcome is | Contract |
 |---|---|---|

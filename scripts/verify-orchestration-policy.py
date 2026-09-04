@@ -40,9 +40,14 @@ REQUIRED = (
     ("gpt-5.5", "not a Claude worker"),
     ("Worker-context precedence", "bounded-worker"),
     ("Risk-based delegation", "approval-gated"),
-    ("safe local", "reversible"),
+    ("ordinary local reads", "reversible edits"),
     ("dispatch fails", "fallback"),
-    ("runtime audits", "orchestrator turns"),
+    ("runtime audits", "active lane"),
+)
+LOCAL_REQUIRED = (
+    ("two-lane", "fast lane"),
+    ("guarded lane", "bounded worker"),
+    ("orchestration_mode: strict", "two-lane"),
 )
 
 CONFIG_MODEL = "gpt-5.6-luna"
@@ -87,11 +92,15 @@ def main():
     adapter = POLICY.read_text(encoding="utf-8").lower()
     policy = CANONICAL.read_text(encoding="utf-8").lower()
     normalized_policy = " ".join(policy.split())
+    normalized_adapter = " ".join(adapter.split())
     for model, mapping in REQUIRED:
         if model.lower() not in normalized_policy or mapping.lower() not in normalized_policy:
             failures.append(f"missing mapping: {model} -> {mapping}")
     if "canonical policy" not in adapter or "thin" not in adapter:
         failures.append("repo-local policy is not a thin canonical adapter")
+    for marker, mapping in LOCAL_REQUIRED:
+        if marker.lower() not in normalized_adapter or mapping.lower() not in normalized_adapter:
+            failures.append(f"missing local two-lane mapping: {marker} -> {mapping}")
     pointers = 0
     for relative, target in POINTERS.items():
         path = ROOT / relative
@@ -115,7 +124,7 @@ def main():
         print("WARN shared guidance expects the documented Luna High value; update the user config explicitly and do not overwrite it silently")
     elif config_path.is_file():
         print(f"PASS Codex config: {config_path} matches {CONFIG_MODEL} at {CONFIG_EFFORT} effort")
-    print(f"PASS orchestration policy: policy present; {len(REQUIRED)} mappings; {pointers} pointers; dispatch identity contract and caveat present")
+    print(f"PASS orchestration policy: two-lane adapter; {len(REQUIRED)} canonical mappings; {pointers} pointers; strict override and dispatch contract present")
     return 0
 
 

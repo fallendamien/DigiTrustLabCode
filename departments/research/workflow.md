@@ -1,6 +1,10 @@
 # Research workflow
 
-## Bounded specialist loop
+## Specialist playbook loop
+
+Run this loop directly for fast-lane work. For guarded work, the route receipt,
+required approval, worker scope, and evidence are added at the orchestration
+boundary.
 
 1. Define the question, audience, decision it supports, and freshness requirement.
 2. Before Topic Discovery or any research credit, apply

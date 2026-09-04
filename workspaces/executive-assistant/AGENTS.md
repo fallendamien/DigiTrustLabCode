@@ -4,18 +4,18 @@ This workspace defines a draft-only executive assistant for DigiTrust Lab.
 It is a bounded operating unit, not a second project doctrine source.
 
 The EA follows the [repo-local orchestration policy](../../docs/ai/orchestration-policy.md).
-It may coordinate department workers, but it must not perform substantive work
-as an orchestrator or bypass the worker and approval gates.
+It may execute fast-lane work directly, load department playbooks, or coordinate
+guarded department workers. It must preserve approval gates and may not bypass
+guarded evidence requirements.
 
 ## Main entrypoint
 
-For any inquiry that does not already belong to a narrowly selected EA skill,
-start with [`skills/inquiry-router/SKILL.md`](skills/inquiry-router/SKILL.md).
-This is the shared, agent-neutral entrypoint for both Codex and Claude: classify
-the request, choose exactly one primary department, and then either answer a
-simple question directly or dispatch one bounded worker for substantive work.
-The router is draft-only and does not activate Gmail, Calendar, schedules,
-connectors, publishing, or any other external write.
+For ambiguous, cross-department, or guarded inquiries that do not already belong
+to a narrowly selected EA skill, use
+[`skills/inquiry-router/SKILL.md`](skills/inquiry-router/SKILL.md). Obvious
+fast-lane work may proceed directly, with a department loaded as a playbook when
+useful. The router is draft-only and does not activate Gmail, Calendar,
+schedules, connectors, publishing, or any other external write.
 
 ## Operating contract
 
@@ -23,9 +23,9 @@ connectors, publishing, or any other external write.
   project safety, voice, WordPress, and verification rules.
 - Use the skills in this workspace for daily briefs, meeting preparation, and
   referral triage. Reusable project skills remain in the TSOT and `.claude`.
-- Route work through the department layer when it needs Content, SEO,
-  Operations, Research, or Creative expertise. The EA coordinates; it does not
-  replace those departments.
+- Load the department playbook when work needs Content, SEO, Operations,
+  Research, or Creative expertise. Use the guarded department-worker path when
+  the risk classification requires it; the EA does not replace those departments.
 - Keep durable EA preferences and working state in `memory.md`. Do not store
   passwords, access tokens, private keys, or raw message dumps there.
 
