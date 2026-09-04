@@ -1,6 +1,6 @@
 ---
 name: write-post
-description: "Write and publish a blog post using the WriterZen Option C pipeline. Quota check → Topic Discovery → Golden Filter → Keyword List → cluster → Weak Spot gate → Content Brief → Content Creator → publish via Respira MCP → Rank Math → Malay voice gate → ClickRank/Screpy tracking → Google Search Console indexing request. Includes the hard-won wp.data excerpt method."
+description: "Write and publish a blog post using the WriterZen Option C pipeline. Quota check → Topic Discovery → Golden Filter → Keyword List → cluster → Weak Spot gate → Content Brief → Content Creator → SERP section-readiness → publish via Respira MCP → Rank Math → Malay voice gate → ClickRank/Screpy tracking → Google Search Console indexing request. Includes the hard-won wp.data excerpt method."
 ---
 
 # Write & Publish a Blog Post (Option C Pipeline)
@@ -344,6 +344,30 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
      WriterZen. Media work belongs to the WordPress/Respira publication stage.
 5. Save the outline
 
+### Phase 3.1: SERP Section-Readiness Map (MANDATORY)
+
+Google may show sitelinks or section deep links beneath a result when its
+systems can identify useful, visible destinations. This is an eligibility
+signal, not a ranking promise: Google chooses the displayed links automatically.
+Use the outline to make the useful destinations obvious without writing for a
+SERP gimmick.
+
+Before drafting, record this short map alongside the outline:
+
+| Check | Requirement |
+|---|---|
+| **Sub-intents** | Select 3–6 distinct sub-intents from validated keyword variants, Google Suggest/Questions, or relevant SERP headings. |
+| **H2 ownership** | Put primary sub-intents in clear H2s; keep supporting details as H3s. Promote a heading only when the information architecture supports it. |
+| **Heading text** | Keep each H2 informative, compact, unique, and natural in Malay. Do not place near-duplicate keyword variants in adjacent headings. |
+| **Immediate answer** | Plan the first 1–2 sentences under every target H2 to answer that section's question directly. |
+| **Candidate destinations** | Mark 2–4 H2s whose visible content would be useful as jump destinations. Record candidates as targets, never as a guaranteed Google feature. |
+
+The current `/cara-buat-prompt-chatgpt/` result is a useful pattern: Google
+selected meaningful H2 destinations while leaving deeper H3 details as support.
+Do not add artificial “sitelink” buttons, hidden keyword blocks, or schema to
+force the feature. See Google's [sitelinks guidance](https://developers.google.com/search/docs/appearance/sitelinks)
+and [deep-link guidance](https://developers.google.com/search/docs/appearance/snippet).
+
 ### Phase 4: Content Creator Step 2 — Keywords to Include
 
 1. **Enable the Highlight Keywords toggle FIRST** (before reviewing or editing any content):
@@ -433,6 +457,18 @@ while the WordPress post remains a draft.
    ```
 
    This must pass before the draft is staged. Rank Math does not replace it.
+
+2a. **Run the SERP section-readiness check before staging:**
+   - Keep every candidate destination as a real, visible H2 with a unique,
+     descriptive label; keep supporting details in the H3 hierarchy.
+   - Put the direct answer immediately after each candidate H2. Do not place the
+     answer only inside an accordion, tab, or other hidden interface.
+   - Verify that the rendered ToC provides one crawlable fragment link per H2/H3,
+     with no duplicate or empty IDs. Test at least two candidate links from a
+     fresh page load and confirm the URL hash is preserved.
+   - Do not use page-load JavaScript to move the scroll position or remove the
+     hash fragment. This check proves technical eligibility only; it does not
+     predict whether Google will display a sitelink/deep link.
 
 > **NON-NEGOTIABLE MEDIA BOUNDARY:** WriterZen is text research and early
 > article drafting only. Never upload, insert, attach, or troubleshoot
@@ -640,6 +676,11 @@ Verify the live page rather than relying on the editor or Rank Math score:
    and featured image.
 5. The heading hierarchy, table of contents, internal links, and outbound
    destinations render correctly.
+6. The SERP section-readiness candidates remain visible and usable: their H2
+   labels are unique, the first answer text is present immediately below, and
+   the ToC fragments land on the intended sections after a fresh load. Record
+   the result as `PASS` or `BLOCKED`; never record Google sitelinks/deep links as
+   guaranteed output.
 
 Any reader-facing correction invalidates the naturalness hash. Any link edit
 also invalidates the later link artifact.
@@ -895,6 +936,7 @@ stale approval hash.
 - **Internal links (outbound):** Always link new post UP to pillar/parent content during Phase 5.4 (1-3 links)
 - **Internal links (inbound):** Always run `internal-link-builder` skill in Phase 7 to add links from older posts TO the new post
 - **Internal link planning:** Always plan links in Phase 3 (outline) before writing
+- **SERP section readiness:** Always map query-backed H2 sub-intents, place a direct visible answer beneath each candidate, verify stable ToC fragments, and record observed sitelinks/deep links separately from ranking evidence. Optimize eligibility; never promise the Google feature.
 - **Link hardening:** Run `scripts/verify-links.py` before publication and against the live post after publication. Do not use Rank Math's link checks as a substitute. Store the inbound decision in `content/link-reviews/<post-slug>.json`.
 - **SEO meta:** Always set Rank Math title (≤60 chars), description (≤160 chars), focus keyword, primary category
 - **Rank tracking (MANDATORY):** Every published post's same focus keyword + exact live URL must be added and verified in BOTH ClickRank AI Overview Tracker AND ClickRank standard Keyword Tracker; Screpy Rank Tracker remains a separate required traditional-SERP check
