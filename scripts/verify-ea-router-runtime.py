@@ -87,7 +87,8 @@ SUBSTANTIVE_TERMS = (
     "advice", "recommend", "recommendation", "opinion", "thought", "should",
     "strategy", "suitable", "fit", "belongs", "adopt", "install", "integrate",
     "integration", "repository", "repo", "github", "skill", "provider", "model",
-    "plugin", "package", "external", "architecture", "policy",
+    "plugin", "package", "external", "architecture", "policy", "reset", "delete",
+    "credential",
 )
 # These patterns close the gap between a keyword-only audit and the policy's
 # judgment gate.  In particular, an external URL or a recommendation about an
@@ -559,11 +560,44 @@ def synthetic_no_worker_events(version: str) -> list[Event]:
     return events[:2] + [Event(3, "assistant", "Direct advice without a worker.")]
 
 
-def synthetic_guarded_no_receipt_events() -> list[Event]:
+GUARDED_REGRESSION_PROMPTS = {
+    "push": "Please push the repository to origin.",
+    "reset": "Please reset the repository to the previous commit.",
+    "delete": "Please delete the obsolete local artifact.",
+    "credential": "Please rotate the credential for this integration.",
+}
+
+
+def guarded_regression_prompt(action: str) -> str:
+    try:
+        return GUARDED_REGRESSION_PROMPTS[action]
+    except KeyError as error:
+        raise ValueError(f"unknown guarded regression action: {action}") from error
+
+
+def synthetic_guarded_no_receipt_events(action: str = "push") -> list[Event]:
     """A guarded action without a receipt must fail closed."""
     return [
-        Event(1, "user", "Please push the repository to origin."),
-        Event(2, "assistant", "I will push it now."),
+        Event(1, "user", guarded_regression_prompt(action)),
+        Event(2, "assistant", "I will perform it now."),
+    ]
+
+
+def synthetic_guarded_no_worker_events(version: str, action: str) -> list[Event]:
+    """A guarded action with a receipt but no worker must fail closed."""
+    receipt = (
+        "Route: primary=operations; secondary=none\n"
+        f"Route ID: guarded-{action}-no-worker\n"
+        f"Router version: {version}\n"
+        f"Scope: perform the guarded {action} regression check only\n"
+        "Allowed systems: synthetic records only\n"
+        "External writes: no\n"
+        "Handoff / approval: approved for the synthetic regression check\n"
+    )
+    return [
+        Event(1, "user", guarded_regression_prompt(action)),
+        Event(2, "assistant", receipt),
+        Event(3, "assistant", "I will proceed without dispatching a worker."),
     ]
 
 
@@ -899,7 +933,18 @@ def run_self_test() -> int:
     bad = audit_events(synthetic_events(version, malformed=True), version, freshness=False)
     external = audit_events(synthetic_external_evaluation_events(version), version, freshness=False)
     no_worker = audit_events(synthetic_no_worker_events(version), version, freshness=False)
-    guarded_no_receipt = audit_events(synthetic_guarded_no_receipt_events(), version, freshness=False)
+    guarded_no_receipt = {
+        action: audit_events(
+            synthetic_guarded_no_receipt_events(action), version, freshness=False
+        )
+        for action in GUARDED_REGRESSION_PROMPTS
+    }
+    guarded_no_worker = {
+        action: audit_events(
+            synthetic_guarded_no_worker_events(version, action), version, freshness=False
+        )
+        for action in GUARDED_REGRESSION_PROMPTS
+    }
     approval_missing = audit_events(synthetic_approval_missing_events(version), version, freshness=False)
     strict_no_receipt = audit_events(synthetic_fast_lane_events(), version, freshness=False, strict=True)
     strict_good = audit_events(synthetic_events(version), version, freshness=False, strict=True)
@@ -914,7 +959,19 @@ def run_self_test() -> int:
         and not external
         and not fast
         and any("no observable bounded-worker dispatch" in failure for failure in no_worker)
-        and guarded_no_receipt
+        and all(
+            is_substantive_user(guarded_regression_prompt(action))
+            and any(
+                "no observable assistant route receipt" in failure
+                or "missing Route line" in failure
+                for failure in failures
+            )
+            for action, failures in guarded_no_receipt.items()
+        )
+        and all(
+            any("no observable bounded-worker dispatch" in failure for failure in failures)
+            for failures in guarded_no_worker.values()
+        )
         and any("required approval evidence" in failure for failure in approval_missing)
         and strict_no_receipt
         and not strict_good
@@ -929,6 +986,7 @@ def run_self_test() -> int:
             "FAIL EA router runtime self-test: "
             f"fast={fast!r}, good={good!r}, malformed={bad!r}, external={external!r}, "
             f"no_worker={no_worker!r}, guarded_no_receipt={guarded_no_receipt!r}, "
+            f"guarded_no_worker={guarded_no_worker!r}, "
             f"approval_missing={approval_missing!r}, strict_no_receipt={strict_no_receipt!r}, "
             f"strict_good={strict_good!r}, project_mode={project_mode!r}, "
             f"claude_unit={claude_unit_failures!r}, claude_session={claude_session_failures!r}, "
@@ -938,7 +996,8 @@ def run_self_test() -> int:
         return 1
     print(
         "PASS EA router runtime self-test: fast-lane direct execution, guarded receipt/worker/approval gates, "
-        "strict-mode enforcement, external-evaluation regression, no-worker failure, malformed-receipt failure, "
+        "strict-mode enforcement, external-evaluation regression, guarded reset/delete/credential receipt and worker "
+        "regressions, no-worker failure, malformed-receipt failure, "
         "Claude-format parsing (user/assistant/tool_result-trap/ordering), Codex iter_events regression, "
         "and real-transcript ground truth"
     )
