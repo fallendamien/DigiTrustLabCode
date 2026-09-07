@@ -12,7 +12,7 @@
 | Element | Value |
 |---------|-------|
 | Style | DigiTrust Lab illustration family: flat editorial baseline with controlled treatments below |
-| Background | Warm off-white `#FAFAF8` |
+| Background | Warm off-white `#FAFAF8` must be the dominant visible field; peach/cream accents are restrained supporting shapes, never a heavy full-bleed backdrop |
 | Primary accent | Orange `#E8621A` |
 | Dark elements | Dark charcoal `#1A1A1A` |
 | Highlights | White |
@@ -41,6 +41,26 @@ Controlled 2.5D is allowed as a bounded variety option, but it does not redefine
 the DigiTrust Lab brand family. The fixed palette, 16:9 framing, editorial
 restraint, previous-six check, treatment rotation, human/motif constraints, and
 immediate-prior difference rule all remain in force.
+
+## ⚖️ Background-weight and archive-uniformity gate (MANDATORY)
+
+The palette is a hierarchy, not a list of interchangeable swatches. For every
+featured image, the archive-card thumbnail must first read as a light,
+warm-off-white/ivory image, consistent with the surrounding grid.
+
+Hard visual requirements:
+
+1. Keep warm off-white `#FAFAF8` (or a visually equivalent light ivory) as the
+   dominant backdrop — target at least two-thirds of the visible background.
+2. Use `#FFF3EE`, `#FFEADD`, restrained beige, and orange only as supporting
+   shapes, panels, props, or accents. Do not use a large full-bleed tan, peach,
+   brown, dark, saturated, muddy, or sepia field.
+3. Review the candidate beside the previous six featured thumbnails at the
+   actual archive-card size. If the background makes the candidate look darker,
+   heavier, or like a different illustration family, mark the comparison FAIL.
+4. A prompt that mentions the correct hex values is not visual evidence. The
+   candidate must pass both the native-resolution audit and the archive-grid
+   comparison before it can be archived, uploaded, or assigned as featured.
 
 ## Template 10 CTA card — AI skills and digital product creation
 
@@ -74,10 +94,14 @@ Visual mode: [object-led | abstract-symbolic | diagrammatic | environmental |
 Subject class: [specific subject, not “AI”]
 Composition: [specific layout and perspective]
 Treatment: [approved treatment name below]
+Planned background treatment: [dominant warm off-white / light ivory + restrained accents]
+Background-weight target: [light dominant neutral]
 Human presence: [yes | no]
 Repeated motif check: [PASS | FAIL]
 Immediate-prior difference count: [0–5 dimensions; must be ≥3]
 Thumbnail comparison: [PASS | FAIL]
+Background-weight review: [PASS | FAIL]
+Archive-grid uniformity: [PASS | FAIL]
 ```
 
 Run the deterministic record gate after the visual inspection and before
@@ -94,12 +118,17 @@ python scripts/verify-featured-image-variety.py `
   --human-presence <yes|no> `
   --motif "<motif signals>" `
   --difference-count <3-5> `
-  --thumbnail-comparison pass
+  --thumbnail-comparison pass `
+  --background-weight light-dominant-neutral `
+  --background-review pass `
+  --archive-grid-uniformity pass
 ```
 
 The command checks the recorded history and blocks a failed or incomplete
-decision. It cannot see the pixels itself, so `thumbnail-comparison pass` is
-valid only after the worker has actually viewed the six thumbnails together.
+decision. It cannot see the pixels itself, so `thumbnail-comparison pass`,
+`background-weight light-dominant-neutral`, `background-review pass`, and
+`archive-grid-uniformity pass` are valid only after the worker has actually
+viewed the candidate at native resolution and beside the six thumbnails.
 
 Hard rules:
 
@@ -118,6 +147,13 @@ Hard rules:
 5. View the candidate beside the previous six thumbnails. If it still reads as
    the same orange-shirt desk scene, mark `Thumbnail comparison: FAIL` and
    regenerate. A metadata PASS never overrides a visual FAIL.
+6. The candidate's first thumbnail read must be light and neutral. A heavy
+   colored background, even when it uses an approved peach or beige swatch,
+   fails `Background-weight review` and blocks archive/upload.
+7. `Background-weight review: PASS` and `Archive-grid uniformity: PASS` are
+   required alongside the existing thumbnail comparison. Regenerate when the
+   background competes with the subject, overwhelms the card, or looks unlike
+   the recent set.
 
 ### Approved bounded treatment rotation
 
@@ -170,7 +206,7 @@ the oldest entry, and preserve the six-entry comparison window.
 
 ```
 Prompt:
-Owner-selected image mode: [More Depth | Strict flat design]. Apply the selected mode's binding direction above. [SUBJECT DESCRIPTION]. Simple geometric shapes, bold outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. [VISUAL ELEMENT — see Variation Guide above]. Clean, modern, minimal. No text or words in the image. Wide format 16:9.
+Owner-selected image mode: [More Depth | Strict flat design]. Apply the selected mode's binding direction above. [SUBJECT DESCRIPTION]. Simple geometric shapes, bold outlines. Background: predominantly warm off-white (#FAFAF8), with at least two-thirds of the visible field remaining light and neutral; use #FFF3EE/#FFEADD and orange (#E8621A) only as restrained supporting accents. Dark charcoal (#1A1A1A) outlines and elements, white highlights. [VISUAL ELEMENT — see Variation Guide above]. Clean, modern, minimal. No heavy full-bleed beige/peach/tan/dark background, no muddy or saturated backdrop, and no text or words in the image. Wide format 16:9.
 
 Filename: {post-slug}-{image-description}.png
 ```
@@ -587,18 +623,65 @@ Flat illustration style. A top-down flat lay of three cards arranged vertically 
 
 ---
 
-## Post #8 — Cara Buat Poster dengan ChatGPT (PLANNED — TBD)
+## Post #8 — Cara Buat Poster dengan ChatGPT (PUBLISHED — MEDIA REPAIR VERIFIED)
 
-**Slug:** TBD
+**Slug:** `cara-buat-poster-dengan-chatgpt`
 
-> Prompts will be written after content is drafted in WriterZen.
+**Focus keyword:** `poster chatgpt`
+
+The native Malay draft is at `content/drafts/cara-buat-poster-dengan-chatgpt.html`. The original four assets were generated and visually inspected on 4 September 2026; project copies are in `content/assets/post-8/` and archive copies are under `G:\\Zamzam Biznez\\DigiTrustLab\\Blog images`. On 5 September 2026, the featured and idea-theme visuals were replaced after live review: the original featured image repeated in the body and used a pale human figure, while the original idea-theme image contained an ambiguous seated figure. The replacement assets below use the owner-selected **More Depth** mode and were inspected at native resolution before upload. A human-led candidate with a malformed hand was rejected and was not archived or uploaded.
+
+| Archived asset | SHA-256 |
+|----------------|---------|
+| `cara-buat-poster-dengan-chatgpt-featured.png` | `BA85E3766E73F7DB12C3BD73B903C568BEA8DAE3BEABF1933EEBD1D500D054C0` |
+| `cara-buat-poster-dengan-chatgpt-idea-tema.png` | `4884285CD7F4639F674CA24DA4D45CBF0DFA4636457C9A96C7F7996A719AC451` |
+| `cara-buat-poster-dengan-chatgpt-chatgpt-vs-canva.png` | `D72523AF259A44006DD7816529CAE59286FB7F016DD0136EC9EAD20E508AB001` |
+| `cara-buat-poster-dengan-chatgpt-semak-sebelum-eksport.png` | `F500EC0FC38B325D2F6D5BCCA9DF923DA63C31CC349F94335D793E95A6E5DC4D` |
+
+| Replacement asset (More Depth) | SHA-256 |
+|-------------------------------|---------|
+| `cara-buat-poster-dengan-chatgpt-featured-v2.png` | `31B0EDEE3DFBBB367CD6B2756E14964384344C8B6F68313A16A482DAFD422BA3` |
+| `cara-buat-poster-dengan-chatgpt-idea-tema-v2.png` | `09E3DD5E784EE093547F7355057F707E4D8F93BDE5F9D24CDA7540030A0D820C` |
 
 | Image | Filename | Prompt | Alt Text |
 |-------|----------|--------|----------|
-| Featured | TBD | TBD | TBD |
-| Intro | TBD | TBD | TBD |
-| Comparison | TBD | TBD | TBD |
-| Conclusion | TBD | TBD | TBD |
+| Featured | `cara-buat-poster-dengan-chatgpt-featured.png` | Flat editorial illustration of a beginner at a desk reviewing a poster concept on a laptop, with a clean chat interface, a simple poster frame and small geometric idea cards connected in a calm workflow. Warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Clear focal point, generous negative space, clean modern minimal composition. No readable text, logos, branded interface, watermark or numbers. Wide 16:9. No rounded orange blob, halo or disc behind a person. | Pemula merancang poster dengan bantuan ChatGPT |
+| Idea tema | `cara-buat-poster-dengan-chatgpt-idea-tema.png` | Flat editorial illustration showing four abstract poster concept cards arranged in a neat comparison grid: minimal editorial, geometric modern, product visual and friendly illustration. Each card uses distinct shapes and composition without words. Warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Balanced spacing, clean modern minimal design. No readable text, logos, watermark or numbers. Wide 16:9. No rounded orange blobs, halos or discs. | Empat idea tema poster untuk dibandingkan sebelum memilih reka bentuk |
+| ChatGPT dan Canva | `cara-buat-poster-dengan-chatgpt-chatgpt-vs-canva.png` | Flat editorial split composition showing the difference between AI visual exploration and controlled poster layout: on the left, abstract image ideas and a chat bubble; on the right, a tidy poster canvas with separate geometric text blocks and alignment guides, all without readable words. Warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Clear visual contrast, clean modern minimal style. No branded logos, readable text, watermark or numbers. Wide 16:9. No rounded orange blob, halo or disc. | Perbandingan idea visual ChatGPT dan susun atur poster dalam editor reka bentuk |
+| Semakan akhir | `cara-buat-poster-dengan-chatgpt-semak-sebelum-eksport.png` | Flat editorial illustration of a finished abstract poster being reviewed on a laptop and phone beside a checklist, magnifying glass, contrast symbol and export arrow. Use abstract lines and checkmarks only, no readable text. Warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Clean modern minimal composition with generous breathing room. No logos, watermark, readable text or numbers. Wide 16:9. No rounded orange blob, halo or disc. | Semakan visual dan kandungan poster sebelum mengeksport fail akhir |
+
+### Replacement prompts (owner-selected More Depth mode)
+
+| Image | Filename | Prompt | Alt Text |
+|-------|----------|--------|----------|
+| Featured replacement | `cara-buat-poster-dengan-chatgpt-featured-v2.png` | More Depth controlled 2.5D/isometric object-led editorial illustration. A large blank poster board with abstract orange and charcoal geometric shapes, three smaller concept cards, a chat-bubble token, colour swatches, pencil and export arrow arranged as a clear left-to-right workflow on a warm desk surface. DigiTrust Lab palette: #FAFAF8, #FFF3EE, #E8621A, #1A1A1A, white and restrained beige. Generous negative space, no people or anatomy, no readable text, letters, numbers, logos, branded UI, watermark, robot, halo or orange blob. Wide 16:9, clean and safe for thumbnail cropping. | Aliran kerja visual untuk merancang poster dengan ChatGPT |
+| Idea tema replacement | `cara-buat-poster-dengan-chatgpt-idea-tema-v2.png` | More Depth controlled 2.5D comparison board with four abstract poster concept cards in a balanced 2x2 grid: minimal editorial, geometric modern, product visual and friendly illustration represented by shapes only. Use the DigiTrust Lab palette #FAFAF8, #FFF3EE, #E8621A, #1A1A1A, white and restrained beige. No people, faces, limbs, clothing, anatomy, readable text, letters, numbers, logos, branded UI, watermark or labels. Wide 16:9, spacious and calm. | Empat idea tema poster abstrak untuk dibandingkan sebelum memilih reka bentuk |
+
+### Featured re-edit v3 — lighter background (LIVE; OWNER REPLACED MANUALLY)
+
+**Filename:** `cara-buat-poster-dengan-chatgpt-featured-v3.png`
+
+**Status:** Generated and reviewed at native resolution, then approved by the
+owner on 2026-09-05; saved to the project asset archive and the external image
+archive. The owner manually replaced the live WordPress featured image on
+2026-09-07. Fresh Respira read-back confirms Post 721 now uses attachment
+**Media 727** at the v3 URL below, with the planned Malay alt text. The direct
+asset returned HTTP 200 (`image/png`, 138,714 bytes) on verification. The
+manual replacement used a new filename and attachment ID, so it was not the
+URL-preserving replacement path. The former attachment 723 is no longer
+available, and confirmed-unused media 717 and 718 remain absent. No further
+media cleanup is pending.
+
+**SHA-256:** `213331300D756B36AB35EE428AACB09CE8ED749AB45FDC793D82A4EDA83ADA09`
+
+**Prompt:** More Depth controlled 2.5D edit of the existing featured image. Keep
+the poster board, abstract cards, chat token, colour swatches, pencil, export
+arrow, object placement, shadows and 16:9 framing. Change only the broad
+beige/tan background so warm off-white `#FAFAF8` is the dominant visible field
+(at least two-thirds); keep peach/cream and restrained beige as small supporting
+accents, with orange `#E8621A`, charcoal `#1A1A1A`, and white highlights. No
+people, anatomy, text, letters, numbers, logos, branded UI, watermark, dark or
+saturated backdrop, full-bleed peach/tan shapes, or orange blobs.
 
 ---
 

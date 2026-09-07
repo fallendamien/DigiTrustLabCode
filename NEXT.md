@@ -12,9 +12,17 @@
 
 ## Current State
 
-> **CURRENT STATUS — POST #8 ACTIVE; WRITERZEN QUOTA BLOCKER (2026-09-01):**
-> Active article mission: Post #8 "Cara Buat Poster dengan ChatGPT". Blocked at WriterZen outline
-> creation — AI credit quota exhausted. Reset expected 4 September 2026 (user-reported, not verified).
+> **POST #8 LIVE; TRACKING + FEATURED MEDIA RECONCILED (2026-09-07):**
+> Post #8 "Cara Buat Poster dengan ChatGPT" is live at
+> `https://digitrustlab.com/cara-buat-poster-dengan-chatgpt/` (ID `721`). The exact-live
+> naturalness package passes at hash `9192f61e0e00f60694ed3ecc9fac8c289e4abe6e08eb566ce780092e9024a770`.
+> Rank Math is `93/A`; ClickRank standard + AI Overview + Pages and Screpy Rank Tracker rows are
+> verified. GSC accepted one indexing request but still reports the URL as unknown/not indexed;
+> ClickRank Pages now shows the exact URL as `Not Optimized` (verified 19:24 +08:00; no recommendations applied).
+> The owner manually replaced the featured image with the approved v3 asset. Fresh Respira
+> read-back confirms Media 727 at `cara-buat-poster-dengan-chatgpt-featured-v3.png`, and the
+> direct asset returned HTTP 200. Former attachment 723 and confirmed-unused media 717/718
+> are no longer available; no media blocker remains.
 >
 > **breadcrumbModel: git-tracked — do not run `$sync-breadcrumbs`**
 >
@@ -24,14 +32,14 @@
 > tab claim timed out.
 >
 > **Also completed 2026-08-25:** (1) WordPress site title + Rank Math Website Name changed to `DigiTrustLab` (Alternate Name `DigiTrust Lab`); `og:site_name` and JSON-LD `WebSite.name` verified live. Setting is at Rank Math → Titles & Meta → **Local SEO** — not under Global. (2) Homepage pagination activated (page 280): query loop moved from inert grid container `#brxe-778413` to card element `#brxe-4c6189` (`postsPerPage: 6`); pagination element `#brxe-cctbuz` added and rebound; `/page/2/` returns HTTP 200 with posts 7–10, no duplicates. `/page/2/` canonical left pointing at homepage — deliberate decision, not a bug.
+>
+> **Google AdSense applied (2026-09-05):** Publisher `ca-pub-8771336014387648` verified via code snippet in Bricks Global Settings `customScriptsHeader` with `data-no-optimize="1"` to bypass LiteSpeed JS rewriting. Review requested; GDPR 3-choice CMP submitted. W-8BEN tax form approved (expires 2029-12-31). Site under Google review (typically days to weeks).
 
 ## Next action
 
-1. **After 4 September 2026 reset:** verify WriterZen quota on Settings → Limits; confirm AI Words available before proceeding.
-2. Run outline-only Create Article for Post #8 "Cara Buat Poster dengan ChatGPT" per Option C pipeline.
-3. Resolve Post #10 Screpy Rank Tracker (pending/unverified): revisit the exact authenticated dashboard tab; do not start a crawl.
-4. Carry Post #7 Screpy Pages discovery as a non-blocking pending item: existing crawl `ojsmg8wv9al9ctqg` predates publication. Do not start a crawl without explicit authorization.
-5. **⚠️ Post #12 (ID 605) naturalness gate BLOCKED:** the excerpt was changed after the dual-review completed, invalidating the content hash. The existing naturalness artifact is stale and cannot be used as publication evidence. Requires a fresh two-reviewer pass — one Anthropic/Claude Sonnet reviewer and one independent OpenAI reviewer — covering the exact final content (including the current excerpt) before completion can be claimed. Do not mark Post #12 published or close Phase 7 until the new artifact passes with matching hashes.
+1. Re-inspect Post #8 in the existing Google Search Console tab after Google processes the request; an indexing-request confirmation is not proof of indexing.
+2. Keep `python scripts/verify-content-status.py --fix` green after future publication changes; the 2026-09-05 run passed against live WordPress.
+3. Keep Post #10 Screpy tracking, Post #7 Pages discovery, sitemap cache, and Post #12's stale naturalness artifact as separate pending items; start the next article only at the editorial relevance gate → quota check → Topic Discovery.
 
 ### Post #10 — ⚠️ PUBLISHED; SCREPY TRACKING PENDING (2026-08-26)
 

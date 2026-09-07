@@ -3,10 +3,10 @@
   "owner": "Zamri Rosli",
   "primaryEditor": "Zed (since 2026-08-05) — Codex via ACP, Claude Code via terminal. Windsurf retained for Devin only; VS Code legacy.",
   "breadcrumbModel": "git-tracked",
-  "lastSession": "2026-09-01",
-  "currentObjective": "Post #8 'Cara Buat Poster dengan ChatGPT' is the active article mission. Blocked at WriterZen outline creation pending quota reset. Post #10 was published on 2026-08-26 at https://digitrustlab.com/cara-guna-canva-ai-photo-editor/ (ID 686); structure, live link and exact-live v14 naturalness gates passed; GSC indexed; both ClickRank trackers verified; Screpy rank tracking remains pending/unverified after the dashboard tab claim timed out.",
-  "currentPhase": "Post #8 planned; WriterZen outline creation blocked pending quota reset (user-reported 4 September 2026)",
-  "phaseProgress": "PUBLISHED — POST #10; NATURALNESS PASS; GSC INDEXED; CLICKRANK AI OVERVIEW + KEYWORD TRACKER VERIFIED; SCREPY UNVERIFIED; POST #8 BLOCKED",
+  "lastSession": "2026-09-07",
+  "currentObjective": "Post #8 'Cara Buat Poster dengan ChatGPT' is live at https://digitrustlab.com/cara-buat-poster-dengan-chatgpt/ (ID 721). The reviewed live package passes at hash 9192f61e0e00f60694ed3ecc9fac8c289e4abe6e08eb566ce780092e9024a770; Rank Math is 93/A; ClickRank standard + AI Overview + Pages and Screpy Rank Tracker are verified. GSC indexing was requested once and remains a later re-inspection follow-up. The owner manually replaced the featured image with approved v3; fresh Respira read-back confirms Media 727 at the v3 URL and a direct asset check returned HTTP 200. Former attachment 723 and confirmed-unused media 717/718 are absent. The next article must restart at the editorial relevance gate and Topic Discovery.",
+  "currentPhase": "Post #8 closeout complete, including the owner-manual featured-image replacement; GSC indexing re-inspection remains a monitoring follow-up and the next editorial mission starts at relevance + Topic Discovery",
+  "phaseProgress": "POST #8 LIVE + WRITERZEN HANDOFF 28/28 + RANK MATH 93/A + DUAL NATURALNESS/STRUCTURE/VOICE/LINK PASS + CLICKRANK STANDARD/AI OVERVIEW/PAGES + SCREPY TRACKING VERIFIED + FEATURED MEDIA 727 VERIFIED; GSC REQUEST SUBMITTED",
   "blockers": [
     "LiteSpeed serves cached HTTP 404s for clean Rank Math child sitemap URLs even though the regenerated origin XML returns 200 and sitemap-cache exclusions are configured; authenticated public-cache clearing and Search Console re-inspection remain. Evidence: docs/post-11-revalidation-2026-08-09.md",
     "Post #9 Screpy Pages Analyze was requested at 2026-08-10 03:14 (+08:00) and remains visibly Analyzing on crawler 18151; the fresh Post #9 discovery/result is not yet available.",
@@ -14,7 +14,7 @@
     "Post #5 closure is complete under Zamri's explicit acceptance of the historical WriterZen Seed keyword value `Highest-volume keyword`; do not reopen Post #5.",
     "Non-blocking Post #7 Screpy Pages pending: the latest existing crawl `ojsmg8wv9al9ctqg` predates publication and does not contain the exact URL or slug. No crawl was started.",
     "Post #10 Screpy Rank Tracker remains pending/unverified: project wgspvb7lc3 was confirmed through list_projects, but the exact authenticated dashboard tab claim timed out; no Screpy row or crawl was created.",
-    "WriterZen AI credit quota exhausted; reset expected 4 September 2026 (user-reported, not verified)",
+    "Post #8 Google Search Console inspection on 2026-09-05 reported `URL is not on Google` / `URL is unknown to Google`; one indexing request was accepted and must not be treated as proof of indexing.",
     "Post #12 (ID 605) naturalness gate BLOCKED — excerpt was changed after the dual review completed, invalidating the content hash. Needs a fresh Anthropic/Claude Sonnet + OpenAI two-reviewer pass before publication completion can be claimed."
   ],
   "completed": [
@@ -87,11 +87,14 @@
     "Post #7 published 2026-08-24 at https://digitrustlab.com/cara-buat-nota-cantik-dengan-ai/ (Post ID 656); Rank Math 100/A, Claude Sonnet OAuth + OpenAI naturalness pass, live link gate pass, contextual inbound link from Post #12, Screpy Device: Both row verified, ClickRank Keyword Tracker, AI Overview Tracker and Website Optimization / Pages evidence recorded 2026-08-25 15:19 (+08:00), and exact GSC inspection passed 2026-08-25 15:52:44 (+08:00): URL is on Google / Page is indexed; no request needed.",
     "Post #10 published 2026-08-26 at https://digitrustlab.com/cara-guna-canva-ai-photo-editor/ (Post ID 686); Rank Math 86, Article schema, featured hero 693, inline media 692/683/684/685, structure, live link and exact-live naturalness gates passed. V14 naturalness artifact records final hash 23dd717f6edcf358b2c8e2359ed68c2bed92e2bc8578aa1b774f6b5e56077f7d across 117 segments, Claude firstParty/claude-sonnet-5 plus OpenAI gpt-5.6-luna high, and no findings. GSC initially reported URL unknown/not indexed and accepted an indexing request at 08:43:08 (+08:00); later screenshot evidence dated 2026-08-26 shows the exact URL is on Google / Page is indexed, superseding the earlier pending result (screenshot time unavailable). ClickRank AI Overview row for canva ai photo editor was added once and verified on 2026-08-26 at 21:18:19 MYT with Not Found, organic N/A, visibility 0%, citations 0, mentioned No. Standard ClickRank Keyword Tracker row was added once and verified at 21:34:32 MYT; after reload, 11 total records showed the exact keyword+URL row with the Malaysia flag, Not In Top 3 Results, and all positions 0; the standard UI has no language selector. Screpy pending/unverified.",
     "WordPress site title (blogname) and Rank Math Website Name + Knowledge Graph Name set to `DigiTrustLab`; Rank Math Alternate Name set to `DigiTrust Lab` (2026-08-25). Verified live: og:site_name and JSON-LD WebSite.name both emit `DigiTrustLab`, alternateName emits `DigiTrust Lab`. Setting path: Rank Math SEO → Titles & Meta → Local SEO (/wp-admin/admin.php?page=rank-math-options-titles&view=local — not under Global as commonly documented). GSC indexing requested for homepage 2026-08-25; SERP still showed bare domain at that time (re-crawl lag, not a misconfiguration).",
-    "Homepage pagination configured on page 280 (Bricks, 2026-08-25). Root cause: query loop was on grid container #brxe-778413, which has no hasLoop property, so it was inert and Bricks fell back to the WordPress default of 10 posts. Fix: query loop moved to card element #brxe-4c6189 with postsPerPage: 6. Pagination element #brxe-cctbuz added as sibling below the grid with its Query bound to the 4c6189 loop (defaults to Main query when first added, renders 'No pagination results' until rebound — trap to remember). Verified logged-out 2026-08-25: homepage renders 6 cards; /page/2/ returns HTTP 200 with posts 7-10, no duplicates; one grid (no PRIORITY #3 regression); /blog/ unchanged. Decision: /page/2/ canonical points at homepage rather than self-referencing — deliberately left as-is because posts are indexed at their own URLs and via the sitemap, /blog/ is the real archive, and a paginated homepage view is thin duplicate content that does not need indexing. Altering it would mean changing a site-wide Rank Math canonical setting for a non-problem."
+    "Homepage pagination configured on page 280 (Bricks, 2026-08-25). Root cause: query loop was on grid container #brxe-778413, which has no hasLoop property, so it was inert and Bricks fell back to the WordPress default of 10 posts. Fix: query loop moved to card element #brxe-4c6189 with postsPerPage: 6. Pagination element #brxe-cctbuz added as sibling below the grid with its Query bound to the 4c6189 loop (defaults to Main query when first added, renders 'No pagination results' until rebound — trap to remember). Verified logged-out 2026-08-25: homepage renders 6 cards; /page/2/ returns HTTP 200 with posts 7-10, no duplicates; one grid (no PRIORITY #3 regression); /blog/ unchanged. Decision: /page/2/ canonical points at homepage rather than self-referencing — deliberately left as-is because posts are indexed at their own URLs and via the sitemap, /blog/ is the real archive, and a paginated homepage view is thin duplicate content that does not need indexing. Altering it would mean changing a site-wide Rank Math canonical setting for a non-problem.",
+    "Post #8 published; publication and required tracking gates completed through the reviewed Option C path (2026-09-05), with a later owner-manual image replacement verified 2026-09-07: WriterZen report 244466 copied to editor; 28/28 H2/H3/bullets mapped; native Malay draft live at ID 721; featured Media 727 (v3), inline media 724/719/720 verified; former attachment 723 and confirmed-unused 717/718 absent; exact-live hash 9192f61e0e00f60694ed3ecc9fac8c289e4abe6e08eb566ce780092e9024a770 passed fresh Anthropic Claude Sonnet + OpenAI gpt-5.6-luna high reviews; structure, Malay voice and link gates passed; Rank Math 93/A; ClickRank standard + AI Overview + Pages and Screpy Rank Tracker verified, with Pages record `52c553d7-f8ff-49bf-898a-9bc4a01397c7` visibly `Not Optimized` and no recommendations applied; no WriterZen full-article generation, keyword expansion or plagiarism checker used. GSC request submitted once; re-inspection remains a monitoring follow-up.",
+    "Google AdSense applied (2026-09-05): publisher ca-pub-8771336014387648, site ownership verified via code snippet in Bricks Global Settings customScriptsHeader with data-no-optimize='1' to bypass LiteSpeed JS rewriting, review requested, GDPR 3-choice CMP submitted, W-8BEN tax form approved (expires 2029-12-31). Site under Google review."
   ],
   "nextSteps": [
-    "Verify WriterZen quota on Settings → Limits page after 4 September 2026 reset (user-reported, not verified); do not start outline creation before confirming adequate credits",
-    "Run outline-only Create Article for Post #8 'Cara Buat Poster dengan ChatGPT' via Option C pipeline after quota is confirmed adequate",
+    "Re-inspect Post #8 in the existing Google Search Console tab after Google processes the one indexing request; an accepted request is not proof of indexing",
+    "Start the next article only after the editorial relevance gate, quota check, cluster/internal-link fit and Topic Discovery pass; do not carry forward Post #8's keyword as an instruction",
+    "Keep `python scripts/verify-content-status.py --fix` green after future publication changes; the 2026-09-05 live run passed",
     "Resolve Post #10 Screpy Rank Tracker: revisit the exact authenticated Screpy dashboard tab and add/verify the row; do not start a crawl",
     "Clear the persistent LiteSpeed/Hostinger/Cloudflare cache for the repaired Rank Math child sitemaps, verify clean XML 200 responses, and re-submit sitemap_index.xml in Google Search Console",
     "Carry Post #7 Screpy Pages discovery as a non-blocking pending item because crawl ojsmg8wv9al9ctqg predates publication; do not start a crawl without explicit authorization",
@@ -102,7 +105,7 @@
     "Create lead magnet PDF - '50 Prompt AI Percuma'"
   ],
   "keyMetrics": {
-    "blogPosts": 11,
+    "blogPosts": 12,
     "etsyListings": 0,
     "emailSubscribers": 0,
     "monthlyRevenue": 0,
@@ -110,8 +113,8 @@
   },
   "tools": {
     "writerZen": "ready",
-    "clickRank": "active for prior posts; Post #10 AI Overview row for canva ai photo editor added once and verified 2026-08-26 21:18:19 MYT with Not Found, organic N/A, visibility 0%, citations 0, mentioned No; standard Keyword Tracker row added once and verified 2026-08-26 21:34:32 MYT with 11 total records, exact keyword+URL row, Malaysia flag, Not In Top 3 Results, all positions 0, and no language selector in the standard UI",
-    "screpy": "active — project wgspvb7lc3 confirmed via list_projects. Post #10 Rank Tracker is pending/unverified because the exact authenticated dashboard tab claim timed out; no row or crawl was created",
+    "clickRank": "active — Post #8 exact `poster chatgpt` + URL rows verified in standard Keyword Tracker (12 records, Malaysia, Device All, Not In Top 3 Results, positions 0), AI Overview Tracker (11 records, Malaysia/Malay, Not Found, N/A, 0%, 0 citations, No), and Website Optimization / Pages (exact URL visible as Not Optimized, record 52c553d7-f8ff-49bf-898a-9bc4a01397c7); no optimization recommendations applied",
+    "screpy": "active — project wgspvb7lc3 confirmed via list_projects. Post #8 Rank Tracker rows 709114 (Mobile) and 709115 (Desktop) completed for Malaysia/Malay, Device Both. Post #10 remains pending/unverified; no crawl was started",
     "bricksBuilder": "installed-and-configured",
     "mailerLite": "active — account 2502865, embed form cUeVaM live on homepage + single post sidebar",
     "hostinger": "active — Business WordPress plan, IP 145.79.28.85",
@@ -119,8 +122,9 @@
     "email": "active — hello@digitrustlab.com working, all 4 DNS checks green",
     "ssl": "Full (Strict) — Hostinger Lifetime SSL active, Cloudflare Full (Strict) enabled",
     "googleAnalytics": "connected — GA4 account 'Zamri Rosli', property 'DigiTrust Lab', Measurement ID G-LNJ7G442EK, tag live on frontend",
-    "googleSearchConsole": "connected — https://digitrustlab.com/ verified, linked to Rank Math",
-    "rankMathAnalytics": "connected — Search Console + Analytics both green, data fetching active"
+    "googleSearchConsole": "connected — https://digitrustlab.com/ verified, linked to Rank Math; Post #8 exact URL inspected 2026-09-05, reported unknown/not indexed, and one indexing request was accepted (indexing remains unproven)",
+    "rankMathAnalytics": "connected — Search Console + Analytics both green, data fetching active",
+    "googleAdSense": "verified — publisher ca-pub-8771336014387648, site ownership verified 2026-09-05, review requested 2026-09-05, GDPR consent (3-choice CMP) submitted; site under Google review (typically days to weeks); W-8BEN tax form approved (expires 2029-12-31); LiteSpeed data-no-optimize attribute applied to prevent JS rewriting of the ad script"
   },
   "affiliatePrograms": {
     "klikjer": "not-registered",

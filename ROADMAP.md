@@ -1,21 +1,23 @@
 # DigiTrust Lab — Roadmap
 
-> **Status:** ✅ POST #10 PUBLISHED (2026-08-26); POST #8 ACTIVE — WRITERZEN QUOTA BLOCKER (as of 2026-09-01)
-> **Current Phase:** Post #8 "Cara Buat Poster dengan ChatGPT" in pipeline; WriterZen outline creation blocked pending quota reset (user-reported 4 September 2026, not verified); Post #10 Screpy tracking pending; Post #5 remains closed
-> **Last Updated:** 2026-09-01 (reconciliation snapshot — 11 posts published)
+> **Status:** ✅ POST #8 PUBLISHED (2026-09-05); live validation and required tracking recorded; two external follow-ups remain
+> **Current Phase:** Post #8 "Cara Buat Poster dengan ChatGPT" is live, dual-reviewed, and fully tracked across the required surfaces. GSC indexing remains pending after one request; ClickRank Pages has a verified `Not Optimized` baseline. Post #10 Screpy tracking remains pending; Post #5 remains closed.
+> **Last Updated:** 2026-09-07 (Post #8 media replacement reconciliation — 12 posts published)
 > **Monthly Revenue:** RM 69 (1 sale, pre-blog era)
 
 > **Scope note:** Historical milestones and planned titles remain retained for continuity. The authoritative current content inventory and research status is [`content/content-calendar.md`](content/content-calendar.md). The active editorial queue lives there, not here.
 
 ---
 
-## 1 September 2026 Snapshot
+## 7 September 2026 Snapshot
 
-- **11 blog posts published** on digitrustlab.com
-- Post #8 "Cara Buat Poster dengan ChatGPT" is the active article mission, blocked at WriterZen outline creation (quota exhausted; reset expected 4 September 2026, user-reported, not verified)
+- **12 blog posts published** on digitrustlab.com
+- Post #8 "Cara Buat Poster dengan ChatGPT" is live at `https://digitrustlab.com/cara-buat-poster-dengan-chatgpt/` (ID 721); Rank Math 93/A, exact-live dual naturalness pass, structure/voice/link gates pass, ClickRank standard + AI Overview and Screpy Rank Tracker verified
+- GSC accepted one indexing request for Post #8 but still reports the URL as unknown/not indexed; ClickRank Pages crawl completed and the exact URL is visible as `Not Optimized` (verified 19:24 +08:00; no recommendations applied)
+- The owner manually replaced Post #8's featured image with v3; fresh Respira read-back confirms Media 727 at `cara-buat-poster-dengan-chatgpt-featured-v3.png`, and a direct asset check returned HTTP 200. Former attachment 723 and confirmed-unused media 717/718 are no longer available; no media blocker remains.
 - Post #10 Screpy Rank Tracker remains pending/unverified
 - Post #7 Screpy Pages discovery remains non-blocking pending (crawl predates publication)
-- Infrastructure complete; content is the only remaining bottleneck
+- Infrastructure is complete; the next editorial mission should begin only after the relevance, cluster and Operations gates pass
 
 ---
 
@@ -23,7 +25,7 @@
 
 ```
 Phase 1: Foundation         ██████████ 100% ✅ (Infrastructure)
-Phase 1: Content             ████████░░  80% (11 posts published; Post #8 in pipeline — see calendar for authoritative inventory)
+Phase 1: Content             ██████████ 100% (12 posts published; see calendar for authoritative inventory)
 Phase 2: Compounding        ░░░░░░░░░░  0%
 Phase 3: Traffic Growth     ░░░░░░░░░░  0%
 Phase 4: Scale              ░░░░░░░░░░  0%
@@ -139,7 +141,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 
 ### Blog Posts — HISTORICAL: original planning targets
 
-> **Note:** The table below is a historical snapshot of original planning targets. Some planned titles were superseded by the actual published titles. The active editorial queue and authoritative post inventory live in [`content/content-calendar.md`](content/content-calendar.md). As of 1 September 2026, **11 posts are published** and Post #8 is in the pipeline.
+> **Note:** The table below is a historical snapshot of original planning targets. Some planned titles were superseded by the actual published titles. The active editorial queue and authoritative post inventory live in [`content/content-calendar.md`](content/content-calendar.md). As of 5 September 2026, **12 posts are published** and the next editorial target is not yet selected.
 
 - [x] Post #1: “Apa Itu AI? (Dan Kenapa Ia Bukan Setakat Robot dalam Filem)” — published Jul 9 at digitrustlab.com/apa-itu-ai/
 - [x] ANI/AGI/ASI explanatory section added and Claude-reviewed copy fixes applied live on 2026-08-19 (ID 256); security, Malay voice, and calendar consistency checks passed
@@ -149,7 +151,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [x] Post #5: Cara Buat Poster Canva dengan AI: Panduan Praktikal — published 2026-08-22 at https://digitrustlab.com/cara-buat-poster-guna-canva/ (ID 629); nine authentic screenshots, lightboxes and core content gates passed. The scoped duplicate-title correction removed the redundant body H1; live structure and refreshed 82/82 naturalness gates pass. Screpy Pages and GSC are complete; GSC showed URL is on Google / Page is indexed at 21:00 (+08:00). WriterZen limits and all six brief fields were read back, and Zamri accepted the historical Seed keyword value `Highest-volume keyword`. ClickRank Pages is explicitly deferred during its outage. Phase 7 remains closed.
 - [ ] Post #6: ChatGPT vs Gemini vs Claude: Mana Terbaik untuk Anda? → AI Tools
 - [x] Post #7: Cara Buat Nota Cantik dengan AI: Tips untuk Pelajar dan Pekerja → Digital Skills — published 2026-08-24 at https://digitrustlab.com/cara-buat-nota-cantik-dengan-ai/ (ID 656); Rank Math 100/A, refreshed 44/44 dual-family naturalness pass, live link and template-title structure gates pass, Screpy Device: Both row verified, ClickRank Keyword Tracker, AI Overview Tracker and Website Optimization / Pages verified 2026-08-25 15:19 (+08:00), and GSC exact URL inspection passed 2026-08-25 15:52:44 (+08:00): URL is on Google / Page is indexed; no request needed. Screpy Pages discovery remains pending because the latest crawl predates publication and does not contain the exact URL or slug.
-- [ ] Post #8: Cara Buat Poster dengan ChatGPT → AI Tools — ACTIVE; blocked at WriterZen outline creation pending quota reset (user-reported 4 September 2026, not verified)
+- [x] Post #8: Cara Buat Poster dengan ChatGPT → AI Tools — published 2026-09-05 at https://digitrustlab.com/cara-buat-poster-dengan-chatgpt/ (ID 721); WriterZen outline handoff copied to editor and mapped 28/28 H2/H3/bullets, native draft, More Depth image replacements, owner-manual featured re-edit now live as Media 727, Rank Math 93/A, exact-live dual naturalness/structure/voice/link gates passed, ClickRank standard + AI Overview and Screpy Rank Tracker verified, and ClickRank Pages crawl completed with visible `Not Optimized` baseline (verified 19:24 +08:00; no recommendations applied). GSC request submitted but URL remains unknown/not indexed.
 - [x] Post #9: 10 Prompt Gemini AI untuk Edit Foto dengan Mudah → Prompt Engineering — published 2026-08-10 at https://digitrustlab.com/prompt-gemini-ai-untuk-edit-foto/ (Post ID 582); final Screpy + GSC gates handed to Luna in `content/post-9-luna-handoff.md`
 - [x] Post #10: Cara Guna Canva AI Photo Editor — published 2026-08-26 at https://digitrustlab.com/cara-guna-canva-ai-photo-editor/ (ID 686); GSC indexed; both ClickRank trackers verified; Screpy Rank Tracker pending/unverified
 
@@ -168,7 +170,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 
 - [ ] Register Canva Pro affiliate (Month 2 — after first Etsy Canva listing live)
 - [ ] Register iCore Hosting affiliate (Month 2 — after blog live)
-- [ ] Apply Google AdSense (Month 4–5, after ~20 posts)
+- [x] Apply Google AdSense — publisher ca-pub-8771336014387648 verified, review requested, GDPR CMP submitted (2026-09-05)
 - [ ] Reach 15 Etsy listings
 - [ ] Reach 25 blog posts
 - [ ] Add Canva Pro affiliate link inside every Canva template product
@@ -282,6 +284,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - ✅ **Sitemap submitted** — /sitemap_index.xml to Google Search Console, 8 pages discovered (2026-07-18)
 - ✅ **ClickRank keyword tracker active** — 5 keywords tracked for Malaysia, all devices (2026-07-18)
 - ✅ **Screpy uptime fixed** — stale project from mid-migration deleted, recreated via GSC import, uptime green (2026-07-18)
+- ✅ **Google AdSense applied** — publisher ca-pub-8771336014387648 verified, review requested, GDPR 3-choice CMP submitted, W-8BEN approved (2026-09-05)
 - 🎯 First Etsy sale — target: Month 2
 - 🎯 First affiliate commission — target: Month 3
 - 🎯 RM 200/month — target: Month 6
