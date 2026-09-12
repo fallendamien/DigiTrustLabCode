@@ -34,13 +34,17 @@
 > `content/research/prompt-engineering-2026-09-12-relevance.md` by returning to
 > Topic Discovery for a new angle; do not draft or publish this candidate.
 >
-> **PROMPT ENGINEERING RESEARCH — CANDIDATE 4 (2026-09-13):** Fresh Topic
-> Discovery report `246776` used seed `contoh prompt AI` (76 topics,
-> Malaysia/Malay). The strongest new reader-facing card is `apa itu prompt
-> engineering` under `APA ITU PROMPT ENGINEERING` (card volume `170`), with
-> visible Zyan, Pandaitech, and KursusAI supporting results. This is a
-> provisional card signal only: exact Keyword Explorer validation is pending
-> because the bounded worker failed closed on tab ownership before any lookup.
+> **PROMPT ENGINEERING RESEARCH — FRESH GATE RESULTS (2026-09-13):** Candidate
+> 4 `apa itu prompt engineering` from Topic Discovery report `246776` was
+> validated in the exact Keyword Explorer report `1576139` and failed volume
+> (`10`, below the relaxed Malay floor of `50`). Candidate 5 `contoh prompt ai`
+> passed exact/Golden (`1576140`/`1576141`) and was recorded once in the
+> permanent list (row `56`), but Planner `179242` returned Weak Spot `0` and is
+> parked. The broad exact `prompt engineering` report `1576142` was parked for
+> commercial/job/course intent. Topic Discovery report `246780` surfaced
+> `cara tulis prompt ai` at volume `70`, but it is outside the two registered
+> Prompt Engineering families and needs explicit family approval before any
+> further credit spend. No candidate is ready for Content Creator or drafting.
 >
 > **POST #8 LIVE; TRACKING + FEATURED MEDIA RECONCILED (2026-09-07):**
 > Post #8 "Cara Buat Poster dengan ChatGPT" is live at
@@ -68,9 +72,9 @@
 ## Next action
 
 1. Restart Zed once, then run the dual-client Context7 readiness prompt in `content/next-prompt-engineering-vscodium-acp-handoff.md`.
-2. Open and follow that handoff in Zed via Codex ACP or Claude Code terminal/ACP; run its startup verification commands before browser work.
-3. Release/handoff the existing authenticated WriterZen tab, then run one exact Keyword Explorer lookup for `apa itu prompt engineering`.
-4. Repeat exact keyword, Golden Filter, SERP, and Weak Spot gates; keep Candidate 3 parked and out of drafting/publication.
+2. Keep Candidate 3 (`prompt video ai`) and Candidate 5 (`contoh prompt ai`) parked at Weak Spot `0`; do not create another Planner project or override the gate.
+3. Decide whether to authorize a new structured `prompt-engineering.prompt-writing` family for the `cara tulis prompt ai` pivot. Until that policy/calendar decision is recorded, do not run another exact lookup or spend more credits.
+4. If the family is approved, update the verifier and calendar first, then repeat exact, Golden, SERP, and Weak Spot gates from a fresh quota read-back. If it is not approved, close this research cycle as “no qualifying candidate.”
 5. Keep Post #8 GSC, Post #10 Screpy tracking, Post #7 Pages discovery, sitemap cache, and Post #12's stale naturalness artifact as separate follow-ups.
 
 ## Context7 dual-client readiness prompt

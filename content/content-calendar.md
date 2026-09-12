@@ -685,14 +685,46 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 
 ### Research lead — Prompt Engineering foundational explainer (2026-09-13)
 
-**Status:** `TOPIC DISCOVERY PASS — EXACT KEYWORD PENDING` — do not add to the
-permanent list, create a Planner project, brief, or draft yet.
+**Status:** `PARKED KEYWORD` — exact volume gate failed; do not brief or draft.
 
 - **Provisional topic:** Apa Itu Prompt Engineering? Panduan Asas Menulis Arahan AI
 - **Topic Discovery:** report `246776`; seed `contoh prompt AI`; 76 topics; Malaysia/Malay; Relevance `Medium`, order `Relevance`
 - **Candidate card:** `apa itu prompt engineering` under `APA ITU PROMPT ENGINEERING`; card volume `170`
-- **Visible supporting results:** Zyan, Pandaitech, and KursusAI pages about prompt engineering/prompting fundamentals
-- **Editorial decision:** strongest new reader-facing angle; distinct from Post #3's `cara buat prompt chatgpt` how-to; `prompt gambar ai` overlaps existing image work and `prompt video ai` is parked at Weak Spot `0`
-- **Exact Keyword Explorer:** not run — bounded worker failed closed before action because the authenticated tab remained owned by the current browser session
-- **Next gate:** run one exact Keyword Explorer lookup for `apa itu prompt engineering`, then decide whether Golden Filter is justified
+- **Exact Keyword Explorer:** report `1576139`; exact volume `10`; 12-month average `10`; high/low `40/10`; CPC `$0.00`; KD Ads `2`; KD Content/Traffic/Signal `0/0/0`
+- **Manual SERP:** mixed jobs, institutions, courses, and prompting explainers; exact demand is below the relaxed Malay floor of `50`
+- **Editorial decision:** card signal was not promoted; no Golden Filter, permanent-list row, Planner project, brief, or draft
+- **Quota note:** accidental Topic Discovery report `246778` was created during the first submit attempt; it consumed one Topic Lookup and created no downstream record
+- **Research evidence:** `content/research/prompt-engineering-2026-09-12-relevance.md`
+
+### Research lead — Prompt Engineering examples (2026-09-13)
+
+**Status:** `PARKED KEYWORD` — Planner Weak Spot gate failed; do not brief or draft.
+
+- **Provisional topic:** Contoh Prompt AI untuk tugasan praktikal
+- **Keyword Explorer:** report `1576140`; exact row `contoh prompt ai`; volume `90` in the expanded table; CPC `$0.00`; KD Ads `4`; KD Content/Traffic/Signal `0/0/0`
+- **Golden Filter:** report `1576141`; exact row only; All-in-Title `0`; Golden Score `1.002`; one credit; broad 460-keyword filter not run
+- **Manual SERP:** SirapLimau, Sifoo, PromptAcademy, HCTM, Harian Metro, Astro Awani, Maukerja, UKM, and UTM; mixed but with local practical results
+- **Permanent list:** `DigiTrust Lab Blog Posts` (`68708`); exact row verified once as row `56` of `56`
+- **Planner:** new project `179242`, `Contoh Prompt AI - DigiTrustLab 2026-09-13`; one keyword, `Moderately Relevant`; clustering cost `1` credit
+- **Weak Spot:** `0` (required `>=2`); DA metrics cost `50` credits; Avg DA `79.7`, lowest `47`, highest `93`
+- **Decision:** park; do not override Weak Spot or create another project; no Content Brief, Content Creator, publication, or tracking
+- **Research evidence:** `content/research/prompt-engineering-2026-09-12-relevance.md`
+
+### Research lead — broad Prompt Engineering intent check (2026-09-13)
+
+**Status:** `PARKED KEYWORD` — commercial/job/course SERP intent; do not brief or draft.
+
+- **Topic Discovery:** report `246779`; seed `prompt engineering`; 76 topics; visible head cards included `PROMPT ENGINEERING` (`1,600`), `KURSUS` (`3,600`), `MENGAPA` (`2,400`), and `APA ITU` (`2,400`)
+- **Keyword Explorer:** report `1576142`; exact volume `1,600`; 12-month average `1,600`; CPC `$0.49`; KD Ads `21`; KD Content/Traffic/Signal `0/3/0`
+- **SERP reality:** Jobstreet/Indeed jobs and training providers dominated the top ten; high volume does not satisfy the reader-facing editorial gate
+- **Decision:** no Golden Filter, list row, Planner project, brief, or draft
+- **Research evidence:** `content/research/prompt-engineering-2026-09-12-relevance.md`
+
+### Research lead — `prompt AI untuk kerja` pivot (2026-09-13)
+
+**Status:** `UNVALIDATED OUTSIDE REGISTERED FAMILY` — explicit family approval required before spending more credits.
+
+- **Topic Discovery:** report `246780`; seed `prompt AI untuk kerja`; 76 topics; a `cara tulis prompt ai` card showed volume `70`, alongside work/productivity and course signals
+- **Policy gate:** the structured relevance verifier currently registers only `prompt-engineering.youtube-thumbnail` and `prompt-engineering.ai-video-prompts`
+- **Decision:** do not run exact Keyword Explorer, Golden Filter, list, Planner, or Content Creator for this pivot unless Operations approves and records a new generic prompt-writing family, parent/peer map, and cannibalization rules
 - **Research evidence:** `content/research/prompt-engineering-2026-09-12-relevance.md`

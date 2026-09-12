@@ -3,11 +3,14 @@
 **Prepared:** 2026-09-13
 **Project:** `G:\Zamzam Biznez\DigiTrustLabCode`
 **Target agents:** Codex ACP or Claude Code terminal/ACP in Zed
-**Current outcome:** Candidate 3 `prompt video ai` is parked after Planner
-Weak Spot `0`. Fresh Topic Discovery report `246776` now identifies the
-provisional Candidate 4 `apa itu prompt engineering` (card volume `170`). Its
-exact Keyword Explorer gate is still pending because the authenticated tab was
-owned by the current browser session; no downstream write or spend occurred.
+**Current outcome:** Candidate 3 `prompt video ai` remains parked at Planner
+Weak Spot `0`. Candidate 4 `apa itu prompt engineering` was validated in exact
+Keyword Explorer report `1576139` and failed volume (`10`). Candidate 5
+`contoh prompt ai` passed exact/Golden and was added once to the permanent list,
+but Planner `179242` returned Weak Spot `0`. The broad exact `prompt
+engineering` term was parked for commercial/job/course intent, and the
+`cara tulis prompt ai` pivot is outside the two registered families. No
+candidate is ready for drafting or publication.
 
 ## Objective
 
@@ -15,20 +18,21 @@ Find one useful, non-cannibalising Prompt Engineering article and validate it
 through the Option C research gates. Stop before Content Creator, drafting,
 WordPress, or publication unless Zamri separately approves further work.
 
-## Current pivot — Candidate 4
+## Current research state
 
 | Field | Evidence |
 |---|---|
-| Topic Discovery | Report `246776`, seed `contoh prompt AI`, 76 topics, Malaysia/Malay, Relevance `Medium`, order `Relevance` |
-| Provisional exact keyword | `apa itu prompt engineering` — card `APA ITU PROMPT ENGINEERING`, card volume `170` |
-| Why this angle | Foundational reader-facing explainer; distinct from Post #3's `cara buat prompt chatgpt` workflow and not a duplicate of the published image/video spokes |
-| Visible supporting results | Zyan, Pandaitech, and KursusAI pages on prompt engineering/prompting fundamentals |
-| Gate status | Topic Discovery `PASS`; exact Keyword Explorer `PENDING` |
-| Safe next action | After the tab is released, run one exact Keyword Explorer lookup; stop before Golden Filter, list changes, Planner, or drafting |
+| Candidate 4 | Topic Discovery `246776`; exact Keyword Explorer `1576139`; `apa itu prompt engineering`; volume `10`; **parked at volume** |
+| Candidate 5 | Keyword Explorer `1576140`; Golden `1576141`; list row `56`; Planner `179242`; Weak Spot `0`; **parked** |
+| Candidate 6 | Topic Discovery `246779`; exact Keyword Explorer `1576142`; volume `1,600`, but job/course/training SERP; **parked for intent** |
+| Exploratory pivot | Topic Discovery `246780`; `cara tulis prompt ai` card volume `70`; **outside registered family — approval required** |
+| Quota read-back | Topic `70/75`; Keyword `69/75`; Article `69/70`; Keyword Credit `39,677/40,000`; AI Words `7,471/8,000`; list plan `47/50`; seats `2/3` |
+| Gate status | **No qualifying registered candidate.** Stop before Content Brief, Content Creator, drafting, WordPress, tracking, or publication. |
 
-Do not treat card volume as exact-keyword evidence. Do not create a permanent-list
-row or Planner project for Candidate 4 until exact volume, Golden, SERP, and Weak
-Spot gates pass.
+Do not treat card volume as exact-keyword evidence. Candidate 4's exact volume
+failed, and Candidate 5's Weak Spot failed. Do not create another permanent-list
+row or Planner project until Operations explicitly approves a new structured
+family for the `cara tulis prompt ai` pivot.
 
 ## Read and verify first
 
@@ -153,41 +157,45 @@ The previous seed is exhausted. Do not force one of these into production.
 
 ## Recommended continuation
 
-Keep Candidate 3 (`prompt video ai`) parked: its Planner project `179241`
-returned Weak Spot `0`. The fresh Topic Discovery pivot is Candidate 4,
-`apa itu prompt engineering`, from report `246776` and card volume `170`.
-The next action is one exact Keyword Explorer lookup after the authenticated
-WriterZen tab is released or handed off.
+Keep Candidate 3 (`prompt video ai`) and Candidate 5 (`contoh prompt ai`)
+parked: both Planner projects returned Weak Spot `0`. Candidate 4 failed exact
+volume, and Candidate 6 failed the reader-facing intent gate. The current
+research cycle therefore ends without a publishable candidate.
 
-Before spending a credit, refresh WriterZen limits and produce matching
-Research, SEO, and Operations relevance attestations. Confirm the candidate
-extends the Prompt Engineering cluster, has a published parent or peer, and
-has a plausible inbound source. Reject image-editing, broad AI-image, ChatGPT
-basics, poster, business, income, automation, SEO, and other off-family or
-cannibalising results.
+The only promising unvalidated lead is `cara tulis prompt ai` (card volume `70`)
+from Topic Discovery report `246780`. It is outside the two registered families
+in `scripts/verify-editorial-relevance-gate.py`. Do not spend Keyword Explorer,
+Golden, list, Planner, or AI-writing credits on it until Operations explicitly
+approves a new generic prompt-writing family and records its parent/peer,
+cannibalization, and authenticity rules.
 
-After the fresh tab handoff:
+If that approval is given:
 
-1. Refresh limits and validate exact `apa itu prompt engineering` in Keyword Explorer.
-2. Record exact volume, SERP/intent, and quota delta before deciding on Golden Filter.
-3. Do not add a list row, create Planner, or draft until exact, Golden, SERP, and
-   Weak Spot gates pass.
-4. Never create another project for parked `prompt video ai` and never override
-   Weak Spot `0`.
+1. Update the verifier and `content/content-calendar.md` with the new family
+   before any browser credit spend.
+2. Refresh limits in the existing authenticated tab and run one exact lookup.
+3. Record exact volume, SERP/intent, and quota delta before deciding on Golden.
+4. Continue only if exact, Golden, SERP, and Weak Spot `>=2` all pass.
 
-Stop if no candidate passes. Do not lower Golden or All-in-Title limits,
-silently override Weak Spot, change category, or begin drafting.
+If approval is not given, close this cycle as “no qualifying candidate.” Do not
+lower Golden or All-in-Title limits, silently override Weak Spot, change the
+category, or begin drafting.
 
 ## Browser and credit safeguards
 
 - Use Zamri's already-open authenticated Chrome session. Claim the exact
   WriterZen tab, take a fresh snapshot, and reuse it.
-- If that tab is unavailable, ask Zamri to open or sign in. Do not switch to a
-  blank, private, or separate CDP profile.
-- Last independently observed on 2026-09-13 after Topic Discovery report
-  `246776`: Topic `73/75`, Keyword `73/75`, Keyword Credit `39,729/40,000`,
-  Article `69/70`, AI Words `7,471/8,000`, Keyword List `47/50`. Refresh before
-  the exact lookup.
+- In this non-strict project, the coordinator may use that exact tab directly
+  after a bounded worker fails closed on same-tab ownership, but only for the
+  named low-impact lookup or submission, with a route receipt, visible quota or
+  cost preflight, and fresh post-action read-back. Do not create, close, or
+  replace tabs/profiles, touch credentials or account settings, publish, or
+  perform destructive actions.
+- If the exact authenticated tab is unavailable, ask Zamri to open or sign in.
+  Do not switch to a blank, private, or separate CDP profile.
+- Last independently observed on 2026-09-13 after the final quota read-back:
+  Topic `70/75`, Keyword `69/75`, Keyword Credit `39,677/40,000`, Article
+  `69/70`, AI Words `7,471/8,000`, Keyword List `47/50`, seats `2/3`.
 - Keep `Write the whole article` and optional keyword expansion OFF. Do not use
   WriterZen's plagiarism checker.
 - Do not retry uncertain submissions. Reload and check for the resulting row
@@ -225,16 +233,16 @@ print.
 > Read `AGENTS.md` and `content/next-prompt-engineering-vscodium-acp-handoff.md`
 > completely, restart Zed if it predates the Context7 registration, and run the
 > Context7 readiness prompt for both Codex and Claude. Verify imports, offline
-> content status, and the current worktree. Keep Candidate 3 `prompt video ai`
-> parked because Planner `179241` returned Weak Spot `0`. Use my existing
-> authenticated Chrome WriterZen tab and refresh quota. Run one exact Keyword
-> Explorer lookup for Candidate 4 `apa itu prompt engineering` from Topic
-> Discovery report `246776`, then stop before Golden Filter, list changes,
-> Planner, drafting, WordPress, tracking, or publication. Do not reset, close,
-> or replace the authenticated tab; do not duplicate WriterZen records, override
-> Weak Spot, enable keyword expansion, add a duplicate Context7 server, or touch
-> unrelated Post #8 files. Report exact IDs, metrics, quota changes, Context7
-> tool-call evidence, tests, and blockers.
+> content status, and the current worktree. Keep Candidates 3 and 5 parked
+> because Planner `179241` and `179242` returned Weak Spot `0`; Candidate 4
+> failed exact volume and Candidate 6 failed editorial intent. Use my existing
+> authenticated Chrome WriterZen tab only if Operations has approved a new
+> `prompt-engineering.prompt-writing` family for the `cara tulis prompt ai`
+> pivot. Otherwise stop and report “no qualifying candidate.” Do not reset,
+> close, or replace the authenticated tab; do not duplicate WriterZen records,
+> override Weak Spot, enable keyword expansion, add a duplicate Context7 server,
+> or touch unrelated Post #8 files. Report exact IDs, metrics, quota changes,
+> Context7 tool-call evidence, tests, and blockers.
 
 ## Definition of done for the next ACP session
 
@@ -244,8 +252,11 @@ The research handoff ends with either:
    and Weak Spot gates and is recorded without duplicates; or
 2. **Parked:** the fresh seed yields no qualifying candidate, with exact IDs,
    metrics, quota delta, rejection reasons, and updated evidence; or
-3. **Pending exact gate:** Topic Discovery report `246776` identifies Candidate 4
-   `apa itu prompt engineering` (card volume `170`), but exact Keyword Explorer
-   evidence is still pending; do not treat the card volume as eligibility.
+3. **Approval pending:** an unvalidated card sits outside the registered family
+   and requires an explicit family/calendar decision before further credit spend.
+
+This handoff is currently **Parked + approval pending**: no registered candidate
+qualifies, and `cara tulis prompt ai` must not be researched further without the
+new-family decision.
 
 Neither outcome authorizes drafting or publication.

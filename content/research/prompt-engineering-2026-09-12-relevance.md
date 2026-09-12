@@ -1,21 +1,25 @@
-# Prompt Engineering relevance handoff — 2026-09-12
+# Prompt Engineering relevance handoff — 2026-09-12 through 2026-09-13
 
 ## Decision
 
-**EDITORIAL RELEVANCE PASS; TOPIC DISCOVERY PASS; KEYWORD/GOLDEN FILTER PASS; SERP REVIEW PASS; PLANNER WEAK SPOT FAIL — CANDIDATE PARKED.**
-This record permitted one fresh Topic Discovery lookup inside the already-
-approved Prompt Engineering AI-video prompt family. Report `246755` surfaced a
-promising in-family lead, `prompt video ai`. Exact Keyword Explorer evidence
-and a one-keyword Golden Filter now pass, including the documented Malay
-long-tail volume relaxation. The candidate is eligible for the guarded list
-addition and a new Keyword Planner project after the tab handoff, but Weak Spot
-and every later content/publication gate remain pending.
+**EDITORIAL RELEVANCE PASS; TOPIC DISCOVERY PASS; EXACT/GOLDEN/SERP GATES TESTED; NO QUALIFYING CANDIDATE — RESEARCH PARKED.**
+Candidate 3 (`prompt video ai`) remains parked at Planner Weak Spot `0`.
+Candidate 4 (`apa itu prompt engineering`) failed the exact-volume gate.
+Candidate 5 (`contoh prompt ai`) passed exact volume and Golden Filter but
+returned Planner Weak Spot `0`. The broad exact term `prompt engineering`
+returned commercial/job/course intent, and the later `cara tulis prompt ai`
+card is outside the two currently registered Prompt Engineering families.
+No Content Brief, Content Creator draft, WordPress write, tracking, or
+publication action is authorized by this record.
 
-The saved handoff proposed the broad seed `contoh prompt AI`. To preserve the
-required seed-to-topic match, this run used the narrower provisional seed
-`contoh prompt AI video`; Topic Discovery then surfaced the more precise
-candidate seed `prompt video ai`. The candidate seed remains unvalidated until
-Keyword Explorer, SERP, and later gates pass.
+The saved handoff proposed the broad seed `contoh prompt AI`. The research
+continuation tested that report's foundational card, a practical prompt-example
+candidate, the broad `prompt engineering` term, and a `prompt AI untuk kerja`
+pivot. Each result is recorded below with its exact gate outcome. The current
+registered families remain `prompt-engineering.youtube-thumbnail` and
+`prompt-engineering.ai-video-prompts`; expanding into a generic prompt-writing
+family requires an explicit policy/calendar decision before more credit is
+spent.
 
 ## Candidate relevance record
 
@@ -189,11 +193,91 @@ The report was independently read back before any Keyword Explorer action.
 | Candidate evidence | Visible related results included `apa itu prompt engineering?` (Zyan), `apa itu prompting? panduan asas untuk ai` (Pandaitech), and `🤖 apa itu prompt engineering?` (KursusAI) |
 | Editorial fit | Foundational reader-facing explainer; distinct from Post #3's practical `cara buat prompt chatgpt` workflow and suitable as a possible Prompt Engineering pillar |
 | Rejected/parked alternatives | `prompt gambar ai` (`70`) overlaps published image-prompt work; `prompt video ai` (`90`) is already parked at Planner Weak Spot `0`; fragment cards such as `yang baik` are not exact reader-facing topics |
-| Guarded continuation | Exact Keyword Explorer lookup for `apa itu prompt engineering` was attempted under route `dlt-next-article-20260913-topic-discovery-candidate-apa-itu-prompt-engineering`, but failed closed before action because tab `2074156971` remained owned by the current browser session |
-| Current gate | **TOPIC DISCOVERY PASS; EXACT KEYWORD PENDING.** No quota refresh, Keyword Explorer lookup, Golden Filter, list write, Planner, drafting, WordPress, tracking, or publication occurred for candidate 4. |
+| Guarded continuation | The original worker handoff failed closed on tab ownership. The coordinator then used the exact same authenticated tab under route `writerzen-prompt-engineering-20260913-01`/`02` and completed the exact lookup. |
+| Current gate | **TOPIC DISCOVERY PASS; EXACT VOLUME FAIL.** Keyword Explorer report `1576139` returned volume `10`, below the relaxed Malay floor of `50`; no Golden Filter, list write, Planner, drafting, WordPress, tracking, or publication occurred for candidate 4. |
 
-The next permitted action is one exact Keyword Explorer lookup for
-`apa itu prompt engineering` after the authenticated tab is released to the
-bounded worker. Do not treat card volume `170` as exact-keyword evidence and do
-not create a list row or Planner project before the exact, Golden, SERP, and
-Weak Spot gates pass.
+That exact gate is now closed. Do not treat card volume `170` as eligibility and
+do not create a list row or Planner project for Candidate 4.
+
+## Fresh exact-gate continuation — candidate 4 (2026-09-13)
+
+The coordinator used the user's already-open authenticated Chrome tab under the
+new, narrow same-tab fallback policy. The accidental Topic Discovery report
+`246778` was created when the first submit action landed on Topic Discovery
+instead of Keyword Explorer; it consumed one Topic Lookup and is recorded here
+for quota transparency. It did not create a keyword-list row, Planner project,
+article, or WordPress change.
+
+| Field | Evidence |
+|---|---|
+| Exact Keyword Explorer | Report `1576139`, Malaysia/Malay; exact `apa itu prompt engineering` |
+| Exact metrics | Last month `10`; 12-month average `10`; high `40`; low `10`; CPC `$0.00`; KD Ads `2`; KD Content `0`; KD Traffic `0`; KD Signal `0`; one idea; word count `4`; PPC Low |
+| SERP reality | Top results were a mix of Maukerja prompt-engineer jobs, RTM, KursusAI, Pandaitech, TTJ Pro Academy, LinkedIn, PRPM, Shahrul Ikhwan, and UKM Wadah Digital pages. The result is not a sufficiently clear high-demand reader-facing target. |
+| Gate decision | **FAIL volume.** Exact volume `10` is below the relaxed Malay long-tail floor of `50`; no Golden Filter, permanent-list addition, Planner project, brief, or draft. |
+
+Card volume `170` from report `246776` was therefore not promoted to exact-keyword
+evidence. The final quota read-back after this lookup showed Topic Lookup
+`70/75` and Keyword Lookup `69/75`.
+
+## Fresh exact/Golden/Planner continuation — candidate 5 (2026-09-13)
+
+The next reader-facing candidate from the same discovery direction was
+`contoh prompt ai`. It passed the exact and Golden gates, so the required list
+and one new Planner project were created once each. The Weak Spot gate then
+failed and the candidate is parked.
+
+| Field | Evidence |
+|---|---|
+| Exact Keyword Explorer | Report `1576140`; exact row `contoh prompt ai`; last month `50`; 12-month average `90`; high `320`; low `40`; CPC `$0.00`; KD Ads `4`; KD Content/Traffic/Signal `0/0/0`; word count `3`; PPC Low; expanded table volume `90` |
+| Manual SERP | SirapLimau, Sifoo, LinkedIn, PromptAcademy, HCTM, Harian Metro, Astro Awani, Maukerja, UKM, and UTM; mixed but with local practical prompt/image results |
+| Golden Filter | Report `1576141`; exact row only; volume `90`; All-in-Title `0`; Golden Score `1.002`; one Keyword Credit spent. The 460-keyword broad filter was not run. |
+| Permanent list | `DigiTrust Lab Blog Posts` (`68708`); exact row verified once as row `56` of `56`; no duplicate |
+| Planner | New project `179242`, `Contoh Prompt AI - DigiTrustLab 2026-09-13`; one selected keyword; `Moderately Relevant`; clustering cost `1` Keyword Credit |
+| Weak Spot | DA metrics activated once; cost `50` Keyword Credits; Weak Spot `0`; Avg DA `79.7`; lowest DA `47`; highest DA `93`; progress complete |
+| Gate decision | **PARKED.** Weak Spot `0 < 2`; no Content Brief, Content Creator, drafting, publication, or tracking. Do not create another project or override the gate. |
+
+The remaining Keyword Credit read-back after clustering and DA metrics was
+`39,677/40,000`; AI Words remained `7,471/8,000` and Article remained
+`69/70`.
+
+## Broad-family intent check — candidate 6 (2026-09-13)
+
+Topic Discovery report `246779` used the seed `prompt engineering` and returned
+76 topics. The exact Keyword Explorer report `1576142` showed strong volume but
+the wrong editorial intent for this blog's next article.
+
+| Field | Evidence |
+|---|---|
+| Topic Discovery | Report `246779`; seed `prompt engineering`; 76 topics; Malaysia/Malay; visible cards included `PROMPT ENGINEERING` (`1,600`), `KURSUS` (`3,600`), `MENGAPA` (`2,400`), `APA ITU` (`2,400`), and a noisy ChatGPT head term |
+| Exact Keyword Explorer | Report `1576142`; volume `1,600`; 12-month average `1,600`; high/low `1,600/1,000`; CPC `$0.49`; KD Ads `21`; KD Content `0`; KD Traffic `3`; KD Signal `0`; one idea; word count `2`; PPC Low |
+| SERP reality | Top ten were dominated by Jobstreet/Indeed job pages, paid training providers, HRDCorp/e-LATiH/Yayasan Peneraju courses, LinkedIn, and training pages. This is commercial/job/course intent rather than a clear beginner how-to. |
+| Gate decision | **PARKED for intent.** No Golden Filter, list, Planner, brief, or draft. High volume alone does not override the editorial relevance gate. |
+
+## Unregistered-family pivot — `prompt AI untuk kerja` (2026-09-13)
+
+Topic Discovery report `246780` was run as a bounded exploratory pivot. It
+surfaced a promising-looking `cara tulis prompt ai` card with volume `70`, plus
+work/productivity and course signals. This is not an approved candidate yet:
+the project gate currently registers only the thumbnail and AI-video families.
+Do not spend Keyword Explorer, Golden, list, Planner, or AI-writing credits on
+this pivot until Operations explicitly approves adding a generic
+`prompt-engineering.prompt-writing` family and records its parent/peer and
+cannibalization rules.
+
+## Final quota and decision read-back (2026-09-13)
+
+| Limit | Fresh value |
+|---|---:|
+| Topic Lookup / day | `70/75` |
+| Keyword Lookup / day | `69/75` |
+| Article / month | `69/70` |
+| Keyword Credit / month | `39,677/40,000` |
+| AI Words / month | `7,471/8,000` |
+| Keyword List / plan | `47/50` (WriterZen limits surface; list body is authoritative for the verified 56 rows) |
+| Available seat / total | `2/3` |
+
+**Final status:** no registered Prompt Engineering candidate currently passes
+all required gates. Candidate 3 and Candidate 5 are parked at Weak Spot `0`;
+Candidate 4 fails exact volume; Candidate 6 fails editorial intent; and the
+`cara tulis prompt ai` pivot awaits explicit family approval. Stop before
+Content Creator, native drafting, WordPress, tracking, or publication.
