@@ -58,12 +58,13 @@ Remove-Item Env:CLAUDE_PROJECT_PATH
 
 ---
 
-## MCP Servers — Connectors UI Only (no per-project config)
+## MCP Servers — one canonical source per client
 
-Claude Code's **Connectors UI** (Settings → Connectors) is the canonical place
-to install MCP servers. Connectors are installed at the user level, so they
-apply to **every project** automatically — no per-project `mcpServers` block
-in `~/.claude.json` is needed.
+Claude Code's **Connectors UI** (Settings → Connectors) remains canonical for
+remote/user-level connectors such as Screpy. Site-bound Respira is deliberately
+project-scoped in this repository's `.mcp.json`; the old user-scope
+`wordpress-mcp-server` alias is retired, so it cannot create a second Respira
+process. No per-project `mcpServers` block in `~/.claude.json` is needed.
 
 ### 🚨 `claude mcp list` LIES about OAuth'd Web connectors (learned 2026-08-01)
 
@@ -121,15 +122,15 @@ had been working the whole time.
 > never consults the global install or npx. The global 8.0.2 has been sitting
 > unused; the connector has been running **7.1.2** the whole time.
 
-**Verified state (2026-07-30):**
+**Verified state (2026-09-12):**
 
 | Component | Version | Actually used? | Location |
 |-----------|---------|----------------|----------|
-| WordPress plugin | Updated 2026-07-29 | ✅ yes | WP Admin → Plugins (`digitrustlab.com`) |
+| WordPress plugin | **8.8.36** | ✅ yes | `respira_diagnose_connection` on `digitrustlab.com` |
 | **`.mcpb` extension (the live one)** | wrapper **7.1.3** / server **7.1.2** | ✅ **this is what runs** | `%APPDATA%\Claude\Claude Extensions\local.mcpb.mihai-dragomirescu.respira-wordpress\` |
 | Global npm install | ~~8.0.2~~ **removed 2026-07-30** | ❌ never loaded | was `%APPDATA%\npm` |
 | npx cache | (empty) | ❌ not used | `%LOCALAPPDATA%\npm-cache\_npx` |
-| Latest on registry | 8.1.4 *(2026-08-01)* | — | npm — moves independently, irrelevant to the connector |
+| **CLI package used by Claude Code/Codex** | **8.3.24 (pinned)** | ✅ yes | project `.mcp.json` + TSOT Codex launcher |
 
 **Why the global install is inert:** the extension manifest declares its entry as
 `node ${__dirname}/server/index.js`, and `server/node_modules/` contains its own
@@ -162,12 +163,12 @@ There are **four**. Bundle re-checked **2026-08-01**; the rest measured 2026-07-
 | Version line | Current | Where you see it | Relevance |
 |---|---|---|---|
 | **Platform (marketing)** | 8.1.8 | footer stats block on respira.press | site-wide counter, ticks often — **not a software version you can install** |
-| **WordPress plugin** | **8.0.5** | `respira_diagnose_connection` → `plugin_diagnostic.plugin_version` | server side, updates via WP Admin → Plugins |
-| **npm library** | **8.1.4** *(was 8.0.6 on 07-30)* | `npm view @respira/wordpress-mcp-server version` | NOT used by the connector (proven — see below) |
-| **`.mcpb` bundle** | **7.1.3** (server 7.1.2) | `manifest.json` inside the `.mcpb` zip | ✅ **the only one that governs Claude Desktop / Claude Code** |
+| **WordPress plugin** | **8.8.36** | `respira_diagnose_connection` → `plugin_diagnostic.plugin_version` | server side, updates via WP Admin → Plugins |
+| **npm library** | **8.3.24** (selected and pinned) | project `.mcp.json` + TSOT Codex launcher | ✅ used by Claude Code/Codex |
+| **`.mcpb` bundle** | **7.1.3** (server 7.1.2) | `manifest.json` inside the `.mcpb` zip | ✅ governs Claude Desktop only |
 
-**The `.mcpb` bundle lags all the others, and that is normal.** Seeing "v8.1.8"
-on respira.press, or 8.1.4 on npm, does NOT mean an 8.x bundle exists.
+**The `.mcpb` bundle lags the CLI package, and that is normal.** A newer npm
+package does not imply that Claude Desktop's self-contained bundle changed.
 
 ### Re-verified 2026-08-01 — still 7.1.3, no 8.x bundle
 
@@ -386,23 +387,25 @@ A `docker run -i --rm mcp/fetch` variant also exists but needs Docker Desktop's 
 running; it failed with `transport closed` purely because the daemon was down. `uvx` has no
 daemon dependency, so it survives reboots.
 
-### ⚠️ Devin and Claude drive WordPress through DIFFERENT Respira versions
+### ⚠️ Respira client sources are separate by design
 
-| Agent | Respira source | Version |
-|-------|----------------|---------|
-| Claude | `.mcpb` extension, self-contained | **7.1.2** (pinned by the bundle) |
-| Devin | `npx -y @respira/wordpress-mcp-server`, unpinned | **8.1.4** as of 2026-08-01 — floats to whatever npm serves |
-| Codex | `npx -y @respira/wordpress-mcp-server`, unpinned (`~/.codex/config.toml`) | same as Devin — floats |
+| Client | Respira source | Version |
+|--------|----------------|---------|
+| Claude Desktop | `.mcpb` extension, self-contained | **7.1.2** (pinned by the bundle) |
+| Claude Code | project `.mcp.json`, env-backed credentials | **8.3.24** (pinned) |
+| Codex | TSOT `codex-respira-launcher.ps1`, env-backed credentials | **8.3.24** (pinned) |
+| Devin | separate config, outside this consolidation | not verified here |
 
-Same site, same tools, two different server builds. **If Devin and Claude ever disagree about
-a Respira behaviour, check this first.** Devin's entry is unpinned, so its version moves on its
-own whenever npx refreshes.
+Claude Desktop's bundle remains intentionally separate from the CLI package used by Claude
+Code and Codex. Within each CLI client there is now one Respira registration: Claude Code
+uses the project entry and Codex uses the TSOT launcher. The legacy user-scope
+`wordpress-mcp-server` alias is retired so it cannot start a second copy.
 
 Config backups from this work: `%USERPROFILE%\.devin-config-backup\`.
 
 ---
 
-### Why no per-project `mcpServers` in `~/.claude.json`
+### Why no duplicate `wordpress-mcp-server` in `~/.claude.json`
 
 We previously mirrored Devin's TSOT `mcp_config.json` into
 `~/.claude.json` per-project (`respira-wordpress`,
@@ -412,12 +415,11 @@ just created maintenance burden and breakage surface area (e.g. `devin/fetch`
 had a `McpError`/`MCPError` import bug that the built-in `fetch` connector
 doesn't have).
 
-The per-project `mcpServers` key was removed entirely. The top-level
-`mcpServers` key was also removed (it only held `context7` as a redundant
-backup of the Connector). **`~/.claude.json` now has zero MCP config** —
-every MCP server is provided exclusively via the Connectors UI. This is the
-cleanest possible state: one source of truth (Settings → Connectors), no
-duplicate entries, no config-file maintenance.
+The per-project `mcpServers` key remains absent from `~/.claude.json`. The old top-level
+`wordpress-mcp-server` alias was removed on 2026-09-12 because this project already has
+the canonical site-bound `respira` entry in `.mcp.json`. `~/.claude.json` retains only the
+shared machine tools (`fetch` and `chrome-devtools`); Claude Code's Respira connection is
+approved in the project state and loaded once from `.mcp.json`.
 
 ### Environment variables (still useful, even with Connectors)
 
