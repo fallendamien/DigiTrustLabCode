@@ -154,10 +154,11 @@ cannibalising results.
 After the fresh tab handoff and list verification:
 
 1. The exact list `68708` row has now been verified as row `55`; do not add it again.
-2. Create one new Planner project; never reuse `179213` or legacy `178201`.
-3. Activate metrics and require Weak Spot `>=2`.
-4. Record either the qualified or parked outcome in the calendar and this dated
-   evidence file.
+2. Planner project `179241` was created for `prompt video ai`; do not create a
+   second project for this keyword.
+3. Activated metrics returned Weak Spot `0`, so the candidate is parked.
+4. Return to Topic Discovery for a new reader-facing angle; repeat exact,
+   Golden, SERP, and Weak Spot gates before any brief or draft.
 
 Stop if no candidate passes. Do not lower Golden or All-in-Title limits,
 silently override Weak Spot, change category, or begin drafting.
@@ -226,7 +227,7 @@ The research handoff ends with either:
    and Weak Spot gates and is recorded without duplicates; or
 2. **Parked:** the fresh seed yields no qualifying candidate, with exact IDs,
    metrics, quota delta, rejection reasons, and updated evidence; or
-3. **In progress:** Candidate 3 is qualified through Golden/SERP and now has a
-   verified permanent-list row; the new Planner project and Weak Spot gate remain.
+3. **Parked:** Candidate 3 has a verified permanent-list row and Planner project
+   `179241`, but Weak Spot `0 < 2`; return to Topic Discovery and do not draft.
 
 Neither outcome authorizes drafting or publication.

@@ -29,9 +29,10 @@
 > (volume `90`, Malaysia/Malay), one-keyword Golden Filter (Allintitle `0`,
 > Golden Score `1.002`) and manual SERP review with an intent caveat. The
 > permanent list now contains the exact row as row `55` of `55`, independently
-> verified after one bounded worker Add action. Resume from
-> `content/research/prompt-engineering-2026-09-12-relevance.md`, create only the
-> new Planner project, and stop at Weak Spot `<2`; do not draft or publish.
+> verified after one bounded worker Add action. New Planner project `179241`
+> returned Weak Spot `0`, so Candidate 3 is parked. Resume from
+> `content/research/prompt-engineering-2026-09-12-relevance.md` by returning to
+> Topic Discovery for a new angle; do not draft or publish this candidate.
 >
 > **POST #8 LIVE; TRACKING + FEATURED MEDIA RECONCILED (2026-09-07):**
 > Post #8 "Cara Buat Poster dengan ChatGPT" is live at
@@ -60,8 +61,8 @@
 
 1. Restart Zed once, then run the dual-client Context7 readiness prompt in `content/next-prompt-engineering-vscodium-acp-handoff.md`.
 2. Open and follow that handoff in Zed via Codex ACP or Claude Code terminal/ACP; run its startup verification commands before browser work.
-3. Refresh quota and perform only the bounded new Planner-project action for the already verified `prompt video ai` row.
-4. Activate Planner metrics and require Weak Spot `>=2`; keep Candidate 3 out of drafting and publication until that gate passes.
+3. Return to Topic Discovery within the approved Prompt Engineering family and choose a new reader-facing angle.
+4. Repeat exact keyword, Golden Filter, SERP, and Weak Spot gates; keep Candidate 3 parked and out of drafting/publication.
 5. Keep Post #8 GSC, Post #10 Screpy tracking, Post #7 Pages discovery, sitemap cache, and Post #12's stale naturalness artifact as separate follow-ups.
 
 ## Context7 dual-client readiness prompt

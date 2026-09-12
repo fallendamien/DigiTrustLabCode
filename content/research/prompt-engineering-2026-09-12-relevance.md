@@ -2,7 +2,7 @@
 
 ## Decision
 
-**EDITORIAL RELEVANCE PASS; TOPIC DISCOVERY PASS; KEYWORD/GOLDEN FILTER PASS; SERP REVIEW PASS; PLANNER WEAK SPOT PENDING.**
+**EDITORIAL RELEVANCE PASS; TOPIC DISCOVERY PASS; KEYWORD/GOLDEN FILTER PASS; SERP REVIEW PASS; PLANNER WEAK SPOT FAIL — CANDIDATE PARKED.**
 This record permitted one fresh Topic Discovery lookup inside the already-
 approved Prompt Engineering AI-video prompt family. Report `246755` surfaced a
 promising in-family lead, `prompt video ai`. Exact Keyword Explorer evidence
@@ -95,7 +95,7 @@ Keyword Explorer, SERP, and later gates pass.
 | Candidate lead | `prompt video ai` — card volume `90`; related examples included `starter prompt video ai`, a Shopee AI-video generator listing, and a Malaysian Reserve AI-video article. This is a card signal, not exact-keyword validation. |
 | Secondary in-family lead | `contoh prompt video` — card volume `10`; below the relaxed Malay long-tail floor of `50`, so parked unless later evidence changes the decision. |
 | Rejected noisy cards | `buat video ai` (`320`) was news/course-heavy; `ai google` (`8,100`) and `ai features` (`50`) were off-family; image-prompt and generic prompt cards were not promoted. |
-| Immediate decision | Keep `prompt video ai` as the single qualified candidate. Perform a read-only permanent-list duplicate check, then use a new Planner project only if no exact row exists. |
+| Immediate decision | The exact/Golden/SERP candidate was tested in a new Planner project; Weak Spot `0` fails the required `>=2` gate, so park this candidate and return to Topic Discovery. |
 
 ## Keyword Explorer and manual SERP evidence
 
@@ -127,7 +127,10 @@ Keyword Explorer, SERP, and later gates pass.
 | Guarded write dispatch | Route `dlt-next-article-20260912-prompt-video-ai-after-user-reopen`, primary `content`, worker assignment `gpt-5.6-luna` at `high`. |
 | Worker outcome | **PASS.** One Add click was performed on the exact selected keyword and existing list; no visible credit cost or duplicate was observed. The worker stopped before Planner, drafting, WordPress, tracking, or publication. |
 | Independent verification | Root read-back of `https://app.writerzen.net/user/keyword-list/68708` shows sidebar count `55`, list result count `55`, and exact `prompt video ai` row at row `55`. |
-| Required next action | Create one new Keyword Planner project for this exact candidate, activate metrics, and require Weak Spot `>=2`. Do not cluster, brief, draft, or publish before that gate. |
+| Planner dispatch | Route `dlt-next-article-20260913-prompt-video-ai-planner-after-reopen`, primary `content`, worker assignment `gpt-5.6-luna` at `high`; new project `179241` — `https://app.writerzen.net/user/keyword-planner/179241`. |
+| Planner settings and cost | `Prompt Video AI - DigiTrustLab 2026-09-13`; one keyword; Malaysia/Malay; cluster level `Moderately Relevant`; clustering cost shown as `1` credit; DA activation cost shown as `50` credits with `39,779` available before activation. |
+| Planner result | Metrics row: volume `90`, CPC `0.49`, All-in-Title `0`, Golden Score `1.002`, word count `3`, PPC `Medium`; Weak Spot visibly `0` with DA Score progress `0%`. |
+| Gate decision | **PARKED.** Weak Spot `0 < 2`; no Content Brief, clustering follow-up, drafting, publication, or tracking is authorized for this candidate. |
 
 ## Fresh quota evidence after exact-keyword research
 
@@ -159,11 +162,13 @@ KEYWORD_EXPLORER: PASS (report 1576000; volume 90; Malaysia/Malay)
 GOLDEN_FILTER: PASS (report 1576001; Allintitle 0; Golden Score 1.002; one credit)
 SERP_REVIEW: PASS WITH INTENT CAVEAT
 KEYWORD_ELIGIBILITY: PASS FOR PLANNER
-WEAK_SPOT: PENDING
+PLANNER: 179241 (Prompt Video AI - DigiTrustLab 2026-09-13)
+WEAK_SPOT: FAIL (0 < 2) — PARKED
 ```
 
-The next permitted action is to create a **new** Keyword Planner project for
-this one candidate and activate metrics. The project must prove
-Weak Spot `>= 2` before clustering, Content Brief work, drafting, or any
-publication action. If the duplicate check finds an exact row, inspect it and
-do not submit another one.
+The candidate is parked because the new Planner project returned Weak Spot `0`.
+The next permitted action is to return to Topic Discovery within the approved
+Prompt Engineering family, choose a new reader-facing angle, and repeat the
+exact-keyword, Golden Filter, SERP, and Weak Spot gates. Do not create another
+project for `prompt video ai`, override the Weak Spot requirement, or draft from
+project `179241`.

@@ -667,3 +667,18 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 - **Manual SERP:** mixed AI-video news, tools, courses, profiles, and academic results; no clear small Malaysian practitioner result specifically for starter AI-video prompts
 - **Permanent list / Planner:** not modified or created because the exact keyword failed eligibility
 - **Research evidence:** `content/research/prompt-engineering-ai-video-2026-09-10-research.md`
+
+### Research lead — Prompt Engineering clearer AI-video prompts (2026-09-13)
+
+**Status:** `PARKED KEYWORD` — Planner Weak Spot gate failed; do not brief or draft.
+
+- **Provisional topic:** Cara Menulis Prompt Video AI yang Lebih Jelas
+- **Topic Discovery:** report `246755`; seed `contoh prompt AI video`; candidate `prompt video ai`; Malaysia/Malay
+- **Keyword Explorer:** report `1576000`; exact volume `90`; CPC `$0.49`; Malaysia/Malay
+- **Golden Filter:** report `1576001`; All-in-Title `0`; Golden Score `1.002`; one-keyword filter cost `1` credit
+- **Manual SERP:** mixed intent with relevant local practitioner/course results; retained intent caveat
+- **Permanent list:** DigiTrust Lab Blog Posts ID `68708`; exact keyword verified once as row `55` of `55`
+- **Planner:** new project ID `179241`, `Prompt Video AI - DigiTrustLab 2026-09-13`; cluster level `Moderately Relevant`
+- **Weak Spot:** `0` (required `>=2`); DA Score progress `0%`; metrics row showed volume `90`, CPC `0.49`, All-in-Title `0`, Golden Score `1.002`, word count `3`, PPC `Medium`
+- **Decision:** return to Topic Discovery for a new angle; do not override the gate or create another project for this keyword
+- **Research evidence:** `content/research/prompt-engineering-2026-09-12-relevance.md`
