@@ -31,6 +31,30 @@ correction under "Scripts that need updating").
 
 ---
 
+## Addendum — Context7 persistence (2026-09-12)
+
+Context7 is now part of the durable device setup rather than a per-session
+configuration:
+
+| Client | Canonical source | Verification |
+|---|---|---|
+| Codex | Global `@upstash/context7-mcp@4.1.0`, registered by `-IncludeCodex` in `~/.codex/config.toml` | `context7-mcp.cmd --version`, `codex mcp get context7 --json`, and a real `resolve-library-id` call |
+| Claude | Account-level `claude.ai Context7` connector | `claude mcp get "claude.ai Context7"` reports `Connected`; `~/.claude.json` must not contain a local `context7` server |
+
+The shared definitions live in `workspace/config/agent-mcp-parity.json`. The
+bootstrap installs the pinned Codex package and fails closed if npm or the
+installation is unavailable. The startup-integrity and parity checks enforce
+the same command and reject a duplicate Claude file server. TSOT commit
+`47827ec` contains this setup and is pushed to `origin/master`.
+
+After bootstrap or pulling a new config, restart Zed/Codex ACP once because the
+ACP command and MCP registry is built at process start. Then run the dual-client
+verification prompt in `content/next-prompt-engineering-vscodium-acp-handoff.md`.
+Do not add a second Claude Context7 server when the account connector is already
+connected.
+
+---
+
 ## Why
 
 The TSOT (`<drive>:\My Drive\windsurf\.agent-templates`) holds 33 rules, 125
@@ -201,6 +225,8 @@ Then restart Claude Code and confirm **16** files load; start Codex and confirm
 | `~\.codex\AGENTS.md` | global doctrine loader |
 | `~\.codex\skills\TSOT_skills` | the 126 shared skills |
 | `~\.codex\prompts` | whole-folder link to `global-workflows` → 31 slash commands (`/check-sy` → `prompts:check-sync`). **Needs a Codex restart to appear.** |
+| `~\.codex\config.toml` | `context7` entry using `cmd.exe /d /c context7-mcp.cmd --transport stdio` |
+| Global npm | pinned `@upstash/context7-mcp@4.1.0` required by the Codex entry |
 | strays under `~\.codex\skills` | **removed** (unlink only; real folders kept) |
 
 **Why the bootstrap is required and not optional:** the home PC's Phase 2 loop

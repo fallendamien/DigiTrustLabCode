@@ -1,8 +1,8 @@
-# VSCodium ACP handover — next Prompt Engineering article
+# Zed ACP handover — next Prompt Engineering article
 
 **Prepared:** 2026-09-12
 **Project:** `G:\Zamzam Biznez\DigiTrustLabCode`
-**Target agents:** Codex ACP or Claude ACP in VSCodium
+**Target agents:** Codex ACP or Claude Code terminal/ACP in Zed
 **Current outcome:** No next topic has qualified yet. Resume research; do not draft.
 
 ## Objective
@@ -24,8 +24,51 @@ python scripts/verify-content-status.py --offline
 git status --short
 ```
 
-Do not reset, clean, discard, stage, commit, or overwrite the existing dirty
-worktree. It contains user-owned Post #8 evidence and this research.
+Do not reset, clean, discard, stage, commit, or overwrite unrelated work. Inspect
+the current status and preserve any user-owned changes. At handoff preparation the
+project tree was clean and one commit ahead of `origin`; recheck rather than
+assuming that state.
+
+## Context7 readiness gate (run after restarting Zed)
+
+Context7 is now persistent across the two clients:
+
+| Client | Canonical source | Expected state |
+|---|---|---|
+| Codex | Global `@upstash/context7-mcp@4.1.0`, registered in `~/.codex/config.toml` | `context7` entry uses `cmd.exe /d /c context7-mcp.cmd --transport stdio` |
+| Claude | Account-level `claude.ai Context7` connector | Connected; no local `context7` entry in `~/.claude.json` |
+
+The current Zed/ACP process was started before the Codex registration and must be
+restarted once. Then paste the prompt below into both Codex ACP and Claude Code
+terminal/ACP. Do not add a second Claude server if the account connector is
+connected.
+
+### Copy-paste Context7 verification prompt
+
+> Verify Context7 for both Codex and Claude without changing WordPress, browser
+> authentication, credentials, or MCP configuration. Do not create a duplicate
+> Claude file-based `context7` server.
+>
+> **Codex:** run `codex mcp get context7 --json`; confirm the command is
+> `cmd.exe /d /c context7-mcp.cmd --transport stdio`, the package is
+> `@upstash/context7-mcp` version `4.1.0`, and the server is enabled. Invoke
+> Context7 `resolve-library-id` for `vue` and report the returned library IDs.
+>
+> **Claude:** run `claude mcp list` and `claude mcp get "claude.ai Context7"`;
+> confirm the account-level connector is `Connected`. Confirm that
+> `~/.claude.json` has no local `context7` server. Invoke Context7
+> `resolve-library-id` for `vue` and report the returned library IDs.
+>
+> Finally run `& C:\my_Projektz\agent-templates\scripts\startup-integrity-check.ps1
+> -ProjectPath "G:\Zamzam Biznez\DigiTrustLabCode"` and
+> `python C:\my_Projektz\agent-templates\scripts\verify-agent-mcp-parity.py
+> --project "G:\Zamzam Biznez\DigiTrustLabCode" --require-claude
+> --require-codex`. Expect the Context7 package/config checks and parity summary
+> to pass with zero failures and zero warnings. If any check fails, stop, report
+> the exact output, and do not retry by adding another server.
+
+Record the client-specific evidence in the session handoff. A config listing
+alone is not enough; each client needs one successful Context7 tool call.
 
 ## Completed research
 
@@ -114,15 +157,15 @@ silently override Weak Spot, change category, or begin drafting.
 
 ## Relevant worktree paths
 
-| Path | State before this handover | Purpose |
+| Path | State at the 2026-09-12 handoff | Purpose |
 |---|---|---|
-| `scripts/verify-editorial-relevance-gate.py` | Modified | Registered/tested the two Prompt Engineering research families |
-| `content/content-calendar.md` | Modified | Records both parked candidates |
-| `content/research/prompt-engineering-2026-09-10-relevance.md` | Untracked | Thumbnail evidence and attestations |
-| `content/research/prompt-engineering-ai-video-2026-09-10-research.md` | Untracked | AI-video evidence and volume failure |
+| `scripts/verify-editorial-relevance-gate.py` | Tracked and committed | Registered/tested the two Prompt Engineering research families |
+| `content/content-calendar.md` | Tracked and committed | Records both parked candidates |
+| `content/research/prompt-engineering-2026-09-10-relevance.md` | Tracked and committed | Thumbnail evidence and attestations |
+| `content/research/prompt-engineering-ai-video-2026-09-10-research.md` | Tracked and committed | AI-video evidence and volume failure |
 
-Other modified or untracked paths predate or sit outside this handover.
-Preserve and report them separately.
+Other changes may be introduced in Zed after this handoff. Preserve and report
+them separately; do not assume a clean tree when staging later work.
 
 ## Verification before reporting
 
@@ -141,13 +184,16 @@ print.
 ## Copy-paste ACP opening prompt
 
 > Read `AGENTS.md` and `content/next-prompt-engineering-vscodium-acp-handoff.md`
-> completely, then verify imports, offline content status, and the dirty
-> worktree. Resume only the next Prompt Engineering topic research from the
-> Recommended continuation section. Use my existing authenticated Chrome
-> WriterZen tab, refresh quota, and apply the editorial relevance gate before
-> spending credits. Do not draft, publish, alter WordPress, duplicate WriterZen
-> records, override Weak Spot, enable keyword expansion, or touch unrelated
-> Post #8 files. Report exact IDs, metrics, quota changes, tests, and blockers.
+> completely, restart Zed if it predates the Context7 registration, and run the
+> Context7 readiness prompt for both Codex and Claude. Verify imports, offline
+> content status, and the current worktree. Resume only the next Prompt
+> Engineering topic research from the Recommended continuation section. Use my
+> existing authenticated Chrome WriterZen tab, refresh quota, and apply the
+> editorial relevance gate before spending credits. Do not draft, publish, alter
+> WordPress, duplicate WriterZen records, override Weak Spot, enable keyword
+> expansion, add a duplicate Context7 server, or touch unrelated Post #8 files.
+> Report exact IDs, metrics, quota changes, Context7 tool-call evidence, tests,
+> and blockers.
 
 ## Definition of done for the next ACP session
 

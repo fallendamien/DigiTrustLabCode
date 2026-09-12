@@ -3,15 +3,27 @@
 > **New device?** Device setup is not documented here — it is scripted in the
 > TSOT, so it cannot go stale. Run:
 > ```powershell
-> & <tsot>\scripts\bootstrap-new-device.ps1 -IncludeClaude -ProjectPath <repo>
+> & <tsot>\scripts\bootstrap-new-device.ps1 -IncludeClaude -IncludeCodex -ProjectPath <repo>
 > & <tsot>\scripts\startup-integrity-check.ps1
 > ```
 > The only project-specific piece is `.mcp.json` in this repo (Respira, bound to
 > digitrustlab.com), which arrives with `git pull`. Approve it once when Claude
 > Code prompts, or its servers silently will not load.
+> Context7 is now included in the TSOT bootstrap: Codex uses the global pinned
+> `@upstash/context7-mcp@4.1.0`; Claude uses the connected account-level
+> `claude.ai Context7` connector. Do not add a local Claude duplicate.
 
 ## Current State
 
+> **CONTEXT7 PERSISTENCE VERIFIED (2026-09-12):** Codex has the global
+> `@upstash/context7-mcp@4.1.0` entry and a real `resolve-library-id` probe passed.
+> Claude's account-level `claude.ai Context7` connector is connected, with no
+> local `context7` entry in `~/.claude.json`. The shared bootstrap, startup
+> integrity check, and parity verifier are committed and pushed in TSOT commit
+> `47827ec`. Restart Zed/Codex ACP once before expecting the new Codex server in
+> the current process. The copy-paste dual-client verification prompt is in the
+> active handoff below.
+>
 > **PROMPT ENGINEERING RESEARCH HANDOFF READY (2026-09-12):**
 > No next article keyword is approved. The thumbnail candidate passed Golden
 > metrics but failed Weak Spot at `1`; `starter prompt video ai` returned exact
@@ -45,10 +57,38 @@
 
 ## Next action
 
-1. Open and follow `content/next-prompt-engineering-vscodium-acp-handoff.md` in Codex or Claude ACP; run its startup verification commands before browser work.
-2. Refresh WriterZen quota in the existing authenticated Chrome session and run the full relevance gate before a fresh Topic Discovery for provisional seed `contoh prompt AI`.
-3. Keep both researched candidates parked, preserve existing WriterZen report/project/list records, and stop before drafting or publishing until one keyword passes every research gate.
-4. Keep Post #8 GSC, Post #10 Screpy tracking, Post #7 Pages discovery, sitemap cache, and Post #12's stale naturalness artifact as separate follow-ups.
+1. Restart Zed once, then run the dual-client Context7 readiness prompt in `content/next-prompt-engineering-vscodium-acp-handoff.md`.
+2. Open and follow that handoff in Zed via Codex ACP or Claude Code terminal/ACP; run its startup verification commands before browser work.
+3. Refresh WriterZen quota in the existing authenticated Chrome session and run the full relevance gate before a fresh Topic Discovery for provisional seed `contoh prompt AI`.
+4. Keep both researched candidates parked, preserve existing WriterZen report/project/list records, and stop before drafting or publishing until one keyword passes every research gate.
+5. Keep Post #8 GSC, Post #10 Screpy tracking, Post #7 Pages discovery, sitemap cache, and Post #12's stale naturalness artifact as separate follow-ups.
+
+## Context7 dual-client readiness prompt
+
+Run this after restarting Zed. Paste it once into Codex ACP and once into Claude
+Code terminal/ACP. It verifies both configuration and one real Context7 tool call;
+it does not change site data, credentials, or MCP registrations.
+
+> Verify Context7 for both Codex and Claude without changing WordPress, browser
+> authentication, credentials, or MCP configuration. Do not create a duplicate
+> Claude file-based `context7` server.
+>
+> **Codex:** run `codex mcp get context7 --json`; confirm the command is
+> `cmd.exe /d /c context7-mcp.cmd --transport stdio`, the package is
+> `@upstash/context7-mcp` version `4.1.0`, and the server is enabled. Invoke
+> Context7 `resolve-library-id` for `vue` and report the returned library IDs.
+>
+> **Claude:** run `claude mcp list` and `claude mcp get "claude.ai Context7"`;
+> confirm the account-level connector is `Connected`. Confirm that
+> `~/.claude.json` has no local `context7` server. Invoke Context7
+> `resolve-library-id` for `vue` and report the returned library IDs.
+>
+> Finally run `& C:\my_Projektz\agent-templates\scripts\startup-integrity-check.ps1
+> -ProjectPath "G:\Zamzam Biznez\DigiTrustLabCode"` and
+> `python C:\my_Projektz\agent-templates\scripts\verify-agent-mcp-parity.py
+> --project "G:\Zamzam Biznez\DigiTrustLabCode" --require-claude
+> --require-codex`. Expect zero failures and zero warnings. If any check fails,
+> stop, report the exact output, and do not add another server or retry.
 
 ### Post #10 — ⚠️ PUBLISHED; SCREPY TRACKING PENDING (2026-08-26)
 

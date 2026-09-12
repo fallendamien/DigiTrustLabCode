@@ -1,8 +1,8 @@
 # DigiTrust Lab — Roadmap
 
-> **Status:** NEXT PROMPT ENGINEERING TOPIC RESEARCH — two candidates parked; VSCodium ACP handover ready
-> **Current Phase:** Post #8 remains closed. The thumbnail topic failed Weak Spot at 1, and the AI-video starter keyword returned exact volume 0. No next keyword is approved; resume from `content/next-prompt-engineering-vscodium-acp-handoff.md` with fresh relevance, quota, and Topic Discovery checks.
-> **Last Updated:** 2026-09-12 (Prompt Engineering research handover — 12 posts published)
+> **Status:** NEXT PROMPT ENGINEERING TOPIC RESEARCH — two candidates parked; Zed ACP handover and Context7 readiness gate ready
+> **Current Phase:** Post #8 remains closed. The thumbnail topic failed Weak Spot at 1, and the AI-video starter keyword returned exact volume 0. No next keyword is approved; resume from `content/next-prompt-engineering-vscodium-acp-handoff.md` with a one-time Zed restart, Context7 dual-client check, fresh relevance, quota, and Topic Discovery checks.
+> **Last Updated:** 2026-09-12 (Prompt Engineering handover + persistent Context7 verification — 12 posts published)
 > **Monthly Revenue:** RM 69 (1 sale, pre-blog era)
 
 > **Scope note:** Historical milestones and planned titles remain retained for continuity. The authoritative current content inventory and research status is [`content/content-calendar.md`](content/content-calendar.md). The active editorial queue lives there, not here.
@@ -19,7 +19,8 @@
 - Post #7 Screpy Pages discovery remains non-blocking pending (crawl predates publication)
 - Infrastructure is complete; the next editorial mission should begin only after the relevance, cluster and Operations gates pass
 - Prompt Engineering research parked two candidates: thumbnail prompts failed Weak Spot `1` (required `>=2`), and `starter prompt video ai` failed exact volume at `0`; no drafting is authorized
-- VSCodium ACP continuation file: `content/next-prompt-engineering-vscodium-acp-handoff.md`
+- Context7 persistence verified: Codex global `@upstash/context7-mcp@4.1.0` passed a real tool probe; Claude's connected account-level `claude.ai Context7` connector remains canonical; no duplicate local Claude server exists. Restart Zed/Codex ACP once to reload the current process.
+- Zed ACP continuation file: `content/next-prompt-engineering-vscodium-acp-handoff.md` (contains the dual-client Context7 verification prompt)
 
 ---
 
