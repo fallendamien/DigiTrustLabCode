@@ -116,10 +116,11 @@ validation of `starter prompt video ai`.
 | Golden Filter | Report `1576001`; Allintitle `0`; Golden Score `1.002`; one selected keyword; one credit spent. The 752-keyword broad filter was cancelled. |
 | SERP | Mixed intent, but relevant local practitioner/course pages appeared at ranks 4 and 9 (Hazril Hafiz and Sifoo). Pass with an intent caveat; keep the article tightly instructional. |
 | Permanent list | Read-only exact search in list `68708` returned no row. |
-| Guarded continuation | Worker route `dlt-next-article-20260912-prompt-video-ai` could not act because the exact authenticated WriterZen tab was already claimed by the controlling CUA session. No list addition or Planner project was made. |
+| Guarded continuation | Three bounded `gpt-5.6-luna` worker attempts, including after a tab-handoff mark and CUA reset, received the same provider result: the exact authenticated WriterZen tab was already claimed by session `01a09530-700e-7e90-ac79-abd632d41b36`. No list addition or Planner project was made. |
 | Evidence | `content/research/prompt-engineering-2026-09-12-relevance.md` |
 
-Resume only after the tab is released or explicitly handed off. Repeat the
+Resume only after the current browser-control session ends or the tab is
+released/reopened by the user. Repeat the
 bounded list-add (one exact row) and create one new Planner project, then
 activate metrics and require Weak Spot `>=2`. Do not draft, publish, or use
 WriterZen whole-article generation.

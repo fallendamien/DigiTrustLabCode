@@ -125,8 +125,8 @@ Keyword Explorer, SERP, and later gates pass.
 |---|---|
 | Permanent keyword list | Read-only search in `DigiTrust Lab Blog Posts` (ID `68708`) returned **No data** for exact `prompt video ai`; no duplicate exists. |
 | Guarded write dispatch | Route `dlt-next-article-20260912-prompt-video-ai`, primary `content`, worker assignment `gpt-5.6-luna` at `high`. |
-| Worker outcome | **BLOCKED BEFORE ACTION.** The exact authenticated WriterZen tab was already claimed by the controlling CUA session, so the bounded worker could not safely add the row or create the Planner project. No external write was made. |
-| Required resume action | Release or hand off the claimed WriterZen tab, then repeat only the bounded list-add and new Planner-project actions. Do not bypass the failed worker gate from the orchestrator session. |
+| Worker outcome | **BLOCKED BEFORE ACTION.** Three bounded `gpt-5.6-luna` worker attempts (including one after marking the tab for handoff and resetting the controlling CUA binding) received the same provider result: the exact authenticated WriterZen tab was already claimed by session `01a09530-700e-7e90-ac79-abd632d41b36`. No external write was made. |
+| Required resume action | End the current browser-control session or have the user release/reopen the authenticated WriterZen tab, then repeat only the bounded list-add and new Planner-project actions. Do not bypass the failed worker gate from the orchestrator session. |
 
 ## Fresh quota evidence after exact-keyword research
 
