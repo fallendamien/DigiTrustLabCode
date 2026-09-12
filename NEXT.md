@@ -24,13 +24,17 @@
 > the current process. The copy-paste dual-client verification prompt is in the
 > active handoff below.
 >
-> **PROMPT ENGINEERING RESEARCH HANDOFF READY (2026-09-12):**
-> No next article keyword is approved. The thumbnail candidate passed Golden
-> metrics but failed Weak Spot at `1`; `starter prompt video ai` returned exact
-> volume `0`. Continue in Codex or Claude ACP from
-> `content/next-prompt-engineering-vscodium-acp-handoff.md`. Begin with fresh
-> quota and relevance checks, then a new Topic Discovery using provisional seed
-> `contoh prompt AI`. Stop before drafting or publishing.
+> **PROMPT ENGINEERING RESEARCH — CANDIDATE 3 (2026-09-12):**
+> `prompt video ai` passed the bounded relevance gate, exact Keyword Explorer
+> (volume `90`, Malaysia/Malay), one-keyword Golden Filter (Allintitle `0`,
+> Golden Score `1.002`) and manual SERP review with an intent caveat. The
+> permanent-list duplicate check returned no row. The guarded worker could not
+> add the row or create the new Planner project because this authenticated
+> WriterZen tab is already claimed by the controlling CUA session; no external
+> write was made. Resume from
+> `content/research/prompt-engineering-2026-09-12-relevance.md`, release or hand
+> off the tab, then perform only the bounded list/project actions. Stop at Weak
+> Spot `<2`; do not draft or publish.
 >
 > **POST #8 LIVE; TRACKING + FEATURED MEDIA RECONCILED (2026-09-07):**
 > Post #8 "Cara Buat Poster dengan ChatGPT" is live at
@@ -59,8 +63,8 @@
 
 1. Restart Zed once, then run the dual-client Context7 readiness prompt in `content/next-prompt-engineering-vscodium-acp-handoff.md`.
 2. Open and follow that handoff in Zed via Codex ACP or Claude Code terminal/ACP; run its startup verification commands before browser work.
-3. Refresh WriterZen quota in the existing authenticated Chrome session and run the full relevance gate before a fresh Topic Discovery for provisional seed `contoh prompt AI`.
-4. Keep both researched candidates parked, preserve existing WriterZen report/project/list records, and stop before drafting or publishing until one keyword passes every research gate.
+3. Release or explicitly hand off the claimed authenticated WriterZen tab, refresh quota, and perform only the bounded `prompt video ai` list-add plus one new Planner project.
+4. Activate Planner metrics and require Weak Spot `>=2`; keep Candidate 3 out of drafting and publication until that gate passes.
 5. Keep Post #8 GSC, Post #10 Screpy tracking, Post #7 Pages discovery, sitemap cache, and Post #12's stale naturalness artifact as separate follow-ups.
 
 ## Context7 dual-client readiness prompt

@@ -3,7 +3,10 @@
 **Prepared:** 2026-09-12
 **Project:** `G:\Zamzam Biznez\DigiTrustLabCode`
 **Target agents:** Codex ACP or Claude Code terminal/ACP in Zed
-**Current outcome:** No next topic has qualified yet. Resume research; do not draft.
+**Current outcome:** `prompt video ai` passed bounded relevance, exact Keyword
+Explorer, one-keyword Golden Filter, and manual SERP review. It is eligible for
+Planner Weak Spot validation, but the guarded list/project write is blocked
+until the authenticated WriterZen tab is released or handed off. Do not draft.
 
 ## Objective
 
@@ -103,6 +106,24 @@ Spot 1 without Zamri's explicit approval.
 The card volume was not the exact-keyword volume. Do not treat `140` as
 validation of `starter prompt video ai`.
 
+### Candidate 3 — qualified through Golden/SERP; live continuation blocked
+
+| Field | Evidence |
+|---|---|
+| Topic | Cara Menulis Prompt Video AI yang Lebih Jelas |
+| Bounded Topic Discovery | Report `246755`; seed `contoh prompt AI video`; 76 topics, 36 `Closely`; lead `prompt video ai` card volume `90` |
+| Exact Keyword Explorer | Report `1576000`; volume `90`; last month `140`; 12-month average `90`; lowest `50`; Malaysia/Malay; Content/Traffic/Signal KD `0` |
+| Golden Filter | Report `1576001`; Allintitle `0`; Golden Score `1.002`; one selected keyword; one credit spent. The 752-keyword broad filter was cancelled. |
+| SERP | Mixed intent, but relevant local practitioner/course pages appeared at ranks 4 and 9 (Hazril Hafiz and Sifoo). Pass with an intent caveat; keep the article tightly instructional. |
+| Permanent list | Read-only exact search in list `68708` returned no row. |
+| Guarded continuation | Worker route `dlt-next-article-20260912-prompt-video-ai` could not act because the exact authenticated WriterZen tab was already claimed by the controlling CUA session. No list addition or Planner project was made. |
+| Evidence | `content/research/prompt-engineering-2026-09-12-relevance.md` |
+
+Resume only after the tab is released or explicitly handed off. Repeat the
+bounded list-add (one exact row) and create one new Planner project, then
+activate metrics and require Weak Spot `>=2`. Do not draft, publish, or use
+WriterZen whole-article generation.
+
 ### Remaining cards from report 246697
 
 | Exact visible wording | Card volume | Decision |
@@ -115,9 +136,12 @@ The previous seed is exhausted. Do not force one of these into production.
 
 ## Recommended continuation
 
-Start a fresh Topic Discovery report using the provisional broad seed
-`contoh prompt AI`, Malaysia and Malay. This is a research seed, not an
-approved keyword or title.
+Resume the qualified Candidate 3 record in
+`content/research/prompt-engineering-2026-09-12-relevance.md`. Do not spend
+another Topic Discovery or Keyword Explorer lookup unless the candidate is
+explicitly invalidated by a fresh read. The next action is the guarded
+permanent-list add and one new Planner project for `prompt video ai` after the
+authenticated WriterZen tab is released or handed off.
 
 Before spending a credit, refresh WriterZen limits and produce matching
 Research, SEO, and Operations relevance attestations. Confirm the candidate
@@ -126,17 +150,12 @@ has a plausible inbound source. Reject image-editing, broad AI-image, ChatGPT
 basics, poster, business, income, automation, SEO, and other off-family or
 cannibalising results.
 
-After relevance passes:
+After the tab handoff is available:
 
-1. Run Topic Discovery first.
-2. Run Keyword Explorer with Malaysia/Malay.
-3. Apply Golden Score `<=10`, All-in-Title `<=10`, and volume `>=100`; volume
-   may relax to `50` only for a genuine Malay long-tail.
-4. Inspect the SERP for matching intent and small Malaysian publishers.
-5. Check permanent list `68708` for an exact row before adding anything.
-6. Create one new Planner project; never reuse `179213` or legacy `178201`.
-7. Activate metrics and require Weak Spot `>=2`.
-8. Record either the qualified or parked outcome in the calendar and a dated
+1. Confirm the exact row is still absent from list `68708`; add only that row.
+2. Create one new Planner project; never reuse `179213` or legacy `178201`.
+3. Activate metrics and require Weak Spot `>=2`.
+4. Record either the qualified or parked outcome in the calendar and this dated
    evidence file.
 
 Stop if no candidate passes. Do not lower Golden or All-in-Title limits,
@@ -148,8 +167,9 @@ silently override Weak Spot, change category, or begin drafting.
   WriterZen tab, take a fresh snapshot, and reuse it.
 - If that tab is unavailable, ask Zamri to open or sign in. Do not switch to a
   blank, private, or separate CDP profile.
-- Last observed on 2026-09-10: Topic `74/75`, Keyword `72/75`, Article `69/70`,
-  Keyword Credit `39,781/40,000`, AI Words `7,471/8,000`. Refresh these values.
+- Last observed on 2026-09-12 after the exact lookup and one-keyword Golden
+  Filter: Topic `74/75`, Keyword `73/75`, Article `69/70`, Keyword Credit
+  `39,780/40,000`, AI Words `7,471/8,000`. Refresh before the guarded resume.
 - Keep `Write the whole article` and optional keyword expansion OFF. Do not use
   WriterZen's plagiarism checker.
 - Do not retry uncertain submissions. Reload and check for the resulting row
@@ -163,6 +183,7 @@ silently override Weak Spot, change category, or begin drafting.
 | `content/content-calendar.md` | Tracked and committed | Records both parked candidates |
 | `content/research/prompt-engineering-2026-09-10-relevance.md` | Tracked and committed | Thumbnail evidence and attestations |
 | `content/research/prompt-engineering-ai-video-2026-09-10-research.md` | Tracked and committed | AI-video evidence and volume failure |
+| `content/research/prompt-engineering-2026-09-12-relevance.md` | New, uncommitted | Candidate 3 exact metrics, Golden/SERP evidence, quota, and guarded-write blocker |
 
 Other changes may be introduced in Zed after this handoff. Preserve and report
 them separately; do not assume a clean tree when staging later work.
@@ -186,14 +207,15 @@ print.
 > Read `AGENTS.md` and `content/next-prompt-engineering-vscodium-acp-handoff.md`
 > completely, restart Zed if it predates the Context7 registration, and run the
 > Context7 readiness prompt for both Codex and Claude. Verify imports, offline
-> content status, and the current worktree. Resume only the next Prompt
-> Engineering topic research from the Recommended continuation section. Use my
-> existing authenticated Chrome WriterZen tab, refresh quota, and apply the
-> editorial relevance gate before spending credits. Do not draft, publish, alter
-> WordPress, duplicate WriterZen records, override Weak Spot, enable keyword
-> expansion, add a duplicate Context7 server, or touch unrelated Post #8 files.
-> Report exact IDs, metrics, quota changes, Context7 tool-call evidence, tests,
-> and blockers.
+> content status, and the current worktree. Resume Candidate 3 from
+> `content/research/prompt-engineering-2026-09-12-relevance.md`. Use my existing
+> authenticated Chrome WriterZen tab, release or hand it off before any guarded
+> external write, and refresh quota. Confirm the exact list `68708` row is absent,
+> add only `prompt video ai`, create one new Planner project, and stop at Weak
+> Spot `<2` or any ambiguity. Do not draft, publish, alter WordPress, duplicate
+> WriterZen records, override Weak Spot, enable keyword expansion, add a duplicate
+> Context7 server, or touch unrelated Post #8 files. Report exact IDs, metrics,
+> quota changes, Context7 tool-call evidence, tests, and blockers.
 
 ## Definition of done for the next ACP session
 
@@ -202,6 +224,9 @@ The research handoff ends with either:
 1. **Qualified:** one distinct keyword passes relevance, volume, Golden, SERP,
    and Weak Spot gates and is recorded without duplicates; or
 2. **Parked:** the fresh seed yields no qualifying candidate, with exact IDs,
-   metrics, quota delta, rejection reasons, and updated evidence.
+   metrics, quota delta, rejection reasons, and updated evidence; or
+3. **Blocked:** Candidate 3 remains qualified through Golden/SERP but the
+   authenticated WriterZen tab cannot be safely handed off for the bounded
+   external write. Record the exact ownership/blocker and do not bypass it.
 
 Neither outcome authorizes drafting or publication.
