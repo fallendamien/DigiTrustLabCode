@@ -722,11 +722,16 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 
 ### Research lead — `prompt AI untuk kerja` pivot (2026-09-13)
 
-**Status:** `UNVALIDATED OUTSIDE REGISTERED FAMILY` — explicit family approval required before spending more credits.
+**Status:** `APPROVED FAMILY — EXACT KEYWORD GATE PENDING` — exact validation is
+now authorized; do not create a list row, Planner project, brief, or draft until
+the metric gates pass.
 
 - **Topic Discovery:** report `246780`; seed `prompt AI untuk kerja`; 76 topics; a `cara tulis prompt ai` card showed volume `70`, alongside work/productivity and course signals
-- **Policy gate:** the structured relevance verifier currently registers only `prompt-engineering.youtube-thumbnail` and `prompt-engineering.ai-video-prompts`
-- **Decision:** do not run exact Keyword Explorer, Golden Filter, list, Planner, or Content Creator for this pivot unless Operations approves and records a new generic prompt-writing family, parent/peer map, and cannibalization rules
+- **User approval:** Zamri approved the new family in this thread on `2026-09-13`; stable reference `approval://user/2026-09-13/topic-family/prompt-engineering.prompt-writing`
+- **Registered family:** `prompt-engineering.prompt-writing`; pillar `prompt-engineering`; cluster `prompt-engineering.prompt-writing`; intent `intent.prompt.general.writing`; entities `entity.prompt`, `entity.ai-assistant`
+- **Subject / reader problem:** `Cara Tulis Prompt AI yang Berkesan` — help readers write clear, specific prompts for an AI assistant without vague instructions
+- **Inventory / link map:** distinct from Post #3's ChatGPT-specific workflow and visual prompt spokes; parent and planned inbound source `https://digitrustlab.com/cara-buat-prompt-chatgpt/`
+- **Decision:** exact Keyword Explorer validation is authorized. Golden Filter, permanent-list addition, Planner, Content Brief, Content Creator, drafting, and publication remain gated on exact volume, SERP, and Weak Spot `>=2`
 - **Research evidence:** `content/research/prompt-engineering-2026-09-12-relevance.md`
 
 ### Research lead — AI-video family follow-up sweep (2026-09-13)

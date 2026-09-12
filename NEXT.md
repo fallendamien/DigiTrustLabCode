@@ -42,11 +42,13 @@
 > permanent list (row `56`), but Planner `179242` returned Weak Spot `0` and is
 > parked. The broad exact `prompt engineering` report `1576142` was parked for
 > commercial/job/course intent. Topic Discovery report `246780` surfaced
-> `cara tulis prompt ai` at volume `70`, but it is outside the two registered
-> Prompt Engineering families and needs explicit family approval before any
-> further credit spend. Follow-up AI-video reports `246781`–`246782` and exact
-> reports `1576144`–`1576147` found only volume `10`/`0`/`0`/`0` terms; no
-> candidate is ready for Content Creator or drafting.
+> `cara tulis prompt ai` at volume `70`; Zamri approved and the project now
+> registers `prompt-engineering.prompt-writing` with exact approval reference
+> `approval://user/2026-09-13/topic-family/prompt-engineering.prompt-writing`.
+> Follow-up AI-video reports `246781`–`246782` and exact reports
+> `1576144`–`1576147` found only volume `10`/`0`/`0`/`0` terms. The approved
+> pivot is the next exact Keyword Explorer target; no candidate is ready for
+> Content Creator or drafting yet.
 >
 > **POST #8 LIVE; TRACKING + FEATURED MEDIA RECONCILED (2026-09-07):**
 > Post #8 "Cara Buat Poster dengan ChatGPT" is live at
@@ -75,8 +77,8 @@
 
 1. Restart Zed once, then run the dual-client Context7 readiness prompt in `content/next-prompt-engineering-vscodium-acp-handoff.md`.
 2. Keep Candidate 3 (`prompt video ai`) and Candidate 5 (`contoh prompt ai`) parked at Weak Spot `0`; do not create another Planner project or override the gate.
-3. Decide whether to authorize a new structured `prompt-engineering.prompt-writing` family for the `cara tulis prompt ai` pivot. The registered AI-video/thumbnail families have now been swept; until that policy/calendar decision is recorded, do not run another exact lookup or spend more credits.
-4. If the family is approved, update the verifier and calendar first, then repeat exact, Golden, SERP, and Weak Spot gates from a fresh quota read-back. If it is not approved, close this research cycle as “no qualifying candidate.”
+3. Refresh WriterZen limits and run one exact Keyword Explorer lookup for the approved `cara tulis prompt ai` pivot. Record exact volume, SERP/intent, and quota delta before deciding on Golden.
+4. Continue to Golden, list, Planner, drafting, and publication only if exact, Golden, SERP, and Weak Spot `>=2` all pass; keep all prior parked candidates unchanged.
 5. Keep Post #8 GSC, Post #10 Screpy tracking, Post #7 Pages discovery, sitemap cache, and Post #12's stale naturalness artifact as separate follow-ups.
 
 ## Context7 dual-client readiness prompt

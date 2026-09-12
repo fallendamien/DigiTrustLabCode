@@ -13,7 +13,7 @@ from typing import Optional
 from urllib.parse import urlsplit, urlunsplit
 
 
-AS_OF = date(2026, 9, 10)
+AS_OF = date(2026, 9, 13)
 FRESHNESS_DAYS = 30
 APPROVED_CATEGORIES = {
     "ai-tools": "AI Tools",
@@ -70,6 +70,39 @@ TOPIC_FAMILIES = {
             {"ranking", "google", "search", "visibility", "seo", "notion", "wordpress", "income", "duit", "jualan"}
         ),
         "requires_approval": False,
+    },
+    "prompt-engineering.prompt-writing": {
+        "pillar_id": "prompt-engineering",
+        "cluster_id": "prompt-engineering.prompt-writing",
+        "topic_intent_id": "intent.prompt.general.writing",
+        "subject_entity_allowlist": frozenset(
+            {"entity.prompt", "entity.ai-assistant"}
+        ),
+        "forbidden_text_terms": frozenset(
+            {
+                "ranking",
+                "google",
+                "search",
+                "visibility",
+                "seo",
+                "notion",
+                "wordpress",
+                "poster",
+                "thumbnail",
+                "video",
+                "image",
+                "photo",
+                "canva",
+                "income",
+                "duit",
+                "jualan",
+                "affiliate",
+                "job",
+                "kursus",
+                "course",
+            }
+        ),
+        "requires_approval": True,
     },
     # This family exists only to exercise the exact approval path. The fixture
     # is not evidence that the live calendar currently approves this pivot.
@@ -303,11 +336,22 @@ def validate_semantic_contract(candidate: Candidate) -> list[str]:
             )
 
     if family["requires_approval"]:
-        expected = (
-            "approval://user/2026-08-29/topic-family/"
-            f"{candidate.topic_family_id}"
+        pattern = (
+            r"approval://user/(\d{4}-\d{2}-\d{2})/topic-family/"
+            + re.escape(candidate.topic_family_id)
         )
-        if candidate.pivot_status != "approved" or candidate.user_approval_ref != expected:
+        approval_match = re.fullmatch(pattern, candidate.user_approval_ref)
+        approval_date = None
+        if approval_match:
+            try:
+                approval_date = date.fromisoformat(approval_match.group(1))
+            except ValueError:
+                approval_date = None
+        if (
+            candidate.pivot_status != "approved"
+            or approval_date is None
+            or approval_date > AS_OF
+        ):
             failures.append("pivot lacks exact user approval reference")
     elif candidate.pivot_status != "none":
         failures.append("unapproved pivot from the approved topic family")
@@ -571,10 +615,78 @@ def prompt_video_candidate() -> Candidate:
             link_feasibility_ref="evidence://operations/link-map/ai-video-prompts/2026-09-10",
         ),
     )
+
+
+def prompt_writing_candidate() -> Candidate:
+    candidate = Candidate(
+        topic="Cara Tulis Prompt AI yang Berkesan",
+        seed="cara tulis prompt ai",
+        category_id="prompt-engineering",
+        topic_family_id="prompt-engineering.prompt-writing",
+        pillar_id="prompt-engineering",
+        cluster_id="prompt-engineering.prompt-writing",
+        topic_intent_id="intent.prompt.general.writing",
+        subject_entity_ids=frozenset({"entity.prompt", "entity.ai-assistant"}),
+        declared_seed_intent="practical general prompt writing for AI assistants",
+        reader_problem=(
+            "write clear, specific prompts for an AI assistant without relying on "
+            "vague instructions"
+        ),
+        authenticity_basis=(
+            "explicitly planned first-hand comparison of revised prompts across "
+            "AI assistants"
+        ),
+        inventory_check=(
+            "distinct from Post #3's ChatGPT-specific workflow and the existing "
+            "visual prompt spokes"
+        ),
+        existing_cluster_map=(
+            "extends the approved generic prompt-writing cluster, supported by "
+            "published Post #3 as a parent without replacing its ChatGPT-specific "
+            "intent"
+        ),
+        mapped_pillar_id="prompt-engineering",
+        mapped_cluster_id="prompt-engineering.prompt-writing",
+        published_parent_or_peer_url="https://digitrustlab.com/cara-buat-prompt-chatgpt/",
+        inbound_source_url="https://digitrustlab.com/cara-buat-prompt-chatgpt/",
+        incremental_value=(
+            "a transferable prompt-writing framework for AI assistants, not another "
+            "ChatGPT-specific step list"
+        ),
+        anchor_context=(
+            "general prompt-writing framework anchor in the introductory section of "
+            "Post #3"
+        ),
+        pivot_status="approved",
+        user_approval_ref=(
+            "approval://user/2026-09-13/topic-family/"
+            "prompt-engineering.prompt-writing"
+        ),
+        research=None,
+        seo=None,
+        operations=None,
+        operations_evidence=None,
+    )
+    return reissue(
+        candidate,
+        operations_evidence=make_operations(
+            parent_urls=("https://digitrustlab.com/cara-buat-prompt-chatgpt/",),
+            inbound_urls=("https://digitrustlab.com/cara-buat-prompt-chatgpt/",),
+            calendar_urls=("https://digitrustlab.com/cara-buat-prompt-chatgpt/",),
+            link_urls=("https://digitrustlab.com/cara-buat-prompt-chatgpt/",),
+            calendar_ref="content/content-calendar.md#post-3",
+            link_feasibility_ref=(
+                "evidence://operations/link-map/prompt-writing/2026-09-13"
+            ),
+        ),
+    )
+
+
 def build_cases() -> dict[str, Candidate]:
     relevant = base_candidate()
     prompt_thumbnail = prompt_thumbnail_candidate()
     prompt_video = prompt_video_candidate()
+    prompt_writing = prompt_writing_candidate()
     ranking_google = reissue(
         replace(
             relevant,
@@ -657,6 +769,7 @@ def build_cases() -> dict[str, Candidate]:
         "registered_notion_task_template_pass": notion_pass,
         "prompt_thumbnail_pass": prompt_thumbnail,
         "prompt_video_pass": prompt_video,
+        "prompt_writing_pass": prompt_writing,
         "ai_poster_padded_with_notion_fail": replace(
             notion_pass,
             subject_entity_ids=frozenset(
@@ -704,6 +817,7 @@ def main() -> int:
         "registered_notion_task_template_pass",
         "prompt_thumbnail_pass",
         "prompt_video_pass",
+        "prompt_writing_pass",
         "operations_exact_canonical_match_pass",
     }
     outcomes: dict[str, bool] = {}

@@ -2,24 +2,24 @@
 
 ## Decision
 
-**EDITORIAL RELEVANCE PASS; TOPIC DISCOVERY PASS; EXACT/GOLDEN/SERP GATES TESTED; NO QUALIFYING CANDIDATE — RESEARCH PARKED.**
+**EDITORIAL RELEVANCE PASS; TOPIC DISCOVERY PASS; APPROVED FAMILY; EXACT GATE PENDING.**
 Candidate 3 (`prompt video ai`) remains parked at Planner Weak Spot `0`.
 Candidate 4 (`apa itu prompt engineering`) failed the exact-volume gate.
 Candidate 5 (`contoh prompt ai`) passed exact volume and Golden Filter but
 returned Planner Weak Spot `0`. The broad exact term `prompt engineering`
-returned commercial/job/course intent, and the later `cara tulis prompt ai`
-card is outside the two currently registered Prompt Engineering families.
-No Content Brief, Content Creator draft, WordPress write, tracking, or
-publication action is authorized by this record.
+returned commercial/job/course intent. The approved `cara tulis prompt ai`
+candidate is now the active exact-gate target. No Content Brief, Content Creator
+draft, WordPress write, tracking, or publication action is authorized until its
+exact, Golden, SERP, and Weak Spot gates pass.
 
 The saved handoff proposed the broad seed `contoh prompt AI`. The research
 continuation tested that report's foundational card, a practical prompt-example
 candidate, the broad `prompt engineering` term, and a `prompt AI untuk kerja`
 pivot. Each result is recorded below with its exact gate outcome. The current
-registered families remain `prompt-engineering.youtube-thumbnail` and
-`prompt-engineering.ai-video-prompts`; expanding into a generic prompt-writing
-family requires an explicit policy/calendar decision before more credit is
-spent.
+registered families are `prompt-engineering.youtube-thumbnail`,
+`prompt-engineering.ai-video-prompts`, and the newly approved
+`prompt-engineering.prompt-writing`; the new family must still pass the same
+metric and SERP gates before downstream credit is spent.
 
 ## Candidate relevance record
 
@@ -253,42 +253,62 @@ the wrong editorial intent for this blog's next article.
 | SERP reality | Top ten were dominated by Jobstreet/Indeed job pages, paid training providers, HRDCorp/e-LATiH/Yayasan Peneraju courses, LinkedIn, and training pages. This is commercial/job/course intent rather than a clear beginner how-to. |
 | Gate decision | **PARKED for intent.** No Golden Filter, list, Planner, brief, or draft. High volume alone does not override the editorial relevance gate. |
 
-## Unregistered-family pivot — `prompt AI untuk kerja` (2026-09-13)
+## Approved family expansion — generic prompt writing (2026-09-13)
 
-Topic Discovery report `246780` was run as a bounded exploratory pivot. It
-surfaced a promising-looking `cara tulis prompt ai` card with volume `70`, plus
-work/productivity and course signals. This is not an approved candidate yet:
-the project gate currently registers only the thumbnail and AI-video families.
-Do not spend Keyword Explorer, Golden, list, Planner, or AI-writing credits on
-this pivot until Operations explicitly approves adding a generic
-`prompt-engineering.prompt-writing` family and records its parent/peer and
-cannibalization rules.
+Topic Discovery report `246780` was initially recorded as an unregistered pivot.
+Zamri then explicitly approved the family in this thread with “approve new
+family..”. The approval is recorded as
+`approval://user/2026-09-13/topic-family/prompt-engineering.prompt-writing` and
+is limited to this project’s Prompt Engineering research workflow.
 
-## Final quota and decision read-back (2026-09-13)
+| Field | Approved value |
+|---|---|
+| Family ID | `prompt-engineering.prompt-writing` |
+| Pillar / cluster | `prompt-engineering` / `prompt-engineering.prompt-writing` |
+| Intent | `intent.prompt.general.writing` |
+| Subject entities | `entity.prompt`, `entity.ai-assistant` |
+| Candidate subject | `Cara Tulis Prompt AI yang Berkesan` |
+| Reader problem | Write clear, specific prompts for an AI assistant without relying on vague instructions |
+| Authenticity basis | Planned first-hand comparison of revised prompts across AI assistants; no invented performance or income claim |
+| Inventory / cannibalization | Distinct from Post #3’s ChatGPT-specific workflow and the existing visual prompt spokes; Post #3 remains the parent/peer and planned inbound source |
+| Parent / inbound URL | `https://digitrustlab.com/cara-buat-prompt-chatgpt/` (published, HTTP 200 in the current calendar evidence) |
+| Pivot status | `approved`; exact approval reference above |
+| Registry scope | Project-local verifier and calendar only; no shared TSOT doctrine change was needed |
+
+The semantic relevance fixture now includes a matching approved-pivot case and
+rejects the same family when the approval reference is missing, malformed, or
+dated after the verifier’s `AS_OF` date. Exact Keyword Explorer validation for
+`cara tulis prompt ai` is the next bounded action; Golden Filter, permanent-list
+addition, Planner, Content Brief, Content Creator, drafting, and publication
+remain gated on exact volume, SERP, and Weak Spot `>=2`.
+
+## Quota read-back before approved pivot (2026-09-13)
 
 | Limit | Fresh value |
 |---|---:|
-| Topic Lookup / day | `70/75` |
-| Keyword Lookup / day | `69/75` |
+| Topic Lookup / day | `68/75` |
+| Keyword Lookup / day | `65/75` |
 | Article / month | `69/70` |
 | Keyword Credit / month | `39,677/40,000` |
 | AI Words / month | `7,471/8,000` |
 | Keyword List / plan | `47/50` (WriterZen limits surface; list body is authoritative for the verified 56 rows) |
 | Available seat / total | `2/3` |
 
-**Final status:** no registered Prompt Engineering candidate currently passes
-all required gates. Candidate 3 and Candidate 5 are parked at Weak Spot `0`;
-Candidate 4 fails exact volume; Candidate 6 fails editorial intent; and the
-`cara tulis prompt ai` pivot awaits explicit family approval. Stop before
-Content Creator, native drafting, WordPress, tracking, or publication.
+At this read-back, Candidate 3 and Candidate 5 were parked at Weak Spot `0`,
+Candidate 4 failed exact volume, Candidate 6 failed editorial intent, and the
+AI-video sweep failed volume. The approved generic prompt-writing candidate
+`cara tulis prompt ai` is now the sole exact lookup target. Stop before Content
+Creator, native drafting, WordPress, tracking, or publication until its exact,
+Golden, SERP, and Weak Spot gates pass.
 
 ## Follow-up in-family sweep — AI-video Topic Discovery reports 246781–246782 (2026-09-13)
 
 To continue the full article objective without silently changing the editorial
-taxonomy, one additional registered-family discovery seed was tested:
-`prompt AI untuk video`. The completed reports contained no new candidate that
-cleared the exact-volume floor. The coordinator then performed three bounded
-exact lookups, each with a fresh quota check and no downstream spend.
+taxonomy, the registered-family discovery seeds `prompt AI untuk video` and
+`prompt video pendek ai` were tested. The completed reports contained no new
+candidate that cleared the exact-volume floor. The coordinator then performed
+four bounded exact lookups, each with a fresh quota check and no downstream
+spend.
 
 | Candidate | Exact report | Exact result | SERP / decision |
 |---|---:|---|---|
@@ -309,8 +329,9 @@ No Golden Filter, permanent-list addition, Planner project, Content Brief,
 Content Creator, WordPress, tracking, or publication action was taken during
 this sweep.
 
-**Research conclusion:** the two registered families are exhausted for this
-cycle. The full objective now requires an explicit decision to register a
-generic `prompt-engineering.prompt-writing` family for `cara tulis prompt ai`
-or another approved foundational angle; without that decision, the correct
-state is parked research rather than an unapproved draft.
+**Research conclusion:** the two original registered families are exhausted for
+this cycle. Zamri has now approved the generic
+`prompt-engineering.prompt-writing` family, and the verifier/calendar record
+that approval. The next bounded action is the exact Keyword Explorer lookup for
+`cara tulis prompt ai`; no Golden, list, Planner, brief, draft, or publication
+action has occurred yet.

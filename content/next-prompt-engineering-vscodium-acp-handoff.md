@@ -10,9 +10,10 @@ Keyword Explorer report `1576139` and failed volume (`10`). Candidate 5
 but Planner `179242` returned Weak Spot `0`. The broad exact `prompt
 engineering` term was parked for commercial/job/course intent. A follow-up
 AI-video Topic Discovery reports `246781`–`246782` and exact reports
-`1576144`–`1576147` found only volume `10`/`0`/`0`/`0` terms. The `cara tulis prompt ai` pivot remains
-outside the two registered families. No candidate is ready for drafting or
-publication.
+`1576144`–`1576147` found only volume `10`/`0`/`0`/`0` terms. Zamri has now
+approved the new generic `prompt-engineering.prompt-writing` family for
+`cara tulis prompt ai`; the exact gate is the next action. No candidate is ready
+for drafting or publication yet.
 
 ## Objective
 
@@ -28,14 +29,14 @@ WordPress, or publication unless Zamri separately approves further work.
 | Candidate 5 | Keyword Explorer `1576140`; Golden `1576141`; list row `56`; Planner `179242`; Weak Spot `0`; **parked** |
 | Candidate 6 | Topic Discovery `246779`; exact Keyword Explorer `1576142`; volume `1,600`, but job/course/training SERP; **parked for intent** |
 | AI-video follow-up | Topic Discovery `246781`–`246782`; exact reports `1576144`–`1576147`; volumes `10`/`0`/`0`/`0`; **parked** |
-| Exploratory pivot | Topic Discovery `246780`; `cara tulis prompt ai` card volume `70`; **outside registered family — approval required** |
+| Approved pivot | Topic Discovery `246780`; `cara tulis prompt ai` card volume `70`; family `prompt-engineering.prompt-writing`; approval `approval://user/2026-09-13/topic-family/prompt-engineering.prompt-writing` |
 | Quota read-back | Topic `68/75`; Keyword `65/75`; Article `69/70`; Keyword Credit `39,677/40,000`; AI Words `7,471/8,000`; list plan `47/50`; seats `2/3` |
 | Gate status | **No qualifying registered candidate.** Stop before Content Brief, Content Creator, drafting, WordPress, tracking, or publication. |
 
 Do not treat card volume as exact-keyword evidence. Candidate 4's exact volume
-failed, and Candidate 5's Weak Spot failed. Do not create another permanent-list
-row or Planner project until Operations explicitly approves a new structured
-family for the `cara tulis prompt ai` pivot.
+failed, and Candidate 5's Weak Spot failed. The approved pivot must still pass
+exact volume, Golden, SERP, and Weak Spot `>=2` before any list, Planner, or
+content action.
 
 ## Read and verify first
 
@@ -162,28 +163,16 @@ The previous seed is exhausted. Do not force one of these into production.
 
 Keep Candidate 3 (`prompt video ai`) and Candidate 5 (`contoh prompt ai`)
 parked: both Planner projects returned Weak Spot `0`. Candidate 4 failed exact
-volume, and Candidate 6 failed the reader-facing intent gate. The current
-research cycle therefore ends without a publishable candidate.
+volume, and Candidate 6 failed the reader-facing intent gate. The approved
+generic prompt-writing family is now ready for its first exact gate.
 
-The only promising unvalidated lead is `cara tulis prompt ai` (card volume `70`)
-from Topic Discovery report `246780`. It is outside the two registered families
-in `scripts/verify-editorial-relevance-gate.py`; the follow-up AI-video sweep
-found no qualifying alternative. Do not spend Keyword Explorer, Golden, list,
-Planner, or AI-writing credits on it until Operations explicitly approves a new
-generic prompt-writing family and records its parent/peer, cannibalization, and
-authenticity rules.
-
-If that approval is given:
-
-1. Update the verifier and `content/content-calendar.md` with the new family
-   before any browser credit spend.
-2. Refresh limits in the existing authenticated tab and run one exact lookup.
-3. Record exact volume, SERP/intent, and quota delta before deciding on Golden.
-4. Continue only if exact, Golden, SERP, and Weak Spot `>=2` all pass.
-
-If approval is not given, close this cycle as “no qualifying candidate.” Do not
-lower Golden or All-in-Title limits, silently override Weak Spot, change the
-category, or begin drafting.
+1. Refresh limits in the existing authenticated tab and validate exact
+   `cara tulis prompt ai` in Keyword Explorer.
+2. Record exact volume, SERP/intent, and quota delta before deciding on Golden.
+3. Add the exact row or create a Planner project only if exact, Golden, SERP,
+   and Weak Spot `>=2` all pass.
+4. Do not lower Golden or All-in-Title limits, silently override Weak Spot,
+   change the category, or begin drafting.
 
 ## Browser and credit safeguards
 
@@ -209,8 +198,8 @@ category, or begin drafting.
 
 | Path | State at the 2026-09-12 handoff | Purpose |
 |---|---|---|
-| `scripts/verify-editorial-relevance-gate.py` | Tracked and committed | Registered/tested the two Prompt Engineering research families |
-| `content/content-calendar.md` | Tracked and committed | Records both parked candidates |
+| `scripts/verify-editorial-relevance-gate.py` | Tracked; family update pending commit | Registers/tests the approved prompt-writing family plus the two existing Prompt Engineering families |
+| `content/content-calendar.md` | Tracked; family approval update pending commit | Records the approved pivot and all parked candidates |
 | `content/research/prompt-engineering-2026-09-10-relevance.md` | Tracked and committed | Thumbnail evidence and attestations |
 | `content/research/prompt-engineering-ai-video-2026-09-10-research.md` | Tracked and committed | AI-video evidence and volume failure |
 | `content/research/prompt-engineering-2026-09-12-relevance.md` | Tracked; updated 2026-09-12 | Candidate 3 exact metrics, Golden/SERP evidence, verified list row, quota, and Planner gate |
@@ -228,7 +217,7 @@ git diff --check
 git status --short
 ```
 
-Baseline: relevance `15 scenarios; 6 pass / 9 fail`; calendar `12 post
+Baseline: relevance `16 scenarios; 7 pass / 9 fail`; calendar `12 post
 entries`; imports PASS; no whitespace errors. Existing LF/CRLF warnings may
 print.
 
@@ -239,14 +228,14 @@ print.
 > Context7 readiness prompt for both Codex and Claude. Verify imports, offline
 > content status, and the current worktree. Keep Candidates 3 and 5 parked
 > because Planner `179241` and `179242` returned Weak Spot `0`; Candidate 4
-> failed exact volume and Candidate 6 failed editorial intent. Use my existing
-> authenticated Chrome WriterZen tab only if Operations has approved a new
-> `prompt-engineering.prompt-writing` family for the `cara tulis prompt ai`
-> pivot. Otherwise stop and report “no qualifying candidate.” Do not reset,
-> close, or replace the authenticated tab; do not duplicate WriterZen records,
-> override Weak Spot, enable keyword expansion, add a duplicate Context7 server,
-> or touch unrelated Post #8 files. Report exact IDs, metrics, quota changes,
-> Context7 tool-call evidence, tests, and blockers.
+> failed exact volume and Candidate 6 failed editorial intent. Zamri has approved
+> `prompt-engineering.prompt-writing` for the `cara tulis prompt ai` pivot;
+> refresh quota and run its one exact Keyword Explorer lookup. Stop before
+> Golden/list/Planner/drafting unless the exact, SERP, and Weak Spot gates pass.
+> Do not reset, close, or replace the authenticated tab; do not duplicate
+> WriterZen records, override Weak Spot, enable keyword expansion, add a
+> duplicate Context7 server, or touch unrelated Post #8 files. Report exact
+> IDs, metrics, quota changes, Context7 tool-call evidence, tests, and blockers.
 
 ## Definition of done for the next ACP session
 
@@ -256,11 +245,11 @@ The research handoff ends with either:
    and Weak Spot gates and is recorded without duplicates; or
 2. **Parked:** the fresh seed yields no qualifying candidate, with exact IDs,
    metrics, quota delta, rejection reasons, and updated evidence; or
-3. **Approval pending:** an unvalidated card sits outside the registered family
-   and requires an explicit family/calendar decision before further credit spend.
+3. **Exact gate pending:** the approved family has a current candidate, but exact
+   volume and SERP evidence are still required before Golden or downstream work.
 
-This handoff is currently **Parked + approval pending**: no registered candidate
-qualifies, and `cara tulis prompt ai` must not be researched further without the
-new-family decision.
+This handoff is currently **Exact gate pending**: the family approval is recorded
+and the next bounded action is the exact `cara tulis prompt ai` lookup. It does
+not authorize drafting or publication by itself.
 
 Neither outcome authorizes drafting or publication.
