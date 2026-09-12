@@ -194,9 +194,15 @@ Templates 185 (Header) and 52 (Blog Archive) are now editable via Respira MCP wi
 
 ## ✅ Current Priority: Post #8 — Cara Buat Poster dengan ChatGPT
 
-Blocked at WriterZen outline creation. Quota reset expected 4 September 2026
-(user-reported, not verified). Next action: verify quota, then run outline-only
-Create Article per Option C pipeline.
+Published and validated on 5 September 2026 at
+`https://digitrustlab.com/cara-buat-poster-dengan-chatgpt/` (ID 721). The
+outline-only WriterZen handoff was copied to the editor and mapped 28/28; the
+native draft passed the dual naturalness, structure, Malay voice and link gates;
+Rank Math is 93/A; ClickRank standard + AI Overview and Screpy Rank Tracker are
+verified. ClickRank Pages crawl completed and the exact URL is visible as
+`Not Optimized`; no recommendations were applied. GSC indexing is still pending
+after one request. The next post must restart at the relevance gate
+and Topic Discovery; do not treat this status line as a new keyword instruction.
 
 ## ✅ RESOLVED: Blog Archive Template 52 — Option C Layout (2026-07-20)
 
@@ -595,9 +601,10 @@ No dedicated external Malay proofreading tool is used. DewanEja 11 was evaluated
    - [ ] ClickRank → **standard Keyword Tracker** → add the primary focus keyword + exact live URL (Malaysia, Device: All)
    - [ ] ClickRank → **AI Overview Tracker** → add the same primary focus keyword + exact live URL (Malaysia, Malay where available)
    - [ ] Screpy → Rank Tracker → Add focus keyword (Malaysia, Malay, **Device: Both** in one action; verify both device tabs)
-   - [ ] Google Search Console → URL Inspection → inspect the exact live URL; request indexing when eligible and record the visible result plus timestamp
+   - [ ] Google Search Console → URL Inspection → paste the exact live URL, click **Test Live URL**, wait for the completed result, and record fetch/indexing eligibility plus timestamp
+   - [ ] **Only after a successful/eligible Test Live URL result** may Operations click **Request Indexing** when needed; a 5xx, failed fetch, timeout, or other non-eligible result blocks the request and requires a recorded follow-up
    - [ ] These are separate required checks — ClickRank AI Overview = AEO visibility, ClickRank Keyword Tracker = traditional SERP tracking, Screpy = an independent traditional SERP tracker, and Google Search Console = discovery/indexing request
-   - [ ] An “indexing requested” confirmation is not proof of indexing; record the actual inspection state separately
+   - [ ] Record the live-test result, request outcome, and actual inspection/indexing state separately; an “indexing requested” confirmation is not proof of indexing
    - [ ] **ClickRank title/meta optimization is OPTIONAL** — see ClickRank Usage Policy below
    - [ ] **ClickRank submission is asynchronous in both trackers:** before submitting either surface, record the visible tracker count and check for an existing exact keyword + URL row; if one exists, open and verify it instead of submitting. After clicking Start Tracking, wait for processing, reload/reopen the existing authenticated tab, and verify the count plus exact keyword/URL/settings row. A generic error toast, an HTML response parsed as JSON, or a temporarily stuck `Processing...` state does not prove that no row was created; do not retry or create a duplicate until the count/row check is complete. `Not Found`, `N/A`, and `0%` are valid tracked results, not submission failures.
 
@@ -732,7 +739,7 @@ For broader marketing strategy (competitor teardown, E2E SEO, ICP research, cont
 
 **Before writing any blog post, load the `write-post` skill (`.claude/skills/write-post/SKILL.md`) for the full end-to-end pipeline.** Load the `writerzen-keyword-research` skill for keyword research, then follow the Option C workflow for content creation.
 
-**Option C Pipeline:** Editorial relevance gate → Quota check → **Topic Discovery** → Keyword Explorer (**+ Golden Filter**) → Keyword List → Cluster into a NEW Planner project → **Verify Weak Spot ≥ 2** → Keyword Planner (Suggest Content Brief + manually adjust 6 fields) → Content Creator (outline → keywords → write) → publish via Respira MCP → Rank Math → rank tracking → internal linking → documentation. Apply the full project-local contract in `.claude/rules/editorial-relevance-gate.md` before any research or credit spend.
+**Option C Pipeline:** Editorial relevance gate → Quota check → **Topic Discovery** → Keyword Explorer (**+ Golden Filter**) → Keyword List → Cluster into a NEW Planner project → **Verify Weak Spot ≥ 2** → Keyword Planner (Suggest Content Brief + manually adjust 6 fields) → Content Creator (outline → **Copy to editor + verify populated scaffold** → keywords → **outline-fidelity map**) → publish via Respira MCP → Rank Math → rank tracking → internal linking → documentation. Apply the full project-local contract in `.claude/rules/editorial-relevance-gate.md` before any research or credit spend.
 
 > **Never skip the Content Creator pipeline.** The outline must be generated through WriterZen's AI + competitor research, not manually planned.
 
@@ -753,12 +760,13 @@ For broader marketing strategy (competitor teardown, E2E SEO, ICP research, cont
 - Target: Golden Score < 10, KD < 20, All-in-Title < 10, Weak Spot ≥ 2
 - Save to: WriterZen Keyword List → "DigiTrust Lab Blog Posts"
 - Record metrics in: `content/content-calendar.md` (per-post entry)
-- Image prompts: `content/image-prompts.md` (copy-paste Gemini prompts + filenames per post; update when publishing). Archive every final generated image in `G:\Zamzam Biznez\DigiTrustLab\Blog images` using the exact prompt filename after verifying the copied file.
+- Image prompts: `content/image-prompts.md` (copy-paste Gemini prompts + filenames per post; update when publishing). Before archive/upload, inspect every candidate at native resolution and beside the previous six featured thumbnails at archive-card size; warm off-white must remain the dominant background, and a heavy/dark/saturated backdrop or failed grid-uniformity review blocks the image. Archive every final generated image in `G:\Zamzam Biznez\DigiTrustLab\Blog images` using the exact prompt filename after verification.
 - Deep reference: 29 course files in `content/writerzen-guide/`
 - **Content Creator project**: Always select existing "DigiTrust Lab" project (readonly dropdown — click to open, select from table). Never create new Content Creator projects.
 - **Content Brief fields**: Fill ALL 6 fields (Content format, Writing Tone, Target Audience, Author perspective, Content Angle, Note for writer). Use the existing Chrome tab's semantic fill action for text inputs — native JS setters do not trigger Vue reactivity on Audience/Perspective fields. Take a fresh DOM snapshot after filling and verify the values before continuing.
 - **Content Creator toggles (SERP View / AI Assistant):** Leave both OFF. They currently add no useful UI. Generate/update the AI outline via the explicit "Set up & Start building outline" / "Generate outline" buttons instead.
-- **WriterZen AI-credit gate (MANDATORY):** Apply `.claude/rules/writerzen-ai-credit-gate.md` before Create Article. Fresh evidence must prove "Write article title, description & outline" ON, "Write the whole article" OFF, and Operations' exact pre-Create attestation. Keep "Use WriterZen to suggest more keywords" OFF when the validated cluster is adequate; optional enablement requires documented insufficiency, explicit user credit authorization, and current displayed-cost evidence. Draft the body natively and require the independent Anthropic/Claude Sonnet + OpenAI dual review before publication.
+- **WriterZen handoff gate (MANDATORY):** After the outline is generated, click **Copy to editor** and take a fresh snapshot proving the main editor contains the generated title, description, and full ordered H2/H3/bullet scaffold with non-zero counters. Freeze that scaffold and map every WriterZen heading/bullet as preserved, merged, reordered, expanded, or explicitly justified as omitted; distinguish source H2, genuine H3, and bullet levels. Every genuine WriterZen H3 remains a visible H3 under its source H2 by default; an H3-to-prose/list/other-heading conversion requires a named editorial reason and Operations acceptance. Supporting bullets may be expanded or promoted to H3 only when both levels are recorded. Operations must attest `WRITERZEN_OUTLINE_HANDOFF: PASS`. A side-panel-only outline, unexplained omission, or silently replaced heading tree blocks drafting.
+- **WriterZen AI-credit gate (MANDATORY):** Apply `.claude/rules/writerzen-ai-credit-gate.md` before Create Article. Fresh evidence must prove "Write article title, description & outline" ON, "Write the whole article" OFF, and Operations' exact pre-Create attestation. Keep "Use WriterZen to suggest more keywords" OFF when the validated cluster is adequate; optional enablement requires documented insufficiency, explicit user credit authorization, and current displayed-cost evidence. Draft the body natively from the frozen copied outline and map, then require the independent Anthropic/Claude Sonnet + OpenAI dual review before publication.
 - **Native originality/source gate (MANDATORY):** After native drafting, apply `.claude/rules/native-originality-source-gate.md`. Do not run or require WriterZen's paid Plagiarism Checker. Record provenance, source attribution, no-copy/no-uncredited-paraphrase evidence, distinctive-overlap status, matching draft/evidence hashes, and Operations' attestation that no WriterZen plagiarism action or credit spend occurred. The dual naturalness reviews are not plagiarism-database reports; any external paid checker requires explicit user authorization before cost or submission.
 - **Internal linking (required):** Plan links in outline phase → insert outbound links during publish → run `internal-link-builder` skill after publish to add inbound links from older posts
 - **Link hardening (mandatory):** Run `python scripts/verify-links.py --file <draft.html>` before publication and `python scripts/verify-links.py --post-id <id> --inbound-review content/link-reviews/<slug>.json --check-destinations` after publication. The gate checks descriptive anchors, HTTPS, self-links, contextual internal-link counts, editorial external dofollow links, live destinations, and an auditable inbound decision. Rank Math and a mechanical voice PASS do not override it.

@@ -8,7 +8,8 @@ Stop until the owner chooses; record that choice in the prompt and, for
 featured images, in the variety record. The source file contains the binding
 definitions and remains authoritative. Controlled 2.5D is allowed for variety,
 but it does not redefine the brand family; preserve the documented palette,
-16:9 framing, treatment rotation, previous-six check, and human/motif rules.
+16:9 framing, treatment rotation, previous-six check, human/motif rules, and
+the light-dominant background requirement.
 
 ## Specialist playbook loop
 
@@ -33,6 +34,9 @@ boundary.
 - Keep visuals practical, legible, and calm. Avoid hype, income promises,
   unrequested logos, fake UI, fabricated screenshots, and text that the image
   model may render inaccurately.
+- Treat warm off-white `#FAFAF8` (or equivalent light ivory) as the dominant
+  visible background. Use peach, cream, beige, and orange only as restrained
+  accents; reject heavy full-bleed tan/peach, dark, muddy, or saturated fields.
 - Prefer a clean visual hierarchy with enough contrast and whitespace for blog
   thumbnails and mobile readers. Treat text in generated images as optional;
   supply important wording through Content or the page itself.
@@ -41,10 +45,12 @@ boundary.
 ## Verification gate
 
 Before handoff or completion, verify dimensions, aspect ratio, format,
-filename, visual consistency, contrast/readability, unwanted artifacts, and
-the requested variant count. Confirm provenance and archive handoff. A prompt
-or local plan is not evidence that an image was generated, copied, uploaded,
-or live on WordPress.
+filename, visual consistency, contrast/readability, background weight beside
+the previous six thumbnails at archive-card size, unwanted artifacts, and the
+requested variant count. A heavy or inconsistent background is a blocking
+failure and requires non-destructive regeneration. Confirm provenance and
+archive handoff. A prompt or local plan is not evidence that an image was
+generated, copied, uploaded, or live on WordPress.
 
 ## Reusable image audit trigger
 

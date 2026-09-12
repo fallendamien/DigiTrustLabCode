@@ -3,8 +3,9 @@
 
 The register is intentionally kept in content/image-prompts.md so the visual
 decision remains visible beside the prompt library. This checker validates the
-recorded decision and the six-entry history; the thumbnail comparison itself
-must be attested by the worker after viewing the images together.
+recorded decision and the six-entry history; the thumbnail, background-weight,
+and archive-grid comparisons must be attested by the worker after viewing the
+candidate and recent images together.
 """
 
 from __future__ import annotations
@@ -93,6 +94,18 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--thumbnail-comparison", required=True, choices=("pass", "fail")
     )
+    parser.add_argument(
+        "--background-weight",
+        required=True,
+        choices=("light-dominant-neutral", "heavy"),
+        help="manual visual attestation of the candidate's dominant background",
+    )
+    parser.add_argument(
+        "--background-review", required=True, choices=("pass", "fail")
+    )
+    parser.add_argument(
+        "--archive-grid-uniformity", required=True, choices=("pass", "fail")
+    )
     return parser
 
 
@@ -104,6 +117,12 @@ def main() -> int:
         return fail("immediate-prior difference count must be between 3 and 5")
     if args.thumbnail_comparison != "pass":
         return fail("thumbnail comparison is not PASS")
+    if args.background_weight != "light-dominant-neutral":
+        return fail("background must be light and predominantly neutral")
+    if args.background_review != "pass":
+        return fail("background-weight review is not PASS")
+    if args.archive_grid_uniformity != "pass":
+        return fail("archive-grid uniformity review is not PASS")
     if not args.subject_class.strip() or not args.composition.strip():
         return fail("subject class and composition must be nonblank")
 
@@ -125,7 +144,8 @@ def main() -> int:
         "PASS featured-image-variety: six thumbnails inspected; "
         f"mode={args.visual_mode}; treatment={args.treatment}; "
         f"human={args.human_presence}; difference_count={args.difference_count}; "
-        "thumbnail_comparison=pass"
+        "thumbnail_comparison=pass; background_weight=light-dominant-neutral; "
+        "background_review=pass; archive_grid_uniformity=pass"
     )
     return 0
 

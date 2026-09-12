@@ -558,6 +558,20 @@ Then take a fresh DOM snapshot and verify the toggle state and the `0/N` keyword
 ### Step 3: Content Writing
 
 - Writing interface with left (research) and right (editor) panels
+- Open the Outline panel and click **Copy to editor** before handoff. Then take
+  a fresh DOM snapshot and verify that the main editor contains the generated
+  title, description, and full ordered outline, with non-zero word and heading
+  counters. A side-panel outline or visible Copy button alone is incomplete.
+- Freeze the copied scaffold and record the Content Creator report ID plus its
+  ordered headings. The receiving writer must map every heading and bullet to
+  the final draft as `preserved`, `merged`, `reordered`, `expanded`, or
+  `omitted`; unexplained omissions block the handoff.
+- In that map, distinguish actual WriterZen H3 nodes from supporting bullets.
+  Preserve every genuine H3 as a visible H3 under its source H2 by default.
+  Any H3-to-prose, H3-to-list, or H3-to-other-heading conversion requires a
+  named editorial reason and Operations acceptance. A bullet may be expanded
+  into prose or a list, or promoted to H3 when it is a distinct sub-intent,
+  but the source level and final level must both be recorded.
 - AI shortcuts on hover: Expand, Rewrite, Topic paragraph, Copy
 - Bullet-to-paragraph feature for quick expansion
 - Content Score and Show Analysis for optimization feedback
@@ -653,8 +667,10 @@ After completing research for a post:
 6. Keyword Planner → analyze insights, domain filter, DA
 7. Generate Content Brief → set angle, audience, tone
 8. Build outline → from competitor research + AI
-9. Record in content-calendar.md → update metrics
-10. Hand to LLM for writing → with keyword list + outline + brief
+9. Copy outline to editor → verify populated editor and non-zero counters
+10. Freeze and map outline → record report ID, headings, and any justified changes
+11. Record in content-calendar.md → update metrics
+12. Hand to LLM for writing → with keyword list + copied outline + brief + map
 ```
 
 ---

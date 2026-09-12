@@ -22,11 +22,23 @@ if (-not $claude) {
     Stop-FailClosed 'Claude Code CLI is not installed or is not on PATH.'
 }
 
+# On Windows, the npm-generated claude.ps1 wrapper can fail with
+# "StandardOutputEncoding is only supported when standard output is
+# redirected" when this helper captures structured output. Prefer the bundled
+# executable beside that wrapper so the review contract remains identical
+# without relying on the fragile PowerShell shim.
+$claudeRuntime = $claude.Source
+$claudeBin = Split-Path -Parent $claude.Source
+$bundledClaude = Join-Path $claudeBin 'node_modules\@anthropic-ai\claude-code\bin\claude.exe'
+if (Test-Path -LiteralPath $bundledClaude -PathType Leaf) {
+    $claudeRuntime = $bundledClaude
+}
+
 if (-not (Test-Path -LiteralPath $PromptPath -PathType Leaf)) {
     Stop-FailClosed "Review prompt does not exist: $PromptPath"
 }
 
-$help = (& $claude.Source --help 2>&1 | Out-String)
+$help = (& $claudeRuntime --help 2>&1 | Out-String)
 $requiredFlags = @(
     '--safe-mode',
     '--model',
@@ -42,7 +54,7 @@ if ($missingFlags.Count -gt 0) {
     Stop-FailClosed ("Installed Claude CLI does not support the required strict flags: " + ($missingFlags -join ', '))
 }
 
-$authRaw = (& $claude.Source auth status 2>&1 | Out-String).Trim()
+$authRaw = (& $claudeRuntime auth status 2>&1 | Out-String).Trim()
 $authExitCode = $LASTEXITCODE
 if ($authExitCode -ne 0 -or [string]::IsNullOrWhiteSpace($authRaw)) {
     Stop-FailClosed 'Claude Code CLI authentication status is unavailable or the CLI is not logged in.'
@@ -79,11 +91,10 @@ $cliArgs = @(
     '--no-session-persistence',
     '--tools', '',
     '--output-format', 'json',
-    '--json-schema', $schema,
-    $prompt
+    '--json-schema', $schema
 )
 
-$raw = (& $claude.Source @cliArgs 2>&1 | Out-String).Trim()
+$raw = ($prompt | & $claudeRuntime @cliArgs 2>&1 | Out-String).Trim()
 $exitCode = $LASTEXITCODE
 if ($exitCode -ne 0) {
     Stop-FailClosed "Claude CLI exited with code $exitCode. Authentication, model availability, or provider evidence is unverified."

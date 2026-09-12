@@ -24,11 +24,34 @@ evidence at the orchestration boundary.
    evidence, and the same fresh snapshot justify `AUTHORIZED_ON`. Unknown or
    conflicting toggle state is a hard stop. Do not claim a credit amount for
    keyword suggestions unless the current product UI displays it.
+   Before the native-draft handoff, independently verify from a fresh
+   WriterZen Content Writing snapshot that **Copy to editor** has populated the
+   main editor with the generated title, description, and full ordered outline,
+   and that word and heading counters are non-zero. Verify the recorded report
+   ID and an outline-to-draft map covering every WriterZen heading and bullet.
+   The map must distinguish genuine WriterZen H3 nodes from supporting bullets.
+   Preserve every genuine H3 as a visible H3 under its source H2 by default;
+   accept an H3-to-prose, H3-to-list, or H3-to-other-heading conversion only
+   when the map names the editorial reason and the final heading tree proves
+   the conversion. Supporting bullets may be expanded or promoted to H3, but
+   their source and final levels must be recorded separately.
+   Attest `WRITERZEN_OUTLINE_HANDOFF: PASS` only when every item is preserved,
+   merged, reordered, expanded, or explicitly justified as omitted. A
+   side-panel-only outline, unexplained omission, or silently replaced heading
+   tree blocks the handoff.
    For native-draft handoffs, also apply
    `.claude/rules/native-originality-source-gate.md` and attest that no
    WriterZen plagiarism action, requirement, or credit spend occurred. Any
    external checker requires explicit user authorization recorded before cost
    or submission.
+   Before any Google Search Console indexing request, independently inspect the
+   exact live URL, click **Test Live URL**, and wait for the completed live-test
+   result. Record whether Google fetched the page and whether it is eligible for
+   indexing. Click **Request Indexing** only after a successful/eligible test
+   when the URL is not already indexed and no unchanged-content request has
+   already been accepted. A 5xx/server error, failed fetch, timeout,
+   authentication/quota issue, or other non-eligible result blocks the request;
+   record the failure, timestamp, and follow-up instead.
 3. Select one canonical operations skill and read it in full.
 4. Execute only the requested bounded change or produce a runbook/checklist.
 5. Verify immediately, document evidence, and stop when the next action belongs to another department.

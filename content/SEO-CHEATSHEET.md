@@ -61,6 +61,12 @@ Check this page before large batches of Topic Discovery or Golden Filter runs to
 
 ## 🎯 Keyword Research Flow (DigiTrust Lab)
 
+> **Execution gate:** This cheatsheet is a metric reference, not a substitute
+> for `.claude/skills/write-post/SKILL.md`. Every post must pass the editorial
+> relevance, quota, Topic Discovery, Golden Filter, Weak Spot, WriterZen
+> outline-only, **Copy to editor**, outline-fidelity, Operations handoff,
+> naturalness, link, and publication gates in that skill.
+
 ```
 1. WriterZen Keyword Explorer
    → Set: Malaysia / Malay
@@ -70,21 +76,33 @@ Check this page before large batches of Topic Discovery or Golden Filter runs to
    → Small blogs ranking? ✅ You can beat them
    → Only DA 50+ sites? ❌ Skip this keyword
 
-3. Write post around target keyword
-   → Use keyword naturally in: title, H1, first paragraph, URL slug
+3. Complete the authoritative Option C handoff
+   → Copy the WriterZen outline to the editor and verify the populated H2/H3/bullet scaffold
+   → Freeze and map every outline item before native drafting
+   → Preserve genuine WriterZen H3 nodes as visible H3s by default; record and obtain Operations acceptance for any level change. Bullets may be expanded or promoted only when source and final levels are recorded.
 
-4. Rank Math sidebar optimization (Phase 5.5 — MANDATORY)
+4. Draft natively around the validated keyword
+   → Use keyword naturally in: title, first paragraph, URL slug
+
+5. Rank Math sidebar optimization (Phase 5.5 — MANDATORY)
    → Check score in WP editor sidebar (aim 80+)
    → Fix Title Readability: power word + sentiment word + number (English words only)
    → Fix Additional: keyword density 0.5-2.5%, at least 1 dofollow outbound link
    → Fix Content Readability: ToC plugin active, heading hierarchy H2→H3→H4
 
-5. ClickRank (Phase 6 — MANDATORY)
+6. ClickRank (Phase 6 — MANDATORY)
    → Bulk Titles: optimize SEO title via AI
    → Keyword Tracker: add focus keyword (Malaysia, all devices)
 
-6. Screpy (Month 2+)
+7. Screpy (Month 2+)
    → Track keyword ranking once post is indexed
+
+8. Google Search Console (Phase 7 — MANDATORY)
+   → Paste the exact live URL in URL Inspection
+   → Click **Test Live URL** and wait for the completed result
+   → Record fetch success and indexing eligibility
+   → Only after a successful/eligible test: click **Request Indexing** when needed
+   → If the test returns 5xx, failed fetch, timeout, or another non-eligible result: do not request indexing; record the follow-up
 ```
 
 ---

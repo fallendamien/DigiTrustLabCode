@@ -642,3 +642,28 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 - "Gemini vs Midjourney: Mana Lebih Baik untuk AI Art?"
 - "Cara Edit Gambar dengan AI (3 Tools Percuma)"
 - "Panduan Lengkap Canva AI: Magic Media, Magic Edit, Magic Write"
+
+### Research lead — Prompt Engineering thumbnail prompts (2026-09-10)
+
+**Status:** `PARKED KEYWORD` — Weak Spot gate failed; do not brief or draft.
+
+- **Provisional topic:** Cara Buat Thumbnail YouTube dengan Prompt AI
+- **Preferred seed:** `prompt AI untuk thumbnail YouTube` (Topic Discovery report `246697`; 76 topics, 36 Closely)
+- **Nearest validated keyword:** `prompt gambar ai` (Keyword Explorer report `1575474`)
+- **Golden Filter:** volume `70`, All-in-Title `0`, Golden Score `1.003`, Word Count `3`, PPC `Low`; Malaysia/Malay; volume threshold relaxed to 50 for Malay long-tail
+- **Manual SERP:** relevant local publishers included SirapLimau, Sifoo, UTM people blog, and Hazril Hafiz
+- **Permanent list:** DigiTrust Lab Blog Posts ID `68708`, verified row count 54 after adding the new keyword
+- **Planner:** new project ID `179213`, `Prompt AI Thumbnail YouTube - DigiTrustLab 2026-09-10`
+- **Weak Spot:** `1` (required `>=2`); average DA `64.5`, lowest `25`, highest `86`
+- **Research evidence:** `content/research/prompt-engineering-2026-09-10-relevance.md`
+
+### Research lead — Prompt Engineering AI-video starter prompts (2026-09-10)
+
+**Status:** `PARKED KEYWORD` — exact seed volume gate failed; do not brief or draft.
+
+- **Provisional topic:** Starter Prompt Video AI: Cara Bina Arahan untuk Video yang Lebih Jelas
+- **Topic Discovery:** `starter prompt video ai` under `PROMPT VIDEO`, report `246697`; card volume `140`; Malaysia/Malay; 36 `Closely` topics
+- **Keyword Explorer:** report `1575483`; exact keyword volume `0`, 12-month average `0`, All-in-Title/Golden Filter not run
+- **Manual SERP:** mixed AI-video news, tools, courses, profiles, and academic results; no clear small Malaysian practitioner result specifically for starter AI-video prompts
+- **Permanent list / Planner:** not modified or created because the exact keyword failed eligibility
+- **Research evidence:** `content/research/prompt-engineering-ai-video-2026-09-10-research.md`

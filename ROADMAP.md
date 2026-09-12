@@ -1,15 +1,15 @@
 # DigiTrust Lab — Roadmap
 
-> **Status:** ✅ POST #8 PUBLISHED (2026-09-05); live validation and required tracking recorded; two external follow-ups remain
-> **Current Phase:** Post #8 "Cara Buat Poster dengan ChatGPT" is live, dual-reviewed, and fully tracked across the required surfaces. GSC indexing remains pending after one request; ClickRank Pages has a verified `Not Optimized` baseline. Post #10 Screpy tracking remains pending; Post #5 remains closed.
-> **Last Updated:** 2026-09-07 (Post #8 media replacement reconciliation — 12 posts published)
+> **Status:** NEXT PROMPT ENGINEERING TOPIC RESEARCH — two candidates parked; VSCodium ACP handover ready
+> **Current Phase:** Post #8 remains closed. The thumbnail topic failed Weak Spot at 1, and the AI-video starter keyword returned exact volume 0. No next keyword is approved; resume from `content/next-prompt-engineering-vscodium-acp-handoff.md` with fresh relevance, quota, and Topic Discovery checks.
+> **Last Updated:** 2026-09-12 (Prompt Engineering research handover — 12 posts published)
 > **Monthly Revenue:** RM 69 (1 sale, pre-blog era)
 
 > **Scope note:** Historical milestones and planned titles remain retained for continuity. The authoritative current content inventory and research status is [`content/content-calendar.md`](content/content-calendar.md). The active editorial queue lives there, not here.
 
 ---
 
-## 7 September 2026 Snapshot
+## 12 September 2026 Snapshot
 
 - **12 blog posts published** on digitrustlab.com
 - Post #8 "Cara Buat Poster dengan ChatGPT" is live at `https://digitrustlab.com/cara-buat-poster-dengan-chatgpt/` (ID 721); Rank Math 93/A, exact-live dual naturalness pass, structure/voice/link gates pass, ClickRank standard + AI Overview and Screpy Rank Tracker verified
@@ -18,6 +18,8 @@
 - Post #10 Screpy Rank Tracker remains pending/unverified
 - Post #7 Screpy Pages discovery remains non-blocking pending (crawl predates publication)
 - Infrastructure is complete; the next editorial mission should begin only after the relevance, cluster and Operations gates pass
+- Prompt Engineering research parked two candidates: thumbnail prompts failed Weak Spot `1` (required `>=2`), and `starter prompt video ai` failed exact volume at `0`; no drafting is authorized
+- VSCodium ACP continuation file: `content/next-prompt-engineering-vscodium-acp-handoff.md`
 
 ---
 

@@ -13,7 +13,7 @@ from typing import Optional
 from urllib.parse import urlsplit, urlunsplit
 
 
-AS_OF = date(2026, 8, 29)
+AS_OF = date(2026, 9, 10)
 FRESHNESS_DAYS = 30
 APPROVED_CATEGORIES = {
     "ai-tools": "AI Tools",
@@ -44,6 +44,30 @@ TOPIC_FAMILIES = {
         ),
         "forbidden_text_terms": frozenset(
             {"ranking", "google", "search", "visibility", "seo", "wordpress"}
+        ),
+        "requires_approval": False,
+    },
+    "prompt-engineering.youtube-thumbnail": {
+        "pillar_id": "prompt-engineering",
+        "cluster_id": "prompt-engineering.ai-visual-prompts",
+        "topic_intent_id": "intent.youtube.thumbnail.prompt.creation",
+        "subject_entity_allowlist": frozenset(
+            {"entity.prompt", "entity.youtube-thumbnail", "entity.ai-image"}
+        ),
+        "forbidden_text_terms": frozenset(
+            {"ranking", "google", "search", "visibility", "seo", "notion", "wordpress"}
+        ),
+        "requires_approval": False,
+    },
+    "prompt-engineering.ai-video-prompts": {
+        "pillar_id": "prompt-engineering",
+        "cluster_id": "prompt-engineering.ai-video-prompts",
+        "topic_intent_id": "intent.video.starter-prompt.creation",
+        "subject_entity_allowlist": frozenset(
+            {"entity.prompt", "entity.ai-video", "entity.content-creation"}
+        ),
+        "forbidden_text_terms": frozenset(
+            {"ranking", "google", "search", "visibility", "seo", "notion", "wordpress", "income", "duit", "jualan"}
         ),
         "requires_approval": False,
     },
@@ -332,7 +356,7 @@ def make_attestation(owner: str, candidate: Candidate, **changes: object) -> Att
         decision=str(changes.get("decision", "PASS")),
         status=str(changes.get("status", "PASS")),
         evidence_ref=str(changes.get("evidence_ref", f"evidence://{owner.casefold()}/2026-08-29")),
-        checked_at=str(changes.get("checked_at", "2026-08-29")),
+        checked_at=str(changes.get("checked_at", AS_OF.isoformat())),
         owner=str(changes.get("owner", owner)),
         topic_family_id=str(changes.get("topic_family_id", candidate.topic_family_id)),
         pillar_id=str(changes.get("pillar_id", candidate.pillar_id)),
@@ -354,11 +378,14 @@ def make_operations(
     parent_status: str = "verified-published",
     inbound_status: str = "verified-published",
     link_status: str = "feasible",
+    calendar_ref: str = "content/content-calendar.md#post-2",
+    link_feasibility_ref: str = "evidence://operations/link-map/2026-09-10",
+    checked_at: str = AS_OF.isoformat(),
 ) -> OperationsEvidence:
     calendar_urls = calendar_urls or tuple(dict.fromkeys(parent_urls + inbound_urls))
     link_urls = link_urls or tuple(dict.fromkeys(parent_urls + inbound_urls))
     return OperationsEvidence(
-        calendar_ref="content/content-calendar.md#post-2",
+        calendar_ref=calendar_ref,
         calendar_status=calendar_status,
         calendar_urls=calendar_urls,
         published_parent_or_peer_urls=parent_urls,
@@ -366,9 +393,9 @@ def make_operations(
         inbound_source_urls=inbound_urls,
         inbound_source_status=inbound_status,
         link_feasibility_urls=link_urls,
-        link_feasibility_ref="evidence://operations/link-map/2026-08-29",
+        link_feasibility_ref=link_feasibility_ref,
         link_feasibility_status=link_status,
-        checked_at="2026-08-29",
+        checked_at=checked_at,
         owner="Operations",
     )
 
@@ -414,8 +441,140 @@ def base_candidate() -> Candidate:
     return reissue(candidate)
 
 
+def prompt_thumbnail_candidate() -> Candidate:
+    candidate = Candidate(
+        topic="Cara Buat Thumbnail YouTube dengan Prompt AI",
+        seed="prompt AI untuk thumbnail YouTube",
+        category_id="prompt-engineering",
+        topic_family_id="prompt-engineering.youtube-thumbnail",
+        pillar_id="prompt-engineering",
+        cluster_id="prompt-engineering.ai-visual-prompts",
+        topic_intent_id="intent.youtube.thumbnail.prompt.creation",
+        subject_entity_ids=frozenset(
+            {"entity.prompt", "entity.youtube-thumbnail", "entity.ai-image"}
+        ),
+        declared_seed_intent="practical AI prompt creation for a YouTube thumbnail",
+        reader_problem=(
+            "create and refine a clear YouTube thumbnail prompt with subject, "
+            "composition, contrast, and exclusions"
+        ),
+        authenticity_basis="explicitly planned first-hand prompt-output comparison",
+        inventory_check=(
+            "distinct from the published broad AI-image guide and existing prompt "
+            "gallery posts"
+        ),
+        existing_cluster_map=(
+            "extends approved cluster prompt-engineering.ai-visual-prompts under "
+            "published Post #4 and Post #9"
+        ),
+        mapped_pillar_id="prompt-engineering",
+        mapped_cluster_id="prompt-engineering.ai-visual-prompts",
+        published_parent_or_peer_url="https://digitrustlab.com/cara-buat-gambar-ai/",
+        inbound_source_url="https://digitrustlab.com/cara-buat-prompt-chatgpt/",
+        incremental_value=(
+            "a thumbnail-specific visual-prompt workflow and output-testing method "
+            "not covered by the existing broad guide or photo-editing gallery"
+        ),
+        anchor_context="descriptive thumbnail-prompt anchor in a visual prompt example",
+        pivot_status="none",
+        user_approval_ref="",
+        research=None,
+        seo=None,
+        operations=None,
+        operations_evidence=None,
+    )
+    return reissue(
+        candidate,
+        operations_evidence=make_operations(
+            parent_urls=(
+                "https://digitrustlab.com/cara-buat-gambar-ai/",
+                "https://digitrustlab.com/prompt-gemini-ai-untuk-edit-foto/",
+            ),
+            inbound_urls=("https://digitrustlab.com/cara-buat-prompt-chatgpt/",),
+            calendar_urls=(
+                "https://digitrustlab.com/cara-buat-gambar-ai/",
+                "https://digitrustlab.com/prompt-gemini-ai-untuk-edit-foto/",
+                "https://digitrustlab.com/cara-buat-prompt-chatgpt/",
+            ),
+            link_urls=(
+                "https://digitrustlab.com/cara-buat-gambar-ai/",
+                "https://digitrustlab.com/prompt-gemini-ai-untuk-edit-foto/",
+                "https://digitrustlab.com/cara-buat-prompt-chatgpt/",
+            ),
+            calendar_ref="content/content-calendar.md#post-4",
+            link_feasibility_ref="evidence://operations/link-map/prompt-thumbnail/2026-09-10",
+        ),
+    )
+
+
+def prompt_video_candidate() -> Candidate:
+    candidate = Candidate(
+        topic="Starter Prompt Video AI: Cara Bina Arahan untuk Video yang Lebih Jelas",
+        seed="starter prompt video ai",
+        category_id="prompt-engineering",
+        topic_family_id="prompt-engineering.ai-video-prompts",
+        pillar_id="prompt-engineering",
+        cluster_id="prompt-engineering.ai-video-prompts",
+        topic_intent_id="intent.video.starter-prompt.creation",
+        subject_entity_ids=frozenset(
+            {"entity.prompt", "entity.ai-video", "entity.content-creation"}
+        ),
+        declared_seed_intent="practical starter prompt creation for AI video",
+        reader_problem=(
+            "turn a rough video idea into a usable AI video prompt with subject, "
+            "action, camera movement, setting, and duration"
+        ),
+        authenticity_basis="explicitly planned first-hand prompt-to-video comparison",
+        inventory_check=(
+            "distinct from published Post #3 ChatGPT prompting, Post #4 AI image "
+            "creation, Post #8 ChatGPT poster creation, and Post #9 Gemini photo prompts"
+        ),
+        existing_cluster_map=(
+            "opens a new AI-video prompt spoke in Prompt Engineering, supported by "
+            "adjacent visual-creation posts without replacing their image or poster intent"
+        ),
+        mapped_pillar_id="prompt-engineering",
+        mapped_cluster_id="prompt-engineering.ai-video-prompts",
+        published_parent_or_peer_url="https://digitrustlab.com/cara-buat-gambar-ai/",
+        inbound_source_url="https://digitrustlab.com/cara-buat-prompt-chatgpt/",
+        incremental_value=(
+            "a video-specific starter-prompt workflow with visible prompt/output "
+            "comparisons, not another general image or ChatGPT prompt gallery"
+        ),
+        anchor_context="starter prompt video AI anchor beside the visual prompt workflow",
+        pivot_status="none",
+        user_approval_ref="",
+        research=None,
+        seo=None,
+        operations=None,
+        operations_evidence=None,
+    )
+    return reissue(
+        candidate,
+        operations_evidence=make_operations(
+            parent_urls=(
+                "https://digitrustlab.com/cara-buat-gambar-ai/",
+                "https://digitrustlab.com/cara-buat-poster-dengan-chatgpt/",
+            ),
+            inbound_urls=("https://digitrustlab.com/cara-buat-prompt-chatgpt/",),
+            calendar_urls=(
+                "https://digitrustlab.com/cara-buat-gambar-ai/",
+                "https://digitrustlab.com/cara-buat-poster-dengan-chatgpt/",
+                "https://digitrustlab.com/cara-buat-prompt-chatgpt/",
+            ),
+            link_urls=(
+                "https://digitrustlab.com/cara-buat-gambar-ai/",
+                "https://digitrustlab.com/cara-buat-poster-dengan-chatgpt/",
+                "https://digitrustlab.com/cara-buat-prompt-chatgpt/",
+            ),
+            calendar_ref="content/content-calendar.md#post-3",
+            link_feasibility_ref="evidence://operations/link-map/ai-video-prompts/2026-09-10",
+        ),
+    )
 def build_cases() -> dict[str, Candidate]:
     relevant = base_candidate()
+    prompt_thumbnail = prompt_thumbnail_candidate()
+    prompt_video = prompt_video_candidate()
     ranking_google = reissue(
         replace(
             relevant,
@@ -496,6 +655,8 @@ def build_cases() -> dict[str, Candidate]:
         "unapproved_adjacent_pivot_fail": adjacent,
         "explicitly_approved_pivot_pass": approved_pivot,
         "registered_notion_task_template_pass": notion_pass,
+        "prompt_thumbnail_pass": prompt_thumbnail,
+        "prompt_video_pass": prompt_video,
         "ai_poster_padded_with_notion_fail": replace(
             notion_pass,
             subject_entity_ids=frozenset(
@@ -541,6 +702,8 @@ def main() -> int:
         "relevant_pass",
         "explicitly_approved_pivot_pass",
         "registered_notion_task_template_pass",
+        "prompt_thumbnail_pass",
+        "prompt_video_pass",
         "operations_exact_canonical_match_pass",
     }
     outcomes: dict[str, bool] = {}

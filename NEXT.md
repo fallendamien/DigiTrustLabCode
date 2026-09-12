@@ -12,6 +12,14 @@
 
 ## Current State
 
+> **PROMPT ENGINEERING RESEARCH HANDOFF READY (2026-09-12):**
+> No next article keyword is approved. The thumbnail candidate passed Golden
+> metrics but failed Weak Spot at `1`; `starter prompt video ai` returned exact
+> volume `0`. Continue in Codex or Claude ACP from
+> `content/next-prompt-engineering-vscodium-acp-handoff.md`. Begin with fresh
+> quota and relevance checks, then a new Topic Discovery using provisional seed
+> `contoh prompt AI`. Stop before drafting or publishing.
+>
 > **POST #8 LIVE; TRACKING + FEATURED MEDIA RECONCILED (2026-09-07):**
 > Post #8 "Cara Buat Poster dengan ChatGPT" is live at
 > `https://digitrustlab.com/cara-buat-poster-dengan-chatgpt/` (ID `721`). The exact-live
@@ -37,9 +45,10 @@
 
 ## Next action
 
-1. Re-inspect Post #8 in the existing Google Search Console tab after Google processes the request; an indexing-request confirmation is not proof of indexing.
-2. Keep `python scripts/verify-content-status.py --fix` green after future publication changes; the 2026-09-05 run passed against live WordPress.
-3. Keep Post #10 Screpy tracking, Post #7 Pages discovery, sitemap cache, and Post #12's stale naturalness artifact as separate pending items; start the next article only at the editorial relevance gate → quota check → Topic Discovery.
+1. Open and follow `content/next-prompt-engineering-vscodium-acp-handoff.md` in Codex or Claude ACP; run its startup verification commands before browser work.
+2. Refresh WriterZen quota in the existing authenticated Chrome session and run the full relevance gate before a fresh Topic Discovery for provisional seed `contoh prompt AI`.
+3. Keep both researched candidates parked, preserve existing WriterZen report/project/list records, and stop before drafting or publishing until one keyword passes every research gate.
+4. Keep Post #8 GSC, Post #10 Screpy tracking, Post #7 Pages discovery, sitemap cache, and Post #12's stale naturalness artifact as separate follow-ups.
 
 ### Post #10 — ⚠️ PUBLISHED; SCREPY TRACKING PENDING (2026-08-26)
 

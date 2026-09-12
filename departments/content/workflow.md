@@ -19,8 +19,18 @@ boundary.
    `.claude/rules/writerzen-ai-credit-gate.md`: outline-only ON, whole-article
    OFF, and Operations' exact fresh pre-Create evidence. Content must reject
    any whole-article mode or missing/unknown toggle state. The body remains a
-   native draft and cannot be marked complete without the independent
+   native draft from the copied, frozen WriterZen scaffold. Require a fresh
+   editor snapshot, the report ID, and an outline-to-draft map covering every
+   WriterZen H2/H3/bullet. Content must reject a side-panel-only outline,
+   unexplained omission, or missing `WRITERZEN_OUTLINE_HANDOFF: PASS` from
+   Operations. The draft cannot be marked complete without the independent
    Anthropic/Claude Sonnet and OpenAI reviews matched to the final content hash.
+   The map must classify source H2, H3, and bullet nodes separately. Every
+   genuine WriterZen H3 must remain a visible H3 under its source H2 by
+   default; changing its level or folding it into prose or list content
+   requires a named editorial reason and Operations acceptance. Supporting
+   bullets may be expanded or promoted only when their source and final levels
+   are recorded.
    For originality and sourcing, require
    `.claude/rules/native-originality-source-gate.md`: reject missing
    provenance, attribution, overlap, matching-hash, or Operations evidence;

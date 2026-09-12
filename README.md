@@ -14,7 +14,7 @@ productivity skills in Bahasa Melayu.
 
 | Component | Tool | Status |
 |-----------|------|--------|
-| Blog | WordPress + Bricks Builder | ✅ Live — 11 posts published |
+| Blog | WordPress + Bricks Builder | ✅ Live — 12 posts published |
 | SEO Research | WriterZen (lifetime) | ✅ Active |
 | SEO Optimization | ClickRank (lifetime) | ✅ Active — all posts tracked |
 | Rank Tracking | Screpy (lifetime) | ✅ Active — project wgspvb7lc3 |

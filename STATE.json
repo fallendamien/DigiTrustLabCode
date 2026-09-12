@@ -3,11 +3,12 @@
   "owner": "Zamri Rosli",
   "primaryEditor": "Zed (since 2026-08-05) — Codex via ACP, Claude Code via terminal. Windsurf retained for Devin only; VS Code legacy.",
   "breadcrumbModel": "git-tracked",
-  "lastSession": "2026-09-07",
-  "currentObjective": "Post #8 'Cara Buat Poster dengan ChatGPT' is live at https://digitrustlab.com/cara-buat-poster-dengan-chatgpt/ (ID 721). The reviewed live package passes at hash 9192f61e0e00f60694ed3ecc9fac8c289e4abe6e08eb566ce780092e9024a770; Rank Math is 93/A; ClickRank standard + AI Overview + Pages and Screpy Rank Tracker are verified. GSC indexing was requested once and remains a later re-inspection follow-up. The owner manually replaced the featured image with approved v3; fresh Respira read-back confirms Media 727 at the v3 URL and a direct asset check returned HTTP 200. Former attachment 723 and confirmed-unused media 717/718 are absent. The next article must restart at the editorial relevance gate and Topic Discovery.",
-  "currentPhase": "Post #8 closeout complete, including the owner-manual featured-image replacement; GSC indexing re-inspection remains a monitoring follow-up and the next editorial mission starts at relevance + Topic Discovery",
+  "lastSession": "2026-09-12",
+  "currentObjective": "Continue selection of the next Prompt Engineering article in Codex or Claude ACP through content/next-prompt-engineering-vscodium-acp-handoff.md. Two candidates are parked: the thumbnail angle reached volume 70 and Golden Score 1.003 but failed Weak Spot at 1; the AI-video starter keyword returned exact volume 0. Start a fresh Topic Discovery with the provisional seed `contoh prompt AI`, after fresh quota and editorial-relevance checks. Stop before drafting or publishing.",
+  "currentPhase": "Prompt Engineering topic research handoff prepared for VSCodium ACP; no next keyword is approved and both researched candidates remain parked",
   "phaseProgress": "POST #8 LIVE + WRITERZEN HANDOFF 28/28 + RANK MATH 93/A + DUAL NATURALNESS/STRUCTURE/VOICE/LINK PASS + CLICKRANK STANDARD/AI OVERVIEW/PAGES + SCREPY TRACKING VERIFIED + FEATURED MEDIA 727 VERIFIED; GSC REQUEST SUBMITTED",
   "blockers": [
+    "No next Prompt Engineering topic has qualified: the thumbnail candidate failed Weak Spot 1 (required >=2), and `starter prompt video ai` failed exact-volume validation at 0. Resume from content/next-prompt-engineering-vscodium-acp-handoff.md; do not draft either candidate.",
     "LiteSpeed serves cached HTTP 404s for clean Rank Math child sitemap URLs even though the regenerated origin XML returns 200 and sitemap-cache exclusions are configured; authenticated public-cache clearing and Search Console re-inspection remain. Evidence: docs/post-11-revalidation-2026-08-09.md",
     "Post #9 Screpy Pages Analyze was requested at 2026-08-10 03:14 (+08:00) and remains visibly Analyzing on crawler 18151; the fresh Post #9 discovery/result is not yet available.",
     "Post #9 Google Search Console request was submitted successfully at 2026-08-10 02:42 (+08:00), but the URL remains unproven as indexed; re-inspect later and do not equate a request with indexing.",
@@ -92,6 +93,8 @@
     "Google AdSense applied (2026-09-05): publisher ca-pub-8771336014387648, site ownership verified via code snippet in Bricks Global Settings customScriptsHeader with data-no-optimize='1' to bypass LiteSpeed JS rewriting, review requested, GDPR 3-choice CMP submitted, W-8BEN tax form approved (expires 2029-12-31). Site under Google review."
   ],
   "nextSteps": [
+    "Open content/next-prompt-engineering-vscodium-acp-handoff.md in Codex or Claude ACP and run its startup verification commands",
+    "Refresh WriterZen quota in the existing authenticated Chrome session, then apply the relevance gate before a fresh Topic Discovery for provisional seed `contoh prompt AI`",
     "Re-inspect Post #8 in the existing Google Search Console tab after Google processes the one indexing request; an accepted request is not proof of indexing",
     "Start the next article only after the editorial relevance gate, quota check, cluster/internal-link fit and Topic Discovery pass; do not carry forward Post #8's keyword as an instruction",
     "Keep `python scripts/verify-content-status.py --fix` green after future publication changes; the 2026-09-05 live run passed",

@@ -342,7 +342,53 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
    - These are planning targets shown in the Content Creator score panel (e.g.,
      "WORDS 0/976", "IMAGES 0/4"); do **not** upload or insert images in
      WriterZen. Media work belongs to the WordPress/Respira publication stage.
-5. Save the outline
+5. Save the outline, continue to **Content Writing**, open the Outline panel,
+   and click **Copy to editor**. The outline is not handed off while it exists
+   only in the side panel.
+6. Take a fresh DOM snapshot and require all of the following before Phase 3.1:
+   - the main editor visibly contains the generated title, description, and
+     complete H2/H3/bullet scaffold;
+   - the editor's word and heading counters are non-zero; and
+   - the side-panel outline and main-editor scaffold contain the same ordered
+     major headings.
+   A visible **Copy to editor** button is not proof that copying succeeded.
+   Blank editor content, `0` headings, or a side-panel-only outline blocks the
+   drafting handoff.
+7. Freeze the copied WriterZen scaffold as the approved outline evidence and
+   record the Content Creator report ID plus the ordered major headings in
+   `content/content-calendar.md`.
+
+### Phase 3.0a: WriterZen Outline Fidelity Gate (MANDATORY)
+
+Before native drafting, create an outline-to-draft map. Every WriterZen major
+heading and supporting bullet must be marked `preserved`, `merged`,
+`reordered`, `expanded`, or `omitted`, with the destination final heading and a
+short editorial reason. New major sections must also be recorded with their
+reason.
+
+- `preserved`, `merged`, `reordered`, and `expanded` are allowed when the
+  search intent and promised coverage remain intact.
+- `omitted` is a hard stop unless Content explains why it is inaccurate,
+  duplicative, unsafe, or outside the validated intent and Operations accepts
+  the exception from fresh evidence.
+- A native draft may improve WriterZen wording and information architecture,
+  but it may not silently replace the competitor-backed outline with an
+  unrelated structure.
+- Classify every copied source node by its WriterZen level before drafting.
+  A genuine WriterZen H3 is a heading node, not a supporting bullet. Preserve
+  each genuine H3 as a visible H3 under the same parent H2 by default.
+  Converting a genuine H3 into prose, a list, or another heading requires a
+  named editorial reason in the map and explicit Operations acceptance;
+  saying that it was “summarized” is not sufficient.
+- WriterZen bullets are not automatically H3s. They may remain bullets, become
+  visible H3s when they represent a distinct sub-intent, or be expanded into
+  prose, lists, or callouts when the map records the destination and reason.
+  The handoff must count source H2, H3, and bullet nodes separately and compare
+  those counts with the final heading tree; coverage alone does not hide a
+  heading-level conversion.
+- Operations must attest `WRITERZEN_OUTLINE_HANDOFF: PASS` only after verifying
+  the copied editor scaffold, report ID, complete map, and absence of
+  unexplained omissions. Missing or stale evidence blocks Phase 5.
 
 ### Phase 3.1: SERP Section-Readiness Map (MANDATORY)
 
@@ -403,7 +449,9 @@ and [deep-link guidance](https://developers.google.com/search/docs/appearance/sn
 > not upgrade, change plans, or switch to full-article generation without
 > explicit user authorization.
 
-1. Draft the article body natively from the approved content brief + outline
+1. Draft the article body natively from the approved content brief + frozen
+   copied outline, following the Phase 3.0a map. Do not begin from a separately
+   invented heading tree.
 2. Review the draft section by section
 3. **Edit for DigiTrust Lab voice** — match the semi-formal Malay standard from `.claude/skills/malay-voice-guide/SKILL.md`
 4. **Reformat walls of text into rich visual structure** (MANDATORY):
@@ -500,17 +548,26 @@ while the WordPress post remains a draft.
    Before generating the featured image, inspect
    the previous six featured thumbnails together and complete the mandatory
    variety record: visual mode, subject class, composition, treatment, human
-   presence, repeated-motif result, immediate-prior difference count, and
-   thumbnail-comparison result. The gate requires no consecutive human-led
-   images, no more than one human-led image in four consecutive posts, no
-   person+desk+laptop+robot motif within the previous six, and at least three
-   changed dimensions versus the immediate prior image. Run
+   presence, planned background treatment, background-weight target,
+   repeated-motif result, immediate-prior difference count, thumbnail-
+   comparison result, background-weight review, and archive-grid uniformity.
+   The gate requires no consecutive human-led images, no more than one
+   human-led image in four consecutive posts, no person+desk+laptop+robot motif
+   within the previous six, at least three changed dimensions versus the
+   immediate prior image, and a light dominant background consistent with the
+   recent grid. Run
    `python scripts/verify-featured-image-variety.py` with the completed record
    before archive. A failed thumbnail comparison blocks archive, upload, and
-   publication. Finalize every Malay alt text before review.
+   publication. A heavy/dark/saturated backdrop or failed background-weight or
+   archive-grid review also blocks archive, upload, and publication. Finalize
+   every Malay alt text before review.
 3a. Apply the mandatory image audit gate before archiving or uploading:
    - Inspect each image at native resolution in the full frame and every marked
      region (faces, hands/arms, figures, edges, props, and any pseudo-writing).
+   - Inspect each candidate again beside the previous six featured thumbnails
+     at archive-card size. The first read must be light warm off-white/ivory;
+     reject a full-bleed or visually heavy beige, peach, tan, dark, muddy, or
+     saturated background, even when the color appears in the approved palette.
    - PASS only when clean intentional pseudo-writing, abstract lines, bullets,
      and checkboxes remain acceptable, while distorted-looking letters,
      malformed glyphs, wobbly/uneven/merged strokes, inconsistent spacing,
@@ -518,7 +575,8 @@ while the WordPress post remains a draft.
      halos behind or intersecting people/arms, and anatomy artifacts are absent.
    - On any failure, edit or regenerate non-destructively from the best
      composition, then repeat both inspections. Never “fix” by deleting all
-     pseudo-writing. Record the pass before archive/upload.
+     pseudo-writing. Record native audit, background-weight, and archive-grid
+     passes before archive/upload.
 4. Archive the generated images before cleanup:
    - Use each authoritative `Filename` from `content/image-prompts.md`.
    - Copy from the exact
@@ -782,12 +840,20 @@ stale approval hash.
    - New posts published after the last crawl won't appear until the crawler runs again
 6. **Google Search Console — URL Inspection and indexing request:**
    - Inspect the exact live article URL in the authenticated Search Console tab.
-   - Request indexing when the URL is eligible and a request has not already
-     been accepted for the same unchanged content.
-   - Record the visible inspection status, request outcome, and timestamp.
-     "Indexing requested" does not mean "indexed"; never collapse those states.
-   - If authentication, quota, or a sitemap/cache issue blocks the request,
-     record a follow-up instead of claiming completion.
+   - After pasting the URL, **click `Test Live URL` and wait for the live test
+     to finish**. A stale inspection panel or the initial URL Inspection result
+     does not substitute for this fresh test.
+   - Record the completed live-test result, including whether Google could
+     fetch the page and whether the page is eligible for indexing.
+   - **Only after a completed successful/eligible live test may Operations click
+     `Request Indexing`** when the URL is not already indexed and a request has
+     not already been accepted for the same unchanged content.
+   - A 5xx/server error, failed page fetch, timeout, authentication/quota
+     problem, or other non-eligible result is a hard stop: do not click
+     `Request Indexing`; record the visible failure, timestamp, and follow-up.
+   - Record the visible inspection status, live-test result, request outcome,
+     and timestamps separately. "Indexing requested" does not mean "indexed";
+     never collapse those states.
 7. **Run internal link builder** — Use the `internal-link-builder` skill to scan existing posts and add links pointing TO the new post:
    - Trigger: "build internal links" or load skill from `.claude/skills/internal-link-builder/SKILL.md`
    - This finds mentions of the new post's topic in older posts and adds contextual links back
@@ -924,8 +990,8 @@ stale approval hash.
 - **Image filenames (MANDATORY):** `{post-slug}-{image-description}.png` (lowercase, hyphens only)
 - **In-content images:** Add images under H2 sections to break up text. See `content/image-prompts.md` for prompts
 - **Image prompts library:** All prompts stored in `content/image-prompts.md`. Update when a post is published
-- **Featured-image variety gate (MANDATORY):** Inspect and record the previous six thumbnails, rotate approved bounded treatments, enforce the human/motif/difference rules, and block archive/upload on a failed thumbnail comparison. See `content/image-prompts.md`.
-- **Image audit gate (MANDATORY):** Before archive/upload, inspect the full frame and marked regions at native resolution; preserve clean pseudo-writing, abstract lines, bullets, and checkboxes, but reject malformed glyphs or strokes, inconsistent spacing, accidental readable text/numbers, logos/watermarks, orange blobs/halos intersecting people/arms, and anatomy artifacts. Non-destructively edit or regenerate from the best composition and re-inspect on failure.
+- **Featured-image variety gate (MANDATORY):** Inspect and record the previous six thumbnails, rotate approved bounded treatments, enforce the human/motif/difference rules, require a light dominant background plus archive-grid uniformity, and block archive/upload on any failed visual comparison. See `content/image-prompts.md`.
+- **Image audit gate (MANDATORY):** Before archive/upload, inspect the full frame and marked regions at native resolution and the candidate beside the previous six at archive-card size; preserve clean pseudo-writing, abstract lines, bullets, and checkboxes, but reject heavy/dark/saturated backdrops, malformed glyphs or strokes, inconsistent spacing, accidental readable text/numbers, logos/watermarks, orange blobs/halos intersecting people/arms, and anatomy artifacts. Non-destructively edit or regenerate from the best composition and re-inspect on failure.
 - **Post Excerpt (MANDATORY):** Every post MUST have a manual excerpt (155–160 characters). Set and reload-verify it via the `wp.data` store method in Phase 5.4 before naturalness review and publication — NOT via Respira's `excerpt` parameter
 - **Content formatting (MANDATORY):** See `.claude/skills/readability-pass/SKILL.md` for Rich Formatting Toolkit, blockquote/callout templates, and Formatting Checklist
 - **Malay naturalness gate (MANDATORY):** Run `python scripts/verify-malay-naturalness.py` against final HTML before Phase 6 and the live post after publication; both must exit 0
@@ -941,7 +1007,7 @@ stale approval hash.
 - **SEO meta:** Always set Rank Math title (≤60 chars), description (≤160 chars), focus keyword, primary category
 - **Rank tracking (MANDATORY):** Every published post's same focus keyword + exact live URL must be added and verified in BOTH ClickRank AI Overview Tracker AND ClickRank standard Keyword Tracker; Screpy Rank Tracker remains a separate required traditional-SERP check
 - **ClickRank Pages gate (MANDATORY):** Every published post's exact URL must be present in ClickRank Website Optimization / Pages with a fresh visible status and a recorded recommendation/no-change decision before Phase 7 can complete. Tracker rows alone are insufficient.
-- **Search Console (MANDATORY):** Inspect the final URL, request indexing when eligible, and record the visible state without equating a request with successful indexing
+- **Search Console (MANDATORY):** Inspect the final URL, click `Test Live URL` and wait for its completed result, then request indexing only after a successful/eligible live test when needed; record the live-test result, request outcome, and actual indexed state separately without equating a request with successful indexing
 - **Manual dashboard evidence:** Record exact keyword/URL, settings, timestamp,
   and visible result separately for both ClickRank trackers, ClickRank Pages,
   Screpy, and GSC; `verify-content-status.py` cannot prove these steps

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "post_id": 721,
+  "slug": "cara-buat-poster-dengan-chatgpt",
+  "reviewed_at": "2026-09-05T16:19:26+08:00",
+  "link_hash": "ab3385aac2c7df62028368776a4b2762a2faefbd93ad2a2fd888401e2f78ce57",
+  "outbound": {
+    "internal_count": 3,
+    "external_count": 1,
+    "external_dofollow_count": 1,
+    "destinations_checked": true
+  },
+  "inbound": {
+    "decision": "no_safe_context",
+    "count": 0,
+    "source_ids": [],
+    "reason": "No older published post or page currently links to this URL. Post 629 has the strongest relevant zero-link paragraph (paragraph 17, about AI-generated poster visuals), but adding an anchor there would change live content and requires approval; no link was forced.",
+    "scan_scope": "12 published posts and 6 published pages"
+  },
+  "status": "pass"
+}
