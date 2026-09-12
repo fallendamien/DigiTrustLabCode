@@ -44,7 +44,9 @@
 > commercial/job/course intent. Topic Discovery report `246780` surfaced
 > `cara tulis prompt ai` at volume `70`, but it is outside the two registered
 > Prompt Engineering families and needs explicit family approval before any
-> further credit spend. No candidate is ready for Content Creator or drafting.
+> further credit spend. A follow-up AI-video discovery report `246781` and
+> exact reports `1576144`–`1576146` found only volume `10`/`0`/`0` terms; no
+> candidate is ready for Content Creator or drafting.
 >
 > **POST #8 LIVE; TRACKING + FEATURED MEDIA RECONCILED (2026-09-07):**
 > Post #8 "Cara Buat Poster dengan ChatGPT" is live at
@@ -73,7 +75,7 @@
 
 1. Restart Zed once, then run the dual-client Context7 readiness prompt in `content/next-prompt-engineering-vscodium-acp-handoff.md`.
 2. Keep Candidate 3 (`prompt video ai`) and Candidate 5 (`contoh prompt ai`) parked at Weak Spot `0`; do not create another Planner project or override the gate.
-3. Decide whether to authorize a new structured `prompt-engineering.prompt-writing` family for the `cara tulis prompt ai` pivot. Until that policy/calendar decision is recorded, do not run another exact lookup or spend more credits.
+3. Decide whether to authorize a new structured `prompt-engineering.prompt-writing` family for the `cara tulis prompt ai` pivot. The registered AI-video/thumbnail families have now been swept; until that policy/calendar decision is recorded, do not run another exact lookup or spend more credits.
 4. If the family is approved, update the verifier and calendar first, then repeat exact, Golden, SERP, and Weak Spot gates from a fresh quota read-back. If it is not approved, close this research cycle as “no qualifying candidate.”
 5. Keep Post #8 GSC, Post #10 Screpy tracking, Post #7 Pages discovery, sitemap cache, and Post #12's stale naturalness artifact as separate follow-ups.
 

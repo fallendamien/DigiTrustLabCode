@@ -728,3 +728,17 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 - **Policy gate:** the structured relevance verifier currently registers only `prompt-engineering.youtube-thumbnail` and `prompt-engineering.ai-video-prompts`
 - **Decision:** do not run exact Keyword Explorer, Golden Filter, list, Planner, or Content Creator for this pivot unless Operations approves and records a new generic prompt-writing family, parent/peer map, and cannibalization rules
 - **Research evidence:** `content/research/prompt-engineering-2026-09-12-relevance.md`
+
+### Research lead — AI-video family follow-up sweep (2026-09-13)
+
+**Status:** `PARKED KEYWORDS` — no new exact term reached the relaxed Malay
+volume floor; do not brief or draft.
+
+- **Topic Discovery:** report `246781`; seed `prompt AI untuk video`; 76 topics; Malaysia/Malay. The clearest in-family card was `contoh prompt video ai untuk beginner (siap guna & mudah faham) 2026`; related cards also repeated `prompt video ai`, `prompt untuk skrip video tiktok`, and `cara jana video ai guna hailuoai`.
+- **Exact `contoh prompt video ai`:** report `1576144`; volume `10`; 12-month average `10`; high/low `20/10`; no Golden Filter.
+- **Exact `prompt untuk skrip video tiktok`:** report `1576145`; volume `0`; no Golden Filter.
+- **Exact `cara jana video ai guna hailuoai`:** report `1576146`; volume `0`; no Golden Filter; tool-specific phrase rather than a prompt-engineering target.
+- **Read-only related-idea sweep:** existing report `1576000` showed no untested related phrase above `10`; the already-tested `prompt video ai` head term remains volume `90` but Planner Weak Spot `0`.
+- **Quota after sweep:** Topic Lookup `69/75`; Keyword Lookup `66/75`; Keyword Credit `39,677/40,000`; AI Words `7,471/8,000`; Article `69/70`.
+- **Decision:** registered AI-video/thumbnail families are exhausted for this cycle. Do not change the taxonomy or spend more credits until Operations explicitly approves a generic prompt-writing family.
+- **Research evidence:** `content/research/prompt-engineering-2026-09-12-relevance.md`
