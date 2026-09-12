@@ -151,9 +151,9 @@ has a plausible inbound source. Reject image-editing, broad AI-image, ChatGPT
 basics, poster, business, income, automation, SEO, and other off-family or
 cannibalising results.
 
-After the tab handoff is available:
+After the fresh tab handoff and list verification:
 
-1. Confirm the exact row is still absent from list `68708`; add only that row.
+1. The exact list `68708` row has now been verified as row `55`; do not add it again.
 2. Create one new Planner project; never reuse `179213` or legacy `178201`.
 3. Activate metrics and require Weak Spot `>=2`.
 4. Record either the qualified or parked outcome in the calendar and this dated
@@ -184,7 +184,7 @@ silently override Weak Spot, change category, or begin drafting.
 | `content/content-calendar.md` | Tracked and committed | Records both parked candidates |
 | `content/research/prompt-engineering-2026-09-10-relevance.md` | Tracked and committed | Thumbnail evidence and attestations |
 | `content/research/prompt-engineering-ai-video-2026-09-10-research.md` | Tracked and committed | AI-video evidence and volume failure |
-| `content/research/prompt-engineering-2026-09-12-relevance.md` | New, uncommitted | Candidate 3 exact metrics, Golden/SERP evidence, quota, and guarded-write blocker |
+| `content/research/prompt-engineering-2026-09-12-relevance.md` | Tracked; updated 2026-09-12 | Candidate 3 exact metrics, Golden/SERP evidence, verified list row, quota, and Planner gate |
 
 Other changes may be introduced in Zed after this handoff. Preserve and report
 them separately; do not assume a clean tree when staging later work.
@@ -210,9 +210,9 @@ print.
 > Context7 readiness prompt for both Codex and Claude. Verify imports, offline
 > content status, and the current worktree. Resume Candidate 3 from
 > `content/research/prompt-engineering-2026-09-12-relevance.md`. Use my existing
-> authenticated Chrome WriterZen tab, release or hand it off before any guarded
-> external write, and refresh quota. Confirm the exact list `68708` row is absent,
-> add only `prompt video ai`, create one new Planner project, and stop at Weak
+> authenticated Chrome WriterZen tab and refresh quota. The exact list `68708`
+> row is already verified as row `55`; do not add it again. Create one new
+> Planner project and stop at Weak
 > Spot `<2` or any ambiguity. Do not draft, publish, alter WordPress, duplicate
 > WriterZen records, override Weak Spot, enable keyword expansion, add a duplicate
 > Context7 server, or touch unrelated Post #8 files. Report exact IDs, metrics,
@@ -226,8 +226,7 @@ The research handoff ends with either:
    and Weak Spot gates and is recorded without duplicates; or
 2. **Parked:** the fresh seed yields no qualifying candidate, with exact IDs,
    metrics, quota delta, rejection reasons, and updated evidence; or
-3. **Blocked:** Candidate 3 remains qualified through Golden/SERP but the
-   authenticated WriterZen tab cannot be safely handed off for the bounded
-   external write. Record the exact ownership/blocker and do not bypass it.
+3. **In progress:** Candidate 3 is qualified through Golden/SERP and now has a
+   verified permanent-list row; the new Planner project and Weak Spot gate remain.
 
 Neither outcome authorizes drafting or publication.

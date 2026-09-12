@@ -123,10 +123,11 @@ Keyword Explorer, SERP, and later gates pass.
 
 | Surface | Evidence |
 |---|---|
-| Permanent keyword list | Read-only search in `DigiTrust Lab Blog Posts` (ID `68708`) returned **No data** for exact `prompt video ai`; no duplicate exists. |
-| Guarded write dispatch | Route `dlt-next-article-20260912-prompt-video-ai`, primary `content`, worker assignment `gpt-5.6-luna` at `high`. |
-| Worker outcome | **BLOCKED BEFORE ACTION.** Four bounded `gpt-5.6-luna` attempts before the blocked-goal handoff, plus one fresh-resume attempt, received the same provider result: the exact authenticated WriterZen tab was already claimed by session `01a09530-700e-7e90-ac79-abd632d41b36`. No external write was made. |
-| Required resume action | End the current browser-control session or have the user release/reopen the authenticated WriterZen tab, then repeat only the bounded list-add and new Planner-project actions. Do not bypass the failed worker gate from the orchestrator session. |
+| Permanent keyword list | The bounded worker added `prompt video ai` once to `DigiTrust Lab Blog Posts` (ID `68708`) after the fresh tab handoff. Independent read-back shows `55` results and exact row `55` with volume `90`, CPC `0.49`, word count `3`, and PPC `Medium`. |
+| Guarded write dispatch | Route `dlt-next-article-20260912-prompt-video-ai-after-user-reopen`, primary `content`, worker assignment `gpt-5.6-luna` at `high`. |
+| Worker outcome | **PASS.** One Add click was performed on the exact selected keyword and existing list; no visible credit cost or duplicate was observed. The worker stopped before Planner, drafting, WordPress, tracking, or publication. |
+| Independent verification | Root read-back of `https://app.writerzen.net/user/keyword-list/68708` shows sidebar count `55`, list result count `55`, and exact `prompt video ai` row at row `55`. |
+| Required next action | Create one new Keyword Planner project for this exact candidate, activate metrics, and require Weak Spot `>=2`. Do not cluster, brief, draft, or publish before that gate. |
 
 ## Fresh quota evidence after exact-keyword research
 
@@ -140,7 +141,7 @@ Existing authenticated Chrome profile `Zamri`, WriterZen Limits & Remaining tab:
 | Article / Month | `69/70` |
 | Keyword Credit / Month | `39,780/40,000` after the one-keyword Golden Filter |
 | AI Words / Month | `7,471/8,000` |
-| Keyword List / Plan | `47/50` |
+| Keyword List / Plan | `47/50` before the list write; refresh before Planner |
 
 One Topic Discovery lookup was run for report `246755`, the exact candidate was
 looked up in Keyword Explorer, and one selected-keyword Golden Filter was
@@ -161,10 +162,8 @@ KEYWORD_ELIGIBILITY: PASS FOR PLANNER
 WEAK_SPOT: PENDING
 ```
 
-The next permitted action, after the authenticated tab is released or handed
-off, is to recheck the permanent `DigiTrust Lab Blog Posts` list and add only
-`prompt video ai` if still absent, then create a **new** Keyword Planner
-project for this one candidate and activate metrics. The project must prove
+The next permitted action is to create a **new** Keyword Planner project for
+this one candidate and activate metrics. The project must prove
 Weak Spot `>= 2` before clustering, Content Brief work, drafting, or any
 publication action. If the duplicate check finds an exact row, inspect it and
 do not submit another one.
