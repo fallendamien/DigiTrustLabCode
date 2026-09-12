@@ -76,22 +76,24 @@ The live link gate now passes with inbound count `2`; evidence is recorded in
 
 ## Repository hygiene closeout (mandatory)
 
-This summary records the verified tracker outcome and the approved inbound-link
-closeout; selective commit/push remains the final repository step.
+This summary records the verified tracker outcome, approved inbound-link
+closeout, and final repository parity.
 
 | Field | Value |
 |---|---|
-| Commit SHA(s) | `Pending final repository commit` |
-| Push/upstream status | `Pending final repository push` |
-| Post-closeout status output | `Pending final validator and parity evidence` |
+| Commit SHA(s) | `e12401d2a380849f63dff7b28d5aa2610c39adca` — `content(post-13): close prompt article evidence and links` |
+| Push/upstream status | Pushed to `origin/master`; remote ref resolves to the same SHA |
+| Post-closeout status output | Clean `master...origin/master`; no working-tree changes |
 | Excluded paths | Exact `.git/info/exclude` entries for superseded Post #13 naturalness prompts/results; canonical artifact plus current `live-claude-v2` and `live-openai-v3` evidence remain visible |
 | Removed generated files | `None` |
 | Residual-path decisions | Visible draft, four approved media assets, outline map, canonical/current-hash reviews, link review, calendar, breadcrumbs and voice registration are durable and retained; superseded naturalness retries remain excluded via `.git/info/exclude` |
 
 ## Open follow-ups
 
-- Run the final validator set and selective repository commit/push after the
-  approved inbound-link edits.
+- Keep the ClickRank Pages no-record result documented; if a Pages record appears
+  later, record its visible status plus recommendation/no-change decision.
+- Start the next article at editorial relevance and Topic Discovery; do not reopen
+  parked candidates or create a duplicate Planner project.
 
 ## Evidence pointers
 

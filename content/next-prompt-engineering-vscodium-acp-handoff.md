@@ -21,8 +21,8 @@ Google Index surface reports the URL as indexed.
 
 ## Objective
 
-Close out Post #13's remaining repository gates, then keep the next editorial
-cycle at the relevance gate. Do not reopen the parked
+Post #13 is closed out. Start the next editorial cycle at the relevance gate;
+do not reopen the parked
 WriterZen candidates or create a duplicate Planner project.
 
 ## Current research state
@@ -39,7 +39,7 @@ WriterZen candidates or create a duplicate Planner project.
 | Live gates | Naturalness PASS, structure PASS, voice 0 errors/one italic warning, Rank Math `92/A`, GSC Test Live `URL is available to Google` / `Page can be indexed`, Google Index `URL is on Google` / `Page is indexed` |
 | Remaining gates | ClickRank standard + AI Overview and Screpy Device Both are verified; ClickRank Pages read-only check found no exact URL record; inbound link gate passes with two source posts |
 | Quota read-back after article | Topic `67/75`; Keyword `59/75`; Article `68/70`; Keyword Credit `39,625/40,000`; AI Words `7,236/8,000`; list `47/50`; seats `2/3` |
-| Gate status | **Post #13 is published; live tracking and approved inbound links are verified; repository closeout remains.** |
+| Gate status | **Post #13 is fully closed out; live tracking, approved inbound links, validators, commit, push, and remote parity are verified.** |
 
 Do not treat card volume as exact-keyword evidence. Candidate 4's exact volume
 failed, and Candidate 5's Weak Spot failed. The approved pivot must still pass
@@ -151,9 +151,9 @@ validation of `starter prompt video ai`.
 | Guarded continuation | Four bounded `gpt-5.6-luna` worker attempts before the blocked-goal handoff, plus one fresh-resume attempt, received the same provider result: the exact authenticated WriterZen tab was already claimed by session `01a09530-700e-7e90-ac79-abd632d41b36`. No list addition or Planner project was made. |
 | Evidence | `content/research/prompt-engineering-2026-09-12-relevance.md` |
 
-The three tracker surfaces have now been submitted once and independently
-verified. Resume with the separate inbound-link decision, then the final
-validator and selective commit/push closeout. Do not reopen the parked
+The three tracker surfaces and the approved inbound-link closeout have now been
+submitted/applied once and independently verified. Repository commit/push
+closeout is complete. Do not reopen the parked
 WriterZen candidates, spend further credits, or use whole-article generation.
 
 ### Remaining cards from report 246697
@@ -260,12 +260,15 @@ The research handoff ends with either:
 3. **Exact gate pending:** the approved family has a current candidate, but exact
    volume and SERP evidence are still required before Golden or downstream work.
 
-This handoff is currently **Post #13 repository closeout pending**: the
+This handoff is currently **Post #13 COMPLETE; next article starts at editorial
+relevance**: the
 approved family already produced the published `contoh prompt` article, and its
 exact, Golden, SERP, Weak Spot, outline, naturalness, structure, voice, Rank
 Math, Search Console, ClickRank/Screpy and two approved contextual inbound links
-are recorded above. The remaining bounded actions are the ClickRank Pages
-no-record documentation, final validators, and selective commit/push.
+are recorded above. Commit `e12401d2a380849f63dff7b28d5aa2610c39adca` is pushed
+to `origin/master`; final worktree and remote parity are clean. Keep the
+ClickRank Pages no-record result documented, and start the next article with
+editorial relevance and Topic Discovery.
 Do not reopen the parked candidates or create a duplicate Planner project.
 
 Neither outcome authorizes drafting or publication.

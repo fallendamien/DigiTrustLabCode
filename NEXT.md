@@ -15,7 +15,7 @@
 
 ## Current State
 
-> **POST #13 PUBLISHED — TRACKERS + INBOUND LINKS VERIFIED (2026-09-13):** `Contoh Prompt
+> **POST #13 COMPLETE — TRACKERS + INBOUND LINKS + REPOSITORY VERIFIED (2026-09-13):** `Contoh Prompt
 > AI: Cara Menulis Arahan yang Jelas dan Berkesan` is live at
 > `https://digitrustlab.com/contoh-prompt-ai/` (WordPress ID `734`) from the
 > approved `prompt-engineering.prompt-writing` family. The exact keyword
@@ -29,7 +29,7 @@
 > `Page is indexed`. ClickRank standard (count `12 → 13`, row
 > `14ed7c5c3cd2a51ccabfbf5683e250f9`) and AI Overview (count `11 → 12`,
 > `Pending`) are verified for the exact URL. Screpy MCP rows `728617` (Mobile)
-> and `728618` (Desktop) are both `completed` for MY/ms. The two proposed
+> and `728618` (Desktop) are both `completed` for MY/ms. The two approved
 > contextual inbound links are now applied and verified: Post 437 → Post 734
 > with anchor `panduan umum menulis prompt AI`; Post 536 → Post 734 with anchor
 > `asas menulis prompt AI`. Respira before/after snapshots and exact-diff
@@ -38,7 +38,9 @@
 > A read-only ClickRank Pages search on 13 September found no exact-URL page
 > record, so no optimization recommendation was applied. Screpy was added once
 > through MCP and independently read back in both device rows; no crawl was
-> started.
+> started. Durable evidence is committed and pushed as
+> `e12401d2a380849f63dff7b28d5aa2610c39adca`; final worktree and
+> `origin/master` parity are clean.
 
 > **CONTEXT7 PERSISTENCE VERIFIED (2026-09-12):** Codex has the global
 > `@upstash/context7-mcp@4.1.0` entry and a real `resolve-library-id` probe passed.
@@ -102,8 +104,7 @@
 ## Next action
 
 1. Keep the ClickRank Pages no-record result documented; if a Pages record appears later, record its visible status plus recommendation/no-change decision.
-2. Finish the final validator and repository hygiene pass: validate `content/link-reviews/contoh-prompt-ai.json`, re-run all required checks, classify every path, then commit/push only durable approved evidence.
-3. After Post #13 closeout, start the next article at editorial relevance and Topic Discovery. Keep the parked candidates and Context7 readiness prompt as recorded below.
+2. Start the next article at editorial relevance and Topic Discovery. Keep the parked candidates and Context7 readiness prompt as recorded below.
 
 ## Context7 dual-client readiness prompt
 
