@@ -564,6 +564,53 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 
 ---
 
+## Post #13 — PUBLISHED ⚠️ — CONTOH PROMPT AI
+
+| Field | Value |
+|-------|-------|
+| Title | Contoh Prompt AI: Cara Menulis Arahan yang Jelas dan Berkesan |
+| Primary Keyword | `contoh prompt` |
+| Search intent | Informational / how-to / awareness |
+| Search Volume | 70/mo |
+| KD (Ads / Content / Traffic / Signal) | 0 / 0 / 0 / 0 |
+| CPC | US$0.00 |
+| Golden Score | 1.003 |
+| All-in-Title | 0 |
+| Weak Spot | 2 (Avg DA 61.8; Low DA 4; High DA 93) |
+| Category | Prompt Engineering |
+| Status | Published 13 September 2026; live article, core gates, all three tracker rows, and the approved inbound-link closeout are verified |
+| Family approval | `prompt-engineering.prompt-writing`; `approval://user/2026-09-13/topic-family/prompt-engineering.prompt-writing` |
+| WriterZen Topic Discovery | Report 246783 — seed `menulis prompt ai`; `contoh prompt` card volume 70 |
+| WriterZen Keyword Explorer | Report 1576173 — exact `contoh prompt`; volume 70; Malaysia/Malay |
+| WriterZen Golden Filter | Report 1576174 — exact row only; All-in-Title 0; Golden Score 1.003; one credit |
+| WriterZen Keyword List | `DigiTrust Lab Blog Posts` ID 68708; exact row verified once as row 57; no duplicate |
+| WriterZen Keyword Planner | Project 179243 — `Contoh Prompt - DigiTrustLab 2026-09-13`; Golden Filter unchecked to avoid duplicate spend |
+| WriterZen Content Creator | Article 244699 — outline-only generation; whole article OFF; keyword suggestions OFF; copied scaffold verified; 27-node outline map PASS |
+| Outline handoff | ✅ `WRITERZEN_OUTLINE_HANDOFF: PASS` — `content/outline-maps/contoh-prompt-writerzen-244699.md` |
+| Draft | `content/drafts/contoh-prompt-ai.html` |
+| WordPress Post | ID 734 — `https://digitrustlab.com/contoh-prompt-ai/` (published) |
+| Featured image | Media 730 — `contoh-prompt-ai-featured.png`; native 1672×941; SHA-256 `D93B849298DFC6349FBC7303659BCFA93E2279678049779DB64295E35E1B1252` |
+| Inline images | Media 731/732/733 — structure, before/after and test-loop assets; native 1672×941; hashes recorded in `content/image-prompts.md` |
+| Native originality/source gate | ✅ Native draft and official OpenAI, Anthropic and Google references; no WriterZen plagiarism checker or paid checker used |
+| Rank Math | ✅ Respira analysis `92/A`; 12 checks passed, one opening-paragraph focus-keyword warning; no unapproved copy change made |
+| Naturalness Gate | ✅ Live revalidation passed — Claude `firstParty` / `claude-sonnet-5` CLI + OpenAI `gpt-5.6-luna` high; 58/58 segments; no findings; hash `aaf1832cbfdb54d5c5c4db70b730ad5f27bab5ecfb1a54b8e46377afadc8da08`; artifact `content/naturalness-reviews/contoh-prompt-ai.json` |
+| Malay Voice Gate | ✅ Post 734 registered; 0 errors, one known italic-policy warning (`prompt` not wrapped in `<em>`) |
+| Structure Gate | ✅ `verify-post-structure.py --post-id 734` — no body H1; template title is not duplicated |
+| Link Quality Gate | ✅ Live destinations and link counts pass; inbound review records two contextual links from Posts 437 and 536; artifact `content/link-reviews/contoh-prompt-ai.json`; link hash `dcbd00c4f1481c993fd71058577e786c03c649e37a22b16bd962d6c1489a74cd` |
+| ClickRank Keyword Tracker | ✅ Added once after the approved confirmation; count `12 → 13`; row ID `14ed7c5c3cd2a51ccabfbf5683e250f9`; exact `contoh prompt` + URL, Malaysia, Device All; visible result `Not In Top 3 Results`; verified `2026-09-12T21:51:03.000Z` |
+| ClickRank AI Overview Tracker | ✅ Added once after the approved confirmation; count `11 → 12`; exact `contoh prompt` + URL, Malaysia/Malay; visible status `Pending`; submitted `2026-09-12T21:49:18.716Z` and read back in the same authenticated tab |
+| ClickRank Website Optimization / Pages | ⚠️ Read-only check 13 September 2026: exact URL search returned `You currently have no pages`; no Pages record/status exists yet and no recommendation has been applied |
+| Screpy Rank Tracker | ✅ Added once through the approved MCP path; project `wgspvb7lc3`; Mobile row `728617` and Desktop row `728618`; exact `contoh prompt`, Malaysia `MY`, Malay `ms`, Device `Both`; both `completed`, last analyzed `2026-09-12T21:53:44+00:00`; no crawl started |
+| Google Search Console | ✅ Test Live URL completed 13 September 2026: `URL is available to Google` / `Page can be indexed`. Google Index surface separately reports `URL is on Google` / `Page is indexed`; no indexing request was needed |
+| Rendered evidence | ✅ Existing authenticated Chrome tab shows title, category, featured/inline images, ToC, corrected H3 `1. Kenal Pasti Hasil yang Dikehendaki`, lists, internal/external links and CTA |
+| Internal-link plan | ✅ Approved and applied through Respira: Post 437 → Post 734 with anchor `panduan umum menulis prompt AI`; Post 536 → Post 734 with anchor `asas menulis prompt AI`; before/after snapshots and exact-diff read-backs recorded in the completion summary |
+| Quota after article | Topic `67/75`; Keyword `59/75`; Article `68/70`; Keyword Credits `39,625/40,000`; AI Words `7,236/8,000`; Keyword List `47/50`; seats `2/3` |
+| Evidence | `content/research/prompt-engineering-2026-09-12-relevance.md`; `content/image-prompts.md`; `content/naturalness-reviews/contoh-prompt-ai.json` |
+
+> This post is the first published member of the approved generic prompt-writing family. It is broader than Post #3's ChatGPT-specific workflow while remaining instructional and experience-led; no income or performance promise is made.
+
+---
+
 ## Workflow (Option C — Standard Pipeline)
 
 > **Full step-by-step:** `.claude/skills/write-post/SKILL.md` is the authoritative version. This is the summary.

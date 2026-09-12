@@ -1,15 +1,21 @@
 # DigiTrust Lab — Roadmap
 
-> **Status:** NEXT PROMPT ENGINEERING TOPIC RESEARCH — Candidate 3 parked; Candidate 4 exact gate pending
-> **Current Phase:** Post #8 remains closed. `prompt video ai` passed relevance, exact volume `90` under the Malay long-tail relaxation, Allintitle `0`, Golden Score `1.002`, and manual SERP review; its exact permanent-list row is verified as row `55` of `55`, but Planner project `179241` returned Weak Spot `0`. Fresh Topic Discovery report `246776` now proposes the provisional reader-facing card `apa itu prompt engineering` (card volume `170`); do not treat the card volume as exact-keyword evidence.
-> **Last Updated:** 2026-09-13 (Topic Discovery report 246776 independently verified; Candidate 4 exact Keyword Explorer pending — 12 posts published)
+> **Status:** POST #13 PUBLISHED — trackers and approved inbound links verified; repository closeout pending
+> **Current Phase:** `Contoh Prompt AI: Cara Menulis Arahan yang Jelas dan Berkesan` is live at `https://digitrustlab.com/contoh-prompt-ai/` (ID `734`). Exact keyword `contoh prompt` passed Topic Discovery `246783`, Keyword Explorer `1576173`, Golden Filter `1576174`, Planner `179243`, and Weak Spot `2`. The outline-only WriterZen handoff, media, Rank Math `92/A`, structure and dual naturalness gates are verified. Search Console Test Live URL reports `URL is available to Google` / `Page can be indexed`, while Google Index reports `URL is on Google` / `Page is indexed`. ClickRank standard and AI Overview rows are verified, as are Screpy MCP rows `728617` (Mobile) and `728618` (Desktop). Post 437 and Post 536 now contain the two approved contextual inbound links to Post 734; the link review passes with inbound count `2`.
+> **Last Updated:** 2026-09-13 (Post #13 published; live gate evidence recorded — 13 posts published)
 > **Monthly Revenue:** RM 69 (1 sale, pre-blog era)
 
 > **Scope note:** Historical milestones and planned titles remain retained for continuity. The authoritative current content inventory and research status is [`content/content-calendar.md`](content/content-calendar.md). The active editorial queue lives there, not here.
 
 ---
 
-## 12 September 2026 Snapshot
+## 13 September 2026 Snapshot
+
+- **13 blog posts published** on digitrustlab.com
+- Post #13 `Contoh Prompt AI: Cara Menulis Arahan yang Jelas dan Berkesan` is live at `https://digitrustlab.com/contoh-prompt-ai/` (ID `734`); `contoh prompt` exact volume `70`, Golden Score `1.003`, All-in-Title `0`, Planner Weak Spot `2`, Rank Math `92/A`, fresh dual naturalness pass (58 segments), structure PASS, and Malay voice validator 0 errors/one italic-policy warning. Media 730/731/732/733 are archived and verified. ClickRank standard/AI Overview and Screpy rows `728617`/`728618` are verified. Approved contextual inbound links from Posts 437 and 536 are live and the Post #13 link review passes with inbound count `2`.
+- Search Console Test Live URL completed 2026-09-13: `URL is available to Google` / `Page can be indexed`; Google Index surface separately reports `URL is on Google` / `Page is indexed`. No indexing request was needed.
+
+## Historical 12 September 2026 Snapshot
 
 - **12 blog posts published** on digitrustlab.com
 - Post #8 "Cara Buat Poster dengan ChatGPT" is live at `https://digitrustlab.com/cara-buat-poster-dengan-chatgpt/` (ID 721); Rank Math 93/A, exact-live dual naturalness pass, structure/voice/link gates pass, ClickRank standard + AI Overview and Screpy Rank Tracker verified
@@ -29,7 +35,7 @@
 
 ```
 Phase 1: Foundation         ██████████ 100% ✅ (Infrastructure)
-Phase 1: Content             ██████████ 100% (12 posts published; see calendar for authoritative inventory)
+Phase 1: Content             ██████████ 100% (13 posts published; see calendar for authoritative inventory)
 Phase 2: Compounding        ░░░░░░░░░░  0%
 Phase 3: Traffic Growth     ░░░░░░░░░░  0%
 Phase 4: Scale              ░░░░░░░░░░  0%

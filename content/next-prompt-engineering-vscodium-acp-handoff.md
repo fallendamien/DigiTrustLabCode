@@ -3,23 +3,27 @@
 **Prepared:** 2026-09-13
 **Project:** `G:\Zamzam Biznez\DigiTrustLabCode`
 **Target agents:** Codex ACP or Claude Code terminal/ACP in Zed
-**Current outcome:** Candidate 3 `prompt video ai` remains parked at Planner
-Weak Spot `0`. Candidate 4 `apa itu prompt engineering` was validated in exact
-Keyword Explorer report `1576139` and failed volume (`10`). Candidate 5
-`contoh prompt ai` passed exact/Golden and was added once to the permanent list,
-but Planner `179242` returned Weak Spot `0`. The broad exact `prompt
-engineering` term was parked for commercial/job/course intent. A follow-up
-AI-video Topic Discovery reports `246781`–`246782` and exact reports
-`1576144`–`1576147` found only volume `10`/`0`/`0`/`0` terms. Zamri has now
-approved the new generic `prompt-engineering.prompt-writing` family for
-`cara tulis prompt ai`; the exact gate is the next action. No candidate is ready
-for drafting or publication yet.
+**Current outcome:** Post #13, `Contoh Prompt AI: Cara Menulis Arahan yang Jelas
+dan Berkesan`, is published at
+`https://digitrustlab.com/contoh-prompt-ai/` (WordPress ID `734`) from the
+approved generic `prompt-engineering.prompt-writing` family. Exact keyword,
+Golden, SERP and Weak Spot gates passed for `contoh prompt`; the outline-only
+WriterZen handoff, native draft, media, Rank Math, live structure and dual
+naturalness gates are verified. The ClickRank standard row (count `12 → 13`, ID
+`14ed7c5c3cd2a51ccabfbf5683e250f9`) and AI Overview row (count `11 → 12`,
+`Pending`) are verified. Screpy MCP rows `728617` (Mobile) and `728618`
+(Desktop) are both `completed` for MY/ms. The two approved contextual inbound
+links are now applied and independently verified. Post 437 links to Post 734
+with anchor `panduan umum menulis prompt AI`; Post 536 links to Post 734 with
+anchor `asas menulis prompt AI`. Respira snapshots and exact-diff read-backs are
+recorded in the completion summary. Search Console Test Live URL passed and the
+Google Index surface reports the URL as indexed.
 
 ## Objective
 
-Find one useful, non-cannibalising Prompt Engineering article and validate it
-through the Option C research gates. Stop before Content Creator, drafting,
-WordPress, or publication unless Zamri separately approves further work.
+Close out Post #13's remaining repository gates, then keep the next editorial
+cycle at the relevance gate. Do not reopen the parked
+WriterZen candidates or create a duplicate Planner project.
 
 ## Current research state
 
@@ -29,9 +33,13 @@ WordPress, or publication unless Zamri separately approves further work.
 | Candidate 5 | Keyword Explorer `1576140`; Golden `1576141`; list row `56`; Planner `179242`; Weak Spot `0`; **parked** |
 | Candidate 6 | Topic Discovery `246779`; exact Keyword Explorer `1576142`; volume `1,600`, but job/course/training SERP; **parked for intent** |
 | AI-video follow-up | Topic Discovery `246781`–`246782`; exact reports `1576144`–`1576147`; volumes `10`/`0`/`0`/`0`; **parked** |
-| Approved pivot | Topic Discovery `246780`; `cara tulis prompt ai` card volume `70`; family `prompt-engineering.prompt-writing`; approval `approval://user/2026-09-13/topic-family/prompt-engineering.prompt-writing` |
-| Quota read-back | Topic `68/75`; Keyword `65/75`; Article `69/70`; Keyword Credit `39,677/40,000`; AI Words `7,471/8,000`; list plan `47/50`; seats `2/3` |
-| Gate status | **No qualifying registered candidate.** Stop before Content Brief, Content Creator, drafting, WordPress, tracking, or publication. |
+| Approved family | `prompt-engineering.prompt-writing`; approval `approval://user/2026-09-13/topic-family/prompt-engineering.prompt-writing` |
+| Published candidate | `contoh prompt` — Topic Discovery `246783`; exact `1576173`; Golden `1576174`; Planner `179243`; Weak Spot `2` |
+| WordPress | Post `734`, live URL `https://digitrustlab.com/contoh-prompt-ai/`; featured Media `730`, inline Media `731/732/733` |
+| Live gates | Naturalness PASS, structure PASS, voice 0 errors/one italic warning, Rank Math `92/A`, GSC Test Live `URL is available to Google` / `Page can be indexed`, Google Index `URL is on Google` / `Page is indexed` |
+| Remaining gates | ClickRank standard + AI Overview and Screpy Device Both are verified; ClickRank Pages read-only check found no exact URL record; inbound link gate passes with two source posts |
+| Quota read-back after article | Topic `67/75`; Keyword `59/75`; Article `68/70`; Keyword Credit `39,625/40,000`; AI Words `7,236/8,000`; list `47/50`; seats `2/3` |
+| Gate status | **Post #13 is published; live tracking and approved inbound links are verified; repository closeout remains.** |
 
 Do not treat card volume as exact-keyword evidence. Candidate 4's exact volume
 failed, and Candidate 5's Weak Spot failed. The approved pivot must still pass
@@ -143,11 +151,10 @@ validation of `starter prompt video ai`.
 | Guarded continuation | Four bounded `gpt-5.6-luna` worker attempts before the blocked-goal handoff, plus one fresh-resume attempt, received the same provider result: the exact authenticated WriterZen tab was already claimed by session `01a09530-700e-7e90-ac79-abd632d41b36`. No list addition or Planner project was made. |
 | Evidence | `content/research/prompt-engineering-2026-09-12-relevance.md` |
 
-Resume only after the current browser-control session ends or the tab is
-released/reopened by the user. Repeat the
-bounded list-add (one exact row) and create one new Planner project, then
-activate metrics and require Weak Spot `>=2`. Do not draft, publish, or use
-WriterZen whole-article generation.
+The three tracker surfaces have now been submitted once and independently
+verified. Resume with the separate inbound-link decision, then the final
+validator and selective commit/push closeout. Do not reopen the parked
+WriterZen candidates, spend further credits, or use whole-article generation.
 
 ### Remaining cards from report 246697
 
@@ -161,18 +168,23 @@ The previous seed is exhausted. Do not force one of these into production.
 
 ## Recommended continuation
 
-Keep Candidate 3 (`prompt video ai`) and Candidate 5 (`contoh prompt ai`)
-parked: both Planner projects returned Weak Spot `0`. Candidate 4 failed exact
-volume, and Candidate 6 failed the reader-facing intent gate. The approved
-generic prompt-writing family is now ready for its first exact gate.
-
-1. Refresh limits in the existing authenticated tab and validate exact
-   `cara tulis prompt ai` in Keyword Explorer.
-2. Record exact volume, SERP/intent, and quota delta before deciding on Golden.
-3. Add the exact row or create a Planner project only if exact, Golden, SERP,
-   and Weak Spot `>=2` all pass.
-4. Do not lower Golden or All-in-Title limits, silently override Weak Spot,
-   change the category, or begin drafting.
+1. Keep the ClickRank standard, AI Overview and Screpy verification recorded:
+   standard count `12 → 13` with row ID
+   `14ed7c5c3cd2a51ccabfbf5683e250f9`, AI Overview count `11 → 12` with
+   `Pending`, and Screpy rows `728617`/`728618` completed for MY/ms. The
+   ClickRank Pages read-only search returned no exact URL record, so no
+   recommendation was applied.
+2. Keep the approved inbound-link evidence: Post 437 → Post 734 with anchor
+   `panduan umum menulis prompt AI`; Post 536 → Post 734 with anchor `asas
+   menulis prompt AI`; link review `content/link-reviews/contoh-prompt-ai.json`;
+   link gate passes with inbound count `2`.
+3. Update `content/content-calendar.md`, `STATE.json`, `NEXT.md`, `ROADMAP.md`,
+   and `content/article-completion-summaries/contoh-prompt-ai.md` with the final
+   inbound decision evidence, then run the complete validator set and
+   commit/push only classified durable paths.
+4. After Post #13 closeout, restart future work at editorial relevance and
+   Topic Discovery; keep Candidates 3–6 and the AI-video sweep parked as
+   recorded in the research evidence.
 
 ## Browser and credit safeguards
 
@@ -186,9 +198,9 @@ generic prompt-writing family is now ready for its first exact gate.
   perform destructive actions.
 - If the exact authenticated tab is unavailable, ask Zamri to open or sign in.
   Do not switch to a blank, private, or separate CDP profile.
-- Last independently observed on 2026-09-13 after the final quota read-back:
-  Topic `68/75`, Keyword `65/75`, Keyword Credit `39,677/40,000`, Article
-  `69/70`, AI Words `7,471/8,000`, Keyword List `47/50`, seats `2/3`.
+- Last independently observed on 2026-09-13 after the Post #13 article:
+  Topic `67/75`, Keyword `59/75`, Keyword Credit `39,625/40,000`, Article
+  `68/70`, AI Words `7,236/8,000`, Keyword List `47/50`, seats `2/3`.
 - Keep `Write the whole article` and optional keyword expansion OFF. Do not use
   WriterZen's plagiarism checker.
 - Do not retry uncertain submissions. Reload and check for the resulting row
@@ -217,7 +229,7 @@ git diff --check
 git status --short
 ```
 
-Baseline: relevance `16 scenarios; 7 pass / 9 fail`; calendar `12 post
+Baseline: relevance `16 scenarios; 7 pass / 9 fail`; calendar `13 post
 entries`; imports PASS; no whitespace errors. Existing LF/CRLF warnings may
 print.
 
@@ -248,8 +260,12 @@ The research handoff ends with either:
 3. **Exact gate pending:** the approved family has a current candidate, but exact
    volume and SERP evidence are still required before Golden or downstream work.
 
-This handoff is currently **Exact gate pending**: the family approval is recorded
-and the next bounded action is the exact `cara tulis prompt ai` lookup. It does
-not authorize drafting or publication by itself.
+This handoff is currently **Post #13 repository closeout pending**: the
+approved family already produced the published `contoh prompt` article, and its
+exact, Golden, SERP, Weak Spot, outline, naturalness, structure, voice, Rank
+Math, Search Console, ClickRank/Screpy and two approved contextual inbound links
+are recorded above. The remaining bounded actions are the ClickRank Pages
+no-record documentation, final validators, and selective commit/push.
+Do not reopen the parked candidates or create a duplicate Planner project.
 
 Neither outcome authorizes drafting or publication.

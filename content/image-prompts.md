@@ -855,6 +855,74 @@ Flat illustration style. Geometric before-and-after composition showing a messy 
 
 ---
 
+## Post #13 — Contoh Prompt AI: Cara Menulis Arahan yang Jelas dan Berkesan (PUBLISHED — 2026-09-13)
+
+**Slug:** `contoh-prompt-ai`
+**Focus keyword:** `contoh prompt`
+**Content summary:** Panduan praktikal untuk mengenal pasti hasil, memberikan konteks, menetapkan format dan menguji prompt AI bagi tugasan pembelajaran, kandungan dan kerja harian.
+
+### Image 1 — Featured (Prompt and Result Comparison)
+
+**Filename:** `contoh-prompt-ai-featured.png`
+**Alt text:** Ilustrasi membandingkan arahan prompt AI dengan hasil yang lebih tersusun
+
+```
+Flat illustration style. A polished wide editorial illustration showing a person at a desk comparing two clean prompt cards with two AI result panels: one vague and scattered, one structured and clear. Include a laptop, small abstract AI sparkle and a human hand marking the clearer result. Split composition with generous breathing room, no readable text. Simple geometric shapes, bold charcoal outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Clean, modern, minimal. Wide format 16:9. No logos, watermark, letters, numbers, money symbols, rounded orange blob, halo or disc behind or intersecting the person.
+```
+
+### Image 2 — Prompt Structure (Layered Blocks)
+
+**Filename:** `contoh-prompt-ai-struktur-arahan.png`
+**Alt text:** Ilustrasi komponen prompt AI seperti tugas, konteks, format dan batasan
+
+```
+Flat illustration style. Isometric composition of four connected modular blocks representing a well-structured AI prompt: a target symbol for the task, a small folder for context, a document frame for output format and a shield for constraints. A subtle arrow flows from the four blocks into a simple AI assistant panel. Use abstract lines and icons only, no readable text. Simple geometric shapes, bold charcoal outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Clean, modern, minimal. Wide format 16:9. No logos, watermark, letters, numbers, rounded orange blob, halo or disc.
+```
+
+### Image 3 — Before and After Prompt (Geometric Cards)
+
+**Filename:** `contoh-prompt-ai-sebelum-selepas.png`
+**Alt text:** Perbandingan prompt AI yang umum dengan arahan yang lebih khusus
+
+```
+Flat illustration style. Clear left-to-right before-and-after composition: on the left, a loose stack of plain prompt cards with scattered lines and a confused sparkle; on the right, one organized card with aligned abstract lines, a target icon and a verification checkmark. The transformation should communicate clarity without any letters or words. Simple geometric shapes, bold charcoal outlines. Color palette: warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Clean, modern, minimal. Wide format 16:9. No readable text, logos, watermark, numbers, rounded orange blob, halo or disc.
+```
+
+### Image 4 — Test and Improve Loop (Top-Down Workspace)
+
+**Filename:** `contoh-prompt-ai-uji-dan-baiki.png`
+**Alt text:** Kitaran menguji dan memperbaiki prompt AI dengan semakan manusia
+
+```
+Flat illustration style. Top-down workspace showing a prompt card, an AI response page, a magnifying glass, a pencil and a circular arrow returning to a revised prompt card. Include three small abstract assistant symbols in separate panels to suggest comparison across tools, plus a human checklist at the edge. Use clean abstract lines and checkmarks only, no readable text. Balanced spacing, warm off-white (#FAFAF8) background, orange (#E8621A) accents, dark charcoal (#1A1A1A) outlines and elements, white highlights. Clean, modern, minimal. Wide format 16:9. No logos, watermark, letters, numbers, money symbols, rounded orange blob, halo or disc.
+```
+
+### Image audit requirements
+
+- Inspect every candidate at native resolution and beside the previous six
+  featured thumbnails at archive-card size before archiving or uploading.
+- Warm off-white remains the dominant background; reject heavy, dark or
+  saturated backdrops, readable text, logos, watermarks, malformed anatomy,
+  orange blobs or halos.
+- Archive only the verified final files under `G:\\Zamzam Biznez\\DigiTrustLab\\Blog images` using the exact filenames above.
+
+### Generated asset audit — 2026-09-13
+
+All four generated assets were inspected at native resolution and the featured
+asset was compared beside the previous six archived featured thumbnails at
+archive-card size. The family passed the warm off-white, flat geometric and
+clean-markup review; no readable text, logo, watermark, malformed anatomy,
+orange blob or halo was found.
+
+| Asset | Native size | SHA-256 |
+|---|---:|---|
+| `contoh-prompt-ai-featured.png` | 1672×941 | `D93B849298DFC6349FBC7303659BCFA93E2279678049779DB64295E35E1B1252` |
+| `contoh-prompt-ai-struktur-arahan.png` | 1672×941 | `70C14BB19AC8BA9E210C802BE67B2480DC6BB634C1409B3BDC183BE5AA4134EA` |
+| `contoh-prompt-ai-sebelum-selepas.png` | 1672×941 | `9EEBECE437A8B1D649DDA6F3EC19171BBA590D7E6DBEDB52157E0E3E0A07E77F` |
+| `contoh-prompt-ai-uji-dan-baiki.png` | 1672×941 | `EBC73F652DE1C4EA11F31335A40AAA988BA49A9B602995B30C211D736DCA057A` |
+
+---
+
 ## Generic CTA Card — AI Skills and Digital Product Creation
 
 | Image | Filename | Prompt | Alt Text |

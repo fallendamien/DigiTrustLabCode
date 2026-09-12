@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "post_id": 734,
+  "slug": "contoh-prompt-ai",
+  "reviewed_at": "2026-09-13T06:28:18+08:00",
+  "link_hash": "dcbd00c4f1481c993fd71058577e786c03c649e37a22b16bd962d6c1489a74cd",
+  "outbound": {
+    "internal_count": 2,
+    "external_count": 3,
+    "external_dofollow_count": 3,
+    "destinations_checked": true
+  },
+  "inbound": {
+    "decision": "links_found",
+    "count": 2,
+    "source_ids": [437, 536],
+    "reason": "Posts 437 and 536 now contain natural, contextual links to this broader prompt-writing guide, using distinct anchors for general AI prompting and image-prompt foundations.",
+    "scan_scope": "published posts and pages"
+  },
+  "status": "pass"
+}

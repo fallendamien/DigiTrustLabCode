@@ -329,9 +329,72 @@ No Golden Filter, permanent-list addition, Planner project, Content Brief,
 Content Creator, WordPress, tracking, or publication action was taken during
 this sweep.
 
-**Research conclusion:** the two original registered families are exhausted for
-this cycle. Zamri has now approved the generic
-`prompt-engineering.prompt-writing` family, and the verifier/calendar record
-that approval. The next bounded action is the exact Keyword Explorer lookup for
-`cara tulis prompt ai`; no Golden, list, Planner, brief, draft, or publication
-action has occurred yet.
+**Historical research conclusion:** the two original registered families were
+exhausted before the generic family was approved. The approved
+`prompt-engineering.prompt-writing` family subsequently cleared the remaining
+gates through the `contoh prompt` keyword, as recorded below.
+
+## Final research and publication record — Post #13 (2026-09-13)
+
+The approved family was continued through a fresh Topic Discovery and the
+exact-keyword gates. The initial `cara tulis prompt ai` lookup returned volume
+`0`, so it was not promoted. Topic Discovery report `246783` then surfaced the
+reader-facing `contoh prompt` angle, which cleared the exact, Golden, SERP and
+Weak Spot requirements.
+
+| Gate | Evidence | Decision |
+|---|---|---|
+| Family approval | `prompt-engineering.prompt-writing`; approval `approval://user/2026-09-13/topic-family/prompt-engineering.prompt-writing` | PASS |
+| Topic Discovery | Report `246783`, seed `menulis prompt ai`; `contoh prompt` card volume `70` | PASS; title revised to `Contoh Prompt AI: Cara Menulis Arahan yang Jelas dan Berkesan` |
+| Exact Keyword Explorer | Report `1576173`; `contoh prompt`; volume `70`; 12-month average `70`; high/low `110/40`; CPC `$0.00`; KD Ads/Content/Traffic/Signal `0/0/0/0`; Malaysia/Malay | PASS |
+| Golden Filter | Report `1576174`; exact row only; All-in-Title `0`; Golden Score `1.003`; PPC Low; one credit | PASS |
+| Manual SERP | SirapLimau, Sifoo, Prompt Academy, Maukerja, LinkedIn, UKM, Astro, PME, LongarGarage and PRPM; local practical results present alongside mixed intent | PASS with instructional angle |
+| Permanent keyword list | `DigiTrust Lab Blog Posts` ID `68708`; exact row `contoh prompt` verified once as row `57` | PASS; no duplicate |
+| New Planner | Project `179243`, `Contoh Prompt - DigiTrustLab 2026-09-13`; Malaysia/Malay; Golden Filter unchecked to avoid duplicate spend | PASS |
+| Weak Spot | Metrics activated once; Weak Spot `2`; Avg DA `61.8`; lowest DA `4`; highest DA `93`; volume `70` | PASS (`>=2`) |
+| Fresh quota after article | Topic `67/75`; Keyword `59/75`; Article `68/70`; Keyword Credit `39,625/40,000`; AI Words `7,236/8,000`; list `47/50`; seats `2/3` | Recorded |
+
+WriterZen Content Creator article `244699` used the existing `DigiTrust Lab`
+project with title/description/outline only, whole-article generation OFF,
+keyword suggestions OFF, and the six brief fields populated. The copied editor
+scaffold was read back with non-zero counters (`269/700` words, `8/3` headings,
+`1/3` paragraphs, `0/3` images), and the 27-node outline map records
+`WRITERZEN_OUTLINE_HANDOFF: PASS` at
+`content/outline-maps/contoh-prompt-writerzen-244699.md`. Native drafting used
+the frozen scaffold and did not invoke WriterZen plagiarism checking.
+
+Post 13 is published as WordPress post `734` at
+`https://digitrustlab.com/contoh-prompt-ai/`, category Prompt Engineering,
+with featured Media `730` and inline Media `731`, `732` and `733`. The final
+live hash is
+`aaf1832cbfdb54d5c5c4db70b730ad5f27bab5ecfb1a54b8e46377afadc8da08` across 58
+segments. Fresh Claude Sonnet (`firstParty`, CLI) and OpenAI
+`gpt-5.6-luna`/high reviews both pass all seven checks with high confidence;
+the canonical artifact is
+`content/naturalness-reviews/contoh-prompt-ai.json`. Structure verification
+passes with no body H1. The Malay voice validator reports zero errors and one
+known italic-policy warning for the English loanword `prompt`. Respira Rank
+Math analysis is `92/A` (12 passed, one opening-paragraph keyword warning); no
+unapproved copy change was made.
+
+The required live Test Live URL completed in Search Console on 13 September
+2026 and reported `URL is available to Google` / `Page can be indexed`; the
+Google Index surface separately reports `URL is on Google` / `Page is indexed`.
+After the user's explicit confirmation, ClickRank standard was added once
+(count `12 → 13`, row ID `14ed7c5c3cd2a51ccabfbf5683e250f9`, exact URL, Malaysia,
+Device All, visible result `Not In Top 3 Results`, verified
+`2026-09-12T21:51:03.000Z`); ClickRank AI Overview was added once (count
+`11 → 12`, exact URL, Malaysia/Malay, visible status `Pending`, submitted
+`2026-09-12T21:49:18.716Z`); and Screpy MCP was added once (project
+`wgspvb7lc3`, Mobile `728617` and Desktop `728618`, exact keyword, MY/ms,
+Device Both, both `completed`, last analyzed `2026-09-12T21:53:44+00:00`).
+After the user's explicit approval, two contextual inbound links were added
+through Respira's native WordPress post update path and independently read back:
+Post 437 now links to Post 734 with anchor `panduan umum menulis prompt AI`, and
+Post 536 now links to Post 734 with anchor `asas menulis prompt AI`. Before/after
+snapshots are `6cb2c565-88a0-4fb9-84d5-13705ef8e196` →
+`e22a7dae-df97-4a8a-96ed-ca349bbe6b68` and
+`de7d1711-5523-4204-bf93-55b30c0cad44` →
+`4ed1c76c-3bc5-4118-89cf-af524afb5159`; each raw-body diff contains only the
+intended paragraph insertion. The live link gate passes with inbound count `2`
+and artifact `content/link-reviews/contoh-prompt-ai.json`.

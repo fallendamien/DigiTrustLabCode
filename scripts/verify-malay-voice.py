@@ -57,6 +57,7 @@ CONTENT = {
     656: ("Post #7  Cara Buat Nota Cantik dengan AI", "posts"),
     686: ("Post #10 Cara Menggunakan Canva AI Photo Editor", "posts"),
     721: ("Post #8  Cara Buat Poster dengan ChatGPT", "posts"),
+    734: ("Post #13 Contoh Prompt AI", "posts"),
     72:  ("Page     Tentang Kami", "pages"),
     73:  ("Page     Privasi", "pages"),
     74:  ("Page     Disclaimer", "pages"),

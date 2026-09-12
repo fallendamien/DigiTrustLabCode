@@ -15,6 +15,31 @@
 
 ## Current State
 
+> **POST #13 PUBLISHED — TRACKERS + INBOUND LINKS VERIFIED (2026-09-13):** `Contoh Prompt
+> AI: Cara Menulis Arahan yang Jelas dan Berkesan` is live at
+> `https://digitrustlab.com/contoh-prompt-ai/` (WordPress ID `734`) from the
+> approved `prompt-engineering.prompt-writing` family. The exact keyword
+> `contoh prompt` passed Topic Discovery report `246783`, Keyword Explorer
+> `1576173`, Golden Filter `1576174`, permanent-list row `57`, Planner `179243`,
+> and Weak Spot `2`. WriterZen article `244699` was outline-only with the copied
+> scaffold and outline-fidelity map PASS. Media 730/731/732/733, live structure,
+> Rank Math `92/A`, and fresh dual naturalness review pass are verified. Search
+> Console Test Live URL reported `URL is available to Google` / `Page can be
+> indexed`; the Google Index surface separately reports `URL is on Google` /
+> `Page is indexed`. ClickRank standard (count `12 → 13`, row
+> `14ed7c5c3cd2a51ccabfbf5683e250f9`) and AI Overview (count `11 → 12`,
+> `Pending`) are verified for the exact URL. Screpy MCP rows `728617` (Mobile)
+> and `728618` (Desktop) are both `completed` for MY/ms. The two proposed
+> contextual inbound links are now applied and verified: Post 437 → Post 734
+> with anchor `panduan umum menulis prompt AI`; Post 536 → Post 734 with anchor
+> `asas menulis prompt AI`. Respira before/after snapshots and exact-diff
+> read-backs are recorded in the completion summary. The live link gate passes
+> with inbound count `2` and artifact `content/link-reviews/contoh-prompt-ai.json`.
+> A read-only ClickRank Pages search on 13 September found no exact-URL page
+> record, so no optimization recommendation was applied. Screpy was added once
+> through MCP and independently read back in both device rows; no crawl was
+> started.
+
 > **CONTEXT7 PERSISTENCE VERIFIED (2026-09-12):** Codex has the global
 > `@upstash/context7-mcp@4.1.0` entry and a real `resolve-library-id` probe passed.
 > Claude's account-level `claude.ai Context7` connector is connected, with no
@@ -34,7 +59,7 @@
 > `content/research/prompt-engineering-2026-09-12-relevance.md` by returning to
 > Topic Discovery for a new angle; do not draft or publish this candidate.
 >
-> **PROMPT ENGINEERING RESEARCH — FRESH GATE RESULTS (2026-09-13):** Candidate
+> **PROMPT ENGINEERING RESEARCH — FRESH GATE RESULTS (HISTORICAL, 2026-09-13):** Candidate
 > 4 `apa itu prompt engineering` from Topic Discovery report `246776` was
 > validated in the exact Keyword Explorer report `1576139` and failed volume
 > (`10`, below the relaxed Malay floor of `50`). Candidate 5 `contoh prompt ai`
@@ -47,8 +72,9 @@
 > `approval://user/2026-09-13/topic-family/prompt-engineering.prompt-writing`.
 > Follow-up AI-video reports `246781`–`246782` and exact reports
 > `1576144`–`1576147` found only volume `10`/`0`/`0`/`0` terms. The approved
-> pivot is the next exact Keyword Explorer target; no candidate is ready for
-> Content Creator or drafting yet.
+> pivot was the next exact Keyword Explorer target at that time; the subsequent
+> approved-family continuation and Post #13 publication are recorded in the
+> current-state block above and the content calendar.
 >
 > **POST #8 LIVE; TRACKING + FEATURED MEDIA RECONCILED (2026-09-07):**
 > Post #8 "Cara Buat Poster dengan ChatGPT" is live at
@@ -75,11 +101,9 @@
 
 ## Next action
 
-1. Restart Zed once, then run the dual-client Context7 readiness prompt in `content/next-prompt-engineering-vscodium-acp-handoff.md`.
-2. Keep Candidate 3 (`prompt video ai`) and Candidate 5 (`contoh prompt ai`) parked at Weak Spot `0`; do not create another Planner project or override the gate.
-3. Refresh WriterZen limits and run one exact Keyword Explorer lookup for the approved `cara tulis prompt ai` pivot. Record exact volume, SERP/intent, and quota delta before deciding on Golden.
-4. Continue to Golden, list, Planner, drafting, and publication only if exact, Golden, SERP, and Weak Spot `>=2` all pass; keep all prior parked candidates unchanged.
-5. Keep Post #8 GSC, Post #10 Screpy tracking, Post #7 Pages discovery, sitemap cache, and Post #12's stale naturalness artifact as separate follow-ups.
+1. Keep the ClickRank Pages no-record result documented; if a Pages record appears later, record its visible status plus recommendation/no-change decision.
+2. Finish the final validator and repository hygiene pass: validate `content/link-reviews/contoh-prompt-ai.json`, re-run all required checks, classify every path, then commit/push only durable approved evidence.
+3. After Post #13 closeout, start the next article at editorial relevance and Topic Discovery. Keep the parked candidates and Context7 readiness prompt as recorded below.
 
 ## Context7 dual-client readiness prompt
 

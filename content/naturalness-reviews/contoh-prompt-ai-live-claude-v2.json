@@ -1,0 +1,1131 @@
+{
+  "status": "pass",
+  "document_review": {
+    "checks": {
+      "natural_usage": true,
+      "literal_translation": true,
+      "bureaucratic_or_academic": true,
+      "english_term_clarity": true,
+      "read_aloud": true,
+      "consistent_register": true,
+      "grammatical_completeness": true
+    },
+    "confidence": "high",
+    "findings": []
+  },
+  "segments": [
+    {
+      "id": "seg-001",
+      "hash": "135fa79c125b0e2dcc7b1e10844dc33fffb823ea38cea30859e83c17590daed3",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-002",
+      "hash": "99acdae1baaa0b20f3ae0249362ea83385c616acfbab9de3583b36dc3c41360b",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-003",
+      "hash": "7a48fe5c84b495e104aa2769a509840553b863e2171c266cef41196f4ef4b7c5",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-004",
+      "hash": "794570599be1e24535daa83861d4188c4cab9ebfc1c8a84924a3441590d43ea6",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-005",
+      "hash": "b7c2660cb3a267d4f4b2a560ee731a9790a9f36cfc1032641dcc749b9a464fbb",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-006",
+      "hash": "5a15365df603707a9d27ef5253ac1b8481b082c3d5fe5a2c56113101216557c7",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-007",
+      "hash": "37a5ee4a4c4137f704e108808e9f87e1e6192321e45c249526ad382080e9e4a0",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-008",
+      "hash": "f0d14df8ed32d7c43b492f41f8103665a4d4b6c7ad1d63fdeb0fdf7738b19495",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-009",
+      "hash": "cd18c20babbe52b0bb17ab34efa8cf125414967a9724337501bc3f4348f04e78",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-010",
+      "hash": "4915c6122432ece99f49149e9719ca69e92b72c24258980e048143c110ad3795",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-011",
+      "hash": "8c5af84b3bb324b8c823a8fbc89cd67982feda6ff68c35759a2b9b972f04044b",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-012",
+      "hash": "4d822cde14d33d946a00105e9178d2f65c0c3fafda0ba2d9f9966c2a03a4cdb0",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-013",
+      "hash": "6069ac582ce86127144fafe445e88bdbd215244f7f1680b8aef9a7754117398d",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-014",
+      "hash": "067ab0a4e36902a203225384c18b8e1ea00ba30840080c6742186fbfa8fde1ea",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-015",
+      "hash": "461e02ef2f91ad016628c0003af0c37e5f11e62ce6cc0e96eeb45fbe0559920a",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-016",
+      "hash": "c69aa29961e9823981982131405547e197c8090493e687069f9b3f2d61fc5d45",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-017",
+      "hash": "62391641fcd8da07081f02d75194ff24c3aba5815e523b8cc560285dae53ab38",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-018",
+      "hash": "6e35bcc364ed304253b1c0b1c0e04454ae999f5480710ee63c1a6e273b02c9ab",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-019",
+      "hash": "7441e4124c92f5ca6cc25315af314a8b7b3339b0ef7f5b060e8f28a20c4968d5",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-020",
+      "hash": "4b0b38ae44247151ec953db4530fbe40fab77e2fdb59958f3b371b4450a851b6",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-021",
+      "hash": "58b22e5874dd559daef46840a7737562b28952a56eaf99ea5bd4e49e7bfad1f7",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-022",
+      "hash": "50eb778bbb3b1301fe88a45195f379929f27c8a9463c0cf95a5b60ce1371d0a2",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-023",
+      "hash": "6e023c6ee2e5417da371176c2ad134ff31dc0b86fbfb460041508e4e00cb6dd5",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-024",
+      "hash": "6465a800e2d2ff1107fc5459ff682ab0ee6fe19289654fbe35c544b3760d9bfd",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-025",
+      "hash": "cec2ae20e7655a74b2345c0e723ed51937689339c9ee5ae4f4d9852e687edb93",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-026",
+      "hash": "bd959a9cd572040f69d0dbed7a88b9878ccac6c67f15abf1ab6ca06cd854e4cc",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-027",
+      "hash": "0d3bc5a8b531f41eda0e25570db9d639cb8ae863f9586951332b2d0581356b53",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-028",
+      "hash": "a3ffa7b4a7a8c4f46993451d436b9910815eb5cc3ea21fafc65c589fef47e319",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-029",
+      "hash": "b7504540f27a859971b7e61e2949938433d5e410872d5e7f3f32d30b3aa62c5e",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-030",
+      "hash": "c63d6d37d0b8900f90b1077b8fcc17c4680d1893f2b9f1d4be05156a56b53f90",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-031",
+      "hash": "77995362109cf071c639dee7e755db35b045c70a04a34271362f5f2ede5de448",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-032",
+      "hash": "51ee79016196636af714db5bfb395f627e294d52040ced2071a557604364d233",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-033",
+      "hash": "78005d2d6ab2c827ffa7f0f5c7cc9a7b02a493f6c446bfba163788b01a2a8f44",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-034",
+      "hash": "63841e80a47a038c40826fd49ba9b42b4b2c5a352019a03c5a871eae6050c375",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-035",
+      "hash": "820216b77eeb23f7f9116275b43bb8feb2541fe7038616f6e193c4360cfab48f",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-036",
+      "hash": "e85af9ebe608a6887a6a74020b0702a70400c8fce03041c78314a834e5b3186b",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-037",
+      "hash": "d96f22552c3b6695f1dadd8755f9f4691950259557798eb34864e6f785f5de3c",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-038",
+      "hash": "fe08f5b35118a30848eaa069460ff79a21cc27ad0856caaf55d7e8afb1d1c767",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-039",
+      "hash": "9b17132032728c3c433b02ce5db87bb2972daa96fb99f76df592edee1f889a73",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-040",
+      "hash": "dc7106d96ed5ffa5ed48712e9887e745efeeb2dfe41de0965a320912530ba118",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-041",
+      "hash": "2bf224db19279f7a5bbac6b9f389a9d8278abd2090f2075576fb0fde63e6e83d",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-042",
+      "hash": "7b2e7edd25eeddbc64c15717d184e4663872874f4e43af943c3d8b2886f9b28d",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-043",
+      "hash": "21e0c4964ce6e7f438a782e45fc6005716f0aec33c4dea8ba91b23d7a9702da7",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-044",
+      "hash": "9447f14aae27ead75333eca40f5f489047377871094a12cb13075bf0abafc580",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-045",
+      "hash": "707e75c653a5220de6638a9b15e7b9bf55029c555316ed09065cb0381fc5ac85",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-046",
+      "hash": "3f80d38971576160a256e8f62000c159255f794c8fcda64c53a6bee3e1ba3c02",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-047",
+      "hash": "09e98237bea0e976d1fbfb8ce8a226bc39147fb8ccc1392cb82a201be78f6f08",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-048",
+      "hash": "fa4b46be0f8ca810a3768584ebe80b2f7cd42e42fcfba74f86f724f01601f335",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-049",
+      "hash": "cab9467056a2e54e10ed6deb0fb3809436ceb5327159d036670a5609d8b79136",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-050",
+      "hash": "39d617c169ac14b15d770f93f3a2c64610e36e0f2ccb9178ce6061c38a1cd8a1",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-051",
+      "hash": "ca9a851e146c6f19f5a46a526f39ff61d7d06f1e97d18baf4da287a28ee793d2",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-052",
+      "hash": "5238b7ac9224e756e0f0ee8757efb040eea82de92715b2b615ed7746be85aac0",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-053",
+      "hash": "9b63ad7df67cbe0287aaee6ac6efbba44fec67ec617bfd1bfe17cd3904b308d9",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-054",
+      "hash": "4dcecb06dad97e039c57d3edef204893ed5b35acd3bbc8e402557a3cad854987",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-055",
+      "hash": "a38f1a1c0a99b9ab81f9560529d84ae50cd17fe72f7553bf48cfa60f0df35aab",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-056",
+      "hash": "59cec3302130e28e600e2f40aceaa2c66596501eabeaa00b1ab50d59ba7541a4",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-057",
+      "hash": "2d4250daf70a2406396358c2e0076bb3f90c086bd12d1a73762092f9ace1430a",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    },
+    {
+      "id": "seg-058",
+      "hash": "a38f1a1c0a99b9ab81f9560529d84ae50cd17fe72f7553bf48cfa60f0df35aab",
+      "reviewers": {
+        "claude": {
+          "checks": {
+            "natural_usage": true,
+            "literal_translation": true,
+            "bureaucratic_or_academic": true,
+            "english_term_clarity": true,
+            "read_aloud": true,
+            "consistent_register": true,
+            "grammatical_completeness": true
+          },
+          "confidence": "high",
+          "findings": []
+        }
+      }
+    }
+  ],
+  "model_family": "anthropic",
+  "provider": "firstParty",
+  "model": "claude-sonnet-5",
+  "runtime_provider": "firstParty",
+  "runtime_model": "claude-sonnet-5",
+  "auth_provider": "firstParty",
+  "structured_provider": "firstParty",
+  "structured_model": "claude-sonnet-5",
+  "transport": "claude-code-cli",
+  "session_persistence": false,
+  "tools": []
+}
