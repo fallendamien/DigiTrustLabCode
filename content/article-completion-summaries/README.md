@@ -11,6 +11,13 @@ closeout step, after the post-publish verification gate. It is a high-level
 handoff, not a replacement for the detailed evidence in the content calendar,
 naturalness review, link review, or dashboard records.
 
+The orchestrator must also surface this artifact's outcome in the final
+user-facing response. A saved file alone is not a closing acknowledgement:
+the final response must state the verified, pending, deferred, or blocked
+status, the key publication/tracking/link results, repository commit/push and
+clean-worktree evidence, known warnings, and one next action. Keep the response
+concise and make sure it agrees with this artifact.
+
 Use this template:
 
 ```markdown

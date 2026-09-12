@@ -958,6 +958,25 @@ stale approval hash.
       record its output and the residual-path decision for every remaining
       path, and do not declare the article complete while any path lacks an
       explicit classification and decision.
+15. **User-facing closing summary (MANDATORY — final response):**
+    - After the final verification and repository closeout, end the run with
+      one concise closing summary in the user-facing response. The saved
+      `content/article-completion-summaries/<post-slug>.md` is the durable
+      record; the response must surface its outcome so the user can confirm
+      that the process actually finished.
+    - Include, at minimum: overall status; published URL and WordPress Post ID
+      when applicable; separate publication, SEO, naturalness, structure,
+      link, ClickRank, Screpy, and Search Console outcomes; commit SHA(s),
+      push/upstream status, and final clean-worktree/remote-parity evidence;
+      known non-blocking warnings or deferred items; and exactly one clear next
+      action.
+    - Use `Verified`, `Pending`, `Deferred`, or `Blocked` explicitly where
+      evidence is incomplete. Never collapse a tracker row, indexing request,
+      or warning into an unqualified `complete` claim.
+    - Keep it high-level and scannable. Do not paste article copy, raw browser
+      transcripts, or command logs. For `BLOCKED` or `ABORTED` runs, label the
+      state honestly, name the concrete blocker, and do not present publication
+      or live verification as complete.
 
 ## Key Rules
 
@@ -999,6 +1018,7 @@ stale approval hash.
 - **Malay mechanical voice gate (MANDATORY):** Run `python scripts/verify-malay-voice.py <post-id>` in Phase 6.5 — must be 0 errors before Phase 7
 - **Content status gate (MANDATORY):** Run `python scripts/verify-content-status.py` at the end of Phase 7 — must exit 0 before committing. It does not cover ClickRank, Screpy, or GSC dashboard evidence
 - **Article completion summary (MANDATORY):** After the Phase 7 verification gate, automatically create or update `content/article-completion-summaries/<post-slug>.md`; use `BLOCKED`/`ABORTED` without publication claims when the article does not publish
+- **User-facing closing summary (MANDATORY):** End every article-mission response with the concise, evidence-backed closeout fields defined in Phase 15; the saved completion-summary artifact and the final response must agree
 - **Internal links (outbound):** Always link new post UP to pillar/parent content during Phase 5.4 (1-3 links)
 - **Internal links (inbound):** Always run `internal-link-builder` skill in Phase 7 to add links from older posts TO the new post
 - **Internal link planning:** Always plan links in Phase 3 (outline) before writing
