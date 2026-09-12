@@ -682,3 +682,17 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 - **Weak Spot:** `0` (required `>=2`); DA Score progress `0%`; metrics row showed volume `90`, CPC `0.49`, All-in-Title `0`, Golden Score `1.002`, word count `3`, PPC `Medium`
 - **Decision:** return to Topic Discovery for a new angle; do not override the gate or create another project for this keyword
 - **Research evidence:** `content/research/prompt-engineering-2026-09-12-relevance.md`
+
+### Research lead — Prompt Engineering foundational explainer (2026-09-13)
+
+**Status:** `TOPIC DISCOVERY PASS — EXACT KEYWORD PENDING` — do not add to the
+permanent list, create a Planner project, brief, or draft yet.
+
+- **Provisional topic:** Apa Itu Prompt Engineering? Panduan Asas Menulis Arahan AI
+- **Topic Discovery:** report `246776`; seed `contoh prompt AI`; 76 topics; Malaysia/Malay; Relevance `Medium`, order `Relevance`
+- **Candidate card:** `apa itu prompt engineering` under `APA ITU PROMPT ENGINEERING`; card volume `170`
+- **Visible supporting results:** Zyan, Pandaitech, and KursusAI pages about prompt engineering/prompting fundamentals
+- **Editorial decision:** strongest new reader-facing angle; distinct from Post #3's `cara buat prompt chatgpt` how-to; `prompt gambar ai` overlaps existing image work and `prompt video ai` is parked at Weak Spot `0`
+- **Exact Keyword Explorer:** not run — bounded worker failed closed before action because the authenticated tab remained owned by the current browser session
+- **Next gate:** run one exact Keyword Explorer lookup for `apa itu prompt engineering`, then decide whether Golden Filter is justified
+- **Research evidence:** `content/research/prompt-engineering-2026-09-12-relevance.md`

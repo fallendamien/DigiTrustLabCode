@@ -1,8 +1,8 @@
 # DigiTrust Lab — Roadmap
 
-> **Status:** NEXT PROMPT ENGINEERING TOPIC RESEARCH — Candidate 3 parked at Planner Weak Spot 0; return to Topic Discovery
-> **Current Phase:** Post #8 remains closed. `prompt video ai` passed relevance, exact volume `90` under the Malay long-tail relaxation, Allintitle `0`, Golden Score `1.002`, and manual SERP review; its exact permanent-list row is verified as row `55` of `55`, but new Planner project `179241` returned Weak Spot `0`. Do not draft; choose a new angle.
-> **Last Updated:** 2026-09-13 (Prompt Engineering Candidate 3 list row verified; Planner Weak Spot pending — 12 posts published)
+> **Status:** NEXT PROMPT ENGINEERING TOPIC RESEARCH — Candidate 3 parked; Candidate 4 exact gate pending
+> **Current Phase:** Post #8 remains closed. `prompt video ai` passed relevance, exact volume `90` under the Malay long-tail relaxation, Allintitle `0`, Golden Score `1.002`, and manual SERP review; its exact permanent-list row is verified as row `55` of `55`, but Planner project `179241` returned Weak Spot `0`. Fresh Topic Discovery report `246776` now proposes the provisional reader-facing card `apa itu prompt engineering` (card volume `170`); do not treat the card volume as exact-keyword evidence.
+> **Last Updated:** 2026-09-13 (Topic Discovery report 246776 independently verified; Candidate 4 exact Keyword Explorer pending — 12 posts published)
 > **Monthly Revenue:** RM 69 (1 sale, pre-blog era)
 
 > **Scope note:** Historical milestones and planned titles remain retained for continuity. The authoritative current content inventory and research status is [`content/content-calendar.md`](content/content-calendar.md). The active editorial queue lives there, not here.
@@ -19,6 +19,7 @@
 - Post #7 Screpy Pages discovery remains non-blocking pending (crawl predates publication)
 - Infrastructure is complete; the next editorial mission should begin only after the relevance, cluster and Operations gates pass
 - Prompt Engineering Candidate 3 (`prompt video ai`) passed relevance, exact Keyword Explorer, one-keyword Golden Filter, and manual SERP review; list row `55` of `55` is verified, but Planner project `179241` returned Weak Spot `0 < 2`. Candidate 3 is parked and no drafting is authorized; return to Topic Discovery.
+- Topic Discovery pivot report `246776` (seed `contoh prompt AI`, 76 topics, Malaysia/Malay) surfaced `apa itu prompt engineering` at card volume `170` with Zyan, Pandaitech, and KursusAI supporting results. Candidate 4 is provisional until exact Keyword Explorer, Golden, SERP, and Weak Spot gates pass; no list or Planner action has occurred.
 - Context7 persistence verified: Codex global `@upstash/context7-mcp@4.1.0` passed a real tool probe; Claude's connected account-level `claude.ai Context7` connector remains canonical; no duplicate local Claude server exists. Restart Zed/Codex ACP once to reload the current process.
 - Zed ACP continuation file: `content/next-prompt-engineering-vscodium-acp-handoff.md` (contains the dual-client Context7 verification prompt)
 

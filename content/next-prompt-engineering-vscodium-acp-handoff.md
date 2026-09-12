@@ -1,18 +1,34 @@
 # Zed ACP handover — next Prompt Engineering article
 
-**Prepared:** 2026-09-12
+**Prepared:** 2026-09-13
 **Project:** `G:\Zamzam Biznez\DigiTrustLabCode`
 **Target agents:** Codex ACP or Claude Code terminal/ACP in Zed
-**Current outcome:** `prompt video ai` passed bounded relevance, exact Keyword
-Explorer, one-keyword Golden Filter, and manual SERP review. It is eligible for
-Planner Weak Spot validation, but the guarded list/project write is blocked
-until the authenticated WriterZen tab is released or handed off. Do not draft.
+**Current outcome:** Candidate 3 `prompt video ai` is parked after Planner
+Weak Spot `0`. Fresh Topic Discovery report `246776` now identifies the
+provisional Candidate 4 `apa itu prompt engineering` (card volume `170`). Its
+exact Keyword Explorer gate is still pending because the authenticated tab was
+owned by the current browser session; no downstream write or spend occurred.
 
 ## Objective
 
 Find one useful, non-cannibalising Prompt Engineering article and validate it
 through the Option C research gates. Stop before Content Creator, drafting,
 WordPress, or publication unless Zamri separately approves further work.
+
+## Current pivot — Candidate 4
+
+| Field | Evidence |
+|---|---|
+| Topic Discovery | Report `246776`, seed `contoh prompt AI`, 76 topics, Malaysia/Malay, Relevance `Medium`, order `Relevance` |
+| Provisional exact keyword | `apa itu prompt engineering` — card `APA ITU PROMPT ENGINEERING`, card volume `170` |
+| Why this angle | Foundational reader-facing explainer; distinct from Post #3's `cara buat prompt chatgpt` workflow and not a duplicate of the published image/video spokes |
+| Visible supporting results | Zyan, Pandaitech, and KursusAI pages on prompt engineering/prompting fundamentals |
+| Gate status | Topic Discovery `PASS`; exact Keyword Explorer `PENDING` |
+| Safe next action | After the tab is released, run one exact Keyword Explorer lookup; stop before Golden Filter, list changes, Planner, or drafting |
+
+Do not treat card volume as exact-keyword evidence. Do not create a permanent-list
+row or Planner project for Candidate 4 until exact volume, Golden, SERP, and Weak
+Spot gates pass.
 
 ## Read and verify first
 
@@ -137,12 +153,11 @@ The previous seed is exhausted. Do not force one of these into production.
 
 ## Recommended continuation
 
-Resume the qualified Candidate 3 record in
-`content/research/prompt-engineering-2026-09-12-relevance.md`. Do not spend
-another Topic Discovery or Keyword Explorer lookup unless the candidate is
-explicitly invalidated by a fresh read. The next action is the guarded
-permanent-list add and one new Planner project for `prompt video ai` after the
-authenticated WriterZen tab is released or handed off.
+Keep Candidate 3 (`prompt video ai`) parked: its Planner project `179241`
+returned Weak Spot `0`. The fresh Topic Discovery pivot is Candidate 4,
+`apa itu prompt engineering`, from report `246776` and card volume `170`.
+The next action is one exact Keyword Explorer lookup after the authenticated
+WriterZen tab is released or handed off.
 
 Before spending a credit, refresh WriterZen limits and produce matching
 Research, SEO, and Operations relevance attestations. Confirm the candidate
@@ -151,14 +166,14 @@ has a plausible inbound source. Reject image-editing, broad AI-image, ChatGPT
 basics, poster, business, income, automation, SEO, and other off-family or
 cannibalising results.
 
-After the fresh tab handoff and list verification:
+After the fresh tab handoff:
 
-1. The exact list `68708` row has now been verified as row `55`; do not add it again.
-2. Planner project `179241` was created for `prompt video ai`; do not create a
-   second project for this keyword.
-3. Activated metrics returned Weak Spot `0`, so the candidate is parked.
-4. Return to Topic Discovery for a new reader-facing angle; repeat exact,
-   Golden, SERP, and Weak Spot gates before any brief or draft.
+1. Refresh limits and validate exact `apa itu prompt engineering` in Keyword Explorer.
+2. Record exact volume, SERP/intent, and quota delta before deciding on Golden Filter.
+3. Do not add a list row, create Planner, or draft until exact, Golden, SERP, and
+   Weak Spot gates pass.
+4. Never create another project for parked `prompt video ai` and never override
+   Weak Spot `0`.
 
 Stop if no candidate passes. Do not lower Golden or All-in-Title limits,
 silently override Weak Spot, change category, or begin drafting.
@@ -169,9 +184,10 @@ silently override Weak Spot, change category, or begin drafting.
   WriterZen tab, take a fresh snapshot, and reuse it.
 - If that tab is unavailable, ask Zamri to open or sign in. Do not switch to a
   blank, private, or separate CDP profile.
-- Last observed on 2026-09-12 after the exact lookup and one-keyword Golden
-  Filter: Topic `74/75`, Keyword `73/75`, Article `69/70`, Keyword Credit
-  `39,780/40,000`, AI Words `7,471/8,000`. Refresh before the guarded resume.
+- Last independently observed on 2026-09-13 after Topic Discovery report
+  `246776`: Topic `73/75`, Keyword `73/75`, Keyword Credit `39,729/40,000`,
+  Article `69/70`, AI Words `7,471/8,000`, Keyword List `47/50`. Refresh before
+  the exact lookup.
 - Keep `Write the whole article` and optional keyword expansion OFF. Do not use
   WriterZen's plagiarism checker.
 - Do not retry uncertain submissions. Reload and check for the resulting row
@@ -209,15 +225,16 @@ print.
 > Read `AGENTS.md` and `content/next-prompt-engineering-vscodium-acp-handoff.md`
 > completely, restart Zed if it predates the Context7 registration, and run the
 > Context7 readiness prompt for both Codex and Claude. Verify imports, offline
-> content status, and the current worktree. Resume Candidate 3 from
-> `content/research/prompt-engineering-2026-09-12-relevance.md`. Use my existing
-> authenticated Chrome WriterZen tab and refresh quota. The exact list `68708`
-> row is already verified as row `55`; do not add it again. Create one new
-> Planner project and stop at Weak
-> Spot `<2` or any ambiguity. Do not draft, publish, alter WordPress, duplicate
-> WriterZen records, override Weak Spot, enable keyword expansion, add a duplicate
-> Context7 server, or touch unrelated Post #8 files. Report exact IDs, metrics,
-> quota changes, Context7 tool-call evidence, tests, and blockers.
+> content status, and the current worktree. Keep Candidate 3 `prompt video ai`
+> parked because Planner `179241` returned Weak Spot `0`. Use my existing
+> authenticated Chrome WriterZen tab and refresh quota. Run one exact Keyword
+> Explorer lookup for Candidate 4 `apa itu prompt engineering` from Topic
+> Discovery report `246776`, then stop before Golden Filter, list changes,
+> Planner, drafting, WordPress, tracking, or publication. Do not reset, close,
+> or replace the authenticated tab; do not duplicate WriterZen records, override
+> Weak Spot, enable keyword expansion, add a duplicate Context7 server, or touch
+> unrelated Post #8 files. Report exact IDs, metrics, quota changes, Context7
+> tool-call evidence, tests, and blockers.
 
 ## Definition of done for the next ACP session
 
@@ -227,7 +244,8 @@ The research handoff ends with either:
    and Weak Spot gates and is recorded without duplicates; or
 2. **Parked:** the fresh seed yields no qualifying candidate, with exact IDs,
    metrics, quota delta, rejection reasons, and updated evidence; or
-3. **Parked:** Candidate 3 has a verified permanent-list row and Planner project
-   `179241`, but Weak Spot `0 < 2`; return to Topic Discovery and do not draft.
+3. **Pending exact gate:** Topic Discovery report `246776` identifies Candidate 4
+   `apa itu prompt engineering` (card volume `170`), but exact Keyword Explorer
+   evidence is still pending; do not treat the card volume as eligibility.
 
 Neither outcome authorizes drafting or publication.

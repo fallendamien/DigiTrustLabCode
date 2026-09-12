@@ -34,6 +34,14 @@
 > `content/research/prompt-engineering-2026-09-12-relevance.md` by returning to
 > Topic Discovery for a new angle; do not draft or publish this candidate.
 >
+> **PROMPT ENGINEERING RESEARCH — CANDIDATE 4 (2026-09-13):** Fresh Topic
+> Discovery report `246776` used seed `contoh prompt AI` (76 topics,
+> Malaysia/Malay). The strongest new reader-facing card is `apa itu prompt
+> engineering` under `APA ITU PROMPT ENGINEERING` (card volume `170`), with
+> visible Zyan, Pandaitech, and KursusAI supporting results. This is a
+> provisional card signal only: exact Keyword Explorer validation is pending
+> because the bounded worker failed closed on tab ownership before any lookup.
+>
 > **POST #8 LIVE; TRACKING + FEATURED MEDIA RECONCILED (2026-09-07):**
 > Post #8 "Cara Buat Poster dengan ChatGPT" is live at
 > `https://digitrustlab.com/cara-buat-poster-dengan-chatgpt/` (ID `721`). The exact-live
@@ -61,7 +69,7 @@
 
 1. Restart Zed once, then run the dual-client Context7 readiness prompt in `content/next-prompt-engineering-vscodium-acp-handoff.md`.
 2. Open and follow that handoff in Zed via Codex ACP or Claude Code terminal/ACP; run its startup verification commands before browser work.
-3. Return to Topic Discovery within the approved Prompt Engineering family and choose a new reader-facing angle.
+3. Release/handoff the existing authenticated WriterZen tab, then run one exact Keyword Explorer lookup for `apa itu prompt engineering`.
 4. Repeat exact keyword, Golden Filter, SERP, and Weak Spot gates; keep Candidate 3 parked and out of drafting/publication.
 5. Keep Post #8 GSC, Post #10 Screpy tracking, Post #7 Pages discovery, sitemap cache, and Post #12's stale naturalness artifact as separate follow-ups.
 

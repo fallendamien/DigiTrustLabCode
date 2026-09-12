@@ -172,3 +172,28 @@ Prompt Engineering family, choose a new reader-facing angle, and repeat the
 exact-keyword, Golden Filter, SERP, and Weak Spot gates. Do not create another
 project for `prompt video ai`, override the Weak Spot requirement, or draft from
 project `179241`.
+
+## Fresh Topic Discovery pivot — candidate 4 (2026-09-13)
+
+Candidate 3 remains parked. A new bounded lookup used the broader reader-facing
+seed `contoh prompt AI` in the existing authenticated Chrome/Zamri session.
+The report was independently read back before any Keyword Explorer action.
+
+| Surface | Evidence |
+|---|---|
+| Report | `246776` — `https://app.writerzen.net/user/topic-research/246776` |
+| Seed / settings | `contoh prompt AI`; Malaysia; Malay; report date `2026-09-13` |
+| Result count | `76` topics discovered |
+| Visible filters | Relevance `Medium`; order `Relevance`; card display |
+| Strongest direct candidate | `apa itu prompt engineering` from card `APA ITU PROMPT ENGINEERING`; card volume `170` |
+| Candidate evidence | Visible related results included `apa itu prompt engineering?` (Zyan), `apa itu prompting? panduan asas untuk ai` (Pandaitech), and `🤖 apa itu prompt engineering?` (KursusAI) |
+| Editorial fit | Foundational reader-facing explainer; distinct from Post #3's practical `cara buat prompt chatgpt` workflow and suitable as a possible Prompt Engineering pillar |
+| Rejected/parked alternatives | `prompt gambar ai` (`70`) overlaps published image-prompt work; `prompt video ai` (`90`) is already parked at Planner Weak Spot `0`; fragment cards such as `yang baik` are not exact reader-facing topics |
+| Guarded continuation | Exact Keyword Explorer lookup for `apa itu prompt engineering` was attempted under route `dlt-next-article-20260913-topic-discovery-candidate-apa-itu-prompt-engineering`, but failed closed before action because tab `2074156971` remained owned by the current browser session |
+| Current gate | **TOPIC DISCOVERY PASS; EXACT KEYWORD PENDING.** No quota refresh, Keyword Explorer lookup, Golden Filter, list write, Planner, drafting, WordPress, tracking, or publication occurred for candidate 4. |
+
+The next permitted action is one exact Keyword Explorer lookup for
+`apa itu prompt engineering` after the authenticated tab is released to the
+bounded worker. Do not treat card volume `170` as exact-keyword evidence and do
+not create a list row or Planner project before the exact, Golden, SERP, and
+Weak Spot gates pass.
