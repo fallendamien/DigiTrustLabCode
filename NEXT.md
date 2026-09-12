@@ -44,8 +44,8 @@
 > commercial/job/course intent. Topic Discovery report `246780` surfaced
 > `cara tulis prompt ai` at volume `70`, but it is outside the two registered
 > Prompt Engineering families and needs explicit family approval before any
-> further credit spend. A follow-up AI-video discovery report `246781` and
-> exact reports `1576144`–`1576146` found only volume `10`/`0`/`0` terms; no
+> further credit spend. Follow-up AI-video reports `246781`–`246782` and exact
+> reports `1576144`–`1576147` found only volume `10`/`0`/`0`/`0` terms; no
 > candidate is ready for Content Creator or drafting.
 >
 > **POST #8 LIVE; TRACKING + FEATURED MEDIA RECONCILED (2026-09-07):**

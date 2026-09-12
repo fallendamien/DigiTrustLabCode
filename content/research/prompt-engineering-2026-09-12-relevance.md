@@ -282,11 +282,11 @@ Candidate 4 fails exact volume; Candidate 6 fails editorial intent; and the
 `cara tulis prompt ai` pivot awaits explicit family approval. Stop before
 Content Creator, native drafting, WordPress, tracking, or publication.
 
-## Follow-up in-family sweep — AI-video Topic Discovery report 246781 (2026-09-13)
+## Follow-up in-family sweep — AI-video Topic Discovery reports 246781–246782 (2026-09-13)
 
 To continue the full article objective without silently changing the editorial
 taxonomy, one additional registered-family discovery seed was tested:
-`prompt AI untuk video`. The completed report contained no new candidate that
+`prompt AI untuk video`. The completed reports contained no new candidate that
 cleared the exact-volume floor. The coordinator then performed three bounded
 exact lookups, each with a fresh quota check and no downstream spend.
 
@@ -295,6 +295,7 @@ exact lookups, each with a fresh quota check and no downstream spend.
 | `contoh prompt video ai` | `1576144` | Volume `10`; 12-month average `10`; high/low `20/10`; CPC `$0.00`; KD Ads `21`; KD Content/Traffic/Signal `0/0/0`; word count `4`; PPC Low | Mixed training, AI, prompt, and local video pages; **parked below volume floor** |
 | `prompt untuk skrip video tiktok` | `1576145` | Volume `0`; no trend data; CPC `$0.00`; KD Ads/Content/Traffic/Signal `0/0/0`; word count `5`; PPC Low | Relevant local script/prompt pages appeared, but **exact volume fails** |
 | `cara jana video ai guna hailuoai` | `1576146` | Volume `0`; no trend data; CPC `$0.00`; KD Ads/Content/Traffic/Signal `0/0/0`; word count `6`; PPC Low | One local tutorial ranked, but **exact volume fails** and the phrase is tool-how-to rather than a prompt-engineering target |
+| `template prompt lengkap untuk buat video social media` | `1576147` | Volume `0`; no trend data; CPC `$0.00`; KD Ads/Content/Traffic/Signal `0/0/0`; word count `8`; PPC Low | Mixed course/tutorial results; **exact volume fails** |
 
 The existing `prompt video ai` report `1576000` was also filtered read-only for
 video-related ideas. Apart from the already-tested head term (volume `90`), the
@@ -302,7 +303,7 @@ highest related rows were `10`; `cara buat prompt video ai` and `kumpulan prompt
 video ai` were both `10`. No untested related phrase reached the relaxed floor
 of `50`.
 
-Final quota after the sweep: Topic Lookup `69/75`, Keyword Lookup `66/75`,
+Final quota after the sweep: Topic Lookup `68/75`, Keyword Lookup `65/75`,
 Keyword Credit `39,677/40,000`, AI Words `7,471/8,000`, Article `69/70`.
 No Golden Filter, permanent-list addition, Planner project, Content Brief,
 Content Creator, WordPress, tracking, or publication action was taken during

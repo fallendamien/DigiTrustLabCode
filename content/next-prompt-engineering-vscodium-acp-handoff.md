@@ -9,8 +9,8 @@ Keyword Explorer report `1576139` and failed volume (`10`). Candidate 5
 `contoh prompt ai` passed exact/Golden and was added once to the permanent list,
 but Planner `179242` returned Weak Spot `0`. The broad exact `prompt
 engineering` term was parked for commercial/job/course intent. A follow-up
-AI-video Topic Discovery report `246781` and exact reports `1576144`–`1576146`
-found only volume `10`/`0`/`0` terms. The `cara tulis prompt ai` pivot remains
+AI-video Topic Discovery reports `246781`–`246782` and exact reports
+`1576144`–`1576147` found only volume `10`/`0`/`0`/`0` terms. The `cara tulis prompt ai` pivot remains
 outside the two registered families. No candidate is ready for drafting or
 publication.
 
@@ -27,9 +27,9 @@ WordPress, or publication unless Zamri separately approves further work.
 | Candidate 4 | Topic Discovery `246776`; exact Keyword Explorer `1576139`; `apa itu prompt engineering`; volume `10`; **parked at volume** |
 | Candidate 5 | Keyword Explorer `1576140`; Golden `1576141`; list row `56`; Planner `179242`; Weak Spot `0`; **parked** |
 | Candidate 6 | Topic Discovery `246779`; exact Keyword Explorer `1576142`; volume `1,600`, but job/course/training SERP; **parked for intent** |
-| AI-video follow-up | Topic Discovery `246781`; exact reports `1576144`–`1576146`; volumes `10`/`0`/`0`; **parked** |
+| AI-video follow-up | Topic Discovery `246781`–`246782`; exact reports `1576144`–`1576147`; volumes `10`/`0`/`0`/`0`; **parked** |
 | Exploratory pivot | Topic Discovery `246780`; `cara tulis prompt ai` card volume `70`; **outside registered family — approval required** |
-| Quota read-back | Topic `69/75`; Keyword `66/75`; Article `69/70`; Keyword Credit `39,677/40,000`; AI Words `7,471/8,000`; list plan `47/50`; seats `2/3` |
+| Quota read-back | Topic `68/75`; Keyword `65/75`; Article `69/70`; Keyword Credit `39,677/40,000`; AI Words `7,471/8,000`; list plan `47/50`; seats `2/3` |
 | Gate status | **No qualifying registered candidate.** Stop before Content Brief, Content Creator, drafting, WordPress, tracking, or publication. |
 
 Do not treat card volume as exact-keyword evidence. Candidate 4's exact volume
@@ -198,7 +198,7 @@ category, or begin drafting.
 - If the exact authenticated tab is unavailable, ask Zamri to open or sign in.
   Do not switch to a blank, private, or separate CDP profile.
 - Last independently observed on 2026-09-13 after the final quota read-back:
-  Topic `69/75`, Keyword `66/75`, Keyword Credit `39,677/40,000`, Article
+  Topic `68/75`, Keyword `65/75`, Keyword Credit `39,677/40,000`, Article
   `69/70`, AI Words `7,471/8,000`, Keyword List `47/50`, seats `2/3`.
 - Keep `Write the whole article` and optional keyword expansion OFF. Do not use
   WriterZen's plagiarism checker.

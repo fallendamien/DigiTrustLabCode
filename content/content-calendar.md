@@ -734,11 +734,12 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 **Status:** `PARKED KEYWORDS` — no new exact term reached the relaxed Malay
 volume floor; do not brief or draft.
 
-- **Topic Discovery:** report `246781`; seed `prompt AI untuk video`; 76 topics; Malaysia/Malay. The clearest in-family card was `contoh prompt video ai untuk beginner (siap guna & mudah faham) 2026`; related cards also repeated `prompt video ai`, `prompt untuk skrip video tiktok`, and `cara jana video ai guna hailuoai`.
+- **Topic Discovery:** reports `246781` (`prompt AI untuk video`) and `246782` (`prompt video pendek ai`); each returned 76 topics in Malaysia/Malay. The clearest in-family cards were `contoh prompt video ai untuk beginner (siap guna & mudah faham) 2026` and `template prompt lengkap untuk buat video social media`.
 - **Exact `contoh prompt video ai`:** report `1576144`; volume `10`; 12-month average `10`; high/low `20/10`; no Golden Filter.
 - **Exact `prompt untuk skrip video tiktok`:** report `1576145`; volume `0`; no Golden Filter.
 - **Exact `cara jana video ai guna hailuoai`:** report `1576146`; volume `0`; no Golden Filter; tool-specific phrase rather than a prompt-engineering target.
+- **Exact `template prompt lengkap untuk buat video social media`:** report `1576147`; volume `0`; no Golden Filter.
 - **Read-only related-idea sweep:** existing report `1576000` showed no untested related phrase above `10`; the already-tested `prompt video ai` head term remains volume `90` but Planner Weak Spot `0`.
-- **Quota after sweep:** Topic Lookup `69/75`; Keyword Lookup `66/75`; Keyword Credit `39,677/40,000`; AI Words `7,471/8,000`; Article `69/70`.
+- **Quota after sweep:** Topic Lookup `68/75`; Keyword Lookup `65/75`; Keyword Credit `39,677/40,000`; AI Words `7,471/8,000`; Article `69/70`.
 - **Decision:** registered AI-video/thumbnail families are exhausted for this cycle. Do not change the taxonomy or spend more credits until Operations explicitly approves a generic prompt-writing family.
 - **Research evidence:** `content/research/prompt-engineering-2026-09-12-relevance.md`
