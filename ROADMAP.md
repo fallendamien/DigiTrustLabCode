@@ -1,7 +1,7 @@
 # DigiTrust Lab — Roadmap
 
 > **Status:** NEXT PROMPT ENGINEERING TOPIC RESEARCH — Candidate 3 passed exact/Golden/SERP gates; guarded WriterZen continuation blocked
-> **Current Phase:** Post #8 remains closed. `prompt video ai` passed relevance, exact volume `90` under the Malay long-tail relaxation, Allintitle `0`, Golden Score `1.002`, and manual SERP review. The exact permanent-list row is absent. Four bounded workers, including after a handoff mark and CUA reset, could not perform the live list/project write because the provider still reports the authenticated WriterZen tab as claimed. Resume from `content/next-prompt-engineering-vscodium-acp-handoff.md` after the current browser-control session ends or the tab is released; stop at Planner Weak Spot `<2`.
+> **Current Phase:** Post #8 remains closed. `prompt video ai` passed relevance, exact volume `90` under the Malay long-tail relaxation, Allintitle `0`, Golden Score `1.002`, and manual SERP review. The exact permanent-list row is absent. Four pre-handoff workers plus one fresh-resume worker could not perform the live list/project write because the provider still reports the authenticated WriterZen tab as claimed. Resume from `content/next-prompt-engineering-vscodium-acp-handoff.md` after the current browser-control session ends or the tab is released; stop at Planner Weak Spot `<2`.
 > **Last Updated:** 2026-09-12 (Prompt Engineering Candidate 3 research + persistent Context7 verification — 12 posts published)
 > **Monthly Revenue:** RM 69 (1 sale, pre-blog era)
 
@@ -18,7 +18,7 @@
 - Post #10 Screpy Rank Tracker remains pending/unverified
 - Post #7 Screpy Pages discovery remains non-blocking pending (crawl predates publication)
 - Infrastructure is complete; the next editorial mission should begin only after the relevance, cluster and Operations gates pass
-- Prompt Engineering Candidate 3 (`prompt video ai`) passed relevance, exact Keyword Explorer, one-keyword Golden Filter, and manual SERP review; the read-only permanent-list duplicate check was clean. Four guarded worker attempts were blocked by the same CUA tab claim; no drafting is authorized until a new Planner project proves Weak Spot `>=2`.
+- Prompt Engineering Candidate 3 (`prompt video ai`) passed relevance, exact Keyword Explorer, one-keyword Golden Filter, and manual SERP review; the read-only permanent-list duplicate check was clean. Four pre-handoff plus one fresh-resume guarded worker attempts were blocked by the same CUA tab claim; no drafting is authorized until a new Planner project proves Weak Spot `>=2`.
 - Context7 persistence verified: Codex global `@upstash/context7-mcp@4.1.0` passed a real tool probe; Claude's connected account-level `claude.ai Context7` connector remains canonical; no duplicate local Claude server exists. Restart Zed/Codex ACP once to reload the current process.
 - Zed ACP continuation file: `content/next-prompt-engineering-vscodium-acp-handoff.md` (contains the dual-client Context7 verification prompt)
 

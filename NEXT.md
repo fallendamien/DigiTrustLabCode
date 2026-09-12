@@ -28,7 +28,8 @@
 > `prompt video ai` passed the bounded relevance gate, exact Keyword Explorer
 > (volume `90`, Malaysia/Malay), one-keyword Golden Filter (Allintitle `0`,
 > Golden Score `1.002`) and manual SERP review with an intent caveat. The
-> permanent-list duplicate check returned no row. Four bounded workers, even
+> permanent-list duplicate check returned no row. Four bounded workers before
+> the blocked-goal handoff, plus one fresh-resume worker, even
 > after a handoff mark and CUA reset, could not add the row or create the new
 > Planner project because the provider still reports this authenticated
 > WriterZen tab as claimed by session `01a09530-700e-7e90-ac79-abd632d41b36`;
