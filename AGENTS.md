@@ -15,9 +15,13 @@ tests, Git inspection, explicitly requested scoped commits, and read-only
 network access. Use the guarded lane for external writes, pushes, history
 rewrites, destructive or irreversible actions, credentials, live systems,
 broad work, or independent review. Guarded work requires the relevant
-department, a current route receipt, required approval, and a bounded worker.
-Workers remain available when they materially improve independence or
-parallelism. This is a behavioral gate, not a runtime security boundary.
+department, a current route receipt, required approval, and a bounded worker,
+unless the canonical policy's narrow non-strict coordinator
+authenticated-browser fallback applies. That fallback still requires explicit
+user authorization, the exact existing authenticated tab, and fresh evidence;
+strict projects remain fail-closed. Workers remain available when they
+materially improve independence or parallelism. This is a behavioral gate, not
+a runtime security boundary.
 
 The exact project marker `orchestration_mode: strict` restores the former
 orchestration-only behavior for a project. Without that marker, departments are

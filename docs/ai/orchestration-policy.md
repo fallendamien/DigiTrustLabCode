@@ -13,6 +13,12 @@ one department, emit a current route receipt, obtain required approval, and
 delegate to a bounded worker. Queue, steering, worker identity, evidence, and
 nested-delegation safeguards remain governed by the canonical policy.
 
+The canonical policy also permits a narrow, user-authorized coordinator
+fallback for one bounded action in the exact already-open authenticated Chrome
+tab when a worker cannot claim that tab. It preserves the route, approval,
+quota, evidence, no-new-tab, and no-credential restrictions; strict projects
+remain fail-closed.
+
 The exact project marker `orchestration_mode: strict` restores the former
 orchestration-only behavior. This project has no such marker, so department
 adapters are reusable specialist playbooks on the fast lane and guarded owners
