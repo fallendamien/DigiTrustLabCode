@@ -589,6 +589,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | Outline handoff | ✅ `WRITERZEN_OUTLINE_HANDOFF: PASS` — `content/outline-maps/contoh-prompt-writerzen-244699.md` |
 | Draft | `content/drafts/contoh-prompt-ai.html` |
 | WordPress Post | ID 734 — `https://digitrustlab.com/contoh-prompt-ai/` (published) |
+| Post ID | 734 |
 | Featured image | Media 730 — `contoh-prompt-ai-featured.png`; native 1672×941; SHA-256 `D93B849298DFC6349FBC7303659BCFA93E2279678049779DB64295E35E1B1252` |
 | Inline images | Media 731/732/733 — structure, before/after and test-loop assets; native 1672×941; hashes recorded in `content/image-prompts.md` |
 | Native originality/source gate | ✅ Native draft and official OpenAI, Anthropic and Google references; no WriterZen plagiarism checker or paid checker used |
