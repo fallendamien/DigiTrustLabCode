@@ -5,7 +5,7 @@
 | Post | Cara Buat Banner Guna Canva: Panduan Praktikal |
 | URL | https://digitrustlab.com/cara-buat-banner-guna-canva/ |
 | WordPress Post ID | 740 |
-| Status | `PENDING` — published once; links and Screpy verified; ClickRank, GSC, and repository closeout remain pending |
+| Status | `PENDING` — published once; links and Screpy verified; ClickRank and GSC remain pending |
 | Published | 16 September 2026, 21:43:06 MYT; publication verified |
 
 ## Topic Discovery rationale
@@ -38,7 +38,7 @@ segments. The live Malay voice and structure checks pass.
 
 | Stage / role | Agent and model | Scope | High-level result / evidence | Blocker or handoff |
 |---|---|---|---|---|
-| Research, drafting, media, staging, and live verification | Bounded OpenAI worker; exact host model/effort recorded by orchestrator | Post #14 Option C workflow and publication evidence | Published ID 740; WriterZen reports 246874, 1577317, 1577318, 179313, 244791; media 743–746; Rank Math 79/100; naturalness PASS with Claude `firstParty/claude-sonnet-5` and OpenAI `gpt-5.6-luna` high | Link and tracking closeout pending |
+| Research, drafting, media, staging, and live verification | Bounded OpenAI worker; exact host model/effort recorded by orchestrator | Post #14 Option C workflow and publication evidence | Published ID 740; WriterZen reports 246874, 1577317, 1577318, 179313, 244791; media 743–746; Rank Math 79/100; naturalness PASS with Claude `firstParty/claude-sonnet-5` and OpenAI `gpt-5.6-luna` high | ClickRank and GSC tracking pending |
 
 ## Publication, verification, and tracking
 
@@ -87,8 +87,8 @@ Console remain pending and are not represented as completed here.
 | Field | Value |
 |---|---|
 | Commit SHA(s) | `632aedb81d8263710c51ed50540ccd06b5c2a316` (content and evidence closeout); this summary update is the follow-up commit, whose SHA is reported in the final closeout because a commit cannot record its own hash. |
-| Push/upstream status | Content closeout commit pushed to `origin/master`; the summary follow-up commit will be pushed and parity rechecked before closeout. |
-| Post-closeout status output | Clean after the content closeout commit; final `git status --porcelain=v1 -uall` and `HEAD == origin/master` verification follows the summary update. |
+| Push/upstream status | Content closeout `632aedb81d8263710c51ed50540ccd06b5c2a316` and summary follow-up `453c6f88f87029f6663f5ef05b69044d690a74e1` are pushed to `origin/master`. |
+| Post-closeout status output | `git status --porcelain=v1 -uall` is empty; `HEAD == origin/master` at `453c6f88f87029f6663f5ef05b69044d690a74e1`. |
 | Excluded paths | `None` — every visible path was classified and retained; no delete or ignore action was taken. |
 | Removed generated files | `None`. |
 | Residual-path decisions | All 40 staged paths are retained as durable Post #14 source, media, review history, breadcrumbs, or verifier evidence. ClickRank and GSC remain pending in the breadcrumbs; no false completion is recorded. |
