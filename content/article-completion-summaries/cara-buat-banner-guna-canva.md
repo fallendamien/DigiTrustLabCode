@@ -80,10 +80,18 @@ Post #8 Malay voice and body-H1 structure checks also pass. Recovery snapshots
 
 ## Repository hygiene closeout
 
-The current mission has not yet been committed or pushed. Every visible path
-was classified before staging; no files were deleted or hidden. The final Git
-commit, push, worktree status, and remote-parity evidence must be added here
-before repository closeout is claimed.
+The current mission was committed and pushed after every visible path was
+classified; no files were deleted or hidden. ClickRank and Google Search
+Console remain pending and are not represented as completed here.
+
+| Field | Value |
+|---|---|
+| Commit SHA(s) | `632aedb81d8263710c51ed50540ccd06b5c2a316` (content and evidence closeout); this summary update is the follow-up commit, whose SHA is reported in the final closeout because a commit cannot record its own hash. |
+| Push/upstream status | Content closeout commit pushed to `origin/master`; the summary follow-up commit will be pushed and parity rechecked before closeout. |
+| Post-closeout status output | Clean after the content closeout commit; final `git status --porcelain=v1 -uall` and `HEAD == origin/master` verification follows the summary update. |
+| Excluded paths | `None` — every visible path was classified and retained; no delete or ignore action was taken. |
+| Removed generated files | `None`. |
+| Residual-path decisions | All 40 staged paths are retained as durable Post #14 source, media, review history, breadcrumbs, or verifier evidence. ClickRank and GSC remain pending in the breadcrumbs; no false completion is recorded. |
 
 | Path group | Decision |
 |---|---|
