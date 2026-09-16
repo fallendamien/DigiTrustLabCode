@@ -7,6 +7,7 @@ import tempfile
 import unittest
 from contextlib import redirect_stderr, redirect_stdout
 from pathlib import Path
+from unittest.mock import patch
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -56,6 +57,77 @@ class NaturalnessGateTests(unittest.TestCase):
 
     def document(self, html):
         return MODULE.build_document(html, title="Tajuk bersih")
+
+    @staticmethod
+    def frontend_html(title="Tajuk SEO yang jelas", description="Penerangan SEO yang jelas", canonical="https://digitrustlab.com/fixture/"):
+        return (
+            f"<html><head><title>{title}</title>"
+            f"<meta name='description' content='{description}'>"
+            f"<link rel='canonical' href='{canonical}'></head></html>"
+        )
+
+    def live_data(self, meta=None):
+        return {
+            "id": 559,
+            "slug": "fixture",
+            "link": "https://digitrustlab.com/fixture/",
+            "status": "publish",
+            "meta": meta or {},
+        }
+
+    def test_rest_absent_frontend_match_is_explicit_fallback(self):
+        frontend = MODULE.parse_frontend_metadata(self.frontend_html())
+        metadata, evidence = MODULE.resolve_live_metadata(self.live_data(), frontend)
+        self.assertEqual(
+            metadata,
+            {
+                "rank_math_title": "Tajuk SEO yang jelas",
+                "rank_math_description": "Penerangan SEO yang jelas",
+            },
+        )
+        self.assertEqual(evidence["metadata_source"], "frontend_fallback")
+        self.assertTrue(evidence["frontend_fetched"])
+        self.assertTrue(evidence["canonical_matches_rest_link"])
+
+    def test_frontend_metadata_mismatch_is_blocked(self):
+        frontend = MODULE.parse_frontend_metadata(
+            self.frontend_html(title="Tajuk yang berbeza")
+        )
+        with self.assertRaises(MODULE.FrontendMetadataError):
+            MODULE.resolve_live_metadata(
+                self.live_data({"rank_math_title": "Tajuk SEO yang jelas"}), frontend
+            )
+
+    def test_present_rest_metadata_conflicting_with_frontend_is_blocked(self):
+        frontend = MODULE.parse_frontend_metadata(self.frontend_html())
+        with self.assertRaises(MODULE.FrontendMetadataError):
+            MODULE.resolve_live_metadata(
+                self.live_data(
+                    {
+                        "rank_math_title": "Tajuk SEO yang jelas",
+                        "rank_math_description": "REST yang berbeza",
+                    }
+                ),
+                frontend,
+            )
+
+    def test_missing_frontend_metadata_is_blocked(self):
+        with self.assertRaises(MODULE.FrontendMetadataError):
+            MODULE.parse_frontend_metadata(
+                "<title>Tajuk SEO yang jelas</title><link rel='canonical' href='https://digitrustlab.com/fixture/'>"
+            )
+
+    def test_frontend_canonical_mismatch_is_blocked(self):
+        frontend = MODULE.parse_frontend_metadata(
+            self.frontend_html(canonical="https://digitrustlab.com/other/")
+        )
+        with self.assertRaises(MODULE.FrontendMetadataError):
+            MODULE.resolve_live_metadata(self.live_data(), frontend)
+
+    def test_frontend_http_failure_is_blocked(self):
+        with patch.object(MODULE.urllib.request, "urlopen", side_effect=MODULE.urllib.error.URLError("offline")):
+            with self.assertRaises(MODULE.FrontendMetadataError):
+                MODULE.resolve_live_metadata(self.live_data())
 
     def test_clean_article_with_claude_and_openai_reviews_passes(self):
         document = self.document("<p>AI boleh membantu anda memahami tugasan ini.</p><img alt='Ilustrasi AI yang jelas'>")

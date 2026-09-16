@@ -35,6 +35,42 @@ TOPIC_FAMILIES = {
         ),
         "requires_approval": False,
     },
+    # Bounded Canva design family for a future visual-asset workflow. Keep the
+    # family broad until Topic Discovery selects the exact asset and keyword;
+    # poster creation and photo editing remain separate published intents.
+    "canva-design.canva.visual-assets": {
+        "pillar_id": "canva-design",
+        "cluster_id": "canva-design.canva",
+        "topic_intent_id": "intent.canva.visual-asset.creation",
+        "subject_entity_allowlist": frozenset(
+            {"entity.canva", "entity.visual-asset", "entity.design-workflow"}
+        ),
+        "forbidden_text_terms": frozenset(
+            {
+                "ranking",
+                "google",
+                "search",
+                "visibility",
+                "seo",
+                "notion",
+                "wordpress",
+                "poster",
+                "photo",
+                "prompt",
+                "chatgpt",
+                "gemini",
+                "video",
+                "income",
+                "duit",
+                "jualan",
+                "affiliate",
+                "job",
+                "kursus",
+                "course",
+            }
+        ),
+        "requires_approval": False,
+    },
     "digital-skills.notion.task-template": {
         "pillar_id": "digital-skills",
         "cluster_id": "digital-skills.notion",
@@ -682,8 +718,86 @@ def prompt_writing_candidate() -> Candidate:
     )
 
 
+def canva_visual_assets_candidate() -> Candidate:
+    candidate = Candidate(
+        topic="Canva visual asset workflow for beginners",
+        seed="cara guna canva",
+        category_id="canva-design",
+        topic_family_id="canva-design.canva.visual-assets",
+        pillar_id="canva-design",
+        cluster_id="canva-design.canva",
+        topic_intent_id="intent.canva.visual-asset.creation",
+        subject_entity_ids=frozenset(
+            {"entity.canva", "entity.visual-asset", "entity.design-workflow"}
+        ),
+        declared_seed_intent=(
+            "practical Canva visual-asset creation workflow for beginners"
+        ),
+        reader_problem=(
+            "create a clear reusable visual asset in Canva without guessing the layout"
+        ),
+        authenticity_basis=(
+            "demonstrated Canva workflow in published Post #5 plus a planned first-hand "
+            "test for a distinct visual asset"
+        ),
+        inventory_check=(
+            "distinct from the published Post #5 poster workflow and Post #10 photo "
+            "editing workflow"
+        ),
+        existing_cluster_map=(
+            "extends the approved canva-design.canva cluster under published Canva "
+            "design content"
+        ),
+        mapped_pillar_id="canva-design",
+        mapped_cluster_id="canva-design.canva",
+        published_parent_or_peer_url=(
+            "https://digitrustlab.com/cara-buat-poster-guna-canva/"
+        ),
+        inbound_source_url=(
+            "https://digitrustlab.com/cara-buat-poster-dengan-chatgpt/"
+        ),
+        incremental_value=(
+            "a distinct visual-asset creation workflow not covered by the existing "
+            "Canva design guides"
+        ),
+        anchor_context=(
+            "descriptive visual-asset workflow anchor in the Canva design section"
+        ),
+        pivot_status="none",
+        user_approval_ref="",
+        research=None,
+        seo=None,
+        operations=None,
+        operations_evidence=None,
+    )
+    return reissue(
+        candidate,
+        operations_evidence=make_operations(
+            parent_urls=(
+                "https://digitrustlab.com/cara-buat-poster-guna-canva/",
+            ),
+            inbound_urls=(
+                "https://digitrustlab.com/cara-buat-poster-dengan-chatgpt/",
+            ),
+            calendar_urls=(
+                "https://digitrustlab.com/cara-buat-poster-guna-canva/",
+                "https://digitrustlab.com/cara-buat-poster-dengan-chatgpt/",
+            ),
+            link_urls=(
+                "https://digitrustlab.com/cara-buat-poster-guna-canva/",
+                "https://digitrustlab.com/cara-buat-poster-dengan-chatgpt/",
+            ),
+            calendar_ref="content/content-calendar.md#post-5",
+            link_feasibility_ref=(
+                "evidence://operations/link-map/canva-visual-assets/2026-09-13"
+            ),
+        ),
+    )
+
+
 def build_cases() -> dict[str, Candidate]:
     relevant = base_candidate()
+    canva_visual_assets = canva_visual_assets_candidate()
     prompt_thumbnail = prompt_thumbnail_candidate()
     prompt_video = prompt_video_candidate()
     prompt_writing = prompt_writing_candidate()
@@ -767,6 +881,7 @@ def build_cases() -> dict[str, Candidate]:
         "unapproved_adjacent_pivot_fail": adjacent,
         "explicitly_approved_pivot_pass": approved_pivot,
         "registered_notion_task_template_pass": notion_pass,
+        "canva_visual_assets_pass": canva_visual_assets,
         "prompt_thumbnail_pass": prompt_thumbnail,
         "prompt_video_pass": prompt_video,
         "prompt_writing_pass": prompt_writing,
@@ -781,6 +896,28 @@ def build_cases() -> dict[str, Candidate]:
             subject_entity_ids=frozenset(
                 {"entity.notion", "entity.task-template", "entity.wordpress", "entity.seo-audit"}
             ),
+        ),
+        "canva_poster_overlap_fail": reissue(
+            replace(
+                canva_visual_assets,
+                topic="Canva poster workflow",
+                seed="poster canva",
+                subject_entity_ids=frozenset(
+                    {"entity.canva", "entity.visual-asset", "entity.poster"}
+                ),
+            ),
+            operations_evidence=canva_visual_assets.operations_evidence,
+        ),
+        "canva_photo_editing_overlap_fail": reissue(
+            replace(
+                canva_visual_assets,
+                topic="Canva photo editing workflow",
+                seed="canva photo editing",
+                subject_entity_ids=frozenset(
+                    {"entity.canva", "entity.visual-asset", "entity.photo"}
+                ),
+            ),
+            operations_evidence=canva_visual_assets.operations_evidence,
         ),
         "missing_research_attestation": replace(relevant, research=None),
         "stale_seo_attestation": replace(
@@ -815,6 +952,7 @@ def main() -> int:
         "relevant_pass",
         "explicitly_approved_pivot_pass",
         "registered_notion_task_template_pass",
+        "canva_visual_assets_pass",
         "prompt_thumbnail_pass",
         "prompt_video_pass",
         "prompt_writing_pass",

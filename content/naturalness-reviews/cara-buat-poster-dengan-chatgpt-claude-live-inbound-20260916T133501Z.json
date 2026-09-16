@@ -1,0 +1,994 @@
+{
+  "status": "pass",
+  "document_review": {
+    "source_url": "https://digitrustlab.com/cara-buat-poster-dengan-chatgpt/",
+    "post_id": 721,
+    "content_hash": "f6474d43bb87ba1c630141550be0f9f84d21c43b47dd6892d1b63cdaa4c5d1b3",
+    "segment_count": 64,
+    "checks": {
+      "natural_usage": true,
+      "literal_translation": true,
+      "bureaucratic_stiffness": true,
+      "technical_term_choice": true,
+      "read_aloud_clarity": true,
+      "terminology_consistency": true,
+      "grammatical_completeness": true
+    },
+    "confidence": "high",
+    "findings": [],
+    "notes": "Content reads as natural, idiomatic Malay throughout. Technical/loanword choices (ChatGPT, prompt, templat, nisbah aspek, palet warna, editor reka bentuk) are handled consistently and appropriately for a Malay tech-audience article. No literal/machine-translation artifacts, no bureaucratic stiffness, sentences are grammatically complete and clear when read aloud, and terminology (poster ChatGPT, susun atur, editor reka bentuk, Canva) is used consistently across the document, including inbound link anchor text."
+  },
+  "segments": [
+    {
+      "id": "seg-001",
+      "hash": "d36e82f8d8d61905b470ae8ffc9124a63f9d1920d920e48464973495f11586c6",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-002",
+      "hash": "ada40258b9a30d79bc35719ff9f43698876d457e6b68d5787f097ce771833167",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-003",
+      "hash": "c958769324e7f13b34e8d89476cdf055a10a4806c3f54302bef87a7f41b10a64",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-004",
+      "hash": "91e9b3b59f126a9f0a77ab68ca23070bd2a8f625cb8d5eb91b1bdfe55c413d6c",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-005",
+      "hash": "d4b18e6567653d1b925ebc2ca20a7e07ef8f97e0745586dd947dc5d0b824b4b9",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-006",
+      "hash": "53ea5805bf7f30112e46f0597c6be4c9b3af9882e4373814a4bf8a7c81f2c8e5",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-007",
+      "hash": "9727269805da749ce676223df648193dd462ab0bdd2bebf5b26fbd68e43c10da",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-008",
+      "hash": "985082f74dc954bd3c48a1cdd783f0a2323e83bdf8949b82dd6c7f94afcd9f32",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-009",
+      "hash": "c5e597f8301e7db706c9181364e65ee6f67c7d18f2819db46647553afb2424ca",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-010",
+      "hash": "a34b6438641562093dcbc6b955683e1caa9d25a2e3dcda51808d48d7aa76e5a2",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-011",
+      "hash": "0e8022fa85356f27bc3619f524fb2773a221523144741e41d6fd7db5cc6bc507",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-012",
+      "hash": "e96b2c13763bfb35594b11f3754edc85e6ae69dc00e44d8b35db53e52bc366f9",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-013",
+      "hash": "c56026c0f47616b1fdb914b00fb9a9020250e095c56a57790429e45a0f48cfaa",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-014",
+      "hash": "aaef5f506ee6b754afe18495cb20e63332d89053b85b20c145627a87447df828",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-015",
+      "hash": "eb5d44b27d6c23ef5dda90eee47558d502b725a45c7e13f57d70cbaf20614404",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-016",
+      "hash": "09da880e987737d224a23912ae1b167914bbd4dce5115a054087d43de66c5e46",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-017",
+      "hash": "6c049c8c9f672669fdf74fd8c38922489057446ce654ce437e3140adf75d7218",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-018",
+      "hash": "f1776c208262a9a1ac257f921fb9ce40ab88feb87e106bce19222628599cb4e8",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-019",
+      "hash": "465ff732dab383d3b53862939f16453b8cd386d13c5abc77ff93e7e74056d390",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-020",
+      "hash": "ddc10b6af2a3295a49a5cac3f97e6de670b88e0d277367fd27b24e2aac8c23e5",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-021",
+      "hash": "bf336ed59a8a9c27003661aec28d924f71373db35155787ef231401d4cbcf10c",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-022",
+      "hash": "b4c4e2605a22d43a141d1d64c56c8b8224ce659d5632bc8df61ad2980bfba5d5",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-023",
+      "hash": "4aebb477c716283c9607b8751324f6086f0272b8b05bd177a202b2732e4f8f84",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-024",
+      "hash": "3c482ecc83ba83029ab21dc385e07553ecfd36e5b20a6345fc3ca583b37fde86",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-025",
+      "hash": "799ca28b1d5a3e0fd0cd519c48117466d4db76c826972be82fdea6915e0362b4",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-026",
+      "hash": "1dd9e767a11a2b9b65c6b04204e2ebf1d5e469e83b6d992ab487cef2772a8b37",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-027",
+      "hash": "a2c58f472cb59b0d4925f14702b3fac2ce8819b894f68ceae48322b7565140d5",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-028",
+      "hash": "cc094efebfcaaf133694fb76eab5a056a8bd775f20d89fa9eedf9cd390d223d9",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-029",
+      "hash": "dd4561521caabfffc46ce8f6c4dc89c8a5864307db807274b6366326f6169ba5",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-030",
+      "hash": "b1d8e335504791e7e2f3fb6dc93f3d27413503e01b4db8475de53302a9bf2e3a",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-031",
+      "hash": "19340a8b8a3cdc610e0a2e4eaa68762992a5b47fecd6d5404daaba95ba217260",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-032",
+      "hash": "12fa8d704664d8aa79b39eb9c0022e33d67b62b641469a3d1856c7094387028b",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-033",
+      "hash": "a6ec11b1edbf1d5ba9813427a5ec3013006cf3edc99f824563b4a1cc20c83178",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-034",
+      "hash": "2c9cdad2bcade3e2c00041d6ac24867a139e9cb42c4d2e2e754f28a867b81262",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-035",
+      "hash": "f9ac26f6fd08b6bafcea6ce6d77fe43a4829211becbb9897e515bdd1186c5a8a",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-036",
+      "hash": "4eda6eb0f99ff695fc676bafca719a25c37ba0578e95179bb2e159fb095ce92c",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-037",
+      "hash": "9278869716308d78c4326d6b08810e9b23f55645e8988093b7a6d38cb4495f27",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-038",
+      "hash": "636dd887813b8faa59345ec1bd7c4e31a66dcc7c85d6bfb5c956f5829af40090",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-039",
+      "hash": "51e8c4ebae92fbb9a1bdb8a80a9cbca4b285c102f448c158b8817df15a9c2bdf",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-040",
+      "hash": "b0c3ea93462e7708ede5717d0319c5fa00fd65e12a60f4c49f40864db04bcc8a",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-041",
+      "hash": "cf3caddf804eeaf8a40db519e6c8ffac3299824f578704fa97d858757fa3359e",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-042",
+      "hash": "6d5371379d65d323646cae80259dbff10a2bc31e838d1a8ea7da7311005ffcf3",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-043",
+      "hash": "534b1785ff29399e0a9f2289049df0d85177a04e26aa722460657cf6a268e563",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-044",
+      "hash": "4e14fefb05297a106f9b298a1d5aee1b828bb16d32d24f73bdb221be9bb00986",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-045",
+      "hash": "6bfc83460e17e0f714bec05d362e5737d6114c720b3ad699d332df4deb57f516",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-046",
+      "hash": "dfadd85349721beb30d1c326bc8076b2e34cb5346a38cfb4d48ccb7b5852cf25",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-047",
+      "hash": "771814db558d34518cc5b5a95cdcb447bb16678cd1f998aa08d4468d6640eb60",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-048",
+      "hash": "d74385629360f26fa26ed3ce29c42fa191a88d55f2224ff1be8071c62c37aba8",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-049",
+      "hash": "ee12e07d2bc33de21ba2ea21fbd117b287c15fa5dc9936bf7bf2dd6c0cdc4fec",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-050",
+      "hash": "df041a043517874cf2587a15daa3af7d1c530708195252e3bb71a717d2a4720b",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-051",
+      "hash": "2f89a3c3bc3a15d56633bfc582f939dfcd31fbe22f63031a704726acbf82271f",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-052",
+      "hash": "8d563e4d271ce6d23c4fd9612e36faa92d84d825c2ff7bc27d6b9019369e3732",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-053",
+      "hash": "6b9dfa6dabaf0a357f1767cb55bd241cf8b7354782b884f9b2855736002054f3",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-054",
+      "hash": "0b64b2b8809e939247c2433a7080c21d375209adbc665c77c1a881cf2465d029",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-055",
+      "hash": "b81d6d8f1df9b6b494b936b3eeeea9846f8e315493a13c381c8dbaef279787ff",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-056",
+      "hash": "35b8badfd36a9d6b6887d72e398733b9c5c257a308b700becfbf35bb1277e0bc",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-057",
+      "hash": "3a70fc4ddd3b5579647d490e977757293ce4383aaed8a860b988c61a07c97026",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-058",
+      "hash": "3765be8fd75580e0c91500ba03dac3e41701f8ca16effb53b70d8bde9d218baa",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-059",
+      "hash": "0f81f430c78ebc68f0973ded3b93d2a14a3cb09696eecea81741816b8c474348",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-060",
+      "hash": "1b2a6548d05ead07d534bc32541492ee7e03c6ddcd30a5326a315a418b23a6aa",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-061",
+      "hash": "fb34a9b3c0ae575d623dd401c8eceea2593a72e9880427e7053d55e5696ed388",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-062",
+      "hash": "f366f77146ae0f5c64f489a1acd4699663dc77d21db08c8fb6c812034321282b",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-063",
+      "hash": "66fd6edf90d2249e7f4a8e49cf4854dc6832a9186f406cacaa593a9c5777ac1a",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    },
+    {
+      "id": "seg-064",
+      "hash": "0d9ed411e12faac3ae30d97acef8500bf641b06c93f85118e54e26560891e1b0",
+      "checks": {
+        "natural_usage": true,
+        "literal_translation": true,
+        "bureaucratic_stiffness": true,
+        "technical_term_choice": true,
+        "read_aloud_clarity": true,
+        "terminology_consistency": true,
+        "grammatical_completeness": true
+      },
+      "confidence": "high",
+      "findings": []
+    }
+  ],
+  "model_family": "anthropic",
+  "provider": "firstParty",
+  "model": "claude-sonnet-5",
+  "runtime_provider": "firstParty",
+  "runtime_model": "claude-sonnet-5",
+  "auth_provider": "firstParty",
+  "structured_provider": "anthropic",
+  "structured_model": "claude-sonnet-5",
+  "transport": "claude-code-cli",
+  "session_persistence": false,
+  "tools": []
+}

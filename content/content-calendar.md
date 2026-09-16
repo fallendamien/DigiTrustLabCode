@@ -2,6 +2,78 @@
 
 > Publishing plan — Month 1 launch sprint: 1 post/day or every 2 days (target 15-30 posts). One keyword per post (Malay, Malaysia-targeted). All metrics validated via WriterZen Keyword Explorer + Golden Filter.
 
+## 📈 Search performance snapshot — 2026-09-16
+
+> Source: ClickRank → Performance (Google Search Console data), window **16 Aug – 15 Sep 2026**, read from the authenticated dashboard on 2026-09-16. This is measured GSC data, not a ClickRank tracker estimate — where the two disagree, this section wins.
+>
+> ⚠️ **Corrects a prior false claim.** Earlier session notes and a strategic assessment stated that no post had reached page 1. That was wrong and was never checked against GSC before being asserted. Seven URLs are on page 1.
+
+| Site metric | Value | vs prev period |
+|---|---|---|
+| Average position | **10.6** | +47.3% |
+| Total clicks | 45 | +57.8% |
+| Total impressions | 2,865 | +73.6% |
+| Average CTR | 3.2% | **−13.5%** |
+| Keywords tracked | 157 (Top 3: 4 · 4–10: 102 · 11–20: 13 · 21–50: 14 · 50+: 24) | — |
+
+⚠️ The "102 keywords at position 4–10" figure is inflated — many are single-impression long-tail queries. Treat the per-URL table below as the reliable signal.
+
+### Per-URL positions (page 1 unless noted)
+
+| Post | URL slug | Avg position | Impressions | Clicks |
+|---|---|---|---|---|
+| #9 | `prompt-gemini-ai-untuk-edit-foto` | 7.0 | 1,029 | 23 |
+| #5 | `cara-buat-poster-guna-canva` | 9.1 | 441 | **1** |
+| #3 | `cara-buat-prompt-chatgpt` | 7.4 | 348 | 9 |
+| #8 | `cara-buat-poster-dengan-chatgpt` | 6.8 | 282 | 5 |
+| #4 | `cara-buat-gambar-ai` | 9.1 | 220 | 1 |
+| #7 | `cara-buat-nota-cantik-dengan-ai` | 6.6 | 130 | 5 |
+| #12 | `contoh-minit-mesyuarat-cara-susun-nota-dengan-ai` | 6.5 | 76 | 1 |
+| #13 | `contoh-prompt-ai` | 7.1 | 14 | 0 |
+| #11 | `apa-itu-mcp-ai-dan-bagaimana-ia-berfungsi` | ⚠️ 14.9 | 20 | 0 |
+| #6 | `chatgpt-vs-gemini-vs-claude-panduan-pilihan-ai-2026` | ⚠️ 35.1 | 49 | 0 |
+| #1 | `apa-itu-ai` | ⚠️ **39.3** | 225 | 0 |
+
+**Top page-1 queries** (position · impressions): `contoh prompt gemini ai untuk edit foto` 3.0 · 5 — `cara menulis prompt chatgpt` 4.1 · 12 — `prompt buat poster di chatgpt` 5.2 · 9 — `prompt untuk buat poster di chatgpt` 5.4 · 5 — `apa itu mcp ai` 5.8 · 6 — `prompt gemini ai untuk edit foto` 7.3 · 115 — `cara buat prompt chatgpt` 8.2 · 39 — `cara buat nota cantik` 8.8 · 23 — `cara buat gambar ai` 9.0 · 23.
+
+### What this changes
+
+1. **Rankings are not the bottleneck; CTR is.** Site CTR fell 13.5% while position improved 47.3%. Post #5 is the clearest case: 441 impressions at position 9.1 producing **one** click (0.2% CTR).
+2. **Post #1 `apa-itu-ai` is the worst-ranking page on the site** at position 39.3 despite 225 impressions. It is flagged as Pillar Content but is not ranking — this confirms the ClickRank drop recorded in `STATE.json`, rather than the tool disagreement previously suspected.
+3. **Post-#4's "expect 6–12 months to page 1" note was wrong** — it reached position 9.1 in roughly six weeks. Corrected in `NEXT.md`.
+4. **New posts reach page 1 fast.** Post #13 was at position 7.1 within days of publication.
+
+### The Gemini prompt cluster — spillover finding (2026-09-16)
+
+Sorting Queries by **position ascending** (not the default click sort) exposed a dense
+cluster of Gemini-prompt queries all ranking positions 2–6, none with a dedicated page.
+All are spillover from Post #9:
+
+| Query | Position | Impressions |
+|---|---|---|
+| `teks untuk edit foto di gemini` | 2.0 | 6 |
+| `buatan prompt untuk edit foto di gemini` | 2.0 | 3 |
+| `prompt gemini untuk foto profesional` | 2.1 | 8 |
+| `contoh prompt gemini ai untuk edit foto` | 3.0 | 5 |
+| `cara edit prompt gemini ai` | 4.3 | 3 |
+| `cara prompt gemini ai` | 5.4 | 5 |
+| `contoh gemini ai` | 5.8 | 6 |
+| `prompt untuk gemini ai` | 6.0 | 1 |
+
+**Reading:** every row is top-5-with-low-impressions, which under the Phase 0
+classification means *fold into the existing post*, not build new pages. Individually
+these are tiny; collectively they show Google treats Post #9 as the site's Gemini-prompt
+authority. The cluster argues for **expanding Post #9** — a professional-headshot
+section, a "contoh prompt" section — rather than splitting the intent across new URLs.
+
+⚠️ It also tempers the earlier candidate-A pitch: `prompt gemini untuk foto profesional`
+at position 2.1 was cited as evidence of untapped demand, but at position 2.1 the site
+already receives nearly all available impressions, so 8 impressions is close to the
+query's true monthly volume. Strong winnability, unproven volume. Only Topic Discovery
+can reveal demand the site is currently invisible for.
+
+**Re-verify before citing.** These are 30-day rolling averages; re-read the ClickRank Performance page rather than quoting this table as current in a later session.
+
 ## 📌 Pre-Publish Checklist (EVERY post)
 
 | Step | What | When |
@@ -395,7 +467,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | WriterZen editor handoff audit | ✅ Fresh authenticated WriterZen report `244466` check on 2026-09-05 shows **Copy to editor completed**: the main editor contains the generated title, description and seven H2 sections; counters show `272/770` words and `8/3` headings. The source outline contained zero WriterZen H3 nodes. The native draft follows all seven WriterZen H2s, promotes one supporting bullet to a workflow H3, and maps all 21 supporting bullets in `content/outline-maps/cara-buat-poster-dengan-chatgpt-writerzen-244466.md` (28/28 represented; omitted 0); the reviewed scaffold was used for the live draft. |
 | Native drafting/source gate | `native_drafting_mode: native`; provenance = native Malay draft based on approved WriterZen outline/report `244466` plus first-use beginner workflow framing and official OpenAI ChatGPT Images source; `source_attribution_status: complete`; source ref `https://help.openai.com/en/articles/11084440-chatgpt-images`; `competitor_text_copied=false`; `uncredited_close_paraphrase=false`; `distinctive_overlap_status=clear`; current live `content_hash=9192f61e0e00f60694ed3ecc9fac8c289e4abe6e08eb566ce780092e9024a770`; `writerzen_plagiarism_checker_used=false`; `writerzen_plagiarism_checker_required=false`; `writerzen_plagiarism_credit_spent=false`; `external_checker_attempted=false`; evidence ref `content/naturalness-reviews/cara-buat-poster-dengan-chatgpt-live-final.json`; source/originality checked 2026-09-05; owner Content/Operations. |
 | Operations originality attestation | ✅ `PASS` — native draft provenance and official source attribution recorded; no WriterZen plagiarism action was run or required, no plagiarism credit was spent, and no paid external checker was attempted. Bound to live hash `9192f61e0e00f60694ed3ecc9fac8c289e4abe6e08eb566ce780092e9024a770`. |
-| Naturalness gate | ✅ `PASS` — canonical artifact `content/naturalness-reviews/cara-buat-poster-dengan-chatgpt-live-final.json`; live hash `9192f61e0e00f60694ed3ecc9fac8c289e4abe6e08eb566ce780092e9024a770`; 62 segments; fresh Claude `firstParty/claude-sonnet-5` terminal review plus independent OpenAI `gpt-5.6-luna` high review; all seven checks high confidence with no findings; verified 2026-09-05. |
+| Naturalness gate | ✅ `PASS` after the approved Post #14 inbound link — canonical artifact `content/naturalness-reviews/cara-buat-poster-dengan-chatgpt-live-final.json`; current live hash `f6474d43bb87ba1c630141550be0f9f84d21c43b47dd6892d1b63cdaa4c5d1b3`; 64/64 segments; fresh Claude `firstParty/claude-sonnet-5` terminal review plus independent OpenAI `gpt-5.6-luna` high review; all seven checks high confidence with no findings; verified 2026-09-16. The prior 2026-09-05 review is superseded. |
 | Image assets | ✅ Four final PNGs archived and SHA-256 matched between `content/assets/post-8/` and `G:\Zamzam Biznez\DigiTrustLab\Blog images`; live featured replacement = Media **727** (v3), idea-theme replacement = Media **724**, comparison = Media **719**, final checklist = Media **720**. All generated images were inspected at native resolution before upload. Human-led malformed-hand candidate was rejected and never uploaded. |
 | WordPress media repair | ✅ Featured Media 723 was superseded by the owner's manual replacement **Media 727** at `cara-buat-poster-dengan-chatgpt-featured-v3.png`; the direct asset returned HTTP 200 on 2026-09-07. Idea-theme Media 724 replaced old 718; the repeated featured figure was removed from the body. Fresh read-back confirms the post points to 727, while old attachment 723 and confirmed-unused media 717/718 are no longer available. The manual replacement used a new filename/attachment ID rather than the URL-preserving path; no further media cleanup is pending. |
 | WordPress publication | ✅ Post `721` is published at the exact URL with featured media `727`, inline media `724`, `719` and `720`, category `AI Tools`, and the visible H1 supplied only by the Bricks single-post template. |
@@ -609,6 +681,48 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | Evidence | `content/research/prompt-engineering-2026-09-12-relevance.md`; `content/image-prompts.md`; `content/naturalness-reviews/contoh-prompt-ai.json` |
 
 > This post is the first published member of the approved generic prompt-writing family. It is broader than Post #3's ChatGPT-specific workflow while remaining instructional and experience-led; no income or performance promise is made.
+
+---
+
+## Post #14 — PUBLISHED; CLOSEOUT PENDING — CARA BUAT BANNER GUNA CANVA
+
+| Field | Value |
+|-------|-------|
+| Title | Cara Buat Banner Guna Canva: Panduan Praktikal |
+| Primary Keyword | `cara buat banner guna canva` |
+| Search intent | Informational / how-to / beginner workflow |
+| Search Volume | 50/mo (exact Keyword Explorer volume; Malay long-tail relaxation) |
+| KD (Ads / Content / Traffic / Signal) | 0 / 0 / 0 / 0 |
+| Golden Score | 1.003 |
+| All-in-Title | 0 |
+| Weak Spot | 5 (pass; required >=2) |
+| Category | Canva & Design |
+| Status | Published once on 16 September 2026 at 21:43:06 MYT; core publication gates pass, while link and tracking closeout remain pending |
+| Family / cluster | `canva-design.canva.visual-assets`; `canva-design.canva` |
+| WriterZen Topic Discovery | Report 246874 — broad Canva seed research, Malaysia/Malay |
+| WriterZen Keyword Explorer | Report 1577317 — exact `cara buat banner guna canva`; volume 50 |
+| WriterZen Golden Filter | Report 1577318 — All-in-Title 0; Golden Score 1.003 |
+| WriterZen Keyword Planner | Project 179313 — Weak Spot 5 |
+| WriterZen Content Creator | Article 244791 — outline-only generation; title/description/outline controls used; whole article OFF; keyword suggestions OFF |
+| Outline handoff | ✅ `WRITERZEN_OUTLINE_HANDOFF: PASS` — 5 H2 and 3 genuine H3 headings preserved; map `content/outline-maps/cara-buat-banner-guna-canva-writerzen-244791.md` |
+| Draft / originality | `content/drafts/cara-buat-banner-guna-canva.html`; native originality/source evidence recorded; no WriterZen plagiarism checker used |
+| WordPress Post | ID 740 — `https://digitrustlab.com/cara-buat-banner-guna-canva/` (published) |
+| Post ID | 740 |
+| Media | Featured + inline Media 743/744/745/746 verified; blank captions and Malay alt text preserved |
+| Rank Math | 79/100; Article schema; focus keyword, SEO title and description set; Pillar Content off |
+| Naturalness Gate | ✅ Local/live PASS — hash `759f012cd1e8332a9d69feb356344a50a05ad717e76b21774acafd9fc872e62c`, 69 segments; Claude `firstParty` / `claude-sonnet-5` + OpenAI `gpt-5.6-luna` high; live verifier uses explicit frontend metadata fallback with canonical match |
+| Malay Voice Gate | ✅ Post 740 registered; live validator 0 countable violations; human register, grammar and read-aloud review remains part of the naturalness evidence boundary |
+| Structure Gate | ✅ Live Post 740 — no body H1; template title is not duplicated |
+| Link Quality Gate | ✅ Live PASS — `canva.com` added once to Rank Math Nofollow Exclude Domains, with the other settings preserved; 2 contextual internal links and 5 editorial external dofollow links; destinations checked; link hash `8cd02f3cdd8cccae7803fdeb745ee6b6c7c66c3b56a2d07c546af709b0f47cf4`; approved inbound link from Post #8 (ID 721) verified at exact URL; `content/link-reviews/cara-buat-banner-guna-canva.json` |
+| ClickRank Keyword Tracker | ⚠️ Pending — exact authenticated Chrome tab listed but fresh snapshot timed out repeatedly; no baseline or submission attempted |
+| ClickRank AI Overview Tracker | ⚠️ Pending — same authenticated Chrome binding blocker; no baseline or submission attempted |
+| ClickRank Website Optimization / Pages | ⚠️ Pending — same authenticated Chrome binding blocker; no submission attempted |
+| Screpy Rank Tracker | ✅ Exact keyword `cara buat banner guna canva` added once; project `wgspvb7lc3`, Malaysia/Malay, Device Both; Mobile `737577` and Desktop `737578` completed 2026-09-16 14:41 UTC; neither found an owned organic result; no crawl started |
+| Google Search Console | ⚠️ Pending — existing authenticated tab listed but binding unresponsive; no Test Live URL or indexing request attempted |
+| Repository closeout | ⏳ Commit, push, clean-worktree classification and remote parity pending |
+| Evidence | `content/research/cara-buat-banner-guna-canva-originality.json`; `content/naturalness-reviews/cara-buat-banner-guna-canva.json`; `content/naturalness-reviews/cara-buat-banner-guna-canva-review-package.html`; `content/image-prompts.md` |
+
+> Post #14 is a distinct Canva visual-asset workflow, separate from Post #5's poster guide and Post #10's photo-editing guide. Publication, links, and Screpy tracking are verified. ClickRank and GSC remain pending until the existing authenticated Chrome tabs respond to a fresh snapshot.
 
 ---
 

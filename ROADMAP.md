@@ -1,11 +1,18 @@
 # DigiTrust Lab — Roadmap
 
-> **Status:** POST #13 COMPLETE — trackers, approved inbound links, and repository parity verified
-> **Current Phase:** `Contoh Prompt AI: Cara Menulis Arahan yang Jelas dan Berkesan` is live at `https://digitrustlab.com/contoh-prompt-ai/` (ID `734`). Exact keyword `contoh prompt` passed Topic Discovery `246783`, Keyword Explorer `1576173`, Golden Filter `1576174`, Planner `179243`, and Weak Spot `2`. The outline-only WriterZen handoff, media, Rank Math `92/A`, structure and dual naturalness gates are verified. Search Console Test Live URL reports `URL is available to Google` / `Page can be indexed`, while Google Index reports `URL is on Google` / `Page is indexed`. ClickRank standard and AI Overview rows are verified, as are Screpy MCP rows `728617` (Mobile) and `728618` (Desktop). Post 437 and Post 536 now contain the two approved contextual inbound links to Post 734; the link review passes with inbound count `2`.
-> **Last Updated:** 2026-09-13 (Post #13 closeout committed/pushed; 13 posts published)
+> **Status:** POST #14 PUBLISHED — ClickRank, GSC, and repository closeout pending
+> **Current Phase:** `Cara Buat Banner Guna Canva: Panduan Praktikal` is live at `https://digitrustlab.com/cara-buat-banner-guna-canva/` (ID `740`), published once on 2026-09-16 at 21:43:06 MYT. Exact keyword `cara buat banner guna canva` passed volume `50`, Golden Score `1.003`, All-in-Title `0`, Planner `179313`, and Weak Spot `5`. The outline-only WriterZen handoff, media 743/744/745/746, Rank Math `79/100`, structure, Malay voice, dual naturalness gates, live link gate, and Screpy Device Both rows are verified. ClickRank standard/AI Overview, GSC, and repository commit, push, and parity remain pending.
+> **Last Updated:** 2026-09-16 (Post #14 published; core gates verified; closeout pending)
 > **Monthly Revenue:** RM 69 (1 sale, pre-blog era)
 
 > **Scope note:** Historical milestones and planned titles remain retained for continuity. The authoritative current content inventory and research status is [`content/content-calendar.md`](content/content-calendar.md). The active editorial queue lives there, not here.
+
+---
+
+## 16 September 2026 Snapshot
+
+- **14 blog posts published** on digitrustlab.com
+- Post #14 `Cara Buat Banner Guna Canva: Panduan Praktikal` is live at `https://digitrustlab.com/cara-buat-banner-guna-canva/` (ID `740`), published once at 21:43:06 MYT. Exact keyword `cara buat banner guna canva` volume `50`, Golden Score `1.003`, All-in-Title `0`, Planner Weak Spot `5`; WriterZen reports `246874`, `1577317`, `1577318`, `179313`, and `244791`. Media 743/744/745/746, Rank Math `79/100`, 5 H2/3 H3 outline handoff, live structure/voice, and local/live naturalness hash `759f012cd1e8332a9d69feb356344a50a05ad717e76b21774acafd9fc872e62c` across 69 segments are verified. The live link gate and Screpy Malaysia/Malay Device Both rows `737577`/`737578` are verified. ClickRank standard/AI Overview, GSC, commit, push, and repository parity remain pending.
 
 ---
 
@@ -35,7 +42,7 @@
 
 ```
 Phase 1: Foundation         ██████████ 100% ✅ (Infrastructure)
-Phase 1: Content             ██████████ 100% (13 posts published; see calendar for authoritative inventory)
+Phase 1: Content             ██████████ 100% (14 posts published; see calendar for authoritative inventory)
 Phase 2: Compounding        ░░░░░░░░░░  0%
 Phase 3: Traffic Growth     ░░░░░░░░░░  0%
 Phase 4: Scale              ░░░░░░░░░░  0%

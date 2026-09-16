@@ -1,0 +1,424 @@
+You are the independent Claude Sonnet/Anthropic reviewer for a Malay naturalness gate.
+
+Review only the exact revised frozen package segments below. Do not use any prior review, provider verdict, correction, or external context. Review the complete document and every segment.
+
+Return structured JSON with provider, model, status, document_review, and segments. Use provider anthropic or firstParty, a canonical model identity containing Sonnet, status pass only if every check is true, confidence high, and findings []. Cover every segment ID exactly once, preserving each supplied hash.
+
+All seven binary checks are mandatory for the document and every segment:
+
+1. natural_usage: Would a Malaysian technology writer naturally use this wording?
+
+2. literal_translation: Is there a literal translation or unusual word combination?
+
+3. bureaucratic_stiffness: Does any phrase sound bureaucratic, academic, or overly governmental?
+
+4. technical_term_choice: Would an English technical term be clearer in this context?
+
+5. read_aloud_clarity: Does the text sound natural on the first read and when read aloud?
+
+6. terminology_consistency: Is terminology and register consistent throughout the article?
+
+7. grammatical_completeness: Is every sentence grammatically complete, with proper verbs where required, yang in relative clauses, no fragments or fused sentences, and no missing particles or affixes a fluent Malaysian reader would notice?
+
+Every check must be a boolean. If any issue exists, status must be fail and record a precise finding; do not invent a pass.
+
+Exact revised frozen package (66 segments):
+
+[
+  {
+    "id": "seg-001",
+    "kind": "title",
+    "hash": "dc242a10ec2ec120b901381af43ab2dd83c55df5130ce427032c629b13f25745",
+    "text": "Cara Buat Banner Guna Canva: Panduan Praktikal"
+  },
+  {
+    "id": "seg-002",
+    "kind": "p",
+    "hash": "8447c3f4f93b2535567d7df32917f1a6249ce95f3fc6e91bdba6d1f093d1f5be",
+    "text": "Pernahkah anda menyiapkan banner yang kelihatan kemas pada komputer, tetapi teksnya menjadi terlalu kecil apabila dibuka pada telefon? Dalam panduan ini, kami menerangkan cara buat banner guna Canva dengan aliran kerja yang mudah diikuti, daripada memilih saiz hingga menyemak fail sebelum dikongsi."
+  },
+  {
+    "id": "seg-003",
+    "kind": "p",
+    "hash": "c8ba7afb27699e3a8796f8d3da3574c9c4a49ab79c6a850d24a52e1ca7333cc0",
+    "text": "Banner berbeza daripada poster walaupun kedua-duanya menggunakan teks, warna dan visual. Banner biasanya perlu menyampaikan mesej dalam ruang yang lebih mendatar atau pada kawasan paparan yang telah ditetapkan. Oleh itu, susunan dan keterbacaan perlu dirancang sejak awal, bukan dibaiki selepas semua elemen dimasukkan."
+  },
+  {
+    "id": "seg-004",
+    "kind": "p",
+    "hash": "0e1a2b16dddfde7c407345270c0eb3fe135d17052a0d1a5051e645c664c5b756",
+    "text": "Nota ringkas: Banner yang berkesan tidak cuba menyampaikan semua perkara serentak. Tetapkan satu mesej utama, kemudian biarkan saiz, ruang dan warna membantu pembaca menemukannya."
+  },
+  {
+    "id": "seg-005",
+    "kind": "h2",
+    "hash": "ee2b72961559d1169a6dcfc47ec9a5f5422bbdbccee04be09076132d2c49d80e",
+    "text": "Pengenalan kepada Canva dan Kepentingan Banner yang Menarik"
+  },
+  {
+    "id": "seg-006",
+    "kind": "p",
+    "hash": "afdfba1eeeb9793106e909c46c1c76c8870c39965aa7f7ae6493964a4c83ccbe",
+    "text": "Canva ialah alat reka bentuk dalam talian yang menyediakan templat, elemen grafik, teks dan pilihan saiz untuk pelbagai kegunaan. Halaman rasmi Canva Banner Maker menunjukkan bahawa anda boleh bermula dengan saiz yang disediakan untuk beberapa platform, kemudian mengubah warna, imej, teks dan susun atur melalui editor drag & drop."
+  },
+  {
+    "id": "seg-007",
+    "kind": "p",
+    "hash": "583986dd96f41aff8c05065241c9cb7a2e441ae4fdf0320148592062fc7efef4",
+    "text": "Bagi pemula, kemudahan ini berguna kerana anda boleh menguji susunan tanpa membina setiap bentuk dari kosong. Namun, templat bukan keputusan akhir. Anda masih perlu menggantikan teks contoh, memeriksa hak penggunaan visual dan memastikan mesej banner sepadan dengan ruang yang tersedia."
+  },
+  {
+    "id": "seg-008",
+    "kind": "li",
+    "hash": "5cc957ccd3c0aa5ed668a9b8685cec71f21f5a403eb90715500144f40dafb667",
+    "text": "Apa yang Canva bantu: Menyediakan titik mula, saiz dan elemen yang boleh disunting dalam satu ruang kerja."
+  },
+  {
+    "id": "seg-009",
+    "kind": "li",
+    "hash": "e4b4b49080044bef7cd3674a7ac8b9fbd735ef56a4f1540479fa51eec5b8b53a",
+    "text": "Apa yang anda putuskan: Mesej, pembaca sasaran, keutamaan maklumat dan visual yang benar-benar berkaitan."
+  },
+  {
+    "id": "seg-010",
+    "kind": "li",
+    "hash": "12c8af15278b73ca41b5561fff7c9565665dae063c6327486265b2edd242d295",
+    "text": "Tujuan banner: Menghebahkan maklumat, memperkenalkan kandungan, menyokong kempen atau membimbing pembaca ke tindakan seterusnya."
+  },
+  {
+    "id": "seg-011",
+    "kind": "p",
+    "hash": "453d757f58d4c342c6151ee7f67ea7092b92a66e18b8753c6361f84b26a47174",
+    "text": "Banner yang menarik tidak semestinya penuh dengan hiasan. Ia biasanya mempunyai fokus yang mudah dikenal pasti, ruang yang cukup di sekeliling teks dan perbezaan visual yang membantu mata bergerak mengikut urutan."
+  },
+  {
+    "id": "seg-012",
+    "kind": "h2",
+    "hash": "e24ac2853ab98ee75a2fe3431b461c9d1d049dc0e62fdcd9c1a7d45bc6230a22",
+    "text": "Langkah-Langkah Mudah Cara Buat Banner Guna Canva"
+  },
+  {
+    "id": "seg-013",
+    "kind": "p",
+    "hash": "4b932c12e51d9c2f7e260fefdd64fac4fe890114a496528bdcee0777f2c0e3b3",
+    "text": "Sebelum memilih templat, tulis tiga perkara: tempat banner akan dipaparkan, mesej yang perlu dilihat dahulu dan tindakan yang anda mahu pembaca lakukan. Nota ringkas ini menjadi penapis apabila anda mula memilih elemen dalam Canva."
+  },
+  {
+    "id": "seg-014",
+    "kind": "h3",
+    "hash": "6357c6ef761a4563450ecffdd3c56904157755315f38646e9567cfd68dec04b9",
+    "text": "Memilih Saiz Banner yang Sesuai"
+  },
+  {
+    "id": "seg-015",
+    "kind": "p",
+    "hash": "265e0b652bd8f484c435af90e2a7495e4c56fe69d1c60ec5c5b13949bb8f6766",
+    "text": "Saiz yang sesuai bergantung pada platform dan cara banner itu dilihat. Canva menyediakan pilihan reka bentuk mengikut platform, manakala panduan saiz rasmi seperti panduan saiz iklan web Canva boleh membantu anda memahami contoh ukuran banner digital. Jangan menyalin satu ukuran ke semua tempat kerana nisbah yang berbeza boleh memotong teks atau visual penting."
+  },
+  {
+    "id": "seg-016",
+    "kind": "li",
+    "hash": "56a156d3a9428a692c0f4fa566c4f47c36517b48f4a2ec23e311df1d153ff201",
+    "text": "Kenal pasti tempat penerbitan: Catat sama ada banner akan digunakan pada halaman web, profil media sosial, paparan acara atau bahan cetak."
+  },
+  {
+    "id": "seg-017",
+    "kind": "li",
+    "hash": "351b64d2c955c0227a101dd52436b34eaf8b2f53a45303dbeffc9f9eb370c675",
+    "text": "Pilih reka bentuk: Dalam Canva, cari jenis banner yang hampir dengan tujuan anda dan semak ukuran yang dipaparkan."
+  },
+  {
+    "id": "seg-018",
+    "kind": "li",
+    "hash": "89a7feb9cff5b5433d9e45e315fd3150929d32ed18acfbbb9472d97c7140774c",
+    "text": "Tetapkan ukuran tersuai: Jika platform memberikan lebar dan tinggi tertentu, masukkan ukuran itu menggunakan pilihan saiz tersuai."
+  },
+  {
+    "id": "seg-019",
+    "kind": "li",
+    "hash": "976dfd1319ca55b6ce8b478eb0c3e4b4812669be2ec6ae9e89c2e709466642da",
+    "text": "Periksa ruang selamat: Simpan tajuk, logo dan maklumat penting jauh daripada tepi supaya ia tidak kelihatan sempit atau terpotong."
+  },
+  {
+    "id": "seg-020",
+    "kind": "p",
+    "hash": "8aa00bb523618ec44559a5cc3b6db007eeb70b651632dec973ccf708445fb013",
+    "text": "Untuk banner cetak, hidupkan margin dan panduan yang berkaitan sebelum menyusun elemen. Canva menerangkan bahawa margin membantu melindungi teks dan logo, manakala kawasan bahaya menunjukkan elemen yang terlalu hampir dengan garisan potong. Latar boleh dilanjutkan ke kawasan bleed, tetapi teks penting perlu kekal dalam ruang selamat."
+  },
+  {
+    "id": "seg-021",
+    "kind": "h3",
+    "hash": "16fa41d0c44e56beebb0648c881238f03730109be868eb3736c7a014f33c0817",
+    "text": "Menyusun Layout yang Kemas dan Menarik"
+  },
+  {
+    "id": "seg-022",
+    "kind": "p",
+    "hash": "ef20b97afeb1e82eaef8f80e7634f2ecf873075d6e6b101b8bea86cf09c76fd8",
+    "text": "Mulakan dengan satu layout yang mempunyai laluan bacaan jelas. Letakkan tajuk pada kawasan yang mudah dilihat, sokongnya dengan penerangan ringkas dan gunakan visual yang menguatkan mesej. Canva menerangkan bahawa fungsi Position untuk mengalih lapisan dan menjajarkan elemen boleh digunakan apabila anda memilih satu atau beberapa elemen."
+  },
+  {
+    "id": "seg-023",
+    "kind": "li",
+    "hash": "4167e4601ac954c4d652083f9e796e8e9e74bedcf1e98860c8ef6ceb26dbf5a2",
+    "text": "Mulakan dengan rangka: Bahagikan banner kepada kawasan tajuk, visual dan maklumat sokongan sebelum menambah hiasan."
+  },
+  {
+    "id": "seg-024",
+    "kind": "li",
+    "hash": "170513df474e59296626a82715e2ad1200fb93c96d60119290fba7db37065abf",
+    "text": "Gunakan grid atau panduan: Garisan panduan membantu mengekalkan jarak dan penjajaran yang konsisten."
+  },
+  {
+    "id": "seg-025",
+    "kind": "li",
+    "hash": "77d44ab41b94db32610f26492d71e1ed08e6b384e1acaab8dd03feeee7d36e48",
+    "text": "Jaga imbangan: Jika visual besar berada di sebelah kanan, berikan ruang yang sepadan untuk teks di sebelah kiri."
+  },
+  {
+    "id": "seg-026",
+    "kind": "li",
+    "hash": "c10f57d2fb475152208e3b909c43a8e22d2429eb1509909e43a4abec69cb2c82",
+    "text": "Kurangkan elemen: Padam ikon atau bentuk yang tidak membantu pembaca memahami mesej."
+  },
+  {
+    "id": "seg-027",
+    "kind": "p",
+    "hash": "f7b52c8cc8c2c16380f7dc989dce8b0cafa76629c1bda0a2c08d332efa581831",
+    "text": "Untuk menyemak penjajaran dengan lebih teliti, pilih beberapa elemen dan gunakan pilihan penjajaran dalam menu kedudukan. Panduan rasmi Canva tentang prinsip alignment juga menekankan susunan, jarak yang sekata dan paksi mendatar serta menegak. Secara praktikal, anda boleh mengecilkan paparan untuk melihat sama ada setiap kumpulan masih kelihatan tersusun."
+  },
+  {
+    "id": "seg-028",
+    "kind": "p",
+    "hash": "4851e1c7ec3031825618f074b4e27f8fbede0e34d067fa49135f3f93748953ce",
+    "text": "Ujian ruang kosong: Jika setiap sudut banner sudah diisi, cuba buang satu elemen kecil. Ruang yang tinggal mungkin lebih berguna daripada hiasan tambahan. Membuka 47 tab untuk memilih satu ikon tidak menjadikan ikon itu lebih penting."
+  },
+  {
+    "id": "seg-029",
+    "kind": "h3",
+    "hash": "485ee6960232d449f16754574e2abc8aebaa23255a621e6a5c40fea17a1a1a9d",
+    "text": "Menjaga Keterbacaan Teks dan Pemilihan Warna"
+  },
+  {
+    "id": "seg-030",
+    "kind": "p",
+    "hash": "99e97f1e567ea257c30869bf1bfc8dfd30d05f9658c78f6f062a18cbcd2e4199",
+    "text": "Teks banner perlu boleh dibaca tanpa pembaca mengezum atau meneka maksudnya. Hadkan mesej kepada ayat yang ringkas, gunakan saiz yang munasabah untuk medium sasaran dan bezakan tajuk daripada maklumat sokongan melalui saiz, ketebalan atau ruang."
+  },
+  {
+    "id": "seg-031",
+    "kind": "li",
+    "hash": "25c3d2350c9392c58417a465152fc6aa136c353e312655a0f00c13bb1eb098ec",
+    "text": "Fon: Pilih satu atau dua font yang jelas dan gunakan gaya yang konsisten."
+  },
+  {
+    "id": "seg-032",
+    "kind": "li",
+    "hash": "cce67484bea9d9d43966986b67bebc150da303ca8edd5c4e90def8367b23d0fc",
+    "text": "Kontras: Pastikan warna teks tidak tenggelam dalam latar atau imej yang terlalu sibuk."
+  },
+  {
+    "id": "seg-033",
+    "kind": "li",
+    "hash": "c8e1d168c46381cb618cc6cbda43d23d2a19f8ed19c5ee9e7ab14277e4344d10",
+    "text": "Jarak: Berikan ruang antara baris dan kumpulan maklumat supaya teks tidak kelihatan berhimpit."
+  },
+  {
+    "id": "seg-034",
+    "kind": "li",
+    "hash": "cec205bd1c0163b062f701937bfcf3909464ce3715e2df295a73c0dc1080f893",
+    "text": "Semakan kecil: Lihat banner pada telefon atau kecilkan zum untuk mengesan perkataan yang terlalu halus."
+  },
+  {
+    "id": "seg-035",
+    "kind": "p",
+    "hash": "b5f5f9f0bf2d51cb354419b89951285443db311001a9daf4d71ce7c46d06f1f8",
+    "text": "Canva menyediakan alat Design Accessibility untuk mengenal pasti isu seperti kontras warna, tipografi dan teks alternatif. Jika banner akan dieksport sebagai PDF, panduan Canva untuk menghasilkan PDF yang boleh diakses menerangkan cara menyemak reka bentuk dan memilih tetapan PDF Digital yang mengekalkan urutan bacaan lapisan."
+  },
+  {
+    "id": "seg-036",
+    "kind": "li",
+    "hash": "a9ca9d1c7771e70d185d8e2547e64b0346d5783144f3eb01acf7c0ecbb3a8b1c",
+    "text": "Elakkan: Meletakkan teks panjang di atas gambar yang mempunyai banyak corak atau warna."
+  },
+  {
+    "id": "seg-037",
+    "kind": "li",
+    "hash": "49dcdde9ffdf9f2a9b05f459385baf4c176841853d447bc6da76660d97f1affc",
+    "text": "Gunakan: Latar yang lebih tenang, lapisan warna lembut atau ruang kosong di belakang maklumat utama."
+  },
+  {
+    "id": "seg-038",
+    "kind": "li",
+    "hash": "21a79819132a68f32ddd5025715d0e9bb5abcb568245a45ad3a7e9080eb12df6",
+    "text": "Elakkan: Menyampaikan maklumat penting melalui warna sahaja."
+  },
+  {
+    "id": "seg-039",
+    "kind": "li",
+    "hash": "c60307baea102ca19b0e4b2b1722d7d759af2e88b2825a411b650c63a76572ab",
+    "text": "Gunakan: Tajuk, ikon, bentuk atau label tambahan supaya perbezaan maklumat masih jelas tanpa bergantung pada warna."
+  },
+  {
+    "id": "seg-040",
+    "kind": "h2",
+    "hash": "6b502237bd4837dad9a7670f002ad9fb88a6f05fe853064a5cea512df6ec7a5b",
+    "text": "Mengeksport Hasil Banner yang Tajam dan Profesional"
+  },
+  {
+    "id": "seg-041",
+    "kind": "p",
+    "hash": "031ee7963c7716329509e38c7c277ca3c7ebc57afbb49f5644c046166d08c6da",
+    "text": "Selepas selesai menyemak reka bentuk, pilih format berdasarkan cara banner akan digunakan. Canva menerangkan bahawa PNG, JPG dan PDF ialah antara pilihan penerbitan yang tersedia, tetapi senarai yang dipaparkan boleh berubah mengikut jenis reka bentuk, akaun dan tujuan penggunaan."
+  },
+  {
+    "id": "seg-042",
+    "kind": "li",
+    "hash": "4f2865a7b456df5e501db6050e92b326d3edb58879705f8b4e70846458237a14",
+    "text": "PNG: Pilihan yang sesuai untuk grafik digital yang memerlukan teks dan bentuk yang jelas."
+  },
+  {
+    "id": "seg-043",
+    "kind": "li",
+    "hash": "ac06cd11b4f551d3533ec2a389393c5230e8e9f7f65b7a49d7e6b597d796826d",
+    "text": "JPG: Boleh dipertimbangkan apabila saiz fail lebih penting atau reka bentuk banyak menggunakan imej fotografi."
+  },
+  {
+    "id": "seg-044",
+    "kind": "li",
+    "hash": "7f1356890cdb6e5477dbdb34bc2d90a33c97a4b6873d26c9b6cf7f4cd0d3777e",
+    "text": "PDF: Berguna untuk bahan yang perlu dikongsi sebagai dokumen atau disediakan untuk cetakan; semak sama ada PDF Digital atau PDF Print lebih sesuai."
+  },
+  {
+    "id": "seg-045",
+    "kind": "p",
+    "hash": "10651f2047e11bc3d4c070a265ef45f3cc32070ef8370ba8026c21f70e8395a9",
+    "text": "Dalam editor Canva, pilih Share, kemudian Download dan semak jenis fail serta pilihan lanjutan yang tersedia. Untuk PDF cetak, Canva menyatakan bahawa crop marks dan bleed boleh ditambah ketika memuat turun. Untuk PDF yang perlu dibaca dengan bantuan pembaca skrin, gunakan tetapan aksesibiliti yang berkaitan dan uji fail yang telah dieksport."
+  },
+  {
+    "id": "seg-046",
+    "kind": "p",
+    "hash": "5724bac6f5e9bfa7d8569b2fe9b71cc2b9dfe8cd5494490fe4eaef277ab312fe",
+    "text": "Buka fail akhir selepas memuat turun. Periksa teks kecil, tepi banner, logo, warna latar dan sebarang elemen yang mungkin berubah. Simpan salinan reka bentuk Canva yang boleh disunting supaya pembetulan kemudian tidak memerlukan anda membina semula banner."
+  },
+  {
+    "id": "seg-047",
+    "kind": "h2",
+    "hash": "f695e5d0378540b9a68710aacd57797adab214615ea6b3796ca89d2dfd2a0e6d",
+    "text": "Tips Tambahan untuk Reka Bentuk Banner yang Berkesan"
+  },
+  {
+    "id": "seg-048",
+    "kind": "p",
+    "hash": "b8f6fcf009594c83e27e625bcd0290169198b50c40431fc08473945673255d45",
+    "text": "Selepas aliran asas selesai, lakukan satu semakan yang menumpukan kepada tujuan banner, bukan sekadar kecantikannya. Setiap elemen sepatutnya menjawab sekurang-kurangnya satu soalan: adakah ia menjelaskan mesej, memandu perhatian atau membantu pembaca bertindak?"
+  },
+  {
+    "id": "seg-049",
+    "kind": "li",
+    "hash": "09e359f4e0195951c50491c94eba4a3f4c1f59e074dbe7c64d229f04167d80e1",
+    "text": "Elemen grafik: Pilih ikon dan ilustrasi yang menyokong konteks, kemudian kekalkan gaya visual yang seragam."
+  },
+  {
+    "id": "seg-050",
+    "kind": "li",
+    "hash": "9db6d145f9913dcb9ead80618537513f8d682d270a57938f7f0571b0b72e3747",
+    "text": "Teks: Pendekkan ayat dan letakkan maklumat paling penting pada kedudukan yang paling mudah dilihat."
+  },
+  {
+    "id": "seg-051",
+    "kind": "li",
+    "hash": "0fef69f6496d0b7eb0f8739d25df9ad45e7e4a8bd1c04b24349573a746c5e6d8",
+    "text": "Peranti: Semak banner pada telefon, komputer dan peranti sasaran apabila anda boleh mengujinya."
+  },
+  {
+    "id": "seg-052",
+    "kind": "li",
+    "hash": "2eb0705408ac1fbcc8b58f7dc4275ec2745103541ea669d918c4d95c30f7c221",
+    "text": "Versi: Simpan versi asal dan gunakan nama fail yang menerangkan tarikh atau tujuan supaya anda tidak tersalah muat naik."
+  },
+  {
+    "id": "seg-053",
+    "kind": "p",
+    "hash": "1c398b02339771a701a502f440bfc87ef80e2ac1553ccc7ad645aa061867e772",
+    "text": "Jika anda sedang merancang visual yang lebih berinformasi, panduan membuat poster menggunakan Canva dengan AI menerangkan prinsip yang lebih sesuai untuk susun atur poster. Banner biasanya memerlukan mesej yang lebih padat, jadi jangan menyalin semua kandungan poster ke dalam kanvas yang lebih sempit."
+  },
+  {
+    "id": "seg-054",
+    "kind": "p",
+    "hash": "85a560c9a669eef582d5e678248b6369b2bd238e23bc408a0f98119b78aad422",
+    "text": "Begitu juga, jika visual anda bermula daripada foto, anda boleh merujuk panduan menyunting foto dengan Canva AI Photo Editor terlebih dahulu. Sunting foto dan bina banner ialah dua kerja berbeza; memisahkannya membantu anda menilai imej sebelum ia bersaing dengan teks."
+  },
+  {
+    "id": "seg-055",
+    "kind": "h2",
+    "hash": "2e004ed47310a2a57f10bcfe2eac5799859ca79ce6c75473a294ee118a69de55",
+    "text": "Kesimpulan dan Panduan Langkah Demi Langkah"
+  },
+  {
+    "id": "seg-056",
+    "kind": "p",
+    "hash": "e7e919b7bf65a169eb6a729b27fa035167cf20432a118da3a58da0209a9102a6",
+    "text": "Cara buat banner guna Canva menjadi lebih teratur apabila anda mengikut urutan yang jelas: tetapkan tujuan, pilih saiz, bina layout, susun teks, semak kontras dan eksport dalam format yang sesuai. Urutan ini mengurangkan perubahan rawak kerana setiap keputusan dibuat berdasarkan tempat banner akan digunakan."
+  },
+  {
+    "id": "seg-057",
+    "kind": "li",
+    "hash": "9179a834a9c32544e8d3cedab943cc379cf9f3b489d4dfc1ccfa7fb02feb2dde",
+    "text": "Tentukan mesej: Pilih satu perkara yang perlu difahami oleh pembaca dahulu."
+  },
+  {
+    "id": "seg-058",
+    "kind": "li",
+    "hash": "cebf6b1d7387e479ca6c6e6a4f8d1bff543ee202266c6489cb90085960c11370",
+    "text": "Pilih saiz: Gunakan ukuran platform atau ukuran tersuai yang disahkan."
+  },
+  {
+    "id": "seg-059",
+    "kind": "li",
+    "hash": "68e9e6f6a2be0957a0d00af30764c5f66b03d86c22ae8430f0ec0ffb2c985ebf",
+    "text": "Bina susunan: Jajarkan elemen, kekalkan ruang kosong dan kurangkan gangguan."
+  },
+  {
+    "id": "seg-060",
+    "kind": "li",
+    "hash": "e1ffb678b081ed64a0ac35a17a53c0ac4c28d4b7df059a138f73835f8eac7f95",
+    "text": "Semak keterbacaan: Uji teks pada peranti sasaran dan gunakan alat aksesibiliti jika berkaitan."
+  },
+  {
+    "id": "seg-061",
+    "kind": "li",
+    "hash": "a3c5d580be76bf64427b045a19bbacd84eb2f480cc6f966e481606c05a01e896",
+    "text": "Eksport dengan teliti: Pilih PNG, JPG atau PDF mengikut penggunaan, kemudian buka semula fail akhir."
+  },
+  {
+    "id": "seg-062",
+    "kind": "p",
+    "hash": "6f6c80d0abd6943b0e7eae1868d8d2212de5774511140c076bf2a0d626a2ff88",
+    "text": "Anda tidak perlu menghasilkan banner yang sempurna pada percubaan pertama. Mulakan dengan satu mesej dan satu layout yang mudah, kemudian buat pembetulan berdasarkan apa yang anda lihat pada skrin sebenar."
+  },
+  {
+    "id": "seg-063",
+    "kind": "p",
+    "hash": "d54efec5e5ac0f317b5942f6609387348a666c0398bb25c5796a33a89515d15e",
+    "text": "Ringkasan: Banner yang jelas bermula dengan tujuan yang jelas. Pilih saiz yang betul, susun elemen mengikut keutamaan dan semak fail akhir sebelum pembaca melihatnya."
+  },
+  {
+    "id": "seg-064",
+    "kind": "excerpt",
+    "hash": "26de4d842e5f7c30bc4fade97588f08012e42dc6e46db28c86d8561c8f67bb97",
+    "text": "Pelajari cara buat banner guna Canva daripada memilih saiz dan menyusun layout hingga menyemak teks, warna serta format eksport supaya hasilnya lebih kemas."
+  },
+  {
+    "id": "seg-065",
+    "kind": "metadata",
+    "hash": "1f10f47270a654f1af788c108c382fac213673ee5e92a7e666aff0a885ffb96b",
+    "text": "Cara Buat Banner Guna Canva: Panduan Praktikal"
+  },
+  {
+    "id": "seg-066",
+    "kind": "metadata",
+    "hash": "11659d90be71439cbcc9a0d9848ed51df4a7c9ca4b40a8ced36347bbd6a601cb",
+    "text": "Pelajari cara buat banner guna Canva, daripada memilih saiz dan menyusun layout hingga menjaga keterbacaan teks serta mengeksport fail yang kemas."
+  }
+]

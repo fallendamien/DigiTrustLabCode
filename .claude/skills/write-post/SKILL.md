@@ -196,6 +196,100 @@ Golden Filter costs **1 Keyword Credit per keyword in the result set** (39 keywo
 
 > **30-day freshness rule:** WriterZen search results expire after 30 days. If the last Keyword Explorer run for this topic is older than 30 days, start a fresh search — do NOT reuse stale metrics.
 
+### Phase 0: GSC Spillover Scan (MANDATORY to run — a zero result is valid)
+
+> **Why this exists (added 2026-09-16):** on 2026-09-16 the ClickRank Performance
+> tab showed the site ranking **position 2.1** for `prompt gemini untuk foto
+> profesional` with **no dedicated page** — pure spillover from Post #9. Google was
+> already treating the site as relevant for a query nobody had ever targeted. That
+> signal is invisible to WriterZen, which reports market volume, not what Google
+> already associates with *this* domain. This phase harvests it.
+
+This is a **candidate source, not a validation step.** Everything it produces still
+passes the editorial relevance gate and every WriterZen gate below. It costs zero
+WriterZen quota, so run it before spending any.
+
+1. In the existing authenticated Chrome tab, open ClickRank →
+   `https://app.clickrank.ai/en/performance?_view_tab=queries`
+2. Set the date window as wide as the UI allows, and set page size to **100**
+   (the default 25 hides most of the tail)
+3. Read the **Queries** tab in full. **Sort by `POSITION` ascending** — the default
+   sort is by clicks, which buries the best spillover candidates (they rank well but
+   have few clicks precisely because nothing targets them). Sorting by position surfaces
+   whole clusters at once. Then read the **Pages** tab and record each published URL's
+   average position.
+   - Each query row also carries a **`Track`** action icon that adds the keyword
+     straight to the ClickRank Keyword Tracker — see Phase 7 step 1. Useful here when
+     a spillover candidate is worth monitoring before any post is written.
+4. For each query, check whether a published post already targets it as its Rank Math
+   focus keyword (cross-check `content/content-calendar.md`). Queries with **no
+   dedicated page** are the spillover candidates.
+5. Classify each candidate on **both** position and impressions — neither alone is
+   readable:
+
+| Position | Impressions | What it actually means | Action |
+|---|---|---|---|
+| Top 5 | High | Already winning without a dedicated page | **Do not build a new page** — cannibalization risk. Strengthen the existing post instead. |
+| Top 5 | Low | **Low-volume query, confirmed.** At top 5 you already receive nearly all available impressions, so low impressions = genuinely low demand | Not worth a standalone post. Fold in as an H2/H3 section of the post that already ranks. |
+| 5–20 | High | **The sweet spot** — real demand, close to page 1, nothing dedicated to it | Strongest candidate. Carry as a seed into Phase 0a. |
+| 20+ | High | Demand exists, site not competitive yet | Normal Topic Discovery path; spillover adds nothing here |
+| 20+ | Low | No signal | Ignore |
+
+6. Record the findings — or explicitly record **"zero spillover candidates"** — in the
+   Research attestation's evidence for the relevance gate.
+7. Run the cannibalization test below on every candidate before promoting it to a new post.
+
+#### Phase 0 cannibalization test (MANDATORY before proposing a new post for a spillover query)
+
+> **Terminology — get this right.** Keyword cannibalization is **not a Google penalty**
+> and not a manual action. Nothing is being sanctioned. It is simply signal dilution:
+> two pages answer the same intent, Google has to choose, and it may choose the weaker
+> one or alternate between them. The cost is a lost ranking, not a strike against the
+> site. Penalties come from spam, cloaking, and manipulation — none of which are in
+> play here. Do not write "penalty" in a research record when describing this risk, and
+> do not let fear of a penalty justify skipping a legitimate topic.
+
+A spillover query may become a **new dedicated post** only when **all three** hold. If
+any one fails, the action is **expand the existing post**, not create a new one:
+
+1. **Distinct job-to-be-done** — a genuinely different reader task, not different
+   wording for the same one. Shared head terms are a warning sign. If an existing post
+   already ranks top 5 for the query, Google has effectively ruled that the intents are
+   the same; you need a strong reason to argue with that.
+2. **The incumbent covers it only in passing** — read the actual published post. If it
+   already has a section on the subject, a new page competes with that section.
+3. **Validated volume justifies the risk** — Phase 0b exact Keyword Explorer volume,
+   not GSC impressions. A top-5 ranking with low impressions has already proven the
+   query is small (see the classification table above).
+
+**The asymmetry rule.** Weigh the query being chased against the page currently ranking
+for it, using the Pages tab. If the incumbent holds **more than 20% of total site
+impressions**, do not risk it for a low-volume query — stop and get explicit user
+approval, recorded in the relevance record, before proceeding. Worked example
+(2026-09-16): chasing `prompt gemini untuk foto profesional` (8 impressions, position
+2.1) would have put Post #9 at risk — 1,029 impressions, 36% of all site impressions.
+The correct action was a new section in Post #9, not a new post.
+
+**If a competing page does ship, monitor the incumbent.** For the next two ClickRank
+Performance reads, track the incumbent's average position for its own focus keyword. A
+sustained drop alongside the new page ranking for the same queries is the signal to
+consolidate — merge the pages and 301 the weaker URL. Do not confuse this with normal
+post-edit re-crawl flux.
+
+> ⚠️ **The structural limitation. Read before trusting any output from this phase.**
+> Google Search Console only reports queries the site has **already appeared for**. It
+> is blind by construction to demand the site is invisible for — a large, valuable
+> keyword ranking nowhere will never show up here. **This phase therefore never
+> replaces Phase 0a; it only adds candidates to it.** Spillover is a *winnability*
+> signal; WriterZen is the *volume* signal. A candidate needs both.
+
+> ⚠️ **Impressions are not search volume.** They are impressions *you received*,
+> capped by your own position. Only in the top-5 rows above do they approximate true
+> volume. Always confirm real volume with exact Keyword Explorer in Phase 0b — never
+> promote a spillover candidate on its GSC impression count alone.
+
+A zero-candidate result is normal and does not block Phase 0a.
+
 ### Phase 0a: Topic Discovery (find the winnable angle BEFORE committing to a title)
 
 > **Why this exists:** DigiTrust Lab is a low-DA site. Picking a title first and hunting for a keyword afterwards is backwards — it commits you to an angle before checking whether it's rankable. Topic Discovery reverses that. Planned titles in `content-calendar.md` are **provisional** until this phase confirms them.
@@ -801,6 +895,16 @@ stale approval hash.
    - This tracks traditional Google SERP rankings + impressions
    - Apply the shared pre-submit and async protocol above; the closeout must
      record both the pre-submit count and the post-submit/existing-row count.
+   - **Shortcut — the row-level `Track` button (found 2026-09-16).** If the keyword
+     already appears in Performance → Queries, do not retype it in the tracker. Each
+     query row carries an action icon whose tooltip reads **`Track`** (third of four
+     icons, right-hand `ACTIONS` column); clicking it adds that keyword to the Keyword
+     Tracker directly, with no manual entry and no transcription risk.
+     **Boundary:** this only works for keywords GSC has already recorded an impression
+     for. A brand-new post's focus keyword will not be in that list yet, so a
+     just-published post still needs the manual add above. Either way the same
+     pre-submit count check, async wait, reload, and row verification apply — the
+     shortcut changes how the row is created, not how it is verified.
 2. **ClickRank — Website Optimization / Pages** (app.clickrank.ai/en/pages):
    - Add the exact published article URL to the Website Optimization queue using
      **Add URL**. If the URL is already present, do not add a duplicate; open its

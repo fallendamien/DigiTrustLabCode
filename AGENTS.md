@@ -743,10 +743,43 @@ For broader marketing strategy (competitor teardown, E2E SEO, ICP research, cont
 
 **Before writing any blog post, load the `write-post` skill (`.claude/skills/write-post/SKILL.md`) for the full end-to-end pipeline.** Load the `writerzen-keyword-research` skill for keyword research, then follow the Option C workflow for content creation.
 
-**Option C Pipeline:** Editorial relevance gate → Quota check → **Topic Discovery** → Keyword Explorer (**+ Golden Filter**) → Keyword List → Cluster into a NEW Planner project → **Verify Weak Spot ≥ 2** → Keyword Planner (Suggest Content Brief + manually adjust 6 fields) → Content Creator (outline → **Copy to editor + verify populated scaffold** → keywords → **outline-fidelity map**) → publish via Respira MCP → Rank Math → rank tracking → internal linking → documentation. Apply the full project-local contract in `.claude/rules/editorial-relevance-gate.md` before any research or credit spend.
+**Option C Pipeline:** Editorial relevance gate → Quota check → **GSC Spillover Scan** → **Topic Discovery** → Keyword Explorer (**+ Golden Filter**) → Keyword List → Cluster into a NEW Planner project → **Verify Weak Spot ≥ 2** → Keyword Planner (Suggest Content Brief + manually adjust 6 fields) → Content Creator (outline → **Copy to editor + verify populated scaffold** → keywords → **outline-fidelity map**) → publish via Respira MCP → Rank Math → rank tracking → internal linking → documentation. Apply the full project-local contract in `.claude/rules/editorial-relevance-gate.md` before any research or credit spend.
 
 > **Never skip the Content Creator pipeline.** The outline must be generated through WriterZen's AI + competitor research, not manually planned.
 
+> ### 🔍 GSC Spillover Scan — run before spending any quota (added 2026-09-16)
+>
+> Before Topic Discovery, read ClickRank → Performance → Queries
+> (`https://app.clickrank.ai/en/performance?_view_tab=queries`) in the existing
+> authenticated Chrome tab and list every query the site already ranks for that has
+> **no dedicated page**. These are the cheapest candidates available: Google has
+> already judged the domain relevant for them. It costs zero WriterZen quota.
+>
+> Classify on **position and impressions together**. Position 5–20 with high
+> impressions is the sweet spot. Top-5 with *low* impressions proves the query is
+> genuinely low-volume (at top 5 you already see nearly all impressions) — fold it
+> into an existing post as a section rather than writing a new one.
+>
+> ⚠️ **This never replaces Topic Discovery.** GSC only reports queries the site has
+> already appeared for, so it is structurally blind to demand the site is invisible
+> for. Spillover is a winnability signal; WriterZen supplies the volume signal. A
+> candidate needs both, and GSC impressions are never a substitute for exact
+> Keyword Explorer volume. A zero-candidate result is valid and blocks nothing.
+>
+> **Cannibalization test (mandatory before a spillover query becomes a new post).** All
+> three must hold, or the action is *expand the existing post* instead: (1) distinct
+> job-to-be-done, (2) the incumbent post covers it only in passing, (3) validated
+> Keyword Explorer volume justifies the risk. Plus the **asymmetry rule** — if the page
+> currently ranking holds >20% of total site impressions, stop for explicit user
+> approval rather than risking it for a small query.
+>
+> Note: cannibalization is **not a Google penalty** — it is signal dilution between two
+> pages answering one intent. Do not record it as a penalty, and do not let penalty fear
+> veto a legitimate topic.
+>
+> Full method, classification table, and the cannibalization test:
+> `.claude/skills/write-post/SKILL.md` § "Phase 0: GSC Spillover Scan".
+>
 > ### ⛔ Four research gates — never skip these (added 2026-07-29)
 >
 > These were previously absent from this summary, so agents (Devin included) jumped straight to Keyword Explorer and silently skipped the research front-half. All four are MANDATORY:

@@ -36,6 +36,7 @@ import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlsplit
 
 
 SITE = "https://digitrustlab.com"
@@ -65,11 +66,16 @@ META_NAMES = {
     "rank_math_description",
     "rank_math_title",
 }
+RANK_MATH_META_KEYS = ("rank_math_title", "rank_math_description")
 
 
 def normalize_text(value: str) -> str:
     """Normalize reader-facing text for matching and stable hashing."""
     return re.sub(r"\s+", " ", html_lib.unescape(value or "")).strip()
+
+
+def normalized_field(value: Any) -> str:
+    return normalize_text(value) if isinstance(value, str) else ""
 
 
 def hash_text(value: str) -> str:
@@ -151,6 +157,149 @@ def extract_html_segments(source_html: str) -> list[dict[str, str]]:
     return parser.segments
 
 
+class FrontendMetadataParser(HTMLParser):
+    """Extract the small, unambiguous SEO surface used by live fallback checks."""
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.titles: list[str] = []
+        self.descriptions: list[str] = []
+        self.canonicals: list[str] = []
+        self._title_depth = 0
+        self._title_text: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        tag = tag.lower()
+        attributes = {key.lower(): value or "" for key, value in attrs}
+        if tag == "title":
+            self._title_depth += 1
+            if self._title_depth == 1:
+                self._title_text = []
+            return
+        if tag == "meta":
+            name = (attributes.get("name") or "").lower()
+            if name == "description":
+                self.descriptions.append(normalize_text(attributes.get("content", "")))
+            return
+        if tag == "link":
+            rel_tokens = {token.casefold() for token in attributes.get("rel", "").split()}
+            if "canonical" in rel_tokens:
+                self.canonicals.append(html_lib.unescape(attributes.get("href", "")).strip())
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag.lower() != "title" or self._title_depth == 0:
+            return
+        self._title_depth -= 1
+        if self._title_depth == 0:
+            self.titles.append(normalize_text("".join(self._title_text)))
+            self._title_text = []
+
+    def handle_data(self, data: str) -> None:
+        if self._title_depth:
+            self._title_text.append(data)
+
+
+class FrontendMetadataError(ValueError):
+    """Raised when the public frontend cannot provide an unambiguous proof."""
+
+
+def parse_frontend_metadata(source_html: str) -> dict[str, str]:
+    parser = FrontendMetadataParser()
+    parser.feed(source_html)
+    parser.close()
+    if len(parser.titles) != 1 or not parser.titles[0]:
+        raise FrontendMetadataError("frontend must contain exactly one non-empty <title>")
+    if len(parser.descriptions) != 1 or not parser.descriptions[0]:
+        raise FrontendMetadataError("frontend must contain exactly one non-empty meta[name=description]")
+    if len(parser.canonicals) != 1 or not parser.canonicals[0]:
+        raise FrontendMetadataError("frontend must contain exactly one non-empty canonical URL")
+    return {
+        "title": parser.titles[0],
+        "description": parser.descriptions[0],
+        "canonical": parser.canonicals[0],
+    }
+
+
+def fetch_frontend_metadata(post_link: str) -> dict[str, str]:
+    request = urllib.request.Request(post_link, headers={"User-Agent": "digitrustlab-naturalness-check"})
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            charset = response.headers.get_content_charset() or "utf-8"
+            source_html = response.read().decode(charset)
+    except (OSError, UnicodeError, urllib.error.URLError, TimeoutError) as exc:
+        raise FrontendMetadataError(f"frontend metadata fetch failed: {exc}") from exc
+    metadata = parse_frontend_metadata(source_html)
+    if metadata["canonical"] != post_link:
+        raise FrontendMetadataError(
+            f"frontend canonical does not exactly match REST post link: {metadata['canonical']!r} != {post_link!r}"
+        )
+    return metadata
+
+
+def resolve_live_metadata(
+    data: dict[str, Any],
+    frontend_metadata: dict[str, str] | None = None,
+) -> tuple[dict[str, str], dict[str, Any]]:
+    """Resolve Rank Math values while keeping the frontend fallback explicit."""
+    slug = normalized_field(data.get("slug")).strip("/")
+    post_link = normalized_field(data.get("link"))
+    expected_path = f"/{slug}/"
+    parsed_link = urlsplit(post_link)
+    if (
+        not slug
+        or not post_link
+        or parsed_link.scheme != "https"
+        or parsed_link.netloc != urlsplit(SITE).netloc
+        or parsed_link.path != expected_path
+        or parsed_link.query
+        or parsed_link.fragment
+    ):
+        raise FrontendMetadataError("REST post link must be the exact HTTPS site URL for the REST slug")
+
+    rest_meta = data.get("meta") if isinstance(data.get("meta"), dict) else {}
+    rest_values = {
+        key: normalized_field(rest_meta.get(key))
+        for key in RANK_MATH_META_KEYS
+        if normalized_field(rest_meta.get(key))
+    }
+    if len(rest_values) == len(RANK_MATH_META_KEYS) and frontend_metadata is None:
+        return rest_values, {
+            "metadata_source": "rest",
+            "frontend_fetched": False,
+            "canonical": post_link,
+            "canonical_matches_rest_link": True,
+        }
+
+    frontend = frontend_metadata or fetch_frontend_metadata(post_link)
+    for required in ("title", "description", "canonical"):
+        if not normalized_field(frontend.get(required)):
+            raise FrontendMetadataError(f"frontend metadata is missing {required}")
+    if frontend["canonical"] != post_link:
+        raise FrontendMetadataError(
+            f"frontend canonical does not exactly match REST post link: {frontend['canonical']!r} != {post_link!r}"
+        )
+
+    frontend_values = {
+        "rank_math_title": normalize_text(frontend["title"]),
+        "rank_math_description": normalize_text(frontend["description"]),
+    }
+    for key, rest_value in rest_values.items():
+        if rest_value != frontend_values[key]:
+            raise FrontendMetadataError(
+                f"REST metadata conflicts with frontend {key}: {rest_value!r} != {frontend_values[key]!r}"
+            )
+    resolved = {key: rest_values.get(key, frontend_values[key]) for key in RANK_MATH_META_KEYS}
+    return resolved, {
+        "metadata_source": "frontend_fallback" if not rest_values else "rest_plus_frontend_fallback",
+        "frontend_fetched": True,
+        "frontend_title": frontend_values["rank_math_title"],
+        "frontend_description": frontend_values["rank_math_description"],
+        "canonical": frontend["canonical"],
+        "canonical_matches_rest_link": True,
+        "rest_rank_math_keys": sorted(rest_values),
+    }
+
+
 def normalize_rendered_excerpt(excerpt_html: str) -> str:
     """Normalize the REST API's rendered `<p>...</p>` excerpt to reader text.
 
@@ -201,19 +350,21 @@ def build_document(
 
 
 def fetch_post(post_id: int) -> tuple[dict[str, Any], dict[str, Any]]:
-    url = f"{SITE}/wp-json/wp/v2/posts/{post_id}?_fields=id,slug,status,title,content,excerpt,meta"
+    url = f"{SITE}/wp-json/wp/v2/posts/{post_id}?_fields=id,slug,link,status,title,content,excerpt,meta"
     request = urllib.request.Request(url, headers={"User-Agent": "digitrustlab-naturalness-check"})
     with urllib.request.urlopen(request, timeout=30) as response:
         data = json.load(response)
 
     title = data.get("title", {}).get("rendered", "")
     excerpt = normalize_rendered_excerpt(data.get("excerpt", {}).get("rendered", ""))
+    metadata, source_evidence = resolve_live_metadata(data)
     document = build_document(
         data.get("content", {}).get("rendered", ""),
         title=title,
         excerpt=excerpt,
-        metadata=data.get("meta") if isinstance(data.get("meta"), dict) else None,
+        metadata=metadata,
     )
+    data["_naturalness_source_evidence"] = source_evidence
     return data, document
 
 
@@ -405,6 +556,7 @@ def evaluate(
     expected_slug: str | None = None,
     source_status: str | None = None,
     require_published: bool = False,
+    source_evidence: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     deterministic = deterministic_findings(document, rules)
     review_issues = validate_review(
@@ -437,6 +589,7 @@ def evaluate(
         "deterministic_findings": deterministic,
         "review_issues": review_issues,
         "issues": issues,
+        "source_evidence": source_evidence or {"metadata_source": "file", "frontend_fetched": False},
     }
 
 
@@ -451,6 +604,7 @@ def print_report(result: dict[str, Any], source_label: str) -> None:
     print(f"[{mark}] Malay naturalness gate — {source_label}")
     print(f"Content hash: {result['content_hash']}")
     print(f"Segments: {result['segment_count']}")
+    print(f"Source evidence: {json.dumps(result.get('source_evidence', {}), ensure_ascii=False, sort_keys=True)}")
     if not result["issues"]:
         print("Two independent high-confidence reviews, Claude and OpenAI, and deterministic rules passed.")
         return
@@ -475,9 +629,11 @@ def main(argv: list[str] | None = None) -> int:
             raw = args.file.read_text(encoding="utf-8")
             document = build_document(raw)
             source_label = str(args.file)
+            source_evidence = {"metadata_source": "file", "frontend_fetched": False}
         else:
             data, document = fetch_post(args.post_id)
             source_label = f"post {data.get('id', args.post_id)} ({data.get('slug', '')})"
+            source_evidence = data.get("_naturalness_source_evidence", {})
         review = load_review(args.review)
     except FileNotFoundError as exc:
         print(f"Configuration/source file not found: {exc}", file=sys.stderr)
@@ -494,7 +650,7 @@ def main(argv: list[str] | None = None) -> int:
             "source_status": data.get("status"),
             "require_published": True,
         }
-    result = evaluate(document, review, rules, **evaluation_options)
+    result = evaluate(document, review, rules, source_evidence=source_evidence, **evaluation_options)
     if args.json:
         print(json.dumps({"source": source_label, **result}, ensure_ascii=False, indent=2))
     else:

@@ -15,6 +15,8 @@
 
 ## Current State
 
+> **POST #14 PUBLISHED — CLICKRANK + GSC PENDING (2026-09-16):** `Cara Buat Banner Guna Canva: Panduan Praktikal` is live at `https://digitrustlab.com/cara-buat-banner-guna-canva/` (WordPress ID `740`), published once at 21:43:06 MYT. The exact keyword `cara buat banner guna canva` passed volume `50`, Golden Score `1.003`, All-in-Title `0`, and Planner Weak Spot `5`. WriterZen evidence is Topic Discovery `246874`, Keyword Explorer `1577317`, Golden Filter `1577318`, Planner `179313`, and Content Creator `244791`; the 5 H2/3 H3 outline handoff is verified. Media 743/744/745/746, Rank Math `79/100`, live structure, live Malay voice, and local/live dual naturalness verification pass. The final hash is `759f012cd1e8332a9d69feb356344a50a05ad717e76b21774acafd9fc872e62c` across 69 segments, with Claude `firstParty/claude-sonnet-5` and OpenAI `gpt-5.6-luna` high. The live link gate passes: `canva.com` was added once to Rank Math's nofollow exclusions, all five Canva links now render dofollow, and one approved contextual inbound link from Post #8 is verified. Post #8 received a fresh dual naturalness review at hash `f6474d43bb87ba1c630141550be0f9f84d21c43b47dd6892d1b63cdaa4c5d1b3`. Screpy Malaysia/Malay Device Both rows `737577`/`737578` are completed. ClickRank standard/AI Overview and GSC remain pending because the existing authenticated Chrome tabs timed out on fresh snapshots; no ClickRank submission, GSC live test, or indexing request was attempted. Bring those tabs to the foreground or reopen/sign in to the same tabs before retrying, checking exact-row baselines first. Repository commit, push, clean-worktree classification, and remote parity are pending. Do not reopen Post #13.
+
 > **POST #13 COMPLETE — TRACKERS + INBOUND LINKS + REPOSITORY VERIFIED (2026-09-13):** `Contoh Prompt
 > AI: Cara Menulis Arahan yang Jelas dan Berkesan` is live at
 > `https://digitrustlab.com/contoh-prompt-ai/` (WordPress ID `734`) from the
@@ -103,8 +105,9 @@
 
 ## Next action
 
-1. Keep the ClickRank Pages no-record result documented; if a Pages record appears later, record its visible status plus recommendation/no-change decision.
-2. Start the next article at editorial relevance and Topic Discovery. Keep the parked candidates and Context7 readiness prompt as recorded below.
+1. Obtain explicit user approval for the Post #14 external-dofollow repair scope and one safe inbound-link decision, then rerun the live link gate.
+2. After the Post #14 link gate passes, start ClickRank standard and AI Overview, Screpy Device Both, and GSC Test Live URL as separate evidence-gated actions.
+3. Commit and push the Post #14 breadcrumbs and approved durable evidence only after every visible worktree path is classified and final parity is verified.
 
 ## Context7 dual-client readiness prompt
 
@@ -204,7 +207,9 @@ it does not change site data, credentials, or MCP registrations.
 Live at https://digitrustlab.com/cara-buat-gambar-ai/ · Post ID 536 · Rank Math **100/100** · 849 words · 4 images · Prompt Engineering category (now activated, was empty).
 
 **Keyword:** `cara buat gambar ai` — 720/mo, Golden Score 1.0, All-in-Title **0**.
-**Note:** published under a documented Weak Spot override (measured 1, gate is 2) after four alternative angles were tested and found worse. Full rationale in `content/content-calendar.md`. Expect 6–12 months to page 1, not weeks.
+**Note:** published under a documented Weak Spot override (measured 1, gate is 2) after four alternative angles were tested and found worse. Full rationale in `content/content-calendar.md`.
+
+**Outcome — the 6–12 month page-1 forecast was wrong.** Google Search Console (via ClickRank, 16 Aug – 15 Sep 2026) shows this URL at **average position 9.1** with 220 impressions — page 1 within roughly six weeks, not six months. The ClickRank AI Overview `organic #51` first check was an early single-point reading and did not predict the settled position. See `content/content-calendar.md` § "Search performance snapshot — 2026-09-16".
 
 **✅ Phase 7 COMPLETE (2026-08-01):**
 - [x] ClickRank → AI Overview Tracker: `cara buat gambar ai` + URL (Malaysia/Malay) — returned **organic #51** on first check
