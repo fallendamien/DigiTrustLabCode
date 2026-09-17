@@ -684,7 +684,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 
 ---
 
-## Post #14 — PUBLISHED; CLOSEOUT PENDING — CARA BUAT BANNER GUNA CANVA
+## Post #14 — PUBLISHED; TRACKING VERIFIED, INDEXING MONITORING PENDING — CARA BUAT BANNER GUNA CANVA
 
 | Field | Value |
 |-------|-------|
@@ -697,7 +697,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | All-in-Title | 0 |
 | Weak Spot | 5 (pass; required >=2) |
 | Category | Canva & Design |
-| Status | Published once on 16 September 2026 at 21:43:06 MYT; core publication gates pass, while link and tracking closeout remain pending |
+| Status | Published once on 16 September 2026 at 21:43:06 MYT; publication, link, ClickRank, Pages, Screpy and live-test gates pass; actual Google indexing remains unverified |
 | Family / cluster | `canva-design.canva.visual-assets`; `canva-design.canva` |
 | WriterZen Topic Discovery | Report 246874 — broad Canva seed research, Malaysia/Malay |
 | WriterZen Keyword Explorer | Report 1577317 — exact `cara buat banner guna canva`; volume 50 |
@@ -714,15 +714,15 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | Malay Voice Gate | ✅ Post 740 registered; live validator 0 countable violations; human register, grammar and read-aloud review remains part of the naturalness evidence boundary |
 | Structure Gate | ✅ Live Post 740 — no body H1; template title is not duplicated |
 | Link Quality Gate | ✅ Live PASS — `canva.com` added once to Rank Math Nofollow Exclude Domains, with the other settings preserved; 2 contextual internal links and 5 editorial external dofollow links; destinations checked; link hash `8cd02f3cdd8cccae7803fdeb745ee6b6c7c66c3b56a2d07c546af709b0f47cf4`; approved inbound link from Post #8 (ID 721) verified at exact URL; `content/link-reviews/cara-buat-banner-guna-canva.json` |
-| ClickRank Keyword Tracker | ⚠️ Pending — exact authenticated Chrome tab listed but fresh snapshot timed out repeatedly; no baseline or submission attempted |
-| ClickRank AI Overview Tracker | ⚠️ Pending — same authenticated Chrome binding blocker; no baseline or submission attempted |
-| ClickRank Website Optimization / Pages | ⚠️ Pending — same authenticated Chrome binding blocker; no submission attempted |
+| ClickRank Keyword Tracker | ✅ Baseline `13` → `14`; exact keyword `cara buat banner guna canva` + URL tracked once; Malaysia, Device All; visible status `Not In Top 3 Results`, positions `0`; no row ID or absolute timestamp exposed |
+| ClickRank AI Overview Tracker | ✅ Baseline `12` → `13`; exact keyword + URL tracked once; Malaysia/ms; `Not Found`, organic position `N/A`, visibility `0%`, citations `0`, mentioned `No`; no row ID or absolute timestamp exposed |
+| ClickRank Website Optimization / Pages | ✅ Baseline `31` → `32`; exact URL row optimization ID `353843b1-47a6-4ae7-908e-6562a99ec81e`; status `Not Optimized`, Page Health `92%`; recommendations reviewed, no changes applied (generic auto title/meta, manual image alt, Rank Math schema, Missing Link Titles advisory) |
 | Screpy Rank Tracker | ✅ Exact keyword `cara buat banner guna canva` added once; project `wgspvb7lc3`, Malaysia/Malay, Device Both; Mobile `737577` and Desktop `737578` completed 2026-09-16 14:41 UTC; neither found an owned organic result; no crawl started |
-| Google Search Console | ⚠️ Pending — existing authenticated tab listed but binding unresponsive; no Test Live URL or indexing request attempted |
-| Repository closeout | ⏳ Commit, push, clean-worktree classification and remote parity pending |
+| Google Search Console | ⚠️ Test Live URL completed 2026-09-17 20:53 MYT: initial inspection was not on Google / unknown / not indexed; live test reported URL available / page can be indexed; Request Indexing accepted into the priority crawl queue shortly after; actual indexing remains unverified |
+| Repository closeout | ✅ Scoped breadcrumb closeout committed and pushed from baseline `dd1f125a0f249916c9c2e9e19cdd0959062db5c6`; final follow-up SHA is reported in the closeout response; remote parity and clean worktree verified |
 | Evidence | `content/research/cara-buat-banner-guna-canva-originality.json`; `content/naturalness-reviews/cara-buat-banner-guna-canva.json`; `content/naturalness-reviews/cara-buat-banner-guna-canva-review-package.html`; `content/image-prompts.md` |
 
-> Post #14 is a distinct Canva visual-asset workflow, separate from Post #5's poster guide and Post #10's photo-editing guide. Publication, links, and Screpy tracking are verified. ClickRank and GSC remain pending until the existing authenticated Chrome tabs respond to a fresh snapshot.
+> Post #14 is a distinct Canva visual-asset workflow, separate from Post #5's poster guide and Post #10's photo-editing guide. Publication, links, both ClickRank trackers, ClickRank Pages, and Screpy tracking are verified. GSC's live test and indexing request are recorded; actual Google indexing remains pending verification. Screpy Pages crawl is deferred and non-blocking; no crawl was started.
 
 ---
 

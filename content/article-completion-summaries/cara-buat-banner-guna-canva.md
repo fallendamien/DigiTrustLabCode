@@ -5,7 +5,7 @@
 | Post | Cara Buat Banner Guna Canva: Panduan Praktikal |
 | URL | https://digitrustlab.com/cara-buat-banner-guna-canva/ |
 | WordPress Post ID | 740 |
-| Status | `PENDING` — published once; links and Screpy verified; ClickRank and GSC remain pending |
+| Status | `PUBLISHED` — publication, links, ClickRank, ClickRank Pages and Screpy verified; GSC live test and accepted indexing request recorded; actual indexing remains unverified |
 | Published | 16 September 2026, 21:43:06 MYT; publication verified |
 
 ## Topic Discovery rationale
@@ -38,7 +38,7 @@ segments. The live Malay voice and structure checks pass.
 
 | Stage / role | Agent and model | Scope | High-level result / evidence | Blocker or handoff |
 |---|---|---|---|---|
-| Research, drafting, media, staging, and live verification | Bounded OpenAI worker; exact host model/effort recorded by orchestrator | Post #14 Option C workflow and publication evidence | Published ID 740; WriterZen reports 246874, 1577317, 1577318, 179313, 244791; media 743–746; Rank Math 79/100; naturalness PASS with Claude `firstParty/claude-sonnet-5` and OpenAI `gpt-5.6-luna` high | ClickRank and GSC tracking pending |
+| Research, drafting, media, staging, and live verification | Bounded OpenAI worker; exact host model/effort recorded by orchestrator | Post #14 Option C workflow and publication evidence | Published ID 740; WriterZen reports 246874, 1577317, 1577318, 179313, 244791; media 743–746; Rank Math 79/100; naturalness PASS with Claude `firstParty/claude-sonnet-5` and OpenAI `gpt-5.6-luna` high | ClickRank, Pages and Screpy verified; GSC actual indexing remains unverified after the accepted request |
 
 ## Publication, verification, and tracking
 
@@ -66,32 +66,40 @@ Post #8 Malay voice and body-H1 structure checks also pass. Recovery snapshots
 - Image Caption policy: captions left empty; alt text remains separate and verified.
 - Featured placement: separate DigiTrust Lab brand-color hero asset verified.
 - Inline placement: three instructional visual assets verified in the size, layout, and export sections.
-- ClickRank AI Overview Tracker: pending; the exact authenticated Chrome tab
-  was listed, but repeated fresh snapshot attempts timed out. No baseline or
-  submission was attempted.
-- ClickRank standard Keyword Tracker: pending for the same browser blocker;
-  no baseline or submission was attempted.
-- ClickRank Website Optimization / Pages: pending; no submission was attempted.
+- ClickRank standard Keyword Tracker: baseline `13 → 14`; exact keyword
+  `cara buat banner guna canva` + URL, Malaysia, Device All; visible `Not In Top 3 Results`, positions `0`; no row ID or absolute timestamp exposed.
+- ClickRank AI Overview Tracker: baseline `12 → 13`; exact keyword + URL,
+  Malaysia/ms; `Not Found`, organic position `N/A`, visibility `0%`, citations
+  `0`, mentioned `No`; no row ID or absolute timestamp exposed.
+- ClickRank Website Optimization / Pages: baseline `31 → 32`; exact URL row
+  optimization ID `353843b1-47a6-4ae7-908e-6562a99ec81e`; status `Not Optimized`,
+  Page Health `92%`; recommendations reviewed, no changes applied (generic auto
+  title/meta, manual image alt, Rank Math schema, Missing Link Titles advisory).
 - Screpy Rank Tracker: verified once in project `wgspvb7lc3`, Malaysia/Malay,
   Device Both. Mobile `737577` and Desktop `737578` completed at 2026-09-16
   14:41 UTC; neither found an owned organic result. No crawl was started.
-- Google Search Console: pending; the authenticated tab was listed but could
-  not be freshly controlled. No Test Live URL or indexing request was attempted.
+- Google Search Console: initial inspection reported not on Google / unknown /
+  not indexed. Test Live URL completed 2026-09-17 20:53 MYT with URL available /
+  page can be indexed; Request Indexing was accepted into the priority crawl
+  queue shortly after. Actual indexing remains unverified.
+- Screpy Pages crawl: deferred and non-blocking; no crawl was started.
 
 ## Repository hygiene closeout
 
-The current mission was committed and pushed after every visible path was
-classified; no files were deleted or hidden. ClickRank and Google Search
-Console remain pending and are not represented as completed here.
+The repository closeout was committed and pushed after every visible path was
+classified; no files were deleted or hidden. ClickRank and ClickRank Pages are
+verified. GSC live-test and accepted indexing-request evidence are recorded, but
+actual indexing remains unverified. The scoped follow-up SHA is reported in the
+closeout response because a commit cannot record its own hash.
 
 | Field | Value |
 |---|---|
-| Commit SHA(s) | `632aedb81d8263710c51ed50540ccd06b5c2a316` (content and evidence closeout); this summary update is the follow-up commit, whose SHA is reported in the final closeout because a commit cannot record its own hash. |
-| Push/upstream status | Content closeout `632aedb81d8263710c51ed50540ccd06b5c2a316` and summary follow-up `453c6f88f87029f6663f5ef05b69044d690a74e1` are pushed to `origin/master`. |
-| Post-closeout status output | `git status --porcelain=v1 -uall` is empty; `HEAD == origin/master` at `453c6f88f87029f6663f5ef05b69044d690a74e1`. |
+| Commit SHA(s) | Baseline before this scoped breadcrumb follow-up: `dd1f125a0f249916c9c2e9e19cdd0959062db5c6`; the follow-up SHA is reported in the closeout response because a commit cannot record its own hash. |
+| Push/upstream status | Scoped breadcrumb follow-up pushed to `origin/master`; exact resulting SHA is reported in the closeout response. |
+| Post-closeout status output | `git status --porcelain=v1 -uall` is empty; `HEAD == origin/master`; exact resulting SHA is reported in the closeout response. |
 | Excluded paths | `None` — every visible path was classified and retained; no delete or ignore action was taken. |
 | Removed generated files | `None`. |
-| Residual-path decisions | All 40 staged paths are retained as durable Post #14 source, media, review history, breadcrumbs, or verifier evidence. ClickRank and GSC remain pending in the breadcrumbs; no false completion is recorded. |
+| Residual-path decisions | All 40 staged paths are retained as durable Post #14 source, media, review history, breadcrumbs, or verifier evidence. ClickRank and ClickRank Pages are verified; GSC live-test and accepted indexing-request evidence are recorded, while actual indexing remains unverified. No false completion is recorded. |
 
 | Path group | Decision |
 |---|---|
@@ -104,10 +112,9 @@ Console remain pending and are not represented as completed here.
 
 ## Open follow-ups
 
-- Next action: bring the existing authenticated ClickRank and Google Search
-  Console tabs to the foreground or reopen/sign in to those same tabs, then
-  verify exact-row baselines and finish the pending tracking checks without
-  duplicating the Screpy entry or the inbound link.
+- Next action: re-inspect the exact Post #14 URL in Google Search Console after
+  the accepted 2026-09-17 Request Indexing; do not treat the request as proof of
+  indexing, and do not start a Screpy crawl without explicit authorization.
 
 ## Evidence pointers
 

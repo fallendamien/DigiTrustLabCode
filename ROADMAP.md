@@ -1,18 +1,18 @@
 # DigiTrust Lab — Roadmap
 
-> **Status:** POST #14 PUBLISHED — ClickRank, GSC, and repository closeout pending
-> **Current Phase:** `Cara Buat Banner Guna Canva: Panduan Praktikal` is live at `https://digitrustlab.com/cara-buat-banner-guna-canva/` (ID `740`), published once on 2026-09-16 at 21:43:06 MYT. Exact keyword `cara buat banner guna canva` passed volume `50`, Golden Score `1.003`, All-in-Title `0`, Planner `179313`, and Weak Spot `5`. The outline-only WriterZen handoff, media 743/744/745/746, Rank Math `79/100`, structure, Malay voice, dual naturalness gates, live link gate, and Screpy Device Both rows are verified. ClickRank standard/AI Overview, GSC, and repository commit, push, and parity remain pending.
-> **Last Updated:** 2026-09-16 (Post #14 published; core gates verified; closeout pending)
+> **Status:** POST #14 PUBLISHED — ClickRank verified; GSC indexing monitoring pending
+> **Current Phase:** `Cara Buat Banner Guna Canva: Panduan Praktikal` is live at `https://digitrustlab.com/cara-buat-banner-guna-canva/` (ID `740`), published once on 2026-09-16 at 21:43:06 MYT. Exact keyword `cara buat banner guna canva` passed volume `50`, Golden Score `1.003`, All-in-Title `0`, Planner `179313`, and Weak Spot `5`. The outline-only WriterZen handoff, media 743/744/745/746, Rank Math `79/100`, structure, Malay voice, dual naturalness gates, live link gate, both ClickRank trackers, ClickRank Pages, and Screpy Device Both rows are verified. GSC Test Live URL and accepted Request Indexing are recorded; actual indexing remains unverified. The Screpy Pages crawl is deferred and non-blocking. Repository closeout is committed, pushed, and at clean remote parity; the final follow-up SHA is reported in the closeout response.
+> **Last Updated:** 2026-09-17 (Post #14 tracking and repository closeout verified; GSC indexing monitoring pending)
 > **Monthly Revenue:** RM 69 (1 sale, pre-blog era)
 
 > **Scope note:** Historical milestones and planned titles remain retained for continuity. The authoritative current content inventory and research status is [`content/content-calendar.md`](content/content-calendar.md). The active editorial queue lives there, not here.
 
 ---
 
-## 16 September 2026 Snapshot
+## 17 September 2026 Snapshot
 
 - **14 blog posts published** on digitrustlab.com
-- Post #14 `Cara Buat Banner Guna Canva: Panduan Praktikal` is live at `https://digitrustlab.com/cara-buat-banner-guna-canva/` (ID `740`), published once at 21:43:06 MYT. Exact keyword `cara buat banner guna canva` volume `50`, Golden Score `1.003`, All-in-Title `0`, Planner Weak Spot `5`; WriterZen reports `246874`, `1577317`, `1577318`, `179313`, and `244791`. Media 743/744/745/746, Rank Math `79/100`, 5 H2/3 H3 outline handoff, live structure/voice, and local/live naturalness hash `759f012cd1e8332a9d69feb356344a50a05ad717e76b21774acafd9fc872e62c` across 69 segments are verified. The live link gate and Screpy Malaysia/Malay Device Both rows `737577`/`737578` are verified. ClickRank standard/AI Overview, GSC, commit, push, and repository parity remain pending.
+- Post #14 `Cara Buat Banner Guna Canva: Panduan Praktikal` is live at `https://digitrustlab.com/cara-buat-banner-guna-canva/` (ID `740`), published once at 21:43:06 MYT. Exact keyword `cara buat banner guna canva` volume `50`, Golden Score `1.003`, All-in-Title `0`, Planner Weak Spot `5`; WriterZen reports `246874`, `1577317`, `1577318`, `179313`, and `244791`. Media 743/744/745/746, Rank Math `79/100`, 5 H2/3 H3 outline handoff, live structure/voice, and local/live naturalness hash `759f012cd1e8332a9d69feb356344a50a05ad717e76b21774acafd9fc872e62c` across 69 segments are verified. The live link gate, ClickRank standard baseline `13 → 14`, ClickRank AI Overview baseline `12 → 13`, ClickRank Pages baseline `31 → 32` (`Not Optimized`, Page Health `92%`, optimization ID `353843b1-47a6-4ae7-908e-6562a99ec81e`), and Screpy Malaysia/Malay Device Both rows `737577`/`737578` are verified. GSC Test Live URL at 2026-09-17 20:53 MYT reported URL available / page can be indexed; Request Indexing was accepted, while actual indexing remains unverified. The Screpy Pages crawl is deferred and non-blocking. Repository closeout is committed, pushed, and at clean remote parity; the final follow-up SHA is reported in the closeout response.
 
 ---
 
