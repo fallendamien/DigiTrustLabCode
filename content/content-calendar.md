@@ -684,7 +684,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 
 ---
 
-## Post #14 — PUBLISHED; TRACKING VERIFIED, INDEXING MONITORING PENDING — CARA BUAT BANNER GUNA CANVA
+## Post #14 — PUBLISHED; TRACKING AND INDEXING VERIFIED — CARA BUAT BANNER GUNA CANVA
 
 | Field | Value |
 |-------|-------|
@@ -697,7 +697,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | All-in-Title | 0 |
 | Weak Spot | 5 (pass; required >=2) |
 | Category | Canva & Design |
-| Status | Published once on 16 September 2026 at 21:43:06 MYT; publication, link, ClickRank, Pages, Screpy and live-test gates pass; actual Google indexing remains unverified |
+| Status | Published once on 16 September 2026 at 21:43:06 MYT; publication, link, ClickRank, Pages, Screpy, live-test and Google indexing gates pass; fresh re-inspection verified `URL is on Google` / `Page is indexed` on 19 September 2026 at 20:41 MYT |
 | Family / cluster | `canva-design.canva.visual-assets`; `canva-design.canva` |
 | WriterZen Topic Discovery | Report 246874 — broad Canva seed research, Malaysia/Malay |
 | WriterZen Keyword Explorer | Report 1577317 — exact `cara buat banner guna canva`; volume 50 |
@@ -708,7 +708,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | Draft / originality | `content/drafts/cara-buat-banner-guna-canva.html`; native originality/source evidence recorded; no WriterZen plagiarism checker used |
 | WordPress Post | ID 740 — `https://digitrustlab.com/cara-buat-banner-guna-canva/` (published) |
 | Post ID | 740 |
-| Media | Featured + inline Media 743/744/745/746 verified; blank captions and Malay alt text preserved |
+| Media | Featured Media 743 and authentic inline screenshot Media 751/752/753 verified; generated inline Media 744/745/746 are provenance-only; no figure captions render and Malay alt text is verified |
 | Rank Math | 79/100; Article schema; focus keyword, SEO title and description set; Pillar Content off |
 | Naturalness Gate | ✅ Local/live PASS — hash `759f012cd1e8332a9d69feb356344a50a05ad717e76b21774acafd9fc872e62c`, 69 segments; Claude `firstParty` / `claude-sonnet-5` + OpenAI `gpt-5.6-luna` high; live verifier uses explicit frontend metadata fallback with canonical match |
 | Malay Voice Gate | ✅ Post 740 registered; live validator 0 countable violations; human register, grammar and read-aloud review remains part of the naturalness evidence boundary |
@@ -718,11 +718,11 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | ClickRank AI Overview Tracker | ✅ Baseline `12` → `13`; exact keyword + URL tracked once; Malaysia/ms; `Not Found`, organic position `N/A`, visibility `0%`, citations `0`, mentioned `No`; no row ID or absolute timestamp exposed |
 | ClickRank Website Optimization / Pages | ✅ Baseline `31` → `32`; exact URL row optimization ID `353843b1-47a6-4ae7-908e-6562a99ec81e`; status `Not Optimized`, Page Health `92%`; recommendations reviewed, no changes applied (generic auto title/meta, manual image alt, Rank Math schema, Missing Link Titles advisory) |
 | Screpy Rank Tracker | ✅ Exact keyword `cara buat banner guna canva` added once; project `wgspvb7lc3`, Malaysia/Malay, Device Both; Mobile `737577` and Desktop `737578` completed 2026-09-16 14:41 UTC; neither found an owned organic result; no crawl started |
-| Google Search Console | ⚠️ Test Live URL completed 2026-09-17 20:53 MYT: initial inspection was not on Google / unknown / not indexed; live test reported URL available / page can be indexed; Request Indexing accepted into the priority crawl queue shortly after; actual indexing remains unverified |
-| Repository closeout | ✅ Scoped breadcrumb closeout committed and pushed from baseline `dd1f125a0f249916c9c2e9e19cdd0959062db5c6`; final follow-up SHA is reported in the closeout response; remote parity and clean worktree verified |
+| Google Search Console | ✅ Initial inspection was not on Google / unknown / not indexed; Test Live URL completed 2026-09-17 20:53 MYT with URL available / page can be indexed and Request Indexing accepted. Fresh re-inspection 2026-09-19 20:41 MYT reports Google Index `URL is on Google` / `Page is indexed`; live test remains URL available / page can be indexed |
+| Repository closeout | ✅ Media revision `66479fe` and breadcrumb/indexing update `e8c99ee` committed and pushed; remote parity and clean worktree verified at `e8c99ee625c6898ece64f07ead791aee7788c10f` |
 | Evidence | `content/research/cara-buat-banner-guna-canva-originality.json`; `content/naturalness-reviews/cara-buat-banner-guna-canva.json`; `content/naturalness-reviews/cara-buat-banner-guna-canva-review-package.html`; `content/image-prompts.md` |
 
-> Post #14 is a distinct Canva visual-asset workflow, separate from Post #5's poster guide and Post #10's photo-editing guide. Publication, links, both ClickRank trackers, ClickRank Pages, and Screpy tracking are verified. GSC's live test and indexing request are recorded; actual Google indexing remains pending verification. Screpy Pages crawl is deferred and non-blocking; no crawl was started.
+> Post #14 is a distinct Canva visual-asset workflow, separate from Post #5's poster guide and Post #10's photo-editing guide. Publication, links, both ClickRank trackers, ClickRank Pages, Screpy tracking, and Google indexing are verified. The fresh GSC inspection reports `URL is on Google` / `Page is indexed`; the live test reports `URL is available to Google` / `Page can be indexed`. Screpy Pages crawl remains deferred and non-blocking; no crawl was started.
 
 ---
 

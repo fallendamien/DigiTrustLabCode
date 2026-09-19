@@ -40,7 +40,7 @@ The live Malay voice and structure checks pass.
 
 | Stage / role | Agent and model | Scope | High-level result / evidence | Blocker or handoff |
 |---|---|---|---|---|
-| Research, drafting, media, staging, and live verification | Bounded OpenAI worker; exact host model/effort recorded by orchestrator | Post #14 Option C workflow and publication evidence | Published ID 740; WriterZen reports 246874, 1577317, 1577318, 179313, 244791; featured media 743; canonical authentic screenshots 751–753; Rank Math 79/100; existing naturalness PASS retained because wording was unchanged | Accidental duplicate media 754–756 remain unused and await explicit deletion approval; GSC actual indexing remains unverified after the accepted request |
+| Research, drafting, media, staging, and live verification | Bounded OpenAI worker; exact host model/effort recorded by orchestrator | Post #14 Option C workflow and publication evidence | Published ID 740; WriterZen reports 246874, 1577317, 1577318, 179313, 244791; featured media 743; canonical authentic screenshots 751–753; Rank Math 79/100; existing naturalness PASS retained because wording was unchanged | Accidental duplicate media 754–756 remain unused and await explicit deletion approval; GSC Google Index now reports the URL on Google and Page indexed |
 
 ## Publication, verification, and tracking
 
@@ -83,27 +83,29 @@ Post #8 Malay voice and body-H1 structure checks also pass. Recovery snapshots
   Device Both. Mobile `737577` and Desktop `737578` completed at 2026-09-16
   14:41 UTC; neither found an owned organic result. No crawl was started.
 - Google Search Console: initial inspection reported not on Google / unknown /
-  not indexed. Test Live URL completed 2026-09-17 20:53 MYT with URL available /
-  page can be indexed; Request Indexing was accepted into the priority crawl
-  queue shortly after. Actual indexing remains unverified.
+  / not indexed. Test Live URL completed 2026-09-17 20:53 MYT with URL available /
+  / page can be indexed; Request Indexing was accepted into the priority crawl
+  queue shortly after. Fresh re-inspection on 2026-09-19 20:41 MYT now reports
+  Google Index `URL is on Google` / `Page is indexed`; the fresh live test also
+  reports `URL is available to Google` / `Page can be indexed`.
 - Screpy Pages crawl: deferred and non-blocking; no crawl was started.
 
 ## Repository hygiene closeout
 
 The repository closeout was committed and pushed after every visible path was
 classified; no files were deleted or hidden. ClickRank and ClickRank Pages are
-verified. GSC live-test and accepted indexing-request evidence are recorded, but
-actual indexing remains unverified. The scoped follow-up SHA is reported in the
-closeout response because a commit cannot record its own hash.
+verified. GSC live-test, accepted indexing-request, and fresh indexed-state
+evidence are recorded. The media revision and breadcrumb clarification were
+pushed as `66479fe` and `e8c99ee`.
 
 | Field | Value |
 |---|---|
-| Commit SHA(s) | Baseline before this scoped breadcrumb follow-up: `dd1f125a0f249916c9c2e9e19cdd0959062db5c6`; the follow-up SHA is reported in the closeout response because a commit cannot record its own hash. |
-| Push/upstream status | Scoped breadcrumb follow-up pushed to `origin/master`; exact resulting SHA is reported in the closeout response. |
-| Post-closeout status output | `git status --porcelain=v1 -uall` is empty; `HEAD == origin/master`; exact resulting SHA is reported in the closeout response. |
+| Commit SHA(s) | Media revision `66479fe36dff7c68ad3f076707df85bacd12aa61`; documentation clarification `e8c99ee625c6898ece64f07ead791aee7788c10f` |
+| Push/upstream status | Both commits pushed to `origin/master`; final remote parity is `e8c99ee625c6898ece64f07ead791aee7788c10f`. |
+| Post-closeout status output | `git status --porcelain=v1 -uall` is empty; `HEAD == origin/master == e8c99ee625c6898ece64f07ead791aee7788c10f`. |
 | Excluded paths | `None` — every visible path was classified and retained; no delete or ignore action was taken. |
 | Removed generated files | `None`. |
-| Residual-path decisions | All 40 staged paths are retained as durable Post #14 source, media, review history, breadcrumbs, or verifier evidence. ClickRank and ClickRank Pages are verified; GSC live-test and accepted indexing-request evidence are recorded, while actual indexing remains unverified. No false completion is recorded. |
+| Residual-path decisions | All retained Post #14 source, media, review history, breadcrumbs, and verifier evidence remain durable. ClickRank, ClickRank Pages, and GSC indexing are verified; unused duplicate media 754–756 remain retained pending explicit deletion approval. |
 
 | Path group | Decision |
 |---|---|
@@ -116,9 +118,9 @@ closeout response because a commit cannot record its own hash.
 
 ## Open follow-ups
 
-- Next action: re-inspect the exact Post #14 URL in Google Search Console after
-  the accepted 2026-09-17 Request Indexing; do not treat the request as proof of
-  indexing, and do not start a Screpy crawl without explicit authorization.
+- Next action: start the next article mission at the editorial relevance gate;
+  preserve the parked candidates and do not start a Screpy crawl without
+  explicit authorization.
 
 ## Evidence pointers
 
