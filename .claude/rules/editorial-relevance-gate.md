@@ -20,7 +20,7 @@ WriterZen credit. The record must contain all of these fields, with evidence:
 |---|---|
 | Proposed topic and article subject | A concrete reader-facing subject, not just a keyword or tool name |
 | Proposed seed | The seed expresses the same subject and search problem as the article |
-| Approved pillar/category | Exactly one current DigiTrust Lab category: `AI Tools`, `Canva & Design`, `Prompt Engineering`, or `Digital Skills` |
+| Approved pillar/category | Exactly one current DigiTrust Lab category: `AI Tools`, `Prompt Engineering`, or `Digital Skills`; Canva tutorials and the retired `Canva & Design` category are ineligible |
 | Normalized topic-family ID | An approved structured family ID, not a free-text similarity claim |
 | Approved pillar/cluster IDs | The family registry's normalized pillar and existing-cluster IDs exactly match the candidate |
 | Topic intent ID | An explicit registry intent ID allowed by that topic-family ID; do not infer intent with general NLP |

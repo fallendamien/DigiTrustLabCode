@@ -722,7 +722,7 @@ Compact reference for tatabahasa review. Use when checking sentence completeness
 ### Content Categories (updated 2026-07-25)
 
 - AI Tools — reviews, tutorials, comparisons
-- Canva & Design — tutorials, templates, design tips
+- AI Tools, Prompt Engineering, and Digital Skills — current DigiTrust Lab content categories
 - Prompt Engineering — prompt gallery posts, AI art showcases
 - Digital Skills — Notion, WordPress, productivity tools
 

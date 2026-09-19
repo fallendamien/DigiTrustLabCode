@@ -215,11 +215,10 @@ and Topic Discovery; do not treat this status line as a new keyword instruction.
 
 ## ✅ RESOLVED: Category/Taxonomy Archives — Empty Categories Redirect (2026-07-23)
 
-**Root cause:** Not a template issue. Empty categories (`ai-untuk-perniagaan-kecil`, `canva-design`, `digital-side-hustle`) have 0 posts assigned. WordPress + Rank Math's `noindex_empty_taxonomies` setting correctly redirects empty archives to the homepage. This is standard SEO practice.
+**Root cause:** Not a template issue. Empty categories (`ai-untuk-perniagaan-kecil`, `digital-side-hustle`) have 0 posts assigned. WordPress + Rank Math's `noindex_empty_taxonomies` setting correctly redirects empty archives to the homepage. This is standard SEO practice.
 
 **Current categories (updated 2026-07-25):**
 - `ai-tools` — 3 posts ✅ (works correctly on `/category/ai-tools/`)
-- `canva-design` — 0 posts (redirects to homepage — correct, will work once posts assigned)
 - `prompt-engineering` — 0 posts (NEW — replaces Digital Side Hustle)
 - `digital-skills` — 0 posts (NEW — replaces AI untuk Perniagaan Kecil)
 - `digital-side-hustle` — DELETED (implied income claims)
@@ -522,7 +521,7 @@ The voice rules are not limited to post and page bodies. They apply to **every s
 - Affiliate links are natural tool mentions, not sales pitches
 - Business/income posts ONLY when you have real results to share honestly
 - Prompt gallery posts: show the prompt + the result + the tool used. No income promises.
-- Content categories: AI Tools, Canva & Design, Prompt Engineering, Digital Skills (NOT Digital Side Hustle or AI untuk Perniagaan — those are deleted)
+- Content categories: AI Tools, Prompt Engineering, Digital Skills (NOT Canva & Design, Digital Side Hustle or AI untuk Perniagaan — those are retired/deleted)
 
 **Approved sidebar/CTA copy pattern (reference):**
 ```

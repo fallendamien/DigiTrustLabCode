@@ -339,7 +339,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | All-in-Title | 0 |
 | Weak Spot | 3 (Avg DA 59; Low DA 10; High DA 90) |
 | Supporting Keywords | `buat poster guna canva`; `cara nak buat poster guna canva`; `cara buat poster di canva`; `cara buat poster digital guna canva`; `cara guna canva buat poster` |
-| Category | Canva & Design |
+| Category | Digital Skills |
 | Status | Published ✅ 22 August 2026; content, naturalness, voice, link, Screpy Rank Tracker, Screpy Pages and Google Search Console gates passed; ClickRank tracker rows verified; ClickRank Pages deferred during service outage; WriterZen limits and six brief fields read back; Zamri accepted the historical Seed keyword value `Highest-volume keyword`; Phase 7 closed |
 | URL | https://digitrustlab.com/cara-buat-poster-guna-canva/ |
 | Post ID | 629 |
@@ -467,7 +467,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | WriterZen editor handoff audit | ✅ Fresh authenticated WriterZen report `244466` check on 2026-09-05 shows **Copy to editor completed**: the main editor contains the generated title, description and seven H2 sections; counters show `272/770` words and `8/3` headings. The source outline contained zero WriterZen H3 nodes. The native draft follows all seven WriterZen H2s, promotes one supporting bullet to a workflow H3, and maps all 21 supporting bullets in `content/outline-maps/cara-buat-poster-dengan-chatgpt-writerzen-244466.md` (28/28 represented; omitted 0); the reviewed scaffold was used for the live draft. |
 | Native drafting/source gate | `native_drafting_mode: native`; provenance = native Malay draft based on approved WriterZen outline/report `244466` plus first-use beginner workflow framing and official OpenAI ChatGPT Images source; `source_attribution_status: complete`; source ref `https://help.openai.com/en/articles/11084440-chatgpt-images`; `competitor_text_copied=false`; `uncredited_close_paraphrase=false`; `distinctive_overlap_status=clear`; current live `content_hash=9192f61e0e00f60694ed3ecc9fac8c289e4abe6e08eb566ce780092e9024a770`; `writerzen_plagiarism_checker_used=false`; `writerzen_plagiarism_checker_required=false`; `writerzen_plagiarism_credit_spent=false`; `external_checker_attempted=false`; evidence ref `content/naturalness-reviews/cara-buat-poster-dengan-chatgpt-live-final.json`; source/originality checked 2026-09-05; owner Content/Operations. |
 | Operations originality attestation | ✅ `PASS` — native draft provenance and official source attribution recorded; no WriterZen plagiarism action was run or required, no plagiarism credit was spent, and no paid external checker was attempted. Bound to live hash `9192f61e0e00f60694ed3ecc9fac8c289e4abe6e08eb566ce780092e9024a770`. |
-| Naturalness gate | ✅ `PASS` after the approved Post #14 inbound link — canonical artifact `content/naturalness-reviews/cara-buat-poster-dengan-chatgpt-live-final.json`; current live hash `f6474d43bb87ba1c630141550be0f9f84d21c43b47dd6892d1b63cdaa4c5d1b3`; 64/64 segments; fresh Claude `firstParty/claude-sonnet-5` terminal review plus independent OpenAI `gpt-5.6-luna` high review; all seven checks high confidence with no findings; verified 2026-09-16. The prior 2026-09-05 review is superseded. |
+| Naturalness gate | ✅ `PASS` after the final dual naturalness review — canonical artifact `content/naturalness-reviews/cara-buat-poster-dengan-chatgpt-live-final.json`; current live hash `f6474d43bb87ba1c630141550be0f9f84d21c43b47dd6892d1b63cdaa4c5d1b3`; 64/64 segments; fresh Claude `firstParty/claude-sonnet-5` terminal review plus independent OpenAI `gpt-5.6-luna` high review; all seven checks high confidence with no findings; verified 2026-09-16. The prior 2026-09-05 review is superseded. |
 | Image assets | ✅ Four final PNGs archived and SHA-256 matched between `content/assets/post-8/` and `G:\Zamzam Biznez\DigiTrustLab\Blog images`; live featured replacement = Media **727** (v3), idea-theme replacement = Media **724**, comparison = Media **719**, final checklist = Media **720**. All generated images were inspected at native resolution before upload. Human-led malformed-hand candidate was rejected and never uploaded. |
 | WordPress media repair | ✅ Featured Media 723 was superseded by the owner's manual replacement **Media 727** at `cara-buat-poster-dengan-chatgpt-featured-v3.png`; the direct asset returned HTTP 200 on 2026-09-07. Idea-theme Media 724 replaced old 718; the repeated featured figure was removed from the body. Fresh read-back confirms the post points to 727, while old attachment 723 and confirmed-unused media 717/718 are no longer available. The manual replacement used a new filename/attachment ID rather than the URL-preserving path; no further media cleanup is pending. |
 | WordPress publication | ✅ Post `721` is published at the exact URL with featured media `727`, inline media `724`, `719` and `720`, category `AI Tools`, and the visible H1 supplied only by the Bricks single-post template. |
@@ -529,7 +529,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 | Golden Score | 1.00 |
 | All-in-Title | 0 |
 | Weak Spot | 3 (Avg DA 66.9; Low DA 5; High DA 90) |
-| Category | Canva & Design |
+| Category | Digital Skills |
 | Status | PUBLISHED ⚠️ — Post 686 published 2026-08-26 08:38:24 (+08:00); naturalness, voice, structure and link gates passed; GSC now shows the page indexed, both ClickRank tracker rows are verified, while Screpy rank tracking remains pending/unverified |
 | Post ID | 686 |
 | WordPress Post | Published ID 686 — `https://digitrustlab.com/cara-guna-canva-ai-photo-editor/`; slug `cara-guna-canva-ai-photo-editor` |
@@ -684,48 +684,6 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 
 ---
 
-## Post #14 — PUBLISHED; TRACKING AND INDEXING VERIFIED — CARA BUAT BANNER GUNA CANVA
-
-| Field | Value |
-|-------|-------|
-| Title | Cara Buat Banner Guna Canva: Panduan Praktikal |
-| Primary Keyword | `cara buat banner guna canva` |
-| Search intent | Informational / how-to / beginner workflow |
-| Search Volume | 50/mo (exact Keyword Explorer volume; Malay long-tail relaxation) |
-| KD (Ads / Content / Traffic / Signal) | 0 / 0 / 0 / 0 |
-| Golden Score | 1.003 |
-| All-in-Title | 0 |
-| Weak Spot | 5 (pass; required >=2) |
-| Category | Canva & Design |
-| Status | Published once on 16 September 2026 at 21:43:06 MYT; publication, link, ClickRank, Pages, Screpy, live-test and Google indexing gates pass; fresh re-inspection verified `URL is on Google` / `Page is indexed` on 19 September 2026 at 20:41 MYT |
-| Family / cluster | `canva-design.canva.visual-assets`; `canva-design.canva` |
-| WriterZen Topic Discovery | Report 246874 — broad Canva seed research, Malaysia/Malay |
-| WriterZen Keyword Explorer | Report 1577317 — exact `cara buat banner guna canva`; volume 50 |
-| WriterZen Golden Filter | Report 1577318 — All-in-Title 0; Golden Score 1.003 |
-| WriterZen Keyword Planner | Project 179313 — Weak Spot 5 |
-| WriterZen Content Creator | Article 244791 — outline-only generation; title/description/outline controls used; whole article OFF; keyword suggestions OFF |
-| Outline handoff | ✅ `WRITERZEN_OUTLINE_HANDOFF: PASS` — 5 H2 and 3 genuine H3 headings preserved; map `content/outline-maps/cara-buat-banner-guna-canva-writerzen-244791.md` |
-| Draft / originality | `content/drafts/cara-buat-banner-guna-canva.html`; native originality/source evidence recorded; no WriterZen plagiarism checker used |
-| WordPress Post | ID 740 — `https://digitrustlab.com/cara-buat-banner-guna-canva/` (published) |
-| Post ID | 740 |
-| Media | Featured Media 743 and authentic inline screenshot Media 751/752/753 verified; generated inline Media 744/745/746 are provenance-only; no figure captions render and Malay alt text is verified |
-| Rank Math | 79/100; Article schema; focus keyword, SEO title and description set; Pillar Content off |
-| Naturalness Gate | ✅ Local/live PASS — hash `759f012cd1e8332a9d69feb356344a50a05ad717e76b21774acafd9fc872e62c`, 69 segments; Claude `firstParty` / `claude-sonnet-5` + OpenAI `gpt-5.6-luna` high; live verifier uses explicit frontend metadata fallback with canonical match |
-| Malay Voice Gate | ✅ Post 740 registered; live validator 0 countable violations; human register, grammar and read-aloud review remains part of the naturalness evidence boundary |
-| Structure Gate | ✅ Live Post 740 — no body H1; template title is not duplicated |
-| Link Quality Gate | ✅ Live PASS — `canva.com` added once to Rank Math Nofollow Exclude Domains, with the other settings preserved; 2 contextual internal links and 5 editorial external dofollow links; destinations checked; link hash `8cd02f3cdd8cccae7803fdeb745ee6b6c7c66c3b56a2d07c546af709b0f47cf4`; approved inbound link from Post #8 (ID 721) verified at exact URL; `content/link-reviews/cara-buat-banner-guna-canva.json` |
-| ClickRank Keyword Tracker | ✅ Baseline `13` → `14`; exact keyword `cara buat banner guna canva` + URL tracked once; Malaysia, Device All; visible status `Not In Top 3 Results`, positions `0`; no row ID or absolute timestamp exposed |
-| ClickRank AI Overview Tracker | ✅ Baseline `12` → `13`; exact keyword + URL tracked once; Malaysia/ms; `Not Found`, organic position `N/A`, visibility `0%`, citations `0`, mentioned `No`; no row ID or absolute timestamp exposed |
-| ClickRank Website Optimization / Pages | ✅ Baseline `31` → `32`; exact URL row optimization ID `353843b1-47a6-4ae7-908e-6562a99ec81e`; status `Not Optimized`, Page Health `92%`; recommendations reviewed, no changes applied (generic auto title/meta, manual image alt, Rank Math schema, Missing Link Titles advisory) |
-| Screpy Rank Tracker | ✅ Exact keyword `cara buat banner guna canva` added once; project `wgspvb7lc3`, Malaysia/Malay, Device Both; Mobile `737577` and Desktop `737578` completed 2026-09-16 14:41 UTC; neither found an owned organic result; no crawl started |
-| Google Search Console | ✅ Initial inspection was not on Google / unknown / not indexed; Test Live URL completed 2026-09-17 20:53 MYT with URL available / page can be indexed and Request Indexing accepted. Fresh re-inspection 2026-09-19 20:41 MYT reports Google Index `URL is on Google` / `Page is indexed`; live test remains URL available / page can be indexed |
-| Repository closeout | ✅ Media revision `66479fe` and breadcrumb/indexing update `e8c99ee` committed and pushed; remote parity and clean worktree verified at `e8c99ee625c6898ece64f07ead791aee7788c10f` |
-| Evidence | `content/research/cara-buat-banner-guna-canva-originality.json`; `content/naturalness-reviews/cara-buat-banner-guna-canva.json`; `content/naturalness-reviews/cara-buat-banner-guna-canva-review-package.html`; `content/image-prompts.md` |
-
-> Post #14 is a distinct Canva visual-asset workflow, separate from Post #5's poster guide and Post #10's photo-editing guide. Publication, links, both ClickRank trackers, ClickRank Pages, Screpy tracking, and Google indexing are verified. The fresh GSC inspection reports `URL is on Google` / `Page is indexed`; the live test reports `URL is available to Google` / `Page can be indexed`. Screpy Pages crawl remains deferred and non-blocking; no crawl was started.
-
----
-
 ## Workflow (Option C — Standard Pipeline)
 
 > **Full step-by-step:** `.claude/skills/write-post/SKILL.md` is the authoritative version. This is the summary.
@@ -775,7 +733,7 @@ The Content Brief "Note for writer" field was loaded with the Malay voice guide 
 ## Categories Available (updated 2026-07-25)
 
 - AI Tools — reviews, tutorials, comparisons
-- Canva & Design — tutorials, templates, design tips
+- AI Tools, Prompt Engineering, and Digital Skills only; Canva tutorials are retired
 - Prompt Engineering — prompt gallery posts, AI art showcases
 - Digital Skills — Notion, WordPress, productivity tools
 

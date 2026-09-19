@@ -1,8 +1,8 @@
 # DigiTrust Lab — Roadmap
 
-> **Status:** POST #14 PUBLISHED — ClickRank verified; GSC indexing monitoring pending
-> **Current Phase:** `Cara Buat Banner Guna Canva: Panduan Praktikal` is live at `https://digitrustlab.com/cara-buat-banner-guna-canva/` (ID `740`), published once on 2026-09-16 at 21:43:06 MYT. Exact keyword `cara buat banner guna canva` passed volume `50`, Golden Score `1.003`, All-in-Title `0`, Planner `179313`, and Weak Spot `5`. The outline-only WriterZen handoff, media 743/744/745/746, Rank Math `79/100`, structure, Malay voice, dual naturalness gates, live link gate, both ClickRank trackers, ClickRank Pages, and Screpy Device Both rows are verified. GSC Test Live URL and accepted Request Indexing are recorded; actual indexing remains unverified. The Screpy Pages crawl is deferred and non-blocking. Repository closeout is committed, pushed, and at clean remote parity; the final follow-up SHA is reported in the closeout response.
-> **Last Updated:** 2026-09-17 (Post #14 tracking and repository closeout verified; GSC indexing monitoring pending)
+> **Status:** POST RETIREMENT COMPLETE — 13 published posts remain; Canva & Design is retired
+> **Current Phase:** The next article mission restarts at the editorial relevance gate with the three active categories AI Tools, Prompt Engineering, and Digital Skills. Post #13 remains complete and must not be reopened.
+> **Last Updated:** 2026-09-20 (Post retirement and taxonomy cleanup verified)
 > **Monthly Revenue:** RM 69 (1 sale, pre-blog era)
 
 > **Scope note:** Historical milestones and planned titles remain retained for continuity. The authoritative current content inventory and research status is [`content/content-calendar.md`](content/content-calendar.md). The active editorial queue lives there, not here.
@@ -12,7 +12,7 @@
 ## 17 September 2026 Snapshot
 
 - **14 blog posts published** on digitrustlab.com
-- Post #14 `Cara Buat Banner Guna Canva: Panduan Praktikal` is live at `https://digitrustlab.com/cara-buat-banner-guna-canva/` (ID `740`), published once at 21:43:06 MYT. Exact keyword `cara buat banner guna canva` volume `50`, Golden Score `1.003`, All-in-Title `0`, Planner Weak Spot `5`; WriterZen reports `246874`, `1577317`, `1577318`, `179313`, and `244791`. Media 743/744/745/746, Rank Math `79/100`, 5 H2/3 H3 outline handoff, live structure/voice, and local/live naturalness hash `759f012cd1e8332a9d69feb356344a50a05ad717e76b21774acafd9fc872e62c` across 69 segments are verified. The live link gate, ClickRank standard baseline `13 → 14`, ClickRank AI Overview baseline `12 → 13`, ClickRank Pages baseline `31 → 32` (`Not Optimized`, Page Health `92%`, optimization ID `353843b1-47a6-4ae7-908e-6562a99ec81e`), and Screpy Malaysia/Malay Device Both rows `737577`/`737578` are verified. GSC Test Live URL at 2026-09-17 20:53 MYT reported URL available / page can be indexed; Request Indexing was accepted, while actual indexing remains unverified. The Screpy Pages crawl is deferred and non-blocking. Repository closeout is committed, pushed, and at clean remote parity; the final follow-up SHA is reported in the closeout response.
+- Post retirement is complete: WordPress Post 740 and Media 743–746/751–756 were permanently removed; Posts 629 and 686 moved to Digital Skills; the Canva & Design category and homepage chip were removed; Post 721's retired URL link was removed; Screpy rows 737577/737578 were deleted. Exact authenticated Canva and ClickRank tabs were unavailable, so those UI deletions remain blocked.
 
 ---
 
@@ -62,7 +62,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [x] Install Rank Math SEO 1.0.272 (active, usage tracking OFF)
 - [x] WordPress core settings configured (tagline, timezone Kuala Lumpur, permalink = Post name)
 - [x] Delete default WP content (Hello World post + Sample Page → Trash)
-- [x] Create blog categories (AI Tools / Canva & Design / Prompt Engineering / Digital Skills) — updated 2026-07-25, old categories deleted
+- [x] Create blog categories (AI Tools / Prompt Engineering / Digital Skills) — Canva & Design retired 2026-09-20
 - [x] Build Bricks Single Post Template (ID 10) — native Bricks elements, zero Code elements (rebuilt 2026-07-04)
 - [x] Fix Template 10 sidebar — Post Popular query loop + Panduan Percuma email form (2026-07-05)
 - [x] Migrate Bricks MCP → Respira MCP (2026-07-05) — old endpoint decommissioned, Respira active on Windsurf + Claude Desktop
@@ -268,7 +268,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - ✅ Rank Math SEO installed + configured (usage tracking OFF)
 - ✅ WordPress settings configured (timezone KL, permalink = post name)
 - ✅ Default WP content deleted (Hello World + Sample Page)
-- ✅ Blog categories created (AI Tools, Canva & Design, Prompt Engineering, Digital Skills) — updated 2026-07-25
+- ✅ Blog categories maintained as AI Tools, Prompt Engineering, and Digital Skills — Canva & Design retired 2026-09-20
 - ✅ Bricks Single Post Template built + condition set (Post type = Post)
 - ✅ Header + Footer templates built
 - ✅ GitHub repo published (`fallendamien/DigiTrustLabCode`)

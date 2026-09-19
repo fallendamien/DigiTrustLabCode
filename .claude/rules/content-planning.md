@@ -49,9 +49,7 @@ The calendar is the source of truth for inventory and approved topic family,
 but it is not permission to spend research credits. Every proposed entry must
 first have the relevance record and independent attestations required by
 `.claude/rules/editorial-relevance-gate.md`. The current DigiTrust Lab topic
-families are `AI Tools`, `Canva & Design`, `Prompt Engineering`, and
-`Digital Skills`; a new subject or reader problem is a pivot until the user
-approves it explicitly. The record must also show a non-orphan extension of an
+families are `AI Tools`, `Prompt Engineering`, and `Digital Skills`; Canva tutorials and the retired `Canva & Design` category are not eligible for new work. A new subject or reader problem is a pivot until the user approves it explicitly. The record must also show a non-orphan extension of an
 existing cluster or pillar, a published parent/peer, a plausible inbound source
 from an existing post, incremental reader value, and the planned anchor/context.
 
