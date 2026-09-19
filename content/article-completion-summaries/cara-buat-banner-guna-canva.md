@@ -5,7 +5,7 @@
 | Post | Cara Buat Banner Guna Canva: Panduan Praktikal |
 | URL | https://digitrustlab.com/cara-buat-banner-guna-canva/ |
 | WordPress Post ID | 740 |
-| Status | `PUBLISHED` — media-only inline screenshot revision verified on 19 September 2026; original article wording, metadata, links, tracking and featured image preserved |
+| Status | `PUBLISHED` — media-only inline screenshot revision verified on 19 September 2026; original article wording, SEO metadata, links, tracking and featured image preserved; screenshot alt text updated for accuracy |
 | Published | 16 September 2026, 21:43:06 MYT; media revision verified 19 September 2026 |
 
 ## Topic Discovery rationale
