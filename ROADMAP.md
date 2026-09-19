@@ -12,7 +12,7 @@
 ## 17 September 2026 Snapshot
 
 - **14 blog posts published** on digitrustlab.com
-- Post retirement is complete: WordPress Post 740 and Media 743–746/751–756 were permanently removed; Posts 629 and 686 moved to Digital Skills; the Canva & Design category and homepage chip were removed; Post 721's retired URL link was removed; Screpy rows 737577/737578 were deleted. Exact authenticated Canva and ClickRank tabs were unavailable, so those UI deletions remain blocked.
+- Post retirement is complete: WordPress Post 740 and Media 743–746/751–756 were permanently removed; Posts 629 and 686 moved to Digital Skills; the Canva & Design category and homepage chip were removed; Post 721's retired URL link was removed; Screpy rows 737577/737578 were deleted. Canva design `DAHVofvYPYo` was moved to Trash, is absent from Recent, and remains restorable for 30 days; it was not immediately purged. ClickRank standard row `5be9fd8504a2846bfad8304f61e3c571` was permanently deleted (count 13, absent), AI Overview keyword `d41cf7560837e7827156ad7736e37ea8` was permanently deleted (count 12, absent), and Pages optimization `353843b1-47a6-4ae7-908e-6562a99ec81e` was archived, absent from Active, and verified in Archived with `Unarchive`.
 
 ---
 
