@@ -79,6 +79,11 @@ surfaces independently; one row does not imply the other. Use
 - Featured placement: [separate DigiTrust Lab brand-color hero asset verified]
 - Inline placement: [tool/UI screenshots verified as instructional inline media
   only, or `None`]
+- Screenshot evidence gate: [for screenshot-dependent tutorials, coverage-map
+  path; tested workflow/sample; screenshot filenames or media IDs; privacy crop
+  result; Malay alt/caption review; platform/device/account-plan/date caveats;
+  and explicit reason for every material action without a screenshot. For
+  non-visual or conceptual posts, record `Not applicable` with the reason.]
 - ClickRank AI Overview Tracker: [independent status/evidence — exact focus keyword,
   exact live URL, Malaysia/Malay settings where available, pre-submit count,
   post-submit or existing-row count, verification timestamp, and visible result;
@@ -97,6 +102,11 @@ Placement boundary: real tool/UI screenshots, such as Canva interface captures,
 are inline instructional media only. The featured image is always a separate
 DigiTrust Lab brand-color hero asset following `content/image-prompts.md`; keep
 the two verification results separate in this summary.
+
+For a step-by-step tutorial that relies on visual controls or states, a missing
+coverage-map entry or unexplained material action without authentic screenshot
+evidence is `Pending` or `Blocked`, not a pass. Generated artwork is not
+interface evidence.
 
 Media boundary: WriterZen is text research/drafting only. Never record or retry
 WriterZen image uploads; if an asset is unavailable there, record it as

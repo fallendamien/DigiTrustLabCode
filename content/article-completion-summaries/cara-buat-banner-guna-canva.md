@@ -5,8 +5,8 @@
 | Post | Cara Buat Banner Guna Canva: Panduan Praktikal |
 | URL | https://digitrustlab.com/cara-buat-banner-guna-canva/ |
 | WordPress Post ID | 740 |
-| Status | `PUBLISHED` — publication, links, ClickRank, ClickRank Pages and Screpy verified; GSC live test and accepted indexing request recorded; actual indexing remains unverified |
-| Published | 16 September 2026, 21:43:06 MYT; publication verified |
+| Status | `PUBLISHED` — media-only inline screenshot revision verified on 19 September 2026; original article wording, metadata, links, tracking and featured image preserved |
+| Published | 16 September 2026, 21:43:06 MYT; media revision verified 19 September 2026 |
 
 ## Topic Discovery rationale
 
@@ -30,15 +30,17 @@ WriterZen Planner 179313 and Content Creator article 244791 were used for an
 outline-only handoff. The copied scaffold preserves five H2 and three genuine
 H3 headings. Native Malay drafting, official Canva source attribution, native
 originality evidence, excerpt, SEO metadata, Article schema, and three inline
-visuals were completed. The final local/live naturalness hash is
-`759f012cd1e8332a9d69feb356344a50a05ad717e76b21774acafd9fc872e62c` across 69
-segments. The live Malay voice and structure checks pass.
+visuals were completed. The 19 September revision was media-only: article
+wording and visible captions were unchanged, while the three generated inline
+illustrations were replaced with authentic Canva screenshots. The original
+69-segment naturalness evidence remains applicable to the unchanged wording.
+The live Malay voice and structure checks pass.
 
 ## Delegated work
 
 | Stage / role | Agent and model | Scope | High-level result / evidence | Blocker or handoff |
 |---|---|---|---|---|
-| Research, drafting, media, staging, and live verification | Bounded OpenAI worker; exact host model/effort recorded by orchestrator | Post #14 Option C workflow and publication evidence | Published ID 740; WriterZen reports 246874, 1577317, 1577318, 179313, 244791; media 743–746; Rank Math 79/100; naturalness PASS with Claude `firstParty/claude-sonnet-5` and OpenAI `gpt-5.6-luna` high | ClickRank, Pages and Screpy verified; GSC actual indexing remains unverified after the accepted request |
+| Research, drafting, media, staging, and live verification | Bounded OpenAI worker; exact host model/effort recorded by orchestrator | Post #14 Option C workflow and publication evidence | Published ID 740; WriterZen reports 246874, 1577317, 1577318, 179313, 244791; featured media 743; canonical authentic screenshots 751–753; Rank Math 79/100; existing naturalness PASS retained because wording was unchanged | Accidental duplicate media 754–756 remain unused and await explicit deletion approval; GSC actual indexing remains unverified after the accepted request |
 
 ## Publication, verification, and tracking
 
@@ -62,10 +64,12 @@ Post #8 Malay voice and body-H1 structure checks also pass. Recovery snapshots
 `f3d847d1-d14a-4a47-bbbd-af9fed4986ff` and
 `051781e5-9db8-44e6-9325-b604f56998b8` were preserved.
 
-- Media stage: WordPress/Respira upload and insertion verified for featured and inline Media 743/744/745/746.
-- Image Caption policy: captions left empty; alt text remains separate and verified.
+- Media stage: WordPress/Respira upload and insertion verified for featured Media 743 and canonical inline screenshot Media 751/752/753; the old generated inline assets remain provenance-only and are no longer embedded.
+- Image Caption policy: no figure captions are rendered in the post; media
+  metadata captions are recorded separately from the verified Malay alt text.
 - Featured placement: separate DigiTrust Lab brand-color hero asset verified.
 - Inline placement: three instructional visual assets verified in the size, layout, and export sections.
+- Media-only revision: live Post 740 modified 19 September 2026; snapshot before write `16d41b4e-e2eb-47e1-af1f-e1774e3316b6`, automatic write snapshot `8b0ee43e-a83e-41be-b53a-f6c93f5ca9c7`; live body contains image IDs 751/752/753, no old IDs, no `figcaption`, and no added `Nota ujian` block.
 - ClickRank standard Keyword Tracker: baseline `13 → 14`; exact keyword
   `cara buat banner guna canva` + URL, Malaysia, Device All; visible `Not In Top 3 Results`, positions `0`; no row ID or absolute timestamp exposed.
 - ClickRank AI Overview Tracker: baseline `12 → 13`; exact keyword + URL,

@@ -633,6 +633,24 @@ while the WordPress post remains a draft.
 > Lab brand-color hero asset produced under the established design and
 > `content/image-prompts.md` standard.
 
+> **AUTHENTIC INTERFACE SCREENSHOT EVIDENCE GATE (MANDATORY):** For any
+> step-by-step tutorial whose material actions depend on a visual software app,
+> dashboard, editor, plugin, or web service, capture authentic screenshots from
+> one tested workflow and use them as inline evidence. Cover every material
+> action whose location, control, setting, state, or result matters (for
+> example: choosing a size, opening a menu, changing a setting, and exporting
+> a result). Generated art may explain a concept or serve as the separate
+> featured hero, but it must never depict interface controls, menus, settings,
+> results, or proof that an action was performed. Before staging, create a
+> screenshot coverage map that records each material action, its screenshot
+> filename/URL, caption, Malay alt text, and the tested platform, device,
+> account/plan and capture date. Screenshots must be readable at their article
+> display size, privacy-cropped before upload, and use the same sample and
+> coherent workflow across the sequence. Record an explicit reason for every
+> material procedural action that has no screenshot; an unreasoned omission
+> blocks staging. Record caveats where labels or controls vary by platform,
+> device, account, or plan.
+
 3. Before generating any featured, in-content, or CTA/card image, pause and ask
    the owner to choose exactly one image mode from `content/image-prompts.md`:
    `More Depth` or `Strict flat design`. Stop if the owner has not explicitly
@@ -691,6 +709,9 @@ while the WordPress post remains a draft.
      asset; and
    - real tool/UI screenshots are placed only as instructional inline media,
      never as the featured image.
+   - for screenshot-dependent tutorials, the coverage map, privacy review,
+     tested-workflow/sample identity, platform/device/plan/date caveats, and
+     every no-screenshot reason are saved with the article evidence.
 6. Stage the post as `draft` with the final content, title, category, and Rank
    Math title, description, focus keyword, primary category, and schema type.
 7. Set the final 155–160 character excerpt through the editor data store:

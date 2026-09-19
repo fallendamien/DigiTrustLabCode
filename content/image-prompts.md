@@ -7,6 +7,20 @@
 >
 > ⚠️ **`content/content-calendar.md` is the source of truth for post titles.** Section headings here are short labels for scanning, not authoritative titles. If a heading here names a *different topic* rather than a shortened version of the calendar title, the calendar wins — fix this file. (Audited 2026-07-29: Post #4 had genuinely diverged and was corrected; Posts #5, #7–#10 verified as consistent short forms.)
 
+## 📸 Authentic screenshot standard for visual-software tutorials
+
+When a post teaches a visual software app, dashboard, editor, plugin, or web
+service, authentic interface screenshots are mandatory inline evidence for every
+material action whose control, setting, state, or result matters. Capture one
+coherent tested workflow with the same sample throughout. Keep screenshots
+readable at article size, crop or blur account data and browser chrome before
+upload, and record Malay alt text, an accurate caption where reader-visible
+context is requested, platform/device/account-plan/date caveats, and the exact
+article action covered. Generated illustrations may explain concepts or serve as
+the separate featured hero; they must not imitate controls, menus, settings,
+results, or proof of an interface action. Maintain a screenshot coverage map and
+write an explicit reason for each material procedural action without a screenshot.
+
 ## 🎨 Design System (never change these)
 
 | Element | Value |
@@ -923,12 +937,30 @@ orange blob or halo was found.
 
 ---
 
-## Post #14 — Cara Buat Banner Guna Canva (GENERATED — PENDING UPLOAD)
+## Post #14 — Cara Buat Banner Guna Canva (AUTHENTIC SCREENSHOTS UPLOADED)
 
 **Slug:** `cara-buat-banner-guna-canva`
 **Focus keyword:** `cara buat banner guna canva`
 **Draft:** `content/drafts/cara-buat-banner-guna-canva.html`
 **Content-derived scope:** Memilih saiz dan platform, menyusun layout dengan grid serta alignment, kemudian menyemak keterbacaan dan tetapan eksport banner.
+
+**Authentic screenshot evidence record — 2026-09-19:** The three generated
+inline figures below are retained for provenance only and are superseded for
+procedural guidance by authentic Canva captures from one coherent tested sample.
+The featured hero remains a separate generated brand asset and is not replaced.
+
+| Material action | Authentic candidate | Tested state | Malay alt text | Caption | Caveat | Status |
+|---|---|---|---|---|---|---|
+| Custom size/create | `content/assets/post-14/screenshots/cara-buat-banner-guna-canva-saiz-create.png` | Create a design → Custom size; `1200 × 628 px` | Paparan Canva untuk menetapkan saiz tersuai 1,200 × 628 piksel sebelum mencipta reka bentuk | Paparan Canva untuk menetapkan saiz tersuai 1,200 × 628 piksel sebelum mencipta reka bentuk. | Matching Facebook format displayed as `1200 × 630 px`; tested sample is `1200 × 628 px`. | Uploaded as Media 751, 1480×810 |
+| Editor text/Position | `content/assets/post-14/screenshots/cara-buat-banner-guna-canva-editor-position.png` | Sample text selected; text toolbar and Position → Arrange/Advanced | Editor Canva yang menunjukkan teks contoh, bar alat teks dan panel Position untuk penjajaran | Editor Canva yang menunjukkan kotak teks dan panel Position untuk menyusun kedudukannya. | Controls and values can vary by design, device, and account plan. | Uploaded as Media 752, 1904×840 |
+| Share → Download/export | `content/assets/post-14/screenshots/cara-buat-banner-guna-canva-share-download.png` | Download panel; PNG Suggested; `1200 × 628 px`; quality and transparency controls | Panel Canva Download selepas memilih Share, termasuk format PNG dan saiz 1,200 × 628 piksel | Panel Canva Download selepas memilih Share dan menyemak tetapan eksport. | Export formats and advanced options vary by design and plan. | Uploaded as Media 753, 1020×650 |
+
+**Capture and privacy audit:** Authenticated Chrome Canva tab, desktop viewport,
+2026-09-19. Browser chrome and visible account identity were excluded by crop;
+no email, avatar, or personal identifier is intended for article use. The
+authentic captures were exported locally and uploaded through Respira as Media
+751–753; no fake screenshot or fabricated URL is recorded. Coverage map:
+`content/assets/post-14/screenshots/README.md`.
 
 **Owner-selected visual mode:** `Strict flat design` — 2D vector, warna rata, garisan bersih; tanpa bayang, gradien, perspektif atau kedalaman palsu.
 
@@ -959,7 +991,14 @@ orange blob or halo was found.
 Strict flat design, 2D vector illustration in a wide 16:9 frame. Object-led diagrammatic composition viewed directly from the front: one large blank horizontal banner canvas in the centre, divided into three neat modular colour blocks with a visible inner safe-area frame, small ruler and crop marks, and one simple orange directional arrow showing the workflow from blank canvas to organised layout. Use solid fills and clean #1A1A1A outlines only. Dominant warm off-white #FAFAF8 background covering at least two thirds of the frame, with restrained #FFEADD and #E8621A accents and white highlights. No people, hands, desk, laptop, robot, calendar, poster board, photo-editing motif or pseudo-UI. No readable text, letters, numbers, logos, watermark, shadows, gradients, perspective, depth cues, orange blob, halo or disc. Keep every edge crisp and geometry intentional; leave comfortable breathing room around the banner.
 ```
 
+**Placement status:** Retained as the separate featured hero candidate. It does
+not provide interface evidence.
+
 ### Image 2 — Size and Platform Planning
+
+**Placement status:** `SUPERSEDED FOR PROCEDURAL GUIDANCE` by the authentic
+`cara-buat-banner-guna-canva-saiz-create.png` capture; retained below for
+provenance only.
 
 **Filename:** `cara-buat-banner-guna-canva-pilih-saiz.png`
 **Alt text:** Tiga nisbah kanvas dan kawasan selamat untuk memilih saiz banner
@@ -970,6 +1009,10 @@ Strict flat design, 2D vector illustration in a wide 16:9 frame. Show three blan
 
 ### Image 3 — Layout, Grid and Alignment
 
+**Placement status:** `SUPERSEDED FOR PROCEDURAL GUIDANCE` by the authentic
+`cara-buat-banner-guna-canva-editor-position.png` capture; retained below for
+provenance only.
+
 **Filename:** `cara-buat-banner-guna-canva-layout-grid.png`
 **Alt text:** Grid dan panduan membantu menyusun elemen banner dengan kemas
 
@@ -978,6 +1021,10 @@ Strict flat design, 2D vector illustration in a wide 16:9 frame. One blank horiz
 ```
 
 ### Image 4 — Export, Readability and Final Check
+
+**Placement status:** `SUPERSEDED FOR PROCEDURAL GUIDANCE` by the authentic
+`cara-buat-banner-guna-canva-share-download.png` capture; retained below for
+provenance only.
 
 **Filename:** `cara-buat-banner-guna-canva-eksport-semak-akhir.png`
 **Alt text:** Semakan keterbacaan, tepi dan format sebelum mengeksport banner
@@ -1000,8 +1047,12 @@ halo or malformed geometry was found. Archive copies match repository hashes exa
 | `cara-buat-banner-guna-canva-layout-grid.png` | 1672×941 | `B4ADE982A97A4484DB66EC90B9960FFDD1DFC157BA59FEDAFD4B5F7644BF1FEA` | PASS |
 | `cara-buat-banner-guna-canva-eksport-semak-akhir.png` | 1672×941 | `62B234FE3F3B8C2BA8D7B69D43E571085637ADA55B1E05E33619F6C7BA22EC52` | PASS |
 
-**Final audit:** Native visual audit PASS; featured six-thumbnail comparison PASS;
-background review PASS; archive-grid uniformity PASS; status **GENERATED — PENDING UPLOAD**.
+**Final audit:** Featured native visual audit PASS; featured six-thumbnail
+comparison PASS; background review PASS; archive-grid uniformity PASS. The
+three generated inline figures are **SUPERSEDED — RETAINED FOR PROVENANCE** by
+the authentic screenshot coverage above. Screenshot local byte export and
+WordPress upload are **COMPLETE**: the three coverage entries have durable
+files, privacy review, alt/caption evidence and uploaded URLs/media IDs 751–753.
 
 ---
 
