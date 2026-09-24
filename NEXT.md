@@ -15,6 +15,8 @@
 
 ## Current State
 
+> **ADSENSE + ADS.TXT (2026-09-25):** Google AdSense rejected digitrustlab.com on 2026-09-15 for "Low value content". `ads.txt` was absent from the live root — fixed on 2026-09-25: file uploaded to Hostinger `public_html` via hPanel File Manager; verified live (`curl` → HTTP 200, `text/plain`, 58 bytes: `google.com, pub-8771336014387648, DIRECT, f08c47fec0942fa0`). Resubmission target: ~Month 4 at 20+ posts. Structural freeze (no post retirements, category edits, redirects, or URL changes) starts 3–4 weeks before resubmission; avoid further structural changes until then. Process cap: 1–2 posts/week, max 1 hour of research per keyword, no indefinite candidate parking. December 2026 checkpoint: ≥300 clicks AND ≥50 subscribers AND ≥1 sale → continue; <100 clicks AND <10 subscribers AND 0 sales → pivot review; in between → continue with adjustments.
+
 > **POST RETIREMENT COMPLETE (2026-09-20):** Post 740 (`Cara Buat Banner Guna Canva: Panduan Praktikal`) and its related WordPress media were permanently removed; Posts 629 and 686 now belong to Digital Skills; `Canva & Design` was deleted; the homepage taxonomy now has only AI Tools, Prompt Engineering, and Digital Skills; Post 721's link to the retired URL was removed; Screpy rows 737577/737578 were deleted. Canva design `DAHVofvYPYo` (`Banner Praktikal - Post 14`) was permanently purged from Trash and is absent from both Trash and Recent after reload. ClickRank standard row `5be9fd8504a2846bfad8304f61e3c571` was permanently deleted (count 13, absent); AI Overview keyword `d41cf7560837e7827156ad7736e37ea8` was permanently deleted (count 12, absent); Pages optimization `353843b1-47a6-4ae7-908e-6562a99ec81e` was archived and verified absent from Active and present in Archived with `Unarchive`. The next article mission restarts at the editorial relevance gate, followed by quota, GSC spillover, and Topic Discovery. Do not reopen completed work or parked candidates.
 
 > **POST #13 COMPLETE — TRACKERS + INBOUND LINKS + REPOSITORY VERIFIED (2026-09-13):** `Contoh Prompt
@@ -106,6 +108,7 @@
 ## Next action
 
 1. Start the next article mission at the editorial relevance gate, then refresh WriterZen quota, run the GSC spillover scan, and continue to Topic Discovery without reusing parked candidates.
+2. CTR audit proposals for Post #5 (`cara-buat-poster-guna-canva`) and Post #1 (`apa-itu-ai`) are being prepared — not applied yet; review and approve before any title/meta change.
 
 ## Context7 dual-client readiness prompt
 

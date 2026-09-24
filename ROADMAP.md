@@ -2,10 +2,20 @@
 
 > **Status:** POST RETIREMENT COMPLETE — 13 published posts remain; Canva & Design is retired
 > **Current Phase:** The next article mission restarts at the editorial relevance gate with the three active categories AI Tools, Prompt Engineering, and Digital Skills. Post #13 remains complete and must not be reopened.
-> **Last Updated:** 2026-09-20 (Post retirement and taxonomy cleanup verified)
+> **Last Updated:** 2026-09-25 (AdSense rejection + ads.txt fix recorded)
 > **Monthly Revenue:** RM 69 (1 sale, pre-blog era)
 
 > **Scope note:** Historical milestones and planned titles remain retained for continuity. The authoritative current content inventory and research status is [`content/content-calendar.md`](content/content-calendar.md). The active editorial queue lives there, not here.
+
+---
+
+## 25 September 2026 Snapshot
+
+- **13 blog posts published** on digitrustlab.com (unchanged from retirement)
+- **AdSense rejected 2026-09-15** — reason: "Low value content". `ads.txt` file was absent from the live root. Fixed 2026-09-25: file uploaded to Hostinger `public_html` via hPanel File Manager (no Simply Static / Cloudflare Pages step — site is live WordPress). Verified live: HTTP 200, `Content-Type: text/plain`, body `google.com, pub-8771336014387648, DIRECT, f08c47fec0942fa0` (58 bytes).
+- **Resubmission plan:** ~Month 4, only after 20+ posts. Structural freeze (no post retirements, category edits, redirects, or URL changes) begins 3–4 weeks before resubmission; avoid further structural changes until then.
+- **Process cap confirmed:** 1–2 posts/week; max 1 hour of research per keyword; no indefinite candidate parking (a candidate is either pursued or dropped).
+- **December 2026 checkpoint:** ≥300 clicks/month AND ≥50 subscribers AND ≥1 sale → continue as-is. <100 clicks/month AND <10 subscribers AND 0 sales → pivot review. Anything in between → continue with adjustments (judgment call).
 
 ---
 
@@ -187,7 +197,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 
 - [ ] Register Canva Pro affiliate (Month 2 — after first Etsy Canva listing live)
 - [ ] Register iCore Hosting affiliate (Month 2 — after blog live)
-- [x] Apply Google AdSense — publisher ca-pub-8771336014387648 verified, review requested, GDPR CMP submitted (2026-09-05)
+- [x] Apply Google AdSense — publisher ca-pub-8771336014387648 verified, review requested, GDPR CMP submitted (2026-09-05); **rejected 2026-09-15 for "Low value content"**; `ads.txt` fixed 2026-09-25 (live HTTP 200 verified); resubmit target ~Month 4 at 20+ posts; structural freeze starts 3–4 weeks before resubmission
 - [ ] Reach 15 Etsy listings
 - [ ] Reach 25 blog posts
 - [ ] Add Canva Pro affiliate link inside every Canva template product
@@ -302,6 +312,7 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - ✅ **ClickRank keyword tracker active** — 5 keywords tracked for Malaysia, all devices (2026-07-18)
 - ✅ **Screpy uptime fixed** — stale project from mid-migration deleted, recreated via GSC import, uptime green (2026-07-18)
 - ✅ **Google AdSense applied** — publisher ca-pub-8771336014387648 verified, review requested, GDPR 3-choice CMP submitted, W-8BEN approved (2026-09-05)
+- ⚠️ **AdSense rejected 2026-09-15** — "Low value content"; `ads.txt` fixed 2026-09-25 (HTTP 200 live); resubmit at ~Month 4 with 20+ posts
 - 🎯 First Etsy sale — target: Month 2
 - 🎯 First affiliate commission — target: Month 3
 - 🎯 RM 200/month — target: Month 6
