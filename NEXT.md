@@ -103,8 +103,22 @@
 >
 > **Google AdSense applied (2026-09-05):** Publisher `ca-pub-8771336014387648` verified via code snippet in Bricks Global Settings `customScriptsHeader` with `data-no-optimize="1"` to bypass LiteSpeed JS rewriting. Review requested; GDPR 3-choice CMP submitted. W-8BEN tax form approved (expires 2029-12-31). Site under Google review (typically days to weeks).
 
+
+> **AdSense REJECTED (2026-09-15): "Low value content".** Ads.txt status: Not found.
+> Decisions recorded 2026-09-24:
+> - **Resubmit ~Month 4, only after 20+ posts are live** (13 today).
+> - **Structural freeze:** no post retirements or category edits until resubmission; hard freeze 3–4 weeks before resubmitting so Google reviews a stable site. Title/meta edits are allowed.
+> - **Process cap:** 1–2 posts/week; max 1 hour research per keyword; no indefinite candidate parking (a candidate is decided or dropped in-session).
+> - **Checkpoint end Dec 2026:** 300+ clicks/mo, 50+ subscribers, 1+ sale → continue. Under 100 clicks, under 10 subs, 0 sales → pivot review.
+>
+> **ads.txt — PENDING, NOT LIVE (2026-09-24).** Required line: `google.com, pub-8771336014387648, DIRECT, f08c47fec0942fa0`.
+> The Simply Static / Cloudflare Pages path was decommissioned 2026-07-12; WordPress is served directly from Hostinger, so the file belongs in `public_html/ads.txt` (Hostinger File Manager) or via an ads.txt plugin. The cloud session could not reach digitrustlab.com (proxy 403) and Respira was not connected, so nothing was deployed. Done = `curl -I https://digitrustlab.com/ads.txt` returns 200 `text/plain` with that line, then purge LiteSpeed + Cloudflare cache.
+>
+> **CTR audit proposal (not applied):** `content/research/ctr-audit-2026-09-24.md` (Posts #5 and #1).
+
 ## Next action
 
+0. Deploy ads.txt to Hostinger and verify live (see above).
 1. Start the next article mission at the editorial relevance gate, then refresh WriterZen quota, run the GSC spillover scan, and continue to Topic Discovery without reusing parked candidates.
 
 ## Context7 dual-client readiness prompt

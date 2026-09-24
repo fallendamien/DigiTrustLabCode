@@ -188,6 +188,11 @@ Phase 4: Scale              ░░░░░░░░░░  0%
 - [ ] Register Canva Pro affiliate (Month 2 — after first Etsy Canva listing live)
 - [ ] Register iCore Hosting affiliate (Month 2 — after blog live)
 - [x] Apply Google AdSense — publisher ca-pub-8771336014387648 verified, review requested, GDPR CMP submitted (2026-09-05)
+- [x] AdSense decision recorded — **rejected 2026-09-15 ("Low value content")**
+- [ ] Deploy `ads.txt` on Hostinger (`google.com, pub-8771336014387648, DIRECT, f08c47fec0942fa0`) and verify HTTP 200 text/plain — PENDING
+- [ ] Resubmit AdSense at ~Month 4, after 20+ posts; freeze retirements/category edits until then, hard freeze 3–4 weeks before resubmit
+- [ ] Process cap: 1–2 posts/week, max 1 hr research per keyword, no indefinite candidate parking
+- [ ] **Checkpoint end Dec 2026:** 300+ clicks/mo, 50+ subs, 1+ sale → continue; <100 clicks, <10 subs, 0 sales → pivot review
 - [ ] Reach 15 Etsy listings
 - [ ] Reach 25 blog posts
 - [ ] Add Canva Pro affiliate link inside every Canva template product
