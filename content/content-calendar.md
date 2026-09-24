@@ -42,6 +42,9 @@
 2. **Post #1 `apa-itu-ai` is the worst-ranking page on the site** at position 39.3 despite 225 impressions. It is flagged as Pillar Content but is not ranking — this confirms the ClickRank drop recorded in `STATE.json`, rather than the tool disagreement previously suspected.
 3. **Post-#4's "expect 6–12 months to page 1" note was wrong** — it reached position 9.1 in roughly six weeks. Corrected in `NEXT.md`.
 4. **New posts reach page 1 fast.** Post #13 was at position 7.1 within days of publication.
+5. **CTR rewrite applied 2026-09-25** (Rank Math SEO title + meta only; H1, slug, content untouched; verified live). Treat rank/CTR changes in the following 1–2 weeks as re-crawl flux. Re-read GSC around 2026-10-16 to compare against the baseline above.
+   - Post #5 (ID 629): title `Cara Buat Poster Guna Canva dengan AI: Panduan Bergambar`; meta `Panduan bergambar cara buat poster guna Canva dengan AI. Setiap langkah disertakan tangkapan skrin supaya anda tidak keliru. Sesuai untuk pemula.`
+   - Post #1 (ID 256): title `Apa Itu AI? Teknologi yang Anda Guna Setiap Hari`; meta `AI bukan sekadar robot dalam filem. Ketahui tiga jenis AI yang anda guna setiap hari dan mengapa ia penting untuk anda faham sekarang.` Also removed `nak`/`macam`/`kenapa` from the old meta. Position 39.3 is a ranking problem; the snippet alone will not fix it (needs depth, inbound links, FAQ markup).
 
 ### The Gemini prompt cluster — spillover finding (2026-09-16)
 

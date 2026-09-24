@@ -108,7 +108,7 @@
 ## Next action
 
 1. Start the next article mission at the editorial relevance gate, then refresh WriterZen quota, run the GSC spillover scan, and continue to Topic Discovery without reusing parked candidates.
-2. CTR audit proposals for Post #5 (`cara-buat-poster-guna-canva`) and Post #1 (`apa-itu-ai`) are being prepared — not applied yet; review and approve before any title/meta change.
+2. CTR rewrite for Post #5 (ID 629) and Post #1 (ID 256) applied and verified live on 2026-09-25 (Rank Math title + meta only; details in `content/content-calendar.md`). Re-read GSC around 2026-10-16; ignore rank flux before then.
 
 ## Context7 dual-client readiness prompt
 
