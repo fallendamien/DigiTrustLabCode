@@ -87,9 +87,9 @@ the smallest clarifying question needed.
    files are newer than the current session, re-read them and emit a fresh
    receipt before continuing. After compaction, context reset, or a changed
    user objective, treat the next turn as unrouted and repeat this gate.
-6. For guarded work requiring delegation, use the actual `gpt-5.6-luna` worker
-   at `high` reasoning effort on Codex, or the actual host-specific adapter
-   named by the orchestration policy on Claude. State the actual model ID,
+6. For guarded work requiring delegation, use the actual `gpt-6-luna` worker
+   at `xhigh` reasoning effort on Codex, or the actual host-specific adapter
+   named by the orchestration policy on Claude (`gpt-6-luna` via `/codex-worker`). State the actual model ID,
    effort, scope, and evidence; never infer provider identity from a friendly
    label. A `bounded-worker` brief executes directly and does not trigger
    another delegation. Record identity from host dispatch metadata.
