@@ -102,10 +102,6 @@ CRITICAL = [
 ]
 
 
-def rel(p):
-    return os.path.relpath(p, REPO).replace("\\", "/")
-
-
 def collect_imports():
     """Return (source_file, import_target) pairs found across IMPORT_SOURCES."""
     found, missing_sources = [], []

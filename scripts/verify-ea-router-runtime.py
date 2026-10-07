@@ -297,13 +297,6 @@ def is_substantive_user(text: str) -> bool:
     )
 
 
-def action_text(event: Event) -> str:
-    """Serialize observable action metadata for worker-dispatch auditing."""
-    if not event.payload:
-        return ""
-    return json.dumps(event.payload, ensure_ascii=False).lower()
-
-
 def is_worker_action(event: Event) -> bool:
     if event.kind != "action":
         return False

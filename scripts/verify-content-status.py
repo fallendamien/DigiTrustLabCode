@@ -86,10 +86,6 @@ POST_HEADING = re.compile(r"^##\s*Post\s*#(\d+)\s*(?:—|-|–)?\s*(.*)$", re.IG
 TABLE_ROW = re.compile(r"^\|([^|]+)\|(.*)\|\s*$")
 
 
-def rel(p):
-    return os.path.relpath(p, REPO).replace("\\", "/")
-
-
 def strip_md(text):
     """Drop bold/code/emphasis markers so values compare cleanly."""
     return re.sub(r"[*`_]", "", text).strip()
